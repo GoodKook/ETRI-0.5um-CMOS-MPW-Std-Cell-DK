@@ -7,3 +7,6 @@ https://fun-teaching-goodkook.blogspot.com/2023/12/etri-05u-cmos-v1a-2023-12-13.
 
 * Note: Blog page is written in Korean. You may read via machine translation.
 
+![STD-CELL_DFFSR_Layout](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/assets/162967523/c59015a0-d943-4486-bb6c-dc7de91065b1)
+
+![STD-CELL_DFFSR_Sch_1](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/assets/162967523/a6d93666-142b-40f1-a1db-4e1213d0392a)
