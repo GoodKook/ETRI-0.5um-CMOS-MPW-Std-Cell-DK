@@ -1,0 +1,25 @@
+* NGSPICE file created from MUX2X1.ext - technology: scmos
+
+.subckt MUX2X1 A B S Y vdd gnd
+M1000 a_42_22# B gnd gnd nfet w=6u l=0.6u
++  ad=2.7p pd=6.9u as=6.750001p ps=8.400001u
+M1001 Y S a_42_158# vdd pfet w=12u l=0.6u
++  ad=14.76p pd=15.6u as=5.4p ps=12.900001u
+M1002 Y a_4_22# a_42_22# gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=2.7p ps=6.9u
+M1003 a_42_158# B vdd vdd pfet w=12u l=0.6u
++  ad=5.4p pd=12.900001u as=12.960001p ps=14.400001u
+M1004 vdd A a_72_166# vdd pfet w=12u l=0.6u
++  ad=25.200003p pd=28.200003u as=5.4p ps=12.900001u
+M1005 a_72_22# S Y gnd nfet w=6u l=0.6u
++  ad=2.7p pd=6.9u as=7.200001p ps=8.400001u
+M1006 a_72_166# a_4_22# Y vdd pfet w=12u l=0.6u
++  ad=5.4p pd=12.900001u as=14.76p ps=15.6u
+M1007 vdd S a_4_22# vdd pfet w=6u l=0.6u
++  ad=12.960001p pd=14.400001u as=12.600001p ps=16.2u
+M1008 gnd S a_4_22# gnd nfet w=3u l=0.6u
++  ad=6.750001p pd=8.400001u as=6.300001p ps=10.200001u
+M1009 gnd A a_72_22# gnd nfet w=6u l=0.6u
++  ad=12.600001p pd=16.2u as=2.7p ps=6.9u
+.ends
+

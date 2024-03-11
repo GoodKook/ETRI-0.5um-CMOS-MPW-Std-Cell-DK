@@ -1,0 +1,23 @@
+* NGSPICE file created from AND2X1.ext - technology: scmos
+
+.option scale=0.15u
+
+.subckt AND2X1 A B Y vdd gnd
+M1000 gnd B a_22_14# gnd nfet w=40 l=4
++  ad=0.3n pd=56u as=0.12n ps=46u
+M1001 vdd B a_4_14# vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.32n ps=56u
+M1002 Y a_4_14# gnd gnd nfet w=20 l=4
++  ad=0.28n pd=68u as=0.3n ps=56u
+M1003 Y a_4_14# vdd vdd pfet w=40 l=4
++  ad=0.56n pd=0.108m as=0.32n ps=56u
+M1004 a_4_14# A vdd vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.56n ps=0.108m
+M1005 a_22_14# A a_4_14# gnd nfet w=40 l=4
++  ad=0.12n pd=46u as=0.56n ps=0.108m
+C0 Y gnd 7.27f
+C1 B gnd 2.99f
+C2 A gnd 2.96f
+C3 vdd gnd 15.5f
+C4 a_4_14# gnd 8.46f $ **FLOATING
+.ends

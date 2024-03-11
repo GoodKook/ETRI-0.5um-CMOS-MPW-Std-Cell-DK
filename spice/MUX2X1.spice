@@ -1,0 +1,32 @@
+* NGSPICE file created from MUX2X1.ext - technology: scmos
+
+.option scale=0.15u
+
+.subckt MUX2X1 A B S Y vdd gnd
+M1000 a_42_22# B gnd gnd nfet w=40 l=4
++  ad=0.12n pd=46u as=0.3n ps=56u
+M1001 Y S a_42_158# vdd pfet w=80 l=4
++  ad=0.656n pd=0.104m as=0.24n ps=86u
+M1002 Y a_4_22# a_42_22# gnd nfet w=40 l=4
++  ad=0.32n pd=56u as=0.12n ps=46u
+M1003 a_42_158# B vdd vdd pfet w=80 l=4
++  ad=0.24n pd=86u as=0.576n ps=96u
+M1004 vdd A a_72_166# vdd pfet w=80 l=4
++  ad=1.12n pd=0.188m as=0.24n ps=86u
+M1005 a_72_22# S Y gnd nfet w=40 l=4
++  ad=0.12n pd=46u as=0.32n ps=56u
+M1006 a_72_166# a_4_22# Y vdd pfet w=80 l=4
++  ad=0.24n pd=86u as=0.656n ps=0.104m
+M1007 vdd S a_4_22# vdd pfet w=40 l=4
++  ad=0.576n pd=96u as=0.56n ps=0.108m
+M1008 gnd S a_4_22# gnd nfet w=20 l=4
++  ad=0.3n pd=56u as=0.28n ps=68u
+M1009 gnd A a_72_22# gnd nfet w=40 l=4
++  ad=0.56n pd=0.108m as=0.12n ps=46u
+C0 Y gnd 6.87144f
+C1 A gnd 2.90211f
+C2 B gnd 2.87025f
+C3 S gnd 3.60465f
+C4 vdd gnd 20.0812f
+C5 a_4_22# gnd 8.57205f $ **FLOATING
+.ends

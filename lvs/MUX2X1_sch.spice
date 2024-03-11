@@ -1,0 +1,20 @@
+** sch_path: /home/goodkook/ETRI050_DesignKit/devel/sch/MUX2X1.sch
+**.subckt MUX2X1 Y A B S
+*.opin Y
+*.ipin A
+*.ipin B
+*.ipin S
+M1 S_Bar S GND GND nfet w=3u l=0.6u m=1
+M2 S_Bar S VDD VDD pfet w=6u l=0.6u m=1
+M3 net1 B VDD VDD pfet w=12u l=0.6u m=1
+M4 net1 S Y VDD pfet w=12u l=0.6u m=1
+M5 VDD A net2 VDD pfet w=12u l=0.6u m=1
+M6 Y S_Bar net2 VDD pfet w=12u l=0.6u m=1
+M7 net3 S_Bar Y GND nfet w=6u l=0.6u m=1
+M8 Y S net4 GND nfet w=6u l=0.6u m=1
+M9 GND A net4 GND nfet w=6u l=0.6u m=1
+M10 net3 B GND GND nfet w=6u l=0.6u m=1
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

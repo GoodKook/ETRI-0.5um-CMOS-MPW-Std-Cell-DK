@@ -1,0 +1,15 @@
+** sch_path: /home/goodkook/ETRI050_DesignKit/layout/sch/AND2_0.sch
+**.subckt AND2_0 A B Y
+*.ipin A
+*.ipin B
+*.opin Y
+M7 net1 A VDD VDD pfet w=5u l=0.18u m=1
+M8 GND B net2 GND nfet w=5u l=0.18u m=1
+M9 net1 B VDD VDD pfet w=5u l=0.18u m=1
+M10 Y net1 VDD VDD pfet w=5u l=0.18u m=1
+M11 net2 A net1 GND nfet w=5u l=0.18u m=1
+M12 GND net1 Y GND nfet w=5u l=0.18u m=1
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

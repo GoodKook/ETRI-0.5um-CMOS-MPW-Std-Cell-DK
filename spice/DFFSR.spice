@@ -1,0 +1,85 @@
+* NGSPICE file created from DFFSR.ext - technology: scmos
+
+.option scale=0.15u
+
+.subckt DFFSR D S R CLK Q vdd gnd
+M1000 a_64_14# a_60_10# gnd gnd nfet w=40 l=4
++  ad=0.16n pd=48u as=0.4n ps=60u
+M1001 a_126_86# CLK vdd vdd pfet w=40 l=4
++  ad=0.56n pd=0.108m as=0.32n ps=56u
+M1002 a_146_14# a_126_86# a_60_10# gnd nfet w=20 l=4
++  ad=0.16n pd=36u as=0.16n ps=36u
+M1003 a_296_14# S a_380_14# gnd nfet w=40 l=4
++  ad=0.64n pd=0.112m as=0.16n ps=48u
+M1004 gnd a_326_14# Q gnd nfet w=20 l=4
++  ad=0.28n pd=68u as=0.28n ps=68u
+M1005 a_36_10# S a_64_14# gnd nfet w=40 l=4
++  ad=0.64n pd=0.112m as=0.16n ps=48u
+M1006 a_146_14# a_122_10# a_60_10# vdd pfet w=20 l=4
++  ad=0.3n pd=56u as=0.16n ps=36u
+M1007 a_28_14# R a_8_14# gnd nfet w=40 l=4
++  ad=0.16n pd=48u as=0.64n ps=0.112m
+M1008 vdd S a_296_14# vdd pfet w=40 l=4
++  ad=0.56n pd=0.108m as=0.32n ps=56u
+M1009 a_36_10# a_60_10# vdd vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.32n ps=56u
+M1010 vdd R a_326_14# vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.32n ps=56u
+M1011 a_8_14# R vdd vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.56n ps=0.108m
+M1012 gnd a_36_10# a_28_14# gnd nfet w=40 l=4
++  ad=0.4n pd=60u as=0.16n ps=48u
+M1013 gnd a_126_86# a_122_10# gnd nfet w=20 l=4
++  ad=0.16n pd=36u as=0.28n ps=68u
+M1014 vdd D a_146_14# vdd pfet w=40 l=4
++  ad=0.56n pd=0.108m as=0.3n ps=56u
+M1015 a_276_14# a_122_10# a_36_10# gnd nfet w=20 l=4
++  ad=0.16n pd=36u as=0.28n ps=68u
+M1016 a_276_14# a_126_86# a_36_10# vdd pfet w=20 l=4
++  ad=0.16n pd=36u as=0.28n ps=68u
+M1017 gnd D a_146_14# gnd nfet w=20 l=4
++  ad=0.28n pd=68u as=0.16n ps=36u
+M1018 vdd a_126_86# a_122_10# vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.56n ps=0.108m
+M1019 a_346_14# a_276_14# a_326_14# gnd nfet w=40 l=4
++  ad=0.16n pd=48u as=0.64n ps=0.112m
+M1020 a_126_86# CLK gnd gnd nfet w=20 l=4
++  ad=0.28n pd=68u as=0.16n ps=36u
+M1021 gnd R a_346_14# gnd nfet w=40 l=4
++  ad=0.36n pd=58u as=0.16n ps=48u
+M1022 a_296_14# a_126_86# a_276_14# gnd nfet w=20 l=4
++  ad=0.28n pd=68u as=0.16n ps=36u
+M1023 vdd S a_36_10# vdd pfet w=40 l=4
++  ad=0.56n pd=0.108m as=0.32n ps=56u
+M1024 a_60_10# a_126_86# a_8_14# vdd pfet w=20 l=4
++  ad=0.16n pd=36u as=0.28n ps=68u
+M1025 a_296_14# a_326_14# vdd vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.32n ps=56u
+M1026 a_60_10# a_122_10# a_8_14# gnd nfet w=20 l=4
++  ad=0.16n pd=36u as=0.28n ps=68u
+M1027 vdd a_36_10# a_8_14# vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.32n ps=56u
+M1028 a_326_14# a_276_14# vdd vdd pfet w=40 l=4
++  ad=0.32n pd=56u as=0.56n ps=0.108m
+M1029 vdd a_326_14# Q vdd pfet w=40 l=4
++  ad=0.56n pd=0.108m as=0.56n ps=0.108m
+M1030 a_296_14# a_122_10# a_276_14# vdd pfet w=20 l=4
++  ad=0.28n pd=68u as=0.16n ps=36u
+M1031 a_380_14# a_326_14# gnd gnd nfet w=40 l=4
++  ad=0.16n pd=48u as=0.36n ps=58u
+C0 Q gnd 7.47f
+C1 CLK gnd 9.24f
+C2 D gnd 3.67f
+C3 S gnd 13.8f
+C4 R gnd 14.2f
+C5 vdd gnd 53.3f
+C6 a_296_14# gnd 15.6f $ **FLOATING
+C7 a_146_14# gnd 6.34f $ **FLOATING
+C8 a_8_14# gnd 16.2f $ **FLOATING
+C9 a_326_14# gnd 10.5f $ **FLOATING
+C10 a_276_14# gnd 9.79f $ **FLOATING
+C11 a_122_10# gnd 17.4f $ **FLOATING
+C12 a_126_86# gnd 17.3f $ **FLOATING
+C13 a_60_10# gnd 10.2f $ **FLOATING
+C14 a_36_10# gnd 19.2f $ **FLOATING
+.ends

@@ -1,0 +1,51 @@
+** sch_path: /home/goodkook/ETRI050_DesignKit/devel/sch/DFFSR_TB.sch
+**.subckt DFFSR_TB
+x1 R S Q D CLK DFFSR
+**.ends
+
+* expanding   symbol:  /home/goodkook/ETRI050_DesignKit/devel/sch/DFFSR.sym # of pins=5
+** sym_path: /home/goodkook/ETRI050_DesignKit/devel/sch/DFFSR.sym
+** sch_path: /home/goodkook/ETRI050_DesignKit/devel/sch/DFFSR.sch
+.subckt DFFSR R S Q D CLK
+*.ipin R
+*.ipin S
+*.ipin D
+*.ipin CLK
+*.opin Q
+M1 R_y R VDD VDD pfet w=6u l=0.6u m=1
+M2 VDD R_b R_y VDD pfet w=6u l=0.6u m=1
+M3 R_b S_b VDD VDD pfet w=6u l=0.6u m=1
+M4 VDD S R_b VDD pfet w=6u l=0.6u m=1
+M5 net1 R R_y GND nfet w=6u l=0.6u m=1
+M6 GND R_b net1 GND nfet w=6u l=0.6u m=1
+M7 net2 S_b GND GND nfet w=6u l=0.6u m=1
+M8 R_b S net2 GND nfet w=6u l=0.6u m=1
+M9 S_b C_Bar R_y VDD pfet w=3u l=0.6u m=1
+M10 D_Bar C S_b VDD pfet w=3u l=0.6u m=1
+M11 VDD D D_Bar VDD pfet w=6u l=0.6u m=1
+M12 S_b C R_y GND nfet w=3u l=0.6u m=1
+M13 D_Bar C_Bar S_b GND nfet w=3u l=0.6u m=1
+M14 GND D D_Bar GND nfet w=3u l=0.6u m=1
+M15 VDD C_Bar C VDD pfet w=6u l=0.6u m=1
+M16 C_Bar CLK VDD VDD pfet w=6u l=0.6u m=1
+M17 GND C_Bar C GND nfet w=3u l=0.6u m=1
+M18 C_Bar CLK GND GND nfet w=3u l=0.6u m=1
+M19 X_b C_Bar R_b VDD pfet w=3u l=0.6u m=1
+M20 X_a C X_b VDD pfet w=3u l=0.6u m=1
+M21 X_b C R_b GND nfet w=3u l=0.6u m=1
+M22 X_a C_Bar X_b GND nfet w=3u l=0.6u m=1
+M23 Q_Bar X_b VDD VDD pfet w=6u l=0.6u m=1
+M24 VDD R Q_Bar VDD pfet w=6u l=0.6u m=1
+M25 X_a Q_Bar VDD VDD pfet w=6u l=0.6u m=1
+M26 VDD S X_a VDD pfet w=6u l=0.6u m=1
+M27 net3 X_b Q_Bar GND nfet w=6u l=0.6u m=1
+M28 GND R net3 GND nfet w=6u l=0.6u m=1
+M29 net4 Q_Bar GND GND nfet w=6u l=0.6u m=1
+M30 X_a S net4 GND nfet w=6u l=0.6u m=1
+M31 Q Q_Bar VDD VDD pfet w=6u l=0.6u m=1
+M32 Q Q_Bar GND GND nfet w=3u l=0.6u m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

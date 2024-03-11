@@ -1,0 +1,29 @@
+* NGSPICE TB
+
+*.include 05cmos_model_spice_231025.lib
+.include amic5_mosfet_model.lib
+.include DFFSR.spice
+
+XDFFSR_0 D S R CLK Q VDD GND DFFSR
+
+R0 VDD Q 5000
+VDD VDD GND 5
+
+VSin S GND PWL(0n 5 40n 5 50n 0 140n 0 150n 5)
+VRin R GND PWL(0n 5 240n 5 250n 0 340n 0 350n 5)
+VDin D GND PWL(0n 0 540n 0 550n 5 740n 5 750n 0)
+VClk CLK GND pulse(0 5.0 100n 10n 10n 80n 200n)
+
+.tran 0.01n 800n
+.save all
+
+.control
+    run
+    plot S CLK Q
+    plot R CLK Q
+    plot D CLK Q
+.endc
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

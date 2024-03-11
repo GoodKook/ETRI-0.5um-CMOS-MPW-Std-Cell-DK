@@ -1,0 +1,127 @@
+******************************************************************************
+*                                                                                   * 
+*       ETRI 0.5um Analog CMOS PROCESS SPICE MODEL      *
+*       NSPL VERSION 1.0                                                   * 
+*       Date : Sep 15, 2023                                                  *
+*                                                                                    * 
+*   Temperature parameters are not included and will be available later  *  
+*                                                                            *
+*       In This Model LIB are contain:                              *  
+*                                                                            *
+*       1.LIB MOS : typical MOSFET model                      *
+*            (4-terminal NMOS and PMOS)                        *
+*                                                                            *
+*       2.LIB DIODE :                                                   *
+*            ( P+/Nwell diode and N+/Pwell diode)               *
+*                                                                            *
+*       3.LIB BJT  :                                                      *
+*        (Two geometrics P+/NW/PSUB vertical PNP bipolar )              *
+*        (Will be updated and contain orther geometric BJT model later)  *
+*                                                                            *
+*       4.LIB RES                                                            *
+*            ( POLY2(N+) resistor )                                       *
+*                                                                            *
+*       5.LIB CAP                                                            *
+*            ( POLY1/POLY2 capacitor )                                *
+*                                                                            *
+*                                                                            *
+*                                                                            *
+*                                                                            *
+******************************************************************************
+******************************************************************************
+*
+*
+***************************************************************
+*                 NMOS DEVICES MODEL                          *
+***************************************************************
+*
+.MODEL nfet nmos (                                 LEVEL   = 49                  
++VERSION = 3.2            TNOM    = 27            
++TOX     = 1.14e-08           XJ      = 2.7e-07        NCH     = 2.4e+17       
++VTH0    = 0.72          K1      = 0.816833       K2      = -1.87662e-05  
++K3      = 30             K3B     = -6.54987       W0      = 3.43732e-06   
++NLX     = 2.76303e-07    DVT0W   = 0              DVT1W   = 0             
++DVT2W   = -0.032         DVT0    = 7.22794        DVT1    = 0.566227      
++DVT2    = -0.00424212    U0      = 485.687        UA      = 1e-11         
++UB      = 2.06473e-18    UC      = 8.28203e-11    VSAT    = 83500         
++A0      = 0.727404       AGS     = 0.119125       B0      = 1.80712e-07   
++B1      = 1e-07          KETA    = 0.00153038     A1      = 0             
++A2      = 1              RDSW    = 1321.38        PRWG    = -0.01         
++PRWB    = 0.0625917      WR      = 1              WINT    = 1.42496e-07   
++LINT    = 6.29462e-08    XL      = -5e-08            XW      = -1e-07           
++DWG     = -9.46825e-09   DWB     = 1.31561e-08    VOFF    = -0.08         
++NFACTOR = 1.1            CIT     = 0              CDSC    = -0.0001       
++CDSCD   = 6.97887e-05    CDSCB   = -0.0004        ETA0    = 0.00169665    
++ETAB    = -0.186939      DSUB    = 1              PCLM    = 1.12473       
++PDIBLC1 = 0.0355245      PDIBLC2 = 0.0005         PDIBLCB = 0             
++DROUT   = 0.305005       PSCBE1  = 4.3e+08        PSCBE2  = 5e-05         
++PVAG    = 0.0500001      DELTA   = 0.001          RSH     = 50          
++ACM     = 2                 LDIF    = 1.9e-07        HDIF    = 7.6e-07        
++N       = 1.013             JS      = 3.6051e-07     JSW     = 6.9937e-13     
++MOBMOD  = 1        PRT     = 0              UTE     = -1.5           
++KT1     = 0             KT1L    = 0              KT2     = 0              
++UA1     = 4.31e-09     UB1     = -7.61e-18      UC1     = -5.6e-11       
++AT      = 33000         NQSMOD  = 0              WL      = 9.26889e-20    
++WLN     = 1             WW      = 0              WWN     = 1              
++WWL     = 0            LL      = 0              LLN     = 1              
++LW      = 0             LWN     = 1              LWL     = 0              
++CAPMOD  = 2        CJpar   = 0              CJSWpar = 0              
++CGDO    = 3.37325e-10   CGSO    = 3.37325e-10    CGBO    = 1.73E-10	    
++FC      = 0.999          CJ      = 0.000682626    PB      = 0.846672       
++MJ      = 0.392696      CJSW    = 3.2941e-10     PBSW    = 0.743932       
++MJSW    = 0.178151       CJSWG   = 2.85163e-10    PBSWG   = 0.592652   
++MJSWG   = 0.365762       NOFF    = 1              ACDE    = 1              
++MOIN    = 15             TPB     = 0              TPBSW   = 0              
++TPBSWG  = 0          TCJ     = 0              TCJSW   = 0              
++TCJSWG  = 0              )
+*
+**************************************************************************
+*
+*
+***************************************************************
+*                 PMOS DEVICES MODEL                          *
+***************************************************************
+*
+.MODEL pfet pmos (                                 LEVEL   = 49                      
++VERSION = 3.2            TNOM    = 27            
++TOX     = 1.14e-08           XJ      = 2.2e-07        NCH     = 1.5e+15       
++VTH0    = -0.9          K1      = 0.448293       K2      = 0.0343539     
++K3      = 12.4384        K3B     = 0              W0      = 4.77284e-09   
++NLX     = 9.60375e-08    DVT0W   = 0              DVT1W   = 0             
++DVT2W   = -0.032         DVT0    = 1.40047        DVT1    = 1             
++DVT2    = -0.0181666     U0      = 207.48         UA      = 1.73442e-09   
++UB      = 1.33865e-18    UC      = -3.97426e-11   VSAT    = 90983.5       
++A0      = 0.457293       AGS     = 0.0508987      B0      = 5.11966e-07   
++B1      = 1e-07          KETA    = -0.0115737     A1      = 0             
++A2      = 0.899991       RDSW    = 3000           PRWG    = -0.001        
++PRWB    = 0.1            WR      = 1              WINT    = 1.73068e-07   
++LINT    = -3.96416e-08   XL      = -5e-08            XW      = -1e-07           
++DWG     = -1.99539e-08   DWB     = 1.95164e-08    VOFF    = -0.199        
++NFACTOR = 1.2            CIT     = 0              CDSC    = 0.00231346    
++CDSCD   = 0.000160216    CDSCB   = 0.000691663    ETA0    = 0.00836739    
++ETAB    = -0.00124234    DSUB    = 0.36           PCLM    = 1.5           
++PDIBLC1 = 2              PDIBLC2 = 0.000541428    PDIBLCB = -0.000996848  
++DROUT   = 3              PSCBE1  = 8e+08          PSCBE2  = 7.03435e-09   
++PVAG    = 0              DELTA   = 0.00726809     NGATE   = 5e+20         
++RSH     = 150          
++ACM     = 2              LDIF    = 1.9e-07        HDIF    = 7.6e-07       
++N       = 0.999          JS      = 2.1749e-07     JSW     = 3.1329e-13    
++MOBMOD  = 1              PRT     = 0              UTE     = -1.5          
++KT1     = 0              KT1L    = 0              KT2     = 0             
++UA1     = 4.31e-09       UB1     = -7.61e-18      UC1     = -5.6e-11      
++AT      = 33000          NQSMOD  = 0              WL      = 7.53417e-20   
++WLN     = 1              WW      = 0              WWN     = 1             
++WWL     = 0              LL      = 0              LLN     = 1             
++LW      = 0              LWN     = 1              LWL     = 0             
++CAPMOD  = 2              CJpar   = 0              CJSWpar = 0             
++CGDO    = 2.25487e-10    CGSO    = 2.25488e-10    CGBO    = 1.73E-10
++FC      = 0.999          CJ      = 0.000788187    PB      = 0.896595       
++MJ      = 0.424322       CJSW    = 2.42042e-10    PBSW    = 0.486786       
++MJSW    = 0.138744       CJSWG   = 1.33708e-10    PBSWG   = 0.4            
++MJSWG   = 0.210204       NOFF    = 1              ACDE    = 1              
++MOIN    = 15             TPB     = 0              TPBSW   = 0              
++TPBSWG  = 0              TCJ     = 0              TCJSW   = 0              
++TCJSWG  = 0              )
+*                                                                               
+**************************************************************************
+*

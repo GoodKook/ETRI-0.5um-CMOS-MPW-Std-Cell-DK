@@ -1,0 +1,29 @@
+* NGSPICE TB
+
+*.include 05cmos_model_spice_231025.lib
+.include amic5_mosfet_model.lib
+.include MUX2X1.spice
+
+XMUX2X1_0 A B S Y VDD GND MUX2X1
+
+R0 VDD Q 5000
+VDD VDD GND 5
+
+VA_in A GND PWL(0n 0 99n 0 100n 5 199n 5 200n 0 299n 0 300n 5 399n 5 400n 0)
+VB_in B GND PWL(0n 5 99n 5 100n 0 199n 0 200n 5 299n 5 300n 0 399n 0 400n 5)
+VS_in S GND PWL(0n 0 199n 0 200n 5)
+
+.tran 0.01n 500n
+.save all
+
+.control
+    run
+    plot A
+    plot B
+    plot S
+    plot Y
+.endc
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

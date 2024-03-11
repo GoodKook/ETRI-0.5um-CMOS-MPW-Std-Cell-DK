@@ -1,0 +1,25 @@
+* NGSPICE TB for AND2X1
+
+*.include 05cmos_model_spice_231025.lib
+.include 05cmos_model_240201.lib
+*.include amic5_mosfet_model.lib
+.include AND2X1.spice
+
+XAND2X1_0 A B Y VDD GND AND2X1
+
+VDD VDD GND 5
+
+VAin A GND pulse(0 5.0 10n 10n 10n 100n 220n)
+VBin B GND pulse(0 5.0 50n 10n 10n 100n 220n)
+
+.tran 1n 500n
+.save all
+
+.control
+    run
+    plot A B Y
+.endc
+
+.GLOBAL VDD
+.GLOBAL GND
+.end
