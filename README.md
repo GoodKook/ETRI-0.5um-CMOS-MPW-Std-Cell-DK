@@ -30,54 +30,58 @@ Install Pre-requisitive packages,
 
     $ ./prerequisites.sh
 
-Yosys, RTL synthesizer,
+Yosys, RTL synthesizer, https://github.com/YosysHQ
 
     $ ./yosys_build.sh
     
-GrayWolf, Auto-Placer,
+GrayWolf, Auto-Placer, https://github.com/rubund/graywolf
 
     $ ./graywolf_build.sh
-    
-QRouter, Auto-Router,
+
+QRouter, Auto-Router, https://github.com/RTimothyEdwards/qrouter
 
     $ qrouter_build.sh
 
-Magic, VLSI layout editor,
+Magic, VLSI layout editor, https://github.com/RTimothyEdwards/magic
 
     $ ./magic_build.sh
 
-iRSim, switch level simulator,
+iRSim, switch level simulator, https://github.com/RTimothyEdwards/irsim
 
     $ ./irsim_build.sh
 
-KLayout, layout tool,
+KLayout, layout tool, https://www.klayout.de/
 
     $ ./klayout_install.sh
     
-Netgen, LVS & LVL Netlist compare,
+Netgen, LVS & LVL Netlist compare, https://github.com/RTimothyEdwards/netgen
 
     $ ./netgen_build.sh
 
-QFlow with ETRI050 tech.,
+QFlow with ETRI050 tech., https://github.com/RTimothyEdwards/qflow
 
     $ ./qflow-1.4.100_etri050_build.sh
 
-ngSpice, SPICE circuit simulator,
+ngSpice, SPICE circuit simulator, https://ngspice.sourceforge.io/
 
     $ ./ngspice42_build.sh
 
-XSchem, schematic entry,
+XSchem, schematic entry, https://xschem.sourceforge.io/stefan/index.html
 
     $ ./xschem_build.sh
 
-iVerilog, Verilog Simulator,
+iVerilog, Verilog Simulator, https://github.com/steveicarus/iverilog
 
     $ ./iverilog_build.sh
 
-SystemC, C++ class library for system level simulation & modeling,
+SystemC, C++ class library for system level simulation & modeling, https://systemc.org/
 
     $ ./systemc_build.sh
     
-Verilator, Verilog to SystemC/C++ converter,
+Verilator, Verilog to SystemC/C++ converter, https://www.veripool.org/verilator/
 
     $ ./verilator_build.sh
+
+Have fun!
+
+Kook , goodkook(at)gmail.com
