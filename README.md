@@ -84,4 +84,4 @@ Verilator, Verilog to SystemC/C++ converter, https://www.veripool.org/verilator/
 
 Have fun!
 
-Kook , goodkook(at)gmail.com
+Kook, goodkook(at)gmail.com
