@@ -21,10 +21,13 @@ Symbolic link 'digital_ETRI' to cell-library folder,
 
     ln -s digital_ETRI050_m2d digital_ETRI
 
+Make scripts as executable,
+
+    chmod +x ./scripts/*.sh;chmod +x ./scripts/*.py;chmod +x ./Tools/*.sh
+
 Change to tool installation script folder,
 
     cd ./Tools
-    chmod +x *.sh
 
 Install Pre-requisitive packages,
 
@@ -81,6 +84,11 @@ SystemC, C++ class library for system level simulation & modeling, https://syste
 Verilator, Verilog to SystemC/C++ converter, https://www.veripool.org/verilator/
 
     ./verilator_build.sh
+
+gtkWave, digital waveform viewer, https://gtkwave.sourceforge.net/
+
+    ./gtkwave_install.sh
+
 
 Have fun!
 
