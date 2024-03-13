@@ -19,7 +19,7 @@ Installation
 
 Symbolic link 'digital_ETRI' to cell-library folder,
 
-    $ ln -s digital_ETRI050_m2d digital_ETRI
+    ln -s digital_ETRI050_m2d digital_ETRI
 
 Change to tool installation script folder,
 
