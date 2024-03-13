@@ -1,0 +1,25 @@
+export SYSTEMC=/usr/local/systemc-2.3.3
+export SYSTEMC_HOME=$SYSTEMC
+export SYSTEMC_INCLUDE=$SYSTEMC_HOME/include
+export SYSTEMC_LIBDIR=$SYSTEMC_HOME/lib-linux64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SYSTEMC_LIBDIR
+
+export QFLOW_TECH_DIR=/usr/local/share/qflow/tech
+export MAGIC_TECH_DIR=/usr/local/lib/magic/sys
+
+export OPENROAD_EXE=$(command -v openroad)
+export YOSYS_CMD=$(command -v yosys)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/bin
+
+export LM_LICENSE_FILE=/usr/local/intelFPGA_pro/LR-127570_License.dat
+export MGLS_LICENSE_FILE=/usr/local/intelFPGA_pro/LR-127570_License.dat
+export PATH=/usr/local/intelFPGA_pro/23.4/questa_fse/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/intelFPGA_pro/23.4/questa_fse/linux_x86_64:$LD_LIBRARY_PATH
+
+#
+# Ethernet MAC address for QuestaSim License
+#
+sudo ip link set dev eth0 down
+sudo ip link set dev eth0 address xx:xx:xx:xx:xx:xx
+sudo ip link set dev eth0 up
+
