@@ -14,16 +14,72 @@ https://fun-teaching-goodkook.blogspot.com/2024/03/blog-post.html
 
 ![STD-CELL_DFFSR_Sch_1](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/assets/162967523/a6d93666-142b-40f1-a1db-4e1213d0392a)
 
-Installation
-------------
+Tool Installation
+-----------------
 
+Change to tool installation script folder,
+
+    $ cd ./Tools
+    $ chmod +x *.sh
+
+Install Pre-requisitive packages,
+
+    $ ./prerequisites.sh
+
+Yosys, RTL synthesizer,
+
+    $ ./yosys_build.sh
+    
+GrayWolf, Auto-Placer,
+
+    $ ./graywolf_build.sh
+    
+QRouter, Auto-Router,
+
+    $ qrouter_build.sh
+
+Magic, VLSI layout editor,
+
+    $ ./magic_build.sh
+
+iRSim, switch level simulator,
+
+    $ ./irsim_build.sh
+
+KLayout, layout tool,
+
+    $ ./klayout_install.sh
+    
+Netgen, LVS & LVL Netlist compare,
+
+    $ ./netgen_build.sh
+    
 Symbolic link 'digital_ETRI' to cell-library folder,
 
     $ ln -s digital_ETRI050_m2d digital_ETRI
 
-QFlow for ETRI050 tech.:
+QFlow with ETRI050 tech.,
 
-    $ cd ./Tools
-    $ chmod +x qflow-1.4.100_etri050_build.sh
     $ ./qflow-1.4.100_etri050_build.sh
 
+ngSpice, SPICE circuit simulator,
+
+    $ ./ngspice42_build.sh
+
+XSchem, schematic entry,
+
+    $ ./xschem_build.sh
+
+iVerilog, Verilog Simulator,
+
+    $ ./iverilog_build.sh
+
+SystemC, C++ class library for system level simulation & modeling,
+
+    $ ./systemc_build.sh
+    
+Verilator, Verilog to SystemC/C++ converter,
+
+    $ ./verilator_build.sh
+
+    

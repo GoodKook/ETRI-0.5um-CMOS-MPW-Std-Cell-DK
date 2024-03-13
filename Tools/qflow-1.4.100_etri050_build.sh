@@ -34,7 +34,7 @@ sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/etri050_stdcells.lef e
 sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050.magicrc etri050.magicrc
 sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050.prm etri050.prm
 sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050_stdcells.spice etri050_stdcells.sp
-sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri05_stdcells.gds2 etri05_stdcells.gds2
+sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050_stdcells.gds2 etri05_stdcells.gds2
 sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri05_stdcells.lib etri05_stdcells.lib
 sudo ln -s ~/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri05_stdcells.v etri05_stdcells.v
 
