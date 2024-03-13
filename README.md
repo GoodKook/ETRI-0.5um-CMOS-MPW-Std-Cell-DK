@@ -24,5 +24,6 @@ Symbolic link 'digital_ETRI' to cell-library folder,
 QFlow for ETRI050 tech.:
 
     $ cd ./Tools
+    $ chmod +x qflow-1.4.100_etri050_build.sh
     $ ./qflow-1.4.100_etri050_build.sh
 
