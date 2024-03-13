@@ -14,8 +14,12 @@ https://fun-teaching-goodkook.blogspot.com/2024/03/blog-post.html
 
 ![STD-CELL_DFFSR_Sch_1](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/assets/162967523/a6d93666-142b-40f1-a1db-4e1213d0392a)
 
-Tool Installation
------------------
+Installation
+------------
+
+Symbolic link 'digital_ETRI' to cell-library folder,
+
+    $ ln -s digital_ETRI050_m2d digital_ETRI
 
 Change to tool installation script folder,
 
@@ -53,10 +57,6 @@ KLayout, layout tool,
 Netgen, LVS & LVL Netlist compare,
 
     $ ./netgen_build.sh
-    
-Symbolic link 'digital_ETRI' to cell-library folder,
-
-    $ ln -s digital_ETRI050_m2d digital_ETRI
 
 QFlow with ETRI050 tech.,
 
@@ -81,5 +81,3 @@ SystemC, C++ class library for system level simulation & modeling,
 Verilator, Verilog to SystemC/C++ converter,
 
     $ ./verilator_build.sh
-
-    
