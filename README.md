@@ -89,11 +89,11 @@ gtkWave, digital waveform viewer, https://gtkwave.sourceforge.net/
 
     ./gtkwave_install.sh
 
-Find example design at following link,
+Find example design using ETRI 0.5um Std-Cell DK at following link,
 
     https://github.com/GoodKook/ETRI-0.5u-CMOS-MPW-DK-Example--ALU8
 
-including synthesis, P&R, layout generation and RTL simulation at system-level using Verilated SystemC testbench.
+The example includes synthesis, P&R, layout generation, LVS and RTL simulation at system-level using Verilated SystemC testbench.
 
 Have fun!
 
