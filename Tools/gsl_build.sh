@@ -9,7 +9,7 @@ if [ ! -f ./gsl-latest.tar.gz ]; then
 fi
 tar xvf gsl-latest.tar.gz
 
-cd gsl-*
+cd gsl-2.7.1
 ./configure
 make
 sudo make install
