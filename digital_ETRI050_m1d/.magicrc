@@ -1,0 +1,26 @@
+#-----------------------------------------------------
+# .magicrc startup file for ETRI050 poject
+#-----------------------------------------------------
+
+path sys +../tech
+#tech load SCN3ME_SUBM.30 -noprompt
+tech load SCN3ME_SUBM.30.ETRI -noprompt
+
+#--------------------------
+# scalegrid a b scale magic units vs. lambda=30[angstrom]
+scalegrid 1 2
+
+set GND gnd
+set VDD vdd
+
+drc euclidean on
+drc off
+
+addpath digital_ETRI
+
+grid on
+snap off
+
+macro Control_XK_Pointer_Button4 {zoom 0.5}
+macro Control_XK_Pointer_Button5 {zoom 2}
+
