@@ -18,7 +18,7 @@ sudo apt install -y \
                 clang bison flex gawk git libgit2-dev \
                 libreadline-dev tcl-dev tk-dev libffi-dev \
                 graphviz xdot pkg-config \
-                python3 python3.9-tk \
+                python3 python3-dev python3-numpy python3.9-tk \
                 libgsl-dev zlib1g-dev libxt-dev \
                 m4 tcsh csh libcairo2-dev libeigen3-dev \
                 mesa-common-dev libglu1-mesa-dev libncurses-dev \
