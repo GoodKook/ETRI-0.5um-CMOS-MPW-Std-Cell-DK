@@ -1,6 +1,6 @@
 #!/usr/bin/bash
-echo "ngSpice-42 Quick Build & Install"
-echo "--------------------------------"
+echo "GNU Science Library Quick Build & Install"
+echo "-----------------------------------------"
 # Prerequisites:
 #source prerequisities.sh
 

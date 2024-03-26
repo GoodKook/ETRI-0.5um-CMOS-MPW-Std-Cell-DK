@@ -14,8 +14,9 @@ source sc_env
 cd systemc
 git pull         # Make sure git repository is up-to-date
 
-autoreconf -i
-autoupdate
+#autoreconf -i
+#autoupdate
+./config/bootstrap
 
 if [ -d ./objdir ]; then
 	rm -rf objdir
@@ -32,5 +33,6 @@ export CXX=clang++
 make
 sudo make install
 
+cd ..
 rm -rf objdir
 
