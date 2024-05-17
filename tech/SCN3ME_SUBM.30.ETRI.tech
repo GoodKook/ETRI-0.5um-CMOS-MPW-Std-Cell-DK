@@ -914,10 +914,18 @@ style  lambda=0.30(ETRI)
 
  layer CHR hr,phr
  labels hr,phr
- calma 34 0
+ calma 13 0
 
  layer CEL poly2,ecap,phr,p2c
  labels poly2,ecap,phr,p2c
+ calma 13 0
+
+ layer CEL rp2
+ labels poly2
+ calma 13 0
+
+ layer CRG2 pseudo_rpoly2
+ labels poly2
  calma 13 0
 
 # layer CX comment
@@ -1154,10 +1162,18 @@ style  lambda=0.30(ETRI-G)
 
  layer CHR hr,phr
  labels hr,phr
- calma 34 0
+ calma 13 0
 
  layer CEL poly2,ecap,phr,p2c
  labels poly2,ecap,phr,p2c
+ calma 13 0
+
+ layer CEL rp2
+ labels poly2
+ calma 13 0
+
+ layer CRG2 pseudo_rpoly2
+ labels poly2
  calma 13 0
 
 # layer CX comment
@@ -2083,7 +2099,7 @@ style  lambda=0.30(ETRI)
  and CRG
  calma CPG 12 *
 
-# Contact (Poly) ------------------------------------------------------------
+# Poly Contact ---------------------------------------------------------------
  layer pc CCP
  and CPG
  and-not CPC
@@ -2106,7 +2122,7 @@ style  lambda=0.30(ETRI)
  shrink 15
  calma CCC 31 *
 
-# Contact (generic) ----------------------------------------------------------
+# Generic Poly contact -------------------------------------------------------
  layer gc CCP
  and-not CPG
  and-not CPC
@@ -2139,6 +2155,58 @@ style  lambda=0.30(ETRI)
  layer gc CCC
  and-not COP
  and-not CM1
+ calma CCC 31 *
+
+# Generic Poly2 contact ------------------------------------------------------
+ layer gc2 CCE
+ and-not CPC
+ and-not CEL
+ calma CCE 31 *
+
+ layer gc2 CCE
+ and-not CM1
+ calma CCE 31 *
+
+# Poly2 ----------------------------------------------------------------------
+ layer hr CHR
+ labels CHR
+ calma CHR 13 *
+
+ layer phr CEL
+ and CHR
+ calma CEL 13 *
+
+ layer ecap CEL
+ and CPG
+ labels CEL
+ calma CEL 13 *
+
+ layer poly2 CEL
+ and-not CPG
+ labels CEL
+ calma CEL 13 *
+
+ layer rp2 CEL
+ and CRG2
+ calma CEL 13 *
+
+ layer pseudo_rpoly2 CRG2
+ and-not CRE
+ calma CRG2 13 *
+
+# Poly2 contact --------------------------------------------------------------
+ layer elc CCE
+ grow 30
+ and CM1
+ and CEL
+ labels CM1
+ calma CCE 31 *
+
+ layer elc CCC
+ grow 30
+ and CM1
+ and CEL
+ labels CM1
  calma CCC 31 *
 
 # VIA1 (generic) -------------------------------------------------------------
@@ -2523,13 +2591,16 @@ style  lambda=0.30(ETRI-G)
  and CRG
  calma CPG 12 *
 
-# Contact (Poly) ------------------------------------------------------------
+# Poly Contact ---------------------------------------------------------------
  layer pc CCP
  and CPG
  and-not CPC
  and-not CEL
  and-not CAA
+ grow 30
  and CM1
+ grow 15
+ shrink 15
  calma CCP 31 *
 
  layer pc CCC
@@ -2537,10 +2608,13 @@ style  lambda=0.30(ETRI-G)
  and-not CPC
  and-not CEL
  and-not CAA
+ grow 30
  and CM1
+ grow 15
+ shrink 15
  calma CCC 31 *
 
-# Contact (generic) ----------------------------------------------------------
+# Generic Poly contact -------------------------------------------------------
  layer gc CCP
  and-not CPG
  and-not CPC
@@ -2573,6 +2647,58 @@ style  lambda=0.30(ETRI-G)
  layer gc CCC
  and-not COP
  and-not CM1
+ calma CCC 31 *
+
+# Generic Poly2 contact ------------------------------------------------------
+ layer gc2 CCE
+ and-not CPC
+ and-not CEL
+ calma CCE 31 *
+
+ layer gc2 CCE
+ and-not CM1
+ calma CCE 31 *
+
+# Poly2 ----------------------------------------------------------------------
+ layer hr CHR
+ labels CHR
+ calma CHR 13 *
+
+ layer phr CEL
+ and CHR
+ calma CEL 13 *
+
+ layer ecap CEL
+ and CPG
+ labels CEL
+ calma CEL 13 *
+
+ layer poly2 CEL
+ and-not CPG
+ labels CEL
+ calma CEL 13 *
+
+ layer rp2 CEL
+ and CRG2
+ calma CEL 13 *
+
+ layer pseudo_rpoly2 CRG2
+ and-not CRE
+ calma CRG2 13 *
+
+# Poly2 contact --------------------------------------------------------------
+ layer elc CCE
+ grow 30
+ and CM1
+ and CEL
+ labels CM1
+ calma CCE 31 *
+
+ layer elc CCC
+ grow 30
+ and CM1
+ and CEL
+ labels CM1
  calma CCC 31 *
 
 # VIA1 (generic) -------------------------------------------------------------

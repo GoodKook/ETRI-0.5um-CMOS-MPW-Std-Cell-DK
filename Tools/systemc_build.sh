@@ -27,10 +27,10 @@ cd objdir
 
 export CXX=clang++
 ../configure --prefix=/usr/local/systemc-3.0.0 \
+                'CXXFLAGS=-std=c++17'
 #                --enable-pthreads \
 #                --enable-debug \
-                'CXXFLAGS=-std=c++17'
-make
+make -j`nproc`
 sudo make install
 
 cd ..

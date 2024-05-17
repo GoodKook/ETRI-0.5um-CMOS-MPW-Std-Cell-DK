@@ -5,8 +5,8 @@ echo "---------------------------"
 #source prerequisities.sh
 
 if [ ! -f ./klayout_0.28.15-1_amd64.deb ]; then
-    wget https://www.klayout.org/downloads/Ubuntu-20/klayout_0.28.15-1_amd64.deb
+    wget https://www.klayout.org/downloads/Ubuntu-20/klayout_0.29.1-1_amd64.deb
 fi
 
-sudo dpkg -i klayout_0.28.15-1_amd64.deb
+sudo dpkg -i klayout_0.29.0-1_amd64.deb
 sudo apt-get install -f
