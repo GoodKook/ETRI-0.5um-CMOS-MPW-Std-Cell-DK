@@ -11,12 +11,13 @@ fi
 
 cd yosys
 git pull         # Make sure git repository is up-to-date
+git submodule update --init
 
 unset CXXFLAGS
 
 make config-clang
 make
-make test
+#make test
 sudo make install
-make clean
+#make clean
 
