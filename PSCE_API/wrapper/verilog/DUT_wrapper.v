@@ -34,8 +34,8 @@ module DUT_wrapper(Din_emu, Dout_emu, Addr_emu, load_emu, get_emu, clk_emu, clk_
     reg         nCLR, nLOAD;
     reg [ 3:0]  Din;
     // DUT interface: output wire. DUT's output will be captured
-    reg [15:0]  Dout;
-    reg         RCO;
+    wire [15:0]  Dout;
+    wire         RCO;
 
     // Emulation Transactor ---------------------------------------------
     //  stimIn[0] = {-|CLK|nCLR|nLOAD|Din_3|Din_2|Din_1|Din_0}
