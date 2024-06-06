@@ -1,0 +1,14 @@
+#
+## Poorman's Standard-Emulator by GoodKook, goodkook@gmail.com
+### Yosys script targetting Xilinx's FPGA
+#   yosys DUT_wrapper.ys | tee synthesis.log
+#
+read_verilog -DEMU_MONITOR ../../DUT_wrapper.v
+read_verilog ../../../source/DUT.v
+read_verilog ../../../source/LS163.v
+
+hierarchy -check -top DUT_wrapper
+
+synth_xilinx -top DUT_wrapper -family xc7 -flatten
+write_verilog DUT_wrapper.v
+stat

@@ -1,0 +1,441 @@
+* NGSPICE file created from counter16.ext - technology: scmos
+
+* Black-box entry subcircuit for BUFX2 abstract view
+.subckt BUFX2 A Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for OAI21X1 abstract view
+.subckt OAI21X1 A B C Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for MUX2X1 abstract view
+.subckt MUX2X1 A B S Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for FILL abstract view
+.subckt FILL vdd gnd
+.ends
+
+* Black-box entry subcircuit for DFFSR abstract view
+.subckt DFFSR D S R CLK Q vdd gnd
+.ends
+
+* Black-box entry subcircuit for AND2X2 abstract view
+.subckt AND2X2 A B Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for NAND2X1 abstract view
+.subckt NAND2X1 A B Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for NAND3X1 abstract view
+.subckt NAND3X1 A B C Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for INVX1 abstract view
+.subckt INVX1 A Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for AOI21X1 abstract view
+.subckt AOI21X1 A B C Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for NOR2X1 abstract view
+.subckt NOR2X1 A B Y vdd gnd
+.ends
+
+* Black-box entry subcircuit for OAI22X1 abstract view
+.subckt OAI22X1 A B C D Y vdd gnd
+.ends
+
+.subckt counter16 gnd vdd CLK Din[3] Din[2] Din[1] Din[0] Dout[15] Dout[14] Dout[13]
++ Dout[12] Dout[11] Dout[10] Dout[9] Dout[8] Dout[7] Dout[6] Dout[5] Dout[4] Dout[3]
++ Dout[2] Dout[1] Dout[0] RCO nCLR nLOAD
+X_277_ _277_/A Dout[9] vdd gnd BUFX2
+X_131_ _141_/B _131_/B _131_/C _153_/D vdd gnd OAI21X1
+X_200_ _214_/A Din[0] _208_/A _201_/B vdd gnd MUX2X1
+XFILL_1__143_ vdd gnd FILL
+XFILL_1__212_ vdd gnd FILL
+XBUFX2_insert0 nLOAD _208_/A vdd gnd BUFX2
+XFILL_0__230_ vdd gnd FILL
+XFILL_0__161_ vdd gnd FILL
+XFILL_1__126_ vdd gnd FILL
+XFILL_0__144_ vdd gnd FILL
+XFILL_0__213_ vdd gnd FILL
+XFILL_0__127_ vdd gnd FILL
+X_276_ _276_/A Dout[8] vdd gnd BUFX2
+X_130_ _144_/A Din[0] _231_/A _131_/B vdd gnd MUX2X1
+X_259_ _259_/D vdd nCLR CLK _267_/A vdd gnd DFFSR
+XBUFX2_insert1 nLOAD _231_/A vdd gnd BUFX2
+XFILL_0__143_ vdd gnd FILL
+XFILL_0__212_ vdd gnd FILL
+XFILL_0__126_ vdd gnd FILL
+XFILL_1_BUFX2_insert1 vdd gnd FILL
+X_275_ _275_/A Dout[7] vdd gnd BUFX2
+X_258_ _258_/D vdd nCLR CLK _266_/A vdd gnd DFFSR
+XBUFX2_insert2 nLOAD _254_/A vdd gnd BUFX2
+X_189_ _189_/D vdd nCLR CLK _273_/A vdd gnd DFFSR
+XFILL_1__141_ vdd gnd FILL
+XFILL_1__210_ vdd gnd FILL
+XFILL_1__124_ vdd gnd FILL
+XFILL_0__142_ vdd gnd FILL
+XFILL_0__211_ vdd gnd FILL
+XFILL_0__125_ vdd gnd FILL
+X_274_ _274_/A Dout[6] vdd gnd BUFX2
+X_188_ _188_/D vdd nCLR CLK _272_/A vdd gnd DFFSR
+X_257_ _257_/A _257_/B _257_/C _261_/D vdd gnd OAI21X1
+XBUFX2_insert3 nLOAD _219_/A vdd gnd BUFX2
+XFILL_0__141_ vdd gnd FILL
+XFILL_0__210_ vdd gnd FILL
+XFILL_0__124_ vdd gnd FILL
+XFILL_1_BUFX2_insert3 vdd gnd FILL
+X_273_ _273_/A Dout[5] vdd gnd BUFX2
+X_256_ _256_/A _256_/B _257_/C vdd gnd AND2X2
+X_187_ _187_/A _187_/B _187_/C _191_/D vdd gnd OAI21X1
+XFILL_1__268_ vdd gnd FILL
+XFILL_1__199_ vdd gnd FILL
+X_239_ _254_/A _254_/C _240_/C vdd gnd NAND2X1
+XFILL_1__122_ vdd gnd FILL
+XFILL_0__140_ vdd gnd FILL
+XFILL_0__123_ vdd gnd FILL
+X_272_ _272_/A Dout[4] vdd gnd BUFX2
+X_255_ Din[3] _255_/B _256_/B vdd gnd NAND2X1
+X_186_ _186_/A _186_/B _187_/C vdd gnd AND2X2
+X_238_ _242_/B vdd _254_/C vdd gnd NAND2X1
+X_169_ _231_/A _184_/C _170_/C vdd gnd NAND2X1
+XFILL_0__268_ vdd gnd FILL
+XFILL_0__199_ vdd gnd FILL
+XFILL_0__122_ vdd gnd FILL
+X_271_ _271_/A Dout[3] vdd gnd BUFX2
+X_254_ _254_/A _269_/A _254_/C _256_/A vdd gnd NAND3X1
+X_185_ Din[3] _185_/B _186_/B vdd gnd NAND2X1
+XFILL_1__266_ vdd gnd FILL
+XFILL_1__197_ vdd gnd FILL
+XFILL35550x27450 vdd gnd FILL
+X_237_ _267_/A _249_/B vdd gnd INVX1
+X_168_ _172_/B vdd _184_/C vdd gnd NAND2X1
+XFILL_0__267_ vdd gnd FILL
+XFILL_0__198_ vdd gnd FILL
+X_270_ _270_/A Dout[2] vdd gnd BUFX2
+X_253_ _253_/A _253_/B _253_/C _257_/B vdd gnd OAI21X1
+X_184_ _208_/A _275_/A _184_/C _186_/A vdd gnd NAND3X1
+XFILL35250x4050 vdd gnd FILL
+X_167_ _273_/A _179_/B vdd gnd INVX1
+X_236_ _246_/B _236_/B _236_/C _258_/D vdd gnd OAI21X1
+XFILL_1__248_ vdd gnd FILL
+XFILL_0__266_ vdd gnd FILL
+XFILL_0__197_ vdd gnd FILL
+X_219_ _219_/A _265_/A _219_/C _221_/A vdd gnd NAND3X1
+XFILL_0__249_ vdd gnd FILL
+X_252_ _253_/B _253_/A _257_/A vdd gnd AND2X2
+X_183_ _183_/A _183_/B _183_/C _187_/B vdd gnd OAI21X1
+XFILL_1__195_ vdd gnd FILL
+XFILL_1__264_ vdd gnd FILL
+X_235_ _249_/A Din[0] _254_/A _236_/B vdd gnd MUX2X1
+XFILL_1__178_ vdd gnd FILL
+XFILL_1__247_ vdd gnd FILL
+X_166_ _176_/B _166_/B _166_/C _188_/D vdd gnd OAI21X1
+X_149_ _208_/A _271_/A _149_/C _151_/A vdd gnd NAND3X1
+XFILL_0__196_ vdd gnd FILL
+X_218_ _218_/A _218_/B _218_/C _222_/B vdd gnd OAI21X1
+XFILL_0__265_ vdd gnd FILL
+XFILL_0__248_ vdd gnd FILL
+X_251_ _251_/A _251_/B _251_/C _260_/D vdd gnd NAND3X1
+X_182_ _183_/B _183_/A _187_/A vdd gnd AND2X2
+X_234_ _266_/A _249_/A vdd gnd INVX1
+X_165_ _179_/A Din[0] _254_/A _166_/B vdd gnd MUX2X1
+X_148_ _148_/A _148_/B _148_/C _152_/B vdd gnd OAI21X1
+XFILL_0__195_ vdd gnd FILL
+XFILL_0__264_ vdd gnd FILL
+X_217_ _218_/B _218_/A _222_/A vdd gnd AND2X2
+XFILL_1__229_ vdd gnd FILL
+XFILL_0__178_ vdd gnd FILL
+XFILL_0__247_ vdd gnd FILL
+XFILL35850x4050 vdd gnd FILL
+X_250_ _253_/B _253_/C _250_/C _251_/C vdd gnd NAND3X1
+X_181_ _181_/A _181_/B _181_/C _190_/D vdd gnd NAND3X1
+XFILL_1__262_ vdd gnd FILL
+XFILL_1__193_ vdd gnd FILL
+X_233_ _266_/A _246_/B _236_/C vdd gnd NAND2X1
+X_164_ _272_/A _179_/A vdd gnd INVX1
+XFILL_1__245_ vdd gnd FILL
+XFILL_1__176_ vdd gnd FILL
+XFILL_0__263_ vdd gnd FILL
+XFILL_0__194_ vdd gnd FILL
+X_147_ _148_/B _148_/A _152_/A vdd gnd AND2X2
+X_216_ _216_/A _216_/B _216_/C _225_/D vdd gnd NAND3X1
+XFILL_1__159_ vdd gnd FILL
+XFILL_0__177_ vdd gnd FILL
+XFILL_0__229_ vdd gnd FILL
+X_180_ _183_/B _183_/C _180_/C _181_/C vdd gnd NAND3X1
+X_232_ _242_/B vdd _255_/B _246_/B vdd gnd AOI21X1
+X_163_ _272_/A _176_/B _166_/C vdd gnd NAND2X1
+XFILL_0__262_ vdd gnd FILL
+XFILL_0__193_ vdd gnd FILL
+X_146_ _146_/A _146_/B _146_/C _155_/D vdd gnd NAND3X1
+X_215_ _218_/B _218_/C _215_/C _216_/C vdd gnd NAND3X1
+XFILL_1__227_ vdd gnd FILL
+XFILL_0__245_ vdd gnd FILL
+XFILL_0__176_ vdd gnd FILL
+X_129_ _262_/A _144_/A vdd gnd INVX1
+XFILL_0__228_ vdd gnd FILL
+XFILL_0__159_ vdd gnd FILL
+X_231_ _231_/A _255_/B vdd gnd INVX1
+X_162_ _172_/B vdd _185_/B _176_/B vdd gnd AOI21X1
+XFILL_1__243_ vdd gnd FILL
+XFILL_1__174_ vdd gnd FILL
+X_145_ _148_/B _148_/C _145_/C _146_/C vdd gnd NAND3X1
+XFILL_0__192_ vdd gnd FILL
+X_214_ _214_/A _214_/B _214_/C _215_/C vdd gnd OAI21X1
+XFILL_1__157_ vdd gnd FILL
+XFILL_0__244_ vdd gnd FILL
+XFILL_0__175_ vdd gnd FILL
+X_128_ _262_/A _141_/B _131_/C vdd gnd NAND2X1
+XFILL_0__158_ vdd gnd FILL
+XFILL_0__227_ vdd gnd FILL
+X_230_ _230_/A _242_/B _278_/A vdd gnd AND2X2
+X_161_ _231_/A _185_/B vdd gnd INVX1
+XFILL35550x31350 vdd gnd FILL
+X_144_ _144_/A _144_/B _144_/C _145_/C vdd gnd OAI21X1
+X_213_ _264_/A _214_/C vdd gnd INVX1
+XFILL_0__243_ vdd gnd FILL
+XFILL_0__174_ vdd gnd FILL
+X_127_ vdd vdd _150_/B _141_/B vdd gnd AOI21X1
+XFILL_1__208_ vdd gnd FILL
+XFILL_1__139_ vdd gnd FILL
+XFILL_0__157_ vdd gnd FILL
+XFILL_0_BUFX2_insert0 vdd gnd FILL
+XFILL_0__209_ vdd gnd FILL
+XFILL_1__241_ vdd gnd FILL
+X_160_ _160_/A _172_/B _207_/B vdd gnd AND2X2
+XFILL_1__172_ vdd gnd FILL
+X_143_ _270_/A _144_/C vdd gnd INVX1
+X_212_ _212_/A _218_/C vdd gnd INVX1
+XFILL35850x27450 vdd gnd FILL
+XFILL_0__242_ vdd gnd FILL
+XFILL_0__173_ vdd gnd FILL
+X_126_ _219_/A _150_/B vdd gnd INVX1
+XFILL_1__138_ vdd gnd FILL
+XFILL_0_BUFX2_insert1 vdd gnd FILL
+XFILL_0__208_ vdd gnd FILL
+XFILL_0__139_ vdd gnd FILL
+X_142_ _142_/A _148_/C vdd gnd INVX1
+X_211_ _264_/A _211_/B _216_/B vdd gnd NAND2X1
+XFILL_0__241_ vdd gnd FILL
+XFILL_0__172_ vdd gnd FILL
+X_125_ _125_/A vdd _172_/B vdd gnd AND2X2
+XFILL_1__206_ vdd gnd FILL
+XFILL_0_BUFX2_insert2 vdd gnd FILL
+XFILL_0__207_ vdd gnd FILL
+XFILL_0__138_ vdd gnd FILL
+XFILL_1__170_ vdd gnd FILL
+X_141_ _270_/A _141_/B _146_/B vdd gnd NAND2X1
+X_210_ Din[2] _220_/B _216_/A vdd gnd NAND2X1
+XFILL_0__240_ vdd gnd FILL
+XFILL_0__171_ vdd gnd FILL
+X_124_ _148_/A _148_/B _125_/A vdd gnd NOR2X1
+XFILL_1__136_ vdd gnd FILL
+XFILL_0__206_ vdd gnd FILL
+XFILL_0_BUFX2_insert3 vdd gnd FILL
+X_140_ Din[2] _150_/B _146_/A vdd gnd NAND2X1
+X_269_ _269_/A Dout[15] vdd gnd BUFX2
+XFILL_0__170_ vdd gnd FILL
+X_123_ _262_/A _263_/A _270_/A _148_/B vdd gnd NAND3X1
+XFILL_1__204_ vdd gnd FILL
+XFILL35850x11850 vdd gnd FILL
+XFILL_0__222_ vdd gnd FILL
+XFILL_0__205_ vdd gnd FILL
+XFILL_0__136_ vdd gnd FILL
+X_268_ _268_/A Dout[14] vdd gnd BUFX2
+XFILL_1__151_ vdd gnd FILL
+X_199_ _276_/A _214_/A vdd gnd INVX1
+XFILL_1__220_ vdd gnd FILL
+X_122_ _271_/A _148_/A vdd gnd INVX1
+XFILL_1__134_ vdd gnd FILL
+XFILL_0__152_ vdd gnd FILL
+XFILL_0__221_ vdd gnd FILL
+XFILL_0__135_ vdd gnd FILL
+XFILL_0__204_ vdd gnd FILL
+X_267_ _267_/A Dout[13] vdd gnd BUFX2
+X_198_ _276_/A _211_/B _201_/C vdd gnd NAND2X1
+XFILL_0__151_ vdd gnd FILL
+XFILL_0__220_ vdd gnd FILL
+XFILL_0__203_ vdd gnd FILL
+XFILL_0__134_ vdd gnd FILL
+X_266_ _266_/A Dout[12] vdd gnd BUFX2
+X_197_ _207_/B vdd _220_/B _211_/B vdd gnd AOI21X1
+X_249_ _249_/A _249_/B _249_/C _250_/C vdd gnd OAI21X1
+XFILL_1__132_ vdd gnd FILL
+XFILL_1__201_ vdd gnd FILL
+XFILL_0__150_ vdd gnd FILL
+XFILL_0__133_ vdd gnd FILL
+XFILL_0__202_ vdd gnd FILL
+X_196_ _208_/A _220_/B vdd gnd INVX1
+X_265_ _265_/A Dout[11] vdd gnd BUFX2
+XFILL_1__277_ vdd gnd FILL
+XFILL35850x31350 vdd gnd FILL
+X_179_ _179_/A _179_/B _179_/C _180_/C vdd gnd OAI21X1
+X_248_ _268_/A _249_/C vdd gnd INVX1
+XFILL_0__278_ vdd gnd FILL
+XFILL_0__132_ vdd gnd FILL
+XFILL_0__201_ vdd gnd FILL
+X_195_ _195_/A _207_/B _242_/B vdd gnd AND2X2
+X_264_ _264_/A Dout[10] vdd gnd BUFX2
+X_247_ _247_/A _253_/C vdd gnd INVX1
+XFILL_1__130_ vdd gnd FILL
+X_178_ _274_/A _179_/C vdd gnd INVX1
+XFILL_0__277_ vdd gnd FILL
+XFILL_0__131_ vdd gnd FILL
+XFILL_0__200_ vdd gnd FILL
+X_263_ _263_/A Dout[1] vdd gnd BUFX2
+X_194_ _218_/A _218_/B _195_/A vdd gnd NOR2X1
+XFILL_1__275_ vdd gnd FILL
+X_246_ _268_/A _246_/B _251_/B vdd gnd NAND2X1
+X_177_ _177_/A _183_/C vdd gnd INVX1
+X_229_ _253_/A _253_/B _230_/A vdd gnd NOR2X1
+XFILL_0__276_ vdd gnd FILL
+XFILL_0__130_ vdd gnd FILL
+X_262_ _262_/A Dout[0] vdd gnd BUFX2
+X_193_ _276_/A _277_/A _264_/A _218_/B vdd gnd NAND3X1
+X_245_ Din[2] _255_/B _251_/A vdd gnd NAND2X1
+X_176_ _274_/A _176_/B _181_/B vdd gnd NAND2X1
+XFILL_0__275_ vdd gnd FILL
+X_228_ _266_/A _267_/A _268_/A _253_/B vdd gnd NAND3X1
+X_159_ _183_/A _183_/B _160_/A vdd gnd NOR2X1
+X_261_ _261_/D vdd nCLR CLK _269_/A vdd gnd DFFSR
+X_192_ _265_/A _218_/A vdd gnd INVX1
+XFILL_1__273_ vdd gnd FILL
+X_244_ _244_/A _249_/B _244_/C _259_/D vdd gnd AOI21X1
+X_175_ Din[2] _185_/B _181_/A vdd gnd NAND2X1
+XFILL_1__256_ vdd gnd FILL
+XFILL_1__187_ vdd gnd FILL
+XFILL_0__274_ vdd gnd FILL
+X_158_ _272_/A _273_/A _274_/A _183_/B vdd gnd NAND3X1
+X_227_ _269_/A _253_/A vdd gnd INVX1
+XFILL_1__239_ vdd gnd FILL
+XFILL_0__257_ vdd gnd FILL
+XFILL35550x4050 vdd gnd FILL
+X_260_ _260_/D vdd nCLR CLK _268_/A vdd gnd DFFSR
+X_191_ _191_/D vdd nCLR CLK _275_/A vdd gnd DFFSR
+X_243_ _254_/A Din[1] _243_/C _247_/A _244_/C vdd gnd OAI22X1
+X_174_ _174_/A _179_/B _174_/C _189_/D vdd gnd AOI21X1
+XFILL_0__273_ vdd gnd FILL
+X_157_ _275_/A _183_/A vdd gnd INVX1
+X_226_ _226_/D vdd nCLR CLK _265_/A vdd gnd DFFSR
+XFILL_0__256_ vdd gnd FILL
+XFILL_0__187_ vdd gnd FILL
+X_209_ _209_/A _214_/B _209_/C _224_/D vdd gnd AOI21X1
+XFILL_0__239_ vdd gnd FILL
+X_190_ _190_/D vdd nCLR CLK _274_/A vdd gnd DFFSR
+XFILL_1__271_ vdd gnd FILL
+X_242_ _254_/A _242_/B vdd _247_/A vdd gnd NAND3X1
+X_173_ _231_/A Din[1] _173_/C _177_/A _174_/C vdd gnd OAI22X1
+XFILL_1__254_ vdd gnd FILL
+XFILL_1__185_ vdd gnd FILL
+XFILL_0__272_ vdd gnd FILL
+X_156_ _156_/D vdd nCLR CLK _271_/A vdd gnd DFFSR
+X_225_ _225_/D vdd nCLR CLK _264_/A vdd gnd DFFSR
+XFILL_1__237_ vdd gnd FILL
+XFILL_1__168_ vdd gnd FILL
+XFILL_0__255_ vdd gnd FILL
+XFILL_0__186_ vdd gnd FILL
+X_208_ _208_/A Din[1] _208_/C _212_/A _209_/C vdd gnd OAI22X1
+X_139_ _139_/A _144_/B _139_/C _154_/D vdd gnd AOI21X1
+XFILL_0__238_ vdd gnd FILL
+XFILL_0__169_ vdd gnd FILL
+XFILL_1__270_ vdd gnd FILL
+X_241_ _266_/A _267_/A _243_/C vdd gnd NAND2X1
+X_172_ _231_/A _172_/B vdd _177_/A vdd gnd NAND3X1
+X_155_ _155_/D vdd nCLR CLK _270_/A vdd gnd DFFSR
+XFILL_0__271_ vdd gnd FILL
+X_224_ _224_/D vdd nCLR CLK _277_/A vdd gnd DFFSR
+XFILL_0__254_ vdd gnd FILL
+XFILL_0__185_ vdd gnd FILL
+X_207_ _208_/A _207_/B vdd _212_/A vdd gnd NAND3X1
+X_138_ _219_/A Din[1] _138_/C _142_/A _139_/C vdd gnd OAI22X1
+XFILL_0__237_ vdd gnd FILL
+XFILL_0__168_ vdd gnd FILL
+X_240_ _255_/B _266_/A _240_/C _244_/A vdd gnd OAI21X1
+X_171_ _272_/A _273_/A _173_/C vdd gnd NAND2X1
+XFILL_1__252_ vdd gnd FILL
+XFILL_1__183_ vdd gnd FILL
+XFILL_0__270_ vdd gnd FILL
+X_223_ _223_/D vdd nCLR CLK _276_/A vdd gnd DFFSR
+XFILL_1__235_ vdd gnd FILL
+XFILL_1__166_ vdd gnd FILL
+X_154_ _154_/D vdd nCLR CLK _263_/A vdd gnd DFFSR
+XFILL_0__253_ vdd gnd FILL
+XFILL_0__184_ vdd gnd FILL
+X_206_ _276_/A _277_/A _208_/C vdd gnd NAND2X1
+X_137_ _219_/A vdd vdd _142_/A vdd gnd NAND3X1
+XFILL_1__149_ vdd gnd FILL
+XFILL_1__218_ vdd gnd FILL
+XFILL_0__236_ vdd gnd FILL
+XFILL_0__167_ vdd gnd FILL
+XFILL_0__219_ vdd gnd FILL
+XFILL35850x150 vdd gnd FILL
+X_170_ _185_/B _272_/A _170_/C _174_/A vdd gnd OAI21X1
+X_153_ _153_/D vdd nCLR CLK _262_/A vdd gnd DFFSR
+X_222_ _222_/A _222_/B _222_/C _226_/D vdd gnd OAI21X1
+XFILL_0__252_ vdd gnd FILL
+XFILL_0__183_ vdd gnd FILL
+X_205_ _220_/B _276_/A _205_/C _209_/A vdd gnd OAI21X1
+X_136_ _262_/A _263_/A _138_/C vdd gnd NAND2X1
+XFILL_0__235_ vdd gnd FILL
+XFILL_0__166_ vdd gnd FILL
+XFILL_0__149_ vdd gnd FILL
+XFILL_0__218_ vdd gnd FILL
+XFILL_1__250_ vdd gnd FILL
+XFILL_1__181_ vdd gnd FILL
+X_152_ _152_/A _152_/B _152_/C _156_/D vdd gnd OAI21X1
+X_221_ _221_/A _221_/B _222_/C vdd gnd AND2X2
+XFILL_1__164_ vdd gnd FILL
+XFILL_1__233_ vdd gnd FILL
+XFILL_0__251_ vdd gnd FILL
+XFILL_0__182_ vdd gnd FILL
+X_204_ _219_/A _219_/C _205_/C vdd gnd NAND2X1
+X_135_ _150_/B _262_/A _135_/C _139_/A vdd gnd OAI21X1
+XFILL_1__216_ vdd gnd FILL
+XFILL_1__147_ vdd gnd FILL
+XFILL_0__234_ vdd gnd FILL
+XFILL_0__165_ vdd gnd FILL
+XFILL_0__148_ vdd gnd FILL
+XFILL_0__217_ vdd gnd FILL
+XFILL_1__180_ vdd gnd FILL
+X_151_ _151_/A _151_/B _152_/C vdd gnd AND2X2
+X_220_ Din[3] _220_/B _221_/B vdd gnd NAND2X1
+XFILL_0__250_ vdd gnd FILL
+XFILL_0__181_ vdd gnd FILL
+X_203_ _207_/B vdd _219_/C vdd gnd NAND2X1
+X_134_ _219_/A _149_/C _135_/C vdd gnd NAND2X1
+XFILL_0__164_ vdd gnd FILL
+XFILL_0__233_ vdd gnd FILL
+XFILL_0__147_ vdd gnd FILL
+XFILL_0__216_ vdd gnd FILL
+XFILL35250x27450 vdd gnd FILL
+X_150_ Din[3] _150_/B _151_/B vdd gnd NAND2X1
+XFILL_1__231_ vdd gnd FILL
+XFILL_1__162_ vdd gnd FILL
+XFILL_0__180_ vdd gnd FILL
+X_133_ vdd vdd _149_/C vdd gnd NAND2X1
+X_202_ _277_/A _214_/B vdd gnd INVX1
+XFILL_1__145_ vdd gnd FILL
+XFILL_1__214_ vdd gnd FILL
+XFILL_0__232_ vdd gnd FILL
+XFILL_0__163_ vdd gnd FILL
+XFILL_1__128_ vdd gnd FILL
+XFILL35550x150 vdd gnd FILL
+XFILL_0__146_ vdd gnd FILL
+XFILL_0__215_ vdd gnd FILL
+XFILL_0__129_ vdd gnd FILL
+X_278_ _278_/A RCO vdd gnd BUFX2
+XFILL_1__161_ vdd gnd FILL
+X_132_ _263_/A _144_/B vdd gnd INVX1
+X_201_ _211_/B _201_/B _201_/C _223_/D vdd gnd OAI21X1
+XFILL_0__231_ vdd gnd FILL
+XFILL_0__162_ vdd gnd FILL
+XFILL_0__145_ vdd gnd FILL
+XFILL_0__214_ vdd gnd FILL
+XFILL_0__128_ vdd gnd FILL
+.ends
+

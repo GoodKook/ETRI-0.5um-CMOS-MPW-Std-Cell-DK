@@ -1,0 +1,14 @@
+#
+## Poorman's Standard-Emulator by GoodKook, goodkook@gmail.com
+### Yosys script targetting GoWin's FPGA
+#
+#   yosys DUT_wrapper.ys | tee synthesis.log
+#
+read_verilog ../../DUT_wrapper.v
+read_verilog ../../../source/DUT.v
+read_verilog ../../../source/LS163.v
+
+hierarchy -check -top DUT_wrapper
+
+synth_gowin -top DUT_wrapper -noalu -vout DUT_wrapper.v
+stat
