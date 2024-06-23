@@ -13,7 +13,7 @@ SC_TOP_H     = sc_$(TOP_MODULE)_TB.h
 
 VERILATOR    = verilator
 CFLAGS       = -std=c++17
-CFLAGS1      = -g
+CFLAGS      += -g
 VFLAGS       = -DENT_ENP_CONTROL
 
 TARGET       = V$(TOP_MODULE)
@@ -28,8 +28,7 @@ export CXX				= clang++
 export CXXFLAGS			= -std=c++17
 
 all :
-	@echo 'Makefile for "'$(TOP_MODULE)'" Co-Simulation: Verilog RTL(*) under SystemC Testbench'
-	@echo '  Poorman`s Std. Co-Emulation(PSCE), GoodKook, goodkook@gmail.com'
+	@echo 'Makefile for "'$(TOP_MODULE)'" Co-Simulation: Verilog RTL(*) under SystemC Testbench[*]'
 	@echo ''
 	@echo '    make build'
 	@echo '        Build executable of "'$(TOP_MODULE)'" with Verilated RTL and SystemC TB'
@@ -43,13 +42,14 @@ all :
 	@echo '    make clean'
 	@echo '        Clean working folder'
 	@echo ''
+	@echo '  (*)'
+	@echo '  [*] Poorman`s Std. Co-Emulation(PSCE), GoodKook, goodkook@gmail.com'
 
 build : $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_TOP_H)
 	$(VERILATOR) --sc -Wall --top-module $(TOP_MODULE) --exe --build \
-		-CFLAGS $(CFLAGS) \
-		-CFLAGS $(CFLAGS1) \
+		-CFLAGS "$(CFLAGS)" \
 		$(VFLAGS) \
 		$(VERILOG_SRCS) $(SC_SRCS)
 
