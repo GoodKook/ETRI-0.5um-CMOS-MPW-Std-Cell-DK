@@ -3,18 +3,19 @@
 #	Makefile for Co-Simulation of sample project "DUT"
 #
 
-VERILOG_SRCS = ../source/DUT.v \
+TOP_MODULE   = DUT
+
+VERILOG_SRCS = ../source/$(TOP_MODULE).v \
                ../source/LS163.v
 SC_SRCS      = sc_main.cpp \
-               sc_DUT_TB.cpp
-SC_TOP_H     = sc_DUT_TB.h
+               sc_$(TOP_MODULE)_TB.cpp
+SC_TOP_H     = sc_$(TOP_MODULE)_TB.h
 
 VERILATOR    = verilator
 CFLAGS       = -std=c++17
 CFLAGS1      = -g
 VFLAGS       = -DENT_ENP_CONTROL
 
-TOP_MODULE   = DUT
 TARGET       = V$(TOP_MODULE)
 TARGET_DIR   = obj_dir
 
@@ -27,14 +28,14 @@ export CXX				= clang++
 export CXXFLAGS			= -std=c++17
 
 all :
-	@echo 'Makefile for "DUT" Co-Simulation: Verilog RTL(*) under SystemC Testbench'
+	@echo 'Makefile for "'$(TOP_MODULE)'" Co-Simulation: Verilog RTL(*) under SystemC Testbench'
 	@echo '  Poorman`s Std. Co-Emulation(PSCE), GoodKook, goodkook@gmail.com'
 	@echo ''
 	@echo '    make build'
-	@echo '        Build executable of "DUT" with Verilated RTL and SystemC TB'
+	@echo '        Build executable of "'$(TOP_MODULE)'" with Verilated RTL and SystemC TB'
 	@echo ''
 	@echo '    make run'
-	@echo '        Simulate "DUT"'
+	@echo '        Simulate "'$(TOP_MODULE)'"'
 	@echo ''
 	@echo '    make wave'
 	@echo '        View SystemC generated waveform'
@@ -58,8 +59,8 @@ lint : $(VERILOG_SRCS)
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
 
-wave : sc_DUT_TB.vcd
-	gtkwave sc_DUT_TB.vcd --save=sc_DUT_TB.gtkw &
+wave : sc_$(TOP_MODULE)_TB.vcd
+	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)
