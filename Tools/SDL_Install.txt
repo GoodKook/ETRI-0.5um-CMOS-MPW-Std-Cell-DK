@@ -1,0 +1,21 @@
+
+
+sudo apt-get install libsdl3*
+
+#or source build,
+# https://wiki.libsdl.org/SDL3/Installation
+
+git clone https://github.com/libsdl-org/SDL
+cd SDL
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build . --config Release --parallel
+sudo cmake --install . --config Release
+
+# Test build,
+gcc -o myprogram myprogram.c `pkg-config sdl3 --cflags --libs
+
+# or
+
+gcc -o testwm testwm.c -I/usr/local/lib/pkgconfig/../../include -L/usr/local/lib/pkgconfig/../../lib -Wl,-rpath,/usr/local/lib/pkgconfig/../../lib -Wl,--enable-new-dtags -lSDL3 -lSDL3_test -lunwind
