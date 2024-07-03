@@ -860,8 +860,8 @@ style  lambda=0.30(ETRI)
  labels fa
  calma 109 0
 
- layer 119 fn
- calma 119 0
+ layer 26 fn
+ calma 26 0
 
  layer 110 fapm
  labels fapm
@@ -912,7 +912,7 @@ style  lambda=0.30(ETRI)
 
  layer CFI nfi,pfi
  labels nfi,pfi
- calma 27 0
+ calma 26 0
 
  layer CHR hr,phr
  labels hr,phr
@@ -941,6 +941,11 @@ style  lambda=0.30(ETRI)
  layer XP pad,xp
  labels pad,xp
  calma 37 0
+
+# ESD implant layer ------------------------------------------------------------
+ layer ESD filln,fn
+ labels filln,fn
+ calma 26 0
 
 # ****************************************************************************
 #    Writing GDS AS-IS for layer conversion
@@ -1113,8 +1118,8 @@ style  lambda=0.30(ETRI-G)
  labels fa
  calma 109 0
 
- layer 119 fn
- calma 119 0
+ layer 26 fn
+ calma 26 0
 
  layer 110 fapm
  labels fapm
@@ -1189,6 +1194,11 @@ style  lambda=0.30(ETRI-G)
  layer XP pad,xp
  labels pad,xp
  calma 37 0
+
+# ESD implant layer ------------------------------------------------------------
+ layer ESD filln,fn
+ labels filln,fn
+ calma 26 0
 
 end
 
@@ -2307,6 +2317,11 @@ style  lambda=0.30(ETRI)
  labels CX
  calma CX 48 *
 
+# ESD implant layer ------------------------------------------------------------
+ layer filln ESD
+ labels ESD
+ calma ESD 26 *
+
 # ****************************************************************************
 # Magic Tech: cifinput rule for ETRI 050 process
 #    Reading GDS AS-IS for layer conversion
@@ -2792,6 +2807,11 @@ style  lambda=0.30(ETRI-G)
  layer comment CX
  labels CX
  calma CX 48 0
+
+# ESD implant layer ------------------------------------------------------------
+ layer filln ESD
+ labels ESD
+ calma ESD 26 *
 
 end
 
