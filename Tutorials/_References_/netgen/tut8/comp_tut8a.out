@@ -1,0 +1,62 @@
+
+Subcircuit summary:
+Circuit 1: triinvert                       |Circuit 2: triinvert                       
+-------------------------------------------|-------------------------------------------
+pmos (3)                                   |pmos (3)                                   
+nmos (3)                                   |nmos (3)                                   
+Number of devices: 6                       |Number of devices: 6                       
+Number of nets: 8                          |Number of nets: 8                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+Circuits match correctly.
+
+Subcircuit pins:
+Circuit 1: triinvert                       |Circuit 2: triinvert                       
+-------------------------------------------|-------------------------------------------
+Vdd                                        |Vdd                                        
+Gnd                                        |Gnd                                        
+out3                                       |out3                                       
+out2                                       |out2                                       
+out1                                       |out1                                       
+in3                                        |in3                                        
+in2                                        |in2                                        
+in1                                        |in1                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes triinvert and triinvert are equivalent.
+
+Subcircuit summary:
+Circuit 1: morph1.spice                    |Circuit 2: morph2.spice                    
+-------------------------------------------|-------------------------------------------
+triinvert (1)                              |triinvert (1)                              
+Number of devices: 1                       |Number of devices: 1                       
+Number of nets: 6                          |Number of nets: 6                          
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: morph1.spice                    |Circuit 2: morph2.spice                    
+
+---------------------------------------------------------------------------------------
+Net: bout                                  |Net: bout                                  
+  triinvert/out2 = 1                       |  triinvert/out1 = 1                       
+  triinvert/out3 = 1                       |  triinvert/out2 = 1                       
+                                           |                                           
+Net: bin                                   |Net: bin                                   
+  triinvert/in2 = 1                        |  triinvert/in1 = 1                        
+  triinvert/in3 = 1                        |  triinvert/in2 = 1                        
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Net: Gnd                                   |Net: Gnd                                   
+  triinvert/Gnd = 1                        |  triinvert/Gnd = 1                        
+                                           |                                           
+Net: Vdd                                   |Net: Vdd                                   
+  triinvert/Vdd = 1                        |  triinvert/Vdd = 1                        
+                                           |                                           
+Net: aout                                  |Net: aout                                  
+  triinvert/out1 = 1                       |  triinvert/out3 = 1                       
+                                           |                                           
+Net: ain                                   |Net: ain                                   
+  triinvert/in1 = 1                        |  triinvert/in3 = 1                        
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Netlists do not match.

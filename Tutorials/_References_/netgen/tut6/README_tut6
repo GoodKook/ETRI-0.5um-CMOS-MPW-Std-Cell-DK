@@ -1,0 +1,70 @@
+Tutorial 6a
+
+    This example has two files from a standard cell layout.
+    One netlist has put the main circuit as the top level of
+    the file, while the other netlist has put the circuit 
+    in a subcell.  Running LVS normally results in the
+    2nd circuit appearing to netgen to not have any contents.
+    Note that the 2nd circuit defines a subcircuit but does
+    not call it, so technically it is a library, not a
+    circuit.
+
+    To run the tutorial:
+	./runtut6a.sh
+
+    Results are found in the file
+	comp_tut6a.out
+
+Tutorial 6b
+
+    This shows how to call the LVS to ask it to compare against
+    a specific cell found in a library file, which overcomes the
+    problem in tutorial 6a.
+
+    To run the tutorial:
+	./runtut6b.sh
+
+    Results are found in the file
+	comp_tut6b.out
+
+Tutorial 6c
+
+    The same LVS is run, but the file derived from the schematic
+    does not include the subcircuits.  Netgen proceeds by
+    defining the subcircuits as "black boxes".  This results in
+    a valid comparison at the top level, but dumps a lot of
+    warnings about the subcells themselves.
+
+    To run the tutorial:
+	./runtut6c.sh
+
+    Results are found in the file
+	comp_tut6c.out
+
+Tutorial 6d
+
+    A setup file is used to read in the library of standard cells
+    that was missing in tutorial 6c, and attach it to the
+    netlist where it was missing.
+    
+
+    The setup file is setup_tut6d.tcl
+
+    To run the tutorial:
+	./runtut6d.sh
+
+    Results are found in the file
+	comp_tut6d.out
+
+Tutorial 6e
+
+    A setup file is used to specifically declare each standard
+    cell to be a "black box" circuit.
+
+    The setup file is setup_tut6e.tcl
+
+    To run the tutorial:
+	./runtut6e.sh
+
+    Results are found in the file
+	comp_tut6e.out

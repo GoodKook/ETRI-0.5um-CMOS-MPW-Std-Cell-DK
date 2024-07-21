@@ -1,0 +1,101 @@
+GoodKook's VLSI Tutorial using OpenSource Tools
+e-mail: goodkook@gmail.com
+
+Requirement Tools:
+
+    1. Magic VLSI Layout:
+        https://github.com/RTimothyEdwards/magic.git
+
+    2. Netgen: LVS
+        https://github.com/RTimothyEdwards/netgen.git
+        
+    3. Ngspice: ngspice-41 (latest version, as of 2023, Oct.)
+        Homepage: https://ngspice.sourceforge.io/
+                    https://sourceforge.net/projects/ngspice/files/ng-spice-rework/41/
+
+        Download:
+            Manual: https://sourceforge.net/projects/ngspice/files/ng-spice-rework/41/ngspice-41-manual.pdf/download
+            Source: https://sourceforge.net/projects/ngspice/files/ng-spice-rework/41/ngspice-41.tar.gz/download
+
+        Install:
+            $ tar xvf ngspice-41.tar.gz
+            $ cd ngspice-41
+            $ ./configure
+            $ make
+            $ sudo make install
+
+    4. xschem
+        homepage: https://github.com/StefanSchippers/xschem
+        Manual: http://repo.hu/projects/xschem/xschem_man/xschem_man.html
+
+        Download & Install:
+            $ git clone https://github.com/StefanSchippers/xschem.git
+            $ cd xschem
+            $ ./configure
+            $ make
+            $ sudo make install
+
+    4-1. xschem-gaw: waveform viewer
+        https://github.com/StefanSchippers/xschem-gaw
+        
+        Download & Install:
+            $ git clonw https://github.com/StefanSchippers/xschem-gaw.git
+
+    5. PDKs
+	5-1. 0.5um PDK from AMIc5 / ETRI
+
+    5-2. Open source PDK(OPTIONAL): Google's skywater 130
+		homepage: http://opencircuitdesign.com/open_pdks/index.html
+
+		Download & Install:
+
+			$ git clone git://opencircuitdesign.com/open_pdks
+
+			or
+
+			tar-ball, http://opencircuitdesign.com/open_pdks/archive/open_pdks-1.0.450.tgz
+
+			$ cd open_psks
+			$ ./configure --enable-sky130-pdk --enable-sram-sky130
+			$ make
+			$ sudo make install
+			$ make veryclean
+
+
+============================================
+Reference:
+    "ENGR3426: MADVLSI Tutorials" by bminch
+    https://www.youtube.com/playlist?list=PLgsDG5BJZpBTEUaxjfvYUiMPpUPU_vQpr
+
+Tutorial 01:
+    "CMOS Inverter and Transient Simulation Tutorial Using Xschem and Ngspice"
+    https://youtu.be/bm3l21ExLOY?si=DLMNvMQ24OTC3Ndq
+
+Tutorial 02:
+    "Creating a Hierarchical Schematic in Xschem"
+    https://youtu.be/BpPP2hE_eK8?si=pzdwpQ5WCh3F9bbH
+
+Tutorial 03:
+    "Creating a Hierarchical Layout in Magic Using the Sky130 PDK"
+    https://youtu.be/RPppaGdjbj0?si=QCVtWA31HWiqyNI2
+
+Tutorial 04:
+    "Layout Versus Schematic Tutorial Using Netgen"
+    https://youtu.be/NCaNF4EunYU?si=8Ts0gki9UpfWKzi2
+
+Tutorial 05:
+    "Layout Versus Schematic Tutorial Using Netgen (Part 2)"
+    https://youtu.be/_xsZbaTBEEA?si=8LW74T5FdBy1qvJD
+
+Tutorial 06:
+    "Layout Design, Layout-Driven Schematic Capture, and LVS Verification of a Single-Phase D Flip-Flop"
+    https://youtu.be/fBdJuqlWwP8?si=yOLqqcikQ2RIbG34
+
+-----------------------------------------------------------------
+
+SPICE
+
+1. SPICE 'Quick' Reference Sheet, https://kolegite.com/EE_library/books_and_lectures/%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%B5%D1%82%D0%BE%20%D0%B2%20%D0%95%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%D1%82%D0%B0/spice_ref.pdf
+2. ROHM Simulation-SPICE, https://techweb.rohm.com/product/simulation/7688/
+3. http://www.hkn.umn.edu/resources/files/spice/
+http://www.hkn.umn.edu/resources/files/

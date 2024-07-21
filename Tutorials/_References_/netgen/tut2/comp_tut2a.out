@@ -1,0 +1,117 @@
+
+Subcircuit summary:
+Circuit 1: inverter                        |Circuit 2: inverter                        
+-------------------------------------------|-------------------------------------------
+pfet (1)                                   |pfet (1)                                   
+nfet (1)                                   |nfet (1)                                   
+Number of devices: 2                       |Number of devices: 2                       
+Number of nets: 6                          |Number of nets: 6                          
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: inverter                        |Circuit 2: inverter                        
+-------------------------------------------|-------------------------------------------
+pos                                        |pos                                        
+Vdd                                        |(no matching pin)                          
+neg                                        |neg                                        
+Gnd                                        |(no matching pin)                          
+out                                        |out                                        
+in                                         |in                                         
+---------------------------------------------------------------------------------------
+Cell pin lists for inverter and inverter altered to match.
+
+Subcircuit summary:
+Circuit 1: bufferA.spice                   |Circuit 2: bufferBx.spice                  
+-------------------------------------------|-------------------------------------------
+inverter (2)                               |inverter (2)                               
+Number of devices: 2                       |Number of devices: 2                       
+Number of nets: 5 **Mismatch**             |Number of nets: 9 **Mismatch**             
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: bufferA.spice                   |Circuit 2: bufferBx.spice                  
+
+---------------------------------------------------------------------------------------
+Net: inverter_1/in                         |Net: N001                                  
+  inverter/in = 1                          |  inverter/in = 1                          
+  inverter/out = 1                         |  inverter/out = 1                         
+                                           |                                           
+Net: out                                   |Net: Vdd                                   
+  inverter/out = 1                         |  inverter/pos = 2                         
+                                           |                                           
+Net: in                                    |Net: 0                                     
+  inverter/in = 1                          |  inverter/neg = 2                         
+                                           |                                           
+(no matching net)                          |Net: Vout                                  
+                                           |  inverter/out = 1                         
+                                           |                                           
+(no matching net)                          |Net: Vin                                   
+                                           |  inverter/in = 1                          
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+(no matching net)                          |Net: dummy_9                               
+                                           |  inverter/proxyGnd = 1                    
+                                           |                                           
+(no matching net)                          |Net: dummy_7                               
+                                           |  inverter/proxyGnd = 1                    
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+(no matching net)                          |Net: dummy_8                               
+                                           |  inverter/proxyVdd = 1                    
+                                           |                                           
+(no matching net)                          |Net: dummy_6                               
+                                           |  inverter/proxyVdd = 1                    
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Net: Vdd                                   |(no matching net)                          
+  inverter/pos = 2                         |                                           
+  inverter/Vdd = 2                         |                                           
+                                           |                                           
+Net: Gnd                                   |(no matching net)                          
+  inverter/neg = 2                         |                                           
+  inverter/Gnd = 2                         |                                           
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: bufferA.spice                   |Circuit 2: bufferBx.spice                  
+
+---------------------------------------------------------------------------------------
+Instance: inverter0                        |(no matching instance)                     
+  neg = 4                                  |                                           
+  in = 2                                   |                                           
+  out = 1                                  |                                           
+  pos = 4                                  |                                           
+  Vdd = 4                                  |                                           
+  Gnd = 4                                  |                                           
+                                           |                                           
+Instance: inverter1                        |(no matching instance)                     
+  neg = 4                                  |                                           
+  in = 1                                   |                                           
+  out = 2                                  |                                           
+  pos = 4                                  |                                           
+  Vdd = 4                                  |                                           
+  Gnd = 4                                  |                                           
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+(no matching instance)                     |Instance: inverterX1                       
+                                           |  neg = 2                                  
+                                           |  in = 2                                   
+                                           |  out = 1                                  
+                                           |  pos = 2                                  
+                                           |  proxyVdd = 1                             
+                                           |  proxyGnd = 1                             
+                                           |                                           
+(no matching instance)                     |Instance: inverterX2                       
+                                           |  neg = 2                                  
+                                           |  in = 1                                   
+                                           |  out = 2                                  
+                                           |  pos = 2                                  
+                                           |  proxyVdd = 1                             
+                                           |  proxyGnd = 1                             
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Netlists do not match.

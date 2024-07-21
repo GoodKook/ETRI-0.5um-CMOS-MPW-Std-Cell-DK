@@ -1,0 +1,26 @@
+Tutorial 5a
+
+    This is an example of a netlist comparison using standard
+    cells.  The first example shows that when the standard cells
+    in the two netlists have different names, netgen does not
+    try to match them, but flattens everything in the netlist.
+
+    To run the tutorial:
+	./runtut5a.sh
+
+    Results are found in the file
+	comp_tut5a.out
+
+Tutorial 5b
+
+    A setup file tells netgen how to match each standard cell
+    in the first circuit with its equivalent cell in the
+    second circuit.  This allows the LVS to proceed hierarchically.
+
+    The setup file is setup_tut5b.tcl
+
+    To run the tutorial:
+	./runtut5b.sh
+
+    Results are found in the file
+	comp_tut5b.out

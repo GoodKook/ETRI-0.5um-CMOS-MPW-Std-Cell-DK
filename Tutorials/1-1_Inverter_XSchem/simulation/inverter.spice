@@ -1,0 +1,10 @@
+** sch_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter.sch
+**.subckt inverter A Y VDD GND
+*.ipin A
+*.opin Y
+*.iopin VDD
+*.iopin GND
+M2 Y A VDD VDD pfet w=2.0u l=0.6u m=1
+M1 Y A GND GND nfet w=2.0u l=0.6u m=1
+**.ends
+.end

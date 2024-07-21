@@ -1,0 +1,43 @@
+magic
+tech scmos
+magscale 1 3
+timestamp 1721554841
+<< checkpaint >>
+rect -89 233 60 234
+rect 198 233 404 234
+rect -89 -60 433 233
+rect 284 -61 433 -60
+<< metal1 >>
+rect 0 143 344 167
+rect 0 73 21 93
+rect 48 73 112 93
+rect 134 73 193 93
+rect 220 73 279 93
+rect 306 73 344 93
+rect 0 0 344 24
+use inverter_x1  inverter_x1_0 ~/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/../1-2_Inverter_Magic
+timestamp 1721399345
+transform 1 0 288 0 1 103
+box -30 -103 56 70
+use inverter_x1  inverter_x1_1
+timestamp 1721399345
+transform 1 0 30 0 1 103
+box -30 -103 56 70
+use inverter_x1  inverter_x1_2
+timestamp 1721399345
+transform 1 0 116 0 1 103
+box -30 -103 56 70
+use inverter_x1  inverter_x1_3
+timestamp 1721399345
+transform 1 0 202 0 1 103
+box -30 -103 56 70
+<< labels >>
+rlabel metal1 0 73 0 93 7 A
+port 0 w
+rlabel metal1 344 73 344 93 3 Y
+port 1 e
+rlabel metal1 0 143 344 167 0 vdd
+port 2 nsew
+rlabel metal1 0 0 344 24 0 gnd
+port 3 nsew
+<< end >>

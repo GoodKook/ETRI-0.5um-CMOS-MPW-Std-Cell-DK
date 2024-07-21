@@ -1,0 +1,303 @@
+* SPICE3 file created from map9v3.ext - technology: scmos
+
+.subckt bufxB Y gnd A vdd
+M1 vdd A a_10_30# vdd pfet w=4u l=0.4u
+M2 Y a_10_30# vdd vdd pfet w=8u l=0.4u
+M3 gnd A a_10_30# Gnd nfet w=2u l=0.4u
+M4 Y a_10_30# gnd Gnd nfet w=4u l=0.4u
+.ends
+
+.subckt dffposxA gnd CLK D Q vdd
+M1 vdd CLK a_10_30# vdd pfet w=8u l=0.4u
+M2 a_85_370# D vdd vdd pfet w=4u l=0.4u
+M3 a_110_30# CLK a_85_370# vdd pfet w=4u l=0.4u
+M4 a_155_370# a_10_30# a_110_30# vdd pfet w=4u l=0.4u
+M5 vdd a_170_20# a_155_370# vdd pfet w=4u l=0.4u
+M6 a_170_20# a_110_30# vdd vdd pfet w=4u l=0.4u
+M7 a_305_370# a_170_20# vdd vdd pfet w=4u l=0.4u
+M8 a_330_30# a_10_30# a_305_370# vdd pfet w=4u l=0.4u
+M9 a_380_420# CLK a_330_30# vdd pfet w=2u l=0.4u
+M10 vdd Q a_380_420# vdd pfet w=2u l=0.4u
+M11 gnd CLK a_10_30# Gnd nfet w=4u l=0.4u
+M12 Q a_330_30# vdd vdd pfet w=8u l=0.4u
+M13 a_85_30# D gnd Gnd nfet w=2u l=0.4u
+M14 a_110_30# a_10_30# a_85_30# Gnd nfet w=2u l=0.4u
+M15 a_155_30# CLK a_110_30# Gnd nfet w=2u l=0.4u
+M16 gnd a_170_20# a_155_30# Gnd nfet w=2u l=0.4u
+M17 a_170_20# a_110_30# gnd Gnd nfet w=2u l=0.4u
+M18 a_305_30# a_170_20# gnd Gnd nfet w=2u l=0.4u
+M19 a_330_30# CLK a_305_30# Gnd nfet w=2u l=0.4u
+M20 a_380_30# a_10_30# a_330_30# Gnd nfet w=2u l=0.4u
+M21 gnd Q a_380_30# Gnd nfet w=2u l=0.4u
+M22 Q a_330_30# gnd Gnd nfet w=4u l=0.4u
+.ends
+
+.subckt invxA Y gnd A vdd
+M1 Y A vdd vdd pfet w=4u l=0.4u
+M2 Y A gnd Gnd nfet w=2u l=0.4u
+.ends
+
+.subckt nand2xA Y gnd A B vdd
+M1 Y A vdd vdd pfet w=4u l=0.4u
+M2 vdd B Y vdd pfet w=4u l=0.4u
+M3 a_45_30# A gnd Gnd nfet w=4u l=0.4u
+M4 Y B a_45_30# Gnd nfet w=4u l=0.4u
+.ends
+
+.subckt oai21xA Y gnd A B C vdd
+M1 a_45_270# A vdd vdd pfet w=8u l=0.4u
+M2 Y B a_45_270# vdd pfet w=8u l=0.4u
+M3 vdd C Y vdd pfet w=4u l=0.4u
+M4 gnd A a_10_30# Gnd nfet w=4u l=0.4u
+M5 a_10_30# B gnd Gnd nfet w=4u l=0.4u
+M6 Y C a_10_30# Gnd nfet w=4u l=0.4u
+.ends
+
+.subckt aoi21xA Y gnd A B C vdd
+M1 vdd A a_10_270# vdd pfet w=8u l=0.4u
+M2 a_10_270# B vdd vdd pfet w=8u l=0.4u
+M3 Y C a_10_270# vdd pfet w=8u l=0.4u
+M4 a_60_30# A gnd Gnd nfet w=4u l=0.4u
+M5 Y B a_60_30# Gnd nfet w=4u l=0.4u
+M6 gnd C Y Gnd nfet w=2u l=0.4u
+.ends
+
+.subckt oai22xA Y gnd A B C D vdd
+M1 a_45_270# A vdd vdd pfet w=8u l=0.4u
+M2 Y B a_45_270# vdd pfet w=8u l=0.4u
+M3 a_140_270# D Y vdd pfet w=8u l=0.4u
+M4 vdd C a_140_270# vdd pfet w=8u l=0.4u
+M5 gnd A a_10_30# Gnd nfet w=4u l=0.4u
+M6 a_10_30# B gnd Gnd nfet w=4u l=0.4u
+M7 Y D a_10_30# Gnd nfet w=4u l=0.4u
+M8 a_10_30# C Y Gnd nfet w=4u l=0.4u
+.ends
+
+.subckt mux2xA Y gnd B A vdd S
+M1 vdd S a_10_50# vdd pfet w=4u l=0.4u
+M2 a_85_250# B vdd vdd pfet w=8u l=0.4u
+M3 Y S a_85_250# vdd pfet w=8u l=0.4u
+M4 a_150_270# a_10_50# Y vdd pfet w=8u l=0.4u
+M5 vdd A a_150_270# vdd pfet w=8u l=0.4u
+M6 gnd S a_10_50# Gnd nfet w=2u l=0.4u
+M7 a_85_50# B gnd Gnd nfet w=4u l=0.4u
+M8 Y a_10_50# a_85_50# Gnd nfet w=4u l=0.4u
+M9 a_150_50# S Y Gnd nfet w=4u l=0.4u
+M10 gnd A a_150_50# Gnd nfet w=4u l=0.4u
+.ends
+
+.subckt aoi22xA Y gnd A B C D vdd
+M1 vdd A a_10_270# vdd pfet w=8u l=0.4u
+M2 a_10_270# B vdd vdd pfet w=8u l=0.4u
+M3 Y D a_10_270# vdd pfet w=8u l=0.4u
+M4 a_10_270# C Y vdd pfet w=8u l=0.4u
+M5 a_55_30# A gnd Gnd nfet w=4u l=0.4u
+M6 Y B a_55_30# Gnd nfet w=4u l=0.4u
+M7 a_140_30# D Y Gnd nfet w=4u l=0.4u
+M8 gnd C a_140_30# Gnd nfet w=4u l=0.4u
+.ends
+
+.subckt or2xA Y gnd A B vdd
+M1 a_45_270# A a_10_270# vdd pfet w=8u l=0.4u
+M2 vdd B a_45_270# vdd pfet w=8u l=0.4u
+M3 Y a_10_270# vdd vdd pfet w=4u l=0.4u
+M4 a_10_270# A gnd Gnd nfet w=2u l=0.4u
+M5 gnd B a_10_270# Gnd nfet w=2u l=0.4u
+M6 Y a_10_270# gnd Gnd nfet w=2u l=0.4u
+.ends
+
+.subckt nand3xA Y gnd A B C vdd
+M1 Y A vdd vdd pfet w=4u l=0.4u
+M2 vdd B Y vdd pfet w=4u l=0.4u
+M3 Y C vdd vdd pfet w=4u l=0.4u
+M4 a_45_30# A gnd Gnd nfet w=6u l=0.4u
+M5 a_70_30# B a_45_30# Gnd nfet w=6u l=0.4u
+M6 Y C a_70_30# Gnd nfet w=6u l=0.4u
+.ends
+
+.subckt nor2xA Y gnd A B vdd
+M1 a_45_270# A vdd vdd pfet w=8u l=0.4u
+M2 Y B a_45_270# vdd pfet w=8u l=0.4u
+M3 Y A gnd Gnd nfet w=2u l=0.4u
+M4 gnd B Y Gnd nfet w=2u l=0.4u
+.ends
+
+
+* Top level circuit map9v3
+
+X0 dp<8> invxA_3/gnd bufxB_10/A invxA_3/vdd bufxB
+X1 invxA_3/gnd clock oai21xA_19/Y bufxB_10/A invxA_3/vdd dffposxA
+X2 invxA_6/Y invxA_3/gnd invxA_6/A invxA_3/vdd invxA
+X3 oai21xA_19/C invxA_3/gnd or2xA_2/Y bufxB_10/A invxA_3/vdd nand2xA
+X4 oai21xA_19/Y invxA_3/gnd or2xA_3/Y mux2xA_1/A oai21xA_19/C invxA_3/vdd oai21xA
+X5 nand2xA_20/Y invxA_3/gnd or2xA_2/Y bufxB_4/A invxA_3/vdd nand2xA
+X6 invxA_3/gnd clock oai21xA_3/Y bufxB_9/A invxA_3/vdd dffposxA
+X7 oai21xA_3/Y invxA_3/gnd invxA_9/Y or2xA_3/Y nand2xA_3/Y invxA_3/vdd oai21xA
+X8 nand2xA_3/Y invxA_3/gnd or2xA_2/Y bufxB_9/A invxA_3/vdd nand2xA
+X9 dp<6> invxA_3/gnd bufxB_9/A invxA_3/vdd bufxB
+X10 invxA_3/gnd clock oai21xA_18/Y bufxB_3/A invxA_3/vdd dffposxA
+X11 dp<5> invxA_3/gnd bufxB_3/A invxA_3/vdd bufxB
+X12 oai21xA_18/Y invxA_3/gnd or2xA_3/Y invxA_10/Y nand2xA_22/Y invxA_3/vdd oai21xA
+X13 nand2xA_22/Y invxA_3/gnd or2xA_2/Y bufxB_3/A invxA_3/vdd nand2xA
+X14 invxA_3/gnd clock BADNODE invxA_9/A invxA_3/vdd dffposxA
+X15 invxA_3/gnd clock or2xA_2/B bufxB_5/A invxA_3/vdd dffposxA
+X16 done invxA_3/gnd bufxB_5/A invxA_3/vdd bufxB
+X17 invxA_3/gnd clock invxA_1/Y or2xA_2/B invxA_3/vdd dffposxA
+X18 invxA_3/gnd clock reset aoi21xA_1/C invxA_3/vdd dffposxA
+X19 aoi21xA_1/Y invxA_3/gnd invxA_3/Y start aoi21xA_1/C invxA_3/vdd aoi21xA
+X20 invxA_3/gnd clock start invxA_3/A invxA_3/vdd dffposxA
+X21 invxA_3/Y invxA_3/gnd invxA_3/A invxA_3/vdd invxA
+X22 dp<7> invxA_3/gnd bufxB_4/A invxA_4/vdd bufxB
+X23 invxA_3/gnd clock oai21xA_11/Y bufxB_4/A invxA_4/vdd dffposxA
+X24 invxA_29/Y invxA_3/gnd invxA_29/A invxA_4/vdd invxA
+X25 invxA_3/gnd clock oai22xA_9/Y invxA_29/A invxA_4/vdd dffposxA
+X26 oai21xA_11/Y invxA_3/gnd or2xA_3/Y invxA_29/Y nand2xA_20/Y invxA_4/vdd oai21xA
+X27 oai22xA_9/Y invxA_3/gnd oai22xA_3/A invxA_9/Y or2xA_1/Y invxA_29/Y invxA_4/vdd oai22xA
+X28 oai22xA_13/Y invxA_3/gnd oai22xA_3/A invxA_29/Y or2xA_1/Y mux2xA_1/A invxA_4/vdd oai22xA
+X29 oai22xA_3/Y invxA_3/gnd oai22xA_3/A invxA_10/Y or2xA_1/Y invxA_9/Y invxA_4/vdd oai22xA
+X30 invxA_3/gnd clock oai22xA_13/Y mux2xA_1/B invxA_4/vdd dffposxA
+X31 mux2xA_1/A invxA_3/gnd mux2xA_1/B invxA_4/vdd invxA
+X32 mux2xA_1/Y invxA_3/gnd mux2xA_1/B mux2xA_1/A invxA_4/vdd mux2xA_1/S mux2xA
+X33 mux2xA_1/S invxA_3/gnd invxA_9/Y invxA_10/Y invxA_9/A invxA_10/A invxA_4/vdd aoi22xA
+X34 invxA_9/Y invxA_3/gnd invxA_9/A invxA_4/vdd invxA
+X35 or2xA_2/Y invxA_3/gnd invxA_1/A or2xA_2/B invxA_4/vdd or2xA
+X36 or2xA_1/Y invxA_3/gnd reset or2xA_1/B invxA_4/vdd or2xA
+X37 invxA_7/Y invxA_3/gnd reset invxA_4/vdd invxA
+X38 oai21xA_9/C invxA_3/gnd oai21xA_9/B invxA_7/Y invxA_1/Y invxA_4/vdd nand3xA
+X39 oai21xA_9/Y invxA_3/gnd invxA_1/Y oai21xA_9/B oai21xA_9/C invxA_4/vdd oai21xA
+X40 invxA_3/gnd clock oai21xA_9/Y invxA_1/A invxA_4/vdd dffposxA
+X41 invxA_1/Y invxA_3/gnd invxA_1/A invxA_4/vdd invxA
+X42 or2xA_1/B invxA_3/gnd reset aoi21xA_1/Y invxA_1/Y invxA_4/vdd oai21xA
+X43 invxA_39/Y invxA_3/gnd invxA_39/A invxA_4/vdd invxA
+X44 invxA_3/gnd clock invxA_39/Y or2xA_6/A invxA_4/vdd dffposxA
+X45 oai21xA_2/Y invxA_3/gnd invxA_4/A invxA_1/Y invxA_5/Y invxA_4/vdd oai21xA
+X46 invxA_3/gnd clock oai21xA_2/Y invxA_4/A invxA_4/vdd dffposxA
+X47 dp<2> invxA_4/gnd bufxB_7/A invxA_4/vdd bufxB
+X48 invxA_4/gnd clock oai21xA_14/Y bufxB_7/A invxA_4/vdd dffposxA
+X49 oai21xA_14/C invxA_4/gnd or2xA_2/Y bufxB_7/A invxA_4/vdd nand2xA
+X50 oai21xA_14/Y invxA_4/gnd invxA_6/Y or2xA_3/Y oai21xA_14/C invxA_4/vdd oai21xA
+X51 invxA_4/gnd clock oai22xA_6/Y invxA_21/A invxA_4/vdd dffposxA
+X52 invxA_4/gnd clock oai22xA_7/Y invxA_27/A invxA_4/vdd dffposxA
+X53 invxA_27/Y invxA_4/gnd invxA_27/A invxA_4/vdd invxA
+X54 oai22xA_11/Y invxA_4/gnd oai22xA_3/A invxA_27/Y or2xA_1/Y invxA_10/Y invxA_4/vdd oai22xA
+X55 invxA_10/Y invxA_4/gnd invxA_10/A invxA_4/vdd invxA
+X56 invxA_4/gnd clock invxA_32/Y invxA_31/A invxA_4/vdd dffposxA
+X57 invxA_32/Y invxA_4/gnd invxA_32/A invxA_4/vdd invxA
+X58 invxA_4/gnd clock invxA_33/Y invxA_20/A invxA_4/vdd dffposxA
+X59 oai22xA_3/A invxA_4/gnd invxA_7/Y invxA_1/A invxA_4/vdd nand2xA
+X60 invxA_33/Y invxA_4/gnd invxA_33/A invxA_4/vdd invxA
+X61 invxA_24/Y invxA_4/gnd invxA_24/A invxA_4/vdd invxA
+X62 oai21xA_9/B invxA_4/gnd invxA_7/Y invxA_18/A nand3xA_4/Y invxA_4/vdd nand3xA
+X63 nand3xA_4/Y invxA_4/gnd invxA_24/Y nor2xA_3/Y nor2xA_4/Y invxA_4/vdd nand3xA
+X64 nor2xA_4/Y invxA_4/gnd nor2xA_4/A nor2xA_4/B invxA_4/vdd nor2xA
+X65 invxA_39/A invxA_4/gnd invxA_1/A nor2xA_4/A aoi21xA_7/C invxA_4/vdd aoi21xA
+X66 nand2xA_17/Y invxA_4/gnd or2xA_6/Y invxA_20/A invxA_4/vdd nand2xA
+X67 nor2xA_4/A invxA_4/gnd or2xA_6/Y nand2xA_15/Y invxA_4/vdd nand2xA
+X68 nand2xA_15/Y invxA_4/gnd or2xA_6/B or2xA_6/A invxA_4/vdd nand2xA
+X69 or2xA_6/Y invxA_4/gnd or2xA_6/A or2xA_6/B invxA_4/vdd or2xA
+X70 invxA_5/A invxA_4/gnd invxA_2/Y invxA_18/A invxA_4/Y or2xA_1/B invxA_4/vdd oai22xA
+X71 nor2xA_3/Y invxA_4/gnd nor2xA_3/A nor2xA_3/B invxA_4/vdd nor2xA
+X72 invxA_5/Y invxA_4/gnd invxA_5/A invxA_4/vdd invxA
+X73 aoi22xA_3/A invxA_4/gnd invxA_1/Y invxA_4/Y or2xA_1/B invxA_4/vdd oai21xA
+X74 or2xA_4/Y invxA_4/gnd invxA_4/A or2xA_4/B invxA_4/vdd or2xA
+X75 invxA_4/Y invxA_4/gnd invxA_4/A invxA_4/vdd invxA
+X76 nor2xA_3/B invxA_4/gnd invxA_25/Y invxA_4/A invxA_4/vdd nand2xA
+X77 invxA_25/Y invxA_4/gnd or2xA_4/B invxA_4/vdd invxA
+X78 invxA_4/gnd clock oai22xA_10/Y invxA_6/A invxA_2/vdd dffposxA
+X79 oai22xA_10/Y invxA_4/gnd oai22xA_3/A invxA_21/Y invxA_6/Y or2xA_1/Y invxA_2/vdd oai22xA
+X80 oai22xA_2/Y invxA_4/gnd invxA_6/Y oai22xA_3/A invxA_8/Y or2xA_1/Y invxA_2/vdd oai22xA
+X81 invxA_21/Y invxA_4/gnd invxA_21/A invxA_2/vdd invxA
+X82 oai22xA_6/Y invxA_4/gnd mux2xA_2/Y oai22xA_3/A or2xA_1/Y invxA_21/Y invxA_2/vdd oai22xA
+X83 oai22xA_7/Y invxA_4/gnd oai22xA_3/A invxA_8/Y or2xA_1/Y invxA_27/Y invxA_2/vdd oai22xA
+X84 or2xA_3/Y invxA_4/gnd or2xA_1/B or2xA_2/Y invxA_2/vdd or2xA
+X85 mux2xA_2/Y invxA_4/gnd invxA_27/A invxA_27/Y invxA_2/vdd mux2xA_1/Y mux2xA
+X86 invxA_4/gnd clock oai22xA_11/Y invxA_10/A invxA_2/vdd dffposxA
+X87 aoi21xA_4/C invxA_4/gnd mux2xA_3/Y invxA_18/A or2xA_1/B invxA_31/Y invxA_2/vdd oai22xA
+X88 invxA_31/Y invxA_4/gnd invxA_31/A invxA_2/vdd invxA
+X89 invxA_32/A invxA_4/gnd invxA_1/A nor2xA_2/B aoi21xA_4/C invxA_2/vdd aoi21xA
+X90 nor2xA_2/B invxA_4/gnd invxA_31/A oai21xA_7/B oai21xA_7/C invxA_2/vdd oai21xA
+X91 oai21xA_7/C invxA_4/gnd oai21xA_7/B invxA_31/A invxA_2/vdd nand2xA
+X92 invxA_4/gnd clock oai21xA_4/Y or2xA_5/A invxA_2/vdd dffposxA
+X93 invxA_33/A invxA_4/gnd invxA_1/A nor2xA_4/B aoi21xA_5/C invxA_2/vdd aoi21xA
+X94 invxA_18/A invxA_4/gnd invxA_1/Y or2xA_1/B invxA_2/vdd nand2xA
+X95 invxA_20/Y invxA_4/gnd invxA_20/A invxA_2/vdd invxA
+X96 aoi21xA_5/C invxA_4/gnd or2xA_1/B invxA_20/Y nand3xA_7/Y invxA_2/vdd oai21xA
+X97 nor2xA_4/B invxA_4/gnd or2xA_5/B nand2xA_17/Y invxA_2/vdd nand2xA
+X98 or2xA_5/B invxA_4/gnd nor2xA_1/Y invxA_19/Y invxA_20/Y invxA_2/vdd nand3xA
+X99 aoi21xA_7/C invxA_4/gnd aoi22xA_5/Y invxA_18/A or2xA_1/B invxA_38/Y invxA_2/vdd oai22xA
+X100 invxA_38/Y invxA_4/gnd or2xA_6/A invxA_2/vdd invxA
+X101 or2xA_6/B invxA_4/gnd invxA_19/Y nor2xA_3/A invxA_2/vdd nand2xA
+X102 nor2xA_1/Y invxA_4/gnd or2xA_6/A or2xA_4/Y invxA_2/vdd nor2xA
+X103 oai21xA_17/Y invxA_4/gnd invxA_1/Y or2xA_4/Y aoi22xA_3/Y invxA_2/vdd oai21xA
+X104 aoi22xA_3/Y invxA_4/gnd aoi22xA_3/A or2xA_4/B aoi22xA_3/C invxA_18/Y invxA_2/vdd aoi22xA
+X105 invxA_4/gnd clock oai21xA_17/Y or2xA_4/B invxA_2/vdd dffposxA
+X106 dp<1> invxA_2/gnd bufxB_1/A invxA_2/vdd bufxB
+X107 invxA_2/gnd clock oai21xA_5/Y bufxB_1/A invxA_2/vdd dffposxA
+X108 oai21xA_5/C invxA_2/gnd or2xA_2/Y bufxB_1/A invxA_2/vdd nand2xA
+X109 oai21xA_5/Y invxA_2/gnd or2xA_3/Y invxA_21/Y oai21xA_5/C invxA_2/vdd oai21xA
+X110 invxA_2/gnd clock oai22xA_2/Y invxA_8/A invxA_2/vdd dffposxA
+X111 invxA_8/Y invxA_2/gnd invxA_8/A invxA_2/vdd invxA
+X112 oai21xA_10/Y invxA_2/gnd or2xA_3/Y invxA_27/Y oai21xA_10/C invxA_2/vdd oai21xA
+X113 oai21xA_21/Y invxA_2/gnd invxA_8/Y or2xA_3/Y nand2xA_25/Y invxA_2/vdd oai21xA
+X114 nand2xA_25/Y invxA_2/gnd or2xA_2/Y bufxB_2/A invxA_2/vdd nand2xA
+X115 mux2xA_3/B invxA_2/gnd N<8> invxA_2/vdd invxA
+X116 mux2xA_3/Y invxA_2/gnd mux2xA_3/B N<8> invxA_2/vdd mux2xA_3/S mux2xA
+X117 invxA_22/Y invxA_2/gnd invxA_22/A invxA_2/vdd invxA
+X118 oai21xA_7/B invxA_2/gnd invxA_22/Y nor2xA_2/A invxA_2/vdd nand2xA
+X119 aoi21xA_6/C invxA_2/gnd aoi22xA_4/Y invxA_18/A or2xA_1/B invxA_22/Y invxA_2/vdd oai22xA
+X120 invxA_36/A invxA_2/gnd invxA_1/A nor2xA_2/A aoi21xA_6/C invxA_2/vdd aoi21xA
+X121 nor2xA_2/Y invxA_2/gnd nor2xA_2/A nor2xA_2/B invxA_2/vdd nor2xA
+X122 nor2xA_2/A invxA_2/gnd invxA_22/A or2xA_5/Y nand2xA_9/Y invxA_2/vdd oai21xA
+X123 nand2xA_9/Y invxA_2/gnd or2xA_5/Y invxA_22/A invxA_2/vdd nand2xA
+X124 invxA_24/A invxA_2/gnd nor2xA_2/Y or2xA_1/B invxA_23/Y invxA_2/vdd nand3xA
+X125 invxA_23/Y invxA_2/gnd invxA_23/A invxA_2/vdd invxA
+X126 oai21xA_4/Y invxA_2/gnd or2xA_1/B invxA_11/Y aoi22xA_1/Y invxA_2/vdd oai21xA
+X127 aoi22xA_1/Y invxA_2/gnd aoi22xA_1/A invxA_18/Y invxA_1/A invxA_23/A invxA_2/vdd aoi22xA
+X128 invxA_23/A invxA_2/gnd or2xA_5/Y nand2xA_6/Y invxA_2/vdd nand2xA
+X129 nand3xA_7/Y invxA_2/gnd nand3xA_7/A or2xA_7/B invxA_18/Y invxA_2/vdd nand3xA
+X130 invxA_11/Y invxA_2/gnd or2xA_5/A invxA_2/vdd invxA
+X131 or2xA_5/Y invxA_2/gnd or2xA_5/A or2xA_5/B invxA_2/vdd or2xA
+X132 nand2xA_6/Y invxA_2/gnd or2xA_5/B or2xA_5/A invxA_2/vdd nand2xA
+X133 invxA_18/Y invxA_2/gnd invxA_18/A invxA_2/vdd invxA
+X134 invxA_26/A invxA_2/gnd invxA_1/A nor2xA_3/A aoi21xA_3/C invxA_2/vdd aoi21xA
+X135 aoi21xA_3/C invxA_2/gnd oai22xA_5/A invxA_18/A or2xA_1/B invxA_19/Y invxA_2/vdd oai22xA
+X136 invxA_19/Y invxA_2/gnd invxA_19/A invxA_2/vdd invxA
+X137 nor2xA_3/A invxA_2/gnd invxA_19/A or2xA_4/Y oai21xA_8/C invxA_2/vdd oai21xA
+X138 oai21xA_8/C invxA_2/gnd or2xA_4/Y invxA_19/A invxA_2/vdd nand2xA
+X139 invxA_2/Y invxA_2/gnd N<1> invxA_2/vdd invxA
+X140 aoi22xA_3/C invxA_2/gnd N<1> N<2> nor2xA_5/B invxA_2/vdd oai21xA
+X141 nor2xA_5/B invxA_2/gnd N<1> N<2> invxA_2/vdd nand2xA
+X142 dp<0> invxA_2/gnd bufxB_6/A or2xA_7/vdd bufxB
+X143 invxA_2/gnd clock oai21xA_20/Y bufxB_6/A or2xA_7/vdd dffposxA
+X144 oai21xA_20/C invxA_2/gnd or2xA_2/Y bufxB_6/A or2xA_7/vdd nand2xA
+X145 oai21xA_20/Y invxA_2/gnd or2xA_2/Y invxA_37/Y oai21xA_20/C or2xA_7/vdd oai21xA
+X146 invxA_37/Y invxA_2/gnd N<0> or2xA_7/vdd invxA
+X147 dp<4> invxA_2/gnd bufxB_8/A or2xA_7/vdd bufxB
+X148 invxA_2/gnd clock oai21xA_10/Y bufxB_8/A or2xA_7/vdd dffposxA
+X149 oai21xA_10/C invxA_2/gnd or2xA_2/Y bufxB_8/A or2xA_7/vdd nand2xA
+X150 invxA_2/gnd clock oai21xA_21/Y bufxB_2/A or2xA_7/vdd dffposxA
+X151 dp<3> invxA_2/gnd bufxB_2/A or2xA_7/vdd bufxB
+X152 mux2xA_3/S invxA_2/gnd N<7> or2xA_7/Y or2xA_7/vdd nor2xA
+X153 aoi22xA_4/Y invxA_2/gnd N<7> invxA_34/Y invxA_35/Y or2xA_7/Y or2xA_7/vdd aoi22xA
+X154 invxA_35/Y invxA_2/gnd N<7> or2xA_7/vdd invxA
+X155 invxA_34/Y invxA_2/gnd or2xA_7/Y or2xA_7/vdd invxA
+X156 invxA_36/Y invxA_2/gnd invxA_36/A or2xA_7/vdd invxA
+X157 invxA_2/gnd clock invxA_36/Y invxA_22/A or2xA_7/vdd dffposxA
+X158 or2xA_7/Y invxA_2/gnd N<6> or2xA_7/B or2xA_7/vdd or2xA
+X159 invxA_17/Y invxA_2/gnd N<6> or2xA_7/vdd invxA
+X160 aoi22xA_1/A invxA_2/gnd N<6> invxA_16/Y invxA_17/Y or2xA_7/B or2xA_7/vdd oai22xA
+X161 invxA_16/Y invxA_2/gnd or2xA_7/B or2xA_7/vdd invxA
+X162 invxA_15/Y invxA_2/gnd N<5> or2xA_7/vdd invxA
+X163 or2xA_7/B invxA_2/gnd invxA_13/Y invxA_14/Y invxA_15/Y or2xA_7/vdd nand3xA
+X164 invxA_14/Y invxA_2/gnd N<4> or2xA_7/vdd invxA
+X165 nand3xA_7/A invxA_2/gnd N<4> invxA_13/A N<5> or2xA_7/vdd oai21xA
+X166 invxA_13/Y invxA_2/gnd invxA_13/A or2xA_7/vdd invxA
+X167 aoi22xA_5/Y invxA_2/gnd invxA_13/Y N<4> invxA_14/Y invxA_13/A or2xA_7/vdd aoi22xA
+X168 invxA_26/Y invxA_2/gnd invxA_26/A or2xA_7/vdd invxA
+X169 invxA_2/gnd clock invxA_26/Y invxA_19/A or2xA_7/vdd dffposxA
+X170 invxA_13/A invxA_2/gnd invxA_12/Y nor2xA_5/B or2xA_7/vdd nand2xA
+X171 invxA_12/Y invxA_2/gnd N<3> or2xA_7/vdd invxA
+X172 oai22xA_5/A invxA_2/gnd nor2xA_5/B N<3> nor2xA_5/Y or2xA_7/vdd aoi21xA
+X173 nor2xA_5/Y invxA_2/gnd N<3> nor2xA_5/B or2xA_7/vdd nor2xA
+.end
+

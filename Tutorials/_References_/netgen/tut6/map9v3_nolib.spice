@@ -1,0 +1,179 @@
+* SPICE netlist output from Bdnet2BSpice
+
+.subckt map9v3 vdd vss clock start reset N<1> N<2> N<3> N<4> N<5> N<6> N<7> N<8> dp<1> dp<3> dp<5> dp<7> done dp<0> dp<2> dp<4> dp<6> 
+x1 vdd vss run 1465 INVX1
+x2 vdd vss N<1> 728 INVX1
+x3 vdd vss oldstart 947 INVX1
+x4 vdd vss 947 start oldreset 251 AOI21X1
+x5 vdd vss reset 251 1465 730 OAI21X1
+x6 vdd vss 1465 730 731 NAND2X1
+x7 vdd vss counter<0> 727 INVX1
+x8 vdd vss 728 731 727 730 732 OAI22X1
+x9 vdd vss 732 1437 INVX1
+x10 vdd vss counter<0> 1465 1437 1448 OAI21X1
+x11 vdd vss 1448 clock counter<0> DFFPOSX1
+x12 vdd vss sr<1> 733 INVX1
+x13 vdd vss reset 811 INVX1
+x14 vdd vss 811 run 734 NAND2X1
+x15 vdd vss sr<2> 735 INVX1
+x16 vdd vss reset 730 736 OR2X1
+x17 vdd vss 733 734 735 736 1449 OAI22X1
+x18 vdd vss 1449 clock sr<2> DFFPOSX1
+x19 vdd vss sr<5> 737 INVX1
+x20 vdd vss run almostdone 738 OR2X1
+x21 vdd vss 730 738 739 OR2X1
+x22 vdd vss 738 39 1381 NAND2X1
+x23 vdd vss 737 739 1381 1450 OAI21X1
+x24 vdd vss 1450 clock 39 DFFPOSX1
+x25 vdd vss sr<4> 741 INVX1
+x26 vdd vss 734 741 736 737 1451 OAI22X1
+x27 vdd vss 1451 clock sr<5> DFFPOSX1
+x28 vdd vss counter<5> 742 INVX1
+x29 vdd vss N<3> 744 INVX1
+x30 vdd vss N<1> N<2> 746 NAND2X1
+x31 vdd vss 744 746 747 NAND2X1
+x32 vdd vss 747 1169 INVX1
+x33 vdd vss N<4> 748 INVX1
+x34 vdd vss N<5> 749 INVX1
+x35 vdd vss 1169 748 749 751 NAND3X1
+x36 vdd vss 751 1041 INVX1
+x37 vdd vss N<6> 743 INVX1
+x38 vdd vss N<6> 1041 743 751 1197 OAI22X1
+x39 vdd vss 731 1101 INVX1
+x40 vdd vss counter<0> counter<1> 757 OR2X1
+x41 vdd vss counter<3> 757 659 NOR2X1
+x42 vdd vss counter<2> 752 INVX1
+x43 vdd vss counter<4> 753 INVX1
+x44 vdd vss 659 752 753 759 NAND3X1
+x45 vdd vss counter<5> 759 760 OR2X1
+x46 vdd vss 759 counter<5> 1373 NAND2X1
+x47 vdd vss 760 1373 761 NAND2X1
+x48 vdd vss 1197 1101 run 761 646 AOI22X1
+x49 vdd vss 730 742 646 1452 OAI21X1
+x50 vdd vss 1452 clock counter<5> DFFPOSX1
+x51 vdd vss sr<0> 763 INVX1
+x52 vdd vss 738 31 1361 NAND2X1
+x53 vdd vss 739 763 1361 1453 OAI21X1
+x54 vdd vss 1453 clock 31 DFFPOSX1
+x55 vdd vss 760 counter<6> 1349 NAND2X1
+x56 vdd vss counter<6> 760 1349 774 OAI21X1
+x57 vdd vss counter<6> 773 INVX1
+x58 vdd vss 773 774 776 NAND2X1
+x59 vdd vss 776 counter<7> 1345 NAND2X1
+x60 vdd vss counter<7> 776 1345 777 OAI21X1
+x61 vdd vss 774 777 594 NOR2X1
+x62 vdd vss 761 1123 INVX1
+x63 vdd vss 594 730 1123 780 NAND3X1
+x64 vdd vss 780 1419 INVX1
+x65 vdd vss 757 counter<2> 1357 NAND2X1
+x66 vdd vss counter<2> 757 1357 765 OAI21X1
+x67 vdd vss counter<1> 756 INVX1
+x68 vdd vss 756 counter<0> 766 NAND2X1
+x69 vdd vss 765 766 603 NOR2X1
+x70 vdd vss 752 765 768 NAND2X1
+x71 vdd vss counter<3> 768 1194 OR2X1
+x72 vdd vss 768 counter<3> 1353 NAND2X1
+x73 vdd vss 1194 1353 769 NAND2X1
+x74 vdd vss 1194 counter<4> 1351 NAND2X1
+x75 vdd vss 759 1351 770 NAND2X1
+x76 vdd vss 769 770 598 NOR2X1
+x77 vdd vss 1419 603 598 1341 NAND3X1
+x78 vdd vss 811 731 1341 782 NAND3X1
+x79 vdd vss 782 811 1465 1337 NAND3X1
+x80 vdd vss 1465 782 1337 1454 OAI21X1
+x81 vdd vss 1454 clock run DFFPOSX1
+x82 vdd vss N<3> 746 314 NOR2X1
+x83 vdd vss 746 N<3> 314 244 AOI21X1
+x84 vdd vss 244 731 730 752 784 OAI22X1
+x85 vdd vss run 765 784 _n131<2> AOI21X1
+x86 vdd vss _n131<2> 1455 INVX1
+x87 vdd vss 1455 clock counter<2> DFFPOSX1
+x88 vdd vss sr<3> 785 INVX1
+x89 vdd vss sr<7> 786 INVX1
+x90 vdd vss 737 741 sr<5> sr<4> 216 AOI22X1
+x91 vdd vss 786 sr<7> 216 _na<0> MUX2X1
+x92 vdd vss 785 sr<3> _na<0> 209 MUX2X1
+x93 vdd vss 209 734 736 763 1456 OAI22X1
+x94 vdd vss 1456 clock sr<0> DFFPOSX1
+x95 vdd vss 738 38 1309 NAND2X1
+x96 vdd vss 739 785 1309 1457 OAI21X1
+x97 vdd vss 1457 clock 38 DFFPOSX1
+x98 vdd vss start clock oldstart DFFPOSX1
+x99 vdd vss 734 735 736 785 1459 OAI22X1
+x100 vdd vss 1459 clock sr<3> DFFPOSX1
+x101 vdd vss sr<6> 790 INVX1
+x102 vdd vss 738 34 1301 NAND2X1
+x103 vdd vss 739 790 1301 1460 OAI21X1
+x104 vdd vss 1460 clock 34 DFFPOSX1
+x105 vdd vss N<8> 792 INVX1
+x106 vdd vss N<6> 751 794 OR2X1
+x107 vdd vss N<7> 794 220 NOR2X1
+x108 vdd vss N<8> 792 220 245 MUX2X1
+x109 vdd vss counter<7> 775 INVX1
+x110 vdd vss 245 731 730 775 796 OAI22X1
+x111 vdd vss run 777 796 _n131<7> AOI21X1
+x112 vdd vss _n131<7> 1461 INVX1
+x113 vdd vss 1461 clock counter<7> DFFPOSX1
+x114 vdd vss almostdone clock 35 DFFPOSX1
+x115 vdd vss 734 737 736 790 1463 OAI22X1
+x116 vdd vss 1463 clock sr<6> DFFPOSX1
+x117 vdd vss N<4> 747 N<5> 1203 OAI21X1
+x118 vdd vss 1203 751 1101 1277 NAND3X1
+x119 vdd vss 730 753 1277 798 OAI21X1
+x120 vdd vss run 770 798 _n131<4> AOI21X1
+x121 vdd vss _n131<4> 1464 INVX1
+x122 vdd vss 1464 clock counter<4> DFFPOSX1
+x123 vdd vss 1465 clock almostdone DFFPOSX1
+x124 vdd vss 738 37 1275 NAND2X1
+x125 vdd vss 733 739 1275 1466 OAI21X1
+x126 vdd vss 1466 clock 37 DFFPOSX1
+x127 vdd vss 1465 727 730 1205 OAI21X1
+x128 vdd vss N<1> N<2> 746 1207 OAI21X1
+x129 vdd vss 1205 counter<1> 1207 1101 456 AOI22X1
+x130 vdd vss 1465 757 456 1467 OAI21X1
+x131 vdd vss 1467 clock counter<1> DFFPOSX1
+x132 vdd vss 734 763 733 736 1468 OAI22X1
+x133 vdd vss 1468 clock sr<1> DFFPOSX1
+x134 vdd vss reset clock oldreset DFFPOSX1
+x135 vdd vss 738 33 1257 NAND2X1
+x136 vdd vss 739 741 1257 1470 OAI21X1
+x137 vdd vss 1470 clock 33 DFFPOSX1
+x138 vdd vss 734 785 736 741 1471 OAI22X1
+x139 vdd vss 1471 clock sr<4> DFFPOSX1
+x140 vdd vss 738 40 1249 NAND2X1
+x141 vdd vss 739 786 1249 1472 OAI21X1
+x142 vdd vss 1472 clock 40 DFFPOSX1
+x143 vdd vss 794 1130 INVX1
+x144 vdd vss N<7> 793 INVX1
+x145 vdd vss N<7> 1130 793 794 249 AOI22X1
+x146 vdd vss 249 731 730 773 803 OAI22X1
+x147 vdd vss run 774 803 _n131<6> AOI21X1
+x148 vdd vss _n131<6> 1473 INVX1
+x149 vdd vss 1473 clock counter<6> DFFPOSX1
+x150 vdd vss 734 790 736 786 1474 OAI22X1
+x151 vdd vss 1474 clock sr<7> DFFPOSX1
+x152 vdd vss N<0> 805 INVX1
+x153 vdd vss 738 36 1229 NAND2X1
+x154 vdd vss 738 805 1229 1475 OAI21X1
+x155 vdd vss 1475 clock 36 DFFPOSX1
+x156 vdd vss 1169 N<4> 748 747 250 AOI22X1
+x157 vdd vss counter<3> 755 INVX1
+x158 vdd vss 250 731 730 755 806 OAI22X1
+x159 vdd vss run 769 806 _n131<3> AOI21X1
+x160 vdd vss _n131<3> 1476 INVX1
+x161 vdd vss 1476 clock counter<3> DFFPOSX1
+x162 vdd vss 738 32 1217 NAND2X1
+x163 vdd vss 735 739 1217 1477 OAI21X1
+x164 vdd vss 1477 clock 32 DFFPOSX1
+x165 vdd vss 31 dp<1> BUFX2
+x166 vdd vss 32 dp<3> BUFX2
+x167 vdd vss 33 dp<5> BUFX2
+x168 vdd vss 34 dp<7> BUFX2
+x169 vdd vss 35 done BUFX2
+x170 vdd vss 36 dp<0> BUFX2
+x171 vdd vss 37 dp<2> BUFX2
+x172 vdd vss 38 dp<4> BUFX2
+x173 vdd vss 39 dp<6> BUFX2
+x174 vdd vss 40 dp<8> BUFX2
+.ends map9v3
+ 

@@ -1,0 +1,40 @@
+timestamp 1721554841
+version 8.3
+tech scmos
+style AMI0.5um(amic5)from:T11Z
+scale 1000 1 10
+resistclasses 82400 102700 816000 816000 1 22300 41300 41300 90 90 60
+use inverter_x1 inverter_x1_0 1 0 288 0 1 103
+use inverter_x1 inverter_x1_1 1 0 30 0 1 103
+use inverter_x1 inverter_x1_2 1 0 116 0 1 103
+use inverter_x1 inverter_x1_3 1 0 202 0 1 103
+port "gnd" 3 0 0 344 24 m1
+port "Y" 1 344 73 344 93 m1
+port "A" 0 0 73 0 93 m1
+port "vdd" 2 0 143 344 167 m1
+node "gnd" 1 8005.76 0 0 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8256 736 0 0 0 0
+node "Y" 0 1094 344 73 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 760 116 0 0 0 0
+node "m1_220_73#" 0 1535 220 73 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1180 158 0 0 0 0
+node "m1_134_73#" 0 1535 134 73 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1180 158 0 0 0 0
+node "m1_48_73#" 0 1640 48 73 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1280 168 0 0 0 0
+node "A" 0 737 0 73 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 420 82 0 0 0 0
+node "vdd" 1 8005.76 0 143 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8256 736 0 0 0 0
+substrate "w_n1073741817_n1073741817#" 0 0 -1073741817 -1073741817 space 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cap "inverter_x1_0/A" "inverter_x1_0/vdd" 1.42109e-14
+merge "inverter_x1_3/gnd" "inverter_x1_2/gnd" -5835.32 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -4692 -592 0 0 0 0
+merge "inverter_x1_2/gnd" "inverter_x1_1/gnd"
+merge "inverter_x1_1/gnd" "inverter_x1_0/gnd"
+merge "inverter_x1_0/gnd" "w_n1073741817_n1073741817#"
+merge "w_n1073741817_n1073741817#" "gnd"
+merge "inverter_x1_3/Y" "inverter_x1_0/A" -1096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -480 -128 0 0 0 0
+merge "inverter_x1_0/A" "m1_220_73#"
+merge "inverter_x1_3/vdd" "inverter_x1_2/vdd" -6880.64 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -4692 -592 0 0 0 0
+merge "inverter_x1_2/vdd" "inverter_x1_1/vdd"
+merge "inverter_x1_1/vdd" "inverter_x1_0/vdd"
+merge "inverter_x1_0/vdd" "vdd"
+merge "inverter_x1_2/A" "inverter_x1_1/Y" -1201 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -580 -138 0 0 0 0
+merge "inverter_x1_1/Y" "m1_48_73#"
+merge "inverter_x1_3/A" "inverter_x1_2/Y" -1096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -480 -128 0 0 0 0
+merge "inverter_x1_2/Y" "m1_134_73#"
+merge "inverter_x1_0/Y" "Y" -674 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -360 -76 0 0 0 0
+merge "inverter_x1_1/A" "A" -422 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -120 -52 0 0 0 0

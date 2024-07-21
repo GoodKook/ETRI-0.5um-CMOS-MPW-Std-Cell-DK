@@ -1,0 +1,10 @@
+* hier1.spice--- with hier2.spice, mixed-hierarchy LVS test
+
+.subckt buffer in1 out1 Vdd Gnd
+M1 mid in1 Vdd Vdd pmos w=800n l=400n
+M2 mid in1 Gnd Gnd nmos w=800n l=400n
+M3 out1 mid Vdd Vdd pmos w=800n l=400n
+M4 out1 mid Gnd Gnd nmos w=800n l=400n
+.ends
+
+X1 in out Vdd Gnd buffer

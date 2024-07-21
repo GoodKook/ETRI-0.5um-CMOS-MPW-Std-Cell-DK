@@ -1,0 +1,35 @@
+** sch_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter_TB.sch
+**.subckt inverter_TB
+X1 Vin Vout VDD GND inverter
+Vdd VDD GND 5
+Vin Vin GND 0
+R1 VDD Vout 1mega m=1
+**** begin user architecture code
+
+
+
+* ngspice commands
+.include ~/ETRI050_DesignKit/devel/tech/05cmos_model_240201.lib
+.dc vin 0 5 0.01
+.save all
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter.sym # of pins=4
+** sym_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter.sym
+** sch_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter.sch
+.subckt inverter A Y VDD GND
+*.ipin A
+*.opin Y
+*.iopin VDD
+*.iopin GND
+M2 Y A VDD VDD pfet w=2.0u l=0.6u m=1
+M1 Y A GND GND nfet w=2.0u l=0.6u m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

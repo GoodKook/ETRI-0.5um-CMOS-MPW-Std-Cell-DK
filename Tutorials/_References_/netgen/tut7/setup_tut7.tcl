@@ -1,0 +1,12 @@
+equate classes {BUFX2 map9v3.spice}    {bufxB map9v3_test2.spice}
+equate classes {INVX1 map9v3.spice}    {invxA map9v3_test2.spice}
+equate classes {NAND2X1 map9v3.spice}  {nand2xA map9v3_test2.spice}
+equate classes {OAI21X1 map9v3.spice}  {oai21xA map9v3_test2.spice}
+equate classes {DFFPOSX1 map9v3.spice} {dffposxA map9v3_test2.spice}
+equate classes {AOI21X1 map9v3.spice}  {aoi21xA map9v3_test2.spice}
+equate classes {OAI22X1 map9v3.spice}  {oai22xA map9v3_test2.spice}
+equate classes {NOR2X1 map9v3.spice}   {nor2xA map9v3_test2.spice}
+equate classes {OR2X1 map9v3.spice}    {or2xA map9v3_test2.spice}
+equate classes {AOI22X1 map9v3.spice}  {aoi22xA map9v3_test2.spice}
+equate classes {NAND3X1 map9v3.spice}  {nand3xA map9v3_test2.spice}
+equate classes {MUX2X1 map9v3.spice}   {mux2xA map9v3_test2.spice}

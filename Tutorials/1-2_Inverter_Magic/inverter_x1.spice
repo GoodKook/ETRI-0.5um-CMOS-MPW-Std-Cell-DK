@@ -1,0 +1,11 @@
+* NGSPICE file created from inverter_x1.ext - technology: scmos
+
+.subckt inverter_x1 A Y vdd gnd
+M1000 Y A gnd gnd nfet w=2u l=0.6u
++  ad=4.2p pd=8.2u as=4.2p ps=8.2u
+M1001 Y A vdd vdd pfet w=2u l=0.6u
++  ad=4.2p pd=8.2u as=4.2p ps=8.2u
+C0 Y gnd 2.00114f
+C1 vdd gnd 4.13658f
+.ends
+

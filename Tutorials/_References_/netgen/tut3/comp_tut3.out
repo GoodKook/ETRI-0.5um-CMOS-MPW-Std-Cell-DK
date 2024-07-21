@@ -1,0 +1,65 @@
+
+Subcircuit summary:
+Circuit 1: inverter                        |Circuit 2: inverter                        
+-------------------------------------------|-------------------------------------------
+pfet (1)                                   |pfet (2) **Mismatch**                      
+nfet (1)                                   |nfet (1)                                   
+Number of devices: 2 **Mismatch**          |Number of devices: 3 **Mismatch**          
+Number of nets: 6                          |Number of nets: 6                          
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: inverter                        |Circuit 2: inverter                        
+
+---------------------------------------------------------------------------------------
+Net: Vdd                                   |Net: Vdd                                   
+  pfet/bulk = 1                            |  pfet/bulk = 2                            
+                                           |  pfet/(drain|source) = 2                  
+                                           |  pfet/gate = 1                            
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: inverter                        |Circuit 2: inverter                        
+
+---------------------------------------------------------------------------------------
+(no matching instance)                     |Instance: pfetXU3                          
+                                           |  (drain,source) = (5,5)                   
+                                           |  gate = 5                                 
+                                           |  bulk = 5                                 
+                                           |                                           
+---------------------------------------------------------------------------------------
+Netlists do not match.
+  Flattening non-matched subcircuits inverter inverter
+Subcircuit summary:
+Circuit 1: bufferA.spice                   |Circuit 2: bufferB.spice                   
+-------------------------------------------|-------------------------------------------
+pfet (2)                                   |pfet (4) **Mismatch**                      
+nfet (2)                                   |nfet (2)                                   
+Number of devices: 4 **Mismatch**          |Number of devices: 6 **Mismatch**          
+Number of nets: 5                          |Number of nets: 5                          
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: bufferA.spice                   |Circuit 2: bufferB.spice                   
+
+---------------------------------------------------------------------------------------
+Net: Vdd                                   |Net: Vdd                                   
+  pfet/(drain|source) = 2                  |  pfet/(drain|source) = 6                  
+  pfet/bulk = 2                            |  pfet/bulk = 4                            
+                                           |  pfet/gate = 2                            
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: bufferA.spice                   |Circuit 2: bufferB.spice                   
+
+---------------------------------------------------------------------------------------
+(no matching instance)                     |Instance: inverterX2/pfetXU3               
+                                           |  (drain,source) = (12,12)                 
+                                           |  gate = 12                                
+                                           |  bulk = 12                                
+                                           |                                           
+                                           |                                           
+(no matching instance)                     |Instance: inverterX1/pfetXU3               
+                                           |  (drain,source) = (12,12)                 
+                                           |  gate = 12                                
+                                           |  bulk = 12                                
+                                           |                                           
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Netlists do not match.

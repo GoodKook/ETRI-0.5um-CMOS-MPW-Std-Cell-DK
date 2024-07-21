@@ -1,0 +1,11 @@
+* morph1.spice--- with morph2.spice, automorph LVS test
+.subckt triinvert in1 out1 in2 out2 in3 out3 Vdd Gnd
+M1 out1 in1 Vdd Vdd pmos w=800n l=400n
+M2 out1 in1 Gnd Gnd nmos w=800n l=400n
+M3 out2 in2 Vdd Vdd pmos w=800n l=400n
+M4 out2 in2 Gnd Gnd nmos w=800n l=400n
+M5 out3 in3 Vdd Vdd pmos w=800n l=400n
+M6 out3 in3 Gnd Gnd nmos w=800n l=400n
+.ends
+
+X1 ain aout bin bout bin bout Vdd Gnd triinvert

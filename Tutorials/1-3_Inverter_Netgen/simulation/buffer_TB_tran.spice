@@ -1,0 +1,57 @@
+** sch_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/buffer_TB_tran.sch
+**.subckt buffer_TB_tran
+Vdd VDD GND 5
+R1 VDD Vout 1mega m=1
+R2 VDD_X1 Vout_Layout 1mega m=1
+Vin Vin GND pulse(0 5 0 1n 1n 5n 15n)
+Vdd_X1 VDD_X1 GND 5
+x9 Vin Vout_Layout VDD_X1 GND buffer_x1
+X10 Vin Vout VDD GND buffer
+**** begin user architecture code
+
+
+
+* ngspice commands
+.include ~/ETRI050_DesignKit/devel/tech/05cmos_model_240201.lib
+*.dc vin 0 5 0.01
+.tran 0.0001n 50n
+.save all
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/goodkook/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/buffer_x1.sym # of pins=4
+** sym_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/buffer_x1.sym
+.include ~/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/buffer_x1.spice
+
+* expanding   symbol:  /home/goodkook/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/buffer.sym # of pins=4
+** sym_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/buffer.sym
+** sch_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-3_Inverter_Netgen/buffer.sch
+.subckt buffer A Y VDD GND
+*.ipin A
+*.opin Y
+*.iopin VDD
+*.iopin GND
+X6 A net1 VDD GND inverter
+X1 net1 net2 VDD GND inverter
+X5 net2 net3 VDD GND inverter
+X2 net3 Y VDD GND inverter
+.ends
+
+
+* expanding   symbol:  /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter.sym # of pins=4
+** sym_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter.sym
+** sch_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-1_Inverter_XSchem/inverter.sch
+.subckt inverter A Y VDD GND
+*.ipin A
+*.opin Y
+*.iopin VDD
+*.iopin GND
+M2 Y A VDD VDD pfet w=2.0u l=0.6u m=1
+M1 Y A GND GND nfet w=2.0u l=0.6u m=1
+.ends
+
+.GLOBAL GND
+.end

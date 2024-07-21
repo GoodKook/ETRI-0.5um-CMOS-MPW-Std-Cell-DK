@@ -1,0 +1,22 @@
+* NGSPICE file created from buffer_x1.ext - technology: scmos
+
+.subckt inverter_x1 A Y vdd gnd
+M1000 Y A vdd vdd pfet w=2u l=0.6u
++  ad=4.2p pd=8.2u as=4.2p ps=8.2u
+M1001 Y A gnd gnd nfet w=2u l=0.6u
++  ad=4.2p pd=8.2u as=4.2p ps=8.2u
+C0 vdd gnd 3.9962f
+.ends
+
+.subckt buffer_x1 A Y vdd gnd
+Xinverter_x1_0 inverter_x1_3/Y Y vdd gnd inverter_x1
+Xinverter_x1_1 A inverter_x1_2/A vdd gnd inverter_x1
+Xinverter_x1_3 inverter_x1_3/A inverter_x1_3/Y vdd gnd inverter_x1
+Xinverter_x1_2 inverter_x1_2/A inverter_x1_3/A vdd gnd inverter_x1
+C0 inverter_x1_3/A gnd 3.70696f
+C1 inverter_x1_2/A gnd 3.70696f
+C2 Y gnd 2.39154f
+C3 inverter_x1_3/Y gnd 3.70696f
+C4 vdd gnd 17.10992f
+.ends
+

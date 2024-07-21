@@ -1,0 +1,49 @@
+Flattening unmatched subcell BUFX2 in circuit map9v3.spice (10 instances)
+Flattening unmatched subcell DFFPOSX1 in circuit map9v3.spice (30 instances)
+Flattening unmatched subcell INVX1 in circuit map9v3.spice (39 instances)
+Flattening unmatched subcell NAND2X1 in circuit map9v3.spice (25 instances)
+Flattening unmatched subcell OAI21X1 in circuit map9v3.spice (21 instances)
+Flattening unmatched subcell AOI21X1 in circuit map9v3.spice (7 instances)
+Flattening unmatched subcell OAI22X1 in circuit map9v3.spice (14 instances)
+Flattening unmatched subcell MUX2X1 in circuit map9v3.spice (3 instances)
+Flattening unmatched subcell AOI22X1 in circuit map9v3.spice (5 instances)
+Flattening unmatched subcell OR2X1 in circuit map9v3.spice (7 instances)
+Flattening unmatched subcell NAND3X1 in circuit map9v3.spice (7 instances)
+Flattening unmatched subcell NOR2X1 in circuit map9v3.spice (6 instances)
+Flattening unmatched subcell bufxB in circuit map9v3_test2.spice (10 instances)
+Flattening unmatched subcell dffposxA in circuit map9v3_test2.spice (30 instances)
+Flattening unmatched subcell invxA in circuit map9v3_test2.spice (39 instances)
+Flattening unmatched subcell nand2xA in circuit map9v3_test2.spice (25 instances)
+Flattening unmatched subcell oai21xA in circuit map9v3_test2.spice (21 instances)
+Flattening unmatched subcell aoi21xA in circuit map9v3_test2.spice (7 instances)
+Flattening unmatched subcell oai22xA in circuit map9v3_test2.spice (14 instances)
+Flattening unmatched subcell mux2xA in circuit map9v3_test2.spice (3 instances)
+Flattening unmatched subcell aoi22xA in circuit map9v3_test2.spice (5 instances)
+Flattening unmatched subcell or2xA in circuit map9v3_test2.spice (7 instances)
+Flattening unmatched subcell nand3xA in circuit map9v3_test2.spice (7 instances)
+Flattening unmatched subcell nor2xA in circuit map9v3_test2.spice (6 instances)
+
+Subcircuit summary:
+Circuit 1: map9v3.spice                    |Circuit 2: map9v3_test2.spice              
+-------------------------------------------|-------------------------------------------
+pfet (668)                                 |pfet (668)                                 
+nfet (668)                                 |nfet (668)                                 
+Number of devices: 1336                    |Number of devices: 1336                    
+Number of nets: 750 **Mismatch**           |Number of nets: 751 **Mismatch**           
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: map9v3.spice                    |Circuit 2: map9v3_test2.spice              
+
+---------------------------------------------------------------------------------------
+Net: OAI22X1_3/Y                           |Net: BADNODE                               
+  pfet/gate = 1                            |  pfet/gate = 1                            
+  nfet/gate = 1                            |  nfet/gate = 1                            
+  pfet/(drain|source) = 2                  |                                           
+  nfet/(drain|source) = 2                  |                                           
+                                           |                                           
+(no matching net)                          |Net: oai22xA_3/Y                           
+                                           |  pfet/(drain|source) = 2                  
+                                           |  nfet/(drain|source) = 2                  
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Netlists do not match.
