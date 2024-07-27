@@ -1,0 +1,44 @@
+* NGSPICE file created from DFFSR74.ext - technology: scmos
+
+.subckt SWITCH2X1 w_n48_576# a_6_36# a_60_36# a_48_24# a_120_36# a_48_222# a_n30_n24#
+M1000 a_60_36# a_48_222# a_6_36# w_n48_576# pfet w=3u l=0.6u
++  ad=3.6p pd=5.4u as=6.3p ps=10.200001u
+M1001 a_120_36# a_48_222# a_60_36# a_n30_n24# nfet w=3u l=0.6u
++  ad=6.3p pd=10.200001u as=3.6p ps=5.4u
+M1002 a_120_36# a_48_24# a_60_36# w_n48_576# pfet w=3u l=0.6u
++  ad=6.3p pd=10.200001u as=3.6p ps=5.4u
+M1003 a_60_36# a_48_24# a_6_36# a_n30_n24# nfet w=3u l=0.6u
++  ad=3.6p pd=5.4u as=6.3p ps=10.200001u
+.ends
+
+.subckt NAND2X1 A B Y vdd gnd
+M1000 Y A vdd vdd pfet w=6u l=0.6u
++  ad=7.2p pd=8.400001u as=12.6p ps=16.199999u
+M1001 vdd B Y vdd pfet w=6u l=0.6u
++  ad=12.6p pd=16.199999u as=7.2p ps=8.400001u
+M1002 a_72_42# A gnd gnd nfet w=6u l=0.6u
++  ad=2.7p pd=6.9u as=12.6p ps=16.199999u
+M1003 Y B a_72_42# gnd nfet w=6u l=0.6u
++  ad=16.199999p pd=17.4u as=2.7p ps=6.9u
+.ends
+
+.subckt INVX1 A Y vdd gnd
+M1000 Y A vdd vdd pfet w=6u l=0.6u
++  ad=12.6p pd=16.199999u as=12.6p ps=16.199999u
+M1001 Y A gnd gnd nfet w=3u l=0.6u
++  ad=6.3p pd=10.200001u as=6.3p ps=10.200001u
+.ends
+
+.subckt DFFSR74 D R S CLK Q vdd gnd
+XSWITCH2X1_0 vdd D_Bar NAND2X1_2/A C_Bar NAND2X1_0/Y INVX1_0/Y gnd SWITCH2X1
+XSWITCH2X1_1 vdd NAND2X1_1/Y NAND2X1_3/A C_Bar NAND2X1_2/Y INVX1_0/Y gnd SWITCH2X1
+XNAND2X1_0 NAND2X1_2/Y R NAND2X1_0/Y vdd gnd NAND2X1
+XNAND2X1_1 S INVX1_1/A NAND2X1_1/Y vdd gnd NAND2X1
+XNAND2X1_2 NAND2X1_2/A S NAND2X1_2/Y vdd gnd NAND2X1
+XNAND2X1_3 NAND2X1_3/A R INVX1_1/A vdd gnd NAND2X1
+XINVX1_0 C_Bar INVX1_0/Y vdd gnd INVX1
+XINVX1_1 INVX1_1/A Q vdd gnd INVX1
+XINVX1_2 D D_Bar vdd gnd INVX1
+XINVX1_3 CLK C_Bar vdd gnd INVX1
+.ends
+

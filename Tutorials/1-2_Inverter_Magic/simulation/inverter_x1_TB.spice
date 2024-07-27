@@ -2,7 +2,7 @@
 **.subckt inverter_x1_TB
 Vdd VDD GND 5
 R1 VDD Vout 1mega m=1
-Vin Vin GND 0
+Vin Vin GND pulse(0 5 0 1n 1n 5n 12n)
 x1 Vin Vout VDD GND inverter_x1
 **** begin user architecture code
 
@@ -11,6 +11,7 @@ x1 Vin Vout VDD GND inverter_x1
 * ngspice commands
 .include ~/ETRI050_DesignKit/devel/tech/05cmos_model_240201.lib
 .dc vin 0 5 0.01
+.tran 0.01 70n
 .save all
 
 
@@ -20,7 +21,7 @@ x1 Vin Vout VDD GND inverter_x1
 
 * expanding   symbol:  /home/goodkook/ETRI050_DesignKit/Tutorials/1-2_Inverter_Magic/inverter_x1.sym # of pins=4
 ** sym_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-2_Inverter_Magic/inverter_x1.sym
-.include ../inverter_x1.spice
+.include ~/ETRI050_DesignKit/Tutorials/1-2_Inverter_Magic/inverter_x1.spice
 .GLOBAL VDD
 .GLOBAL GND
 .end

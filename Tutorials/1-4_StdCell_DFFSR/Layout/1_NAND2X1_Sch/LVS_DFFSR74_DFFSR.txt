@@ -1,0 +1,136 @@
+
+Subcircuit summary:
+Circuit 1: NAND2X1                         |Circuit 2: NAND2X1                         
+-------------------------------------------|-------------------------------------------
+pfet (2)                                   |pfet (2)                                   
+nfet (2)                                   |nfet (2)                                   
+Number of devices: 4                       |Number of devices: 4                       
+Number of nets: 6                          |Number of nets: 6                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: NAND2X1                         |Circuit 2: NAND2X1                         
+-------------------------------------------|-------------------------------------------
+vdd                                        |vdd                                        
+B                                          |A **Mismatch**                             
+A                                          |B **Mismatch**                             
+Y                                          |Y                                          
+gnd                                        |gnd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists for NAND2X1 and NAND2X1 altered to match.
+Device classes NAND2X1 and NAND2X1 are equivalent.
+
+Subcircuit summary:
+Circuit 1: INVX1                           |Circuit 2: INVX1                           
+-------------------------------------------|-------------------------------------------
+pfet (1)                                   |pfet (1)                                   
+nfet (1)                                   |nfet (1)                                   
+Number of devices: 2                       |Number of devices: 2                       
+Number of nets: 4                          |Number of nets: 4                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: INVX1                           |Circuit 2: INVX1                           
+-------------------------------------------|-------------------------------------------
+Y                                          |Y                                          
+A                                          |A                                          
+gnd                                        |gnd                                        
+vdd                                        |vdd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes INVX1 and INVX1 are equivalent.
+Flattening unmatched subcell SWITCH2X1 in circuit DFFSR74 (0)(2 instances)
+
+Subcircuit summary:
+Circuit 1: DFFSR74                         |Circuit 2: DFFSR                           
+-------------------------------------------|-------------------------------------------
+pfet (4)                                   |pfet (4)                                   
+nfet (4)                                   |nfet (4)                                   
+NAND2X1 (4)                                |NAND2X1 (4)                                
+INVX1 (4)                                  |INVX1 (4)                                  
+Number of devices: 16                      |Number of devices: 16                      
+Number of nets: 16                         |Number of nets: 16                         
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: DFFSR74                         |Circuit 2: DFFSR                           
+
+---------------------------------------------------------------------------------------
+Net: R                                     |Net: R                                     
+  NAND2X1/B = 2                            |  NAND2X1/B = 1                            
+                                           |  NAND2X1/A = 1                            
+                                           |                                           
+Net: S                                     |Net: S                                     
+  NAND2X1/B = 1                            |  NAND2X1/B = 2                            
+  NAND2X1/A = 1                            |                                           
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Net: NAND2X1_2/Y                           |Net: net3                                  
+  nfet/(drain|source) = 1                  |  nfet/(drain|source) = 1                  
+  pfet/(drain|source) = 1                  |  pfet/(drain|source) = 1                  
+  NAND2X1/A = 1                            |  NAND2X1/A = 1                            
+  NAND2X1/Y = 1                            |  NAND2X1/Y = 1                            
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Net: NAND2X1_2/A                           |Net: net2                                  
+  pfet/(drain|source) = 2                  |  pfet/(drain|source) = 2                  
+  nfet/(drain|source) = 2                  |  nfet/(drain|source) = 2                  
+  NAND2X1/A = 1                            |  NAND2X1/A = 1                            
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Net: NAND2X1_0/Y                           |Net: net1                                  
+  nfet/(drain|source) = 1                  |  nfet/(drain|source) = 1                  
+  pfet/(drain|source) = 1                  |  pfet/(drain|source) = 1                  
+  NAND2X1/Y = 1                            |  NAND2X1/Y = 1                            
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Net: gnd                                   |Net: gnd                                   
+  nfet/bulk = 4                            |  nfet/bulk = 4                            
+  NAND2X1/gnd = 4                          |  NAND2X1/gnd = 4                          
+  INVX1/gnd = 4                            |  INVX1/gnd = 4                            
+                                           |                                           
+Net: vdd                                   |Net: vdd                                   
+  pfet/bulk = 4                            |  pfet/bulk = 4                            
+  NAND2X1/vdd = 4                          |  NAND2X1/vdd = 4                          
+  INVX1/vdd = 4                            |  INVX1/vdd = 4                            
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: DFFSR74                         |Circuit 2: DFFSR                           
+
+---------------------------------------------------------------------------------------
+Instance: NAND2X1_2                        |Instance: NAND2X1:6                        
+  A = 5                                    |  B = 2                                    
+  B = 2                                    |  A = 4                                    
+  Y = 4                                    |  Y = 3                                    
+  vdd = 12                                 |  vdd = 12                                 
+  gnd = 12                                 |  gnd = 12                                 
+                                           |                                           
+Instance: NAND2X1_0                        |Instance: NAND2X1:4                        
+  A = 4                                    |  B = 2                                    
+  B = 2                                    |  A = 5                                    
+  Y = 3                                    |  Y = 4                                    
+  vdd = 12                                 |  vdd = 12                                 
+  gnd = 12                                 |  gnd = 12                                 
+---------------------------------------------------------------------------------------
+Netlists do not match.
+
+Subcircuit pins:
+Circuit 1: DFFSR74                         |Circuit 2: DFFSR                           
+-------------------------------------------|-------------------------------------------
+CLK                                        |CLK                                        
+D                                          |D                                          
+Q                                          |Q                                          
+S                                          |R **Mismatch**                             
+R                                          |S **Mismatch**                             
+gnd                                        |gnd                                        
+vdd                                        |vdd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists for DFFSR74 and DFFSR altered to match.
+Device classes DFFSR74 and DFFSR are equivalent.
+
+Final result: Top level cell failed pin matching.

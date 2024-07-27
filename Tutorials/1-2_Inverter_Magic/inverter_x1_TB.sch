@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=5
+x1=2.8149244e-08
+x2=3.9893295e-08
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=5
+x1=2.8149244e-08
+x2=3.9893295e-08
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -65,6 +65,7 @@ value="
 * ngspice commands
 .include ~/ETRI050_DesignKit/devel/tech/05cmos_model_240201.lib
 .dc vin 0 5 0.01
+.tran 0.01 70n
 .save all
 "}
 C {res.sym} 460 -330 0 0 {name=R1
@@ -76,5 +77,5 @@ C {vdd.sym} 460 -360 0 0 {name=l6 lab=VDD}
 C {lab_wire.sym} 430 -300 0 0 {name=p2 sig_type=std_logic lab=Vout}
 C {lab_wire.sym} 100 -280 0 0 {name=p3 sig_type=std_logic lab=Vin}
 C {gnd.sym} 100 -220 0 0 {name=l5 lab=GND}
-C {vsource.sym} 100 -250 0 0 {name=Vin value=0 savecurrent=false}
+C {vsource.sym} 100 -250 0 0 {name=Vin value="pulse(0 5 0 1n 1n 5n 12n)" savecurrent=false}
 C {/home/goodkook/ETRI050_DesignKit/Tutorials/1-2_Inverter_Magic/inverter_x1.sym} -260 -200 0 0 {name=x1}

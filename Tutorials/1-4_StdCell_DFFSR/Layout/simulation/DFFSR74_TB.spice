@@ -1,0 +1,28 @@
+** sch_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-4_StdCell_DFFSR/Layout/DFFSR74_TB.sch
+**.subckt DFFSR74_TB
+Vdd VDD GND 5
+VDin D GND pwl(0 5 21n 5 22n 0 53n 0 54n 5)
+VRin R GND pwl(0 5 9n 5 10n 0 19n 0 20n 5)
+VSin S GND pwl(0 5 27n 5 28n 0 33n 0 34n 5)
+VCLK CLK GND pulse(0 5 0 1n 1n 5n 12n)
+R1 VDD Q 1Mega m=1
+x1 D R S CLK Q VDD GND DFFSR74
+**** begin user architecture code
+
+
+
+.include ~/ETRI050_DesignKit/tech/05cmos_model_240201.lib
+.tran 0.01 70n
+.save all
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/goodkook/ETRI050_DesignKit/Tutorials/1-4_StdCell_DFFSR/Layout/DFFSR74.sym # of pins=7
+** sym_path: /home/goodkook/ETRI050_DesignKit/Tutorials/1-4_StdCell_DFFSR/Layout/DFFSR74.sym
+.include ../DFFSR74.spice
+.GLOBAL VDD
+.GLOBAL GND
+.end
