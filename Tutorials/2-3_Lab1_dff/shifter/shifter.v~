@@ -1,0 +1,68 @@
+/*******************************************************************************
+Vendor: GoodKook, goodkook@gmail.com
+Associated Filename: shifter.v
+Purpose: Shifter, Procedural Assignment
+Revision History: Aug. 1, 2024
+*******************************************************************************/
+
+`define NUM_REG 4
+
+module shifter(clk, rst, din, qout);
+input clk, rst, din;
+output qout;
+
+reg qout;
+reg x[`NUM_REG];
+//reg x[`NUM_REG-1:0];
+
+always @(posedge clk or negedge rst) // edge trigger, Async rst
+begin
+    //reg x[`NUM_REG-1:0];
+    if (!rst) // Reset
+    begin
+        //x[0] <= x[1] <= x[2] <= x[3] <= 0;
+        //x[3] <= x[2] <= x[1] <= x[0] <= 0;
+
+        for (integer i = 0; i < `NUM_REG; i++)
+            x[i] <= 0;
+        //x[0]<= 0;
+        //x[1]<= 0;
+        //x[2]<= 0;
+        //x[3]<= 0;
+    end
+    else
+    begin
+        //qout <= x[3] <= x[2] <= x[1] <= x[0] <= din;    // qout <= din
+        //qout <= x[0] <= x[1] <= x[2] <= x[3] <= din;    // qout <= din
+
+        //x[0] <= din;
+        //for (integer i = 1; i < `NUM_REG; i++)
+        //    x[i] <= x[i-1];
+        //qout <= x[`NUM_REG-1];
+
+        //for (integer i = 0; i <= `NUM_REG; i++)
+        //for (integer i = `NUM_REG; i <= 0; i++)
+        //begin
+        //    if (i==0)
+        //        x[i] <= din;
+        //    else if (i==`NUM_REG)
+        //        qout <= x[`NUM_REG-1];
+        //    else
+        //        x[i] <= x[i-1];
+        //end
+
+        //x[0] <= din;
+        //x[1] <= x[0];
+        //x[2] <= x[1];
+        //x[3] <= x[2];
+        //qout <= x[3];
+
+        qout <= x[3];
+        x[3] <= x[2];
+        x[2] <= x[1];
+        x[1] <= x[0];
+        x[0] <= din;
+    end
+end
+
+endmodule

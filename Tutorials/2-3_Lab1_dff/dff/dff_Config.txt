@@ -1,0 +1,15 @@
+
+      +--------------------+-------------------+        +--------------------+
+      | $(SYSTEMC_INCLUDE) | $(SYSTEMC_LIBDIR) |        | $(LD_LIBRARY_PATH) |
+      |          systemc.h |    libsystemc.a   |        |   libsystemc.so    |
+      +--------------------+-------------------+        |                    |
+                      |             +                   | Running Simulator  |
++---------+      +----V----+    +-------+   +-------+   |    +--------+      |
+|  DUT    |      |  DUT    |    |  DUT  |   |  DUT  |   |    |  DUT   |      |
+|   in    |.....>|  in C++ |--->|  .o   |-->| a.out |==>|    | a.out  |      |
+| Verilog |    +-| SystemC |-+  |       |   |(Exec.)|   |    |        |      |
++---------+    | +---------+ |  +-------+   +-------+   |    +--------+      |
+               |  TestBench  |                          +--------------------+
+               +-------------+
+Verilog to C++        Compile C++    Link libs.      Running /w shared-object
+  {Verilator}              {GNU C++/clang++}                  {Linux}
