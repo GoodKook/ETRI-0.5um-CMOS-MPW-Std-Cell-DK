@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# Vivado v2023.2.2 (64-bit)
+# SW Build 4126759 on Thu Feb  8 23:52:05 MST 2024
+# IP Build 4126054 on Fri Feb  9 11:39:09 MST 2024
+# SharedData Build 4115275 on Tue Jan 30 00:40:57 MST 2024
+# Start of session at: Mon May 20 16:54:54 2024
+# Process ID: 1674
+# Current directory: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/FIR8/2_Splited_IO/emulation/Vivado
+# Command line: vivado -mode tcl
+# Log file: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/FIR8/2_Splited_IO/emulation/Vivado/vivado.log
+# Journal file: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/FIR8/2_Splited_IO/emulation/Vivado/vivado.jou
+# Running On: GoodKook-Skull, OS: Linux, CPU Frequency: 3096.000 MHz, CPU Physical cores: 4, Host memory: 16731 MB
+#-----------------------------------------------------------
+source program_fpga.tcl
+# open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1295.816 ; gain = 47.836 ; free physical = 12349 ; free virtual = 18297
+# connect_hw_server -url localhost:3121 -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2023.2.2
+  **** Build date : Feb  9 2024 at 00:02:32
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2023.2.0
+  ****** Build date   : Oct 10 2023-13:01:56
+    **** Build number : 2023.2.1696910516
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+# current_hw_target [get_hw_targets */xilinx_tcf/Digilent/210319B9B157A]
+# set_property PARAM.FREQUENCY 15000000 [get_hw_targets */xilinx_tcf/Digilent/210319B9B157A]
+# open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210319B9B157A
+# set_property PROGRAM.FILE {./fir_pe.runs/impl_1/fir_pe.bit} [get_hw_devices xc7a100t_0]
+# current_hw_device [get_hw_devices xc7a100t_0]
+# set_property PROGRAM.FILE {./fir_pe.runs/impl_1/fir_pe.bit} [get_hw_devices xc7a100t_0]
+# program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon May 20 17:26:26 2024...

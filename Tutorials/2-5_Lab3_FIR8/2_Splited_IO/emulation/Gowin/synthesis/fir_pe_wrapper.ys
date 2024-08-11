@@ -1,0 +1,10 @@
+### Yosys taargetting GoWin
+read_verilog ../../fir_pe_wrapper.v
+read_verilog ../../../source/fir_pe.v
+
+hierarchy -check -top fir_pe_wrapper
+
+synth_gowin -top fir_pe_wrapper -vout fir_pe_wrapper.v
+
+write_verilog  fir_pe_wrapper.v
+stat

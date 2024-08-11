@@ -1,0 +1,40 @@
+Emulator Pin Mapping for "FIR8:Parallel IO" FPGA Emulation
+   Arduino DUE & Arty A7-100 & Verilog RTL
+--------------- ----------  -----------
+SAM3X8E/Digital Pmod /FPGA  ALU_wrapper
+--------------- ----------  -----------
+   PB26/22      JD-4 /F3    -
+   PA14/23      JD-10/G2    -
+   PA15/24      JD-3 /F4    clk_dut
+   PD0 /25      JD-9 /H2    -
+   PD1 /26      JD-2 /D3    get_emu
+   PD2 /27      JD-8 /D2    -
+   PD3 /28      JD-1 /D4    load_emu
+   PD6 /29      JD-7 /E2    clk_emu
+
+   PD9 /30      JC-4 /V11   Data_In[3]
+   PA7 /31      JC-10/U13   Data_In[7]
+   PD10/32      JC-3 /V10   Data_In[2]
+   PC1 /33      JC-9 /T13   Data_In[6]
+   PC2 /34      JC-2 /V12   Data_In[1]
+   PC3 /35      JC-8 /V14   Data_In[5]
+   PC4 /36      JC-1 /U12   Data_In[0]
+   PC5 /37      JC-7 /U14   Data_In[4]
+
+   PC6 /38      JB-4 /C15   Data_Out[3]
+   PC7 /39      JB-10/J15   Data_Out[7]
+   PC8 /40      JB-3 /D15   Data_Out[2]
+   PC9 /41      JB-9 /K15   Data_Out[6]
+   PA19/42      JB-2 /E16   Data_Out[1]
+   PA20/43      JB-8 /J18   Data_Out[5]
+   PC19/44      JB-1 /E15   Data_Out[0]
+   PC18/45      JB-7 /J17   Data_Out[4]
+
+   PC17/46      JA-4 /D12   Addr[3]
+   PC16/47      JA-10/K16   Addr[7]
+   PC15/48      JA-3 /A11   Addr[2]
+   PC14/49      JA-9 /A18   Addr[6]
+   PC13/50      JA-2 /B11   Addr[1]
+   PC12/51      JA-8 /B18   Addr[5]
+   PB21/52      JA-1 /G13   Addr[0]
+   PB14/53      JA-7 /D13   Addr[4]

@@ -1,0 +1,6 @@
+### Yosys taargetting Xilinx
+read_verilog -DEMULATION ../../../source/fir_pe.v
+
+synth_xilinx -top fir_pe -family xc7 -flatten
+write_verilog  fir_pe.v
+stat
