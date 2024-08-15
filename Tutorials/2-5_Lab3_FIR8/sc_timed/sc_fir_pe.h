@@ -29,9 +29,10 @@ SC_MODULE(sc_fir_pe)
         {
             wait(clk.posedge_event());
             Xout.write(Xin.read());
-            //y = Xin.read() * Cin.read() + Yin.read();
-            Yout.write(y);
+
             y = Xin.read() * Cin.read() + Yin.read();
+            Yout.write(y);
+            //y = Xin.read() * Cin.read() + Yin.read();
         }
     }
 

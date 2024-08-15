@@ -38,6 +38,7 @@ void fir ( acc_t *y, data_t x)
 
         c = filter_taps[i];
         acc += data*c;
-  }
-  *y=acc;
+    }
+    *y=acc;
 }
+
