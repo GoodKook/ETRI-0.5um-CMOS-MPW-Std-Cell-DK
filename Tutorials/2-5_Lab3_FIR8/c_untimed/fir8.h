@@ -41,6 +41,8 @@ typedef uint8_t   coef_t;
 typedef uint8_t	  data_t;
 typedef uint16_t  acc_t;
 
+#define FIR_MAC_VERSION
+//#define FIR_SHIFTER_VERSION
 void fir( acc_t* y, data_t x);
 
 #endif

@@ -15,12 +15,8 @@ History : Mar. 2024, First release
 #define AMPLITUDE       120.0
 #define OUT_TRUNCATE    0
 
-#ifndef MTI_SIM
 #define NOISE_RANGE     AMPLITUDE/2.0
 #include "../c_untimed/cnoise.h"
-#else
-#define NOISE_RANGE     0.0
-#endif
 
 void sc_fir8_tb::Test_Gen()
 {
@@ -28,13 +24,9 @@ void sc_fir8_tb::Test_Gen()
     uint16_t    yn;
     int         t = 0;
 
-#ifndef MTI_SIM
     // Generate tests & reference from C-Model 
     srand(time(NULL));
     cnoise_generate_colored_noise_uniform( X_in, F_SAMPLE, 0, NOISE_RANGE ); // Alpha=0(White Noise), range=+/-NOISE_RANGE
-#else
-    for (int i=0; i<F_SAMPLE; i++)  X_in[i] = 0.0;
-#endif
 
     for (t=0; t<F_SAMPLE; t++)
     {
@@ -52,12 +44,19 @@ void sc_fir8_tb::Test_Gen()
     }
 
     Yin.write(0);
+#ifdef VERILATED_CO_SIM
+    V_Yin.write((uint32_t)0);
+#endif
+
     t = 0;
 
     while(true)
     {
         wait(clk.posedge_event());
         Xin.write(x[t]);
+#ifdef VERILATED_CO_SIM
+        V_Xin.write((uint32_t)x[t]);
+#endif
         t = ((++t) % F_SAMPLE);
     }
 }
@@ -66,8 +65,8 @@ void sc_fir8_tb::Test_Mon()
 {
     int         n = 0;
     uint16_t    yout;
-#ifdef EMULATED
-    uint16_t    e_yout;
+#ifdef VERILATED_CO_SIM
+    uint16_t    V_yout;
 #endif
 
     FILE *fp = fopen ( "sc_fir8_tb_out.txt", "w" );
@@ -76,19 +75,22 @@ void sc_fir8_tb::Test_Mon()
     {
         wait(clk.posedge_event());
         yout = (uint16_t)Yout.read();
-#ifdef EMULATED
-        e_yout = (uint16_t)E_Yout.read();
+#ifdef VERILATED_CO_SIM
+        V_yout = (uint16_t)V_Yout.read();
 #endif
         if (yout==0)    continue;
 
         if (y[n]!=yout)
             printf("Error:");
-#ifdef EMULATED
-        if (y[n]!=e_yout)
-            printf("E_Err:");
+#ifdef VERILATED_CO_SIM
+        if (y[n]!=V_yout)
+        {
+            printf("V_Err:");
+            yout = V_yout;
+        }
 #endif
         printf("[%4d] y=%d / Yout=%d\n", n, (uint16_t)y[n], yout);
-        fprintf(fp, "%5d %5d\n", (uint16_t)x[n], (uint16_t)yout);   //y[i]);
+        fprintf(fp, "%5d %5d\n", (uint16_t)x[n], (uint16_t)yout);
 
         n++;
         if (n==F_SAMPLE)

@@ -19,20 +19,20 @@ SC_MODULE(sc_fir_pe)
     sc_in<sc_uint<16> >     Yin;
     sc_out<sc_uint<16> >    Yout;
 
-    sc_signal<sc_uint<16> > y;
+    sc_signal<sc_uint<16> > mul;
+    sc_signal<sc_uint<16> > rYin;
     
     void pe_thread(void)
     {
-        //sc_uint<16>     y=0;  // Beware! Do NOT use variable for F/F model
-        
         while (true)
         {
             wait(clk.posedge_event());
             Xout.write(Xin.read());
 
-            y = Xin.read() * Cin.read() + Yin.read();
-            Yout.write(y);
-            //y = Xin.read() * Cin.read() + Yin.read();
+            mul.write(Xin.read() * Cin.read()); // Multiplication
+            rYin.write(Yin.read()); // Delay 1-clock
+
+            Yout.write(rYin.read() + mul.read());   // Accumulation
         }
     }
 
