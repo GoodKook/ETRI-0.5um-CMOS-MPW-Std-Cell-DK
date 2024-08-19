@@ -21,7 +21,9 @@ x_2 = np.asarray(img)
 #print(x_2.ndim)
 #print(len(x_2))
 
-nRow, nCol = x_2.shape
+#nRow,nCol = x_2.shape
+print(np.shape(x_2))
+nRow,nCol = np.shape(x_2)
 #print("Row={} Col={}".format(nRow, nCol))
 
 file_out = open(szImageName+szLayerName+".mag", 'w')

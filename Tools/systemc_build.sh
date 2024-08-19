@@ -9,7 +9,7 @@ if [ ! -d ./systemc ]; then
     git clone https://github.com/accellera-official/systemc.git
 fi
 
-source sc_env
+source SC_env
 
 cd systemc
 git pull         # Make sure git repository is up-to-date

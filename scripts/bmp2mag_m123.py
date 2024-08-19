@@ -30,7 +30,7 @@ img = Image.open(szImageName)
 img.show()
 
 x_2 = np.asarray(img)
-nRow, nCol = x_2.shape
+nRow,nCol = x_2.shape
 
 file_out = open(szImageName+".mag", 'w')
 file_out.write("magic\n")

@@ -1,0 +1,267 @@
+******************************************************************************
+*                                                                                   * 
+*       ETRI 0.5um Analog CMOS PROCESS SPICE MODEL      *
+*       NSPL VERSION 1.0                                                   * 
+*       Date : Sep 15, 2023                                                  *
+*                                                                                    * 
+*   Temperature parameters are not included and will be available later  *  
+*                                                                            *
+*       In This Model LIB are contain:                              *  
+*                                                                            *
+*       1.LIB TT : typical model                                             *
+*             SS : Slow NMOS Slow PMOS model                     *
+*             FF : Fast NMOS Fast PMOS mode                        *
+*             SF : Slow NMOS Fast PMOS model                      *
+*             FS : Fast NMOS Slow PMOS model                      *
+*                                                                                   *
+* To use the 5 corner directly please program in this style: 
+*
+*     .lib 'lib_path/lib_name' corner_name 
+*     
+*
+*  EX: .lib '/home/user/05cmos_mosfet_corner.lib' TT   
+*        
+*             for typical N,PMOS
+*      
+*
+* note:
+*      corner_name
+*       TT : typical model
+*       SS : Slow NMOS Slow PMOS model
+*       FF : Fast NMOS Fast PMOS model
+*       SF : Slow NMOS Fast PMOS model
+*       FS : Fast NMOS Slow PMOS model
+*                                                                            *
+*                                                                            *
+*                                                                            *
+*                                                                            *
+*****************************************************************************
+*
+*****************************************************************************
+.LIB CORRELATION
+.PARAM	
+* nmos
++TOXN    = 1.05e-08
++VTH0N   = 0.6854
++RSHN    = 50
++XLN     = 0
++XWN     = -1e-07
+*
+* pmos
++TOXP = 1.05e-08
++VTH0P   = -0.9557
++RSHP    = 150
++XLP     = 0
++XWP     = -1e-07
+.LIB './05cmos_mosfet_corner.lib' MOS
+.ENDL CORRELATION
+******************************************************************************
+*
+*
+*************** CORNER_LIB OF TYPICAL MODEL ****************************
+.LIB TT
+.PARAM	
+* nmos
++TOXN    = 1.05e-08
++VTH0N   = 0.6854
++RSHN    = 50
++XLN     = 0
++XWN     = -1e-07
+*
+* pmos
++TOXP = 1.05e-08
++VTH0P   = -0.9557
++RSHP    = 150
++XLP     = 0
++XWP     = -1e-07
+.LIB './05cmos_mosfet_corner.lib' MOS
+.ENDL TT
+******************************************************************************
+*
+*
+*************** CORNER_LIB OF  SNSP   MODEL *****************************
+.LIB SS
+.PARAM	
+* nmos
++TOXN    = 1.155e-08
++VTH0N   = 0.754
++RSHN    = 55
++XLN     = 2.0e-08
++XWN     = -1.2e-07
+*
+* pmos
++TOXP    = 1.155e-08
++VTH0P   = -1.051
++RSHP    = 165
++XLP     = 2e-08
++XWP     = -1.2e-07
+.LIB './05cmos_mosfet_corner.lib' MOS
+.ENDL SS
+******************************************************************************
+*
+*
+*************** CORNER_LIB OF  FNFP   MODEL *****************************
+.LIB FF
+.PARAM	
+* nmos
++TOXN    = 0.945e-08
++VTH0N   = 0.617
++RSHN    = 45
++XLN     = -2.0e-08
++XWN     = -0.8e-07
+*
+* pmos
++TOXP    = 0.945e-08
++VTH0P   = -0.860
++RSHP    = 135
++XLP     = -2.0e-08
++XWP     = -0.8e-07
+.LIB './05cmos_mosfet_corner.lib' MOS
+.ENDL FF
+******************************************************************************
+*
+*
+*************** CORNER_LIB OF  SNFP   MODEL *****************************
+.LIB SF
+.PARAM	
+* nmos
++TOXN    = 1.155e-08
++VTH0N   = 0.754
++RSHN    = 55
++XLN     = 2.0e-08
++XWN     = -1.2e-07
+*
+* pmos
++TOXP    = 0.945e-08
++VTH0P   = -0.860
++RSHP    = 135
++XLP     = -2.0e-08
++XWP     = -0.8e-07
+.LIB './05cmos_mosfet_corner.lib' MOS
+.ENDL SF
+******************************************************************************
+*
+*
+*************** CORNER_LIB OF  FNSP   MODEL *****************************
+.LIB FS
+.PARAM	
+* nmos
++TOXN    = 0.945e-08
++VTH0N   = 0.617
++RSHN    = 45
++XLN     = -2.0e-08
++XWN     = -0.8e-07
+*
+* pmos
++TOXP    = 1.155e-08
++VTH0P   = -1.051
++RSHP    = 165
++XLP     = 2e-08
++XWP     = -1.2e-07
+.LIB './05cmos_mosfet_corner.lib' MOS
+.ENDL FS
+******************************************************************************
+*
+*
+*
+******************************************************************************
+*
+.LIB MOS
+*
+***************************************************************
+*                 NMOS DEVICES MODEL                          *
+***************************************************************
+*
+.MODEL nmos4 nmos (                                 LEVEL   = 49                  
++VERSION = 3.2            TNOM    = 27             TOX     = TOXN            
++XJ      = 2.7E-7         NCH     = 2.4E17         VTH0    = VTH0N          
++K1      = 0.7161694      K2      = -4.636134E-5   K3      = 30                 
++K3B     = -10            W0      = 8.4822E-6      NLX     = 2.605385E-7        
++DVT0W   = 0              DVT1W   = 0              DVT2W   = -0.032             
++DVT0    = 1.1124703      DVT1    = 0.2497294      DVT2    = 0                  
++U0      = 503.2726356    UA      = 1E-11          UB      = 2.436791E-18       
++UC      = 8.083776E-11   VSAT    = 8.511705E4     A0      = 0.6441421          
++AGS     = 0.1378118      B0      = 1.24596E-8     B1      = -1.01E-7           
++KETA    = -7.464619E-3   A1      = 0              A2      = 1                  
++RDSW    = 1.19434E3      PRWG    = -0.01          PRWB    = 8.389165E-3        
++WR      = 1              WINT    = 1.513015E-7    LINT    = 2.156876E-8        
++XL      = XLN            XW      = XWN          DWG     = -1.742794E-8       
++DWB     = 6.866549E-9    VOFF    = -0.0998905     NFACTOR = 1.1                
++CIT     = 0              CDSC    = 4.327068E-4    CDSCD   = -9.57815E-5        
++CDSCB   = 4.5945E-4      ETA0    = 1.109281E-3    ETAB    = -0.2               
++DSUB    = 0.8836863      PCLM    = 0.6857613      PDIBLC1 = 0.0466939          
++PDIBLC2 = 5E-4           PDIBLCB = 0              DROUT   = 0.2761545          
++PSCBE1  = 4.495624E8     PSCBE2  = 5.004804E-5    PVAG    = 0                  
++DELTA   = 1E-3           RSH     = RSHN          RD      = 50                 
++RS      = 50             ACM     = 2              LDIF    = 1.9E-7             
++HDIF    = 7.6E-7         N       = 1.013          JS      = 3.6051E-7          
++JSW     = 6.9937E-13     MOBMOD  = 1              PRT     = 571.9493738        
++UTE     = -1             KT1     = -0.179056      KT1L    = -4.647498E-8       
++KT2     = 0.0101941      UA1     = 2.913982E-9    UB1     = -8.07477E-19       
++UC1     = 5.602746E-11   AT      = 3.31788E3      NQSMOD  = 0                  
++WL      = -4.79392E-20   WLN     = 0.5            WW      = -1.01245E-20       
++WWN     = 0.5000002      WWL     = 3.845031E-22   LL      = 0                  
++LLN     = 1              LW      = 0              LWN     = 1.3697465          
++LWL     = 3.210352E-22   CAPMOD  = 2              CGDO    = 3.37325E-10        
++CGSO    = 3.37325E-10    CGBO    = 1.73E-10       FC      = 0.999              
++CJ      = 6.82626E-4     PB      = 0.8466723      MJ      = 0.3926956          
++CJSW    = 3.294102E-10   PBSW    = 0.7439323      MJSW    = 0.1781509          
++CJSWG   = 2.851634E-10   PBSWG   = 0.5926519      MJSWG   = 0.3657623          
++TPB     = 0              NOFF    = 1              ACDE    = 1                  
++MOIN    = 15             TPB     = 0              TPBSW   = 0                  
++TPBSWG  = 0              TCJ     = 0              TCJSW   = 0                  
++TCJSWG  = 0               )                                                    
+*
+**************************************************************************
+*
+*
+***************************************************************
+*                 PMOS DEVICES MODEL                          *
+***************************************************************
+*
+.MODEL pmos4 pmos (                                 LEVEL   = 49                      
++VERSION = 3.2            TNOM    = 27             TOX     = TOXP            
++XJ      = 2.2E-7         NCH     = 5E16           VTH0    = VTH0P          
++K1      = 0.506553       K2      = 0              K3      = 22.729             
++K3B     = -6.08389       W0      = 1.69386E-6     NLX     = 1.9959E-7          
++DVT0W   = 0              DVT1W   = 0              DVT2W   = -0.032             
++DVT0    = 3.50997        DVT1    = 0.727088       DVT2    = -0.0183815         
++U0      = 266.196        UA      = 3.69133E-9     UB      = 1E-21              
++UC      = -3.87597E-11   VSAT    = 9.55069E4      A0      = 0.623211           
++AGS     = 0.194947       B0      = 3.06684E-7     B1      = 1E-7               
++KETA    = -4.28948E-3    A1      = 3.86287E-4     A2      = 0.9                
++RDSW    = 3.60374E3      PRWG    = -0.0799373     PRWB    = 0.0411799          
++WR      = 1              WINT    = 1.36348E-7     LINT    = 6.23443E-9         
++XL      = XLP              XW      = XWP          DWG     = -2.20408E-8        
++DWB     = 3.29479E-9     VOFF    = -0.134374      NFACTOR = 1.87019            
++CIT     = 0              CDSC    = 6.79352E-4     CDSCD   = -1E-4              
++CDSCB   = 1.06434E-3     ETA0    = 0.0463143      ETAB    = 0                  
++DSUB    = 0.338036       PCLM    = 1.53691        PDIBLC1 = 0                  
++PDIBLC2 = 4.5E-4         PDIBLCB = 0              DROUT   = 1.79767            
++PSCBE1  = 8E8            PSCBE2  = 7E-9           PVAG    = -0.29474           
++DELTA   = 7.07618E-3     RSH     = RSHP            RD      = 150                
++RS      = 150            ACM     = 2              LDIF    = 1.9E-7             
++HDIF    = 7.6E-7         N       = 0.999          JS      = 2.1749E-7          
++JSW     = 3.1329E-13     MOBMOD  = 1              PRT     = 1.40385E3          
++UTE     = -1.50136       KT1     = -0.361958      KT1L    = -4.00618E-8        
++KT2     = 0              UA1     = -4.6507E-10    UB1     = -1.89925E-18       
++UC1     = -1E-10         AT      = 1.02107E3      NQSMOD  = 0                  
++WL      = -9.22052E-15   WLN     = 1              WW      = 1.22108E-22        
++WWN     = 1              WWL     = 2.76361E-22    LL      = 2.64756E-22        
++LLN     = 1              LW      = 0              LWN     = 1.29803            
++LWL     = 2.61288E-22    CAPMOD  = 2              CGDO    = 2.25487E-10        
++CGSO    = 2.25487E-10    CGBO    = 1.73E-10       FC      = 0.999              
++CJ      = 7.88187E-4     PB      = 0.896595       MJ      = 0.424322           
++CJSW    = 2.42042E-10    PBSW    = 0.486786       MJSW    = 0.138744           
++CJSWG   = 1.33708E-10    PBSWG   = 0.4            MJSWG   = 0.210204           
++TCJ     = 0              TPB     = 0              TCJSW   = 0                  
++TPBSW   = 0              NOFF    = 1              ACDE    = 1                  
++MOIN    = 15             TPB     = 0              TPBSW   = 0                  
++TPBSWG  = 0              TCJ     = 0              TCJSW   = 0                  
++TCJSWG  = 0               )                                                    
+*                                                                               
+**************************************************************************
+*
+.ENDL MOS 
+*                                                                               
+*

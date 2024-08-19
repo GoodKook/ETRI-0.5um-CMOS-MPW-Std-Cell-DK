@@ -10,7 +10,7 @@ if [ ! -d ./verilator ]; then
 fi
 
 #Environment variables for SystemC
-source sc_env
+source SC_env
 
 unset VERILATOR_ROOT
 

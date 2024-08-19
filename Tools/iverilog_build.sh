@@ -6,7 +6,7 @@ echo "-------------------------------"
 #source prerequisites.sh
 
 #Environment variables for SystemC
-source sc_env
+source SC_env
 
 if [ ! -d ./iverilog ]; then
     # only once
