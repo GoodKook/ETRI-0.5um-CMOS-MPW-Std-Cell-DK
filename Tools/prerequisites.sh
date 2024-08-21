@@ -26,7 +26,7 @@ sudo apt install -y \
                 libboost-python-dev libboost-filesystem-dev \
                 qtbase5-dev qtdeclarative5-dev \
                 swig libtool libjpeg-dev \
-                perl perl-doc libgtk-3-dev gettext help2man \
+                perl perl-doc libgtk2.0-dev libgtk-3-dev gettext help2man \
                 desktop-file-utils libbz2-dev libjudy-dev \
                 libsecret-1-dev
 sudo apt --fix-broken install
