@@ -24,7 +24,6 @@ VCFLAGS		+= -CFLAGS -g
 VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8_TB
-VCFLAGS		+= -CFLAGS -DVERILATED
 VCFLAGS		+= -LDFLAGS -lm
 VCFLAGS		+= -LDFLAGS -lgsl
 
@@ -53,7 +52,7 @@ all :
 build : $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
-	$(VERILATOR) --sc -Wall --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
+	$(VERILATOR) --sc -Wall --trace --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 lint : $(VERILOG_SRCS)
@@ -63,6 +62,9 @@ run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
 	../../2-5_Lab3_FIR8/sc_timed/sc_plotDFT.py &
 	gtkwave sc_fir8.vcd --save=sc_fir8.gtkw &
+
+wave : Vfir_pe.vcd
+	gtkwave Vfir_pe.vcd --save=Vfir_pe.gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)

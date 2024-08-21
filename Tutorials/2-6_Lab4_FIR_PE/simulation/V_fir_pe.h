@@ -16,13 +16,14 @@ SC_MODULE(V_fir_pe)
     sc_in<bool>             clk;
     sc_in<bool>             Rdy;
     sc_out<bool>            Vld;
-    sc_in<sc_uint<8> >      Cin;
+    sc_in<sc_uint<6> >      Cin;
     sc_in<sc_uint<4> >      Xin;
     sc_out<sc_uint<4> >     Xout;
     sc_in<sc_uint<4> >      Yin;
     sc_out<sc_uint<4> >     Yout;
 
     Vfir_pe*            u_Vfir_pe;
+
     sc_signal<uint32_t> _Cin;
     sc_signal<uint32_t> _Xin;
     sc_signal<uint32_t> _Xout;

@@ -11,6 +11,8 @@ History : Mar. 2024, First release
 #include <systemc.h>
 #include "sc_fir8.h"
 
+#include <verilated_vcd_sc.h>
+
 SC_MODULE(sc_fir8_tb)
 {
     sc_clock                clk;
@@ -27,6 +29,7 @@ SC_MODULE(sc_fir8_tb)
 #endif
 
     sc_fir8*                u_sc_fir8;
+    VerilatedVcdSc*     tfp;    // Verilator VCD
 
     // Test utilities
     void Test_Gen();
@@ -81,6 +84,16 @@ SC_MODULE(sc_fir8_tb)
         sc_trace(fp, Rdy,  "Rdy");
         sc_trace(fp, Vld,  "Vld");
 #endif
+
+        // Trace Verilated Verilog internals
+        Verilated::traceEverOn(true);
+
+        tfp = new VerilatedVcdSc;
+        sc_start(SC_ZERO_TIME);
+        u_sc_fir8->
+            u_fir_pe[N_PE_ARRAY-1]->
+                u_Vfir_pe->trace(tfp, 1);  // Trace levels of hierarchy
+        tfp->open("Vfir_pe.vcd");
     }
     
     ~sc_fir8_tb(void)

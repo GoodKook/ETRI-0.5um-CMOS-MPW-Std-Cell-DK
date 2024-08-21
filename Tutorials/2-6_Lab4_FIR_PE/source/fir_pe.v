@@ -3,11 +3,9 @@
 // Author   : goodkook@gmail.com
 // History  : Mar. 2024, First Release
 
-/* verilator lint_off UNUSEDSIGNAL */
-
 module fir_pe (clk, Cin, Xin, Xout, Yin, Yout, Rdy, Vld);
     input           clk;
-    input   [7:0]   Cin;
+    input   [5:0]   Cin;
     input   [3:0]   Xin;
     output  [3:0]   Xout;
     input   [3:0]   Yin;

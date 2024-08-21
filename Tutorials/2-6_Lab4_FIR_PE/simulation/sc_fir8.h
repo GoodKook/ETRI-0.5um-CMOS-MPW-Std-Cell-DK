@@ -10,14 +10,9 @@ History : Mar. 2024, First release
 
 #include <systemc.h>
 
-#ifdef VERILATED
 #include "V_fir_pe.h"
-#endif
 #ifdef EMULATED
 #include "E_fir_pe.h"
-#endif
-#if !defined(VERILATED) && !defined(EMULATED)
-#error Specify PE model: VERILATED or EMULATED
 #endif
 
 #include "fir8.h"   // Filter Tab. Coeff
@@ -39,16 +34,14 @@ SC_MODULE(sc_fir8)
     sc_out<bool>            E_Vld;
 #endif
 
-#ifdef VERILATED
-    V_fir_pe*       u_fir_pe[N_PE_ARRAY];
-#endif
+    V_fir_pe*           u_fir_pe[N_PE_ARRAY];
 #ifdef EMULATED
-    E_fir_pe*       u_E_fir_pe;
+    E_fir_pe*           u_E_fir_pe;
 #endif
 
     sc_signal<sc_uint<4> >  X[N_PE_ARRAY-1];    // X-input
     sc_signal<sc_uint<4> >  Y[N_PE_ARRAY-1];    // Accumulated
-    sc_signal<sc_uint<8> >  C[N_PE_ARRAY];      // Filter-Tabs Coeff
+    sc_signal<sc_uint<6> >  C[N_PE_ARRAY];      // Filter-Tabs Coeff
     sc_signal<bool>         Valid[N_PE_ARRAY];
 
 #ifdef  VCD_TRACE_FIR8
@@ -67,13 +60,8 @@ SC_MODULE(sc_fir8)
         for (int i=0; i<N_PE_ARRAY; i++)
         {
             sprintf(szPeName, "u_PE_%d", i);
-#ifdef VERILATED
             u_fir_pe[i] = new V_fir_pe(szPeName);
-#endif
-#if !defined(VERILATED) && !defined(EMULATED)
-#error fir_pe NOT defined
-#endif
-            C[i].write(sc_uint<8>(filter_taps[i]));
+            C[i].write(sc_uint<8>(filter_taps[i])); // Filter Coeff.
             u_fir_pe[i]->Cin(C[i]);
             u_fir_pe[i]->clk(clk);
         }
