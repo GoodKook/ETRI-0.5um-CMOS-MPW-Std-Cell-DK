@@ -1,0 +1,16 @@
+#export SYSTEMC=/usr/local/systemc-2.3.3
+export SYSTEMC=/usr/local/systemc-3.0.0
+export SYSTEMC_HOME=$SYSTEMC
+export SYSTEMC_INCLUDE=$SYSTEMC_HOME/include
+export SYSTEMC_LIBDIR=$SYSTEMC_HOME/lib-linux64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SYSTEMC_LIBDIR
+
+export QFLOW_TECH_DIR=/usr/local/share/qflow/tech
+export MAGIC_TECH_DIR=/usr/local/lib/magic/sys
+
+#source /usr/local/oss-cad-suite/environment
+
+export OPENROAD_EXE=$(command -v openroad)
+export YOSYS_CMD=$(command -v yosys)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/bin
+
