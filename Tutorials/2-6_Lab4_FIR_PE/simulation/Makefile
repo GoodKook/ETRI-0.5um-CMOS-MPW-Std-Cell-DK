@@ -17,7 +17,9 @@ SC_HDRS      =  ./sc_fir8.h \
 				./V_fir_pe.h
 
 # Verilator vars -----------------------------------------------
-VERILOG_SRCS =  ../source/fir_pe.v
+build: VERILOG_SRCS =  ../source/fir_pe.v
+build_net: VERILOG_SRCS =  ../synthesis/fir_pe.v \
+					~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v
 VERILATOR    = verilator
 VCFLAGS    	 = -CFLAGS -std=c++17
 VCFLAGS		+= -CFLAGS -g
@@ -26,6 +28,13 @@ VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8_TB
 VCFLAGS		+= -LDFLAGS -lm
 VCFLAGS		+= -LDFLAGS -lgsl
+#VCFLAGS		+= -CFLAGS -fPIC
+#VCFLAGS		+= -LDFLAGS -shared
+
+# iVerilog Timing Sim. vars ---------------------------------------
+build_tim: VERILOG_SRCS = fir_pe_TB.v \
+					../synthesis/fir_pe.v \
+					~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v
 
 # Targets ------------------------------------------------------
 TOP_MODULE   = fir_pe
@@ -39,11 +48,26 @@ all :
 	@echo '    Linting Verilog,'
 	@echo '        make lint'
 	@echo ''
-	@echo '    Building,'
+	@echo '    Building functional-sim with SystemC TB,'
 	@echo '        make build'
 	@echo ''
-	@echo '    Running,'
+	@echo '    Building netlist-sim with SystemC TB,'
+	@echo '        make build_net'
+	@echo ''
+	@echo '    Building Timing-sim with SystemVerilog TB,'
+	@echo '        make build_tim'
+	@echo ''
+	@echo '    Running Functional simulation,'
 	@echo '        make run'
+	@echo ''
+	@echo '    Running Timing simulation,'
+	@echo '        make run_tim'
+	@echo ''
+	@echo '    View DUT Verilog trace(Functional),'
+	@echo '        make wave'
+	@echo ''
+	@echo '    View DUT Verilog trace(Timing),'
+	@echo '        make wave_tim'
 	@echo ''
 	@echo '    Clean up working folder,'
 	@echo '        make clean'
@@ -51,25 +75,39 @@ all :
 
 build : $(TARGET_DIR)/$(TARGET)
 
+build_net : $(TARGET_DIR)/$(TARGET)
+
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
 	$(VERILATOR) --sc -Wall --trace --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
-lint : $(VERILOG_SRCS)
-	$(VERILATOR) --sc -Wall --top-module $(TOP_MODULE) $(VERILOG_DEF) $(VERILOG_SRCS)
+build_tim : $(TOP_MODULE)
+
+$(TOP_MODULE) : $(VERILOG_SRCS)
+	iverilog -g2005-sv -Tmin -gspecify -o $(TOP_MODULE) $(VERILOG_SRCS)
+
+lint : ../source/$(TOP_MODULE).v
+	$(VERILATOR) --sc -Wall -CFLAGS -fPIC --top-module $(TOP_MODULE) ../source/$(TOP_MODULE).v
 
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
 	../../2-5_Lab3_FIR8/sc_timed/sc_plotDFT.py &
 	gtkwave sc_fir8.vcd --save=sc_fir8.gtkw &
 
+run_tim : $(TOP_MODULE)
+	./$(TOP_MODULE)
+
 wave : Vfir_pe.vcd
 	gtkwave Vfir_pe.vcd --save=Vfir_pe.gtkw &
 
+wave_tim : fir_pe_TB.vcd
+	gtkwave fir_pe_TB.vcd --save=fir_pe_TB.gtkw &
+
 clean :
 	rm -rf $(TARGET_DIR)
-	rm -rf sc_fir8_tb_out.txt
+	rm -f sc_fir8_tb_out.txt
 	rm -f *.vcd
+	rm -f $(TOP_MODULE)
 
 debug : $(TARGET_DIR)/$(TARGET)
 	ddd $(TARGET_DIR)/$(TARGET)

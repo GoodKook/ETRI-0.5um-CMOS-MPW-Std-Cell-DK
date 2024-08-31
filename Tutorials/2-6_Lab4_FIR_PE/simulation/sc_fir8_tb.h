@@ -28,7 +28,7 @@ SC_MODULE(sc_fir8_tb)
     sc_signal<bool>            E_Vld;
 #endif
 
-    sc_fir8*                u_sc_fir8;
+    sc_fir8*            u_sc_fir8;
     VerilatedVcdSc*     tfp;    // Verilator VCD
 
     // Test utilities
@@ -92,7 +92,7 @@ SC_MODULE(sc_fir8_tb)
         sc_start(SC_ZERO_TIME);
         u_sc_fir8->
             u_fir_pe[N_PE_ARRAY-1]->
-                u_Vfir_pe->trace(tfp, 1);  // Trace levels of hierarchy
+                u_Vfir_pe->trace(tfp, 99);  // Trace levels of hierarchy
         tfp->open("Vfir_pe.vcd");
     }
     
