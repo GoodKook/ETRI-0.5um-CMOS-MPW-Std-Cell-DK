@@ -716,7 +716,9 @@ style  lambda=0.30(ETRI)
 
 #final pselect 
  templayer FSP
- bloat-or pdiff,rpd,pfet,psd,pdc/a,psc/a,pfet * 60 ndiff,rnd,ndc/a,nsd,nsc/a,nfet 0
+ bloat-or psd * 100 nsd 0
+ bloat-or pdiff,rpd,pfet,pdc/a,psc/a,pfet * 60 ndiff,rnd,ndc/a,nsc/a,nfet 0
+# bloat-or pdiff,rpd,pfet,psd,pdc/a,psc/a,pfet * 60 ndiff,rnd,ndc/a,nsd,nsc/a,nfet 0
  or XDP
 #give diff nselect priority
  and-not XDN
@@ -728,7 +730,9 @@ style  lambda=0.30(ETRI)
 
 #final nselect
  templayer FSN
- bloat-or ndiff,rnd,nfet,nsd,ndc/a,nsc/a,nfet * 60 pdiff,rpd,pdc/a,psd,psc/a,pfet 0
+ bloat-or nsd * 100 psd 0
+ bloat-or ndiff,rnd,nfet,ndc/a,nsc/a,nfet * 60 pdiff,rpd,pdc/a,psc/a,pfet 0
+# bloat-or ndiff,rnd,nfet,nsd,ndc/a,nsc/a,nfet * 60 pdiff,rpd,pdc/a,psd,psc/a,pfet 0
  or XDN
 #never conflict with final pselect
  and-not FSP
@@ -766,7 +770,7 @@ style  lambda=0.30(ETRI)
  calma 31 0
 
  layer CCE gc2
- squares 0 90 90
+ squares 60 90 90
  calma 31 0
 
  layer CCE p2c
@@ -774,11 +778,11 @@ style  lambda=0.30(ETRI)
  calma 31 0
 
  layer CCE gc2
- squares 0 90 90
+ squares 60 90 90
  calma 31 0
 
  layer CCC gc
- squares 0 60 60
+ squares 60 60 60
  calma 31 0
 
  layer CV1 m2c/m1

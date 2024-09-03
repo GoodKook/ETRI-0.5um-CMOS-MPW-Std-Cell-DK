@@ -77,7 +77,7 @@ $(VPI_TARGET) : $(VPI_SRCS) $(VPI_HDRS)
 			$(VPI_INC_PATH) $(VPI_LIB_PATH) \
 			$(VPI_CFLAGS) \
 			$(VPI_SRCS) \
-    		-o vpi_stub.vpi \
+    		-o $(VPI_TARGET) \
 			 $(VPI_LFLAGS)
 
 # iVerilog ---------------------------------------------------------------

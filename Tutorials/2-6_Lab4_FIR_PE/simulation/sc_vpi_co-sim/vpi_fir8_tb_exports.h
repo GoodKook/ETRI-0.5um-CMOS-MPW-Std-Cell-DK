@@ -15,8 +15,7 @@ void init_sc     (void);
 void exit_sc     (void);
 void sample_hdl  (void *In_vector);
 void drive_hdl   (void *Out_vector);
-void advance_sim (unsigned long simtime);
-void exec_sc     (void *invector, void *outvector, unsigned long simtime);
+void exec_sc     (void *invector, void *outvector);
 #ifdef __cplusplus
 }
 #endif

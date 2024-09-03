@@ -113,6 +113,7 @@ void sc_fir8_tb::Test_Mon()
             fflush(fp);
             fclose(fp);
             sc_stop();
+            sc_Stopped = true;
         }
     }
 }

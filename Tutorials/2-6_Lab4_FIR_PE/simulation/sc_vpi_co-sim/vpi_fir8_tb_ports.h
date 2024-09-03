@@ -10,18 +10,19 @@
 
 // from Verilog
 typedef struct tag_Input {
-    unsigned long  clk;
-    unsigned long  eXout;
-    unsigned long  eYout;
-    unsigned long  eVld;
+    unsigned long   sync_sc;
+    unsigned long   eXout;
+    unsigned long   eYout;
+    unsigned long   eVld;
 } IN_VECTOR;
 
 // to Verilog
 typedef struct tag_Output {
-    unsigned long  clk_sc;
-    unsigned long  eXin;
-    unsigned long  eYin;
-    unsigned long  eRdy;
+    unsigned long   clk;
+    unsigned long   eXin;
+    unsigned long   eYin;
+    unsigned long   eRdy;
+    unsigned long   end_of_sim;
 } OUT_VECTOR;
 
 #endif

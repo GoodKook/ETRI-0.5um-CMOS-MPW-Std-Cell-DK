@@ -28,6 +28,8 @@ SC_MODULE(sc_fir8_tb)
 
     sc_fir8*                u_sc_fir8;
 
+    bool    sc_Stopped;
+
     // Test utilities
     void Test_Gen();
     void Test_Mon();
@@ -37,7 +39,7 @@ SC_MODULE(sc_fir8_tb)
 
     sc_trace_file* fp;  // VCD file
 
-    SC_CTOR(sc_fir8_tb): clk("clk")
+    SC_CTOR(sc_fir8_tb): clk("clk"), sc_Stopped(false)
     {
         SC_THREAD(Test_Gen);
         sensitive << clk;

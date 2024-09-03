@@ -13,11 +13,10 @@
 #include "vpi_fir8_tb_ports.h"
 #include "vpi_fir8_tb_exports.h"
 
-#define CLK_HALF_CYCLE 5
-
 // RTL-SystemC communitation data
 typedef struct fir8_pe {
-    vpiHandle  clk_sc;
+    vpiHandle  sync_sc;
+    vpiHandle  end_of_sim;
     vpiHandle  clk;
     vpiHandle  eXin;
     vpiHandle  eYin;
@@ -28,7 +27,7 @@ typedef struct fir8_pe {
 } t_if;
 
 int sc_fir8_tb_tf(char *user_data);
-int sc_clk_callback(p_cb_data cb_data);
+int sc_sync_callback(p_cb_data cb_data);
 
 static void my_task(void);
 
@@ -48,28 +47,29 @@ int sc_fir8_tb_tf(char *user_data)
     args = vpi_iterate(vpiArgument, inst_h);
 
     // set arguments (Positional!)
-    ip->clk     = vpi_scan(args);
-    ip->clk_sc  = vpi_scan(args);
-    ip->eXin    = vpi_scan(args);
-    ip->eYin    = vpi_scan(args);
-    ip->eXout   = vpi_scan(args);
-    ip->eYout   = vpi_scan(args);
-    ip->eRdy    = vpi_scan(args);
-    ip->eVld    = vpi_scan(args);
+    ip->sync_sc     = vpi_scan(args);
+    ip->end_of_sim  = vpi_scan(args);
+    ip->clk         = vpi_scan(args);
+    ip->eXin        = vpi_scan(args);
+    ip->eYin        = vpi_scan(args);
+    ip->eXout       = vpi_scan(args);
+    ip->eYout       = vpi_scan(args);
+    ip->eRdy        = vpi_scan(args);
+    ip->eVld        = vpi_scan(args);
 
     vpi_free_object(args);
   
-    // setup callback (clk Sync)
+    // setup callback (Sync)
     cb_data_s.user_data = (char *)ip;
     cb_data_s.reason    = cbValueChange;
-    cb_data_s.cb_rtn    = sc_clk_callback; // callback
+    cb_data_s.cb_rtn    = sc_sync_callback; // callback
     cb_data_s.time      = &time_s;
     cb_data_s.value     = &value_s;
 
     time_s.type         = vpiSimTime;
     value_s.format      = vpiIntVal;
 
-    cb_data_s.obj       = ip->clk;
+    cb_data_s.obj       = ip->sync_sc;
     vpi_register_cb(&cb_data_s);
 
     init_sc();  // Initialize SystemC
@@ -78,7 +78,7 @@ int sc_fir8_tb_tf(char *user_data)
 }
 
 // Sync. callback at Value change
-int sc_clk_callback(p_cb_data cb_data)
+int sc_sync_callback(p_cb_data cb_data)
 {
     t_if  *ip;
     s_vpi_value  value_s;
@@ -89,11 +89,12 @@ int sc_clk_callback(p_cb_data cb_data)
   
     ip = (t_if *)cb_data->user_data;
   
-    // Read current RTL value
+    // Read current RTL value(HDL input port's)
     value_s.format = vpiIntVal;
 
-    vpi_get_value(ip->clk, &value_s);
-    invector.clk = value_s.value.integer;
+    vpi_get_value(ip->sync_sc, &value_s);
+    invector.sync_sc = value_s.value.integer;
+    if (!invector.sync_sc)  return(0);  // if NOT pos-edge,
 
     vpi_get_value(ip->eXout, &value_s);
     invector.eXout = value_s.value.integer;
@@ -105,17 +106,13 @@ int sc_clk_callback(p_cb_data cb_data)
     invector.eVld = value_s.value.integer;
 
     // SystemC Execution
-    exec_sc(&invector, &outvector, (CLK_HALF_CYCLE));
+    exec_sc(&invector, &outvector);
 
-    value_s.value.integer = outvector.clk_sc;
-    vpi_put_value(ip->clk_sc, &value_s, NULL, vpiNoDelay);
+    // Write current RTL value(HDL input port's)
+    value_s.value.integer = outvector.clk;
+    vpi_put_value(ip->clk, &value_s, NULL, vpiNoDelay);
 
     s_vpi_time delay = {vpiSimTime, 0, 1, 0.0};
-///* DELAY MODES */
-//#define vpiNoDelay            1
-//#define vpiInertialDelay      2
-//#define vpiTransportDelay     3
-//#define vpiPureTransportDelay 4
 
     value_s.value.integer = outvector.eXin;
     vpi_put_value(ip->eXin, &value_s, &delay, vpiTransportDelay);
@@ -126,6 +123,9 @@ int sc_clk_callback(p_cb_data cb_data)
     value_s.value.integer = outvector.eRdy;
     vpi_put_value(ip->eRdy, &value_s, &delay, vpiTransportDelay);
 
+    value_s.value.integer = outvector.end_of_sim;
+    vpi_put_value(ip->end_of_sim, &value_s, NULL, vpiNoDelay);
+
     return(0);
 }
 
@@ -135,7 +135,7 @@ static void my_task()
       s_vpi_systf_data tf_data;
 
       tf_data.type      = vpiSysTask;
-      tf_data.tfname    = "$sc_fir8_tb";
+      tf_data.tfname    = (PLI_BYTE8 *)"$sc_fir8_tb";
       tf_data.calltf    = sc_fir8_tb_tf;
       tf_data.compiletf = 0;
       tf_data.sizetf    = 0;
