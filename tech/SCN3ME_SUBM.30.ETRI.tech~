@@ -1207,6 +1207,7 @@ style  lambda=0.30(ETRI-G)
 end
 
 # ============================================================================
+
 cifinput
 
 style  lambda=0.30(p)
@@ -2006,6 +2007,9 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and-not CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCA 31 *
 
  layer ndc CAA
@@ -2015,6 +2019,9 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and-not CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCC 31 *
 
 # Contact (nsubdiff) ---------------------------------------------------------
@@ -2025,6 +2032,9 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCA 31 *
 
  layer nsc CAA
@@ -2034,6 +2044,9 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCC 31 *
 
 # Contact (pdiff) ------------------------------------------------------------
@@ -2044,6 +2057,9 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCA 31 *
 
  layer pdc CAA
@@ -2053,6 +2069,9 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCC 31 *
 
 # Contact (psubdiff) ---------------------------------------------------------
@@ -2063,6 +2082,9 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and-not CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCA 31 *
 
  layer psc CAA
@@ -2073,6 +2095,9 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and-not CWN
  and CM1
+ grow 30
+ grow 15
+ shrink 15
  calma CCC 31 *
 
 # Poly -----------------------------------------------------------------------
@@ -2096,7 +2121,10 @@ style  lambda=0.30(ETRI)
  and-not CPC
  and-not CEL
  and-not CAA
+ grow 30
  and CM1
+ grow 15
+ shrink 15
  calma CCP 31 *
 
  layer pc CCC
@@ -2104,7 +2132,10 @@ style  lambda=0.30(ETRI)
  and-not CPC
  and-not CEL
  and-not CAA
+ grow 30
  and CM1
+ grow 15
+ shrink 15
  calma CCC 31 *
 
 # Generic Poly contact -------------------------------------------------------
@@ -2181,12 +2212,14 @@ style  lambda=0.30(ETRI)
 
 # Poly2 contact --------------------------------------------------------------
  layer elc CCE
+ grow 30
  and CM1
  and CEL
  labels CM1
  calma CCE 31 *
 
  layer elc CCC
+ grow 30
  and CM1
  and CEL
  labels CM1
@@ -2217,8 +2250,11 @@ style  lambda=0.30(ETRI)
 # VIA1 (M2_M1) ---------------------------------------------------------------
  layer m2c CV1
  and-not XP
+ grow 30
  and CM2
  and CM1
+ grow 15
+ shrink 15
  calma CV1 33 *
 
 # Metal 1 --------------------------------------------------------------------
@@ -2250,8 +2286,11 @@ style  lambda=0.30(ETRI)
 # VIA2 (M3_M2) ---------------------------------------------------------------
  layer m3c CV2
  and-not XP
+ grow 30
  and CM3
  and CM2
+ grow 15
+ shrink 15
  calma CV2 35 *
 
 # Metal 3 --------------------------------------------------------------------
@@ -2579,7 +2618,10 @@ style  lambda=0.30(ETRI-G)
  and-not CPC
  and-not CEL
  and-not CAA
+ grow 30
  and CM1
+ grow 15
+ shrink 15
  calma CCP 31 *
 
  layer pc CCC
@@ -2587,7 +2629,10 @@ style  lambda=0.30(ETRI-G)
  and-not CPC
  and-not CEL
  and-not CAA
+ grow 30
  and CM1
+ grow 15
+ shrink 15
  calma CCC 31 *
 
 # Generic Poly contact -------------------------------------------------------
@@ -2664,12 +2709,14 @@ style  lambda=0.30(ETRI-G)
 
 # Poly2 contact --------------------------------------------------------------
  layer elc CCE
+ grow 30
  and CM1
  and CEL
  labels CM1
  calma CCE 31 *
 
  layer elc CCC
+ grow 30
  and CM1
  and CEL
  labels CM1
