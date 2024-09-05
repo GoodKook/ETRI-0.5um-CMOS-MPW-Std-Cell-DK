@@ -19,34 +19,41 @@ https://github.com/Precision-Innovations/OpenROAD/blob/master/docs/user/Build.md
 
 Build Locally
 -------------
-sudo ./etc/DependencyInstaller.sh
+    $ git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
+    $ cd OpenROAD
+    $ sudo ./etc/DependencyInstaller.sh
 
-./etc/Build.sh
+    $ ./etc/Build.sh
 # To build manpages
-./etc/Build.sh -build-man
+    $ ./etc/Build.sh -build-man
 
-cd build
-sudo make install
+    $ cd build
+    $ sudo make install
 
+# Regression Test
+    $ ./test/regression
+
+# Test
+    $ source ~/OpenRoad_env
+    
 =======================================================================================
-Verify Installation:
---------------------
+Test ORFS(OpenROAD Flow Script):
+---------
 
 You may clone the OpenROAD-flow-scripts repository non-recursively.
 
     $ git clone https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts.git
 
+    $ cd OpenROAD-flow-scripts
+
 Export path variables accordingly.
+these variables are used in flow/Makefile. Do make sure the yosys path is sourced.
 
-    # these variables are used in flow/Makefile. Do make sure the yosys path is sourced.
-    export OPENROAD_EXE=$(command -v openroad)
-    export YOSYS_CMD=$(command -v yosys)
+    $ export OPENROAD_EXE=$(command -v openroad)
+    $ export YOSYS_EXE=$(command -v yosys)
 
-    # only if KLayout is built from source
-    export LD_LIBRARY_PATH="<klayout_location>/bin:$PATH" 
-
-    yosys -help
-    openroad -help
-    cd flow
-    make
-    make gui_final
+    $ yosys -help
+    $ openroad -help
+    $ cd flow
+    $ make
+    $ make gui_final
