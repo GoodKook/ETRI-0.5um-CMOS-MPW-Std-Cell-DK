@@ -18,6 +18,7 @@ box 0 0 0 0
 cif istyle lambda=0.30(ETRI-G)
 cif ostyle lambda=0.30(ETRI-G)
 gds read ~/ETRI050_DesignKit/pads_ETRI050/ETRI_NSPL_GPIO_231208_Klayout.gds
+gds read ~/ETRI050_DesignKit/analog_ETRI/GDS/NSPL_0p5um_klayout.gds
 load $1_Pad.mag -force
 drc off
 select top cell

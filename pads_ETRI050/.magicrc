@@ -2,13 +2,13 @@
 # .magicrc startup file for ETRI050 poject
 #-----------------------------------------------------
 
-path sys +../tech
+path sys +~/ETRI050_DesignKit/tech
 #tech load SCN3ME_SUBM.30 -noprompt
 tech load SCN3ME_SUBM.30.ETRI -noprompt
 
 #--------------------------
 # scalegrid a b scale magic units vs. lambda=30[angstrom]
-scalegrid 1 2
+scalegrid 1 3
 
 set GND gnd
 set VDD vdd
@@ -16,7 +16,11 @@ set VDD vdd
 drc euclidean on
 drc off
 
-addpath digital_ETRI
+addpath ~/ETRI050_DesignKit/digital_ETRI
+addpath ~/ETRI050_DesignKit/analog_ETRI
+addpath ~/ETRI050_DesignKit/analog_ETRI/GDS_Magic
+addpath ~/ETRI050_DesignKit/pads_ETRI050
+addpath ~/ETRI050_DesignKit/pads_ETRI050/GDS_Magic
 
 grid on
 snap off
