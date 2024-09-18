@@ -85,7 +85,7 @@ quit -force
 EOF
 
 echo "************************************************************************"
-echo "* Convert generated Core to ETRI-G Rule"
+echo "* Convert generated Core-Pad Routing to ETRI-G Rule"
 echo "************************************************************************"
 magic -dnull -noconsole << EOF
 drc off
