@@ -1,0 +1,114 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1726542447
+<< nwell >>
+rect -12 154 112 272
+<< ntransistor >>
+rect 20 14 24 34
+rect 40 14 44 34
+rect 60 14 64 54
+<< ptransistor >>
+rect 20 166 24 246
+rect 30 166 34 246
+rect 50 166 54 246
+<< ndiffusion >>
+rect 48 34 60 54
+rect 18 14 20 34
+rect 24 14 26 34
+rect 38 14 40 34
+rect 44 14 46 34
+rect 58 14 60 34
+rect 64 14 66 54
+<< pdiffusion >>
+rect 18 166 20 246
+rect 24 166 30 246
+rect 34 166 36 246
+rect 48 166 50 246
+rect 54 166 56 246
+<< ndcontact >>
+rect 6 14 18 34
+rect 26 14 38 34
+rect 46 14 58 34
+rect 66 14 78 54
+<< pdcontact >>
+rect 6 166 18 246
+rect 36 166 48 246
+rect 56 166 68 246
+<< psubstratepcontact >>
+rect -6 -6 106 6
+<< nsubstratencontact >>
+rect -6 254 106 266
+<< polysilicon >>
+rect 20 246 24 250
+rect 30 246 34 250
+rect 50 246 54 250
+rect 20 162 24 166
+rect 12 158 24 162
+rect 12 103 16 158
+rect 30 129 34 166
+rect 50 156 54 166
+rect 12 46 16 91
+rect 30 47 34 117
+rect 54 62 64 74
+rect 60 54 64 62
+rect 12 41 24 46
+rect 30 41 44 47
+rect 20 34 24 41
+rect 40 34 44 41
+rect 20 10 24 14
+rect 40 10 44 14
+rect 60 10 64 14
+<< polycontact >>
+rect 42 144 54 156
+rect 24 117 36 129
+rect 4 91 16 103
+rect 42 62 54 74
+<< metal1 >>
+rect -6 266 106 268
+rect -6 252 106 254
+rect 36 246 48 252
+rect 68 166 72 176
+rect 6 156 14 166
+rect 6 148 42 156
+rect 48 74 54 144
+rect 63 117 72 166
+rect 32 62 42 68
+rect 32 34 38 62
+rect 70 54 77 103
+rect 6 8 14 14
+rect 46 8 58 14
+rect -6 6 106 8
+rect -6 -8 106 -6
+<< m2contact >>
+rect 3 103 17 117
+rect 23 103 37 117
+rect 63 103 77 117
+<< metal2 >>
+rect 6 117 14 134
+rect 66 117 74 134
+rect 26 86 34 103
+<< m1p >>
+rect -6 252 106 268
+rect -6 -8 106 8
+<< m2p >>
+rect 6 119 14 134
+rect 66 119 74 134
+rect 26 86 34 101
+<< labels >>
+rlabel metal1 -6 252 86 268 0 vdd
+port 4 nsew power bidirectional abutment
+rlabel metal1 -6 -8 86 8 0 gnd
+port 5 nsew ground bidirectional abutment
+rlabel metal2 10 130 10 130 1 A
+port 1 n signal input
+rlabel metal2 30 88 30 88 1 B
+port 2 n signal input
+rlabel metal2 70 130 70 130 1 Y
+port 3 n signal output
+<< properties >>
+string FIXED_BBOX 0 0 100 260
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>

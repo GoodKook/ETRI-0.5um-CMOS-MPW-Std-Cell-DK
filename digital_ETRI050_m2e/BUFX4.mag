@@ -1,0 +1,109 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1726549818
+<< nwell >>
+rect -13 154 114 272
+<< ntransistor >>
+rect 20 14 24 44
+rect 40 14 44 54
+rect 60 14 64 54
+<< ptransistor >>
+rect 20 186 24 246
+rect 40 166 44 246
+rect 60 166 64 246
+<< ndiffusion >>
+rect 29 44 40 54
+rect 18 14 20 44
+rect 24 14 26 44
+rect 38 14 40 44
+rect 44 14 46 54
+rect 58 14 60 54
+rect 64 14 66 54
+<< pdiffusion >>
+rect 18 186 20 246
+rect 24 186 26 246
+rect 38 186 40 246
+rect 28 166 40 186
+rect 44 168 46 246
+rect 58 168 60 246
+rect 44 166 60 168
+rect 64 166 66 246
+<< ndcontact >>
+rect 6 14 18 44
+rect 26 14 38 44
+rect 46 14 58 54
+rect 66 14 78 54
+<< pdcontact >>
+rect 6 186 18 246
+rect 26 186 38 246
+rect 46 168 58 246
+rect 66 166 78 246
+<< psubstratepcontact >>
+rect -6 -6 108 6
+<< nsubstratencontact >>
+rect -6 254 107 266
+<< polysilicon >>
+rect 20 246 24 250
+rect 40 246 44 250
+rect 60 246 64 250
+rect 20 129 24 186
+rect 40 162 44 166
+rect 60 162 64 166
+rect 45 158 64 162
+rect 16 117 24 129
+rect 20 44 24 117
+rect 45 60 64 66
+rect 40 54 44 60
+rect 60 54 64 60
+rect 20 10 24 14
+rect 40 10 44 14
+rect 60 10 64 14
+<< polycontact >>
+rect 33 150 45 162
+rect 4 117 16 129
+rect 33 60 45 72
+<< metal1 >>
+rect -6 266 107 268
+rect -6 252 107 254
+rect 26 246 38 252
+rect 66 246 78 252
+rect 6 162 14 186
+rect 6 156 33 162
+rect 33 72 41 150
+rect 51 117 58 168
+rect 51 103 63 117
+rect 6 60 33 66
+rect 6 44 14 60
+rect 51 54 58 103
+rect 26 8 38 14
+rect 66 8 78 14
+rect -6 6 108 8
+rect -6 -8 108 -6
+<< m2contact >>
+rect 3 103 17 117
+rect 63 103 77 117
+<< metal2 >>
+rect 66 117 74 134
+rect 6 86 14 103
+<< m1p >>
+rect -6 252 107 268
+rect -6 -8 108 8
+<< m2p >>
+rect 66 119 74 134
+rect 6 86 14 101
+<< labels >>
+rlabel metal1 -6 252 86 268 0 vdd
+port 3 nsew power bidirectional abutment
+rlabel metal1 -6 -8 86 8 0 gnd
+port 4 nsew ground bidirectional abutment
+rlabel metal2 10 89 10 89 1 A
+port 1 n signal input
+rlabel metal2 70 131 70 131 3 Y
+port 2 n signal output
+<< properties >>
+string FIXED_BBOX 0 0 100 260
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>
