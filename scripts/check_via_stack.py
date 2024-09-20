@@ -3,6 +3,7 @@
 import os, sys
 
 stacked_rect = [[]]
+nCheckCount = 0
 
 # -----------------------------------------------------------
 # Function: Magic Grid Scale
@@ -55,6 +56,13 @@ def get_rect_from_line(szLine):
 # -----------------------------------------------------------
 # Function:
 def compare_rect(szFromLine, szToLine, nMargin):
+    global nCheckCount
+    if (nCheckCount%100000)==0 :
+        print("", flush=True)
+    if (nCheckCount%10000)==0 :
+        print("[{}]".format(int(nCheckCount/10000)), end='', flush=True)
+    nCheckCount = nCheckCount + 1
+
     #print("compare: " + szFromLine + " * " + szToLine)
     if szFromLine[0:len("rect")] == "rect" and szToLine[0:len("rect")] == "rect":
         fromLLX, fromLLY, fromURX, fromURY = get_rect_from_line(szFromLine)
@@ -113,7 +121,7 @@ def check_stack(szFileMagIn, szFromLayer, szToLayer, nMargin, nMult, nDiv):
                                 elif szLineTo[0:len("rect")] == "rect":
                                     if compare_rect(szLineFrom, szLineTo, nMargin):    ## Check stacked
                                         nStack += 1
-                                        print("Stacked #{}".format(nStack))
+                                        print("\n\nStacked #{}".format(nStack))
                                         print(szFromLayer + " " + szLineFrom, end="")
                                         print(szToLayer + " " + szLineTo, end="")
                                         nLLX, nLLY, nURX, nURY = get_rect_from_line(szLineTo)
@@ -167,8 +175,14 @@ szFromLayer = "<< " + str(sys.argv[2]) + " >>"
 szToLayer = "<< " + str(sys.argv[3]) + " >>"
 nMargin = int(sys.argv[4])
 
+print("--------------------")
+print("Checking Stacked VIA in {}".format(szFileMagIn), flush=True)
+print("     From VIA: {}".format(szFromLayer), flush=True)
+print("     To VIA  : {}".format(szToLayer), flush=True)
+print("     Margin  : {}".format(nMargin), flush=True)
+
 nMult, nDiv = get_magscale(szFileMagIn)
-print("Mult={} / Div={}".format(nMult, nDiv))
+print("Mult={} / Div={}".format(nMult, nDiv), flush=True)
 
 check_stack(szFileMagIn, szFromLayer, szToLayer, nMargin, nMult, nDiv)
 
@@ -192,12 +206,13 @@ if NumStack:
             file_in.close()
             file_out.close()
 
-            print("***************************************")
+            print("\n***************************************")
             print("{} Stacked Contact and/or Via found!".format(NumStack))
             print("Magic layout \"{}\" created with DRC error layer".format(szFileMagOut))
             break;
         else:
             file_out.write(szLineIn)
 else:
+    print("\n***************************************")
     print("No stacked Contact and/or Via found.")
 

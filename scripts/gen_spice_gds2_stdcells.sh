@@ -17,13 +17,15 @@ fi
 #quit -force
 #EOF
 
+#load $1 -force
+
 echo "***************************************************************"
 echo "* Generating Spice"
 echo "***************************************************************"
 magic -dnull -noconsole << EOF
 drc off
 box 0 0 0 0
-load $1 -force
+load $1
 drc off
 extract all
 ext2spice lvs
@@ -36,6 +38,10 @@ echo "***************************************************************"
 echo "* Generated .spice symbol linked to stdcells.spice for LVL"
 echo "***************************************************************"
 rm stdcells.spice
+if ! [ -f $1.spice ]; then
+  echo "Spice netlist negeration FAIL"
+  exit 2
+fi
 ln -s $1.spice stdcells.spice
 rm *.ext
 
