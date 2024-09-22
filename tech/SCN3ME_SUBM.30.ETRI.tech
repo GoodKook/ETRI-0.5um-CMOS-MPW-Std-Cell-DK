@@ -1083,6 +1083,8 @@ style  lambda=0.30(ETRI-G)
  calma 33 0
 
  layer CM1 pad
+ bloat-or pad * 60
+ shrink 60
  calma 32 0
 
  layer CM1 m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c,m2c/m1
@@ -1196,6 +1198,8 @@ style  lambda=0.30(ETRI-G)
  calma 48 0
 
  layer XP pad,xp
+ bloat-or pad * 60
+ shrink 60
  labels pad,xp
  calma 37 0
 
@@ -2907,8 +2911,13 @@ drc
  edge4way ~(pwell)/well pwell 1 ~(rnw)/active 0 0 \
  "P-well cannot touch rnw (for resistor L/W extraction) (Mosis #1.4)" active
 
- spacing diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a 4 touching_ok \
- "Diffusion spacing < 4 (2.ACT.S)"
+# spacing diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a 6 touching_ok \
+# "Diffusion spacing < 6 (2.ACT.S)"
+ spacing diff,ndiff,rnd,nfet,pdiff,rpd,pfet,ndc/a,pdc/a, diff,ndiff,rnd,nfet,pdiff,rpd,pfet,ndc/a,pdc/a, 6 touching_ok \
+ "Diffusion spacing < 6 (2.ACT.S)"
+
+ spacing psd,psc/a nsd,nsc/a 4 touching_ok \
+ "Diffusion(subtrate) spacing < 4 (2.ACT.S)"
 
  spacing nwell ndiff,rnd,nfet,ndc/a 6 touching_illegal \
  "N-well spacing to N-Diffusion < 6 (Mosis #2.3)"
@@ -2970,8 +2979,8 @@ drc
  edge4way nfet,pfet,fet space/active,ndiff,rnd,ndc/a,pdiff,rpd,pdc/a 3 ndiff,rnd,ndc/a,pdiff,rpd,pdc/a,nfet,pfet,fet 0 0 \
  "N-Diffusion,P-Diffusion overhang of Transistor < 3 (2.ACT.E1)" active
 
- edge4way poly,fp,rp,pc/a ~(poly,fp,rp,pc/a,nfet,pfet,fet,prp)/active 1 space/a space/a 1 \
- "Poly spacing to Diffusion < 1 (Mosis #3.5)"
+ edge4way poly,fp,rp,pc/a ~(poly,fp,rp,pc/a,nfet,pfet,fet,prp)/active 2 space/a space/a 2 \
+ "Poly spacing to Diffusion < 2 (3.PL1.S3/Mosis #3.5)"
 
  edge4way nfet ~(nfet)/active 3 ~(pselect)/select ~(nfet)/active 3 \
  "N-Transistor space to P-Select < 3 (Mosis #4.1)" select
