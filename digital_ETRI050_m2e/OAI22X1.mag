@@ -1,7 +1,7 @@
 magic
 tech scmos
 magscale 1 2
-timestamp 1726836556
+timestamp 1727269055
 << nwell >>
 rect -12 154 132 272
 << ntransistor >>
@@ -56,12 +56,12 @@ rect 10 158 24 162
 rect 30 162 34 166
 rect 30 158 44 162
 rect 10 129 16 158
+rect 40 123 44 158
 rect 10 82 16 117
-rect 40 103 44 158
-rect 36 91 44 103
+rect 36 111 44 123
 rect 10 76 24 82
 rect 20 54 24 76
-rect 40 54 44 91
+rect 40 54 44 111
 rect 60 54 64 166
 rect 70 162 74 166
 rect 70 158 88 162
@@ -75,9 +75,9 @@ rect 60 10 64 14
 rect 80 10 84 14
 << polycontact >>
 rect 4 117 16 129
-rect 24 91 36 103
+rect 24 111 36 123
+rect 64 111 76 123
 rect 84 117 96 129
-rect 64 91 76 103
 << metal1 >>
 rect -6 266 126 268
 rect -6 252 126 254
@@ -94,26 +94,26 @@ rect 26 8 38 14
 rect -6 6 126 8
 rect -6 -8 126 -6
 << m2contact >>
+rect 23 123 37 137
 rect 3 103 17 117
-rect 23 103 37 117
+rect 63 123 77 137
 rect 43 103 57 117
-rect 63 103 77 117
 rect 83 103 97 117
 << metal2 >>
-rect 26 117 34 135
-rect 66 117 74 135
-rect 6 87 14 103
-rect 46 87 54 103
-rect 86 87 94 103
+rect 26 137 34 154
+rect 66 137 74 154
+rect 6 86 14 103
+rect 46 86 54 103
+rect 86 86 94 103
 << m1p >>
 rect -6 252 126 268
 rect -6 -8 126 8
 << m2p >>
-rect 26 119 34 135
-rect 66 119 74 135
-rect 6 87 14 101
-rect 46 87 54 101
-rect 86 87 94 101
+rect 26 137 34 154
+rect 66 137 74 154
+rect 6 86 14 103
+rect 46 86 54 103
+rect 86 86 94 103
 << labels >>
 rlabel metal1 -6 252 106 268 0 vdd
 port 6 nsew power bidirectional abutment
@@ -121,14 +121,14 @@ rlabel metal1 -6 -8 106 8 0 gnd
 port 7 nsew ground bidirectional abutment
 rlabel metal2 10 91 10 91 1 A
 port 1 n signal input
-rlabel metal2 30 131 30 131 1 B
-port 2 n signal input
 rlabel metal2 50 89 50 89 5 Y
 port 5 n signal output
-rlabel metal2 70 131 70 131 1 D
-port 4 n signal input
 rlabel metal2 90 91 90 91 1 C
 port 3 n signal input
+rlabel metal2 30 150 30 150 1 B
+port 2 n signal input
+rlabel metal2 70 150 70 150 1 D
+port 4 n signal input
 << properties >>
 string FIXED_BBOX 0 0 120 260
 string LEFclass CORE

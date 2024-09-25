@@ -1,7 +1,7 @@
 magic
 tech scmos
 magscale 1 2
-timestamp 1726841882
+timestamp 1727268489
 << nwell >>
 rect -14 154 132 272
 << ntransistor >>
@@ -62,17 +62,16 @@ rect 80 144 84 166
 rect 60 138 68 144
 rect 80 138 90 144
 rect 6 103 12 138
-rect 32 129 36 138
+rect 32 109 36 138
 rect 6 64 12 91
 rect 6 60 26 64
 rect 22 54 26 60
-rect 32 54 36 117
-rect 62 129 68 138
-rect 62 117 64 129
-rect 84 117 90 138
-rect 62 76 68 117
+rect 32 54 36 97
+rect 62 109 68 138
+rect 62 97 64 109
+rect 84 103 90 138
+rect 62 76 68 97
 rect 52 72 68 76
-rect 84 103 88 117
 rect 52 54 56 72
 rect 84 64 90 91
 rect 62 60 90 64
@@ -82,9 +81,9 @@ rect 32 10 36 14
 rect 52 10 56 14
 rect 62 10 66 14
 << polycontact >>
-rect 24 117 36 129
 rect 4 91 16 103
-rect 64 117 76 129
+rect 24 97 36 109
+rect 64 97 76 109
 rect 84 91 96 103
 << metal1 >>
 rect -6 266 126 268
@@ -102,40 +101,40 @@ rect -6 6 126 8
 rect -6 -8 126 -6
 << m2contact >>
 rect 3 103 17 117
-rect 23 103 37 117
 rect 43 103 57 117
-rect 63 103 77 117
+rect 23 83 37 97
 rect 83 103 97 117
+rect 63 83 77 97
 << metal2 >>
-rect 6 117 14 135
-rect 46 117 54 135
-rect 86 117 94 135
-rect 26 87 34 103
-rect 66 87 74 103
+rect 6 117 14 134
+rect 46 117 54 134
+rect 86 117 94 134
+rect 26 66 34 83
+rect 66 66 74 83
 << m1p >>
 rect -6 252 126 268
 rect -6 -8 126 8
 << m2p >>
-rect 6 119 14 135
-rect 46 119 54 135
-rect 86 119 94 135
-rect 26 87 34 101
-rect 66 87 74 101
+rect 6 117 14 134
+rect 46 117 54 134
+rect 86 117 94 134
+rect 26 66 34 83
+rect 66 66 74 83
 << labels >>
 rlabel metal1 -6 252 106 268 0 vdd
 port 6 nsew power bidirectional abutment
 rlabel metal1 -6 -8 106 8 0 gnd
 port 7 nsew ground bidirectional abutment
-rlabel metal2 10 131 10 131 5 A
-port 1 n signal input
-rlabel metal2 30 89 30 89 7 B
-port 2 n signal input
 rlabel metal2 90 131 90 131 1 C
 port 3 n signal input
-rlabel metal2 70 89 70 89 5 D
-port 4 n signal input
 rlabel metal2 50 131 50 131 5 Y
 port 5 n signal output
+rlabel metal2 10 131 10 131 5 A
+port 1 n signal input
+rlabel metal2 30 69 30 69 7 B
+port 2 n signal input
+rlabel metal2 70 69 70 69 5 D
+port 4 n signal input
 << properties >>
 string FIXED_BBOX 0 0 120 260
 string LEFclass CORE
