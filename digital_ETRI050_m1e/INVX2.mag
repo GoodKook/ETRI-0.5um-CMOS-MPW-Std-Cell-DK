@@ -1,0 +1,63 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1727401709
+<< nwell >>
+rect -12 154 72 272
+<< ntransistor >>
+rect 20 14 24 54
+<< ptransistor >>
+rect 20 166 24 246
+<< ndiffusion >>
+rect 18 14 20 54
+rect 24 14 26 54
+<< pdiffusion >>
+rect 18 166 20 246
+rect 24 166 26 246
+<< ndcontact >>
+rect 6 14 18 54
+rect 26 14 38 54
+<< pdcontact >>
+rect 6 166 18 246
+rect 26 166 38 246
+<< psubstratepcontact >>
+rect -6 -6 66 6
+<< nsubstratencontact >>
+rect -6 254 66 266
+<< polysilicon >>
+rect 20 246 24 250
+rect 20 123 24 166
+rect 16 111 24 123
+rect 20 54 24 111
+rect 20 10 24 14
+<< polycontact >>
+rect 4 111 16 123
+<< metal1 >>
+rect -6 266 66 268
+rect -6 252 66 254
+rect 6 246 18 252
+rect 3 123 17 137
+rect 26 97 34 166
+rect 23 83 37 97
+rect 26 54 34 83
+rect 6 8 18 14
+rect -6 6 66 8
+rect -6 -8 66 -6
+<< m1p >>
+rect 3 123 17 137
+rect 23 83 37 97
+<< labels >>
+rlabel metal1 3 123 17 137 0 A
+port 0 nsew signal input
+rlabel metal1 -6 252 66 268 0 vdd
+port 2 nsew power bidirectional abutment
+rlabel metal1 -6 -8 66 8 0 gnd
+port 3 nsew ground bidirectional abutment
+rlabel metal1 23 83 37 97 0 Y
+port 1 nsew signal output
+<< properties >>
+string FIXED_BBOX 0 0 60 260
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>

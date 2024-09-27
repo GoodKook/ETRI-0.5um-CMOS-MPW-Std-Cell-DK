@@ -1,0 +1,107 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1727401709
+<< nwell >>
+rect -12 154 112 272
+<< ntransistor >>
+rect 24 14 28 54
+rect 32 14 36 54
+rect 54 14 58 34
+<< ptransistor >>
+rect 20 166 24 246
+rect 40 166 44 246
+rect 60 166 64 246
+<< ndiffusion >>
+rect 22 14 24 54
+rect 28 14 32 54
+rect 36 14 38 54
+rect 50 14 54 34
+rect 58 14 60 34
+<< pdiffusion >>
+rect 18 174 20 246
+rect 6 166 20 174
+rect 24 178 26 246
+rect 38 178 40 246
+rect 24 166 40 178
+rect 44 166 46 246
+rect 58 166 60 246
+rect 64 166 66 246
+<< ndcontact >>
+rect 10 14 22 54
+rect 38 14 50 54
+rect 60 14 72 34
+<< pdcontact >>
+rect 6 174 18 246
+rect 26 178 38 246
+rect 46 166 58 246
+rect 66 166 78 246
+<< psubstratepcontact >>
+rect -6 -6 106 6
+<< nsubstratencontact >>
+rect -6 254 106 266
+<< polysilicon >>
+rect 20 246 24 250
+rect 40 246 44 250
+rect 60 246 64 250
+rect 20 152 24 166
+rect 40 152 44 166
+rect 9 146 24 152
+rect 30 146 44 152
+rect 9 123 16 146
+rect 9 64 16 111
+rect 30 109 36 146
+rect 60 123 64 166
+rect 56 111 64 123
+rect 9 58 28 64
+rect 24 54 28 58
+rect 32 54 36 97
+rect 54 34 58 111
+rect 24 10 28 14
+rect 32 10 36 14
+rect 54 10 58 14
+<< polycontact >>
+rect 4 111 16 123
+rect 44 111 56 123
+rect 24 97 36 109
+<< metal1 >>
+rect -6 266 106 268
+rect -6 252 106 254
+rect 26 246 38 252
+rect 6 172 18 174
+rect 6 166 46 172
+rect 3 123 17 137
+rect 43 123 57 137
+rect 68 97 74 166
+rect 23 83 37 97
+rect 63 83 77 97
+rect 68 54 74 83
+rect 50 43 74 54
+rect 10 8 22 14
+rect 60 8 72 14
+rect -6 6 106 8
+rect -6 -8 106 -6
+<< m1p >>
+rect 3 123 17 137
+rect 43 123 57 137
+rect 23 83 37 97
+rect 63 83 77 97
+<< labels >>
+rlabel metal1 -6 252 106 268 0 vdd
+port 4 nsew power bidirectional abutment
+rlabel metal1 -6 -8 106 8 0 gnd
+port 5 nsew ground bidirectional abutment
+rlabel metal1 23 83 37 97 0 B
+port 1 nsew signal input
+rlabel metal1 3 123 17 137 0 A
+port 0 nsew signal input
+rlabel metal1 43 123 57 137 0 C
+port 2 nsew signal input
+rlabel metal1 63 83 77 97 0 Y
+port 3 nsew signal output
+<< properties >>
+string FIXED_BBOX 0 0 100 260
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>
