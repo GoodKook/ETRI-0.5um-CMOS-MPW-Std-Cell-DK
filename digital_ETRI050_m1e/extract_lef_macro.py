@@ -311,11 +311,12 @@ lef_macro(str(sys.argv[1]))
 
 #---------------------------------------------
 # Clean-Up
-os.system("rm   ./" + str(sys.argv[1]) + ".sh")
-#os.system("rm   ./" + str(sys.argv[1]) + ".lef")
-os.system("rm  ./_" + str(sys.argv[1]) + ".lef")
-os.system("rm  ./_" + str(sys.argv[1]) + ".mag")
-os.system("rm ./__" + str(sys.argv[1]) + ".lef")
-os.system("rm ./__" + str(sys.argv[1]) + ".mag")
+#os.system("rm   ./" + str(sys.argv[1]) + ".sh")
+##os.system("rm   ./" + str(sys.argv[1]) + ".lef")
+#os.system("rm  ./_" + str(sys.argv[1]) + ".lef")
+#os.system("rm  ./_" + str(sys.argv[1]) + ".mag")
+#os.system("rm ./__" + str(sys.argv[1]) + ".lef")
+#os.system("rm ./__" + str(sys.argv[1]) + ".mag")
 
 exit()
+

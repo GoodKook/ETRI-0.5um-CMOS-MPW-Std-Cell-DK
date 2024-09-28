@@ -1,9 +1,9 @@
 magic
 tech scmos
 magscale 1 2
-timestamp 1727268489
+timestamp 1727487144
 << nwell >>
-rect -14 154 132 272
+rect -6 154 126 272
 << ntransistor >>
 rect 22 14 26 54
 rect 32 14 36 54
@@ -45,9 +45,9 @@ rect 46 168 58 246
 rect 66 166 78 234
 rect 86 166 98 246
 << psubstratepcontact >>
-rect -6 -6 126 6
+rect 0 -6 120 6
 << nsubstratencontact >>
-rect -6 254 126 266
+rect 0 254 120 266
 << polysilicon >>
 rect 20 246 24 250
 rect 40 246 44 250
@@ -86,8 +86,8 @@ rect 24 97 36 109
 rect 64 97 76 109
 rect 84 91 96 103
 << metal1 >>
-rect -6 266 126 268
-rect -6 252 126 254
+rect 0 266 120 268
+rect 0 252 120 254
 rect 26 246 38 252
 rect 18 168 46 174
 rect 58 240 86 246
@@ -97,8 +97,8 @@ rect 44 117 50 154
 rect 43 54 50 103
 rect 8 8 20 14
 rect 68 8 80 14
-rect -6 6 126 8
-rect -6 -8 126 -6
+rect 0 6 120 8
+rect 0 -8 120 -6
 << m2contact >>
 rect 3 103 17 117
 rect 43 103 57 117
@@ -106,35 +106,40 @@ rect 23 83 37 97
 rect 83 103 97 117
 rect 63 83 77 97
 << metal2 >>
-rect 6 117 14 134
-rect 46 117 54 134
-rect 86 117 94 134
-rect 26 66 34 83
-rect 66 66 74 83
-<< m1p >>
-rect -6 252 126 268
-rect -6 -8 126 8
+rect 3 117 17 137
+rect 43 117 57 137
+rect 83 117 97 137
+rect 23 63 37 83
+rect 63 63 77 83
 << m2p >>
-rect 6 117 14 134
-rect 46 117 54 134
-rect 86 117 94 134
-rect 26 66 34 83
-rect 66 66 74 83
+rect 3 123 17 137
+rect 43 123 57 137
+rect 83 123 97 137
+rect 23 63 37 77
+rect 63 63 77 77
 << labels >>
-rlabel metal1 -6 252 106 268 0 vdd
-port 6 nsew power bidirectional abutment
-rlabel metal1 -6 -8 106 8 0 gnd
-port 7 nsew ground bidirectional abutment
-rlabel metal2 90 131 90 131 1 C
-port 3 n signal input
-rlabel metal2 50 131 50 131 5 Y
-port 5 n signal output
-rlabel metal2 10 131 10 131 5 A
-port 1 n signal input
-rlabel metal2 30 69 30 69 7 B
-port 2 n signal input
-rlabel metal2 70 69 70 69 5 D
-port 4 n signal input
+rlabel metal2 3 123 17 137 0 A
+port 0 nsew signal input
+rlabel metal2 23 63 37 77 0 B
+port 1 nsew signal input
+rlabel metal2 83 123 97 137 0 C
+port 2 nsew signal input
+rlabel metal2 63 63 77 77 0 D
+port 3 nsew signal input
+rlabel metal2 43 123 57 137 0 Y
+port 4 nsew signal output
+rlabel metal1 0 252 120 254 0 vdd
+port 5 nsew power bidirectional abutment
+rlabel metal1 0 -8 120 -6 0 gnd
+port 6 nsew ground bidirectional abutment
+rlabel metal1 0 266 120 268 0 vdd
+port 5 nsew power bidirectional abutment
+rlabel metal1 0 254 120 266 0 vdd
+port 5 nsew power bidirectional abutment
+rlabel metal1 0 6 120 8 0 gnd
+port 6 nsew ground bidirectional abutment
+rlabel metal1 0 -6 120 6 0 gnd
+port 6 nsew ground bidirectional abutment
 << properties >>
 string FIXED_BBOX 0 0 120 260
 string LEFclass CORE
