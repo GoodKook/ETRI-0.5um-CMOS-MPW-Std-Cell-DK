@@ -1,9 +1,9 @@
 magic
 tech scmos
 magscale 1 2
-timestamp 1727487297
+timestamp 1727572430
 << nwell >>
-rect -6 154 106 272
+rect -12 154 112 272
 << ntransistor >>
 rect 20 14 24 44
 rect 42 14 46 54
@@ -39,9 +39,9 @@ rect 28 168 40 246
 rect 48 168 60 246
 rect 68 166 80 246
 << psubstratepcontact >>
-rect 0 -6 100 6
+rect -6 -6 106 6
 << nsubstratencontact >>
-rect 0 254 100 266
+rect -6 254 106 266
 << polysilicon >>
 rect 20 246 24 250
 rect 42 246 46 250
@@ -63,8 +63,8 @@ rect 35 150 47 162
 rect 4 117 16 129
 rect 35 60 47 72
 << metal1 >>
-rect 0 266 100 268
-rect 0 252 100 254
+rect -6 266 106 268
+rect -6 252 106 254
 rect 28 246 40 252
 rect 68 246 80 252
 rect 6 162 14 186
@@ -77,8 +77,8 @@ rect 6 44 14 60
 rect 53 54 60 103
 rect 28 8 40 14
 rect 68 8 80 14
-rect 0 6 100 8
-rect 0 -8 100 -6
+rect -6 6 106 8
+rect -6 -8 106 -6
 << m2contact >>
 rect 3 103 17 117
 rect 63 103 77 117
@@ -93,17 +93,9 @@ rlabel metal2 3 83 17 97 0 A
 port 0 nsew signal input
 rlabel metal2 63 123 77 137 0 Y
 port 1 nsew signal output
-rlabel metal1 0 252 100 254 0 vdd
+rlabel metal1 -6 252 106 268 0 vdd
 port 2 nsew power bidirectional abutment
-rlabel metal1 0 -8 100 -6 0 gnd
-port 3 nsew ground bidirectional abutment
-rlabel metal1 0 266 100 268 0 vdd
-port 2 nsew power bidirectional abutment
-rlabel metal1 0 254 100 266 0 vdd
-port 2 nsew power bidirectional abutment
-rlabel metal1 0 6 100 8 0 gnd
-port 3 nsew ground bidirectional abutment
-rlabel metal1 0 -6 100 6 0 gnd
+rlabel metal1 -6 -8 106 8 0 gnd
 port 3 nsew ground bidirectional abutment
 << properties >>
 string FIXED_BBOX 0 0 100 260
