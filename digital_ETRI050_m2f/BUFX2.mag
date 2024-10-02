@@ -1,0 +1,91 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1727832094
+<< nwell >>
+rect -12 134 92 252
+<< ntransistor >>
+rect 20 14 24 34
+rect 42 14 46 54
+<< ptransistor >>
+rect 20 186 24 226
+rect 42 146 46 226
+<< ndiffusion >>
+rect 18 14 20 34
+rect 24 14 28 34
+rect 40 14 42 54
+rect 46 14 48 54
+<< pdiffusion >>
+rect 18 186 20 226
+rect 24 186 28 226
+rect 40 146 42 226
+rect 46 146 48 226
+<< ndcontact >>
+rect 6 14 18 34
+rect 28 14 40 54
+rect 48 14 60 54
+<< pdcontact >>
+rect 6 186 18 226
+rect 28 146 40 226
+rect 48 146 60 226
+<< psubstratepcontact >>
+rect -6 -6 86 6
+<< nsubstratencontact >>
+rect -6 234 86 246
+<< polysilicon >>
+rect 20 226 24 230
+rect 42 226 46 230
+rect 20 123 24 186
+rect 42 140 46 146
+rect 44 128 46 140
+rect 16 111 24 123
+rect 20 34 24 111
+rect 44 60 46 72
+rect 42 54 46 60
+rect 20 10 24 14
+rect 42 10 46 14
+<< polycontact >>
+rect 32 128 44 140
+rect 4 111 16 123
+rect 32 60 44 72
+<< metal1 >>
+rect -6 246 86 248
+rect -6 232 86 234
+rect 28 226 40 232
+rect 6 140 14 186
+rect 6 134 32 140
+rect 31 128 32 134
+rect 31 72 37 128
+rect 50 111 58 146
+rect 57 97 58 111
+rect 31 66 32 72
+rect 10 60 32 66
+rect 10 34 18 60
+rect 50 54 58 97
+rect 28 8 40 14
+rect -6 6 86 8
+rect -6 -8 86 -6
+<< m2contact >>
+rect 3 97 17 111
+rect 43 97 57 111
+<< metal2 >>
+rect 3 83 17 97
+rect 43 83 57 97
+<< m2p >>
+rect 3 83 17 97
+rect 43 83 57 97
+<< labels >>
+rlabel metal1 -6 -8 86 8 0 gnd
+port 3 nsew ground bidirectional abutment
+rlabel metal1 -6 232 86 248 0 vdd
+port 2 nsew power bidirectional abutment
+rlabel metal2 3 83 17 97 0 A
+port 0 nsew signal input
+rlabel metal2 43 83 57 97 0 Y
+port 1 nsew signal output
+<< properties >>
+string FIXED_BBOX 0 0 80 240
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>

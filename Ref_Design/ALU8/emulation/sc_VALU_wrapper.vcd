@@ -1,0 +1,982 @@
+$date
+     Sep 08, 2024       18:39:26
+$end
+
+$version
+ SystemC 3.0.0-Accellera --- Aug 22 2024 08:19:28
+$end
+
+$timescale
+     1 ps
+$end
+
+$scope module SystemC $end
+$var wire    1  aaaaa  clk       $end
+$var wire    1  aaaab  reset       $end
+$var wire    8  aaaac  ABCmd_i [7:0]  $end
+$var wire    1  aaaad  LoadA_i       $end
+$var wire    1  aaaae  LoadB_i       $end
+$var wire    1  aaaaf  LoadCmd_i       $end
+$var wire    8  aaaag  ACC_o [7:0]  $end
+$var wire    1  aaaah  Done_o       $end
+$var wire    8  aaaai  regA [7:0]  $end
+$var wire    8  aaaaj  regB [7:0]  $end
+$var wire   32  aaaak  regOP [31:0]  $end
+$var wire    8  aaaal  regACC [7:0]  $end
+$var wire   40  aaaam  regFLAG [39:0]  $end
+$var wire   16  aaaan  regMUL [15:0]  $end
+$var wire    1  aaaao  cMUL       $end
+$var wire    1  aaaap  cBCD       $end
+$var wire    1  aaaaq  cSHR       $end
+$var wire    1  aaaar  cCI       $end
+$upscope $end
+$enddefinitions  $end
+
+$comment
+All initial values are dumped below at time 0 sec = 0 timescale units.
+$end
+
+$dumpvars
+0aaaaa
+1aaaab
+b0 aaaac
+0aaaad
+0aaaae
+0aaaaf
+b0 aaaag
+0aaaah
+b0 aaaai
+b0 aaaaj
+b0 aaaak
+b0 aaaal
+b0 aaaam
+b0 aaaan
+0aaaao
+0aaaap
+0aaaaq
+0aaaar
+$end
+
+#50000
+1aaaaa
+
+#100000
+0aaaaa
+
+#150000
+1aaaaa
+0aaaab
+
+#200000
+0aaaaa
+
+#250000
+1aaaaa
+1aaaad
+
+#300000
+0aaaaa
+
+#350000
+1aaaaa
+b10101010 aaaac
+0aaaad
+1aaaae
+
+#400000
+0aaaaa
+
+#450000
+1aaaaa
+b1010101 aaaac
+0aaaae
+1aaaaf
+b10101010 aaaai
+
+#500000
+0aaaaa
+
+#550000
+1aaaaa
+b1111 aaaac
+0aaaaf
+b1010101 aaaaj
+
+#600000
+0aaaaa
+
+#650000
+1aaaaa
+1aaaaf
+b1101110011011110111000000000000 aaaak
+
+#700000
+0aaaaa
+
+#750000
+1aaaaa
+b11100 aaaac
+0aaaaf
+
+#800000
+0aaaaa
+
+#850000
+1aaaaa
+1aaaaf
+b1001111010100100010000000000000 aaaak
+1aaaar
+
+#900000
+0aaaaa
+
+#950000
+1aaaaa
+b1101 aaaac
+0aaaaf
+
+#1000000
+0aaaaa
+
+#1050000
+1aaaaa
+1aaaaf
+b1000001010011100100010000000000 aaaak
+0aaaar
+
+#1100000
+0aaaaa
+
+#1150000
+1aaaaa
+b11110 aaaac
+0aaaaf
+
+#1200000
+0aaaaa
+
+#1250000
+1aaaaa
+1aaaaf
+b1011000010011110101001000000000 aaaak
+1aaaar
+
+#1300000
+0aaaaa
+
+#1350000
+1aaaaa
+b11 aaaac
+0aaaaf
+
+#1400000
+0aaaaa
+
+#1450000
+1aaaaa
+1aaaaf
+b1000001010001000100010000000000 aaaak
+0aaaar
+
+#1500000
+0aaaaa
+
+#1550000
+1aaaaa
+b10111 aaaac
+0aaaaf
+
+#1600000
+0aaaaa
+
+#1650000
+1aaaaa
+1aaaaf
+b1010011010101010100001000000000 aaaak
+1aaaar
+
+#1700000
+0aaaaa
+
+#1750000
+1aaaaa
+b10000000 aaaac
+0aaaaf
+
+#1800000
+0aaaaa
+
+#1850000
+1aaaaa
+1aaaaf
+b1001101010101010100110000000000 aaaak
+1aaaao
+0aaaar
+
+#1900000
+0aaaaa
+
+#1950000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#2000000
+0aaaaa
+
+#2050000
+1aaaaa
+b1101110011011110111000000000000 aaaak
+0aaaao
+
+#2100000
+0aaaaa
+
+#2150000
+1aaaaa
+
+#2200000
+0aaaaa
+
+#2250000
+1aaaaa
+
+#2300000
+0aaaaa
+
+#2350000
+1aaaaa
+1aaaab
+b0 aaaac
+
+#2400000
+0aaaaa
+
+#2450000
+1aaaaa
+
+#2500000
+0aaaaa
+
+#2550000
+1aaaaa
+0aaaab
+
+#2600000
+0aaaaa
+
+#2650000
+1aaaaa
+1aaaad
+
+#2700000
+0aaaaa
+
+#2750000
+1aaaaa
+b10101010 aaaac
+0aaaad
+1aaaae
+
+#2800000
+0aaaaa
+
+#2850000
+1aaaaa
+b1010101 aaaac
+0aaaae
+1aaaaf
+
+#2900000
+0aaaaa
+
+#2950000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#3000000
+0aaaaa
+
+#3050000
+1aaaaa
+1aaaaf
+
+#3100000
+0aaaaa
+
+#3150000
+1aaaaa
+b11100 aaaac
+0aaaaf
+
+#3200000
+0aaaaa
+
+#3250000
+1aaaaa
+1aaaaf
+b1001111010100100010000000000000 aaaak
+1aaaar
+
+#3300000
+0aaaaa
+
+#3350000
+1aaaaa
+b1101 aaaac
+0aaaaf
+
+#3400000
+0aaaaa
+
+#3450000
+1aaaaa
+1aaaaf
+b1000001010011100100010000000000 aaaak
+0aaaar
+
+#3500000
+0aaaaa
+
+#3550000
+1aaaaa
+b11110 aaaac
+0aaaaf
+
+#3600000
+0aaaaa
+
+#3650000
+1aaaaa
+1aaaaf
+b1011000010011110101001000000000 aaaak
+1aaaar
+
+#3700000
+0aaaaa
+
+#3750000
+1aaaaa
+b11 aaaac
+0aaaaf
+
+#3800000
+0aaaaa
+
+#3850000
+1aaaaa
+1aaaaf
+b1000001010001000100010000000000 aaaak
+0aaaar
+
+#3900000
+0aaaaa
+
+#3950000
+1aaaaa
+b10111 aaaac
+0aaaaf
+
+#4000000
+0aaaaa
+
+#4050000
+1aaaaa
+1aaaaf
+b1010011010101010100001000000000 aaaak
+1aaaar
+
+#4100000
+0aaaaa
+
+#4150000
+1aaaaa
+b10000000 aaaac
+0aaaaf
+
+#4200000
+0aaaaa
+
+#4250000
+1aaaaa
+1aaaaf
+b1001101010101010100110000000000 aaaak
+1aaaao
+0aaaar
+
+#4300000
+0aaaaa
+
+#4350000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#4400000
+0aaaaa
+
+#4450000
+1aaaaa
+b1101110011011110111000000000000 aaaak
+0aaaao
+
+#4500000
+0aaaaa
+
+#4550000
+1aaaaa
+
+#4600000
+0aaaaa
+
+#4650000
+1aaaaa
+
+#4700000
+0aaaaa
+
+#4750000
+1aaaaa
+1aaaab
+b0 aaaac
+
+#4800000
+0aaaaa
+
+#4850000
+1aaaaa
+
+#4900000
+0aaaaa
+
+#4950000
+1aaaaa
+0aaaab
+
+#5000000
+0aaaaa
+
+#5050000
+1aaaaa
+1aaaad
+
+#5100000
+0aaaaa
+
+#5150000
+1aaaaa
+b10101010 aaaac
+0aaaad
+1aaaae
+
+#5200000
+0aaaaa
+
+#5250000
+1aaaaa
+b1010101 aaaac
+0aaaae
+1aaaaf
+
+#5300000
+0aaaaa
+
+#5350000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#5400000
+0aaaaa
+
+#5450000
+1aaaaa
+1aaaaf
+
+#5500000
+0aaaaa
+
+#5550000
+1aaaaa
+b11100 aaaac
+0aaaaf
+
+#5600000
+0aaaaa
+
+#5650000
+1aaaaa
+1aaaaf
+b1001111010100100010000000000000 aaaak
+1aaaar
+
+#5700000
+0aaaaa
+
+#5750000
+1aaaaa
+b1101 aaaac
+0aaaaf
+
+#5800000
+0aaaaa
+
+#5850000
+1aaaaa
+1aaaaf
+b1000001010011100100010000000000 aaaak
+0aaaar
+
+#5900000
+0aaaaa
+
+#5950000
+1aaaaa
+b11110 aaaac
+0aaaaf
+
+#6000000
+0aaaaa
+
+#6050000
+1aaaaa
+1aaaaf
+b1011000010011110101001000000000 aaaak
+1aaaar
+
+#6100000
+0aaaaa
+
+#6150000
+1aaaaa
+b11 aaaac
+0aaaaf
+
+#6200000
+0aaaaa
+
+#6250000
+1aaaaa
+1aaaaf
+b1000001010001000100010000000000 aaaak
+0aaaar
+
+#6300000
+0aaaaa
+
+#6350000
+1aaaaa
+b10111 aaaac
+0aaaaf
+
+#6400000
+0aaaaa
+
+#6450000
+1aaaaa
+1aaaaf
+b1010011010101010100001000000000 aaaak
+1aaaar
+
+#6500000
+0aaaaa
+
+#6550000
+1aaaaa
+b10000000 aaaac
+0aaaaf
+
+#6600000
+0aaaaa
+
+#6650000
+1aaaaa
+1aaaaf
+b1001101010101010100110000000000 aaaak
+1aaaao
+0aaaar
+
+#6700000
+0aaaaa
+
+#6750000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#6800000
+0aaaaa
+
+#6850000
+1aaaaa
+b1101110011011110111000000000000 aaaak
+0aaaao
+
+#6900000
+0aaaaa
+
+#6950000
+1aaaaa
+
+#7000000
+0aaaaa
+
+#7050000
+1aaaaa
+
+#7100000
+0aaaaa
+
+#7150000
+1aaaaa
+1aaaab
+b0 aaaac
+
+#7200000
+0aaaaa
+
+#7250000
+1aaaaa
+
+#7300000
+0aaaaa
+
+#7350000
+1aaaaa
+0aaaab
+
+#7400000
+0aaaaa
+
+#7450000
+1aaaaa
+1aaaad
+
+#7500000
+0aaaaa
+
+#7550000
+1aaaaa
+b10101010 aaaac
+0aaaad
+1aaaae
+
+#7600000
+0aaaaa
+
+#7650000
+1aaaaa
+b1010101 aaaac
+0aaaae
+1aaaaf
+
+#7700000
+0aaaaa
+
+#7750000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#7800000
+0aaaaa
+
+#7850000
+1aaaaa
+1aaaaf
+
+#7900000
+0aaaaa
+
+#7950000
+1aaaaa
+b11100 aaaac
+0aaaaf
+
+#8000000
+0aaaaa
+
+#8050000
+1aaaaa
+1aaaaf
+b1001111010100100010000000000000 aaaak
+1aaaar
+
+#8100000
+0aaaaa
+
+#8150000
+1aaaaa
+b1101 aaaac
+0aaaaf
+
+#8200000
+0aaaaa
+
+#8250000
+1aaaaa
+1aaaaf
+b1000001010011100100010000000000 aaaak
+0aaaar
+
+#8300000
+0aaaaa
+
+#8350000
+1aaaaa
+b11110 aaaac
+0aaaaf
+
+#8400000
+0aaaaa
+
+#8450000
+1aaaaa
+1aaaaf
+b1011000010011110101001000000000 aaaak
+1aaaar
+
+#8500000
+0aaaaa
+
+#8550000
+1aaaaa
+b11 aaaac
+0aaaaf
+
+#8600000
+0aaaaa
+
+#8650000
+1aaaaa
+1aaaaf
+b1000001010001000100010000000000 aaaak
+0aaaar
+
+#8700000
+0aaaaa
+
+#8750000
+1aaaaa
+b10111 aaaac
+0aaaaf
+
+#8800000
+0aaaaa
+
+#8850000
+1aaaaa
+1aaaaf
+b1010011010101010100001000000000 aaaak
+1aaaar
+
+#8900000
+0aaaaa
+
+#8950000
+1aaaaa
+b10000000 aaaac
+0aaaaf
+
+#9000000
+0aaaaa
+
+#9050000
+1aaaaa
+1aaaaf
+b1001101010101010100110000000000 aaaak
+1aaaao
+0aaaar
+
+#9100000
+0aaaaa
+
+#9150000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#9200000
+0aaaaa
+
+#9250000
+1aaaaa
+b1101110011011110111000000000000 aaaak
+0aaaao
+
+#9300000
+0aaaaa
+
+#9350000
+1aaaaa
+
+#9400000
+0aaaaa
+
+#9450000
+1aaaaa
+
+#9500000
+0aaaaa
+
+#9550000
+1aaaaa
+1aaaab
+b0 aaaac
+
+#9600000
+0aaaaa
+
+#9650000
+1aaaaa
+
+#9700000
+0aaaaa
+
+#9750000
+1aaaaa
+0aaaab
+
+#9800000
+0aaaaa
+
+#9850000
+1aaaaa
+1aaaad
+
+#9900000
+0aaaaa
+
+#9950000
+1aaaaa
+b10101010 aaaac
+0aaaad
+1aaaae
+
+#10000000
+0aaaaa
+
+#10050000
+1aaaaa
+b1010101 aaaac
+0aaaae
+1aaaaf
+
+#10100000
+0aaaaa
+
+#10150000
+1aaaaa
+b1111 aaaac
+0aaaaf
+
+#10200000
+0aaaaa
+
+#10250000
+1aaaaa
+1aaaaf
+
+#10300000
+0aaaaa
+
+#10350000
+1aaaaa
+b11100 aaaac
+0aaaaf
+
+#10400000
+0aaaaa
+
+#10450000
+1aaaaa
+1aaaaf
+b1001111010100100010000000000000 aaaak
+1aaaar
+
+#10500000
+0aaaaa
+
+#10550000
+1aaaaa
+b1101 aaaac
+0aaaaf
+
+#10600000
+0aaaaa
+
+#10650000
+1aaaaa
+1aaaaf
+b1000001010011100100010000000000 aaaak
+0aaaar
+
+#10700000
+0aaaaa
+
+#10750000
+1aaaaa
+b11110 aaaac
+0aaaaf
+
+#10800000
+0aaaaa
+
+#10850000
+1aaaaa
+1aaaaf
+b1011000010011110101001000000000 aaaak
+1aaaar
+
+#10900000
+0aaaaa
+
+#10950000
+1aaaaa
+b11 aaaac
+0aaaaf
+
+#11000000
+0aaaaa
+
+#11050000
+1aaaaa
+1aaaaf
+b1000001010001000100010000000000 aaaak
+0aaaar
+
+#11100000
+0aaaaa
+
+#11150000
+1aaaaa
+b10111 aaaac
+0aaaaf
+
+#11200000
+0aaaaa
+
+#11250000
+1aaaaa
+1aaaaf
+b1010011010101010100001000000000 aaaak
+1aaaar
+
+#11300000
+0aaaaa
+
+#11350000
+1aaaaa
+b10000000 aaaac
+0aaaaf
+
+#11400000
+0aaaaa
+
+#11450000
+1aaaaa
+1aaaaf
+b1001101010101010100110000000000 aaaak
+1aaaao
+0aaaar

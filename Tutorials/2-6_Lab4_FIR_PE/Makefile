@@ -9,6 +9,7 @@ all :
 	@echo '         Use one of following options'
 	@echo '             synthesize'
 	@echo '             place'
+	@echo '             sta'
 	@echo '             route'
 	@echo '             migrate'
 	@echo '             lvs'
@@ -28,6 +29,15 @@ place : ./log/place.log
 	./log/synth.log \
 	project_vars.sh
 	qflow place -T etri050 $(TOP_MODULE)
+
+# -----------------------------------------------------
+sta : ./log/sta.log
+
+./log/sta.log : \
+	./synthesis/$(TOP_MODULE).rtlnopwr.v \
+	./log/place.log \
+	project_vars.sh
+	qflow sta -T etri050 $(TOP_MODULE)
 
 # -----------------------------------------------------
 route : ./log/route.log
@@ -56,6 +66,58 @@ lvs : ./log/lvs.log project_vars.sh
 	~/ETRI050_DesignKit/scripts/fix_net_name.sh ./synthesis/$(TOP_MODULE).spc
 	qflow lvs -T etri050 $(TOP_MODULE)
 
+size: ./layout/$(TOP_MODULE).mag ./log/magic_db.log
+	~/ETRI050_DesignKit/scripts/size_core.sh $(TOP_MODULE)
+
 clean :
 	rm -f ./log/*
 	rm -f ./synthesis/*
+	touch project_vars.sh
+
+#--------------------------------------------------------------------------------
+CELL_SRC1 = ~/ETRI050_DesignKit/digital_ETRI050_m1f
+CELL_SRC2 = ~/ETRI050_DesignKit/digital_ETRI050_m2f
+CELL_LIB  = ~/ETRI050_DesignKit/digital_ETRI
+
+config_cell:
+	cd $(CELL_LIB)
+	cp -f $(CELL_SRC1)/AND2X1.mag	$(CELL_LIB)/AND2X1.mag
+	cp -f $(CELL_SRC1)/AND2X2.mag	$(CELL_LIB)/AND2X2.mag
+	cp -f $(CELL_SRC1)/AOI21X1.mag	$(CELL_LIB)/AOI21X1.mag
+	cp -f $(CELL_SRC1)/AOI22X1.mag	$(CELL_LIB)/AOI22X1.mag
+	cp -f $(CELL_SRC1)/BUFX2.mag	$(CELL_LIB)/BUFX2.mag
+	cp -f $(CELL_SRC1)/BUFX4.mag	$(CELL_LIB)/BUFX4.mag
+	cp -f $(CELL_SRC1)/CLKBUF1.mag	$(CELL_LIB)/CLKBUF1.mag
+	cp -f $(CELL_SRC1)/CLKBUF2.mag	$(CELL_LIB)/CLKBUF2.mag
+	cp -f $(CELL_SRC1)/CLKBUF3.mag	$(CELL_LIB)/CLKBUF3.mag
+	cp -f $(CELL_SRC1)/DFFNEGX1.mag	$(CELL_LIB)/DFFNEGX1.mag
+	cp -f $(CELL_SRC1)/DFFPOSX1.mag	$(CELL_LIB)/DFFPOSX1.mag
+	cp -f $(CELL_SRC2)/DFFSR.mag	$(CELL_LIB)/DFFSR.mag
+	cp -f $(CELL_SRC1)/FILL.mag		$(CELL_LIB)/FILL.mag
+	cp -f $(CELL_SRC1)/INVX1.mag	$(CELL_LIB)/INVX1.mag
+	cp -f $(CELL_SRC1)/INVX2.mag	$(CELL_LIB)/INVX2.mag
+	cp -f $(CELL_SRC1)/INVX4.mag	$(CELL_LIB)/INVX4.mag
+	cp -f $(CELL_SRC1)/INVX8.mag	$(CELL_LIB)/INVX8.mag
+	cp -f $(CELL_SRC1)/MUX2X1.mag	$(CELL_LIB)/MUX2X1.mag
+	cp -f $(CELL_SRC1)/NAND2X1.mag	$(CELL_LIB)/NAND2X1.mag
+	cp -f $(CELL_SRC1)/NAND3X1.mag	$(CELL_LIB)/NAND3X1.mag
+	cp -f $(CELL_SRC1)/NOR2X1.mag	$(CELL_LIB)/NOR2X1.mag
+	cp -f $(CELL_SRC1)/NOR3X1.mag	$(CELL_LIB)/NOR3X1.mag
+	cp -f $(CELL_SRC1)/OAI21X1.mag	$(CELL_LIB)/OAI21X1.mag
+	cp -f $(CELL_SRC1)/OAI22X1.mag	$(CELL_LIB)/OAI22X1.mag
+	cp -f $(CELL_SRC1)/OR2X1.mag	$(CELL_LIB)/OR2X1.mag
+	cp -f $(CELL_SRC1)/OR2X2.mag	$(CELL_LIB)/OR2X2.mag
+	cp -f $(CELL_SRC1)/TBUFX1.mag	$(CELL_LIB)/TBUFX1.mag
+	cp -f $(CELL_SRC1)/TBUFX2.mag	$(CELL_LIB)/TBUFX2.mag
+	cp -f $(CELL_SRC1)/HAX1.mag		$(CELL_LIB)/HAX1.mag
+	cp -f $(CELL_SRC1)/FAX1.mag		$(CELL_LIB)/FAX1.mag
+	cp -f $(CELL_SRC1)/XNOR2X1.mag	$(CELL_LIB)/XNOR2X1.mag
+	cp -f $(CELL_SRC1)/XOR2X1.mag	$(CELL_LIB)/XOR2X1.mag
+	cp -f $(CELL_SRC1)/LATCH.mag	$(CELL_LIB)/LATCH.mag
+	cp -f $(CELL_SRC1)/khu_etri050_stdcells.mag	$(CELL_LIB)/khu_etri050_stdcells.mag
+	cd $(CELL_LIB) && $(MAKE) clean && $(MAKE)
+
+clean_cell :
+	cd $(CELL_LIB) && $(MAKE) clean_all
+	rm -f $(CELL_LIB)/Std-Cell_List.txt
+	rm -f $(CELL_LIB)/*.mag

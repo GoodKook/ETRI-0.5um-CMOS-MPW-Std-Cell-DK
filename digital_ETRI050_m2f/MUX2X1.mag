@@ -1,0 +1,148 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1727833911
+<< nwell >>
+rect -12 134 131 252
+rect 14 126 80 134
+<< ntransistor >>
+rect 20 22 24 42
+rect 40 22 44 62
+rect 50 22 54 62
+rect 70 22 74 62
+rect 80 22 84 62
+<< ptransistor >>
+rect 20 178 24 218
+rect 40 138 44 218
+rect 50 138 54 218
+rect 70 146 74 226
+rect 80 146 84 226
+<< ndiffusion >>
+rect 28 42 40 62
+rect 18 22 20 42
+rect 24 22 26 42
+rect 38 22 40 42
+rect 44 22 50 62
+rect 54 54 70 62
+rect 54 22 56 54
+rect 68 22 70 54
+rect 74 22 80 62
+rect 84 22 86 62
+<< pdiffusion >>
+rect 61 218 70 226
+rect 18 178 20 218
+rect 24 178 26 218
+rect 38 178 40 218
+rect 30 138 40 178
+rect 44 138 50 218
+rect 54 154 56 218
+rect 68 154 70 218
+rect 54 146 70 154
+rect 74 146 80 226
+rect 84 146 86 226
+rect 54 138 62 146
+<< ndcontact >>
+rect 6 22 18 42
+rect 26 22 38 42
+rect 56 22 68 54
+rect 86 22 98 62
+<< pdcontact >>
+rect 6 178 18 218
+rect 26 178 38 218
+rect 56 154 68 218
+rect 86 146 98 226
+<< psubstratepcontact >>
+rect -6 -6 126 6
+<< nsubstratencontact >>
+rect -6 234 125 246
+<< polysilicon >>
+rect 20 226 54 230
+rect 70 226 74 230
+rect 80 226 84 230
+rect 20 218 24 226
+rect 40 218 44 222
+rect 50 218 54 226
+rect 20 174 24 178
+rect 12 170 24 174
+rect 12 89 16 170
+rect 40 133 44 138
+rect 50 134 54 138
+rect 31 129 44 133
+rect 31 123 36 129
+rect 70 124 74 146
+rect 12 51 16 77
+rect 31 80 36 111
+rect 45 120 74 124
+rect 31 74 44 80
+rect 40 62 44 74
+rect 50 62 54 108
+rect 70 62 74 66
+rect 80 62 84 146
+rect 12 46 24 51
+rect 20 42 24 46
+rect 20 14 24 22
+rect 40 18 44 22
+rect 50 18 54 22
+rect 70 14 74 22
+rect 80 18 84 22
+rect 20 10 74 14
+<< polycontact >>
+rect 24 111 36 123
+rect 4 77 16 89
+rect 45 108 57 120
+rect 84 111 96 123
+<< metal1 >>
+rect -6 246 125 248
+rect -6 232 125 234
+rect 26 218 38 232
+rect 86 226 98 232
+rect 12 144 18 178
+rect 68 154 70 156
+rect 56 150 70 154
+rect 12 138 53 144
+rect 45 120 53 138
+rect 45 70 53 108
+rect 64 103 70 150
+rect 11 64 53 70
+rect 11 42 18 64
+rect 64 58 70 89
+rect 56 54 70 58
+rect 68 52 70 54
+rect 26 8 38 22
+rect 86 8 98 22
+rect -6 6 126 8
+rect -6 -8 126 -6
+<< m2contact >>
+rect 3 89 17 103
+rect 23 97 37 111
+rect 63 89 77 103
+rect 83 97 97 111
+<< metal2 >>
+rect 3 103 17 117
+rect 23 83 37 97
+rect 63 103 77 117
+rect 83 83 97 97
+<< m2p >>
+rect 3 103 17 117
+rect 63 103 77 117
+rect 23 83 37 97
+rect 83 83 97 97
+<< labels >>
+rlabel metal1 -6 -8 126 8 0 gnd
+port 5 nsew ground bidirectional abutment
+rlabel metal1 -6 232 125 248 0 vdd
+port 4 nsew power bidirectional abutment
+rlabel metal2 3 103 17 117 0 S
+port 2 nsew signal input
+rlabel metal2 23 83 37 97 0 B
+port 1 nsew signal input
+rlabel metal2 63 103 77 117 0 Y
+port 3 nsew signal output
+rlabel metal2 83 83 97 97 0 A
+port 0 nsew signal input
+<< properties >>
+string FIXED_BBOX 0 0 120 240
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>

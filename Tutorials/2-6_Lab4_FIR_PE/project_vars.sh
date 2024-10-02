@@ -18,8 +18,8 @@
 # Synthesis command options:
 # -------------------------------------------
 # set hard_macros =
-# set yosys_options =
-# set yosys_script =
+set yosys_options = "-m sdc"
+set yosys_script = set_max_delay.tcl
 # set yosys_debug =
 # set abc_script =
 # set nobuffers =
@@ -34,14 +34,14 @@
 
 # Placement command options:
 # -------------------------------------------
-set initial_density = 0.6
+set initial_density = 0.77
 # set graywolf_options =
-set addspacers_options = "-stripe 8 225 PG"
+#set addspacers_options = "-stripe 8 225 PG"
 # set addspacers_power =
 
 # Router command options:
 # -------------------------------------------
-set route_show = 1
+set route_show = 0
 # set route_layers =
 # set via_use =
 set via_stacks = none

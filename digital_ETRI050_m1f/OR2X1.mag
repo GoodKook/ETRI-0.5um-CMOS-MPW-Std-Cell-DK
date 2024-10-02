@@ -1,0 +1,105 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1727734834
+<< nwell >>
+rect -13 134 112 252
+<< ntransistor >>
+rect 20 14 24 34
+rect 40 14 44 34
+rect 60 14 64 34
+<< ptransistor >>
+rect 20 146 24 226
+rect 30 146 34 226
+rect 52 186 56 226
+<< ndiffusion >>
+rect 18 14 20 34
+rect 24 14 26 34
+rect 38 14 40 34
+rect 44 14 46 34
+rect 58 14 60 34
+rect 64 14 66 34
+<< pdiffusion >>
+rect 18 146 20 226
+rect 24 146 30 226
+rect 34 146 36 226
+rect 48 186 52 226
+rect 56 186 58 226
+<< ndcontact >>
+rect 6 14 18 34
+rect 26 14 38 34
+rect 46 14 58 34
+rect 66 14 78 34
+<< pdcontact >>
+rect 6 146 18 226
+rect 36 146 48 226
+rect 58 186 70 226
+<< psubstratepcontact >>
+rect -7 -6 106 6
+<< nsubstratencontact >>
+rect -7 234 106 246
+<< polysilicon >>
+rect 20 226 24 230
+rect 30 226 34 230
+rect 52 226 56 230
+rect 20 122 24 146
+rect 12 118 24 122
+rect 12 89 16 118
+rect 30 83 34 146
+rect 52 140 56 186
+rect 12 45 16 77
+rect 36 71 44 83
+rect 12 40 24 45
+rect 20 34 24 40
+rect 40 34 44 71
+rect 60 34 64 44
+rect 20 10 24 14
+rect 40 10 44 14
+rect 60 10 64 14
+<< polycontact >>
+rect 4 77 16 89
+rect 52 128 64 140
+rect 24 71 36 83
+rect 52 44 64 56
+<< metal1 >>
+rect -7 246 106 248
+rect -7 232 106 234
+rect 36 226 48 232
+rect 58 180 76 186
+rect 6 140 18 146
+rect 6 134 52 140
+rect 51 128 52 134
+rect 23 83 37 97
+rect 3 63 17 77
+rect 51 56 57 128
+rect 70 97 76 180
+rect 63 83 77 97
+rect 51 50 52 56
+rect 28 44 52 50
+rect 28 34 34 44
+rect 70 34 76 83
+rect 6 8 18 14
+rect 46 8 58 14
+rect -7 6 106 8
+rect -7 -8 106 -6
+<< m1p >>
+rect 23 83 37 97
+rect 63 83 77 97
+rect 3 63 17 77
+<< labels >>
+rlabel metal1 -7 -8 106 8 0 gnd
+port 4 nsew ground bidirectional abutment
+rlabel metal1 3 63 17 77 0 A
+port 0 nsew signal input
+rlabel metal1 23 83 37 97 0 B
+port 1 nsew signal input
+rlabel metal1 63 83 77 97 0 Y
+port 2 nsew signal output
+rlabel metal1 -7 232 106 248 0 vdd
+port 3 nsew power bidirectional abutment
+<< properties >>
+string FIXED_BBOX 0 0 100 240
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>
