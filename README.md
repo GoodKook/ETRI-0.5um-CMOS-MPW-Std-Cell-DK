@@ -4,9 +4,7 @@ ETRI 0.5um CMOS MPW Std-Cell Design-Kit
 
 Visit following blog page for more information,
 
-https://fun-teaching-goodkook.blogspot.com/2023/12/etri-05u-cmos-v1a-2023-12-13.html
-
-https://fun-teaching-goodkook.blogspot.com/2024/03/blog-post.html
+https://fun-teaching-goodkook.blogspot.com/2024/07/mpw.html
 
 * Note: Blog page is written in Korean. You may read via machine translation.
 
@@ -16,14 +14,6 @@ https://fun-teaching-goodkook.blogspot.com/2024/03/blog-post.html
 
 Installation
 ------------
-
-Symbolic link 'digital_ETRI' to cell-library folder,
-
-    ln -s digital_ETRI050_m2d digital_ETRI
-
-Make scripts as executable,
-
-    chmod +x ./scripts/*.sh;chmod +x ./scripts/*.py;chmod +x ./Tools/*.sh
 
 Change to tool installation script folder,
 
