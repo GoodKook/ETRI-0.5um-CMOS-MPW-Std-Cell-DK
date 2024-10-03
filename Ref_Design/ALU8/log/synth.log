@@ -1,0 +1,1313 @@
+Qflow synthesis logfile created on Fri 04 Oct 2024 06:25:32 AM KST
+Running yosys for verilog parsing and synthesis
+yosys  -s ALU_wrapper.ys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+
+-- Executing script file `ALU_wrapper.ys' --
+
+1. Executing Liberty frontend: /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+Imported 39 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v
+Parsing Verilog input from `/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v' to AST representation.
+Generating RTLIL representation for module `\ALU_wrapper'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: ALU8.v
+Parsing Verilog input from `ALU8.v' to AST representation.
+Generating RTLIL representation for module `\ALU8'.
+Successfully finished Verilog frontend.
+
+4. Executing SYNTH pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \ALU_wrapper
+Used module:     \ALU8
+
+4.1.2. Analyzing design hierarchy..
+Top module:  \ALU_wrapper
+Used module:     \ALU8
+Removed 0 unused modules.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$ALU8.v:67$14 in module ALU8.
+Marked 1 switch rules as full_case in process $proc$ALU8.v:67$14 in module ALU8.
+Removed 1 dead cases from process $proc$ALU8.v:53$10 in module ALU8.
+Marked 2 switch rules as full_case in process $proc$ALU8.v:53$10 in module ALU8.
+Marked 3 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:193$5 in module ALU_wrapper.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2 in module ALU_wrapper.
+Marked 14 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:49$1 in module ALU_wrapper.
+Removed a total of 2 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 9 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:49$1'.
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~23 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ALU8.$proc$ALU8.v:87$21'.
+Creating decoders for process `\ALU8.$proc$ALU8.v:67$14'.
+     1/1: $1\temp_BI[7:0]
+Creating decoders for process `\ALU8.$proc$ALU8.v:53$10'.
+     1/2: $2\temp_logic[8:0]
+     2/2: $1\temp_logic[8:0]
+Creating decoders for process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:193$5'.
+     1/1: $0\ACC_o[7:0]
+Creating decoders for process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:128$3'.
+     1/2: $0\rB[7:0]
+     2/2: $0\rA[7:0]
+Creating decoders for process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+     1/5: $1\LoadA[0:0]
+     2/5: $1\OutFlag[0:0]
+     3/5: $1\LoadCmd[0:0]
+     4/5: $1\LoadB[0:0]
+     5/5: $1\Done_o[0:0]
+Creating decoders for process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:49$1'.
+     1/1: $0\state[2:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ALU8.\temp_l' from process `\ALU8.$proc$ALU8.v:87$21'.
+No latch inferred for signal `\ALU8.\temp_h' from process `\ALU8.$proc$ALU8.v:87$21'.
+No latch inferred for signal `\ALU8.\temp_BI' from process `\ALU8.$proc$ALU8.v:67$14'.
+No latch inferred for signal `\ALU8.\temp_logic' from process `\ALU8.$proc$ALU8.v:53$10'.
+No latch inferred for signal `\ALU_wrapper.\Done_o' from process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+No latch inferred for signal `\ALU_wrapper.\LoadA' from process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+No latch inferred for signal `\ALU_wrapper.\LoadB' from process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+No latch inferred for signal `\ALU_wrapper.\LoadCmd' from process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+No latch inferred for signal `\ALU_wrapper.\OutFlag' from process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ALU_wrapper.\ACC_o' using process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:193$5'.
+  created $dff cell `$procdff$124' with positive edge clock.
+Creating register for signal `\ALU_wrapper.\rA' using process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:128$3'.
+  created $dff cell `$procdff$125' with positive edge clock.
+Creating register for signal `\ALU_wrapper.\rB' using process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:128$3'.
+  created $dff cell `$procdff$126' with positive edge clock.
+Creating register for signal `\ALU_wrapper.\state' using process `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:49$1'.
+  created $adff cell `$procdff$129' with positive edge clock and positive level reset.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ALU8.$proc$ALU8.v:87$21'.
+Found and cleaned up 1 empty switch in `\ALU8.$proc$ALU8.v:67$14'.
+Removing empty process `ALU8.$proc$ALU8.v:67$14'.
+Found and cleaned up 2 empty switches in `\ALU8.$proc$ALU8.v:53$10'.
+Removing empty process `ALU8.$proc$ALU8.v:53$10'.
+Found and cleaned up 4 empty switches in `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:193$5'.
+Removing empty process `ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:193$5'.
+Found and cleaned up 2 empty switches in `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:128$3'.
+Removing empty process `ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:128$3'.
+Found and cleaned up 1 empty switch in `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+Removing empty process `ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:83$2'.
+Found and cleaned up 13 empty switches in `\ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:49$1'.
+Removing empty process `ALU_wrapper.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:49$1'.
+Cleaned up 23 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+<suppressed ~2 debug messages>
+Optimizing module ALU_wrapper.
+<suppressed ~1 debug messages>
+
+4.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 0 unused cells and 58 unused wires.
+<suppressed ~3 debug messages>
+
+4.5. Executing CHECK pass (checking for obvious problems).
+Checking module ALU8...
+Checking module ALU_wrapper...
+Found and reported 0 problems.
+
+4.6. Executing OPT pass (performing simple optimizations).
+
+4.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\ALU_wrapper'.
+<suppressed ~15 debug messages>
+Removed a total of 6 cells.
+
+4.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+4.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+4.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~2 debug messages>
+
+4.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+    New ctrl vector for $pmux cell $procmux$91: { $procmux$113_CMP $procmux$106_CMP $procmux$72_CMP $auto$opt_reduce.cc:134:opt_pmux$131 }
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 1 changes.
+
+4.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+4.6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.6.23. Finished OPT passes. (There is nothing left to do.)
+
+4.7. Executing FSM pass (extract and optimize FSM).
+
+4.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking ALU_wrapper.state as FSM state register:
+    Circuit seems to be self-resetting.
+
+4.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+4.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+4.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+4.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+4.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+4.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$126 ($dff) from module ALU_wrapper (D = \ABCmd_i, Q = \rB).
+Adding EN signal on $procdff$125 ($dff) from module ALU_wrapper (D = \ABCmd_i, Q = \rA).
+Adding EN signal on $procdff$124 ($dff) from module ALU_wrapper (D = $0\ACC_o[7:0], Q = \ACC_o).
+
+4.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+4.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+<suppressed ~1 debug messages>
+
+4.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+4.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.8.16. Finished OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from mux cell ALU8.$ternary$ALU8.v:48$9 ($mux).
+Removed top 1 bits (of 2) from port B of cell ALU8.$procmux$35_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell ALU8.$procmux$43_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ALU_wrapper.$procmux$106_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ALU_wrapper.$procmux$113_CMP0 ($eq).
+Removed top 1 bits (of 3) from mux cell ALU_wrapper.$procmux$115 ($mux).
+Removed top 1 bits (of 3) from mux cell ALU_wrapper.$procmux$118 ($mux).
+Removed top 2 bits (of 3) from port B of cell ALU_wrapper.$procmux$123_CMP0 ($eq).
+Removed top 1 bits (of 3) from wire ALU_wrapper.$procmux$115_Y.
+Removed top 1 bits (of 3) from wire ALU_wrapper.$procmux$118_Y.
+
+4.10. Executing PEEPOPT pass (run peephole optimizers).
+
+4.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~2 debug messages>
+
+4.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module ALU8:
+  creating $macc model for $add$ALU8.v:89$22 ($add).
+  creating $macc model for $add$ALU8.v:89$23 ($add).
+  creating $macc model for $add$ALU8.v:90$24 ($add).
+  creating $macc model for $add$ALU8.v:90$25 ($add).
+  merging $macc model for $add$ALU8.v:90$24 into $add$ALU8.v:90$25.
+  merging $macc model for $add$ALU8.v:89$22 into $add$ALU8.v:89$23.
+  creating $alu model for $macc $add$ALU8.v:89$23.
+  creating $alu model for $macc $add$ALU8.v:90$25.
+  creating $alu model for $ge$ALU8.v:77$16 ($ge): new $alu
+  creating $alu model for $ge$ALU8.v:80$18 ($ge): new $alu
+  creating $alu cell for $ge$ALU8.v:80$18: $auto$alumacc.cc:485:replace_alu$141
+  creating $alu cell for $ge$ALU8.v:77$16: $auto$alumacc.cc:485:replace_alu$150
+  creating $alu cell for $add$ALU8.v:90$25: $auto$alumacc.cc:485:replace_alu$159
+  creating $alu cell for $add$ALU8.v:89$23: $auto$alumacc.cc:485:replace_alu$162
+  created 4 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module ALU_wrapper:
+  creating $macc model for $mul$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:151$4 ($mul).
+  creating $macc cell for $mul$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/source/ALU_wrapper.v:151$4: $auto$alumacc.cc:365:replace_macc$165
+  created 0 $alu and 1 $macc cells.
+
+4.13. Executing SHARE pass (SAT-based resource sharing).
+
+4.14. Executing OPT pass (performing simple optimizations).
+
+4.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+4.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 2 unused cells and 4 unused wires.
+<suppressed ~3 debug messages>
+
+4.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+4.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.14.16. Finished OPT passes. (There is nothing left to do.)
+
+4.15. Executing MEMORY pass.
+
+4.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+4.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+4.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+4.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+4.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+4.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+4.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+4.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.17. Executing OPT pass (performing simple optimizations).
+
+4.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+<suppressed ~4 debug messages>
+Optimizing module ALU_wrapper.
+<suppressed ~5 debug messages>
+
+4.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 4 unused cells and 9 unused wires.
+<suppressed ~6 debug messages>
+
+4.17.5. Finished fast OPT passes.
+
+4.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+4.19. Executing OPT pass (performing simple optimizations).
+
+4.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+    Consolidated identical input bits for $pmux cell $procmux$40:
+      Old ports: A={ 1'0 $or$ALU8.v:55$11_Y }, B={ 1'0 $and$ALU8.v:56$12_Y 1'0 $xor$ALU8.v:57$13_Y 1'0 \AI }, Y=$1\temp_logic[8:0]
+      New ports: A=$or$ALU8.v:55$11_Y, B={ $and$ALU8.v:56$12_Y $xor$ALU8.v:57$13_Y \AI }, Y=$1\temp_logic[8:0] [7:0]
+      New connections: $1\temp_logic[8:0] [8] = 1'0
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+    Consolidated identical input bits for $mux cell $procmux$101:
+      Old ports: A=3'011, B=3'100, Y=$procmux$101_Y
+      New ports: A=2'01, B=2'10, Y={ $procmux$101_Y [2] $procmux$101_Y [0] }
+      New connections: $procmux$101_Y [1] = $procmux$101_Y [0]
+    Consolidated identical input bits for $mux cell $procmux$108:
+      Old ports: A=3'010, B=3'100, Y=$procmux$108_Y
+      New ports: A=2'01, B=2'10, Y=$procmux$108_Y [2:1]
+      New connections: $procmux$108_Y [0] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$94:
+      Old ports: A=3'110, B=3'011, Y=$procmux$94_Y
+      New ports: A=2'10, B=2'01, Y={ $procmux$94_Y [2] $procmux$94_Y [0] }
+      New connections: $procmux$94_Y [1] = 1'1
+  Optimizing cells in module \ALU_wrapper.
+    Consolidated identical input bits for $mux cell $procmux$97:
+      Old ports: A=$procmux$94_Y, B=3'010, Y=$procmux$97_Y
+      New ports: A={ $procmux$94_Y [2] $procmux$94_Y [0] }, B=2'00, Y={ $procmux$97_Y [2] $procmux$97_Y [0] }
+      New connections: $procmux$97_Y [1] = 1'1
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 5 changes.
+
+4.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.19.6. Executing OPT_SHARE pass.
+
+4.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+4.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.19.14. Executing OPT_SHARE pass.
+
+4.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+4.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+4.19.18. Finished OPT passes. (There is nothing left to do.)
+
+4.20. Executing TECHMAP pass (map to technology primitives).
+
+4.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+4.20.2. Continuing TECHMAP pass.
+Using extmapper maccmap for cells of type $macc.
+  add \rA * \rB (8x8 bits, unsigned)
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using template $paramod$d31bf4d7d72e59528d18fbd4f322e9d608532043\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
+Using template $paramod$83dd457849c736323edf2edb15923eb27f99c683\_90_alu for cells of type $alu.
+Using template $paramod$7e708ae28ab761f11d0fb59d3ffc72f6a4baf5d9\_90_alu for cells of type $alu.
+Using template $paramod$b85fbb3374a1d9ba7ee4f4d6323c30f939df3ada\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~801 debug messages>
+
+4.21. Executing OPT pass (performing simple optimizations).
+
+4.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+<suppressed ~73 debug messages>
+Optimizing module ALU_wrapper.
+<suppressed ~428 debug messages>
+
+4.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\ALU_wrapper'.
+<suppressed ~15 debug messages>
+Removed a total of 9 cells.
+
+4.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 36 unused cells and 357 unused wires.
+<suppressed ~38 debug messages>
+
+4.21.5. Finished fast OPT passes.
+
+4.22. Executing ABC pass (technology mapping using ABC).
+
+4.22.1. Extracting gate netlist of module `\ALU8' to `<abc-temp-dir>/input.blif'..
+Extracted 221 gates and 245 wires to a netlist network with 23 inputs and 12 outputs.
+
+4.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+4.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:               MUX cells:       24
+ABC RESULTS:               NOT cells:       21
+ABC RESULTS:               NOR cells:       17
+ABC RESULTS:              NAND cells:       11
+ABC RESULTS:             ORNOT cells:        6
+ABC RESULTS:            ANDNOT cells:       76
+ABC RESULTS:                OR cells:       29
+ABC RESULTS:              XNOR cells:       16
+ABC RESULTS:               XOR cells:       12
+ABC RESULTS:        internal signals:      210
+ABC RESULTS:           input signals:       23
+ABC RESULTS:          output signals:       12
+Removing temp directory.
+
+4.22.2. Extracting gate netlist of module `\ALU_wrapper' to `<abc-temp-dir>/input.blif'..
+Extracted 430 gates and 468 wires to a netlist network with 36 inputs and 15 outputs.
+
+4.22.2.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+4.22.2.2. Re-integrating ABC results.
+ABC RESULTS:              XNOR cells:       31
+ABC RESULTS:               XOR cells:       80
+ABC RESULTS:               MUX cells:       22
+ABC RESULTS:               AND cells:       71
+ABC RESULTS:               NOT cells:       11
+ABC RESULTS:               NOR cells:       12
+ABC RESULTS:              NAND cells:       15
+ABC RESULTS:             ORNOT cells:       27
+ABC RESULTS:                OR cells:       38
+ABC RESULTS:            ANDNOT cells:      122
+ABC RESULTS:        internal signals:      417
+ABC RESULTS:           input signals:       36
+ABC RESULTS:          output signals:       15
+Removing temp directory.
+
+4.23. Executing OPT pass (performing simple optimizations).
+
+4.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+<suppressed ~29 debug messages>
+
+4.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+4.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 3 unused cells and 262 unused wires.
+<suppressed ~15 debug messages>
+
+4.23.5. Finished fast OPT passes.
+
+4.24. Executing HIERARCHY pass (managing design hierarchy).
+
+4.24.1. Analyzing design hierarchy..
+Top module:  \ALU_wrapper
+Used module:     \ALU8
+
+4.24.2. Analyzing design hierarchy..
+Top module:  \ALU_wrapper
+Used module:     \ALU8
+Removed 0 unused modules.
+
+4.25. Printing statistics.
+
+=== ALU8 ===
+
+   Number of wires:                218
+   Number of wire bits:            258
+   Number of public wires:          17
+   Number of public wire bits:      57
+   Number of ports:                 12
+   Number of port bits:             36
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                213
+     $_ANDNOT_                      76
+     $_AND_                          1
+     $_MUX_                         24
+     $_NAND_                        11
+     $_NOR_                         17
+     $_NOT_                         21
+     $_ORNOT_                        6
+     $_OR_                          29
+     $_XNOR_                        16
+     $_XOR_                         12
+
+=== ALU_wrapper ===
+
+   Number of wires:                442
+   Number of wire bits:            512
+   Number of public wires:          26
+   Number of public wire bits:      87
+   Number of ports:                  8
+   Number of port bits:             22
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                454
+     $_ANDNOT_                     122
+     $_AND_                         71
+     $_DFFE_PP_                     24
+     $_DFF_PP0_                      2
+     $_DFF_PP1_                      1
+     $_MUX_                         22
+     $_NAND_                        15
+     $_NOR_                         12
+     $_NOT_                          8
+     $_ORNOT_                       27
+     $_OR_                          38
+     $_XNOR_                        31
+     $_XOR_                         80
+     ALU8                            1
+
+=== design hierarchy ===
+
+   ALU_wrapper                       1
+     ALU8                            1
+
+   Number of wires:                660
+   Number of wire bits:            770
+   Number of public wires:          43
+   Number of public wire bits:     144
+   Number of ports:                 20
+   Number of port bits:             58
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                666
+     $_ANDNOT_                     198
+     $_AND_                         72
+     $_DFFE_PP_                     24
+     $_DFF_PP0_                      2
+     $_DFF_PP1_                      1
+     $_MUX_                         46
+     $_NAND_                        26
+     $_NOR_                         29
+     $_NOT_                         29
+     $_ORNOT_                       33
+     $_OR_                          67
+     $_XNOR_                        47
+     $_XOR_                         92
+
+4.26. Executing CHECK pass (checking for obvious problems).
+Checking module ALU8...
+Checking module ALU_wrapper...
+Found and reported 0 problems.
+
+5. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFFNEGX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_N_.
+  cell DFFPOSX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_P_.
+  cell DFFSR (noninv, pins=5, area=1584.00) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    \DFFNEGX1 _DFF_N_ (.CLK( C), .D( D), .Q( Q));
+    \DFFPOSX1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    unmapped dff cell: $_DFF_PN0_
+    unmapped dff cell: $_DFF_PN1_
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFFSR _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .R( R), .S( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\ALU8':
+Mapping DFF cells in module `\ALU_wrapper':
+  mapped 3 $_DFFSR_PNN_ cells to \DFFSR cells.
+  mapped 24 $_DFF_P_ cells to \DFFPOSX1 cells.
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \ALU_wrapper..
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module ALU_wrapper.
+
+6.16. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing ABC pass (technology mapping using ABC).
+
+7.1. Extracting gate netlist of module `\ALU8' to `<abc-temp-dir>/input.blif'..
+Extracted 213 gates and 236 wires to a netlist network with 23 inputs and 12 outputs.
+
+7.1.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped cell "FAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "HAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XNOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 24 cells (9 skipped: 4 seq; 1 tri-state; 4 no func; 6 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.1.2. Re-integrating ABC results.
+ABC RESULTS:             OR2X2 cells:        1
+ABC RESULTS:            MUX2X1 cells:        3
+ABC RESULTS:           OAI22X1 cells:        1
+ABC RESULTS:           AOI22X1 cells:        9
+ABC RESULTS:           OAI21X1 cells:       59
+ABC RESULTS:           AOI21X1 cells:       15
+ABC RESULTS:            NOR2X1 cells:       15
+ABC RESULTS:             INVX1 cells:       33
+ABC RESULTS:           NAND3X1 cells:       16
+ABC RESULTS:            AND2X2 cells:        9
+ABC RESULTS:           NAND2X1 cells:       41
+ABC RESULTS:        internal signals:      201
+ABC RESULTS:           input signals:       23
+ABC RESULTS:          output signals:       12
+Removing temp directory.
+
+7.2. Extracting gate netlist of module `\ALU_wrapper' to `<abc-temp-dir>/input.blif'..
+Extracted 451 gates and 503 wires to a netlist network with 52 inputs and 29 outputs.
+
+7.2.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped cell "FAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "HAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XNOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 24 cells (9 skipped: 4 seq; 1 tri-state; 4 no func; 6 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.2.2. Re-integrating ABC results.
+ABC RESULTS:            NOR3X1 cells:        4
+ABC RESULTS:           OAI22X1 cells:        6
+ABC RESULTS:            NOR2X1 cells:       48
+ABC RESULTS:            AND2X2 cells:       31
+ABC RESULTS:             OR2X2 cells:       16
+ABC RESULTS:             INVX1 cells:      106
+ABC RESULTS:           NAND3X1 cells:      129
+ABC RESULTS:           AOI21X1 cells:       80
+ABC RESULTS:           AOI22X1 cells:       28
+ABC RESULTS:           NAND2X1 cells:      130
+ABC RESULTS:           OAI21X1 cells:      160
+ABC RESULTS:        internal signals:      422
+ABC RESULTS:           input signals:       52
+ABC RESULTS:          output signals:       29
+Removing temp directory.
+
+8. Executing FLATTEN pass (flatten design).
+Deleting now unused module ALU8.
+<suppressed ~1 debug messages>
+
+9. Executing SETUNDEF pass (replace undef values with defined constants).
+Removed 0 unused cells and 757 unused wires.
+
+10. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map input port ALU_wrapper.ABCmd_i: Missing option -inpad.
+Mapping port ALU_wrapper.ACC_o using BUFX2.
+Mapping port ALU_wrapper.Done_o using BUFX2.
+Don't map input port ALU_wrapper.LoadA_i: Missing option -inpad.
+Don't map input port ALU_wrapper.LoadB_i: Missing option -inpad.
+Don't map input port ALU_wrapper.LoadCmd_i: Missing option -inpad.
+Don't map input port ALU_wrapper.clk: Missing option -inpad.
+Don't map input port ALU_wrapper.reset: Missing option -inpad.
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU_wrapper.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU_wrapper.
+Performed a total of 0 changes.
+
+11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU_wrapper'.
+Removed a total of 0 cells.
+
+11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU_wrapper..
+
+11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU_wrapper.
+
+11.9. Finished OPT passes. (There is nothing left to do.)
+
+12. Executing Verilog backend.
+
+12.1. Executing BMUXMAP pass.
+
+12.2. Executing DEMUXMAP pass.
+Dumping module `\ALU_wrapper'.
+
+13. Printing statistics.
+
+=== ALU_wrapper ===
+
+   Number of wires:                945
+   Number of wire bits:            991
+   Number of public wires:         945
+   Number of public wire bits:     991
+   Number of ports:                  8
+   Number of port bits:             22
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                977
+     $scopeinfo                      1
+     AND2X2                         40
+     AOI21X1                        95
+     AOI22X1                        37
+     BUFX2                           9
+     DFFPOSX1                       24
+     DFFSR                           3
+     INVX1                         139
+     MUX2X1                          3
+     NAND2X1                       171
+     NAND3X1                       145
+     NOR2X1                         63
+     NOR3X1                          4
+     OAI21X1                       219
+     OAI22X1                         7
+     OR2X2                          17
+
+End of script. Logfile hash: 37a707b861, CPU: user 0.29s system 0.00s, MEM: 21.37 MB peak
+Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+Time spent: 54% 2x abc (0 sec), 11% 29x opt_expr (0 sec), ...
+Running getpowerground to determine power and ground net names.
+getpowerground.tcl  /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+Running vlogFanout
+vlogFanout -l 300 -c 75 -I ALU_wrapper_nofanout -s nullstring -p /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -b BUFX2,CLKBUF1 -i A,A -o Y,Y ALU_wrapper_mapped.v ALU_wrapper_sized.v
+
+vlogFanout for qflow 1.4.100
+Parsing library "etri05_stdcells"
+End of library at line 6613
+Lib Read:  Processed 6615 lines.
+Top internal fanout is 20 (load 892.209) from node BI[1],
+driven by DFFPOSX1 with strength 549.757 (fF driven at latency 300)
+Top fanout load-to-strength ratio is 3.0895 (latency = 926.849 ps)
+Top input node fanout is 27 (load 1246.74) from node clk.
+0 gates exceed specified minimum load.
+33 buffers were added.
+Warning 1: load of 175.699 is 1.06779 times greater than strongest gate NAND3X1
+This warning will only be repeated for larger overload ratios.  Warning count reflects
+the total number of overloaded nets.
+Warning 2: load of 177.567 is 1.07111 times greater than strongest gate NAND2X1
+Warning 4: load of 229.274 is 1.39339 times greater than strongest gate NAND3X1
+Warning 6: load of 892.158 is 1.62282 times greater than strongest gate DFFPOSX1
+Warning 7: load of 902.209 is 1.64111 times greater than strongest gate DFFPOSX1
+Warning 21: load of 276.006 is 1.65541 times greater than strongest gate DFFSR
+Warning 22: load of 345.804 is 2.07404 times greater than strongest gate DFFSR
+Warning 26: load of 521.709 is 3.14702 times greater than strongest gate NAND2X1
+Warning 28: load of 522.173 is 3.14982 times greater than strongest gate NAND2X1
+14 gates were changed.
+
+Gate counts by drive strength:
+
+	"" gates	In: 3    	Out: 3    	+0
+	"1" gates	In: 912    	Out: 898    	-14
+	"2" gates	In: 94    	Out: 104    	+10
+
+29 gates exceed specified minimum load.
+0 buffers were added.
+0 gates were changed.
+
+Gate counts by drive strength:
+
+	"" gates	In: 3    	Out: 3    	+0
+	"1" gates	In: 912    	Out: 898    	-14
+	"2" gates	In: 94    	Out: 104    	+10
+
+Number of gates changed: 0
+Running vlog2Verilog for antenna cell mapping.
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+   -o ALU_wrapper.v ALU_wrapper_sized.v
+
+Generating RTL verilog and SPICE netlist file in directory
+	 /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/synthesis
+Files:
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/synthesis/ALU_wrapper.rtl.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/synthesis/ALU_wrapper.rtlnopwr.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/synthesis/ALU_wrapper.rtlbb.v
+   Spice:   /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/synthesis/ALU_wrapper.spc
+
+Running vlog2Verilog.
+vlog2Verilog -c -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o ALU_wrapper.rtl.v
+   ALU_wrapper.v
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o ALU_wrapper.rtlnopwr.v
+   ALU_wrapper.v
+/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+   -o ALU_wrapper.rtlbb.v
+Running vlog2Spice.
+vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o ALU_wrapper.spc ALU_wrapper.rtl.v
+Running spi2xspice.py
+spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" ALU_wrapper.spc ALU_wrapper.xspice
+
+Synthesis script ended on Fri 04 Oct 2024 06:25:33 AM KST
