@@ -267,29 +267,6 @@ M1005 a_6_14# B gnd gnd nfet w=6u l=0.6u
 +  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
 .ends
 
-.subckt TBUFX2 A EN Y vdd gnd
-M1000 vdd A a_44_166# vdd pfet w=12u l=0.6u
-+  ad=14.400002p pd=14.400001u as=14.400002p ps=14.400001u
-M1001 Y a_22_14# a_44_166# vdd pfet w=12u l=0.6u
-+  ad=14.400002p pd=14.400001u as=25.200003p ps=28.200003u
-M1002 a_22_14# EN vdd vdd pfet w=12u l=0.6u
-+  ad=25.200003p pd=28.200003u as=25.200003p ps=28.200003u
-M1003 gnd A a_44_14# gnd nfet w=6u l=0.6u
-+  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
-M1004 a_44_14# A gnd gnd nfet w=6u l=0.6u
-+  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
-M1005 a_44_166# A vdd vdd pfet w=12u l=0.6u
-+  ad=25.200003p pd=28.200003u as=14.400002p ps=14.400001u
-M1006 a_44_166# a_22_14# Y vdd pfet w=12u l=0.6u
-+  ad=14.400002p pd=14.400001u as=14.400002p ps=14.400001u
-M1007 Y EN a_44_14# gnd nfet w=6u l=0.6u
-+  ad=7.200001p pd=8.400001u as=12.600001p ps=16.2u
-M1008 a_22_14# EN gnd gnd nfet w=6u l=0.6u
-+  ad=12.600001p pd=16.2u as=12.600001p ps=16.2u
-M1009 a_44_14# EN Y gnd nfet w=6u l=0.6u
-+  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
-.ends
-
 .subckt DFFNEGX1 D CLK Q vdd gnd
 M1000 vdd CLK a_6_14# vdd pfet w=12u l=0.6u
 +  ad=12.150001p pd=14.400001u as=25.200003p ps=28.200003u
@@ -335,6 +312,29 @@ M1020 vdd a_82_10# a_76_186# vdd pfet w=6u l=0.6u
 +  ad=7.200001p pd=8.400001u as=3.6p ps=7.2u
 M1021 Q a_162_14# vdd vdd pfet w=12u l=0.6u
 +  ad=25.200003p pd=28.200003u as=11.025002p ps=14.400001u
+.ends
+
+.subckt TBUFX2 A EN Y vdd gnd
+M1000 vdd A a_44_166# vdd pfet w=12u l=0.6u
++  ad=14.400002p pd=14.400001u as=14.400002p ps=14.400001u
+M1001 Y a_22_14# a_44_166# vdd pfet w=12u l=0.6u
++  ad=14.400002p pd=14.400001u as=25.200003p ps=28.200003u
+M1002 a_22_14# EN vdd vdd pfet w=12u l=0.6u
++  ad=25.200003p pd=28.200003u as=25.200003p ps=28.200003u
+M1003 gnd A a_44_14# gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
+M1004 a_44_14# A gnd gnd nfet w=6u l=0.6u
++  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
+M1005 a_44_166# A vdd vdd pfet w=12u l=0.6u
++  ad=25.200003p pd=28.200003u as=14.400002p ps=14.400001u
+M1006 a_44_166# a_22_14# Y vdd pfet w=12u l=0.6u
++  ad=14.400002p pd=14.400001u as=14.400002p ps=14.400001u
+M1007 Y EN a_44_14# gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=12.600001p ps=16.2u
+M1008 a_22_14# EN gnd gnd nfet w=6u l=0.6u
++  ad=12.600001p pd=16.2u as=12.600001p ps=16.2u
+M1009 a_44_14# EN Y gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
 .ends
 
 .subckt AOI21X1 A B C Y vdd gnd
@@ -684,7 +684,7 @@ M1021 vdd S a_36_10# vdd pfet w=6u l=0.6u
 +  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
 M1022 vdd a_36_10# a_8_14# vdd pfet w=6u l=0.6u
 +  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
-M1023 a_115_95# a_224_60# gnd gnd nfet w=3u l=0.6u
+M1023 a_115_95# CLK gnd gnd nfet w=3u l=0.6u
 +  ad=6.300001p pd=10.200001u as=3.6p ps=5.4u
 M1024 vdd S a_300_14# vdd pfet w=6u l=0.6u
 +  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
@@ -696,12 +696,34 @@ M1027 a_146_14# a_122_10# a_60_10# vdd pfet w=3u l=0.6u
 +  ad=6.300001p pd=8.400001u as=3.6p ps=5.4u
 M1028 a_354_14# a_280_14# a_334_14# gnd nfet w=6u l=0.6u
 +  ad=3.6p pd=7.2u as=14.400002p ps=16.800001u
-M1029 a_236_186# a_224_60# vdd vdd pfet w=6u l=0.6u
+M1029 a_115_95# CLK vdd vdd pfet w=6u l=0.6u
 +  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
 M1030 gnd R a_354_14# gnd nfet w=6u l=0.6u
 +  ad=8.1p pd=8.700001u as=3.6p ps=7.2u
 M1031 a_300_14# a_334_14# vdd vdd pfet w=6u l=0.6u
 +  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
+.ends
+
+.subckt AND2X2 A B Y vdd gnd
+M1000 a_24_14# A a_6_14# gnd nfet w=6u l=0.6u
++  ad=2.7p pd=6.9u as=12.600001p ps=16.2u
+M1001 gnd B a_24_14# gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=2.7p ps=6.9u
+M1002 vdd B a_6_14# vdd pfet w=6u l=0.6u
++  ad=14.400002p pd=14.700001u as=8.1p ps=8.700001u
+M1003 Y a_6_14# vdd vdd pfet w=12u l=0.6u
++  ad=25.200003p pd=28.200003u as=14.400002p ps=14.700001u
+M1004 a_6_14# A vdd vdd pfet w=6u l=0.6u
++  ad=8.1p pd=8.700001u as=12.600001p ps=16.2u
+M1005 Y a_6_14# gnd gnd nfet w=6u l=0.6u
++  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
+.ends
+
+.subckt INVX1 A Y vdd gnd
+M1000 Y A gnd gnd nfet w=3u l=0.6u
++  ad=6.300001p pd=10.200001u as=6.300001p ps=10.200001u
+M1001 Y A vdd vdd pfet w=6u l=0.6u
++  ad=12.600001p pd=16.2u as=12.600001p ps=16.2u
 .ends
 
 .subckt TBUFX1 A EN Y vdd gnd
@@ -744,28 +766,6 @@ M1010 a_44_166# a_29_58# vdd vdd pfet w=12u l=0.6u
 +  ad=5.4p pd=12.900001u as=14.400002p ps=14.400001u
 M1011 gnd B a_72_14# gnd nfet w=6u l=0.6u
 +  ad=8.1p pd=8.700001u as=2.7p ps=6.9u
-.ends
-
-.subckt AND2X2 A B Y vdd gnd
-M1000 a_24_14# A a_6_14# gnd nfet w=6u l=0.6u
-+  ad=2.7p pd=6.9u as=12.600001p ps=16.2u
-M1001 gnd B a_24_14# gnd nfet w=6u l=0.6u
-+  ad=7.200001p pd=8.400001u as=2.7p ps=6.9u
-M1002 vdd B a_6_14# vdd pfet w=6u l=0.6u
-+  ad=14.400002p pd=14.700001u as=8.1p ps=8.700001u
-M1003 Y a_6_14# vdd vdd pfet w=12u l=0.6u
-+  ad=25.200003p pd=28.200003u as=14.400002p ps=14.700001u
-M1004 a_6_14# A vdd vdd pfet w=6u l=0.6u
-+  ad=8.1p pd=8.700001u as=12.600001p ps=16.2u
-M1005 Y a_6_14# gnd gnd nfet w=6u l=0.6u
-+  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
-.ends
-
-.subckt INVX1 A Y vdd gnd
-M1000 Y A gnd gnd nfet w=3u l=0.6u
-+  ad=6.300001p pd=10.200001u as=6.300001p ps=10.200001u
-M1001 Y A vdd vdd pfet w=6u l=0.6u
-+  ad=12.600001p pd=16.2u as=12.600001p ps=16.2u
 .ends
 
 .subckt OAI22X1 A B C D Y vdd gnd
@@ -814,8 +814,8 @@ XXOR2X1_0 XOR2X1_0/A XOR2X1_0/B XOR2X1_0/Y vdd gnd XOR2X1
 XBUFX4_0 BUFX4_0/A BUFX4_0/Y vdd gnd BUFX4
 XINVX4_0 INVX4_0/A INVX4_0/Y vdd gnd INVX4
 XOAI21X1_0 OAI21X1_0/A OAI21X1_0/B OAI21X1_0/C OAI21X1_0/Y vdd gnd OAI21X1
-XTBUFX2_0 TBUFX2_0/A TBUFX2_0/EN TBUFX2_0/Y vdd gnd TBUFX2
 XDFFNEGX1_0 DFFNEGX1_0/D DFFNEGX1_0/CLK DFFNEGX1_0/Q vdd gnd DFFNEGX1
+XTBUFX2_0 TBUFX2_0/A TBUFX2_0/EN TBUFX2_0/Y vdd gnd TBUFX2
 XAOI21X1_0 AOI21X1_0/A AOI21X1_0/B AOI21X1_0/C AOI21X1_0/Y vdd gnd AOI21X1
 XBUFX2_0 BUFX2_0/A BUFX2_0/Y vdd gnd BUFX2
 XINVX2_0 INVX2_0/A INVX2_0/Y vdd gnd INVX2
@@ -829,10 +829,10 @@ XCLKBUF2_0 CLKBUF2_0/A CLKBUF2_0/Y vdd gnd CLKBUF2
 XLATCH_0 LATCH_0/D LATCH_0/CLK LATCH_0/Q vdd gnd LATCH
 XHAX1_0 HAX1_0/A HAX1_0/B HAX1_0/YS HAX1_0/YC vdd gnd HAX1
 XDFFSR_0 DFFSR_0/R DFFSR_0/S DFFSR_0/D DFFSR_0/CLK DFFSR_0/Q vdd gnd DFFSR
-XTBUFX1_0 TBUFX1_0/A TBUFX1_0/EN TBUFX1_0/Y vdd gnd TBUFX1
-XXNOR2X1_0 XNOR2X1_0/A XNOR2X1_0/B XNOR2X1_0/Y vdd gnd XNOR2X1
 XAND2X2_0 AND2X2_0/A AND2X2_0/B AND2X2_0/Y vdd gnd AND2X2
 XINVX1_0 INVX1_0/A INVX1_0/Y vdd gnd INVX1
+XTBUFX1_0 TBUFX1_0/A TBUFX1_0/EN TBUFX1_0/Y vdd gnd TBUFX1
+XXNOR2X1_0 XNOR2X1_0/A XNOR2X1_0/B XNOR2X1_0/Y vdd gnd XNOR2X1
 XOAI22X1_0 OAI22X1_0/A OAI22X1_0/B OAI22X1_0/C OAI22X1_0/D OAI22X1_0/Y vdd gnd OAI22X1
 XOR2X2_0 OR2X2_0/A OR2X2_0/B OR2X2_0/Y vdd gnd OR2X2
 .ends

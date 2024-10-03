@@ -35,14 +35,14 @@
 
 # Placement command options:
 # -------------------------------------------
-set initial_density = 0.71
+set initial_density = 0.59
 # set graywolf_options =
 #set addspacers_options = "-stripe 8 225 PG"
 # set addspacers_power =
 
 # Router command options:
 # -------------------------------------------
-#set route_show = 1
+set route_show = 1
 # set route_layers =
 # set via_use =
 set via_stacks = "none"
