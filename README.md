@@ -23,6 +23,12 @@ Install Pre-requisitive packages,
 
     ./prerequisites.sh
 
+Run script download sources, build and install,
+
+    ./build_tools.sh
+
+Or each tool separately.
+
 Yosys, RTL synthesizer, https://github.com/YosysHQ
 
     ./yosys_build.sh
