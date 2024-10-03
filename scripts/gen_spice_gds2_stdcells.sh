@@ -42,7 +42,7 @@ if ! [ -f $1.spice ]; then
   echo "Spice netlist negeration FAIL"
   exit 2
 fi
-ln -s $1.spice stdcells.spice
+#ln -s $1.spice stdcells.spice
 rm *.ext
 
 echo "***************************************************************"
@@ -66,5 +66,5 @@ echo "***************************************************************"
 echo "* Generated .gds2 symbol linked to etri05_stdcells.gds"
 echo "***************************************************************"
 rm etri05_stdcells.gds2
-ln -s $1.gds2 etri05_stdcells.gds2
+#ln -s $1.gds2 etri05_stdcells.gds2
 

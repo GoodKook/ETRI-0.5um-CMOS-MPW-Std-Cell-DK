@@ -1,0 +1,21 @@
+* NGSPICE file created from OAI22X1.ext - technology: scmos
+
+.subckt OAI22X1 A B C Y vdd gnd
+M1000 a_24_146# A vdd vdd pfet w=12u l=0.6u
++  ad=5.4p pd=12.900001u as=25.200003p ps=28.200003u
+M1001 Y D a_6_14# gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
+M1002 gnd A a_6_14# gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=12.600001p ps=16.2u
+M1003 a_6_14# C Y gnd nfet w=6u l=0.6u
++  ad=12.600001p pd=16.2u as=7.200001p ps=8.400001u
+M1004 a_6_14# B gnd gnd nfet w=6u l=0.6u
++  ad=7.200001p pd=8.400001u as=7.200001p ps=8.400001u
+M1005 vdd C a_64_146# vdd pfet w=12u l=0.6u
++  ad=25.200003p pd=28.200003u as=5.4p ps=12.900001u
+M1006 Y B a_24_146# vdd pfet w=12u l=0.6u
++  ad=23.400002p pd=15.900001u as=5.4p ps=12.900001u
+M1007 a_64_146# D Y vdd pfet w=12u l=0.6u
++  ad=5.4p pd=12.900001u as=23.400002p ps=15.900001u
+.ends
+

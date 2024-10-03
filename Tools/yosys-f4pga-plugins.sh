@@ -13,6 +13,9 @@ cd yosys-f4pga-plugins
 git pull         # Make sure git repository is up-to-date
 git submodule update --init
 
+export CXX=clang++
+export CXXFLAGS=-std=c++17
+
 make -j`nproc`
 sudo make install
 make test_sdc

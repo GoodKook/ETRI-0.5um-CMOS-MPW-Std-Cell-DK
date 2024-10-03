@@ -1,7 +1,7 @@
 magic
 tech scmos
 magscale 1 2
-timestamp 1727832987
+timestamp 1727918344
 << nwell >>
 rect -13 134 252 252
 rect -13 132 51 134
@@ -198,18 +198,18 @@ rect 6 54 12 134
 rect 64 134 140 142
 rect 57 116 96 124
 rect 176 112 196 120
-rect 214 97 222 146
-rect 203 95 222 97
 rect 31 74 63 76
+rect 214 83 222 146
 rect 77 74 103 76
 rect 31 72 103 74
 rect 31 68 52 72
 rect 64 69 103 72
-rect 194 83 222 95
 rect 117 70 158 76
 rect 117 69 146 70
 rect 64 68 146 69
-rect 214 54 222 83
+rect 192 69 203 81
+rect 217 69 222 83
+rect 214 54 222 69
 rect 96 40 118 48
 rect 46 34 57 40
 rect 110 34 118 40
@@ -230,7 +230,7 @@ rect 43 110 57 124
 rect 162 110 176 124
 rect 63 74 77 88
 rect 103 69 117 83
-rect 180 81 194 95
+rect 203 69 217 83
 rect 43 40 57 54
 rect 162 34 176 48
 << metal2 >>
@@ -253,10 +253,10 @@ rlabel metal1 -6 232 246 248 0 vdd
 port 3 nsew power bidirectional abutment
 rlabel metal2 23 83 37 97 0 D
 port 0 nsew signal input
-rlabel metal2 103 83 117 97 0 CLK
-port 1 nsew signal input
 rlabel metal2 203 83 217 97 0 Q
 port 2 nsew signal output
+rlabel metal2 103 83 117 97 0 CLK
+port 1 nsew clock input
 << properties >>
 string FIXED_BBOX 0 0 240 240
 string LEFclass CORE

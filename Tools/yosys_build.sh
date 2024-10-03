@@ -13,11 +13,13 @@ cd yosys
 git pull         # Make sure git repository is up-to-date
 git submodule update --init
 
-unset CXXFLAGS
+#unset CXXFLAGS
+export CXX=clang++
+export CXXFLAGS=-std=c++17
 
 make config-clang
 make -j`nproc`
-make test
+make -j`nproc` test
 sudo make install
 make clean
 

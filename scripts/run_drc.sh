@@ -15,6 +15,8 @@ select area
 expand
 drc on
 drc check
+drc catchup
+save $1_DRC.mag
 drc count
 drc why
 drc statistics

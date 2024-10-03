@@ -1,0 +1,17 @@
+* NGSPICE file created from BUFX4.ext - technology: scmos
+
+.subckt BUFX4 A Y vdd gnd
+M1000 vdd A a_4_12# vdd pfet w=9u l=0.6u
++  ad=10.350001p pd=13.8u as=13.500002p ps=21.000002u
+M1001 gnd A a_4_12# gnd nfet w=4.5u l=0.6u
++  ad=5.175001p pd=7.8u as=6.750001p ps=12u
+M1002 vdd a_4_12# Y vdd pfet w=12u l=0.6u
++  ad=18p pd=27.000002u as=10.8p ps=13.8u
+M1003 Y a_4_12# vdd vdd pfet w=12u l=0.6u
++  ad=10.8p pd=13.8u as=10.350001p ps=13.8u
+M1004 gnd a_4_12# Y gnd nfet w=6u l=0.6u
++  ad=9p pd=15.000001u as=5.4p ps=7.8u
+M1005 Y a_4_12# gnd gnd nfet w=6u l=0.6u
++  ad=5.4p pd=7.8u as=5.175001p ps=7.8u
+.ends
+

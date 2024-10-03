@@ -9,27 +9,27 @@ proc set_port {name direction index layer} {
     port index $index
 }
 
-proc set_vdd {} {
+proc set_vdd {index} {
     erase label
     label vdd c m1
     port make
     port class inout
     port use power
     port shape abutment
-    port index [expr [port last]+1]
+    port index $index
 }
 
-proc set_gnd {} {
+proc set_gnd {index} {
     erase label
     label gnd c m1
     port make
     port class inout
     port use ground
     port shape abutment
-    port index [expr [port last]+1]
+    port index $index
 }
 
-proc outport_m1 {name} {
+proc outport_m1 {name index} {
     erase label
     paint metal1
     paint m1p
@@ -37,9 +37,10 @@ proc outport_m1 {name} {
     port make
     port class output
     port use signal
+    port index $index
 }
 
-proc inport_m1 {name} {
+proc inport_m1 {name index} {
     erase label
     paint metal1
     paint m1p
@@ -47,9 +48,10 @@ proc inport_m1 {name} {
     port make
     port class input
     port use signal
+    port index $index
 }
 
-proc outport_m2 {name} {
+proc outport_m2 {name index} {
     erase label
     paint metal2
     paint m2p
@@ -57,9 +59,10 @@ proc outport_m2 {name} {
     port make
     port class output
     port use signal
+    port index $index
 }
 
-proc inport_m2 {name} {
+proc inport_m2 {name index} {
     erase label
     paint m2
     paint m2p
@@ -67,5 +70,18 @@ proc inport_m2 {name} {
     port make
     port class input
     port use signal
+    port index $index
 }
+
+proc portA {layer} {set_port A input 0 $layer}
+proc portB {layer} {set_port B input 1 $layer}
+proc portC {layer} {set_port C input 2 $layer}
+proc portD {layer} {set_port D input 3 $layer}
+proc portY {index layer} {set_port Y output $index $layer}
+
+
+
+
+
+
 
