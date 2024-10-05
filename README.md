@@ -91,27 +91,27 @@ The example includes synthesis, P&R, layout generation, LVS and RTL simulation a
 
 1. Symbolic link Download(cloned) directory to "~/ETRI050_DesignKit"
 
-    ln -s ETRI-0.5um-CMOS-MPW-Std-Cell-DK ~/ETRI050_DesignKit
+        ln -s ETRI-0.5um-CMOS-MPW-Std-Cell-DK ~/ETRI050_DesignKit
 
 2. goto example directory,
 
-    cd ~/ETRI050_DesignKit/Tutorials/2-6_Lab4_FIR_PE
+        cd ~/ETRI050_DesignKit/Tutorials/2-6_Lab4_FIR_PE
 
 3. Make Std-Cell Libs.
 
-    make config_m1f
+        make config_m1f
 
 4. Make Synthesize,
 
-    make synthesize
+        make synthesize
 
 5. Make Place & Route,
 
-    make place; make route
+        make place; make route
 
 6. Make migrate & LVS,
 
-    make migrate; make lvs
+        make migrate; make lvs
 
 Find example/reference design using ETRI 0.5um Std-Cell DK at following link,
 
