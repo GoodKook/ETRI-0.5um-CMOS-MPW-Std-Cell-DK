@@ -1,0 +1,17 @@
+#
+## Poorman's Standard-Emulator by GoodKook, goodkook@gmail.com
+### Yosys script targetting GoWin's FPGA
+#
+#   yosys booth_multiplier_wrapper.ys | tee synthesis.log
+#
+read_verilog ../../booth_multiplier_wrapper.v
+read_verilog ../../../source/booth_multiplier.v
+read_verilog ../../../source/booth_substep.v
+read_verilog ../../../source/eight_bit_adder_subractor.v
+read_verilog ../../../source/fa.v
+read_verilog ../../../source/xor2.v
+
+hierarchy -check -top booth_multiplier_wrapper
+
+synth_gowin -top booth_multiplier_wrapper -noalu -vout booth_multiplier_wrapper.v
+stat

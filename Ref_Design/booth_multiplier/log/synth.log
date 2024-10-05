@@ -1,0 +1,1492 @@
+Qflow synthesis logfile created on Sun 06 Oct 2024 06:43:57 AM KST
+Running yosys for verilog parsing and synthesis
+yosys  -s booth_multiplier.ys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+
+-- Executing script file `booth_multiplier.ys' --
+
+1. Executing Liberty frontend: /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+Imported 39 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v
+Parsing Verilog input from `/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v' to AST representation.
+Generating RTLIL representation for module `\booth_multiplier'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: booth_substep.v
+Parsing Verilog input from `booth_substep.v' to AST representation.
+Generating RTLIL representation for module `\booth_substep'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: eight_bit_adder_subractor.v
+Parsing Verilog input from `eight_bit_adder_subractor.v' to AST representation.
+Generating RTLIL representation for module `\eight_bit_adder_subractor'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: fa.v
+Parsing Verilog input from `fa.v' to AST representation.
+Generating RTLIL representation for module `\fa'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: xor2.v
+Parsing Verilog input from `xor2.v' to AST representation.
+Generating RTLIL representation for module `\xor2'.
+Successfully finished Verilog frontend.
+
+7. Executing SYNTH pass.
+
+7.1. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1.1. Analyzing design hierarchy..
+Top module:  \booth_multiplier
+Used module:     \booth_substep
+Used module:         \eight_bit_adder_subractor
+Used module:             \fa
+Used module:             \xor2
+Reprocessing module booth_multiplier because instantiated module booth_substep has become available.
+Generating RTLIL representation for module `\booth_multiplier'.
+Reprocessing module booth_substep because instantiated module eight_bit_adder_subractor has become available.
+Generating RTLIL representation for module `\booth_substep'.
+
+7.1.2. Analyzing design hierarchy..
+Top module:  \booth_multiplier
+Used module:     \booth_substep
+Used module:         \eight_bit_adder_subractor
+Used module:             \fa
+Used module:             \xor2
+
+7.1.3. Analyzing design hierarchy..
+Top module:  \booth_multiplier
+Used module:     \booth_substep
+Used module:         \eight_bit_adder_subractor
+Used module:             \fa
+Used module:             \xor2
+Removed 0 unused modules.
+Mapping positional arguments of cell booth_substep.myadd (eight_bit_adder_subractor).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa8 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa7 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa6 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa5 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa4 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa3 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa2 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.fa1 (fa).
+Mapping positional arguments of cell eight_bit_adder_subractor.x7 (xor2).
+Mapping positional arguments of cell eight_bit_adder_subractor.x6 (xor2).
+Mapping positional arguments of cell eight_bit_adder_subractor.x5 (xor2).
+Mapping positional arguments of cell eight_bit_adder_subractor.x4 (xor2).
+Mapping positional arguments of cell eight_bit_adder_subractor.x3 (xor2).
+Mapping positional arguments of cell eight_bit_adder_subractor.x2 (xor2).
+Mapping positional arguments of cell eight_bit_adder_subractor.x1 (xor2).
+Mapping positional arguments of cell eight_bit_adder_subractor.x0 (xor2).
+Mapping positional arguments of cell booth_multiplier.step8 (booth_substep).
+Mapping positional arguments of cell booth_multiplier.step7 (booth_substep).
+Mapping positional arguments of cell booth_multiplier.step6 (booth_substep).
+Mapping positional arguments of cell booth_multiplier.step5 (booth_substep).
+Mapping positional arguments of cell booth_multiplier.step4 (booth_substep).
+Mapping positional arguments of cell booth_multiplier.step3 (booth_substep).
+Mapping positional arguments of cell booth_multiplier.step2 (booth_substep).
+Mapping positional arguments of cell booth_multiplier.step1 (booth_substep).
+
+7.2. Executing PROC pass (convert processes to netlists).
+
+7.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$booth_substep.v:33$70 in module booth_substep.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:60$66 in module booth_multiplier.
+Removed a total of 0 dead cases.
+
+7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 19 assignments to connections.
+
+7.2.4. Executing PROC_INIT pass (extract init attributes).
+
+7.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\booth_substep.$proc$booth_substep.v:33$70'.
+     1/7: $3\next_acc[7:7]
+     2/7: $2\next_acc[7:7]
+     3/7: $1\next_acc[7:0] [7]
+     4/7: $1\next_acc[7:0] [6:0]
+     5/7: $1\next_Q[7:0] [7]
+     6/7: $1\next_Q[7:0] [6:0]
+     7/7: $1\q0_next[0:0]
+Creating decoders for process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+Creating decoders for process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:85$67'.
+Creating decoders for process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:60$66'.
+     1/2: $0\multiplicand[7:0]
+     2/2: $0\multiplier[7:0]
+
+7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\booth_substep.\next_acc' from process `\booth_substep.$proc$booth_substep.v:33$70'.
+No latch inferred for signal `\booth_substep.\next_Q' from process `\booth_substep.$proc$booth_substep.v:33$70'.
+No latch inferred for signal `\booth_substep.\q0_next' from process `\booth_substep.$proc$booth_substep.v:33$70'.
+No latch inferred for signal `\booth_multiplier.\Q[0]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\Q[1]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\Q[2]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\Q[3]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\Q[4]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\Q[5]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\Q[6]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[0]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[1]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[2]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[3]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[4]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[5]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[6]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+No latch inferred for signal `\booth_multiplier.\acc[7]' from process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+
+7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\booth_multiplier.\__product' using process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:85$67'.
+  created $dff cell `$procdff$110' with positive edge clock.
+Creating register for signal `\booth_multiplier.\multiplier' using process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:60$66'.
+  created $dff cell `$procdff$111' with positive edge clock.
+Creating register for signal `\booth_multiplier.\multiplicand' using process `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:60$66'.
+  created $dff cell `$procdff$112' with positive edge clock.
+
+7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\booth_substep.$proc$booth_substep.v:33$70'.
+Removing empty process `booth_substep.$proc$booth_substep.v:33$70'.
+Removing empty process `booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:0$68'.
+Removing empty process `booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:85$67'.
+Found and cleaned up 1 empty switch in `\booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:60$66'.
+Removing empty process `booth_multiplier.$proc$/home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/source/booth_multiplier.v:60$66'.
+Cleaned up 4 empty switches.
+
+7.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_substep.
+<suppressed ~7 debug messages>
+Optimizing module fa.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module booth_multiplier.
+Optimizing module xor2.
+
+7.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_substep.
+Optimizing module fa.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module booth_multiplier.
+Optimizing module xor2.
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \xor2..
+Removed 0 unused cells and 96 unused wires.
+<suppressed ~4 debug messages>
+
+7.5. Executing CHECK pass (checking for obvious problems).
+Checking module booth_multiplier...
+Checking module booth_substep...
+Checking module eight_bit_adder_subractor...
+Checking module fa...
+Checking module xor2...
+Found and reported 0 problems.
+
+7.6. Executing OPT pass (performing simple optimizations).
+
+7.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \booth_substep..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$82.
+    dead port 2/2 on $mux $procmux$88.
+Running muxtree optimizer on module \eight_bit_adder_subractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fa..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \xor2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 2 multiplexer ports.
+<suppressed ~5 debug messages>
+
+7.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+  Optimizing cells in module \booth_substep.
+  Optimizing cells in module \eight_bit_adder_subractor.
+  Optimizing cells in module \fa.
+  Optimizing cells in module \xor2.
+Performed a total of 0 changes.
+
+7.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+7.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \booth_substep..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \eight_bit_adder_subractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fa..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \xor2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+7.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+  Optimizing cells in module \booth_substep.
+  Optimizing cells in module \eight_bit_adder_subractor.
+  Optimizing cells in module \fa.
+  Optimizing cells in module \xor2.
+Performed a total of 0 changes.
+
+7.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.6.16. Finished OPT passes. (There is nothing left to do.)
+
+7.7. Executing FSM pass (extract and optimize FSM).
+
+7.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+7.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+7.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+7.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+7.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+7.8. Executing OPT pass (performing simple optimizations).
+
+7.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \booth_substep..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \eight_bit_adder_subractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fa..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \xor2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+7.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+  Optimizing cells in module \booth_substep.
+  Optimizing cells in module \eight_bit_adder_subractor.
+  Optimizing cells in module \fa.
+  Optimizing cells in module \xor2.
+Performed a total of 0 changes.
+
+7.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$112 ($dff) from module booth_multiplier (D = \multIn, Q = \multiplicand).
+Adding EN signal on $procdff$111 ($dff) from module booth_multiplier (D = \multIn, Q = \multiplier).
+
+7.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+7.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \booth_substep..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \eight_bit_adder_subractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fa..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \xor2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+7.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+  Optimizing cells in module \booth_substep.
+  Optimizing cells in module \eight_bit_adder_subractor.
+  Optimizing cells in module \fa.
+  Optimizing cells in module \xor2.
+Performed a total of 0 changes.
+
+7.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.8.16. Finished OPT passes. (There is nothing left to do.)
+
+7.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 8) from wire eight_bit_adder_subractor.temp.
+
+7.10. Executing PEEPOPT pass (run peephole optimizers).
+
+7.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+7.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module booth_multiplier:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module booth_substep:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module eight_bit_adder_subractor:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module fa:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module xor2:
+  created 0 $alu and 0 $macc cells.
+
+7.13. Executing SHARE pass (SAT-based resource sharing).
+
+7.14. Executing OPT pass (performing simple optimizations).
+
+7.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \booth_substep..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \eight_bit_adder_subractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fa..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \xor2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+7.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+  Optimizing cells in module \booth_substep.
+  Optimizing cells in module \eight_bit_adder_subractor.
+  Optimizing cells in module \fa.
+  Optimizing cells in module \xor2.
+Performed a total of 0 changes.
+
+7.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.14.9. Finished OPT passes. (There is nothing left to do.)
+
+7.15. Executing MEMORY pass.
+
+7.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+7.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.17. Executing OPT pass (performing simple optimizations).
+
+7.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+<suppressed ~1 debug messages>
+Optimizing module booth_substep.
+<suppressed ~2 debug messages>
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+7.17.5. Finished fast OPT passes.
+
+7.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7.19. Executing OPT pass (performing simple optimizations).
+
+7.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \booth_substep..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \eight_bit_adder_subractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fa..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \xor2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+7.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+  Optimizing cells in module \booth_substep.
+  Optimizing cells in module \eight_bit_adder_subractor.
+  Optimizing cells in module \fa.
+  Optimizing cells in module \xor2.
+Performed a total of 0 changes.
+
+7.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.19.6. Executing OPT_SHARE pass.
+
+7.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+7.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.19.10. Finished OPT passes. (There is nothing left to do.)
+
+7.20. Executing TECHMAP pass (map to technology primitives).
+
+7.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+7.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $dff.
+No more expansions possible.
+<suppressed ~88 debug messages>
+
+7.21. Executing OPT pass (performing simple optimizations).
+
+7.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+<suppressed ~9 debug messages>
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 1 cells.
+
+7.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+7.21.5. Finished fast OPT passes.
+
+7.22. Executing ABC pass (technology mapping using ABC).
+
+7.22.1. Extracting gate netlist of module `\booth_multiplier' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+7.22.2. Extracting gate netlist of module `\booth_substep' to `<abc-temp-dir>/input.blif'..
+Extracted 9 gates and 27 wires to a netlist network with 18 inputs and 8 outputs.
+
+7.22.2.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.22.2.2. Re-integrating ABC results.
+ABC RESULTS:              XNOR cells:        1
+ABC RESULTS:               MUX cells:        8
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:       18
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+
+7.22.3. Extracting gate netlist of module `\eight_bit_adder_subractor' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+7.22.4. Extracting gate netlist of module `\fa' to `<abc-temp-dir>/input.blif'..
+Extracted 7 gates and 10 wires to a netlist network with 3 inputs and 2 outputs.
+
+7.22.4.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.22.4.2. Re-integrating ABC results.
+ABC RESULTS:               XOR cells:        2
+ABC RESULTS:               AND cells:        3
+ABC RESULTS:                OR cells:        2
+ABC RESULTS:        internal signals:        5
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        2
+Removing temp directory.
+
+7.22.5. Extracting gate netlist of module `\xor2' to `<abc-temp-dir>/input.blif'..
+Extracted 1 gates and 3 wires to a netlist network with 2 inputs and 1 outputs.
+
+7.22.5.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.22.5.2. Re-integrating ABC results.
+ABC RESULTS:               XOR cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+
+7.23. Executing OPT pass (performing simple optimizations).
+
+7.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+7.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+7.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+Removed 0 unused cells and 40 unused wires.
+<suppressed ~3 debug messages>
+
+7.23.5. Finished fast OPT passes.
+
+7.24. Executing HIERARCHY pass (managing design hierarchy).
+
+7.24.1. Analyzing design hierarchy..
+Top module:  \booth_multiplier
+Used module:     \booth_substep
+Used module:         \eight_bit_adder_subractor
+Used module:             \fa
+Used module:             \xor2
+
+7.24.2. Analyzing design hierarchy..
+Top module:  \booth_multiplier
+Used module:     \booth_substep
+Used module:         \eight_bit_adder_subractor
+Used module:             \fa
+Used module:             \xor2
+Removed 0 unused modules.
+
+7.25. Printing statistics.
+
+=== booth_multiplier ===
+
+   Number of wires:                 25
+   Number of wire bits:            203
+   Number of public wires:          25
+   Number of public wire bits:     203
+   Number of ports:                  4
+   Number of port bits:             26
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 40
+     $_DFFE_PN_                      8
+     $_DFFE_PP_                      8
+     $_DFF_P_                       16
+     booth_substep                   8
+
+=== booth_substep ===
+
+   Number of wires:                  9
+   Number of wire bits:             51
+   Number of public wires:           8
+   Number of public wire bits:      50
+   Number of ports:                  7
+   Number of port bits:             42
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $_MUX_                          8
+     $_XNOR_                         1
+     eight_bit_adder_subractor       1
+
+=== eight_bit_adder_subractor ===
+
+   Number of wires:                  7
+   Number of wire bits:             41
+   Number of public wires:           7
+   Number of public wire bits:      41
+   Number of ports:                  4
+   Number of port bits:             25
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     fa                              8
+     xor2                            8
+
+=== fa ===
+
+   Number of wires:                 10
+   Number of wire bits:             10
+   Number of public wires:           5
+   Number of public wire bits:       5
+   Number of ports:                  5
+   Number of port bits:              5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $_AND_                          3
+     $_OR_                           2
+     $_XOR_                          2
+
+=== xor2 ===
+
+   Number of wires:                  3
+   Number of wire bits:              3
+   Number of public wires:           3
+   Number of public wire bits:       3
+   Number of ports:                  3
+   Number of port bits:              3
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $_XOR_                          1
+
+=== design hierarchy ===
+
+   booth_multiplier                  1
+     booth_substep                   8
+       eight_bit_adder_subractor      1
+         fa                          8
+         xor2                        8
+
+   Number of wires:                985
+   Number of wire bits:           1771
+   Number of public wires:         657
+   Number of public wire bits:    1443
+   Number of ports:                604
+   Number of port bits:           1074
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                616
+     $_AND_                        192
+     $_DFFE_PN_                      8
+     $_DFFE_PP_                      8
+     $_DFF_P_                       16
+     $_MUX_                         64
+     $_OR_                         128
+     $_XNOR_                         8
+     $_XOR_                        192
+
+7.26. Executing CHECK pass (checking for obvious problems).
+Checking module booth_multiplier...
+Checking module booth_substep...
+Checking module eight_bit_adder_subractor...
+Checking module fa...
+Checking module xor2...
+Found and reported 0 problems.
+
+8. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFFNEGX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_N_.
+  cell DFFPOSX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_P_.
+  cell DFFSR (noninv, pins=5, area=1584.00) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    \DFFNEGX1 _DFF_N_ (.CLK( C), .D( D), .Q( Q));
+    \DFFPOSX1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    unmapped dff cell: $_DFF_PN0_
+    unmapped dff cell: $_DFF_PN1_
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFFSR _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .R( R), .S( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+8.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\booth_multiplier':
+  mapped 32 $_DFF_P_ cells to \DFFPOSX1 cells.
+Mapping DFF cells in module `\booth_substep':
+Mapping DFF cells in module `\eight_bit_adder_subractor':
+Mapping DFF cells in module `\fa':
+Mapping DFF cells in module `\xor2':
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \booth_substep..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \eight_bit_adder_subractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fa..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \xor2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+  Optimizing cells in module \booth_substep.
+  Optimizing cells in module \eight_bit_adder_subractor.
+  Optimizing cells in module \fa.
+  Optimizing cells in module \xor2.
+Performed a total of 0 changes.
+
+9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Finding identical cells in module `\booth_substep'.
+Finding identical cells in module `\eight_bit_adder_subractor'.
+Finding identical cells in module `\fa'.
+Finding identical cells in module `\xor2'.
+Removed a total of 0 cells.
+
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+Finding unused cells or wires in module \booth_substep..
+Finding unused cells or wires in module \eight_bit_adder_subractor..
+Finding unused cells or wires in module \fa..
+Finding unused cells or wires in module \xor2..
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+Optimizing module booth_substep.
+Optimizing module eight_bit_adder_subractor.
+Optimizing module fa.
+Optimizing module xor2.
+
+9.9. Finished OPT passes. (There is nothing left to do.)
+
+10. Executing ABC pass (technology mapping using ABC).
+
+10.1. Extracting gate netlist of module `\booth_multiplier' to `<abc-temp-dir>/input.blif'..
+Extracted 16 gates and 41 wires to a netlist network with 25 inputs and 16 outputs.
+
+10.1.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped cell "FAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "HAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XNOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 24 cells (9 skipped: 4 seq; 1 tri-state; 4 no func; 6 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.1.2. Re-integrating ABC results.
+ABC RESULTS:             INVX1 cells:       16
+ABC RESULTS:           NAND2X1 cells:       16
+ABC RESULTS:           OAI21X1 cells:       16
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:       25
+ABC RESULTS:          output signals:       16
+Removing temp directory.
+
+10.2. Extracting gate netlist of module `\booth_substep' to `<abc-temp-dir>/input.blif'..
+Extracted 9 gates and 27 wires to a netlist network with 18 inputs and 8 outputs.
+
+10.2.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped cell "FAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "HAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XNOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 24 cells (9 skipped: 4 seq; 1 tri-state; 4 no func; 6 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.2.2. Re-integrating ABC results.
+ABC RESULTS:             OR2X2 cells:        1
+ABC RESULTS:            NOR2X1 cells:        1
+ABC RESULTS:            AND2X2 cells:        1
+ABC RESULTS:           NAND3X1 cells:        8
+ABC RESULTS:           OAI21X1 cells:        8
+ABC RESULTS:           NAND2X1 cells:        9
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:       18
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+
+10.3. Extracting gate netlist of module `\eight_bit_adder_subractor' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+10.4. Extracting gate netlist of module `\fa' to `<abc-temp-dir>/input.blif'..
+Extracted 7 gates and 10 wires to a netlist network with 3 inputs and 2 outputs.
+
+10.4.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped cell "FAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "HAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XNOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 24 cells (9 skipped: 4 seq; 1 tri-state; 4 no func; 6 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.4.2. Re-integrating ABC results.
+ABC RESULTS:            AND2X2 cells:        1
+ABC RESULTS:            NOR2X1 cells:        1
+ABC RESULTS:           OAI21X1 cells:        1
+ABC RESULTS:             INVX1 cells:        1
+ABC RESULTS:             OR2X2 cells:        1
+ABC RESULTS:           NAND3X1 cells:        1
+ABC RESULTS:           NAND2X1 cells:        2
+ABC RESULTS:           AOI21X1 cells:        1
+ABC RESULTS:        internal signals:        5
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        2
+Removing temp directory.
+
+10.5. Extracting gate netlist of module `\xor2' to `<abc-temp-dir>/input.blif'..
+Extracted 1 gates and 3 wires to a netlist network with 2 inputs and 1 outputs.
+
+10.5.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped cell "FAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "HAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XNOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 24 cells (9 skipped: 4 seq; 1 tri-state; 4 no func; 6 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.5.2. Re-integrating ABC results.
+ABC RESULTS:             INVX1 cells:        2
+ABC RESULTS:           NAND2X1 cells:        3
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+
+11. Executing FLATTEN pass (flatten design).
+Deleting now unused module booth_substep.
+Deleting now unused module eight_bit_adder_subractor.
+Deleting now unused module fa.
+Deleting now unused module xor2.
+<suppressed ~25 debug messages>
+
+12. Executing SETUNDEF pass (replace undef values with defined constants).
+Removed 8 unused cells and 1485 unused wires.
+
+13. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map input port booth_multiplier.clk: Missing option -inpad.
+Don't map input port booth_multiplier.multIn: Missing option -inpad.
+Mapping port booth_multiplier.product using BUFX2.
+Don't map input port booth_multiplier.select: Missing option -inpad.
+
+14. Executing OPT pass (performing simple optimizations).
+
+14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+
+14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Removed a total of 0 cells.
+
+14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \booth_multiplier..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \booth_multiplier.
+Performed a total of 0 changes.
+
+14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\booth_multiplier'.
+Removed a total of 0 cells.
+
+14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \booth_multiplier..
+
+14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module booth_multiplier.
+
+14.9. Finished OPT passes. (There is nothing left to do.)
+
+15. Executing Verilog backend.
+
+15.1. Executing BMUXMAP pass.
+
+15.2. Executing DEMUXMAP pass.
+Dumping module `\booth_multiplier'.
+
+16. Printing statistics.
+
+=== booth_multiplier ===
+
+   Number of wires:               1174
+   Number of wire bits:           1275
+   Number of public wires:        1174
+   Number of public wire bits:    1275
+   Number of ports:                  4
+   Number of port bits:             26
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1352
+     $scopeinfo                    144
+     AND2X2                         72
+     AOI21X1                        56
+     BUFX2                          16
+     DFFPOSX1                       32
+     INVX1                         208
+     NAND2X1                       408
+     NAND3X1                       128
+     NOR2X1                         72
+     OAI21X1                       144
+     OR2X2                          72
+
+End of script. Logfile hash: a36defc6f8, CPU: user 0.20s system 0.01s, MEM: 20.12 MB peak
+Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+Time spent: 60% 2x abc (0 sec), 8% 19x opt_expr (0 sec), ...
+Running getpowerground to determine power and ground net names.
+getpowerground.tcl  /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+Running vlogFanout
+vlogFanout -l 300 -c 75 -I booth_multiplier_nofanout -s nullstring -p /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -b BUFX2,CLKBUF1 -i A,A -o Y,Y booth_multiplier_mapped.v booth_multiplier_sized.v
+
+vlogFanout for qflow 1.4.100
+Parsing library "etri05_stdcells"
+End of library at line 6613
+Lib Read:  Processed 6615 lines.
+Top internal fanout is 29 (load 970.089) from node \step5.myadd.cin ,
+driven by DFFPOSX1 with strength 549.757 (fF driven at latency 300)
+Top fanout load-to-strength ratio is 1.76458 (latency = 529.373 ps)
+Top input node fanout is 32 (load 1597.73) from node clk.
+0 gates exceed specified minimum load.
+82 buffers were added.
+Warning 1: load of 479.468 is 1.38249 times greater than strongest gate OR2X2
+This warning will only be repeated for larger overload ratios.  Warning count reflects
+the total number of overloaded nets.
+Warning 2: load of 250.767 is 1.51266 times greater than strongest gate NAND2X1
+Warning 3: load of 297.044 is 1.5895 times greater than strongest gate NOR2X1
+Warning 37: load of 980.089 is 1.78277 times greater than strongest gate DFFPOSX1
+0 gates were changed.
+
+Gate counts by drive strength:
+
+	"1" gates	In: 1053    	Out: 1053    	+0
+	"2" gates	In: 237    	Out: 237    	+0
+
+Number of gates changed: 82
+Running vlog2Verilog for antenna cell mapping.
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+   -o booth_multiplier.v booth_multiplier_sized.v
+
+Generating RTL verilog and SPICE netlist file in directory
+	 /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/synthesis
+Files:
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/synthesis/booth_multiplier.rtl.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/synthesis/booth_multiplier.rtlnopwr.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/synthesis/booth_multiplier.rtlbb.v
+   Spice:   /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/booth_multiplier/synthesis/booth_multiplier.spc
+
+Running vlog2Verilog.
+vlog2Verilog -c -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o booth_multiplier.rtl.v
+   booth_multiplier.v
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o booth_multiplier.rtlnopwr.v
+   booth_multiplier.v
+/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+   -o booth_multiplier.rtlbb.v
+Running vlog2Spice.
+vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o booth_multiplier.spc booth_multiplier.rtl.v
+Running spi2xspice.py
+spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" booth_multiplier.spc booth_multiplier.xspice
+
+Synthesis script ended on Sun 06 Oct 2024 06:43:58 AM KST
