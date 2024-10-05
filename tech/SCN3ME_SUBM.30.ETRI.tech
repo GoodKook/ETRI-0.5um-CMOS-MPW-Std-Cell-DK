@@ -770,7 +770,7 @@ style  lambda=0.30(ETRI)
  calma 31 0
 
  layer CCE gc2
- squares 60 90 90
+ squares 60 60 60
  calma 31 0
 
  layer CCE p2c
@@ -778,7 +778,7 @@ style  lambda=0.30(ETRI)
  calma 31 0
 
  layer CCE gc2
- squares 60 90 90
+ squares 60 60 60
  calma 31 0
 
  layer CCC gc
@@ -786,19 +786,19 @@ style  lambda=0.30(ETRI)
  calma 31 0
 
  layer CV1 m2c/m1
- squares 60 90 90
+ squares 60 80 80
  calma 33 0
 
  layer CV1 gv1
- squares 0 90 90
+ squares 0 80 80
  calma 33 0
 
  layer CV2 m3c/m2
- squares 60 90 90
+ squares 60 80 80
  calma 35 0
 
  layer CV2 gv2
- squares 0 90 90
+ squares 0 80 80
  calma 35 0
 
  templayer XPAD1 pad
@@ -812,7 +812,7 @@ style  lambda=0.30(ETRI)
  calma 36 0
 
  layer CV2 XPAD2
- squares 240 90 300
+ squares 240 80 300
  calma 35 0
 
  layer CM2 pad
@@ -820,27 +820,78 @@ style  lambda=0.30(ETRI)
  calma 34 0
 
  layer CV1 XPAD2
- squares 60 90 300
+ squares 60 80 300
  calma 33 0
 
  layer CM1 pad
  calma 32 0
 
- layer CM1 m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c,m2c/m1
- labels m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c,m2c/m1
+#--------------------------------------------
+# layer CM1 m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c,m2c/m1
+# labels m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c,m2c/m1
+# calma 32 0
+
+ layer CM1 m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c
+ labels m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c
  calma 32 0
 
- layer CM2 m2,rm2,m2c/m2,m3c/m2,m3c/m2
- labels m2,rm2,m2c/m2,m3c/m2,m3c/m2
- calma 34 0
+ layer CM1 m2c/m1
+ bloat-max m2c/m1 * 0 pc,m1 5
+ shrink 5
+ labels m2c/m1
+ calma 32 0
 
  layer CMFP m1p
  labels m1p
  calma 32 0
 
+#--------------------------------------------
+# layer CM2 m2,rm2,m2c/m2,m3c/m2,m3c/m2
+# labels m2,rm2,m2c/m2,m3c/m2,m3c/m2
+# calma 34 0
+
+ layer CM2 m2,rm2
+ and-not m2p
+ labels m2,rm2
+ calma 34 0
+
+ layer CM2 m2c/m2
+ bloat-max m2c/m2 * 0 m2 5
+ shrink 5
+ labels m2c/m2
+ calma 34 0
+
+ layer CM2 m3c/m2
+ bloat-max m3c/m2 * 0 m2,m2c 5
+ shrink 5
+ labels m3c/m2
+ calma 34 0
+
  layer CMSP m2p
+ bloat-or m2 * 5 m2c/m2 10
+ shrink 10
  labels m2p
  calma 34 0
+ 
+#--------------------------------------------
+# layer CM3 m3,rm3,m3c/m3
+# labels m3,rm3,m3c/m3
+# calma 36 0
+
+ layer CM3 m3,rm3
+ labels m3,rm3
+ calma 36 0
+
+ layer CM3 m3c/m3
+ bloat-max m3c/m3 * 0 m3 5
+ shrink 5
+ labels m3c/m3
+ calma 36 0
+
+ layer CMTP m3p
+ labels m3p
+ calma 36 0
+#--------------------------------------------
 
  layer 100 fp
  labels fp
@@ -895,14 +946,6 @@ style  lambda=0.30(ETRI)
 
  squares 0 210 120
  labels fm3
- calma 36 0
-
- layer CM3 m3,rm3,m3c/m3
- labels m3,rm3,m3c/m3
- calma 36 0
-
- layer CMTP m3p
- labels m3p
  calma 36 0
 
  layer COG pad
@@ -3401,20 +3444,20 @@ drc
 
  exact_overlap gv2
 
- width m1p 4 \
- "Metal1 PIN width < 4 (do_pins)"
+ width m1p 3 \
+ "Metal1 PIN width < 3 (do_pins)"
 
- spacing m1p m1p 4 touching_ok \
- "Metal1 PIN spacing < 4 (do_pins)"
+ spacing m1p m1p 3 touching_ok \
+ "Metal1 PIN spacing < 3 (do_pins)"
 
- width m2p 4 \
- "Metal2 PIN width < 4 (do_pins)"
+ width m2p 3 \
+ "Metal2 PIN width < 3 (do_pins)"
 
- spacing m2p m2p 4 touching_ok \
- "Metal2 PIN spacing < 4 (do_pins)"
+ spacing m2p m2p 3 touching_ok \
+ "Metal2 PIN spacing < 3 (do_pins)"
 
- width m3p 6 \
- "Metal3 PIN width < 6 (do_pins)"
+ width m3p 4 \
+ "Metal3 PIN width < 4 (do_pins)"
 
  spacing m3p m3p 4 touching_ok \
  "Metal3 PIN spacing < 4 (do_pins)"

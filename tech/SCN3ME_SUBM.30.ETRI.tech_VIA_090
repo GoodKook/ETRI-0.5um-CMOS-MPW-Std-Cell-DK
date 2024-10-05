@@ -987,17 +987,17 @@ style  lambda=0.30(ETRI-G)
 
 #diffusion auto-nselect (will have priority)
  templayer XDN
- bloat-or ndiff,rnd,ndc/a * 0 psd,psc/a 0
+ bloat-or ndiff,rnd,ndc/a * 50 psd,psc/a 0
  or TNS
 
 #diffusion auto-pselect (will have priority)
  templayer XDP
- bloat-or pdiff,rpd,pdc/a * 0 nsd,nsc/a 0
+ bloat-or pdiff,rpd,pdc/a * 50 nsd,nsc/a 0
  or TPS
 
 #final pselect 
  templayer FSP
- bloat-or pdiff,rpd,pfet,psd,pdc/a,psc/a,pfet * 0 ndiff,rnd,ndc/a,nsd,nsc/a,nfet 0
+ bloat-or pdiff,rpd,pfet,psd,pdc/a,psc/a,pfet * 50 ndiff,rnd,ndc/a,nsd,nsc/a,nfet 0
  or XDP
 #give diff nselect priority
  and-not XDN
@@ -1005,7 +1005,7 @@ style  lambda=0.30(ETRI-G)
 
 #final nselect
  templayer FSN
- bloat-or ndiff,rnd,nfet,nsd,ndc/a,nsc/a,nfet * 0 pdiff,rpd,pdc/a,psd,psc/a,pfet 0
+ bloat-or ndiff,rnd,nfet,nsd,ndc/a,nsc/a,nfet * 50 pdiff,rpd,pdc/a,psd,psc/a,pfet 0
  or XDN
 #never conflict with final pselect
  and-not FSP
@@ -1083,6 +1083,8 @@ style  lambda=0.30(ETRI-G)
  calma 33 0
 
  layer CM1 pad
+ bloat-or pad * 60
+ shrink 60
  calma 32 0
 
  layer CM1 m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c,m2c/m1
@@ -1196,6 +1198,8 @@ style  lambda=0.30(ETRI-G)
  calma 48 0
 
  layer XP pad,xp
+ bloat-or pad * 60
+ shrink 60
  labels pad,xp
  calma 37 0
 
@@ -1207,7 +1211,6 @@ style  lambda=0.30(ETRI-G)
 end
 
 # ============================================================================
-
 cifinput
 
 style  lambda=0.30(p)
@@ -2007,9 +2010,6 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and-not CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCA 31 *
 
  layer ndc CAA
@@ -2019,9 +2019,6 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and-not CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCC 31 *
 
 # Contact (nsubdiff) ---------------------------------------------------------
@@ -2032,9 +2029,6 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCA 31 *
 
  layer nsc CAA
@@ -2044,9 +2038,6 @@ style  lambda=0.30(ETRI)
  and-not CTA
  and CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCC 31 *
 
 # Contact (pdiff) ------------------------------------------------------------
@@ -2057,9 +2048,6 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCA 31 *
 
  layer pdc CAA
@@ -2069,9 +2057,6 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCC 31 *
 
 # Contact (psubdiff) ---------------------------------------------------------
@@ -2082,9 +2067,6 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and-not CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCA 31 *
 
  layer psc CAA
@@ -2095,9 +2077,6 @@ style  lambda=0.30(ETRI)
  and-not CPS
  and-not CWN
  and CM1
- grow 30
- grow 15
- shrink 15
  calma CCC 31 *
 
 # Poly -----------------------------------------------------------------------
@@ -2121,10 +2100,7 @@ style  lambda=0.30(ETRI)
  and-not CPC
  and-not CEL
  and-not CAA
- grow 30
  and CM1
- grow 15
- shrink 15
  calma CCP 31 *
 
  layer pc CCC
@@ -2132,10 +2108,7 @@ style  lambda=0.30(ETRI)
  and-not CPC
  and-not CEL
  and-not CAA
- grow 30
  and CM1
- grow 15
- shrink 15
  calma CCC 31 *
 
 # Generic Poly contact -------------------------------------------------------
@@ -2212,14 +2185,12 @@ style  lambda=0.30(ETRI)
 
 # Poly2 contact --------------------------------------------------------------
  layer elc CCE
- grow 30
  and CM1
  and CEL
  labels CM1
  calma CCE 31 *
 
  layer elc CCC
- grow 30
  and CM1
  and CEL
  labels CM1
@@ -2250,11 +2221,8 @@ style  lambda=0.30(ETRI)
 # VIA1 (M2_M1) ---------------------------------------------------------------
  layer m2c CV1
  and-not XP
- grow 30
  and CM2
  and CM1
- grow 15
- shrink 15
  calma CV1 33 *
 
 # Metal 1 --------------------------------------------------------------------
@@ -2286,11 +2254,8 @@ style  lambda=0.30(ETRI)
 # VIA2 (M3_M2) ---------------------------------------------------------------
  layer m3c CV2
  and-not XP
- grow 30
  and CM3
  and CM2
- grow 15
- shrink 15
  calma CV2 35 *
 
 # Metal 3 --------------------------------------------------------------------
@@ -2618,10 +2583,7 @@ style  lambda=0.30(ETRI-G)
  and-not CPC
  and-not CEL
  and-not CAA
- grow 30
  and CM1
- grow 15
- shrink 15
  calma CCP 31 *
 
  layer pc CCC
@@ -2629,10 +2591,7 @@ style  lambda=0.30(ETRI-G)
  and-not CPC
  and-not CEL
  and-not CAA
- grow 30
  and CM1
- grow 15
- shrink 15
  calma CCC 31 *
 
 # Generic Poly contact -------------------------------------------------------
@@ -2709,14 +2668,12 @@ style  lambda=0.30(ETRI-G)
 
 # Poly2 contact --------------------------------------------------------------
  layer elc CCE
- grow 30
  and CM1
  and CEL
  labels CM1
  calma CCE 31 *
 
  layer elc CCC
- grow 30
  and CM1
  and CEL
  labels CM1
@@ -2954,8 +2911,13 @@ drc
  edge4way ~(pwell)/well pwell 1 ~(rnw)/active 0 0 \
  "P-well cannot touch rnw (for resistor L/W extraction) (Mosis #1.4)" active
 
- spacing diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a 4 touching_ok \
- "Diffusion spacing < 4 (2.ACT.S)"
+# spacing diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a diff,ndiff,rnd,nfet,nsd,pdiff,rpd,pfet,psd,ndc/a,nsc/a,pdc/a,psc/a 6 touching_ok \
+# "Diffusion spacing < 6 (2.ACT.S)"
+ spacing diff,ndiff,rnd,nfet,pdiff,rpd,pfet,ndc/a,pdc/a, diff,ndiff,rnd,nfet,pdiff,rpd,pfet,ndc/a,pdc/a, 6 touching_ok \
+ "Diffusion spacing < 6 (2.ACT.S)"
+
+ spacing psd,psc/a nsd,nsc/a 4 touching_ok \
+ "Diffusion(subtrate) spacing < 4 (2.ACT.S)"
 
  spacing nwell ndiff,rnd,nfet,ndc/a 6 touching_illegal \
  "N-well spacing to N-Diffusion < 6 (Mosis #2.3)"
@@ -3017,8 +2979,8 @@ drc
  edge4way nfet,pfet,fet space/active,ndiff,rnd,ndc/a,pdiff,rpd,pdc/a 3 ndiff,rnd,ndc/a,pdiff,rpd,pdc/a,nfet,pfet,fet 0 0 \
  "N-Diffusion,P-Diffusion overhang of Transistor < 3 (2.ACT.E1)" active
 
- edge4way poly,fp,rp,pc/a ~(poly,fp,rp,pc/a,nfet,pfet,fet,prp)/active 1 space/a space/a 1 \
- "Poly spacing to Diffusion < 1 (Mosis #3.5)"
+ edge4way poly,fp,rp,pc/a ~(poly,fp,rp,pc/a,nfet,pfet,fet,prp)/active 2 space/a space/a 2 \
+ "Poly spacing to Diffusion < 2 (3.PL1.S3/Mosis #3.5)"
 
  edge4way nfet ~(nfet)/active 3 ~(pselect)/select ~(nfet)/active 3 \
  "N-Transistor space to P-Select < 3 (Mosis #4.1)" select
@@ -3439,20 +3401,20 @@ drc
 
  exact_overlap gv2
 
- width m1p 4 \
- "Metal1 PIN width < 4 (do_pins)"
+ width m1p 3 \
+ "Metal1 PIN width < 3 (do_pins)"
 
- spacing m1p m1p 4 touching_ok \
- "Metal1 PIN spacing < 4 (do_pins)"
+ spacing m1p m1p 3 touching_ok \
+ "Metal1 PIN spacing < 3 (do_pins)"
 
- width m2p 4 \
- "Metal2 PIN width < 4 (do_pins)"
+ width m2p 3 \
+ "Metal2 PIN width < 3 (do_pins)"
 
- spacing m2p m2p 4 touching_ok \
- "Metal2 PIN spacing < 4 (do_pins)"
+ spacing m2p m2p 3 touching_ok \
+ "Metal2 PIN spacing < 3 (do_pins)"
 
- width m3p 6 \
- "Metal3 PIN width < 6 (do_pins)"
+ width m3p 4 \
+ "Metal3 PIN width < 4 (do_pins)"
 
  spacing m3p m3p 4 touching_ok \
  "Metal3 PIN spacing < 4 (do_pins)"
