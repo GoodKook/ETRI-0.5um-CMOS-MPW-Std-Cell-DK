@@ -1,0 +1,9 @@
+### Yosys taargetting GoWin
+read_verilog ../../../source/ALU_wrapper.v
+read_verilog ../../../source/ALU8.v
+
+hierarchy -check -top ALU_wrapper
+
+synth_gowin -top ALU_wrapper -noalu
+write_verilog  ALU_wrapper.v
+stat

@@ -11,8 +11,8 @@ module fir_pe(
     input clk
 );
 
-wire vdd = 1'b1;
-wire gnd = 1'b0;
+wire VDD = 1'b1;
+wire GND = 1'b0;
 
 wire [15:0] y ;
 wire _588_ ;

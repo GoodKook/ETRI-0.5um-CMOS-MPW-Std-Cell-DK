@@ -1,0 +1,40 @@
+Emulator Pin Mapping for ALU8
+   Arduino DUE & Arty A7-100 & Verilog RTL
+--------------- ----------  -----------
+SAM3X8E/Digital Pmod /FPGA  ALU_wrapper
+--------------- ----------  -----------
+   PB26/22      JD-4 /F3    -
+   PA14/23      JD-10/G2    -
+   PA15/24      JD-3 /F4    -
+   PD0 /25      JD-9 /H2    -
+   PD1 /26      JD-2 /D3    -
+   PD2 /27      JD-8 /D2    -
+   PD3 /28      JD-1 /D4    -
+   PD6 /29      JD-7 /E2    clk
+
+   PD9 /30      JC-4 /V11   ACC_o[7]
+   PA7 /31      JC-10/U13   -
+   PD10/32      JC-3 /V10   ACC_o[6]
+   PC1 /33      JC-9 /T13   -
+   PC2 /34      JC-2 /V12   ACC_o[5]
+   PC3 /35      JC-8 /V14   -
+   PC4 /36      JC-1 /U12   ACC_o[4]
+   PC5 /37      JC-7 /U14   Done_o
+
+   PC6 /38      JB-4 /C15   ABCmd_i[7]
+   PC7 /39      JB-10/J15   ACC_o[3]
+   PC8 /40      JB-3 /D15   ABCmd_i[6]
+   PC9 /41      JB-9 /K15   ACC_o[2]
+   PA19/42      JB-2 /E16   ABCmd_i[5]
+   PA20/43      JB-8 /J18   ACC_o[1]
+   PC19/44      JB-1 /E15   ABCmd_i[4]
+   PC18/45      JB-7 /J17   ACC_o[0]
+
+   PC17/46      JA-4 /D12   LoadCmd_i
+   PC16/47      JA-10/K16   ABCmd_i[3]
+   PC15/48      JA-3 /A11   LoadB_i
+   PC14/49      JA-9 /A18   ABCmd_i[2]
+   PC13/50      JA-2 /B11   LoadA_i
+   PC12/51      JA-8 /B18   ABCmd_i[1]
+   PB21/52      JA-1 /G13   reset
+   PB14/53      JA-7 /D13   ABCmd_i[0]

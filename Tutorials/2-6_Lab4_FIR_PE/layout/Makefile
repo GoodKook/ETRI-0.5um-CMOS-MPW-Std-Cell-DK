@@ -61,3 +61,23 @@ clean :
 	rm -f $(TOP_MODULE)_LVS.mag
 	rm -f $(TOP_MODULE)_Stacked.mag
 
+clean_all :
+	rm -f comp.json
+	rm -f comp.out
+	rm -f fillcells.txt
+	rm -f fir_pe.cel
+	rm -f fir_pe.cel.bak
+	rm -f fir_pe.cfg
+	rm -f fir_pe.def
+	rm -f fir_pe_F.gds
+	rm -f fir_pe.gds
+	rm -f fir_pe.info
+	rm -f fir_pe.lef
+	rm -f fir_pe.mag
+	rm -f fir_pe.obs
+	rm -f fir_pe.pin
+	rm -f fir_pe.pl1
+	rm -f fir_pe.pl2
+	rm -f fir_pe.rc
+	rm -f fir_pe_unroute.def
+	rm -f migrate_fir_pe.tcl

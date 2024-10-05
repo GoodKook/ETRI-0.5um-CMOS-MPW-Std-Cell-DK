@@ -61,3 +61,23 @@ clean :
 	rm -f $(TOP_MODULE)_LVS.mag
 	rm -f $(TOP_MODULE)_Stacked.mag
 
+clean_all :
+	rm -f ALU_wrapper.cel
+	rm -f ALU_wrapper.cel.bak
+	rm -f ALU_wrapper.cfg
+	rm -f ALU_wrapper.def
+	rm -f ALU_wrapper.gds
+	rm -f ALU_wrapper.info
+	rm -f ALU_wrapper.lef
+	rm -f ALU_wrapper.mag
+	rm -f ALU_wrapper.obs
+	rm -f ALU_wrapper.pin
+	rm -f ALU_wrapper.pl1
+	rm -f ALU_wrapper.pl2
+	rm -f ALU_wrapper.rc
+	rm -f ALU_wrapper_unroute.def
+	rm -f comp.json
+	rm -f comp.out
+	rm -f fail.out
+	rm -f fillcells.txt
+	rm -f migrate_ALU_wrapper.tcl

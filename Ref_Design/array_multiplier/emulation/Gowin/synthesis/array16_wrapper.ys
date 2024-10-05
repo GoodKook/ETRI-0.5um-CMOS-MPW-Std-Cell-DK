@@ -1,0 +1,17 @@
+#
+## Poorman's Standard-Emulator by GoodKook, goodkook@gmail.com
+### Yosys script targetting GoWin's FPGA
+#
+#   yosys array16_wrapper.ys | tee synthesis.log
+#
+read_verilog ../../array16_wrapper.v
+read_verilog ../../../source/array16.v
+read_verilog ../../../source/array8.v
+read_verilog ../../../source/array4.v
+read_verilog ../../../source/array2.v
+read_verilog ../../../source/ha.v
+
+hierarchy -check -top array16_wrapper
+
+synth_gowin -top array16_wrapper -retime -vout array16_wrapper.v
+stat

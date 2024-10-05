@@ -11,8 +11,8 @@ module ALU_wrapper(
     input reset
 );
 
-wire vdd = 1'b1;
-wire gnd = 1'b0;
+wire VDD = 1'b1;
+wire GND = 1'b0;
 
 wire _588_ ;
 wire _168_ ;
@@ -5630,7 +5630,7 @@ DFFSR _1689_ (
     .CLK(clk_bF$buf0),
     .D(_926_[0]),
     .Q(state[0]),
-    .R(vdd),
+    .R(VDD),
     .S(_0_)
 );
 
@@ -5639,7 +5639,7 @@ DFFSR _1690_ (
     .D(_926_[1]),
     .Q(state[1]),
     .R(_0_),
-    .S(vdd)
+    .S(VDD)
 );
 
 DFFSR _1691_ (
@@ -5647,7 +5647,7 @@ DFFSR _1691_ (
     .D(_926_[2]),
     .Q(state[2]),
     .R(_0_),
-    .S(vdd)
+    .S(VDD)
 );
 
 INVX1 _1692_ (

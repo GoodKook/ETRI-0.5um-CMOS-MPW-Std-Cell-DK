@@ -1,0 +1,17 @@
+#-----------------------------------------------------
+# .magicrc startup file for ETRI050 project under qflow
+#-----------------------------------------------------
+
+path sys +/usr/local/share/qflow/tech/etri050
+tech load SCN3ME_SUBM.30.ETRI -noprompt
+scalegrid 1 2
+set GND gnd
+set VDD vdd
+
+drc euclidean on
+drc off
+
+addpath ~/ETRI050_DesignKit/digital_ETRI
+
+macro Control_XK_Pointer_Button4 {zoom 0.5}
+macro Control_XK_Pointer_Button5 {zoom 2}

@@ -100,7 +100,7 @@ define config_cell
 	cp -f $(1)/CLKBUF3.mag	$(CELL_LIB)/CLKBUF3.mag
 	cp -f $(1)/DFFNEGX1.mag	$(CELL_LIB)/DFFNEGX1.mag
 	cp -f $(1)/DFFPOSX1.mag	$(CELL_LIB)/DFFPOSX1.mag
-	cp -f $(CELL_SRC2)/DFFSR.mag	$(CELL_LIB)/DFFSR.mag
+	cp -f $(1)/DFFSR.mag	$(CELL_LIB)/DFFSR.mag
 	cp -f $(1)/FILL.mag		$(CELL_LIB)/FILL.mag
 	cp -f $(1)/INVX1.mag	$(CELL_LIB)/INVX1.mag
 	cp -f $(1)/INVX2.mag	$(CELL_LIB)/INVX2.mag
