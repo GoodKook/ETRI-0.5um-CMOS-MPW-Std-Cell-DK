@@ -856,20 +856,23 @@ style  lambda=0.30(ETRI)
  calma 34 0
 
  layer CM2 m2c/m2
- bloat-max m2c/m2 * 0 m2 5
+ bloat-max m2c/m2 * 0 m2,m2c/m2 10
  shrink 5
  labels m2c/m2
  calma 34 0
 
  layer CM2 m3c/m2
- bloat-max m3c/m2 * 0 m2,m2c 5
+ bloat-max m3c/m2 * 0 m2,m2c/m2 10
  shrink 5
  labels m3c/m2
  calma 34 0
 
  layer CMSP m2p
- bloat-or m2 * 5 m2c/m2 10
- shrink 10
+ bloat-all m2p m2
+ and-not m2p
+ grow 10
+ or m2p
+ shrink 5
  labels m2p
  calma 34 0
  
