@@ -1,4 +1,4 @@
-Qflow synthesis logfile created on Sat 05 Oct 2024 08:35:57 PM KST
+Qflow synthesis logfile created on Tue 15 Oct 2024 12:40:15 PM KST
 Running yosys for verilog parsing and synthesis
 yosys  -s fir_pe.ys
 
@@ -858,9 +858,9 @@ Dumping module `\fir_pe'.
      OAI22X1                         6
      OR2X2                          10
 
-End of script. Logfile hash: 21e513ce8a, CPU: user 0.16s system 0.02s, MEM: 19.95 MB peak
+End of script. Logfile hash: 21e513ce8a, CPU: user 0.18s system 0.01s, MEM: 19.95 MB peak
 Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
-Time spent: 49% 2x abc (0 sec), 10% 25x opt_expr (0 sec), ...
+Time spent: 48% 2x abc (0 sec), 10% 25x opt_expr (0 sec), ...
 Running getpowerground to determine power and ground net names.
 getpowerground.tcl  /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
 Running vlogFanout
@@ -901,9 +901,8 @@ Gate counts by drive strength:
 
 Number of gates changed: 0
 Running vlog2Verilog for antenna cell mapping.
-vlog2Verilog -c -p -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
    -o fir_pe.v fir_pe_sized.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
 
 Generating RTL verilog and SPICE netlist file in directory
 	 /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/synthesis
@@ -914,36 +913,17 @@ Files:
    Spice:   /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/synthesis/fir_pe.spc
 
 Running vlog2Verilog.
-vlog2Verilog -c -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
 	-o fir_pe.rtl.v
    fir_pe.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
-vlog2Verilog -c -p -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
 	-o fir_pe.rtlnopwr.v
    fir_pe.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
-/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
    -o fir_pe.rtlbb.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
 Running vlog2Spice.
 vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o fir_pe.spc fir_pe.rtl.v
-Couldn't open /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp for reading
-Warning:  No SPICE subcircuit for BUFX2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for CLKBUF1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NAND2X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OR2X2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AOI22X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for INVX1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NAND3X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OAI21X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AOI21X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AND2X2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NOR2X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OAI22X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for INVX2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for INVX8.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for DFFPOSX1.  Pin order will be arbitrary.
 Running spi2xspice.py
 spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" fir_pe.spc fir_pe.xspice
 
-Synthesis script ended on Sat 05 Oct 2024 08:35:58 PM KST
+Synthesis script ended on Tue 15 Oct 2024 12:40:15 PM KST

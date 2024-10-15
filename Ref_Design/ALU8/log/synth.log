@@ -1,4 +1,4 @@
-Qflow synthesis logfile created on Sat 05 Oct 2024 08:34:57 PM KST
+Qflow synthesis logfile created on Tue 15 Oct 2024 12:37:51 PM KST
 Running yosys for verilog parsing and synthesis
 yosys  -s ALU_wrapper.ys
 
@@ -1236,9 +1236,9 @@ Dumping module `\ALU_wrapper'.
      OAI22X1                         7
      OR2X2                          17
 
-End of script. Logfile hash: 37a707b861, CPU: user 0.25s system 0.03s, MEM: 21.49 MB peak
+End of script. Logfile hash: 37a707b861, CPU: user 0.25s system 0.03s, MEM: 21.33 MB peak
 Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
-Time spent: 55% 2x abc (0 sec), 10% 29x opt_expr (0 sec), ...
+Time spent: 54% 2x abc (0 sec), 11% 29x opt_expr (0 sec), ...
 Running getpowerground to determine power and ground net names.
 getpowerground.tcl  /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
 Running vlogFanout
@@ -1285,9 +1285,8 @@ Gate counts by drive strength:
 
 Number of gates changed: 0
 Running vlog2Verilog for antenna cell mapping.
-vlog2Verilog -c -p -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
    -o ALU_wrapper.v ALU_wrapper_sized.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
 
 Generating RTL verilog and SPICE netlist file in directory
 	 /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/synthesis
@@ -1298,39 +1297,17 @@ Files:
    Spice:   /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/ALU8/synthesis/ALU_wrapper.spc
 
 Running vlog2Verilog.
-vlog2Verilog -c -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
 	-o ALU_wrapper.rtl.v
    ALU_wrapper.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
-vlog2Verilog -c -p -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
 	-o ALU_wrapper.rtlnopwr.v
    ALU_wrapper.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
-/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
    -o ALU_wrapper.rtlbb.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
 Running vlog2Spice.
 vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o ALU_wrapper.spc ALU_wrapper.rtl.v
-Couldn't open /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp for reading
-Warning:  No SPICE subcircuit for BUFX2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for CLKBUF1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NAND2X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for INVX1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OR2X2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AOI22X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NAND3X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NOR2X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OAI21X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for INVX2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AOI21X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AND2X2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for INVX4.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OAI22X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NOR3X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for DFFPOSX1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for DFFSR.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for MUX2X1.  Pin order will be arbitrary.
 Running spi2xspice.py
 spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" ALU_wrapper.spc ALU_wrapper.xspice
 
-Synthesis script ended on Sat 05 Oct 2024 08:34:58 PM KST
+Synthesis script ended on Tue 15 Oct 2024 12:37:52 PM KST

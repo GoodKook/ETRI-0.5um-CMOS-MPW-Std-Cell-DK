@@ -18,7 +18,13 @@ all :
 	@echo '             drc'
 	@echo '             lvs'
 	@echo '             Core'
+	@echo ''
+	@echo '             mag2gds'
+	@echo '             klayout'
+	@echo '             magic'
+	@echo ''
 	@echo '             clean'
+	@echo '             clean_all'
 	@echo ''
 
 # -----------------------------------------------------
@@ -50,6 +56,19 @@ $(TOP_MODULE)_Core_Stacked.log: $(TOP_MODULE)_Core.mag
 	$(DK_SCRIPT)/check_via_stack.py $(TOP_MODULE)_Core m2contact m3contact 6 | \
 		tee $(TOP_MODULE)_Core_Stacked.log
 
+mag2gds: $(TOP_MODULE)_F.mag
+
+$(TOP_MODULE)_F.mag : $(TOP_MODULE).mag
+	$(DK_SCRIPT)/mag2gds.sh $(TOP_MODULE)
+
+$(TOP_MODULE)_F.gds : $(TOP_MODULE).mag
+	$(DK_SCRIPT)/mag2gds.sh $(TOP_MODULE)
+
+klayout: $(TOP_MODULE)_F.gds
+	klayout $(TOP_MODULE)_F.gds -l ETRI050_CMOS.lyp
+
+magic: $(TOP_MODULE)_F.mag
+	magic -d XR $(TOP_MODULE)_F.mag
 
 clean :
 	rm -f *.log
@@ -62,24 +81,21 @@ clean :
 	rm -f $(TOP_MODULE)_Stacked.mag
 
 clean_all :
-	rm -f array16.cel
-	rm -f array16.cel.bak
-	rm -f array16.cfg
-	rm -f array16.def
-	rm -f array16.info
-	rm -f array16.lef
-	rm -f array16.mag
-	rm -f array16.obs
-	rm -f array16.par.orig
-	rm -f array16.pin
-	rm -f array16.pl1
-	rm -f array16.pl2
-	rm -f array16.rc
-	rm -f array16_unroute.def
 	rm -f comp.json
 	rm -f comp.out
-	rm -f fail.out
-	rm -f files.txt
 	rm -f fillcells.txt
-	rm -f migrate_array16.tcl
-	rm -f setup.tcl
+	rm -f $(TOP_MODULE).cel
+	rm -f $(TOP_MODULE).cel.bak
+	rm -f $(TOP_MODULE).cfg
+	rm -f $(TOP_MODULE).def
+	rm -f $(TOP_MODULE).gds
+	rm -f $(TOP_MODULE).info
+	rm -f $(TOP_MODULE).lef
+	rm -f $(TOP_MODULE).mag
+	rm -f $(TOP_MODULE).obs
+	rm -f $(TOP_MODULE).pin
+	rm -f $(TOP_MODULE).pl1
+	rm -f $(TOP_MODULE).pl2
+	rm -f $(TOP_MODULE).rc
+	rm -f $(TOP_MODULE)_unroute.def
+	rm -f migrate_$(TOP_MODULE).tcl

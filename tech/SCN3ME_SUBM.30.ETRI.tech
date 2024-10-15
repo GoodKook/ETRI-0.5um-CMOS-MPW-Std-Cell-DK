@@ -706,19 +706,19 @@ style  lambda=0.30(ETRI)
 
 #diffusion auto-nselect (will have priority)
  templayer XDN
- bloat-or ndiff,rnd,ndc/a * 60 psd,psc/a 0
+ bloat-or ndiff,rnd,ndc/a * 50 psd,psc/a 0
  or TNS
 
 #diffusion auto-pselect (will have priority)
  templayer XDP
- bloat-or pdiff,rpd,pdc/a * 60 nsd,nsc/a 0
+ bloat-or pdiff,rpd,pdc/a * 50 nsd,nsc/a 0
  or TPS
 
 #final pselect 
  templayer FSP
  bloat-or psd * 100 nsd 0
- bloat-or pdiff,rpd,pfet,pdc/a,psc/a,pfet * 60 ndiff,rnd,ndc/a,nsc/a,nfet 0
-# bloat-or pdiff,rpd,pfet,psd,pdc/a,psc/a,pfet * 60 ndiff,rnd,ndc/a,nsd,nsc/a,nfet 0
+ bloat-or pdiff,rpd,pfet,pdc/a,psc/a,pfet * 50 ndiff,rnd,ndc/a,nsc/a,nfet 0
+# bloat-or pdiff,rpd,pfet,psd,pdc/a,psc/a,pfet * 50 ndiff,rnd,ndc/a,nsd,nsc/a,nfet 0
  or XDP
 #give diff nselect priority
  and-not XDN
@@ -731,8 +731,8 @@ style  lambda=0.30(ETRI)
 #final nselect
  templayer FSN
  bloat-or nsd * 100 psd 0
- bloat-or ndiff,rnd,nfet,ndc/a,nsc/a,nfet * 60 pdiff,rpd,pdc/a,psc/a,pfet 0
-# bloat-or ndiff,rnd,nfet,nsd,ndc/a,nsc/a,nfet * 60 pdiff,rpd,pdc/a,psd,psc/a,pfet 0
+ bloat-or ndiff,rnd,nfet,ndc/a,nsc/a,nfet * 50 pdiff,rpd,pdc/a,psc/a,pfet 0
+# bloat-or ndiff,rnd,nfet,nsd,ndc/a,nsc/a,nfet * 50 pdiff,rpd,pdc/a,psd,psc/a,pfet 0
  or XDN
 #never conflict with final pselect
  and-not FSP

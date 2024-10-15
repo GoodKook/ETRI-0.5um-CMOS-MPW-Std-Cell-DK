@@ -9,3 +9,9 @@ proc select_net {netname} {
     select net
     findbox
 }
+
+proc goto_pos {x y} {
+    box [string cat $x "um"] [string cat $y "um"] [string cat $x "um"] [string cat $y "um"]
+    findbox
+}
+

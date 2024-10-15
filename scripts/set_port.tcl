@@ -80,6 +80,10 @@ proc portD {layer} {set_port D input 3 $layer}
 proc portY {index layer} {set_port Y output $index $layer}
 
 
+proc goto_pos {x y} {
+    box [string cat $x "um"] [string cat $y "um"] [string cat $x "um"] [string cat $y "um"]
+    findbox
+}
 
 
 

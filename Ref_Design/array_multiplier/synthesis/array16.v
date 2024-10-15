@@ -6,8 +6,8 @@ module array16(
     output [31:0] c
 );
 
-wire VDD = 1'b1;
-wire GND = 1'b0;
+wire vdd = 1'b1;
+wire gnd = 1'b0;
 
 wire \z4.z1.z2.z1.a  ;
 wire [15:0] a ;

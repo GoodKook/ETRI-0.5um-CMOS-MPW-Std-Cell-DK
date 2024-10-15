@@ -18,7 +18,13 @@ all :
 	@echo '             drc'
 	@echo '             lvs'
 	@echo '             Core'
+	@echo ''
+	@echo '             mag2gds'
+	@echo '             klayout'
+	@echo '             magic'
+	@echo ''
 	@echo '             clean'
+	@echo '             clean_all'
 	@echo ''
 
 # -----------------------------------------------------
@@ -50,6 +56,19 @@ $(TOP_MODULE)_Core_Stacked.log: $(TOP_MODULE)_Core.mag
 	$(DK_SCRIPT)/check_via_stack.py $(TOP_MODULE)_Core m2contact m3contact 6 | \
 		tee $(TOP_MODULE)_Core_Stacked.log
 
+mag2gds: $(TOP_MODULE)_F.mag
+
+$(TOP_MODULE)_F.mag : $(TOP_MODULE).mag
+	$(DK_SCRIPT)/mag2gds.sh $(TOP_MODULE)
+
+$(TOP_MODULE)_F.gds : $(TOP_MODULE).mag
+	$(DK_SCRIPT)/mag2gds.sh $(TOP_MODULE)
+
+klayout: $(TOP_MODULE)_F.gds
+	klayout $(TOP_MODULE)_F.gds -l ETRI050_CMOS.lyp
+
+magic: $(TOP_MODULE)_F.mag
+	magic -d XR $(TOP_MODULE)_F.mag
 
 clean :
 	rm -f *.log
@@ -62,22 +81,21 @@ clean :
 	rm -f $(TOP_MODULE)_Stacked.mag
 
 clean_all :
-	rm -f ALU_wrapper.cel
-	rm -f ALU_wrapper.cel.bak
-	rm -f ALU_wrapper.cfg
-	rm -f ALU_wrapper.def
-	rm -f ALU_wrapper.gds
-	rm -f ALU_wrapper.info
-	rm -f ALU_wrapper.lef
-	rm -f ALU_wrapper.mag
-	rm -f ALU_wrapper.obs
-	rm -f ALU_wrapper.pin
-	rm -f ALU_wrapper.pl1
-	rm -f ALU_wrapper.pl2
-	rm -f ALU_wrapper.rc
-	rm -f ALU_wrapper_unroute.def
 	rm -f comp.json
 	rm -f comp.out
-	rm -f fail.out
 	rm -f fillcells.txt
-	rm -f migrate_ALU_wrapper.tcl
+	rm -f $(TOP_MODULE).cel
+	rm -f $(TOP_MODULE).cel.bak
+	rm -f $(TOP_MODULE).cfg
+	rm -f $(TOP_MODULE).def
+	rm -f $(TOP_MODULE).gds
+	rm -f $(TOP_MODULE).info
+	rm -f $(TOP_MODULE).lef
+	rm -f $(TOP_MODULE).mag
+	rm -f $(TOP_MODULE).obs
+	rm -f $(TOP_MODULE).pin
+	rm -f $(TOP_MODULE).pl1
+	rm -f $(TOP_MODULE).pl2
+	rm -f $(TOP_MODULE).rc
+	rm -f $(TOP_MODULE)_unroute.def
+	rm -f migrate_$(TOP_MODULE).tcl

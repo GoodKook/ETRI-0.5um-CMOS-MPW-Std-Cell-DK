@@ -1,4 +1,4 @@
-Qflow synthesis logfile created on Sat 05 Oct 2024 08:33:40 PM KST
+Qflow synthesis logfile created on Tue 15 Oct 2024 12:36:32 PM KST
 Running yosys for verilog parsing and synthesis
 yosys  -s array16.ys
 
@@ -1479,7 +1479,7 @@ Dumping module `\array16'.
      OR2X2                          78
 
 Warnings: 4 unique messages, 4 total
-End of script. Logfile hash: 4eb052fe88, CPU: user 0.35s system 0.03s, MEM: 25.66 MB peak
+End of script. Logfile hash: 4eb052fe88, CPU: user 0.38s system 0.00s, MEM: 25.79 MB peak
 Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
 Time spent: 52% 2x abc (0 sec), 9% 30x opt_expr (0 sec), ...
 Running getpowerground to determine power and ground net names.
@@ -1510,9 +1510,8 @@ Gate counts by drive strength:
 
 Number of gates changed: 0
 Running vlog2Verilog for antenna cell mapping.
-vlog2Verilog -c -p -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
    -o array16.v array16_sized.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
 
 Generating RTL verilog and SPICE netlist file in directory
 	 /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/array_multiplier/synthesis
@@ -1523,33 +1522,17 @@ Files:
    Spice:   /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/array_multiplier/synthesis/array16.spc
 
 Running vlog2Verilog.
-vlog2Verilog -c -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
 	-o array16.rtl.v
    array16.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
-vlog2Verilog -c -p -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
 	-o array16.rtlnopwr.v
    array16.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
-/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v VDD -g GND  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
    -o array16.rtlbb.v
-Cannot open input file: /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef: No such file or directory
 Running vlog2Spice.
 vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o array16.spc array16.rtl.v
-Couldn't open /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp for reading
-Warning:  No SPICE subcircuit for NOR2X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NAND2X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for INVX1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OR2X2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AND2X2.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AOI21X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NAND3X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OAI21X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for NOR3X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for AOI22X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for OAI22X1.  Pin order will be arbitrary.
-Warning:  No SPICE subcircuit for BUFX2.  Pin order will be arbitrary.
 Running spi2xspice.py
 spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" array16.spc array16.xspice
 
-Synthesis script ended on Sat 05 Oct 2024 08:33:41 PM KST
+Synthesis script ended on Tue 15 Oct 2024 12:36:33 PM KST

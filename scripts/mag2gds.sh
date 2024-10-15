@@ -21,7 +21,8 @@ drc off
 select top cell
 expand
 flatten $1_F
-load  $1_F
+load $1_F
+save $1_F
 cif ostyle lambda=0.30(ETRI)
 gds drccheck no
 gds flatten yes
