@@ -18,7 +18,13 @@ all :
 	@echo '             drc'
 	@echo '             lvs'
 	@echo '             Core'
+	@echo ''
+	@echo '             mag2gds'
+	@echo '             klayout'
+	@echo '             magic'
+	@echo ''
 	@echo '             clean'
+	@echo '             clean_all'
 	@echo ''
 
 # -----------------------------------------------------
@@ -50,6 +56,19 @@ $(TOP_MODULE)_Core_Stacked.log: $(TOP_MODULE)_Core.mag
 	$(DK_SCRIPT)/check_via_stack.py $(TOP_MODULE)_Core m2contact m3contact 6 | \
 		tee $(TOP_MODULE)_Core_Stacked.log
 
+mag2gds: $(TOP_MODULE)_F.mag
+
+$(TOP_MODULE)_F.mag : $(TOP_MODULE).mag
+	$(DK_SCRIPT)/mag2gds.sh $(TOP_MODULE)
+
+$(TOP_MODULE)_F.gds : $(TOP_MODULE).mag
+	$(DK_SCRIPT)/mag2gds.sh $(TOP_MODULE)
+
+klayout: $(TOP_MODULE)_F.gds
+	klayout $(TOP_MODULE)_F.gds -l ETRI050_CMOS.lyp
+
+magic: $(TOP_MODULE)_F.mag
+	magic -d XR $(TOP_MODULE)_F.mag
 
 clean :
 	rm -f *.log
@@ -62,22 +81,21 @@ clean :
 	rm -f $(TOP_MODULE)_Stacked.mag
 
 clean_all :
-	rm -f booth_multiplier.cel
-	rm -f booth_multiplier.cel.bak
-	rm -f booth_multiplier.cfg
-	rm -f booth_multiplier.def
-	rm -f booth_multiplier.gds
-	rm -f booth_multiplier.info
-	rm -f booth_multiplier.lef
-	rm -f booth_multiplier.mag
-	rm -f booth_multiplier.obs
-	rm -f booth_multiplier.pin
-	rm -f booth_multiplier.pl1
-	rm -f booth_multiplier.pl2
-	rm -f booth_multiplier.rc
-	rm -f booth_multiplier_unroute.def
 	rm -f comp.json
 	rm -f comp.out
-	rm -f fail.out
 	rm -f fillcells.txt
-	rm -f migrate_booth_multiplier.tcl
+	rm -f $(TOP_MODULE).cel
+	rm -f $(TOP_MODULE).cel.bak
+	rm -f $(TOP_MODULE).cfg
+	rm -f $(TOP_MODULE).def
+	rm -f $(TOP_MODULE).gds
+	rm -f $(TOP_MODULE).info
+	rm -f $(TOP_MODULE).lef
+	rm -f $(TOP_MODULE).mag
+	rm -f $(TOP_MODULE).obs
+	rm -f $(TOP_MODULE).pin
+	rm -f $(TOP_MODULE).pl1
+	rm -f $(TOP_MODULE).pl2
+	rm -f $(TOP_MODULE).rc
+	rm -f $(TOP_MODULE)_unroute.def
+	rm -f migrate_$(TOP_MODULE).tcl

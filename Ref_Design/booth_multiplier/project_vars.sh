@@ -41,10 +41,10 @@
 
 # Router command options:
 # -------------------------------------------
-# set route_show =
+set route_show = 1
 # set route_layers =
 # set via_use =
-# set via_stacks =
+set via_stacks = none
 # set qrouter_options =
 # set qrouter_nocleanup =
 
