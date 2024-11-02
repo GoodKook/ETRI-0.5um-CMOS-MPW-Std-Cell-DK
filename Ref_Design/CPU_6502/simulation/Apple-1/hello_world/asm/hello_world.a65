@@ -1,0 +1,20 @@
+        code
+        
+        org     $0000
+        jsr     start
+        jsr     $FF00
+        
+        org     $0280
+start:
+        ldx     #$C
+loop:
+        lda     message,x
+        jsr     $FFEF
+        dex
+        bne     loop
+        jsr     $FF00
+        ;rts 
+
+message   db      "\r\nDLROW OLLEH",0
+
+        end start

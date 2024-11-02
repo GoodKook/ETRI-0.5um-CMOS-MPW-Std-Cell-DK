@@ -1,0 +1,167 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2.2 (lin64) Build 4126759 Thu Feb  8 23:52:05 MST 2024
+| Date         : Sun Jun 16 18:36:15 2024
+| Host         : GoodKook-Skull running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_methodology -file cpu_wrapper_methodology_drc_routed.rpt -pb cpu_wrapper_methodology_drc_routed.pb -rpx cpu_wrapper_methodology_drc_routed.rpx
+| Design       : cpu_wrapper
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: cpu_wrapper
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 26
++-----------+------------------+------------------------------------------------+------------+
+| Rule      | Severity         | Description                                    | Violations |
++-----------+------------------+------------------------------------------------+------------+
+| TIMING-6  | Critical Warning | No common primary clock between related clocks | 2          |
+| TIMING-7  | Critical Warning | No common node between related clocks          | 2          |
+| TIMING-18 | Warning          | Missing input or output delay                  | 22         |
++-----------+------------------+------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks dut_clk_pin and emu_clk_pin are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks dut_clk_pin] -to [get_clocks emu_clk_pin]
+Related violations: <none>
+
+TIMING-6#2 Critical Warning
+No common primary clock between related clocks  
+The clocks emu_clk_pin and dut_clk_pin are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks emu_clk_pin] -to [get_clocks dut_clk_pin]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks dut_clk_pin and emu_clk_pin are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks dut_clk_pin] -to [get_clocks emu_clk_pin]
+Related violations: <none>
+
+TIMING-7#2 Critical Warning
+No common node between related clocks  
+The clocks emu_clk_pin and dut_clk_pin are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks emu_clk_pin] -to [get_clocks dut_clk_pin]
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on Addr_emu[0] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on Addr_emu[1] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on Addr_emu[2] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[0] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[1] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[2] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[3] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[4] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[5] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[6] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An input delay is missing on Din_emu[7] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An input delay is missing on get_emu relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An input delay is missing on load_emu relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[0] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[1] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[2] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[3] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[4] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[5] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[6] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An output delay is missing on Dout_emu[7] relative to the rising and/or falling clock edge(s) of emu_clk_pin.
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An output delay is missing on clk_LED relative to the rising and/or falling clock edge(s) of dut_clk_pin.
+Related violations: <none>
+
+

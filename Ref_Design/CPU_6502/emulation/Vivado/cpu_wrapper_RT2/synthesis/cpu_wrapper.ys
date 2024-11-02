@@ -1,0 +1,13 @@
+### Yosys targetting Xilinx
+#
+# yosys cpu_wrapper.ys | tee synthesis.log
+#
+read_verilog -DEMU_MONITOR ../../../cpu_wrapper_RT2.v
+read_verilog ../../../../source/cpu.v
+read_verilog ../../../../source/ALU8.v
+
+hierarchy -check -top cpu_wrapper
+
+synth_xilinx -top cpu_wrapper -family xc7 -flatten
+write_verilog  cpu_wrapper.v
+stat

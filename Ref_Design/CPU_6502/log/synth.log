@@ -1,0 +1,2587 @@
+Qflow synthesis logfile created on Mon 23 Sep 2024 07:40:42 AM KST
+Running yosys for verilog parsing and synthesis
+yosys  -s cpu.ys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+
+-- Executing script file `cpu.ys' --
+
+1. Executing Liberty frontend: /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+Imported 39 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v
+Parsing Verilog input from `/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v' to AST representation.
+Generating RTLIL representation for module `\cpu'.
+Warning: Replacing memory \AXYS with list of registers. See /home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:546
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: ALU8.v
+Parsing Verilog input from `ALU8.v' to AST representation.
+Generating RTLIL representation for module `\ALU8'.
+Successfully finished Verilog frontend.
+
+4. Executing SYNTH pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \cpu
+Used module:     \ALU8
+
+4.1.2. Analyzing design hierarchy..
+Top module:  \cpu
+Used module:     \ALU8
+Removed 0 unused modules.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$ALU8.v:101$256 in module ALU8.
+Removed 1 dead cases from process $proc$ALU8.v:71$244 in module ALU8.
+Marked 1 switch rules as full_case in process $proc$ALU8.v:71$244 in module ALU8.
+Removed 1 dead cases from process $proc$ALU8.v:56$240 in module ALU8.
+Marked 2 switch rules as full_case in process $proc$ALU8.v:56$240 in module ALU8.
+Removed 1 dead cases from process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:0$225 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:0$225 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1309$220 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1303$219 in module cpu.
+Removed 1 dead cases from process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1288$214 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1288$214 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1282$213 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1241$197 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1213$194 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1201$191 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1190$188 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1177$185 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1165$182 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1154$177 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1143$172 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1131$169 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1121$166 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1108$163 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1095$160 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1081$157 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1056$154 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1034$151 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1013$148 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1007$146 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:900$133 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:889$130 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:875$120 in module cpu.
+Marked 3 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:853$115 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:839$112 in module cpu.
+Marked 4 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:823$107 in module cpu.
+Marked 5 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:804$98 in module cpu.
+Marked 4 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:790$90 in module cpu.
+Marked 5 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:768$81 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:731$70 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:698$69 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:656$66 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:646$65 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:636$59 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:608$57 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:559$53 in module cpu.
+Marked 3 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41 in module cpu.
+Removed 1 dead cases from process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:527$40 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:527$40 in module cpu.
+Removed 1 dead cases from process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:513$39 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:513$39 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:500$37 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:482$34 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:454$33 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:433$28 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:417$17 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:365$16 in module cpu.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:349$14 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:323$9 in module cpu.
+Marked 2 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:296$3 in module cpu.
+Removed a total of 6 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 30 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1301$235'.
+  Set init value: \NMI_1 = 1'0
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:72$234'.
+  Set init value: \NMI_edge = 1'0
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:55$233'.
+  Set init value: \N = 1'0
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:54$232'.
+  Set init value: \V = 1'0
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:53$231'.
+  Set init value: \D = 1'0
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:52$230'.
+  Set init value: \I = 1'0
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:51$229'.
+  Set init value: \Z = 1'0
+Found init rule in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:50$228'.
+  Set init value: \C = 1'0
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\ALU8.$proc$ALU8.v:101$256'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1309$220'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1303$219'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1282$213'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1241$197'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1213$194'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1201$191'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1190$188'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1177$185'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1165$182'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1154$177'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1143$172'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1131$169'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1121$166'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1108$163'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1095$160'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1081$157'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1056$154'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1034$151'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1013$148'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1007$146'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:900$133'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:889$130'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:875$120'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:853$115'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:839$112'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:823$107'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:804$98'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:790$90'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:768$81'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:646$65'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:500$37'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:417$17'.
+Found async reset \reset in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:349$14'.
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~107 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ALU8.$proc$ALU8.v:101$256'.
+     1/6: $0\BI7[0:0]
+     2/6: $0\AI7[0:0]
+     3/6: $0\OUT[7:0]
+     4/6: $0\HC[0:0]
+     5/6: $0\N[0:0]
+     6/6: $0\CO[0:0]
+Creating decoders for process `\ALU8.$proc$ALU8.v:93$251'.
+Creating decoders for process `\ALU8.$proc$ALU8.v:71$244'.
+     1/1: $1\temp_BI[7:0]
+Creating decoders for process `\ALU8.$proc$ALU8.v:56$240'.
+     1/2: $2\temp_logic[8:0]
+     2/2: $1\temp_logic[8:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1301$235'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:72$234'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:55$233'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:54$232'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:53$231'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:52$230'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:51$229'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:50$228'.
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:0$225'.
+     1/1: $1$mem2reg_rd$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:75$1_DATA[7:0]$227
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1309$220'.
+     1/1: $0\NMI_edge[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1303$219'.
+     1/1: $0\NMI_1[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1288$214'.
+     1/1: $1\cond_true[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1282$213'.
+     1/1: $0\cond_code[2:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+     1/10: $0\brk[0:0]
+     2/10: $0\clv[0:0]
+     3/10: $0\sei[0:0]
+     4/10: $0\cli[0:0]
+     5/10: $0\sed[0:0]
+     6/10: $0\cld[0:0]
+     7/10: $0\sec[0:0]
+     8/10: $0\clc[0:0]
+     9/10: $0\php[0:0]
+    10/10: $0\plp[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1241$197'.
+     1/1: $0\bit_ins[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1213$194'.
+     1/1: $0\op[3:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1201$191'.
+     1/1: $0\rotate[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1190$188'.
+     1/1: $0\shift_right[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1177$185'.
+     1/1: $0\compare[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1165$182'.
+     1/1: $0\shift[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1154$177'.
+     1/1: $0\adc_bcd[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1143$172'.
+     1/1: $0\adc_sbc[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1131$169'.
+     1/1: $0\inc[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1121$166'.
+     1/1: $0\load_only[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1108$163'.
+     1/1: $0\write_back[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1095$160'.
+     1/1: $0\store[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1081$157'.
+     1/1: $0\index_y[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1056$154'.
+     1/1: $0\src_reg[1:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1034$151'.
+     1/1: $0\dst_reg[1:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1013$148'.
+     1/1: $0\load_reg[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1007$146'.
+     1/1: $0\res[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:900$133'.
+     1/1: $0\state[5:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:889$130'.
+     1/1: $0\DIHOLD[7:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:875$120'.
+     1/2: $0\IRHOLD_valid[0:0]
+     2/2: $0\IRHOLD[7:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:853$115'.
+     1/1: $0\V[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:839$112'.
+     1/1: $0\D[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:823$107'.
+     1/1: $0\I[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:804$98'.
+     1/1: $0\N[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:790$90'.
+     1/1: $0\Z[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:768$81'.
+     1/1: $0\C[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:731$70'.
+     1/1: $1\CI[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:698$69'.
+     1/1: $1\BI[7:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:656$66'.
+     1/1: $1\AI[7:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:646$65'.
+     1/1: $0\backwards[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:636$59'.
+     1/1: $1\alu_shift_right[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:608$57'.
+     1/1: $1\alu_op[3:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:559$53'.
+     1/1: $1\regsel[1:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+     1/8: $2$mem2reg_wr$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$2_ADDR[1:0]$47
+     2/8: $2$mem2reg_wr$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$2_DATA[7:0]$48
+     3/8: $1$mem2reg_wr$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$2_DATA[7:0]$45
+     4/8: $1$mem2reg_wr$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$2_ADDR[1:0]$44
+     5/8: $0\AXYS[3][7:0]
+     6/8: $0\AXYS[2][7:0]
+     7/8: $0\AXYS[1][7:0]
+     8/8: $0\AXYS[0][7:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:527$40'.
+     1/1: $1\ADJH[3:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:513$39'.
+     1/1: $1\ADJL[3:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:500$37'.
+     1/1: $0\adj_bcd[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:482$34'.
+     1/1: $1\write_register[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:454$33'.
+     1/1: $1\WE[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:433$28'.
+     1/1: $1\DO[7:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:417$17'.
+     1/2: $0\ABH[7:0]
+     2/2: $0\ABL[7:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:365$16'.
+     1/1: $1\AB[15:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:349$14'.
+     1/1: $0\PC[15:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:323$9'.
+     1/2: $2\PC_inc[0:0]
+     2/2: $1\PC_inc[0:0]
+Creating decoders for process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:296$3'.
+     1/2: $2\PC_temp[15:0]
+     2/2: $1\PC_temp[15:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ALU8.\temp_l' from process `\ALU8.$proc$ALU8.v:93$251'.
+No latch inferred for signal `\ALU8.\temp_h' from process `\ALU8.$proc$ALU8.v:93$251'.
+No latch inferred for signal `\ALU8.\temp_BI' from process `\ALU8.$proc$ALU8.v:71$244'.
+No latch inferred for signal `\ALU8.\temp_logic' from process `\ALU8.$proc$ALU8.v:56$240'.
+No latch inferred for signal `\cpu.$mem2reg_rd$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:75$1_DATA' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:0$225'.
+No latch inferred for signal `\cpu.\cond_true' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1288$214'.
+No latch inferred for signal `\cpu.\CI' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:731$70'.
+No latch inferred for signal `\cpu.\BI' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:698$69'.
+No latch inferred for signal `\cpu.\AI' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:656$66'.
+No latch inferred for signal `\cpu.\alu_shift_right' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:636$59'.
+No latch inferred for signal `\cpu.\alu_op' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:608$57'.
+No latch inferred for signal `\cpu.\regsel' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:559$53'.
+No latch inferred for signal `\cpu.\ADJH' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:527$40'.
+No latch inferred for signal `\cpu.\ADJL' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:513$39'.
+No latch inferred for signal `\cpu.\write_register' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:482$34'.
+No latch inferred for signal `\cpu.\WE' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:454$33'.
+No latch inferred for signal `\cpu.\DO' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:433$28'.
+No latch inferred for signal `\cpu.\AB' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:365$16'.
+No latch inferred for signal `\cpu.\PC_inc' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:323$9'.
+No latch inferred for signal `\cpu.\PC_temp' from process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:296$3'.
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ALU8.\CO' using process `\ALU8.$proc$ALU8.v:101$256'.
+  created $adff cell `$procdff$743' with positive edge clock and positive level reset.
+Creating register for signal `\ALU8.\N' using process `\ALU8.$proc$ALU8.v:101$256'.
+  created $adff cell `$procdff$746' with positive edge clock and positive level reset.
+Creating register for signal `\ALU8.\HC' using process `\ALU8.$proc$ALU8.v:101$256'.
+  created $adff cell `$procdff$749' with positive edge clock and positive level reset.
+Creating register for signal `\ALU8.\OUT' using process `\ALU8.$proc$ALU8.v:101$256'.
+  created $adff cell `$procdff$752' with positive edge clock and positive level reset.
+Creating register for signal `\ALU8.\AI7' using process `\ALU8.$proc$ALU8.v:101$256'.
+  created $adff cell `$procdff$755' with positive edge clock and positive level reset.
+Creating register for signal `\ALU8.\BI7' using process `\ALU8.$proc$ALU8.v:101$256'.
+  created $adff cell `$procdff$758' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\NMI_edge' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1309$220'.
+  created $adff cell `$procdff$761' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\NMI_1' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1303$219'.
+  created $adff cell `$procdff$764' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\cond_code' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1282$213'.
+  created $adff cell `$procdff$767' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\plp' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$770' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\php' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$773' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\clc' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$776' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\sec' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$779' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\cld' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$782' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\sed' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$785' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\cli' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$788' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\sei' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$791' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\clv' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$794' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\brk' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+  created $adff cell `$procdff$797' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\bit_ins' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1241$197'.
+  created $adff cell `$procdff$800' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\op' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1213$194'.
+  created $adff cell `$procdff$803' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\rotate' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1201$191'.
+  created $adff cell `$procdff$806' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\shift_right' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1190$188'.
+  created $adff cell `$procdff$809' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\compare' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1177$185'.
+  created $adff cell `$procdff$812' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\shift' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1165$182'.
+  created $adff cell `$procdff$815' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\adc_bcd' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1154$177'.
+  created $adff cell `$procdff$818' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\adc_sbc' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1143$172'.
+  created $adff cell `$procdff$821' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\inc' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1131$169'.
+  created $adff cell `$procdff$824' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\load_only' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1121$166'.
+  created $adff cell `$procdff$827' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\write_back' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1108$163'.
+  created $adff cell `$procdff$830' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\store' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1095$160'.
+  created $adff cell `$procdff$833' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\index_y' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1081$157'.
+  created $adff cell `$procdff$836' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\src_reg' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1056$154'.
+  created $adff cell `$procdff$839' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\dst_reg' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1034$151'.
+  created $adff cell `$procdff$842' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\load_reg' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1013$148'.
+  created $adff cell `$procdff$845' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\res' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1007$146'.
+  created $adff cell `$procdff$848' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\state' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:900$133'.
+  created $adff cell `$procdff$851' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\DIHOLD' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:889$130'.
+  created $adff cell `$procdff$854' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\IRHOLD' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:875$120'.
+  created $dff cell `$procdff$859' with positive edge clock.
+Creating register for signal `\cpu.\IRHOLD_valid' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:875$120'.
+  created $adff cell `$procdff$862' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\V' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:853$115'.
+  created $adff cell `$procdff$865' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\D' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:839$112'.
+  created $adff cell `$procdff$868' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\I' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:823$107'.
+  created $adff cell `$procdff$871' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\N' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:804$98'.
+  created $adff cell `$procdff$874' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\Z' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:790$90'.
+  created $adff cell `$procdff$877' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\C' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:768$81'.
+  created $adff cell `$procdff$880' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\backwards' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:646$65'.
+  created $adff cell `$procdff$883' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\AXYS[0]' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+  created $adff cell `$procdff$886' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\AXYS[1]' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+  created $adff cell `$procdff$889' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\AXYS[2]' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+  created $adff cell `$procdff$892' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\AXYS[3]' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+  created $adff cell `$procdff$895' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.$mem2reg_wr$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$2_ADDR' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+  created $adff cell `$procdff$898' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.$mem2reg_wr$\AXYS$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$2_DATA' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+  created $adff cell `$procdff$901' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\adj_bcd' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:500$37'.
+  created $adff cell `$procdff$904' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\ABL' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:417$17'.
+  created $adff cell `$procdff$907' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\ABH' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:417$17'.
+  created $adff cell `$procdff$910' with positive edge clock and positive level reset.
+Creating register for signal `\cpu.\PC' using process `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:349$14'.
+  created $adff cell `$procdff$913' with positive edge clock and positive level reset.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\ALU8.$proc$ALU8.v:101$256'.
+Removing empty process `ALU8.$proc$ALU8.v:101$256'.
+Removing empty process `ALU8.$proc$ALU8.v:93$251'.
+Found and cleaned up 1 empty switch in `\ALU8.$proc$ALU8.v:71$244'.
+Removing empty process `ALU8.$proc$ALU8.v:71$244'.
+Found and cleaned up 2 empty switches in `\ALU8.$proc$ALU8.v:56$240'.
+Removing empty process `ALU8.$proc$ALU8.v:56$240'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1301$235'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:72$234'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:55$233'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:54$232'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:53$231'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:52$230'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:51$229'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:50$228'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:0$225'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:0$225'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1309$220'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1309$220'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1303$219'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1288$214'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1288$214'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1282$213'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1282$213'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1255$200'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1241$197'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1241$197'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1213$194'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1213$194'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1201$191'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1201$191'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1190$188'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1190$188'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1177$185'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1177$185'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1165$182'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1165$182'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1154$177'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1154$177'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1143$172'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1143$172'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1131$169'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1131$169'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1121$166'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1121$166'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1108$163'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1108$163'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1095$160'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1095$160'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1081$157'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1081$157'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1056$154'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1056$154'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1034$151'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1034$151'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1013$148'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1013$148'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1007$146'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1007$146'.
+Found and cleaned up 3 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:900$133'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:900$133'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:889$130'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:889$130'.
+Found and cleaned up 3 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:875$120'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:875$120'.
+Found and cleaned up 6 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:853$115'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:853$115'.
+Found and cleaned up 5 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:839$112'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:839$112'.
+Found and cleaned up 7 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:823$107'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:823$107'.
+Found and cleaned up 6 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:804$98'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:804$98'.
+Found and cleaned up 5 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:790$90'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:790$90'.
+Found and cleaned up 7 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:768$81'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:768$81'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:731$70'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:731$70'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:698$69'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:698$69'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:656$66'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:656$66'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:646$65'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:646$65'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:636$59'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:636$59'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:608$57'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:608$57'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:559$53'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:559$53'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:543$41'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:527$40'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:527$40'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:513$39'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:513$39'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:500$37'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:482$34'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:482$34'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:454$33'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:454$33'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:433$28'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:433$28'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:417$17'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:417$17'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:365$16'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:365$16'.
+Found and cleaned up 1 empty switch in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:349$14'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:349$14'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:323$9'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:323$9'.
+Found and cleaned up 2 empty switches in `\cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:296$3'.
+Removing empty process `cpu.$proc$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:296$3'.
+Cleaned up 107 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+<suppressed ~8 debug messages>
+Optimizing module cpu.
+<suppressed ~62 debug messages>
+
+4.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 8 unused cells and 304 unused wires.
+<suppressed ~17 debug messages>
+
+4.5. Executing CHECK pass (checking for obvious problems).
+Checking module ALU8...
+Checking module cpu...
+Found and reported 0 problems.
+
+4.6. Executing OPT pass (performing simple optimizations).
+
+4.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\cpu'.
+<suppressed ~792 debug messages>
+Removed a total of 265 cells.
+
+4.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$717.
+    dead port 2/2 on $mux $procmux$732.
+Removed 2 multiplexer ports.
+<suppressed ~74 debug messages>
+
+4.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+    New ctrl vector for $pmux cell $procmux$419: { $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1010$147_Y $procmux$468_CMP $procmux$467_CMP $procmux$466_CMP $procmux$465_CMP $procmux$464_CMP $procmux$463_CMP $procmux$462_CMP $procmux$461_CMP $procmux$460_CMP $procmux$459_CMP $procmux$458_CMP $procmux$456_CMP $procmux$455_CMP $procmux$454_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$122_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$121_Y $procmux$445_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$49_Y $procmux$442_CMP $procmux$441_CMP $procmux$439_CMP $procmux$438_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:773$84_Y $procmux$436_CMP $procmux$434_CMP $procmux$433_CMP $procmux$432_CMP $auto$opt_reduce.cc:134:opt_pmux$919 $procmux$430_CMP $procmux$429_CMP $procmux$427_CMP $auto$opt_reduce.cc:134:opt_pmux$917 $procmux$425_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1146$174_Y $procmux$422_CMP $procmux$421_CMP $auto$opt_reduce.cc:134:opt_pmux$915 }
+    New ctrl vector for $pmux cell $procmux$469: { $procmux$493_CMP $procmux$492_CMP $procmux$490_CMP $procmux$489_CMP $procmux$488_CMP $procmux$487_CMP $procmux$408_CMP [0] $procmux$485_CMP $procmux$480_CMP $procmux$479_CMP $auto$opt_reduce.cc:134:opt_pmux$927 $auto$opt_reduce.cc:134:opt_pmux$925 $procmux$475_CMP $procmux$395_CMP [0] $procmux$473_CMP $auto$opt_reduce.cc:134:opt_pmux$923 $auto$opt_reduce.cc:134:opt_pmux$921 }
+    New ctrl vector for $pmux cell $procmux$607: { $procmux$430_CMP $auto$opt_reduce.cc:134:opt_pmux$929 }
+    New ctrl vector for $pmux cell $procmux$625: { $procmux$429_CMP $auto$opt_reduce.cc:134:opt_pmux$931 $procmux$608_CTRL $procmux$626_CTRL }
+    New ctrl vector for $pmux cell $procmux$668: { $procmux$672_CMP $auto$opt_reduce.cc:134:opt_pmux$933 $procmux$669_CMP }
+    New ctrl vector for $pmux cell $procmux$674: { $procmux$678_CMP $auto$opt_reduce.cc:134:opt_pmux$935 $procmux$675_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:128:opt_pmux$928: { $procmux$464_CMP $procmux$459_CMP $procmux$447_CMP $procmux$442_CMP $procmux$441_CMP $procmux$439_CMP $procmux$438_CMP $procmux$434_CMP $procmux$433_CMP $procmux$429_CMP $procmux$422_CMP $procmux$421_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1146$174_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1010$147_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$122_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$121_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:773$84_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$61_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$49_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:128:opt_pmux$930: { $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$61_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:595$55_Y }
+  Optimizing cells in module \cpu.
+Performed a total of 8 changes.
+
+4.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 2 unused cells and 141 unused wires.
+<suppressed ~4 debug messages>
+
+4.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~73 debug messages>
+
+4.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+    New ctrl vector for $pmux cell $procmux$419: { $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1010$147_Y $procmux$467_CMP $procmux$465_CMP $procmux$463_CMP $procmux$462_CMP $auto$opt_reduce.cc:134:opt_pmux$937 $procmux$460_CMP $procmux$459_CMP $procmux$458_CMP $procmux$456_CMP $procmux$455_CMP $procmux$454_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$122_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$121_Y $procmux$445_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$49_Y $procmux$442_CMP $procmux$441_CMP $procmux$439_CMP $procmux$438_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:773$84_Y $procmux$436_CMP $procmux$434_CMP $procmux$433_CMP $procmux$432_CMP $auto$opt_reduce.cc:134:opt_pmux$919 $procmux$430_CMP $procmux$429_CMP $procmux$427_CMP $auto$opt_reduce.cc:134:opt_pmux$917 $procmux$425_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1146$174_Y $procmux$422_CMP $procmux$421_CMP $auto$opt_reduce.cc:134:opt_pmux$915 }
+  Optimizing cells in module \cpu.
+Performed a total of 1 changes.
+
+4.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~73 debug messages>
+
+4.6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+4.6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.6.23. Finished OPT passes. (There is nothing left to do.)
+
+4.7. Executing FSM pass (extract and optimize FSM).
+
+4.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking cpu.dst_reg as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Not marking cpu.src_reg as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Found FSM state register cpu.state.
+
+4.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\state' from module `\cpu'.
+  found $adff cell for state register: $procdff$851
+  root of input selection tree: $0\state[5:0]
+  found reset state: 6'001000 (from async reset)
+  found ctrl input: \RDY
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$915
+  found ctrl input: $procmux$421_CMP
+  found ctrl input: $procmux$422_CMP
+  found ctrl input: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1146$174_Y
+  found ctrl input: $procmux$425_CMP
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$917
+  found ctrl input: $procmux$427_CMP
+  found ctrl input: $procmux$429_CMP
+  found ctrl input: $procmux$430_CMP
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$919
+  found ctrl input: $procmux$432_CMP
+  found ctrl input: $procmux$433_CMP
+  found ctrl input: $procmux$434_CMP
+  found ctrl input: $procmux$436_CMP
+  found ctrl input: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:773$84_Y
+  found ctrl input: $procmux$438_CMP
+  found ctrl input: $procmux$439_CMP
+  found ctrl input: $procmux$441_CMP
+  found ctrl input: $procmux$442_CMP
+  found ctrl input: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$49_Y
+  found ctrl input: $procmux$445_CMP
+  found ctrl input: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$121_Y
+  found ctrl input: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$122_Y
+  found ctrl input: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y
+  found ctrl input: $procmux$454_CMP
+  found ctrl input: $procmux$455_CMP
+  found ctrl input: $procmux$456_CMP
+  found ctrl input: $procmux$458_CMP
+  found ctrl input: $procmux$459_CMP
+  found ctrl input: $procmux$460_CMP
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$937
+  found ctrl input: $procmux$462_CMP
+  found ctrl input: $procmux$463_CMP
+  found ctrl input: $procmux$465_CMP
+  found ctrl input: $procmux$467_CMP
+  found ctrl input: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1010$147_Y
+  found state code: 6'010110
+  found state code: 6'001011
+  found state code: 6'001010
+  found state code: 6'001001
+  found state code: 6'011001
+  found state code: 6'001100
+  found state code: 6'010111
+  found ctrl input: $xor$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:986$144_Y
+  found state code: 6'000111
+  found ctrl input: \cond_true
+  found state code: 6'000110
+  found state code: 6'001101
+  found state code: 6'101101
+  found state code: 6'101100
+  found state code: 6'101011
+  found state code: 6'101001
+  found state code: 6'101000
+  found state code: 6'100111
+  found state code: 6'100110
+  found state code: 6'011101
+  found state code: 6'011100
+  found state code: 6'011011
+  found state code: 6'100000
+  found state code: 6'011111
+  found state code: 6'100010
+  found state code: 6'101110
+  found ctrl input: $or$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:943$137_Y
+  found state code: 6'010101
+  found state code: 6'010100
+  found state code: 6'010011
+  found state code: 6'010001
+  found state code: 6'010000
+  found state code: 6'001111
+  found ctrl input: \write_back
+  found state code: 6'100011
+  found ctrl input: $or$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:943$138_Y
+  found state code: 6'000100
+  found state code: 6'000011
+  found state code: 6'000001
+  found state code: 6'110001
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$921
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$923
+  found ctrl input: $procmux$473_CMP
+  found ctrl input: $procmux$395_CMP [0]
+  found ctrl input: $procmux$475_CMP
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$925
+  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$927
+  found ctrl input: $procmux$479_CMP
+  found ctrl input: $procmux$480_CMP
+  found ctrl input: $procmux$485_CMP
+  found ctrl input: $procmux$408_CMP [0]
+  found ctrl input: $procmux$487_CMP
+  found ctrl input: $procmux$488_CMP
+  found ctrl input: $procmux$489_CMP
+  found ctrl input: $procmux$490_CMP
+  found ctrl input: $procmux$492_CMP
+  found ctrl input: $procmux$493_CMP
+  found state code: 6'100100
+  found state code: 6'000010
+  found state code: 6'110000
+  found state code: 6'010010
+  found state code: 6'000101
+  found state code: 6'000000
+  found state code: 6'101111
+  found state code: 6'001110
+  found state code: 6'011110
+  found state code: 6'100001
+  found state code: 6'011000
+  found state code: 6'101010
+  found state code: 6'100101
+  found state code: 6'011010
+  found ctrl output: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:423$18_Y
+  found ctrl output: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:423$19_Y
+  found ctrl output: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$22_Y
+  found ctrl output: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$24_Y
+  found ctrl output: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$26_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$49_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:595$55_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$61_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:771$82_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:773$84_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$121_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$122_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1010$147_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1146$174_Y
+  found ctrl output: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1312$221_Y
+  found ctrl output: $procmux$421_CMP
+  found ctrl output: $procmux$422_CMP
+  found ctrl output: $procmux$424_CMP
+  found ctrl output: $procmux$425_CMP
+  found ctrl output: $procmux$426_CMP
+  found ctrl output: $procmux$427_CMP
+  found ctrl output: $procmux$428_CMP
+  found ctrl output: $procmux$429_CMP
+  found ctrl output: $procmux$430_CMP
+  found ctrl output: $procmux$431_CMP
+  found ctrl output: $procmux$432_CMP
+  found ctrl output: $procmux$433_CMP
+  found ctrl output: $procmux$434_CMP
+  found ctrl output: $procmux$435_CMP
+  found ctrl output: $procmux$436_CMP
+  found ctrl output: $procmux$438_CMP
+  found ctrl output: $procmux$439_CMP
+  found ctrl output: $procmux$440_CMP
+  found ctrl output: $procmux$441_CMP
+  found ctrl output: $procmux$442_CMP
+  found ctrl output: $procmux$444_CMP
+  found ctrl output: $procmux$445_CMP
+  found ctrl output: $procmux$447_CMP
+  found ctrl output: $procmux$453_CMP
+  found ctrl output: $procmux$454_CMP
+  found ctrl output: $procmux$455_CMP
+  found ctrl output: $procmux$456_CMP
+  found ctrl output: $procmux$457_CMP
+  found ctrl output: $procmux$458_CMP
+  found ctrl output: $procmux$459_CMP
+  found ctrl output: $procmux$460_CMP
+  found ctrl output: $procmux$461_CMP
+  found ctrl output: $procmux$462_CMP
+  found ctrl output: $procmux$463_CMP
+  found ctrl output: $procmux$464_CMP
+  found ctrl output: $procmux$465_CMP
+  found ctrl output: $procmux$466_CMP
+  found ctrl output: $procmux$467_CMP
+  found ctrl output: $procmux$468_CMP
+  ctrl inputs: { $auto$opt_reduce.cc:134:opt_pmux$925 $auto$opt_reduce.cc:134:opt_pmux$927 $auto$opt_reduce.cc:134:opt_pmux$915 $procmux$493_CMP $procmux$492_CMP $procmux$490_CMP $procmux$489_CMP $procmux$488_CMP $procmux$487_CMP $procmux$485_CMP $procmux$480_CMP $procmux$479_CMP $procmux$475_CMP $procmux$473_CMP $procmux$408_CMP [0] $procmux$395_CMP [0] $auto$opt_reduce.cc:134:opt_pmux$923 $xor$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:986$144_Y $or$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:943$138_Y $or$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:943$137_Y $auto$opt_reduce.cc:134:opt_pmux$917 $auto$opt_reduce.cc:134:opt_pmux$919 $auto$opt_reduce.cc:134:opt_pmux$921 $auto$opt_reduce.cc:134:opt_pmux$937 \cond_true \write_back \RDY }
+  ctrl outputs: { $procmux$468_CMP $procmux$467_CMP $procmux$466_CMP $procmux$465_CMP $procmux$464_CMP $procmux$463_CMP $procmux$462_CMP $procmux$461_CMP $procmux$460_CMP $procmux$459_CMP $procmux$458_CMP $procmux$457_CMP $procmux$456_CMP $procmux$455_CMP $procmux$454_CMP $procmux$453_CMP $procmux$447_CMP $procmux$445_CMP $procmux$444_CMP $procmux$442_CMP $procmux$441_CMP $procmux$440_CMP $procmux$439_CMP $procmux$438_CMP $procmux$436_CMP $procmux$435_CMP $procmux$434_CMP $procmux$433_CMP $procmux$432_CMP $procmux$431_CMP $procmux$430_CMP $procmux$429_CMP $procmux$428_CMP $procmux$427_CMP $procmux$426_CMP $procmux$425_CMP $procmux$424_CMP $procmux$422_CMP $procmux$421_CMP $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1312$221_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1146$174_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1010$147_Y $0\state[5:0] $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$122_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$121_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:773$84_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:771$82_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$61_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:595$55_Y $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$49_Y $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$26_Y $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$24_Y $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$22_Y $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:423$19_Y $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:423$18_Y }
+  transition:   6'000000 27'--------------------------0 ->   6'000000 61'0001000000000000000000000000000000000000000000000000000011111
+  transition:   6'000000 27'--------------------------1 ->   6'000001 61'0001000000000000000000000000000000000000000000010000000011111
+  transition:   6'100000 27'--------------------------0 ->   6'100000 61'0000000000000000001000000000000000000000001000000000000001111
+  transition:   6'100000 27'---------------------0-0--1 ->   6'001100 61'0000000000000000001000000000000000000000000011000000000001111
+  transition:   6'010000 27'--------------------------0 ->   6'010000 61'0000000000100000000000000000000000000000000100000000000011111
+  transition:   6'010000 27'--------------------------1 ->   6'010001 61'0000000000100000000000000000000000000000000100010000000011111
+  transition:   6'110000 27'--------------------------0 ->   6'110000 61'0100000000000000000000000000000000000000001100000000000011111
+  transition:   6'110000 27'--------------------------1 ->   6'110001 61'0100000000000000000000000000000000000000001100010000000011111
+  transition:   6'001000 27'--------------------------0 ->   6'001000 61'0000000000000000000000000000000000000000100010000000000011111
+  transition:   6'001000 27'--------------------------1 ->   6'001001 61'0000000000000000000000000000000000000000100010010000000011111
+  transition:   6'101000 27'--------------------------0 ->   6'101000 61'0000000000000000000000001000000000000000001010000000000011111
+  transition:   6'101000 27'--------------------------1 ->   6'101001 61'0000000000000000000000001000000000000000001010010000000011111
+  transition:   6'011000 27'--------------------------0 ->   6'011000 61'0000000000000000000000000000000000010000000110000000000011111
+  transition:   6'011000 27'--------------------------1 ->   6'011001 61'0000000000000000000000000000000000010000000110010000000011111
+  transition:   6'000100 27'--------------------------0 ->   6'000100 61'0000000100000000000000000000000000000000000001000000000011111
+  transition:   6'000100 27'-------------------------01 ->   6'001101 61'0000000100000000000000000000000000000000000011010000000011111
+  transition:   6'000100 27'-------------------------11 ->   6'100011 61'0000000100000000000000000000000000000000001000110000000011111
+  transition:   6'100100 27'--------------------------0 ->   6'100100 61'0000000000000000000000000000000000000000001001000000010011111
+  transition:   6'100100 27'---------------------0-0--1 ->   6'001100 61'0000000000000000000000000000000000000000000011000000010011111
+  transition:   6'010100 27'--------------------------0 ->   6'010100 61'0000000000000010000000000000000000000000000101000000000011111
+  transition:   6'010100 27'-------------------0------1 ->   6'001101 61'0000000000000010000000000000000000000000000011010000000011111
+  transition:   6'010100 27'-------------------1------1 ->   6'010101 61'0000000000000010000000000000000000000000000101010000000011111
+  transition:   6'001100 27'--------------------------0 ->   6'001100 61'0000000000000000000000000000000000000000010011000000000011111
+  transition:   6'001100 27'00-00000000000000-----0---1 ->   6'001100 61'0000000000000000000000000000000000000000010011000000000011111
+  transition:   6'001100 27'---1----------------------1 ->   6'001000 61'0000000000000000000000000000000000000000010010000000000011111
+  transition:   6'001100 27'----1---------------------1 ->   6'011010 61'0000000000000000000000000000000000000000010110100000000011111
+  transition:   6'001100 27'-----1--------------------1 ->   6'100101 61'0000000000000000000000000000000000000000011001010000000011111
+  transition:   6'001100 27'------1-------------------1 ->   6'010110 61'0000000000000000000000000000000000000000010101100000000011111
+  transition:   6'001100 27'-------1------------------1 ->   6'101010 61'0000000000000000000000000000000000000000011010100000000011111
+  transition:   6'001100 27'--------1-----------------1 ->   6'011000 61'0000000000000000000000000000000000000000010110000000000011111
+  transition:   6'001100 27'--------------1-----------1 ->   6'100001 61'0000000000000000000000000000000000000000011000010000000011111
+  transition:   6'001100 27'---------1----------------1 ->   6'011110 61'0000000000000000000000000000000000000000010111100000000011111
+  transition:   6'001100 27'----------1---------------1 ->   6'001110 61'0000000000000000000000000000000000000000010011100000000011111
+  transition:   6'001100 27'-----------1--------------1 ->   6'101111 61'0000000000000000000000000000000000000000011011110000000011111
+  transition:   6'001100 27'-1------------------------1 ->   6'001101 61'0000000000000000000000000000000000000000010011010000000011111
+  transition:   6'001100 27'1-------------------------1 ->   6'000000 61'0000000000000000000000000000000000000000010000000000000011111
+  transition:   6'001100 27'------------1-------------1 ->   6'000101 61'0000000000000000000000000000000000000000010001010000000011111
+  transition:   6'001100 27'---------------1----------1 ->   6'010010 61'0000000000000000000000000000000000000000010100100000000011111
+  transition:   6'001100 27'-------------1------------1 ->   6'110000 61'0000000000000000000000000000000000000000011100000000000011111
+  transition:   6'001100 27'----------------1---------1 ->   6'000010 61'0000000000000000000000000000000000000000010000100000000011111
+  transition:   6'001100 27'----------------------1---1 ->   6'100100 61'0000000000000000000000000000000000000000011001000000000011111
+  transition:   6'101100 27'--------------------------0 ->   6'101100 61'0000000000000000000000000000100000000000001011000000000011111
+  transition:   6'101100 27'--------------------------1 ->   6'101101 61'0000000000000000000000000000100000000000001011010000000011111
+  transition:   6'011100 27'--------------------------0 ->   6'011100 61'0000000000000000000010000000000000000000000111000000000011111
+  transition:   6'011100 27'--------------------------1 ->   6'011101 61'0000000000000000000010000000000000000000000111010000000011111
+  transition:   6'000010 27'--------------------------0 ->   6'000010 61'0000010000000000000000000000000000000000000000100000000011111
+  transition:   6'000010 27'--------------------------1 ->   6'000011 61'0000010000000000000000000000000000000000000000110000000011111
+  transition:   6'100010 27'--------------------------0 ->   6'100010 61'0000000000000000100000000000000000000000001000100000000011101
+  transition:   6'100010 27'---------------------0-0--1 ->   6'001100 61'0000000000000000100000000000000000000000000011000000000011101
+  transition:   6'010010 27'--------------------------0 ->   6'010010 61'0000000000001000000000000000000000000000000100100000000011111
+  transition:   6'010010 27'--------------------------1 ->   6'010011 61'0000000000001000000000000000000000000000000100110000000011111
+  transition:   6'001010 27'--------------------------0 ->   6'001010 61'0000000000000000000000000000000000000010000010100000000011111
+  transition:   6'001010 27'--------------------------1 ->   6'001011 61'0000000000000000000000000000000000000010000010110000000011111
+  transition:   6'101010 27'--------------------------0 ->   6'101010 61'0000000000000000000000000010000000000000001010100000000011111
+  transition:   6'101010 27'--------------------------1 ->   6'101011 61'0000000000000000000000000010000000000000001010110000000011111
+  transition:   6'011010 27'--------------------------0 ->   6'011010 61'0000000000000000000000000000000000000000000110100000000111111
+  transition:   6'011010 27'--------------------------1 ->   6'011011 61'0000000000000000000000000000000000000000000110110000000111111
+  transition:   6'000110 27'--------------------------0 ->   6'000110 61'0000000000000000000000000000000100000000000001100000000011111
+  transition:   6'000110 27'-----------------0--------1 ->   6'001100 61'0000000000000000000000000000000100000000000011000000000011111
+  transition:   6'000110 27'-----------------1--------1 ->   6'000111 61'0000000000000000000000000000000100000000000001110000000011111
+  transition:   6'100110 27'--------------------------0 ->   6'100110 61'0000000000000000000000010000000000000000001001100000000011111
+  transition:   6'100110 27'--------------------------1 ->   6'100111 61'0000000000000000000000010000000000000000001001110000000011111
+  transition:   6'010110 27'--------------------------0 ->   6'010110 61'0000000000000000000000000000000001000000000101100000000011111
+  transition:   6'010110 27'--------------------------1 ->   6'010111 61'0000000000000000000000000000000001000000000101110000000011111
+  transition:   6'001110 27'--------------------------0 ->   6'001110 61'0000000010000000000000000000000000000000000011100000000011111
+  transition:   6'001110 27'--------------------------1 ->   6'001111 61'0000000010000000000000000000000000000000000011110000000011111
+  transition:   6'101110 27'--------------------------0 ->   6'101110 61'0000000000000000000000000000000000000000001011100001000011111
+  transition:   6'101110 27'-----------------------0--1 ->   6'001101 61'0000000000000000000000000000000000000000000011010001000011111
+  transition:   6'011110 27'--------------------------0 ->   6'011110 61'0000000000000000000000000000000000000000000111100100000011011
+  transition:   6'011110 27'--------------------------1 ->   6'011111 61'0000000000000000000000000000000000000000000111110100000011011
+  transition:   6'000001 27'--------------------------0 ->   6'000001 61'0000100000000000000000000000000000000000000000010000000011111
+  transition:   6'000001 27'-------------------------01 ->   6'001101 61'0000100000000000000000000000000000000000000011010000000011111
+  transition:   6'000001 27'-------------------------11 ->   6'100011 61'0000100000000000000000000000000000000000001000110000000011111
+  transition:   6'100001 27'--------------------------0 ->   6'100001 61'0000000000000000000000000000000000000000001000011000000011110
+  transition:   6'100001 27'--------------------------1 ->   6'100010 61'0000000000000000000000000000000000000000001000101000000011110
+  transition:   6'010001 27'--------------------------0 ->   6'010001 61'0000000000010000000000000000000000000000000100010000000011111
+  transition:   6'010001 27'-----------------------0--1 ->   6'001101 61'0000000000010000000000000000000000000000000011010000000011111
+  transition:   6'110001 27'--------------------------0 ->   6'110001 61'0010000000000000000000000000000000000000001100010000000011111
+  transition:   6'110001 27'-------------------------01 ->   6'001101 61'0010000000000000000000000000000000000000000011010000000011111
+  transition:   6'110001 27'-------------------------11 ->   6'100011 61'0010000000000000000000000000000000000000001000110000000011111
+  transition:   6'001001 27'--------------------------0 ->   6'001001 61'0000000000000000000000000000000000000100000010010000000011111
+  transition:   6'001001 27'--------------------------1 ->   6'001010 61'0000000000000000000000000000000000000100000010100000000011111
+  transition:   6'101001 27'--------------------------0 ->   6'101001 61'0000000000000000000000000100000000000000001010010000000011111
+  transition:   6'101001 27'---------------------0-0--1 ->   6'001100 61'0000000000000000000000000100000000000000000011000000000011111
+  transition:   6'011001 27'--------------------------0 ->   6'011001 61'0000000000000000000000000000000000001000000110010000000011111
+  transition:   6'011001 27'--------------------00-0--1 ->   6'010110 61'0000000000000000000000000000000000001000000101100000000011111
+  transition:   6'000101 27'--------------------------0 ->   6'000101 61'0000000000000000000000000000001000000000000001010000000011111
+  transition:   6'000101 27'------------------------0-1 ->   6'001100 61'0000000000000000000000000000001000000000000011000000000011111
+  transition:   6'000101 27'------------------------1-1 ->   6'000110 61'0000000000000000000000000000001000000000000001100000000011111
+  transition:   6'100101 27'--------------------------0 ->   6'100101 61'0000000000000000000000100000000000000000001001010000000011111
+  transition:   6'100101 27'--------------------------1 ->   6'100110 61'0000000000000000000000100000000000000000001001100000000011111
+  transition:   6'010101 27'--------------------------0 ->   6'010101 61'0000000000000001000000000000000000000000000101010000000011111
+  transition:   6'010101 27'-----------------------0--1 ->   6'001101 61'0000000000000001000000000000000000000000000011010000000011111
+  transition:   6'001101 27'--------------------------0 ->   6'001101 61'0000000000000000000000000000000000000000000011010000001011111
+  transition:   6'001101 27'---------------------0-0--1 ->   6'001100 61'0000000000000000000000000000000000000000000011000000001011111
+  transition:   6'101101 27'--------------------------0 ->   6'101101 61'0000000000000000000000000000010000000000001011010000000011111
+  transition:   6'101101 27'-----------------------0--1 ->   6'001101 61'0000000000000000000000000000010000000000000011010000000011111
+  transition:   6'011101 27'--------------------------0 ->   6'011101 61'0000000000000000000001000000000000000000000111010000000011111
+  transition:   6'011101 27'-----------------------0--1 ->   6'001101 61'0000000000000000000001000000000000000000000011010000000011111
+  transition:   6'000011 27'--------------------------0 ->   6'000011 61'0000001000000000000000000000000000000000000000110000000011111
+  transition:   6'000011 27'------------------0-------1 ->   6'001101 61'0000001000000000000000000000000000000000000011010000000011111
+  transition:   6'000011 27'------------------1-------1 ->   6'000100 61'0000001000000000000000000000000000000000000001000000000011111
+  transition:   6'100011 27'--------------------------0 ->   6'100011 61'0000000000000000000000000000000000000000001000110000100011111
+  transition:   6'100011 27'--------------------------1 ->   6'101110 61'0000000000000000000000000000000000000000001011100000100011111
+  transition:   6'010011 27'--------------------------0 ->   6'010011 61'0000000000000100000000000000000000000000000100110000000011111
+  transition:   6'010011 27'--------------------------1 ->   6'010100 61'0000000000000100000000000000000000000000000101000000000011111
+  transition:   6'001011 27'--------------------------0 ->   6'001011 61'0000000000000000000000000000000000000001000010110000000011111
+  transition:   6'001011 27'--------------------00-0--1 ->   6'010110 61'0000000000000000000000000000000000000001000101100000000011111
+  transition:   6'101011 27'--------------------------0 ->   6'101011 61'0000000000000000000000000001000000000000001010110000000011111
+  transition:   6'101011 27'--------------------------1 ->   6'101100 61'0000000000000000000000000001000000000000001011000000000011111
+  transition:   6'011011 27'--------------------------0 ->   6'011011 61'0000000000000000000100000000000000000000000110110000000011111
+  transition:   6'011011 27'--------------------------1 ->   6'011100 61'0000000000000000000100000000000000000000000111000000000011111
+  transition:   6'000111 27'--------------------------0 ->   6'000111 61'0000000000000000000000000000000010000000000001110000000011111
+  transition:   6'000111 27'---------------------0-0--1 ->   6'001100 61'0000000000000000000000000000000010000000000011000000000011111
+  transition:   6'100111 27'--------------------------0 ->   6'100111 61'0000000000000000000000000000000000000000001001110010000011111
+  transition:   6'100111 27'--------------------------1 ->   6'101000 61'0000000000000000000000000000000000000000001010000010000011111
+  transition:   6'010111 27'--------------------------0 ->   6'010111 61'0000000000000000000000000000000000100000000101110000000011111
+  transition:   6'010111 27'---------------------0-0--1 ->   6'001100 61'0000000000000000000000000000000000100000000011000000000011111
+  transition:   6'001111 27'--------------------------0 ->   6'001111 61'0000000001000000000000000000000000000000000011110000000011111
+  transition:   6'001111 27'--------------------------1 ->   6'010000 61'0000000001000000000000000000000000000000000100000000000011111
+  transition:   6'101111 27'--------------------------0 ->   6'101111 61'1000000000000000000000000000000000000000001011110000000011111
+  transition:   6'101111 27'-------------------------01 ->   6'001101 61'1000000000000000000000000000000000000000000011010000000011111
+  transition:   6'101111 27'-------------------------11 ->   6'100011 61'1000000000000000000000000000000000000000001000110000000011111
+  transition:   6'011111 27'--------------------------0 ->   6'011111 61'0000000000000000010000000000000000000000000111110000000010111
+  transition:   6'011111 27'--------------------------1 ->   6'100000 61'0000000000000000010000000000000000000000001000000000000010111
+
+4.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\state$938' from module `\cpu'.
+  Removing unused input signal $auto$opt_reduce.cc:134:opt_pmux$915.
+
+4.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 65 unused cells and 65 unused wires.
+<suppressed ~66 debug messages>
+
+4.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\state$938' from module `\cpu'.
+  Removing unused output signal $0\state[5:0] [0].
+  Removing unused output signal $0\state[5:0] [1].
+  Removing unused output signal $0\state[5:0] [2].
+  Removing unused output signal $0\state[5:0] [3].
+  Removing unused output signal $0\state[5:0] [4].
+  Removing unused output signal $0\state[5:0] [5].
+  Removing unused output signal $procmux$425_CMP.
+  Removing unused output signal $procmux$427_CMP.
+
+4.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\state$938' from module `\cpu' using `auto' encoding:
+  mapping auto encoding to `binary` for this FSM.
+  existing encoding is already a packed binary encoding.
+
+4.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\state$938' from module `cpu':
+-------------------------------------
+
+  Information on FSM $fsm$\state$938 (\state):
+
+  Number of input signals:   26
+  Number of output signals:  53
+  Number of state bits:       6
+
+  Input signals:
+    0: \RDY
+    1: \write_back
+    2: \cond_true
+    3: $auto$opt_reduce.cc:134:opt_pmux$937
+    4: $auto$opt_reduce.cc:134:opt_pmux$921
+    5: $auto$opt_reduce.cc:134:opt_pmux$919
+    6: $auto$opt_reduce.cc:134:opt_pmux$917
+    7: $or$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:943$137_Y
+    8: $or$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:943$138_Y
+    9: $xor$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:986$144_Y
+   10: $auto$opt_reduce.cc:134:opt_pmux$923
+   11: $procmux$395_CMP [0]
+   12: $procmux$408_CMP [0]
+   13: $procmux$473_CMP
+   14: $procmux$475_CMP
+   15: $procmux$479_CMP
+   16: $procmux$480_CMP
+   17: $procmux$485_CMP
+   18: $procmux$487_CMP
+   19: $procmux$488_CMP
+   20: $procmux$489_CMP
+   21: $procmux$490_CMP
+   22: $procmux$492_CMP
+   23: $procmux$493_CMP
+   24: $auto$opt_reduce.cc:134:opt_pmux$927
+   25: $auto$opt_reduce.cc:134:opt_pmux$925
+
+  Output signals:
+    0: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:423$18_Y
+    1: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:423$19_Y
+    2: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$22_Y
+    3: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$24_Y
+    4: $ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:424$26_Y
+    5: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$49_Y
+    6: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:595$55_Y
+    7: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$61_Y
+    8: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:637$63_Y
+    9: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:771$82_Y
+   10: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:773$84_Y
+   11: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$121_Y
+   12: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:879$122_Y
+   13: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1010$147_Y
+   14: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1146$174_Y
+   15: $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1312$221_Y
+   16: $procmux$421_CMP
+   17: $procmux$422_CMP
+   18: $procmux$424_CMP
+   19: $procmux$426_CMP
+   20: $procmux$428_CMP
+   21: $procmux$429_CMP
+   22: $procmux$430_CMP
+   23: $procmux$431_CMP
+   24: $procmux$432_CMP
+   25: $procmux$433_CMP
+   26: $procmux$434_CMP
+   27: $procmux$435_CMP
+   28: $procmux$436_CMP
+   29: $procmux$438_CMP
+   30: $procmux$439_CMP
+   31: $procmux$440_CMP
+   32: $procmux$441_CMP
+   33: $procmux$442_CMP
+   34: $procmux$444_CMP
+   35: $procmux$445_CMP
+   36: $procmux$447_CMP
+   37: $procmux$453_CMP
+   38: $procmux$454_CMP
+   39: $procmux$455_CMP
+   40: $procmux$456_CMP
+   41: $procmux$457_CMP
+   42: $procmux$458_CMP
+   43: $procmux$459_CMP
+   44: $procmux$460_CMP
+   45: $procmux$461_CMP
+   46: $procmux$462_CMP
+   47: $procmux$463_CMP
+   48: $procmux$464_CMP
+   49: $procmux$465_CMP
+   50: $procmux$466_CMP
+   51: $procmux$467_CMP
+   52: $procmux$468_CMP
+
+  State encoding:
+    0:   6'000000
+    1:   6'100000
+    2:   6'010000
+    3:   6'110000
+    4:   6'001000  <RESET STATE>
+    5:   6'101000
+    6:   6'011000
+    7:   6'000100
+    8:   6'100100
+    9:   6'010100
+   10:   6'001100
+   11:   6'101100
+   12:   6'011100
+   13:   6'000010
+   14:   6'100010
+   15:   6'010010
+   16:   6'001010
+   17:   6'101010
+   18:   6'011010
+   19:   6'000110
+   20:   6'100110
+   21:   6'010110
+   22:   6'001110
+   23:   6'101110
+   24:   6'011110
+   25:   6'000001
+   26:   6'100001
+   27:   6'010001
+   28:   6'110001
+   29:   6'001001
+   30:   6'101001
+   31:   6'011001
+   32:   6'000101
+   33:   6'100101
+   34:   6'010101
+   35:   6'001101
+   36:   6'101101
+   37:   6'011101
+   38:   6'000011
+   39:   6'100011
+   40:   6'010011
+   41:   6'001011
+   42:   6'101011
+   43:   6'011011
+   44:   6'000111
+   45:   6'100111
+   46:   6'010111
+   47:   6'001111
+   48:   6'101111
+   49:   6'011111
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 26'-------------------------0   ->     0 53'00010000000000000000000000000000000000000000000011111
+      1:     0 26'-------------------------1   ->    25 53'00010000000000000000000000000000000000000000000011111
+      2:     1 26'-------------------------0   ->     1 53'00000000000000000010000000000000000000000000000001111
+      3:     1 26'--------------------0-0--1   ->    10 53'00000000000000000010000000000000000000000000000001111
+      4:     2 26'-------------------------0   ->     2 53'00000000001000000000000000000000000000000000000011111
+      5:     2 26'-------------------------1   ->    27 53'00000000001000000000000000000000000000000000000011111
+      6:     3 26'-------------------------0   ->     3 53'01000000000000000000000000000000000000000000000011111
+      7:     3 26'-------------------------1   ->    28 53'01000000000000000000000000000000000000000000000011111
+      8:     4 26'-------------------------0   ->     4 53'00000000000000000000000000000000000000100000000011111
+      9:     4 26'-------------------------1   ->    29 53'00000000000000000000000000000000000000100000000011111
+     10:     5 26'-------------------------0   ->     5 53'00000000000000000000000010000000000000000000000011111
+     11:     5 26'-------------------------1   ->    30 53'00000000000000000000000010000000000000000000000011111
+     12:     6 26'-------------------------0   ->     6 53'00000000000000000000000000000000000000000000000011111
+     13:     6 26'-------------------------1   ->    31 53'00000000000000000000000000000000000000000000000011111
+     14:     7 26'-------------------------0   ->     7 53'00000001000000000000000000000000000000000000000011111
+     15:     7 26'------------------------01   ->    35 53'00000001000000000000000000000000000000000000000011111
+     16:     7 26'------------------------11   ->    39 53'00000001000000000000000000000000000000000000000011111
+     17:     8 26'-------------------------0   ->     8 53'00000000000000000000000000000000000000000000010011111
+     18:     8 26'--------------------0-0--1   ->    10 53'00000000000000000000000000000000000000000000010011111
+     19:     9 26'-------------------------0   ->     9 53'00000000000000100000000000000000000000000000000011111
+     20:     9 26'------------------1------1   ->    34 53'00000000000000100000000000000000000000000000000011111
+     21:     9 26'------------------0------1   ->    35 53'00000000000000100000000000000000000000000000000011111
+     22:    10 26'1------------------------1   ->     0 53'00000000000000000000000000000000000000010000000011111
+     23:    10 26'------------1------------1   ->     3 53'00000000000000000000000000000000000000010000000011111
+     24:    10 26'--1----------------------1   ->     4 53'00000000000000000000000000000000000000010000000011111
+     25:    10 26'-------1-----------------1   ->     6 53'00000000000000000000000000000000000000010000000011111
+     26:    10 26'---------------------1---1   ->     8 53'00000000000000000000000000000000000000010000000011111
+     27:    10 26'-------------------------0   ->    10 53'00000000000000000000000000000000000000010000000011111
+     28:    10 26'0000000000000000-----0---1   ->    10 53'00000000000000000000000000000000000000010000000011111
+     29:    10 26'---------------1---------1   ->    13 53'00000000000000000000000000000000000000010000000011111
+     30:    10 26'--------------1----------1   ->    15 53'00000000000000000000000000000000000000010000000011111
+     31:    10 26'------1------------------1   ->    17 53'00000000000000000000000000000000000000010000000011111
+     32:    10 26'---1---------------------1   ->    18 53'00000000000000000000000000000000000000010000000011111
+     33:    10 26'-----1-------------------1   ->    21 53'00000000000000000000000000000000000000010000000011111
+     34:    10 26'---------1---------------1   ->    22 53'00000000000000000000000000000000000000010000000011111
+     35:    10 26'--------1----------------1   ->    24 53'00000000000000000000000000000000000000010000000011111
+     36:    10 26'-------------1-----------1   ->    26 53'00000000000000000000000000000000000000010000000011111
+     37:    10 26'-----------1-------------1   ->    32 53'00000000000000000000000000000000000000010000000011111
+     38:    10 26'----1--------------------1   ->    33 53'00000000000000000000000000000000000000010000000011111
+     39:    10 26'-1-----------------------1   ->    35 53'00000000000000000000000000000000000000010000000011111
+     40:    10 26'----------1--------------1   ->    48 53'00000000000000000000000000000000000000010000000011111
+     41:    11 26'-------------------------0   ->    11 53'00000000000000000000000000001000000000000000000011111
+     42:    11 26'-------------------------1   ->    36 53'00000000000000000000000000001000000000000000000011111
+     43:    12 26'-------------------------0   ->    12 53'00000000000000000000100000000000000000000000000011111
+     44:    12 26'-------------------------1   ->    37 53'00000000000000000000100000000000000000000000000011111
+     45:    13 26'-------------------------0   ->    13 53'00000100000000000000000000000000000000000000000011111
+     46:    13 26'-------------------------1   ->    38 53'00000100000000000000000000000000000000000000000011111
+     47:    14 26'--------------------0-0--1   ->    10 53'00000000000000001000000000000000000000000000000011101
+     48:    14 26'-------------------------0   ->    14 53'00000000000000001000000000000000000000000000000011101
+     49:    15 26'-------------------------0   ->    15 53'00000000000010000000000000000000000000000000000011111
+     50:    15 26'-------------------------1   ->    40 53'00000000000010000000000000000000000000000000000011111
+     51:    16 26'-------------------------0   ->    16 53'00000000000000000000000000000000000010000000000011111
+     52:    16 26'-------------------------1   ->    41 53'00000000000000000000000000000000000010000000000011111
+     53:    17 26'-------------------------0   ->    17 53'00000000000000000000000000100000000000000000000011111
+     54:    17 26'-------------------------1   ->    42 53'00000000000000000000000000100000000000000000000011111
+     55:    18 26'-------------------------0   ->    18 53'00000000000000000000000000000000000000000000000111111
+     56:    18 26'-------------------------1   ->    43 53'00000000000000000000000000000000000000000000000111111
+     57:    19 26'----------------0--------1   ->    10 53'00000000000000000000000000000001000000000000000011111
+     58:    19 26'-------------------------0   ->    19 53'00000000000000000000000000000001000000000000000011111
+     59:    19 26'----------------1--------1   ->    44 53'00000000000000000000000000000001000000000000000011111
+     60:    20 26'-------------------------0   ->    20 53'00000000000000000000000100000000000000000000000011111
+     61:    20 26'-------------------------1   ->    45 53'00000000000000000000000100000000000000000000000011111
+     62:    21 26'-------------------------0   ->    21 53'00000000000000000000000000000000000000000000000011111
+     63:    21 26'-------------------------1   ->    46 53'00000000000000000000000000000000000000000000000011111
+     64:    22 26'-------------------------0   ->    22 53'00000000100000000000000000000000000000000000000011111
+     65:    22 26'-------------------------1   ->    47 53'00000000100000000000000000000000000000000000000011111
+     66:    23 26'-------------------------0   ->    23 53'00000000000000000000000000000000000000000001000011111
+     67:    23 26'----------------------0--1   ->    35 53'00000000000000000000000000000000000000000001000011111
+     68:    24 26'-------------------------0   ->    24 53'00000000000000000000000000000000000000000100000011011
+     69:    24 26'-------------------------1   ->    49 53'00000000000000000000000000000000000000000100000011011
+     70:    25 26'-------------------------0   ->    25 53'00001000000000000000000000000000000000000000000011111
+     71:    25 26'------------------------01   ->    35 53'00001000000000000000000000000000000000000000000011111
+     72:    25 26'------------------------11   ->    39 53'00001000000000000000000000000000000000000000000011111
+     73:    26 26'-------------------------1   ->    14 53'00000000000000000000000000000000000000001000000011110
+     74:    26 26'-------------------------0   ->    26 53'00000000000000000000000000000000000000001000000011110
+     75:    27 26'-------------------------0   ->    27 53'00000000000100000000000000000000000000000000000011111
+     76:    27 26'----------------------0--1   ->    35 53'00000000000100000000000000000000000000000000000011111
+     77:    28 26'-------------------------0   ->    28 53'00100000000000000000000000000000000000000000000011111
+     78:    28 26'------------------------01   ->    35 53'00100000000000000000000000000000000000000000000011111
+     79:    28 26'------------------------11   ->    39 53'00100000000000000000000000000000000000000000000011111
+     80:    29 26'-------------------------1   ->    16 53'00000000000000000000000000000000000100000000000011111
+     81:    29 26'-------------------------0   ->    29 53'00000000000000000000000000000000000100000000000011111
+     82:    30 26'--------------------0-0--1   ->    10 53'00000000000000000000000001000000000000000000000011111
+     83:    30 26'-------------------------0   ->    30 53'00000000000000000000000001000000000000000000000011111
+     84:    31 26'-------------------00-0--1   ->    21 53'00000000000000000000000000000000001000000000000011111
+     85:    31 26'-------------------------0   ->    31 53'00000000000000000000000000000000001000000000000011111
+     86:    32 26'-----------------------0-1   ->    10 53'00000000000000000000000000000010000000000000000011111
+     87:    32 26'-----------------------1-1   ->    19 53'00000000000000000000000000000010000000000000000011111
+     88:    32 26'-------------------------0   ->    32 53'00000000000000000000000000000010000000000000000011111
+     89:    33 26'-------------------------1   ->    20 53'00000000000000000000001000000000000000000000000011111
+     90:    33 26'-------------------------0   ->    33 53'00000000000000000000001000000000000000000000000011111
+     91:    34 26'-------------------------0   ->    34 53'00000000000000010000000000000000000000000000000011111
+     92:    34 26'----------------------0--1   ->    35 53'00000000000000010000000000000000000000000000000011111
+     93:    35 26'--------------------0-0--1   ->    10 53'00000000000000000000000000000000000000000000001011111
+     94:    35 26'-------------------------0   ->    35 53'00000000000000000000000000000000000000000000001011111
+     95:    36 26'----------------------0--1   ->    35 53'00000000000000000000000000000100000000000000000011111
+     96:    36 26'-------------------------0   ->    36 53'00000000000000000000000000000100000000000000000011111
+     97:    37 26'----------------------0--1   ->    35 53'00000000000000000000010000000000000000000000000011111
+     98:    37 26'-------------------------0   ->    37 53'00000000000000000000010000000000000000000000000011111
+     99:    38 26'-----------------1-------1   ->     7 53'00000010000000000000000000000000000000000000000011111
+    100:    38 26'-----------------0-------1   ->    35 53'00000010000000000000000000000000000000000000000011111
+    101:    38 26'-------------------------0   ->    38 53'00000010000000000000000000000000000000000000000011111
+    102:    39 26'-------------------------1   ->    23 53'00000000000000000000000000000000000000000000100011111
+    103:    39 26'-------------------------0   ->    39 53'00000000000000000000000000000000000000000000100011111
+    104:    40 26'-------------------------1   ->     9 53'00000000000001000000000000000000000000000000000011111
+    105:    40 26'-------------------------0   ->    40 53'00000000000001000000000000000000000000000000000011111
+    106:    41 26'-------------------00-0--1   ->    21 53'00000000000000000000000000000000000001000000000011111
+    107:    41 26'-------------------------0   ->    41 53'00000000000000000000000000000000000001000000000011111
+    108:    42 26'-------------------------1   ->    11 53'00000000000000000000000000010000000000000000000011111
+    109:    42 26'-------------------------0   ->    42 53'00000000000000000000000000010000000000000000000011111
+    110:    43 26'-------------------------1   ->    12 53'00000000000000000001000000000000000000000000000011111
+    111:    43 26'-------------------------0   ->    43 53'00000000000000000001000000000000000000000000000011111
+    112:    44 26'--------------------0-0--1   ->    10 53'00000000000000000000000000000000100000000000000011111
+    113:    44 26'-------------------------0   ->    44 53'00000000000000000000000000000000100000000000000011111
+    114:    45 26'-------------------------1   ->     5 53'00000000000000000000000000000000000000000010000011111
+    115:    45 26'-------------------------0   ->    45 53'00000000000000000000000000000000000000000010000011111
+    116:    46 26'--------------------0-0--1   ->    10 53'00000000000000000000000000000000010000000000000011111
+    117:    46 26'-------------------------0   ->    46 53'00000000000000000000000000000000010000000000000011111
+    118:    47 26'-------------------------1   ->     2 53'00000000010000000000000000000000000000000000000011111
+    119:    47 26'-------------------------0   ->    47 53'00000000010000000000000000000000000000000000000011111
+    120:    48 26'------------------------01   ->    35 53'10000000000000000000000000000000000000000000000011111
+    121:    48 26'------------------------11   ->    39 53'10000000000000000000000000000000000000000000000011111
+    122:    48 26'-------------------------0   ->    48 53'10000000000000000000000000000000000000000000000011111
+    123:    49 26'-------------------------1   ->     1 53'00000000000000000100000000000000000000000000000010111
+    124:    49 26'-------------------------0   ->    49 53'00000000000000000100000000000000000000000000000010111
+
+-------------------------------------
+
+4.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\state$938' from module `\cpu'.
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+<suppressed ~78 debug messages>
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+<suppressed ~159 debug messages>
+Removed a total of 53 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~73 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$758 ($adff) from module ALU8 (D = \temp_BI [7], Q = \BI7).
+Adding EN signal on $procdff$755 ($adff) from module ALU8 (D = \AI [7], Q = \AI7).
+Adding EN signal on $procdff$752 ($adff) from module ALU8 (D = { \temp_h [3:0] \temp_l [3:0] }, Q = \OUT).
+Adding EN signal on $procdff$749 ($adff) from module ALU8 (D = \temp_HC, Q = \HC).
+Adding EN signal on $procdff$746 ($adff) from module ALU8 (D = \temp_h [3], Q = \N).
+Adding EN signal on $procdff$743 ($adff) from module ALU8 (D = $or$ALU8.v:116$257_Y, Q = \CO).
+Adding EN signal on $procdff$913 ($adff) from module cpu (D = $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:354$15_Y, Q = \PC).
+Adding EN signal on $procdff$910 ($adff) from module cpu (D = \AB [15:8], Q = \ABH).
+Adding EN signal on $procdff$907 ($adff) from module cpu (D = \AB [7:0], Q = \ABL).
+Adding EN signal on $procdff$895 ($adff) from module cpu (D = $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$52_Y, Q = \AXYS[3]).
+Adding EN signal on $procdff$892 ($adff) from module cpu (D = $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$52_Y, Q = \AXYS[2]).
+Adding EN signal on $procdff$889 ($adff) from module cpu (D = $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$52_Y, Q = \AXYS[1]).
+Adding EN signal on $procdff$886 ($adff) from module cpu (D = $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$52_Y, Q = \AXYS[0]).
+Adding EN signal on $procdff$883 ($adff) from module cpu (D = \DIMUX [7], Q = \backwards).
+Adding EN signal on $procdff$880 ($adff) from module cpu (D = $0\C[0:0], Q = \C).
+Adding EN signal on $procdff$877 ($adff) from module cpu (D = $0\Z[0:0], Q = \Z).
+Adding EN signal on $procdff$874 ($adff) from module cpu (D = $0\N[0:0], Q = \N).
+Adding EN signal on $procdff$871 ($adff) from module cpu (D = $0\I[0:0], Q = \I).
+Adding EN signal on $procdff$868 ($adff) from module cpu (D = $0\D[0:0], Q = \D).
+Adding EN signal on $procdff$865 ($adff) from module cpu (D = $0\V[0:0], Q = \V).
+Adding EN signal on $procdff$862 ($adff) from module cpu (D = $procmux$502_Y, Q = \IRHOLD_valid).
+Adding EN signal on $procdff$859 ($dff) from module cpu (D = \DIMUX, Q = \IRHOLD).
+Adding EN signal on $procdff$848 ($adff) from module cpu (D = 1'0, Q = \res).
+Adding EN signal on $procdff$845 ($adff) from module cpu (D = $procmux$413_Y, Q = \load_reg).
+Adding EN signal on $procdff$842 ($adff) from module cpu (D = $procmux$406_Y, Q = \dst_reg).
+Adding EN signal on $procdff$839 ($adff) from module cpu (D = $procmux$399_Y, Q = \src_reg).
+Adding EN signal on $procdff$836 ($adff) from module cpu (D = $procmux$394_Y, Q = \index_y).
+Adding EN signal on $procdff$833 ($adff) from module cpu (D = $procmux$389_Y, Q = \store).
+Adding EN signal on $procdff$830 ($adff) from module cpu (D = $procmux$384_Y, Q = \write_back).
+Adding EN signal on $procdff$827 ($adff) from module cpu (D = $procmux$379_Y, Q = \load_only).
+Adding EN signal on $procdff$824 ($adff) from module cpu (D = $procmux$374_Y, Q = \inc).
+Adding EN signal on $procdff$821 ($adff) from module cpu (D = $procmux$369_Y, Q = \adc_sbc).
+Adding EN signal on $procdff$818 ($adff) from module cpu (D = $procmux$364_Y, Q = \adc_bcd).
+Adding EN signal on $procdff$815 ($adff) from module cpu (D = $procmux$359_Y, Q = \shift).
+Adding EN signal on $procdff$812 ($adff) from module cpu (D = $procmux$354_Y, Q = \compare).
+Adding EN signal on $procdff$809 ($adff) from module cpu (D = $procmux$349_Y, Q = \shift_right).
+Adding EN signal on $procdff$806 ($adff) from module cpu (D = $procmux$344_Y, Q = \rotate).
+Adding EN signal on $procdff$803 ($adff) from module cpu (D = $procmux$335_Y, Q = \op).
+Adding EN signal on $procdff$800 ($adff) from module cpu (D = $procmux$330_Y, Q = \bit_ins).
+Adding EN signal on $procdff$794 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1276$209_Y, Q = \clv).
+Adding EN signal on $procdff$791 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1275$208_Y, Q = \sei).
+Adding EN signal on $procdff$788 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1274$207_Y, Q = \cli).
+Adding EN signal on $procdff$785 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1278$211_Y, Q = \sed).
+Adding EN signal on $procdff$782 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1277$210_Y, Q = \cld).
+Adding EN signal on $procdff$779 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1273$206_Y, Q = \sec).
+Adding EN signal on $procdff$776 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1271$204_Y, Q = \clc).
+Adding EN signal on $procdff$773 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1270$203_Y, Q = \php).
+Adding EN signal on $procdff$770 ($adff) from module cpu (D = $eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1272$205_Y, Q = \plp).
+Adding EN signal on $procdff$767 ($adff) from module cpu (D = \IR [7:5], Q = \cond_code).
+Adding EN signal on $procdff$761 ($adff) from module cpu (D = $0\NMI_edge[0:0], Q = \NMI_edge).
+
+4.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 53 unused cells and 183 unused wires.
+<suppressed ~55 debug messages>
+
+4.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+<suppressed ~8 debug messages>
+
+4.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~47 debug messages>
+
+4.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+4.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.8.16. Finished OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from mux cell ALU8.$ternary$ALU8.v:51$239 ($mux).
+Removed top 1 bits (of 9) from port Y of cell ALU8.$or$ALU8.v:59$241 ($or).
+Removed top 1 bits (of 9) from port Y of cell ALU8.$and$ALU8.v:60$242 ($and).
+Removed top 1 bits (of 9) from port Y of cell ALU8.$xor$ALU8.v:61$243 ($xor).
+Removed top 1 bits (of 2) from port B of cell ALU8.$procmux$278_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell ALU8.$procmux$286_CMP0 ($eq).
+Removed top 1 bits (of 9) from wire ALU8.$and$ALU8.v:60$242_Y.
+Removed top 1 bits (of 9) from wire ALU8.$or$ALU8.v:59$241_Y.
+Removed top 1 bits (of 9) from wire ALU8.$xor$ALU8.v:61$243_Y.
+Removed top 13 bits (of 16) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:315$7 ($mux).
+Removed top 13 bits (of 16) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:314$8 ($mux).
+Removed top 1 bits (of 2) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1401 ($eq).
+Removed top 3 bits (of 8) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:445$32 ($mux).
+Removed top 1 bits (of 2) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:564$54 ($mux).
+Removed top 1 bits (of 4) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:613$58 ($mux).
+Removed top 3 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1030 ($eq).
+Removed top 24 bits (of 32) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:685$68 ($mux).
+Removed top 31 bits (of 32) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:742$72 ($mux).
+Removed top 31 bits (of 32) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:741$74 ($mux).
+Removed top 31 bits (of 32) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:746$77 ($mux).
+Removed top 31 bits (of 32) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:745$78 ($mux).
+Removed top 31 bits (of 32) from mux cell cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:744$80 ($mux).
+Removed top 2 bits (of 7) from port B of cell cpu.$auto$opt_dff.cc:195:make_patterns_logic$1571 ($ne).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1029 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1027 ($eq).
+Removed top 1 bits (of 2) from port B of cell cpu.$ne$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:800$94 ($ne).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1025 ($eq).
+Removed top 5 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1023 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1022 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1020 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1019 ($eq).
+Removed top 3 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1017 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1016 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1014 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1013 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1047 ($eq).
+Removed top 4 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1011 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1010 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1045 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1044 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1008 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1007 ($eq).
+Removed top 3 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1042 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1041 ($eq).
+Removed top 3 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1005 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1039 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1038 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1004 ($eq).
+Removed top 4 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1036 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1002 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1035 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1000 ($eq).
+Removed top 2 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1033 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$auto$fsm_map.cc:215:map_fsm$1032 ($eq).
+Removed top 1 bits (of 2) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1405 ($eq).
+Removed top 4 bits (of 8) from port B of cell cpu.$eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1270$203 ($eq).
+Removed top 3 bits (of 8) from port B of cell cpu.$eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1271$204 ($eq).
+Removed top 2 bits (of 8) from port B of cell cpu.$eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1272$205 ($eq).
+Removed top 2 bits (of 8) from port B of cell cpu.$eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1273$206 ($eq).
+Removed top 1 bits (of 8) from port B of cell cpu.$eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1274$207 ($eq).
+Removed top 1 bits (of 8) from port B of cell cpu.$eq$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:1275$208 ($eq).
+Removed top 1 bits (of 2) from port B of cell cpu.$procmux$291_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell cpu.$procmux$303_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell cpu.$procmux$304_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell cpu.$procmux$305_CMP0 ($eq).
+Removed top 2 bits (of 7) from port B of cell cpu.$procmux$331_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$336_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell cpu.$procmux$336_CMP1 ($eq).
+Removed top 1 bits (of 4) from port B of cell cpu.$procmux$338_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell cpu.$procmux$340_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$procmux$345_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$345_CMP1 ($eq).
+Removed top 1 bits (of 2) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1395 ($eq).
+Removed top 1 bits (of 4) from port B of cell cpu.$procmux$360_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$360_CMP1 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$365_CMP0 ($eq).
+Removed top 3 bits (of 7) from port B of cell cpu.$procmux$408_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$auto$opt_dff.cc:195:make_patterns_logic$1608 ($ne).
+Removed top 2 bits (of 6) from port B of cell cpu.$procmux$414_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell cpu.$procmux$414_CMP1 ($eq).
+Removed top 1 bits (of 2) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1389 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$414_CMP8 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$476_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$477_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$procmux$478_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell cpu.$procmux$479_CMP0 ($eq).
+Removed top 4 bits (of 5) from port B of cell cpu.$procmux$480_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell cpu.$procmux$484_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell cpu.$procmux$485_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell cpu.$procmux$487_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell cpu.$procmux$488_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell cpu.$procmux$489_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell cpu.$procmux$490_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell cpu.$procmux$491_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell cpu.$procmux$492_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1144 ($eq).
+Removed top 2 bits (of 3) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1148 ($eq).
+Removed top 1 bits (of 5) from port B of cell cpu.$auto$opt_dff.cc:195:make_patterns_logic$1601 ($ne).
+Removed top 17 bits (of 18) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1154 ($eq).
+Removed top 1 bits (of 2) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1158 ($eq).
+Removed top 2 bits (of 5) from port B of cell cpu.$auto$opt_dff.cc:195:make_patterns_logic$1592 ($ne).
+Removed top 2 bits (of 5) from port B of cell cpu.$auto$opt_dff.cc:195:make_patterns_logic$1594 ($ne).
+Removed top 2 bits (of 5) from port B of cell cpu.$auto$opt_dff.cc:195:make_patterns_logic$1578 ($ne).
+Removed top 3 bits (of 4) from port B of cell cpu.$auto$fsm_map.cc:77:implement_pattern_cache$1257 ($eq).
+Removed top 2 bits (of 5) from port B of cell cpu.$auto$opt_dff.cc:195:make_patterns_logic$1585 ($ne).
+Removed top 13 bits (of 16) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:314$8_Y.
+Removed top 13 bits (of 16) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:315$7_Y.
+Removed top 1 bits (of 2) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:564$54_Y.
+Removed top 1 bits (of 4) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:613$58_Y.
+Removed top 24 bits (of 32) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:685$68_Y.
+Removed top 31 bits (of 32) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:744$80_Y.
+Removed top 31 bits (of 32) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:745$78_Y.
+Removed top 31 bits (of 32) from wire cpu.$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:746$77_Y.
+
+4.10. Executing PEEPOPT pass (run peephole optimizers).
+
+4.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~2 debug messages>
+
+4.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module ALU8:
+  creating $macc model for $add$ALU8.v:95$252 ($add).
+  creating $macc model for $add$ALU8.v:95$253 ($add).
+  creating $macc model for $add$ALU8.v:96$254 ($add).
+  creating $macc model for $add$ALU8.v:96$255 ($add).
+  merging $macc model for $add$ALU8.v:96$254 into $add$ALU8.v:96$255.
+  merging $macc model for $add$ALU8.v:95$252 into $add$ALU8.v:95$253.
+  creating $alu model for $macc $add$ALU8.v:95$253.
+  creating $alu model for $macc $add$ALU8.v:96$255.
+  creating $alu model for $ge$ALU8.v:83$246 ($ge): new $alu
+  creating $alu model for $ge$ALU8.v:86$248 ($ge): new $alu
+  creating $alu cell for $ge$ALU8.v:86$248: $auto$alumacc.cc:485:replace_alu$1666
+  creating $alu cell for $ge$ALU8.v:83$246: $auto$alumacc.cc:485:replace_alu$1679
+  creating $alu cell for $add$ALU8.v:96$255: $auto$alumacc.cc:485:replace_alu$1692
+  creating $alu cell for $add$ALU8.v:95$253: $auto$alumacc.cc:485:replace_alu$1695
+  created 4 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module cpu:
+  creating $macc model for $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:354$15 ($add).
+  creating $macc model for $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$50 ($add).
+  creating $macc model for $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$51 ($add).
+  creating $alu model for $macc $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$51.
+  creating $alu model for $macc $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$50.
+  creating $alu model for $macc $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:354$15.
+  creating $alu cell for $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:354$15: $auto$alumacc.cc:485:replace_alu$1698
+  creating $alu cell for $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$50: $auto$alumacc.cc:485:replace_alu$1701
+  creating $alu cell for $add$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:552$51: $auto$alumacc.cc:485:replace_alu$1704
+  created 3 $alu and 0 $macc cells.
+
+4.13. Executing SHARE pass (SAT-based resource sharing).
+
+4.14. Executing OPT pass (performing simple optimizations).
+
+4.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~47 debug messages>
+
+4.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+4.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 2 unused cells and 4 unused wires.
+<suppressed ~3 debug messages>
+
+4.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~47 debug messages>
+
+4.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+4.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.14.16. Finished OPT passes. (There is nothing left to do.)
+
+4.15. Executing MEMORY pass.
+
+4.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+4.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+4.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+4.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+4.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+4.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+4.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+4.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.17. Executing OPT pass (performing simple optimizations).
+
+4.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+<suppressed ~2 debug messages>
+Optimizing module cpu.
+<suppressed ~39 debug messages>
+
+4.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 5 unused cells and 34 unused wires.
+<suppressed ~7 debug messages>
+
+4.17.5. Finished fast OPT passes.
+
+4.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+4.19. Executing OPT pass (performing simple optimizations).
+
+4.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+<suppressed ~4 debug messages>
+
+4.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+4.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+    Consolidated identical input bits for $pmux cell $procmux$283:
+      Old ports: A={ 1'0 $auto$wreduce.cc:461:run$1654 [7:0] }, B={ 1'0 $and$ALU8.v:60$242_Y 1'0 $auto$wreduce.cc:461:run$1655 [7:0] 1'0 \AI }, Y=$1\temp_logic[8:0]
+      New ports: A=$auto$wreduce.cc:461:run$1654 [7:0], B={ $and$ALU8.v:60$242_Y $auto$wreduce.cc:461:run$1655 [7:0] \AI }, Y=$1\temp_logic[8:0] [7:0]
+      New connections: $1\temp_logic[8:0] [8] = 1'0
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+    Consolidated identical input bits for $pmux cell $procmux$668:
+      Old ports: A=4'1010, B=8'00000110, Y=\ADJH
+      New ports: A=3'101, B=6'000011, Y=\ADJH [3:1]
+      New connections: \ADJH [0] = 1'0
+    Consolidated identical input bits for $pmux cell $procmux$674:
+      Old ports: A=4'1010, B=8'00000110, Y=\ADJL
+      New ports: A=3'101, B=6'000011, Y=\ADJL [3:1]
+      New connections: \ADJL [0] = 1'0
+    Consolidated identical input bits for $mux cell $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:315$7:
+      Old ports: A=3'110, B=3'010, Y=$auto$wreduce.cc:461:run$1657 [2:0]
+      New ports: A=1'1, B=1'0, Y=$auto$wreduce.cc:461:run$1657 [2]
+      New connections: $auto$wreduce.cc:461:run$1657 [1:0] = 2'10
+    Consolidated identical input bits for $mux cell $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:445$32:
+      Old ports: A={ 1'1 \D \I \Z \C }, B={ 1'0 \D \I \Z \C }, Y=$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:445$32_Y [4:0]
+      New ports: A=1'1, B=1'0, Y=$ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:445$32_Y [4]
+      New connections: $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:445$32_Y [3:0] = { \D \I \Z \C }
+    Consolidated identical input bits for $mux cell $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:613$58:
+      Old ports: A=3'011, B=3'111, Y=$auto$wreduce.cc:461:run$1659 [2:0]
+      New ports: A=1'0, B=1'1, Y=$auto$wreduce.cc:461:run$1659 [2]
+      New connections: $auto$wreduce.cc:461:run$1659 [1:0] = 2'11
+  Optimizing cells in module \cpu.
+    Consolidated identical input bits for $mux cell $ternary$/home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/source/cpu.v:314$8:
+      Old ports: A=$auto$wreduce.cc:461:run$1657 [2:0], B=3'100, Y=$auto$wreduce.cc:461:run$1656 [2:0]
+      New ports: A={ $auto$wreduce.cc:461:run$1657 [2] 1'1 }, B=2'10, Y=$auto$wreduce.cc:461:run$1656 [2:1]
+      New connections: $auto$wreduce.cc:461:run$1656 [0] = 1'0
+  Optimizing cells in module \cpu.
+Performed a total of 7 changes.
+
+4.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.19.6. Executing OPT_SHARE pass.
+
+4.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+<suppressed ~5 debug messages>
+
+4.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+4.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+4.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.19.14. Executing OPT_SHARE pass.
+
+4.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+4.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+4.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+4.19.22. Executing OPT_SHARE pass.
+
+4.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+4.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+4.19.26. Finished OPT passes. (There is nothing left to do.)
+
+4.20. Executing TECHMAP pass (map to technology primitives).
+
+4.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+4.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $xnor.
+Using template $paramod$32e7c4d6f92ff4337599ece53082d2e88a82a9f2\_90_pmux for cells of type $pmux.
+Using template $paramod$78e969f2586efcf3a5b0b0440bcca0db83d5cca2\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$d629d85c8826a74239b9178d1930215a43b0ceb0\_90_pmux for cells of type $pmux.
+Using template $paramod$ede7b58042915c15b5512c92c18754c007fd5a95\_90_pmux for cells of type $pmux.
+Using template $paramod$2af30114e9bd4ccb04dad757b3f0a8f6bf0615b0\_90_alu for cells of type $alu.
+Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
+Using template $paramod$bf541dd3c0ba8228982b61e7bfbc350a2c253f4c\_90_pmux for cells of type $pmux.
+Using template $paramod$95ab7b964273918a033d1324366ecc612d202989\_90_pmux for cells of type $pmux.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using template $paramod$b3b6ac92d800c6f07aa48f510f923d86a674e5a7\_90_pmux for cells of type $pmux.
+Using template $paramod$fc16b9f758000d363d24f130038bd99b46b4fa1b\_90_pmux for cells of type $pmux.
+Using template $paramod$f42569e367821ad1b7d52f2d157a44ce80c766dc\_90_pmux for cells of type $pmux.
+Using template $paramod$30fa96e978dc3d9d8917e537f49e4beca9251827\_90_pmux for cells of type $pmux.
+Using template $paramod$20d3ee62d72123142eb855d7ddafd835e31ba009\_90_pmux for cells of type $pmux.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$0b42e0ef0120c44ea9490666611378bfd171ba8c\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $dffe.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using template $paramod$83dd457849c736323edf2edb15923eb27f99c683\_90_alu for cells of type $alu.
+Using template $paramod$b85fbb3374a1d9ba7ee4f4d6323c30f939df3ada\_90_alu for cells of type $alu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1732 debug messages>
+
+4.21. Executing OPT pass (performing simple optimizations).
+
+4.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+<suppressed ~83 debug messages>
+Optimizing module cpu.
+<suppressed ~1690 debug messages>
+
+4.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+<suppressed ~21 debug messages>
+Finding identical cells in module `\cpu'.
+<suppressed ~3120 debug messages>
+Removed a total of 1047 cells.
+
+4.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 48 unused cells and 1960 unused wires.
+<suppressed ~50 debug messages>
+
+4.21.5. Finished fast OPT passes.
+
+4.22. Executing ABC pass (technology mapping using ABC).
+
+4.22.1. Extracting gate netlist of module `\ALU8' to `<abc-temp-dir>/input.blif'..
+Extracted 223 gates and 258 wires to a netlist network with 34 inputs and 13 outputs.
+
+4.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+4.22.1.2. Re-integrating ABC results.
+ABC RESULTS:             ORNOT cells:        3
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:               MUX cells:       24
+ABC RESULTS:              NAND cells:       10
+ABC RESULTS:               NOR cells:       20
+ABC RESULTS:            ANDNOT cells:       73
+ABC RESULTS:                OR cells:       32
+ABC RESULTS:              XNOR cells:       17
+ABC RESULTS:               XOR cells:       11
+ABC RESULTS:               NOT cells:       22
+ABC RESULTS:        internal signals:      211
+ABC RESULTS:           input signals:       34
+ABC RESULTS:          output signals:       13
+Removing temp directory.
+
+4.22.2. Extracting gate netlist of module `\cpu' to `<abc-temp-dir>/input.blif'..
+Extracted 1991 gates and 2149 wires to a netlist network with 156 inputs and 145 outputs.
+
+4.22.2.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+4.22.2.2. Re-integrating ABC results.
+ABC RESULTS:             ORNOT cells:       74
+ABC RESULTS:              XNOR cells:        3
+ABC RESULTS:               NOT cells:       64
+ABC RESULTS:               NOR cells:      130
+ABC RESULTS:              NAND cells:       53
+ABC RESULTS:            ANDNOT cells:      535
+ABC RESULTS:                OR cells:      663
+ABC RESULTS:               MUX cells:      155
+ABC RESULTS:               AND cells:       62
+ABC RESULTS:               XOR cells:       25
+ABC RESULTS:        internal signals:     1848
+ABC RESULTS:           input signals:      156
+ABC RESULTS:          output signals:      145
+Removing temp directory.
+
+4.23. Executing OPT pass (performing simple optimizations).
+
+4.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+<suppressed ~17 debug messages>
+
+4.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 3 unused cells and 1355 unused wires.
+<suppressed ~14 debug messages>
+
+4.23.5. Finished fast OPT passes.
+
+4.24. Executing HIERARCHY pass (managing design hierarchy).
+
+4.24.1. Analyzing design hierarchy..
+Top module:  \cpu
+Used module:     \ALU8
+
+4.24.2. Analyzing design hierarchy..
+Top module:  \cpu
+Used module:     \ALU8
+Removed 0 unused modules.
+
+4.25. Printing statistics.
+
+=== ALU8 ===
+
+   Number of wires:                224
+   Number of wire bits:            271
+   Number of public wires:          22
+   Number of public wire bits:      69
+   Number of ports:                 15
+   Number of port bits:             39
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                226
+     $_ANDNOT_                      73
+     $_AND_                          2
+     $_DFFE_PP0P_                   12
+     $_MUX_                         24
+     $_NAND_                        10
+     $_NOR_                         20
+     $_NOT_                         22
+     $_ORNOT_                        3
+     $_OR_                          32
+     $_XNOR_                        17
+     $_XOR_                         11
+
+=== cpu ===
+
+   Number of wires:               1753
+   Number of wire bits:           2004
+   Number of public wires:          76
+   Number of public wire bits:     268
+   Number of ports:                  9
+   Number of port bits:             38
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1892
+     $_ANDNOT_                     535
+     $_AND_                         62
+     $_DFFE_PP0P_                  106
+     $_DFFE_PP1P_                    1
+     $_DFFE_PP_                      8
+     $_DFF_PP0_                     15
+     $_DFF_PP1_                      1
+     $_MUX_                        155
+     $_NAND_                        53
+     $_NOR_                        130
+     $_NOT_                         61
+     $_ORNOT_                       74
+     $_OR_                         663
+     $_XNOR_                         2
+     $_XOR_                         25
+     ALU8                            1
+
+=== design hierarchy ===
+
+   cpu                               1
+     ALU8                            1
+
+   Number of wires:               1977
+   Number of wire bits:           2275
+   Number of public wires:          98
+   Number of public wire bits:     337
+   Number of ports:                 24
+   Number of port bits:             77
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               2117
+     $_ANDNOT_                     608
+     $_AND_                         64
+     $_DFFE_PP0P_                  118
+     $_DFFE_PP1P_                    1
+     $_DFFE_PP_                      8
+     $_DFF_PP0_                     15
+     $_DFF_PP1_                      1
+     $_MUX_                        179
+     $_NAND_                        63
+     $_NOR_                        150
+     $_NOT_                         83
+     $_ORNOT_                       77
+     $_OR_                         695
+     $_XNOR_                        19
+     $_XOR_                         36
+
+4.26. Executing CHECK pass (checking for obvious problems).
+Checking module ALU8...
+Checking module cpu...
+Found and reported 0 problems.
+
+5. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFFNEGX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_N_.
+  cell DFFPOSX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_P_.
+  cell DFFSR (noninv, pins=5, area=1584.00) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    \DFFNEGX1 _DFF_N_ (.CLK( C), .D( D), .Q( Q));
+    \DFFPOSX1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    unmapped dff cell: $_DFF_PN0_
+    unmapped dff cell: $_DFF_PN1_
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFFSR _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .R( R), .S( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\ALU8':
+  mapped 12 $_DFFSR_PNN_ cells to \DFFSR cells.
+Mapping DFF cells in module `\cpu':
+  mapped 123 $_DFFSR_PNN_ cells to \DFFSR cells.
+  mapped 8 $_DFF_P_ cells to \DFFPOSX1 cells.
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+<suppressed ~33 debug messages>
+Finding identical cells in module `\cpu'.
+<suppressed ~366 debug messages>
+Removed a total of 133 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+Removed 0 unused cells and 133 unused wires.
+<suppressed ~2 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ALU8..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ALU8.
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ALU8'.
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ALU8..
+Finding unused cells or wires in module \cpu..
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ALU8.
+Optimizing module cpu.
+
+6.16. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing ABC pass (technology mapping using ABC).
+
+7.1. Extracting gate netlist of module `\ALU8' to `<abc-temp-dir>/input.blif'..
+Extracted 227 gates and 264 wires to a netlist network with 37 inputs and 15 outputs.
+
+7.1.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX2".
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 28 cells (11 skipped: 4 seq; 3 tri-state; 4 no func; 0 dont_use).  Time =     0.01 sec
+ABC: Memory =    0.51 MB. Time =     0.01 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FAX1").
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.1.2. Re-integrating ABC results.
+ABC RESULTS:             OR2X2 cells:        1
+ABC RESULTS:           XNOR2X1 cells:        2
+ABC RESULTS:            AND2X2 cells:        6
+ABC RESULTS:           OAI22X1 cells:        1
+ABC RESULTS:            MUX2X1 cells:        2
+ABC RESULTS:            XOR2X1 cells:        7
+ABC RESULTS:           NAND3X1 cells:        7
+ABC RESULTS:           AOI22X1 cells:       13
+ABC RESULTS:           AOI21X1 cells:       10
+ABC RESULTS:            NOR2X1 cells:       11
+ABC RESULTS:             INVX1 cells:       30
+ABC RESULTS:           NAND2X1 cells:       49
+ABC RESULTS:           OAI21X1 cells:       64
+ABC RESULTS:        internal signals:      212
+ABC RESULTS:           input signals:       37
+ABC RESULTS:          output signals:       15
+Removing temp directory.
+
+7.2. Extracting gate netlist of module `\cpu' to `<abc-temp-dir>/input.blif'..
+Extracted 1876 gates and 2033 wires to a netlist network with 156 inputs and 179 outputs.
+
+7.2.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX2".
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 28 cells (11 skipped: 4 seq; 3 tri-state; 4 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FAX1").
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.2.2. Re-integrating ABC results.
+ABC RESULTS:            NOR3X1 cells:       14
+ABC RESULTS:           OAI22X1 cells:       37
+ABC RESULTS:           XNOR2X1 cells:        3
+ABC RESULTS:            XOR2X1 cells:       10
+ABC RESULTS:            MUX2X1 cells:        9
+ABC RESULTS:           AOI21X1 cells:       91
+ABC RESULTS:             OR2X2 cells:       31
+ABC RESULTS:           NAND3X1 cells:      121
+ABC RESULTS:            AND2X2 cells:       41
+ABC RESULTS:           AOI22X1 cells:       50
+ABC RESULTS:            NOR2X1 cells:      196
+ABC RESULTS:             INVX1 cells:      239
+ABC RESULTS:           NAND2X1 cells:      257
+ABC RESULTS:           OAI21X1 cells:      446
+ABC RESULTS:        internal signals:     1698
+ABC RESULTS:           input signals:      156
+ABC RESULTS:          output signals:      179
+Removing temp directory.
+
+8. Executing FLATTEN pass (flatten design).
+Deleting now unused module ALU8.
+<suppressed ~1 debug messages>
+
+9. Executing SETUNDEF pass (replace undef values with defined constants).
+Removed 0 unused cells and 2290 unused wires.
+
+10. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Mapping port cpu.AB using BUFX2.
+Don't map input port cpu.DI: Missing option -inpad.
+Mapping port cpu.DO using BUFX2.
+Don't map input port cpu.IRQ: Missing option -inpad.
+Don't map input port cpu.NMI: Missing option -inpad.
+Don't map input port cpu.RDY: Missing option -inpad.
+Mapping port cpu.WE using BUFX2.
+Don't map input port cpu.clk: Missing option -inpad.
+Don't map input port cpu.reset: Missing option -inpad.
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu.
+Performed a total of 0 changes.
+
+11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu'.
+Removed a total of 0 cells.
+
+11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu..
+
+11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu.
+
+11.9. Finished OPT passes. (There is nothing left to do.)
+
+12. Executing Verilog backend.
+
+12.1. Executing BMUXMAP pass.
+
+12.2. Executing DEMUXMAP pass.
+Dumping module `\cpu'.
+
+13. Printing statistics.
+
+=== cpu ===
+
+   Number of wires:               1760
+   Number of wire bits:           1930
+   Number of public wires:        1760
+   Number of public wire bits:    1930
+   Number of ports:                  9
+   Number of port bits:             38
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1917
+     $scopeinfo                      1
+     AND2X2                         47
+     AOI21X1                       101
+     AOI22X1                        63
+     BUFX2                          25
+     DFFPOSX1                        8
+     DFFSR                         135
+     INVX1                         269
+     MUX2X1                         11
+     NAND2X1                       306
+     NAND3X1                       128
+     NOR2X1                        207
+     NOR3X1                         14
+     OAI21X1                       510
+     OAI22X1                        38
+     OR2X2                          32
+     XNOR2X1                         5
+     XOR2X1                         17
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 856abb0d8a, CPU: user 1.07s system 0.01s, MEM: 34.95 MB peak
+Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+Time spent: 38% 2x abc (0 sec), 16% 30x opt_expr (0 sec), ...
+Running getpowerground to determine power and ground net names.
+getpowerground.tcl  /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+Running vlogFanout
+vlogFanout -l 300 -c 75 -I cpu_nofanout -s nullstring -p /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -b BUFX2,CLKBUF1 -i A,A -o Y,Y cpu_mapped.v cpu_sized.v
+
+vlogFanout for qflow 1.4.100
+Parsing library "etri05_stdcells"
+End of library at line 6606
+Lib Read:  Processed 6607 lines.
+Top internal fanout is 123 (load 5303.51) from node _1_,
+driven by INVX1 with strength 166.776 (fF driven at latency 300)
+Top fanout load-to-strength ratio is 31.8003 (latency = 9540.08 ps)
+Top input node fanout is 143 (load 2579.39) from node clk.
+0 gates exceed specified minimum load.
+98 buffers were added.
+Warning 1: load of 201.798 is 1.22286 times greater than strongest gate OAI21X1
+This warning will only be repeated for larger overload ratios.  Warning count reflects
+the total number of overloaded nets.
+Warning 3: load of 1936.74 is 1.38957 times greater than strongest gate INVX8
+Warning 5: load of 249.741 is 1.51338 times greater than strongest gate OAI21X1
+Warning 9: load of 325.702 is 1.7193 times greater than strongest gate MUX2X1
+Warning 11: load of 501.099 is 2.68141 times greater than strongest gate NOR2X1
+Warning 14: load of 667.444 is 4.02611 times greater than strongest gate NAND2X1
+Warning 21: load of 770.777 is 4.64943 times greater than strongest gate NAND2X1
+Warning 36: load of 803.75 is 4.88471 times greater than strongest gate NAND3X1
+40 gates were changed.
+
+Gate counts by drive strength:
+
+	"" gates	In: 135    	Out: 135    	+0
+	"1" gates	In: 1688    	Out: 1648    	-40
+	"2" gates	In: 191    	Out: 222    	+31
+
+227 gates exceed specified minimum load.
+0 buffers were added.
+0 gates were changed.
+
+Gate counts by drive strength:
+
+	"" gates	In: 135    	Out: 135    	+0
+	"1" gates	In: 1688    	Out: 1648    	-40
+	"2" gates	In: 191    	Out: 222    	+31
+
+Number of gates changed: 0
+Running vlog2Verilog for antenna cell mapping.
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+   -o cpu.v cpu_sized.v
+
+Generating RTL verilog and SPICE netlist file in directory
+	 /home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/synthesis
+Files:
+   Verilog: /home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/synthesis/cpu.rtl.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/synthesis/cpu.rtlnopwr.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/synthesis/cpu.rtlbb.v
+   Spice:   /home/goodkook/ETRI050_DesignKit/Ref_Design/CPU_6502/synthesis/cpu.spc
+
+Running vlog2Verilog.
+vlog2Verilog -c -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o cpu.rtl.v
+   cpu.v
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o cpu.rtlnopwr.v
+   cpu.v
+/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+   -o cpu.rtlbb.v
+Running vlog2Spice.
+vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o cpu.spc cpu.rtl.v
+Running spi2xspice.py
+spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" cpu.spc cpu.xspice
+
+Synthesis script ended on Mon 23 Sep 2024 07:40:44 AM KST

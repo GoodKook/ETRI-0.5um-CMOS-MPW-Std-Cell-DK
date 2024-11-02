@@ -1,0 +1,107 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2.2 (lin64) Build 4126759 Thu Feb  8 23:52:05 MST 2024
+| Date         : Sun Jun 16 18:52:47 2024
+| Host         : GoodKook-Skull running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_control_sets -verbose -file cpu_wrapper_control_sets_placed.rpt
+| Design       : cpu_wrapper
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    29 |
+|    Minimum number of control sets                        |    29 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    95 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    29 |
+| >= 0 to < 4        |    11 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     9 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     6 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              12 |            7 |
+| No           | No                    | Yes                    |              16 |           13 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |             118 |           38 |
+| Yes          | No                    | Yes                    |             119 |           55 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------+---------------+------------------+------------------+----------------+--------------+
+| Clock Signal | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------+---------------+------------------+------------------+----------------+--------------+
+|  _0273_      | _0424_[0]     |                  |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0166_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0177_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0174_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0175_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0173_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0172_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0176_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0178_        | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0096_[0]     | _0434_[0]        |                1 |              1 |         1.00 |
+|  u_cpu.clk   | _0196_        | _0434_[0]        |                1 |              2 |         2.00 |
+|  u_cpu.clk   |               |                  |                2 |              5 |         2.50 |
+|  _0273_      | _0216_        |                  |                2 |              6 |         3.00 |
+|  _0273_      |               |                  |                5 |              7 |         1.40 |
+|  u_cpu.clk   | _0168_        | _0434_[0]        |                3 |              8 |         2.67 |
+|  u_cpu.clk   | _0169_        | _0434_[0]        |                2 |              8 |         4.00 |
+|  u_cpu.clk   | _0171_        | _0434_[0]        |                3 |              8 |         2.67 |
+|  u_cpu.clk   | _0170_        | _0434_[0]        |                2 |              8 |         4.00 |
+|  _0273_      | _0217_        |                  |                2 |              8 |         4.00 |
+|  u_cpu.clk   | _0179_        |                  |                4 |              8 |         2.00 |
+|  _0273_      | _0218_        |                  |                2 |              8 |         4.00 |
+|  _0273_      | _0220_        |                  |                1 |              8 |         8.00 |
+|  _0273_      | _0219_        |                  |                3 |              8 |         2.67 |
+|  u_cpu.clk   |               | _0434_[0]        |               13 |             16 |         1.23 |
+|  u_cpu.clk   | _0197_        | _0434_[0]        |               10 |             16 |         1.60 |
+|  u_cpu.clk   | _0106_[4]     | _0434_[0]        |               13 |             28 |         2.15 |
+|  u_cpu.clk   | _0096_[6]     | _0434_[0]        |               12 |             32 |         2.67 |
+|  _0273_      | _0167_        |                  |               11 |             33 |         3.00 |
+|  _0273_      | _0423_[1]     |                  |               12 |             38 |         3.17 |
++--------------+---------------+------------------+------------------+----------------+--------------+
+
+
