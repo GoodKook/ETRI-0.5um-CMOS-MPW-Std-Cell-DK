@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
 ./prerequisites.sh
+./z3_build.sh
+./sdl_install.sh
 ./python_libs.sh
 ./gsl_build.sh
 ./graywolf_build.sh
@@ -21,6 +23,8 @@
 echo ""
 echo "Installed Tools are ....."
 echo "--------------------------"
+echo "z3:        Problem Solver"
+echo "SDL2:      Simple Direct Layer"
 echo "gsl:       GNU Scientific Library"
 echo "graywolf:  GrayWolf Auto Placer"
 echo "qrouter:   Auto-Router"
@@ -36,3 +40,4 @@ echo "Verilator: Verilog to C++/SystemC converter"
 echo "gtkwave:   gtkWave Digital waveform viewer"
 echo "yosys:     Yosys RTL Synthesizer"
 echo "QFlow:     qflow-1.4.100_etri050"
+
