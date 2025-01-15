@@ -11,7 +11,7 @@
 ./klayout_install.sh
 ./netgen_build.sh
 ./qrouter_build.sh
-./ngspice43_build.sh
+./ngspice44_build.sh
 ./xschem_build.sh
 ./systemc_build.sh
 ./iverilog_build.sh

@@ -36,3 +36,9 @@ automake --add-missing
 ./configure
 make
 sudo make install
+
+# GETTEXT version issue:
+#  Change version as follows,
+#         GETTEXT_MACRO_VERSION = 0.20
+#  in "xschem/xschem-gaw/po/Makefile.in.in" & "xschem/xschem-gaw/configure"
+#
