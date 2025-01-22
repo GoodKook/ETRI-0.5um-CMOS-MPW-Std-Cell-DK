@@ -37,6 +37,7 @@ sudo apt install -y \
     google-perftools libgoogle-perftools-dev \
     ant default-jre libfl-dev \
     uuid uuid-dev \
+    g++-10 gcc-10 \
     libsecret-1-dev doxygen
 sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 sudo pip3 install git+https://github.com/antmicro/astsee.git
