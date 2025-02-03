@@ -25,7 +25,7 @@ cd ..
 rm -rf build
 
 # Test build,
-#gcc -o myprogram myprogram.c `pkg-config sdl3 --cflags --libs
+#gcc -o testwm testwm.c `pkg-config sdl3 --cflags --libs` -lSDL3_test -lunwind
 # or
 #
 #gcc -o testwm testwm.c -I/usr/local/lib/pkgconfig/../../include -L/usr/local/lib/pkgconfig/../../lib -Wl,-rpath,/usr/local/lib/pkgconfig/../../lib -Wl,--enable-new-dtags -lSDL3 -lSDL3_test -lunwind
