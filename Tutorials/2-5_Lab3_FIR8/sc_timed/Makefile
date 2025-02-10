@@ -39,6 +39,8 @@ $(SC_TOP): $(SC_SRCS) $(SC_HDRS)
 	clang++ -I. -I../c_untimed -I$(SYSTEMC_INCLUDE) $(CFLAGS) -L$(SYSTEMC_LIBDIR) \
 			-o $(SC_TOP) $(LIBS) $(SC_SRCS)
 
+#			-fPIC -shared -o $(SC_TOP) $(LIBS) $(SC_SRCS)
+
 run: $(SC_TOP)
 	./$(SC_TOP)
 	./sc_plotDFT.py &

@@ -6,6 +6,7 @@ export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib-linux64
 export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 export CXX				= clang++
 export CXXFLAGS			= -std=c++17
+#export CXXFLAGS			= -std=c++2a
 
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS      =  ./sc_main.cpp \
@@ -22,6 +23,7 @@ build_net: VERILOG_SRCS =  ../synthesis/fir_pe.v \
 					~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v
 VERILATOR    = verilator
 VCFLAGS    	 = -CFLAGS -std=c++17
+#VCFLAGS    	 = -CFLAGS -std=c++2a
 VCFLAGS		+= -CFLAGS -g
 VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8
@@ -111,4 +113,5 @@ clean :
 
 debug : $(TARGET_DIR)/$(TARGET)
 	ddd $(TARGET_DIR)/$(TARGET)
+
 

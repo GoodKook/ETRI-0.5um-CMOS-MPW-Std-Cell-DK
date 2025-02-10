@@ -1,13 +1,13 @@
-Qflow synthesis logfile created on Tue 15 Oct 2024 12:40:15 PM KST
+Qflow synthesis logfile created on Mon Feb 10 22:29:40 KST 2025
 Running yosys for verilog parsing and synthesis
 yosys  -s fir_pe.ys
 
  /----------------------------------------------------------------------------\
  |  yosys -- Yosys Open SYnthesis Suite                                       |
- |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
  |  Distributed under an ISC-like license, type "license" to see terms        |
  \----------------------------------------------------------------------------/
- Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+ Yosys 0.49+5 (git sha1 954250d1d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
 
 -- Executing script file `fir_pe.ys' --
 
@@ -561,15 +561,15 @@ ABC: + map
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 3.22.1.2. Re-integrating ABC results.
-ABC RESULTS:               MUX cells:       16
-ABC RESULTS:               NOT cells:        6
 ABC RESULTS:               AND cells:       37
-ABC RESULTS:              XNOR cells:       30
-ABC RESULTS:                OR cells:       36
-ABC RESULTS:              NAND cells:       33
-ABC RESULTS:             ORNOT cells:       12
-ABC RESULTS:               NOR cells:       30
 ABC RESULTS:            ANDNOT cells:       93
+ABC RESULTS:               MUX cells:       16
+ABC RESULTS:              NAND cells:       33
+ABC RESULTS:               NOR cells:       30
+ABC RESULTS:               NOT cells:        6
+ABC RESULTS:                OR cells:       36
+ABC RESULTS:             ORNOT cells:       12
+ABC RESULTS:              XNOR cells:       30
 ABC RESULTS:               XOR cells:       76
 ABC RESULTS:        internal signals:      324
 ABC RESULTS:           input signals:       64
@@ -595,6 +595,7 @@ Removed 0 unused cells and 195 unused wires.
 3.23.5. Finished fast OPT passes.
 
 3.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fir_pe'. Setting top module to fir_pe.
 
 3.24.1. Analyzing design hierarchy..
 Top module:  \fir_pe
@@ -649,6 +650,10 @@ Found and reported 0 problems.
     unmapped dff cell: $_DFF_PN1_
     unmapped dff cell: $_DFF_PP0_
     unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
     unmapped dff cell: $_DFFSR_NNN_
     unmapped dff cell: $_DFFSR_NNP_
     unmapped dff cell: $_DFFSR_NPN_
@@ -735,16 +740,16 @@ ABC: + map -M 1
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 6.1.2. Re-integrating ABC results.
-ABC RESULTS:           OAI22X1 cells:        6
 ABC RESULTS:            AND2X2 cells:       30
-ABC RESULTS:             OR2X2 cells:       10
-ABC RESULTS:           AOI22X1 cells:       21
-ABC RESULTS:           NAND3X1 cells:       94
-ABC RESULTS:             INVX1 cells:      126
-ABC RESULTS:            NOR2X1 cells:       85
 ABC RESULTS:           AOI21X1 cells:       74
+ABC RESULTS:           AOI22X1 cells:       21
+ABC RESULTS:             INVX1 cells:      126
 ABC RESULTS:           NAND2X1 cells:      145
+ABC RESULTS:           NAND3X1 cells:       94
+ABC RESULTS:            NOR2X1 cells:       85
 ABC RESULTS:           OAI21X1 cells:      175
+ABC RESULTS:           OAI22X1 cells:        6
+ABC RESULTS:             OR2X2 cells:       10
 ABC RESULTS:        internal signals:      361
 ABC RESULTS:           input signals:       89
 ABC RESULTS:          output signals:       78
@@ -858,9 +863,9 @@ Dumping module `\fir_pe'.
      OAI22X1                         6
      OR2X2                          10
 
-End of script. Logfile hash: 21e513ce8a, CPU: user 0.18s system 0.01s, MEM: 19.95 MB peak
-Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
-Time spent: 48% 2x abc (0 sec), 10% 25x opt_expr (0 sec), ...
+End of script. Logfile hash: 9c7e6fd903, CPU: user 0.20s system 0.01s, MEM: 19.35 MB peak
+Yosys 0.49+5 (git sha1 954250d1d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 49% 2x abc (0 sec), 10% 25x opt_expr (0 sec), ...
 Running getpowerground to determine power and ground net names.
 getpowerground.tcl  /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
 Running vlogFanout
@@ -926,4 +931,4 @@ vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o fir
 Running spi2xspice.py
 spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" fir_pe.spc fir_pe.xspice
 
-Synthesis script ended on Tue 15 Oct 2024 12:40:15 PM KST
+Synthesis script ended on Mon Feb 10 22:29:41 KST 2025

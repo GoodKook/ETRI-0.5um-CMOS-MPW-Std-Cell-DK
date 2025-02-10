@@ -1,0 +1,929 @@
+Qflow synthesis logfile created on Tue 15 Oct 2024 12:40:15 PM KST
+Running yosys for verilog parsing and synthesis
+yosys  -s fir_pe.ys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+
+-- Executing script file `fir_pe.ys' --
+
+1. Executing Liberty frontend: /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+Imported 39 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v
+Parsing Verilog input from `/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v' to AST representation.
+Generating RTLIL representation for module `\fir_pe'.
+Successfully finished Verilog frontend.
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \fir_pe
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \fir_pe
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:57$8 in module fir_pe.
+Marked 3 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4 in module fir_pe.
+Marked 1 switch rules as full_case in process $proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:29$3 in module fir_pe.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 8 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~11 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:57$8'.
+     1/8: $4\Yout[3:0]
+     2/8: $4\Xout[3:0]
+     3/8: $3\Yout[3:0]
+     4/8: $3\Xout[3:0]
+     5/8: $2\Yout[3:0]
+     6/8: $2\Xout[3:0]
+     7/8: $1\Yout[3:0]
+     8/8: $1\Xout[3:0]
+Creating decoders for process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:47$5'.
+     1/3: $0\y[15:0]
+     2/3: $0\mul[15:0]
+     3/3: $0\rYin[15:0]
+Creating decoders for process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4'.
+     1/4: $0\Yin0[3:0]
+     2/4: $0\Yin1[3:0]
+     3/4: $0\Yin2[3:0]
+     4/4: $0\Yin3[3:0]
+Creating decoders for process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:29$3'.
+     1/2: $0\XinH[3:0]
+     2/2: $0\XinL[3:0]
+Creating decoders for process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:19$2'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fir_pe.\Xout' from process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:57$8'.
+No latch inferred for signal `\fir_pe.\Yout' from process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:57$8'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fir_pe.\rYin' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:47$5'.
+  created $dff cell `$procdff$108' with positive edge clock.
+Creating register for signal `\fir_pe.\mul' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:47$5'.
+  created $dff cell `$procdff$109' with positive edge clock.
+Creating register for signal `\fir_pe.\y' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:47$5'.
+  created $dff cell `$procdff$110' with positive edge clock.
+Creating register for signal `\fir_pe.\Yin3' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4'.
+  created $dff cell `$procdff$111' with positive edge clock.
+Creating register for signal `\fir_pe.\Yin2' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4'.
+  created $dff cell `$procdff$112' with positive edge clock.
+Creating register for signal `\fir_pe.\Yin1' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4'.
+  created $dff cell `$procdff$113' with positive edge clock.
+Creating register for signal `\fir_pe.\Yin0' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4'.
+  created $dff cell `$procdff$114' with positive edge clock.
+Creating register for signal `\fir_pe.\XinL' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:29$3'.
+  created $dff cell `$procdff$115' with positive edge clock.
+Creating register for signal `\fir_pe.\XinH' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:29$3'.
+  created $dff cell `$procdff$116' with positive edge clock.
+Creating register for signal `\fir_pe.\i' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:19$2'.
+  created $dff cell `$procdff$117' with positive edge clock.
+Creating register for signal `\fir_pe.\LoadCtl' using process `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:19$2'.
+  created $dff cell `$procdff$118' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:57$8'.
+Removing empty process `fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:57$8'.
+Found and cleaned up 1 empty switch in `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:47$5'.
+Removing empty process `fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:47$5'.
+Found and cleaned up 4 empty switches in `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4'.
+Removing empty process `fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:36$4'.
+Found and cleaned up 2 empty switches in `\fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:29$3'.
+Removing empty process `fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:29$3'.
+Removing empty process `fir_pe.$proc$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:19$2'.
+Cleaned up 11 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+<suppressed ~3 debug messages>
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 1 unused cells and 59 unused wires.
+<suppressed ~3 debug messages>
+
+3.5. Executing CHECK pass (checking for obvious problems).
+Checking module fir_pe...
+Found and reported 0 problems.
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$13.
+    dead port 1/2 on $mux $procmux$16.
+    dead port 1/2 on $mux $procmux$19.
+    dead port 1/2 on $mux $procmux$33.
+    dead port 1/2 on $mux $procmux$36.
+    dead port 1/2 on $mux $procmux$51.
+    dead port 1/2 on $mux $procmux$57.
+Removed 7 multiplexer ports.
+<suppressed ~11 debug messages>
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+3.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+3.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+3.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.6.16. Finished OPT passes. (There is nothing left to do.)
+
+3.7. Executing FSM pass (extract and optimize FSM).
+
+3.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$116 ($dff) from module fir_pe (D = \Xin, Q = \XinH).
+Adding EN signal on $procdff$115 ($dff) from module fir_pe (D = \Xin, Q = \XinL).
+Adding EN signal on $procdff$114 ($dff) from module fir_pe (D = \Yin, Q = \Yin0).
+Adding EN signal on $procdff$113 ($dff) from module fir_pe (D = \Yin, Q = \Yin1).
+Adding EN signal on $procdff$112 ($dff) from module fir_pe (D = \Yin, Q = \Yin2).
+Adding EN signal on $procdff$111 ($dff) from module fir_pe (D = \Yin, Q = \Yin3).
+Adding EN signal on $procdff$110 ($dff) from module fir_pe (D = $add$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:52$7_Y, Q = \y).
+Adding EN signal on $procdff$109 ($dff) from module fir_pe (D = $mul$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:51$6_Y, Q = \mul).
+Adding EN signal on $procdff$108 ($dff) from module fir_pe (D = { \Yin3 \Yin2 \Yin1 \Yin0 }, Q = \rYin).
+
+3.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 16 unused cells and 16 unused wires.
+<suppressed ~17 debug messages>
+
+3.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+3.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+3.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+3.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.8.23. Finished OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 10 bits (of 16) from port B of cell fir_pe.$mul$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:51$6 ($mul).
+Removed top 2 bits (of 16) from port Y of cell fir_pe.$mul$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:51$6 ($mul).
+Removed top 2 bits (of 16) from FF cell fir_pe.$auto$ff.cc:266:slice$148 ($dffe).
+Removed top 2 bits (of 16) from port B of cell fir_pe.$add$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:52$7 ($add).
+Removed top 2 bits (of 16) from wire fir_pe.$mul$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:51$6_Y.
+Removed top 2 bits (of 16) from wire fir_pe.mul.
+
+3.10. Executing PEEPOPT pass (run peephole optimizers).
+
+3.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module fir_pe:
+  creating $macc model for $add$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:52$7 ($add).
+  creating $macc model for $mul$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:51$6 ($mul).
+  creating $alu model for $macc $add$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:52$7.
+  creating $macc cell for $mul$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:51$6: $auto$alumacc.cc:365:replace_macc$152
+  creating $alu cell for $add$/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/source/fir_pe.v:52$7: $auto$alumacc.cc:485:replace_alu$153
+  created 1 $alu and 1 $macc cells.
+
+3.13. Executing SHARE pass (SAT-based resource sharing).
+
+3.14. Executing OPT pass (performing simple optimizations).
+
+3.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+3.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.14.9. Finished OPT passes. (There is nothing left to do.)
+
+3.15. Executing MEMORY pass.
+
+3.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+3.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.17. Executing OPT pass (performing simple optimizations).
+
+3.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+<suppressed ~2 debug messages>
+
+3.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.17.5. Finished fast OPT passes.
+
+3.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.19. Executing OPT pass (performing simple optimizations).
+
+3.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+3.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.19.6. Executing OPT_SHARE pass.
+
+3.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+3.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.19.10. Finished OPT passes. (There is nothing left to do.)
+
+3.20. Executing TECHMAP pass (map to technology primitives).
+
+3.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+3.20.2. Continuing TECHMAP pass.
+Using template $paramod$2ed8280b262e219c036a1de1b95189a8901efa7b\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper maccmap for cells of type $macc.
+  add { \XinH \XinL } * \Cin (8x6 bits, unsigned)
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001110 for cells of type $fa.
+Using template $paramod$091610cd349a68bd5539cffd7126f0d76e9bca00\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001110 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~548 debug messages>
+
+3.21. Executing OPT pass (performing simple optimizations).
+
+3.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+<suppressed ~252 debug messages>
+
+3.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 41 unused cells and 122 unused wires.
+<suppressed ~42 debug messages>
+
+3.21.5. Finished fast OPT passes.
+
+3.22. Executing ABC pass (technology mapping using ABC).
+
+3.22.1. Extracting gate netlist of module `\fir_pe' to `<abc-temp-dir>/input.blif'..
+Extracted 365 gates and 429 wires to a netlist network with 64 inputs and 41 outputs.
+
+3.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+3.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               MUX cells:       16
+ABC RESULTS:               NOT cells:        6
+ABC RESULTS:               AND cells:       37
+ABC RESULTS:              XNOR cells:       30
+ABC RESULTS:                OR cells:       36
+ABC RESULTS:              NAND cells:       33
+ABC RESULTS:             ORNOT cells:       12
+ABC RESULTS:               NOR cells:       30
+ABC RESULTS:            ANDNOT cells:       93
+ABC RESULTS:               XOR cells:       76
+ABC RESULTS:        internal signals:      324
+ABC RESULTS:           input signals:       64
+ABC RESULTS:          output signals:       41
+Removing temp directory.
+
+3.23. Executing OPT pass (performing simple optimizations).
+
+3.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+3.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 0 unused cells and 195 unused wires.
+<suppressed ~1 debug messages>
+
+3.23.5. Finished fast OPT passes.
+
+3.24. Executing HIERARCHY pass (managing design hierarchy).
+
+3.24.1. Analyzing design hierarchy..
+Top module:  \fir_pe
+
+3.24.2. Analyzing design hierarchy..
+Top module:  \fir_pe
+Removed 0 unused modules.
+
+3.25. Printing statistics.
+
+=== fir_pe ===
+
+   Number of wires:                359
+   Number of wire bits:            571
+   Number of public wires:          20
+   Number of public wire bits:     124
+   Number of ports:                  8
+   Number of port bits:             25
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                444
+     $_ANDNOT_                      93
+     $_AND_                         37
+     $_DFFE_PP_                     70
+     $_DFF_P_                        5
+     $_MUX_                         16
+     $_NAND_                        33
+     $_NOR_                         30
+     $_NOT_                          6
+     $_ORNOT_                       12
+     $_OR_                          36
+     $_XNOR_                        30
+     $_XOR_                         76
+
+3.26. Executing CHECK pass (checking for obvious problems).
+Checking module fir_pe...
+Found and reported 0 problems.
+
+4. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFFNEGX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_N_.
+  cell DFFPOSX1 (noninv, pins=3, area=864.00) is a direct match for cell type $_DFF_P_.
+  cell DFFSR (noninv, pins=5, area=1584.00) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    \DFFNEGX1 _DFF_N_ (.CLK( C), .D( D), .Q( Q));
+    \DFFPOSX1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    unmapped dff cell: $_DFF_PN0_
+    unmapped dff cell: $_DFF_PN1_
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFFSR _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .R( R), .S( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+4.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\fir_pe':
+  mapped 75 $_DFF_P_ cells to \DFFPOSX1 cells.
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+5.9. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Extracting gate netlist of module `\fir_pe' to `<abc-temp-dir>/input.blif'..
+Extracted 439 gates and 528 wires to a netlist network with 89 inputs and 78 outputs.
+
+6.1.1. Executing ABC.
+Running ABC command: "/usr/local/share/qflow/bin/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped cell "FAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "HAX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TBUFX2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XNOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "XOR2X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "etri05_stdcells" from "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" has 24 cells (9 skipped: 4 seq; 1 tri-state; 4 no func; 6 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.51 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.1.2. Re-integrating ABC results.
+ABC RESULTS:           OAI22X1 cells:        6
+ABC RESULTS:            AND2X2 cells:       30
+ABC RESULTS:             OR2X2 cells:       10
+ABC RESULTS:           AOI22X1 cells:       21
+ABC RESULTS:           NAND3X1 cells:       94
+ABC RESULTS:             INVX1 cells:      126
+ABC RESULTS:            NOR2X1 cells:       85
+ABC RESULTS:           AOI21X1 cells:       74
+ABC RESULTS:           NAND2X1 cells:      145
+ABC RESULTS:           OAI21X1 cells:      175
+ABC RESULTS:        internal signals:      361
+ABC RESULTS:           input signals:       89
+ABC RESULTS:          output signals:       78
+Removing temp directory.
+
+7. Executing FLATTEN pass (flatten design).
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+Removed 0 unused cells and 508 unused wires.
+
+9. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map input port fir_pe.Cin: Missing option -inpad.
+Don't map input port fir_pe.Rdy: Missing option -inpad.
+Mapping port fir_pe.Vld using BUFX2.
+Don't map input port fir_pe.Xin: Missing option -inpad.
+Mapping port fir_pe.Xout using BUFX2.
+Don't map input port fir_pe.Yin: Missing option -inpad.
+Mapping port fir_pe.Yout using BUFX2.
+Don't map input port fir_pe.clk: Missing option -inpad.
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fir_pe..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fir_pe.
+Performed a total of 0 changes.
+
+10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fir_pe'.
+Removed a total of 0 cells.
+
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fir_pe..
+
+10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fir_pe.
+
+10.16. Finished OPT passes. (There is nothing left to do.)
+
+11. Executing Verilog backend.
+
+11.1. Executing BMUXMAP pass.
+
+11.2. Executing DEMUXMAP pass.
+Dumping module `\fir_pe'.
+
+12. Printing statistics.
+
+=== fir_pe ===
+
+   Number of wires:                778
+   Number of wire bits:            870
+   Number of public wires:         778
+   Number of public wire bits:     870
+   Number of ports:                  8
+   Number of port bits:             25
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                850
+     AND2X2                         30
+     AOI21X1                        74
+     AOI22X1                        21
+     BUFX2                           9
+     DFFPOSX1                       75
+     INVX1                         126
+     NAND2X1                       145
+     NAND3X1                        94
+     NOR2X1                         85
+     OAI21X1                       175
+     OAI22X1                         6
+     OR2X2                          10
+
+End of script. Logfile hash: 21e513ce8a, CPU: user 0.18s system 0.01s, MEM: 19.95 MB peak
+Yosys 0.45+112 (git sha1 c8b42b7d4, clang++ 10.0.0-4ubuntu1 -fPIC -O3)
+Time spent: 48% 2x abc (0 sec), 10% 25x opt_expr (0 sec), ...
+Running getpowerground to determine power and ground net names.
+getpowerground.tcl  /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+Running vlogFanout
+vlogFanout -l 300 -c 75 -I fir_pe_nofanout -s nullstring -p /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -b BUFX2,CLKBUF1 -i A,A -o Y,Y fir_pe_mapped.v fir_pe_sized.v
+
+vlogFanout for qflow 1.4.100
+Parsing library "etri05_stdcells"
+End of library at line 6613
+Lib Read:  Processed 6615 lines.
+Top internal fanout is 67 (load 2140.02) from node LoadCtl[4],
+driven by DFFPOSX1 with strength 549.757 (fF driven at latency 300)
+Top fanout load-to-strength ratio is 4.44065 (latency = 1332.2 ps)
+Top input node fanout is 75 (load 3744.68) from node clk.
+0 gates exceed specified minimum load.
+34 buffers were added.
+Warning 1: load of 180.294 is 1.09255 times greater than strongest gate OAI21X1
+This warning will only be repeated for larger overload ratios.  Warning count reflects
+the total number of overloaded nets.
+Warning 2: load of 181.668 is 1.10407 times greater than strongest gate NAND3X1
+Warning 3: load of 259.117 is 1.57476 times greater than strongest gate NAND3X1
+Warning 11: load of 1366.37 is 2.4854 times greater than strongest gate DFFPOSX1
+Warning 13: load of 2150.02 is 3.91085 times greater than strongest gate DFFPOSX1
+12 gates were changed.
+
+Gate counts by drive strength:
+
+	"1" gates	In: 809    	Out: 797    	-12
+	"2" gates	In: 75    	Out: 86    	+11
+
+14 gates exceed specified minimum load.
+0 buffers were added.
+0 gates were changed.
+
+Gate counts by drive strength:
+
+	"1" gates	In: 809    	Out: 797    	-12
+	"2" gates	In: 75    	Out: 86    	+11
+
+Number of gates changed: 0
+Running vlog2Verilog for antenna cell mapping.
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+   -o fir_pe.v fir_pe_sized.v
+
+Generating RTL verilog and SPICE netlist file in directory
+	 /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/synthesis
+Files:
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/synthesis/fir_pe.rtl.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/synthesis/fir_pe.rtlnopwr.v
+   Verilog: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/synthesis/fir_pe.rtlbb.v
+   Spice:   /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR_PE/synthesis/fir_pe.spc
+
+Running vlog2Verilog.
+vlog2Verilog -c -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o fir_pe.rtl.v
+   fir_pe.v
+vlog2Verilog -c -p -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef 
+	-o fir_pe.rtlnopwr.v
+   fir_pe.v
+/usr/local/share/qflow/bin/vlog2Verilog -c -p -b -n -v vdd -g gnd  -l /usr/local/share/qflow/tech/etri050/etri050_stdcells.lef
+   -o fir_pe.rtlbb.v
+Running vlog2Spice.
+vlog2Spice -i -l  /usr/local/share/qflow/tech/etri050/etri050_stdcells.sp -o fir_pe.spc fir_pe.rtl.v
+Running spi2xspice.py
+spi2xspice.py "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib" fir_pe.spc fir_pe.xspice
+
+Synthesis script ended on Tue 15 Oct 2024 12:40:15 PM KST

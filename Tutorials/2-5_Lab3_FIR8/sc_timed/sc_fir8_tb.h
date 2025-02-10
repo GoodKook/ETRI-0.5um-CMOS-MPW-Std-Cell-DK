@@ -17,6 +17,10 @@ History : Mar. 2024, First release
 #include <verilated_vcd_sc.h>
 #endif
 
+#ifdef EMULATED_CO_SIM
+#include "Efir8.h"
+#endif
+
 SC_MODULE(sc_fir8_tb)
 {
     sc_clock                clk;
@@ -37,6 +41,14 @@ SC_MODULE(sc_fir8_tb)
     VerilatedVcdSc* tfp;    // Verilator VCD
 #endif
 
+#ifdef EMULATED_CO_SIM
+    sc_signal<sc_uint<8> >  E_Xin;
+    sc_signal<sc_uint<8> >  E_Xout;
+    sc_signal<sc_uint<16> > E_Yin;
+    sc_signal<sc_uint<16> > E_Yout;
+
+    Efir8*  u_Efir8;
+#endif
 
     // Test utilities
     void Test_Gen();
@@ -81,6 +93,15 @@ SC_MODULE(sc_fir8_tb)
         tfp->open("Vfir8.vcd");
 #endif
 
+#ifdef EMULATED_CO_SIM
+        u_Efir8 = new Efir8("u_Efir8");
+        u_Efir8->clk(clk);
+        u_Efir8->Xin(E_Xin);
+        u_Efir8->Xout(E_Xout);
+        u_Efir8->Yin(E_Yin);
+        u_Efir8->Yout(E_Yout);
+#endif
+
 #ifdef VCD_TRACE_FIR8_TB
         // WAVE
         fp = sc_create_vcd_trace_file("sc_fir8_tb");
@@ -90,7 +111,13 @@ SC_MODULE(sc_fir8_tb)
         sc_trace(fp, Xout, "Xout");
         sc_trace(fp, Yin,  "Yin");
         sc_trace(fp, Yout, "Yout");
-#endif
+#ifdef EMULATED_CO_SIM
+        sc_trace(fp, E_Xin,  "E_Xin");
+        sc_trace(fp, E_Xout, "E_Xout");
+        sc_trace(fp, E_Yin,  "E_Yin");
+        sc_trace(fp, E_Yout, "E_Yout");
+#endif	// EMULATED_CO_SIM
+#endif	// VCD_TRACE_FIR8_TB
     }
     
     ~sc_fir8_tb(void)

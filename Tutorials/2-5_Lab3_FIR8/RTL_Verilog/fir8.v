@@ -18,7 +18,7 @@ wire [ 7:0] X[`N_PE_ARRAY+1];
 wire [15:0] Y[`N_PE_ARRAY+1];
 
 localparam [7:0] C[`N_PE_ARRAY] = {4, 12, 25, 34, 34, 25, 12, 4 };
-//localparam [7:0] C[`N_PE_ARRAY] = {3, 12, 25, 34, 34, 25, 12, 4 };
+//localparam [7:0] C[`N_PE_ARRAY] = {3, 12, 25, 34, 34, 25, 12, 4 };	// Faulty const.at C[0]
 
 assign X[0] = Xin;
 assign Y[0] = Yin;

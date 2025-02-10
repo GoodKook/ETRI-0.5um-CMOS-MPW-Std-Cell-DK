@@ -47,6 +47,9 @@ void sc_fir8_tb::Test_Gen()
 #ifdef VERILATED_CO_SIM
     V_Yin.write((uint32_t)0);
 #endif
+#ifdef EMULATED_CO_SIM
+    E_Yin.write((sc_uint<16>)0);
+#endif
 
     t = 0;
 
@@ -56,6 +59,9 @@ void sc_fir8_tb::Test_Gen()
         Xin.write(x[t]);
 #ifdef VERILATED_CO_SIM
         V_Xin.write((uint32_t)x[t]);
+#endif
+#ifdef EMULATED_CO_SIM
+        E_Xin.write((sc_uint<8>)x[t]);
 #endif
         t = ((++t) % F_SAMPLE);
     }
@@ -68,6 +74,9 @@ void sc_fir8_tb::Test_Mon()
 #ifdef VERILATED_CO_SIM
     uint16_t    V_yout;
 #endif
+#ifdef EMULATED_CO_SIM
+    uint16_t    E_yout;
+#endif
 
     FILE *fp = fopen ( "sc_fir8_tb_out.txt", "w" );
 
@@ -78,6 +87,9 @@ void sc_fir8_tb::Test_Mon()
 #ifdef VERILATED_CO_SIM
         V_yout = (uint16_t)V_Yout.read();
 #endif
+#ifdef EMULATED_CO_SIM
+        E_yout = (uint16_t)E_Yout.read();
+#endif
         if (yout==0)    continue;
 
         if (y[n]!=yout)
@@ -87,6 +99,13 @@ void sc_fir8_tb::Test_Mon()
         {
             printf("V_Err:");
             yout = V_yout;
+        }
+#endif
+#ifdef EMULATED_CO_SIM
+        if (y[n]!=E_yout)
+        {
+            printf("E_Err:");
+            yout = E_yout;
         }
 #endif
         printf("[%4d] y=%d / Yout=%d\n", n, (uint16_t)y[n], yout);
