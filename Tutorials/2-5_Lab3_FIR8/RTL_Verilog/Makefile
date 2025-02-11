@@ -1,36 +1,56 @@
 # -----------------------------------------------------
 TOP_MODULE   = fir8
 
-VERILOG_SRCS = $(TOP_MODULE).v \
-				fir_pe.v
-SC_SRCS     = ../sc_timed/sc_main.cpp \
-			  ../sc_timed/sc_fir8_tb.cpp \
-			  ../c_untimed/fir8.cpp \
-			  ../c_untimed/cnoise.cpp
-SC_TOP_H     = ../sc_timed/sc_$(TOP_MODULE)_tb.h
-VERILATOR    = verilator
-CFLAGS       = -CFLAGS -std=c++17
-CFLAGS      += -CFLAGS -I../sc_timed
-#CFLAGS      += -CFLAGS -DVCD_TRACE_FIR8_TB
-CFLAGS      += -CFLAGS -DVCD_TRACE_FIR8
-CFLAGS      += -CFLAGS -DVERILATED_CO_SIM
-LDFLAGS		 = -LDFLAGS -lgsl
+VERILOG_SRCS = \
+    $(TOP_MODULE).v \
+    fir_pe.v
+SC_SRCS = \
+    ../sc_timed/sc_main.cpp \
+    ../sc_timed/sc_fir8_tb.cpp \
+    ../c_untimed/fir8.cpp \
+    ../c_untimed/cnoise.cpp
+SC_TOP_H = \
+    ../sc_timed/sc_$(TOP_MODULE)_tb.h
+
+VERILATOR = verilator
+CFLAGS    = -CFLAGS -std=c++17
+CFLAGS   += -CFLAGS -I../sc_timed
+#CFLAGS  += -CFLAGS -DVCD_TRACE_FIR8_TB
+CFLAGS   += -CFLAGS -DVCD_TRACE_FIR8
+CFLAGS   += -CFLAGS -DVERILATED_CO_SIM
+LDFLAGS   = -LDFLAGS -lgsl
 
 #VERILOG_DEFS = +define+
 
-TARGET       = V$(TOP_MODULE)
-TARGET_DIR   = obj_dir
+TARGET     = V$(TOP_MODULE)
+TARGET_DIR = obj_dir
 
-export SYSTEMC			= /usr/local/systemc-3.0.0
-export SYSTEMC_HOME		= $(SYSTEMC)
-export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
-export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib-linux64
-export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
-export CXX				= clang++
-export CXXFLAGS			= -std=c++17
+export SYSTEMC          = /usr/local/systemc-3.0.0
+export SYSTEMC_HOME     = $(SYSTEMC)
+export SYSTEMC_INCLUDE  = $(SYSTEMC_HOME)/include
+export SYSTEMC_LIBDIR   = $(SYSTEMC_HOME)/lib-linux64
+export LD_LIBRARY_PATH :=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
+export CXX              = clang++
+export CXXFLAGS         = -std=c++17
 
 all :
+	@echo
 	@echo 'Makefile for Example: $(TOP_MODULE)'
+	@echo '      RTL: Bit-width & Clock Accuracy'
+	@echo '      +-----------------------------------------------------------+'
+	@echo '      | fir8                                                      |'
+	@echo '      |   fir_pe[0]    fir_pe[1]         fir_pe[6]    fir_pe[7]   |'
+	@echo '      |   +-------+    +-------+         +-------+    +-------+   |'
+	@echo '      |   |       |    |       |         |       |    |       |   |'
+	@echo 'Xin--[8]-->       ----->       --->...--->       ----->       ----->Xout'
+	@echo '      |   |       |    |       |         |       |    |       |   |'
+	@echo 'Yin--[16]->       ----->       --->...--->       ----->       ----->Yout'
+	@echo '      |   |       |    |       |         |       |    |       |   |'
+	@echo '      | +->       | +-->       |      +-->       | +-->       |   |'
+	@echo '      | | +---+---+ |  +---+---+      |  +---+---+ |  +---+---+   |'
+	@echo '      | |   C[0]    |    C[1]         |    C[6]    |    C[7]      |'
+	@echo 'Clk-----+-----------+----------- ... -+------------+              |'
+	@echo '      +-----------------------------------------------------------+'
 	@echo ''
 	@echo '    make build'
 	@echo '        Builds executable of "$(TOP_MODULE)" with Verilated RTL and SystemC TB'
@@ -49,7 +69,7 @@ all :
 	@echo ''
 	@echo '    make clean'
 	@echo '        Clean working folder'
-	@echo ''
+	@echo
 
 build : $(TARGET_DIR)/$(TARGET)
 
@@ -85,4 +105,10 @@ clean :
 
 debug : $(TARGET_DIR)/$(TARGET)
 	ddd $(TARGET_DIR)/$(TARGET)
+
+
+
+
+
+
 

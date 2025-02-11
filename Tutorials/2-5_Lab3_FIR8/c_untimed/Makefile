@@ -11,6 +11,7 @@ INC_PATH = -I. -I/opt/local/include
 LIBS = -lm -lgsl
 
 all:
+	@echo
 	@echo 'Makefile for un-timed C/C++ test of "FIR8" example'
 	@echo '  * GNU Science Library(GSL) is used for noise generation'
 	@echo 'Usage:'
@@ -23,6 +24,7 @@ all:
 	@echo '             plot_y'
 	@echo '             plot_fy'
 	@echo '             clean'
+	@echo
 
 build: $(EXEC)
 
@@ -30,7 +32,7 @@ $(EXEC): $(SRCS) $(HDRS)
 	gcc $(INC_PATH) $(LIBS) -o $(EXEC) $(SRCS) $(LIBS)
 
 run: $(EXEC)
-	./$(EXEC) > $(EXEC)_out.txt
+	./$(EXEC) | tee $(EXEC)_out.txt
 
 $(EXEC)_out.txt: $(EXEC)
 	./$(EXEC) > $(EXEC)_out.txt
