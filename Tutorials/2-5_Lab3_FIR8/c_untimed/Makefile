@@ -38,17 +38,18 @@ $(EXEC)_out.txt: $(EXEC)
 	./$(EXEC) > $(EXEC)_out.txt
 
 plot_x: $(EXEC)_out.txt
-	./plotDFT.py input
+	python3 ./plotDFT.py input
 
 plot_fx: $(EXEC)_out.txt
-	./plotDFT.py inputDFT
+	python3 ./plotDFT.py inputDFT
 
 plot_y: $(EXEC)_out.txt
-	./plotDFT.py output
+	python3 ./plotDFT.py output
 
 plot_fy: $(EXEC)_out.txt
-	./plotDFT.py outputDFT
+	python3 ./plotDFT.py outputDFT
 	
 clean:
 	rm -f $(EXEC)
 	rm -f *.txt
+

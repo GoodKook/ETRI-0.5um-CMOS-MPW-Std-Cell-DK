@@ -43,6 +43,7 @@ TARGET_DIR   = obj_dir
 all :
 	@echo 'Makefile for Emulation Example: $(TOP_MODULE)'
 	@echo ''
+	@echo 'SystemC Testbench(Re-Used)'
 	@echo '+-----------------------------------------------------------+'
 	@echo '|  sc_fir8_tb                                               |'
 	@echo '|      +-----------------------------------------------+    |'

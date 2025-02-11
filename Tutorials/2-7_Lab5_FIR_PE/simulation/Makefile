@@ -47,7 +47,8 @@ TARGET_DIR   = obj_dir
 all :
 	@echo
 	@echo 'Makefile for Co-Simulation of "FIR_PE, 4-bit IO for MPW pad limit"'
-	@echo ' '
+	@echo ''
+	@echo 'SystemC Testbench'
 	@echo '      +-----------------------------------------------------------+'
 	@echo '      | sc_fir8                                                   |'
 	@echo '      |   V_fir_pe[0]  V_fir_pe[1]       V_fir_pe[6]  V_fir_pe[7] |'
