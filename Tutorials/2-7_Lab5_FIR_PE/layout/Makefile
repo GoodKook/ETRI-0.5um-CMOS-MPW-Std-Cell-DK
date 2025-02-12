@@ -17,7 +17,7 @@ all :
 	@echo '             stack'
 	@echo '             drc'
 	@echo '             lvs'
-	@echo '             Core'
+#	@echo '             Core'
 	@echo ''
 	@echo '             mag2gds'
 	@echo '             klayout'
