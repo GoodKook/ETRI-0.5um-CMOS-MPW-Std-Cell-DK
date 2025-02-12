@@ -99,7 +99,7 @@ define config_cell
 	cp -f $(1)/DFFNEGX1.mag	$(CELL_LIB)/DFFNEGX1.mag
 	cp -f $(1)/DFFPOSX1.mag	$(CELL_LIB)/DFFPOSX1.mag
 	cp -f $(1)/DFFSR.mag	$(CELL_LIB)/DFFSR.mag
-	cp -f $(1)/FILL.mag		$(CELL_LIB)/FILL.mag
+	cp -f $(1)/FILL.mag	$(CELL_LIB)/FILL.mag
 	cp -f $(1)/INVX1.mag	$(CELL_LIB)/INVX1.mag
 	cp -f $(1)/INVX2.mag	$(CELL_LIB)/INVX2.mag
 	cp -f $(1)/INVX4.mag	$(CELL_LIB)/INVX4.mag
@@ -115,8 +115,8 @@ define config_cell
 	cp -f $(1)/OR2X2.mag	$(CELL_LIB)/OR2X2.mag
 	cp -f $(1)/TBUFX1.mag	$(CELL_LIB)/TBUFX1.mag
 	cp -f $(1)/TBUFX2.mag	$(CELL_LIB)/TBUFX2.mag
-	cp -f $(1)/HAX1.mag		$(CELL_LIB)/HAX1.mag
-	cp -f $(1)/FAX1.mag		$(CELL_LIB)/FAX1.mag
+	cp -f $(1)/HAX1.mag	$(CELL_LIB)/HAX1.mag
+	cp -f $(1)/FAX1.mag	$(CELL_LIB)/FAX1.mag
 	cp -f $(1)/XNOR2X1.mag	$(CELL_LIB)/XNOR2X1.mag
 	cp -f $(1)/XOR2X1.mag	$(CELL_LIB)/XOR2X1.mag
 	cp -f $(1)/LATCH.mag	$(CELL_LIB)/LATCH.mag
