@@ -16,19 +16,20 @@ sudo apt install -y \
     xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable \
     libxaw7-dev x11-xserver-utils \
     clang bison flex gawk git libgit2-dev \
-    libfl2 libfl-dev \
+    libfl2 libfl-dev dbus dbus-x11 \
     libreadline-dev tcl-dev tk-dev libffi-dev \
     graphviz xdot pkg-config \
     python3 python3-dev python3-numpy python3-pip \
-    python3-matplotlib python3.9-tk python3-orderedmultidict \
-    python3-clang yapf3 jq \
-    libgsl-dev zlibc zlib1g zlib1g-dev libxt-dev \
+    python3-matplotlib python3-tk python3-orderedmultidict \
+    python3-clang yapf3 bear jq \
+    libgsl-dev zlib1g zlib1g-dev libxt-dev \
     m4 tcsh csh libcairo2-dev libeigen3-dev \
     mesa-common-dev libglu1-mesa-dev libncurses-dev \
     libboost-all-dev libboost-dev libboost-system-dev \
     libboost-python-dev libboost-filesystem-dev \
     qtbase5-dev qtdeclarative5-dev qtcreator \
-    qt5-default qttools5-dev libqt5xmlpatterns5-dev \
+    qtchooser qt5-qmake qtbase5-dev-tools \
+    qttools5-dev libqt5xmlpatterns5-dev \
     ruby ruby-dev libz-dev \
     qtmultimedia5-dev libqt5multimediawidgets5 libqt5svg5-dev \
     swig libtool libjpeg-dev \
@@ -37,8 +38,7 @@ sudo apt install -y \
     google-perftools libgoogle-perftools-dev \
     ant default-jre libfl-dev \
     uuid uuid-dev \
-    g++-10 gcc-10 \
-    libsecret-1-dev doxygen
+    libsecret-1-dev doxygen nemo gedit gedit-plugin-multi-edit
 sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 sudo pip3 install git+https://github.com/antmicro/astsee.git
 cpan install Pod::Perldoc
