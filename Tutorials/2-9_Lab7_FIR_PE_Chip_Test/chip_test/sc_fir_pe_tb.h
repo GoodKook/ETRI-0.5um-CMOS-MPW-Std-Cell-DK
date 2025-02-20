@@ -10,12 +10,12 @@ History : Jan. 2025, First release
 #define  _SC_FIR_PE_TB_H_
 
 #include <systemc.h>
-#include "sc_fir_pe.h"
+#include "E_fir_pe.h"
 
 SC_MODULE(sc_fir_pe_tb)
 {
     sc_clock                clk;
-    sc_signal<sc_uint<8> >  Cin;
+    sc_signal<sc_uint<6> >  Cin;
     sc_signal<sc_uint<4> >  Xin;
     sc_signal<sc_uint<4> >  Xout;
     sc_signal<sc_uint<4> >  Yin;
@@ -23,7 +23,7 @@ SC_MODULE(sc_fir_pe_tb)
     sc_signal<bool>         Vld;
     sc_signal<bool>         Rdy;
 
-    sc_fir_pe*                u_sc_fir_pe;
+    E_fir_pe*                u_E_fir_pe;
 
     uint16_t    Test_Cin[5] = {0, 0, 0, 0, 0};
     uint16_t    Test_Xin[5] = {0, 0, 0, 0, 0};
@@ -184,15 +184,15 @@ SC_MODULE(sc_fir_pe_tb)
         sensitive << clk;
         
         // Instaltiate FIR8
-        u_sc_fir_pe = new sc_fir_pe("u_sc_fir_pe");
-        u_sc_fir_pe->clk(clk);
-        u_sc_fir_pe->Cin(Cin);
-        u_sc_fir_pe->Xin(Xin);
-        u_sc_fir_pe->Xout(Xout);
-        u_sc_fir_pe->Yin(Yin);
-        u_sc_fir_pe->Yout(Yout);
-        u_sc_fir_pe->Rdy(Rdy);
-        u_sc_fir_pe->Vld(Vld);
+        u_E_fir_pe = new E_fir_pe("u_E_fir_pe");
+        u_E_fir_pe->clk(clk);
+        u_E_fir_pe->Cin(Cin);
+        u_E_fir_pe->Xin(Xin);
+        u_E_fir_pe->Xout(Xout);
+        u_E_fir_pe->Yin(Yin);
+        u_E_fir_pe->Yout(Yout);
+        u_E_fir_pe->Rdy(Rdy);
+        u_E_fir_pe->Vld(Vld);
 
 #if VCD_TRACE_YES
         // WAVE

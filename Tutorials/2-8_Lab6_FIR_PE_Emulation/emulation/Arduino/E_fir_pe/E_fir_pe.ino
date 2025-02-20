@@ -6,7 +6,7 @@
 
 // Co-Emulation interface -------------------------------------------
 // Followings are DUT specific defs
-#define DELAY_MICROS    10
+#define DELAY_MICROS    100
 
 #define N_RX            3   // Number of byte to DUT's inputs
                             //  Bitmap must match with SystemC TB and Verilog wrapper

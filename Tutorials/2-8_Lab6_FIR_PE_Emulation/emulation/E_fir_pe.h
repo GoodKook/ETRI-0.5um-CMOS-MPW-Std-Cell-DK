@@ -41,7 +41,7 @@ SC_MODULE(E_fir_pe)
             wait(clk.posedge_event());
             txPacket[0] = (uint8_t)Cin.read();      // Cin
             txPacket[1] = (uint8_t)(Yin.read())<<4 | (uint8_t)(Xin.read()); // Yin | Xin
-            txPacket[2] = (uint8_t)Rdy.read();
+            txPacket[2] = (uint8_t)Rdy.read()? 0x01:0x00;
 
             // Send to Emulator
             for (int i=0; i<N_TX; i++)
@@ -59,12 +59,37 @@ SC_MODULE(E_fir_pe)
             Yout.write((sc_uint<4>)(rxPacket[0]>>4));
             Xout.write((sc_uint<4>)(rxPacket[0] & 0x0F));
             Vld.write(rxPacket[1]? true:false);
+
+#ifdef LA_FIFO
+        x  = 0x02;                      // clk=1
+        x |= txPacket[2] & 0x01;        // Rdy
+        x |= rxPacket[1]? 0x04:0x00;    // Vld
+        x |= (rxPacket[0]  & 0x01)<<4;  // Yout0
+        x |= (rxPacket[0]  & 0x02)<<4;  // Yout1
+        x |= (rxPacket[0]  & 0x04)<<4;  // Yout2
+        x |= (rxPacket[0]  & 0x08)<<4;  // Yout3
+        if((nWrite = write(la_fifo, &x, 1)) < 1)
+            fprintf(stderr,"la_fifo: write error\n");
+        else
+            fflush(0);
+
+        wait(clk.negedge_event());
+        x  &= 0xFD;       // clk=0
+        if((nWrite = write(la_fifo, &x, 1)) < 1)
+            fprintf(stderr,"la_fifo: write error\n");
+        else
+            fflush(0);
+#endif
         }
     }
 
     // Arduino Serial IF
     int fd;                 // Serial port file descriptor
     struct termios options; // Serial port setting
+
+#ifdef LA_FIFO
+	int la_fifo, nWrite;
+#endif
 
     SC_CTOR(E_fir_pe):
         clk("clk"),
@@ -99,6 +124,12 @@ SC_MODULE(E_fir_pe)
         if (rx=='A')
             write(fd, &rx, 1);
         printf("Connection established...\n");
+
+#ifdef LA_FIFO
+        la_fifo = open("la_fifo", O_WRONLY);
+        if(la_fifo<0)
+            fprintf(stderr,"la_fifo: open error\n");
+#endif
     }
     
     ~E_fir_pe(void)
@@ -107,3 +138,4 @@ SC_MODULE(E_fir_pe)
 };
 
 #endif
+
