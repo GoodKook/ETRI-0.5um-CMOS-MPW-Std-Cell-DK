@@ -101,7 +101,7 @@ input  R ;
 input  S ;
 output Q ;
     reg Q;
-    always @(negedge CLK or negedge S or negedge R)
+    always @(posedge CLK or negedge S or negedge R)
         if (!S)
             Q <= 1'b1;
         else if (!R)
@@ -176,11 +176,9 @@ input  B ;
 input  S ;
 output Y ;
     reg Y;
-    always @(*)
-        if (!S)
-            Y = ~A;
-        else
-            Y = ~B;
+
+//    function : "(!((S A) + (!S B)))";
+    assign Y = (~((S & A) | ((~S) & B)));
 endmodule
 
 module NAND2X1 (A, B, Y);
