@@ -3,9 +3,9 @@
  *
  */
  
-//`define MULT_ARITH
+`define MULT_ARITH
 //`define MULT_2D
-`define MULT_FLAT
+//`define MULT_FLAT
 
 module ALU8_Mult( clk, reset, ABCmd_i, LoadA_i, LoadB_i, LoadCmd_i, MulL_i, MulH_i, Flag_i, ACC_o);
 	input        clk;

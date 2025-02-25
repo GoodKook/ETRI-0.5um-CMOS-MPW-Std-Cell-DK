@@ -9,11 +9,18 @@ Revision History: Dec 15 2023,
 #ifndef _SC_ALU8_MULT_TB_H_
 #define _SC_ALU8_MULT_TB_H_
 
+#ifdef PSCE_EMULATION
+#include "EALU8_Mult.h"
+#else
 #include "VALU8_Mult.h"
+#endif
+
 #include "sc_gen_test.h"
 #include "sc_monitor.h"
 
+#ifdef VERILATED_VCD_SC
 #include <verilated_vcd_sc.h>
+#endif  //VERILATED_VCD_SC
 
 SC_MODULE(sc_ALU8_Mult_tb)
 {
@@ -28,15 +35,22 @@ SC_MODULE(sc_ALU8_Mult_tb)
     sc_signal<bool>     Flag_i;
     sc_signal<uint32_t> ACC_o;  // 8-bit
 
+#ifdef PSCE_EMULATION
+    // Verilated DUT
+    EALU8_Mult*   u_ALU8_Mult;
+#else
     // Verilated DUT
     VALU8_Mult*   u_ALU8_Mult;
+#endif
 
-    // for Testbench
+// for Testbench
     sc_Gen_Test*    u_sc_Gen_Test;
     sc_Monitor*     u_sc_Monitor;
 
     sc_trace_file*  fp;     // SystemC Trace VCD file
+#ifdef VERILATED_VCD_SC
     VerilatedVcdSc* tfp;    // Verilated Trace
+#endif
 
     sc_signal<sc_uint<8> > ABCmd_i_n8;
     sc_signal<sc_uint<8> > ACC_o_n8;
@@ -63,7 +77,11 @@ SC_MODULE(sc_ALU8_Mult_tb)
         sensitive << ABCmd_i << ACC_o;
         
         // DUT Instantiation
+#ifdef PSCE_EMULATION
+        u_ALU8_Mult = new EALU8_Mult("u_ALU8_Mult");
+#else
         u_ALU8_Mult = new VALU8_Mult("u_ALU8_Mult");
+#endif
         // Binding
         u_ALU8_Mult->clk(clk);
         u_ALU8_Mult->reset(reset);
@@ -121,12 +139,14 @@ SC_MODULE(sc_ALU8_Mult_tb)
     	sc_trace(fp, u_sc_Monitor->rCmd, "rCmd");
     	sc_trace(fp, u_sc_Monitor->rACC, "rACC");
 
+#ifdef VERILATED_VCD_SC
         // Trace Verilated Verilog integnals
         Verilated::traceEverOn(true);
 
         tfp = new VerilatedVcdSc;
         sc_start(SC_ZERO_TIME);
         u_ALU8_Mult->trace(tfp,2);  // Trace level of hierarchy=2
+#endif  // VERILATED_VCD_SC
     }
 
     // Destructor

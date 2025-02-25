@@ -1,51 +1,65 @@
-# -----------------------------------------------------
-SC_SRCS      =	../simulation/sc_main.cpp
-SC_TOP_H     =	../simulation/sc_ALU_wrapper_top.h \
-				../simulation/sc_monitor.h \
-				../simulation/sc_gen_test.h \
-				../simulation/def_commands.h
+# SystemC Environments -----------------------------------------
+export SYSTEMC         = /usr/local/systemc-3.0.0
+export SYSTEMC_HOME    = $(SYSTEMC)
+export SYSTEMC_INCLUDE = $(SYSTEMC_HOME)/include
+export SYSTEMC_LIBDIR  = $(SYSTEMC_HOME)/lib-linux64
+export LD_LIBRARY_PATH :=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
+export CXX             = clang++
+export CXXFLAGS        = -std=c++17
 
-TOP_MODULE   = ALU_wrapper
+# SystemC testbench Reuse --------------------------------------
+SC_SRCS = \
+    ../simulation/sc_main.cpp
+SC_HDRS = \
+	../simulation/sc_ALU8_Mult_tb.h \
+	../simulation/sc_monitor.h \
+	../simulation/sc_gen_test.h \
+	../simulation/def_commands.h \
+    ./EALU8_Mult.h
+SC_HDRS_PATH = ../emulation
 
-export SYSTEMC			= /usr/local/systemc-3.0.0
-export SYSTEMC_HOME		= $(SYSTEMC)
-export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
-export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib-linux64
-export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
-export CXX				= clang++
-export CXXFLAGS			= -std=c++17
+# Targets ------------------------------------------------------
+SC_TARGET = ALU8_Mult_tb
 
+# Build Rules --------------------------------------------------
 all :
-	@echo 'Makefile for "ALU8" Co-Emulation: Arduino-FPGA & SystemC TestBench.'
-	@echo 'Usage:'
-	@echo '    make [option]'
-	@echo '         Use one of following options'
-	@echo '         to build and run FPGA emulator with re-used SystemC TestBench'
-	@echo '             build'
-	@echo '             run'
-	@echo '             * FPGA & Arduino board must be configured before running.'
-	@echo '         View VCD, dumpped from SC-TB'
-	@echo '             wave'
-	@echo '         Clean-up'
-	@echo '             clean'
-	
-build : $(TOP_MODULE)
+	@echo 'Makefile for Emulation: $(SC_TARGET)'
+	@echo ''
+	@echo '    make build'
+	@echo '        Builds executable of $(SC_TARGET) with SystemC TB,'
+	@echo '           Co-Emulation with DUT-on-FPGA'
+	@echo ''
+	@echo '    make run'
+	@echo '        Emulate $(SC_TARGET)'
+	@echo ''
+	@echo '    make wave'
+	@echo '        View waveform'
+	@echo ''
+	@echo '    make plot'
+	@echo '        Plot time-freq analysis'
+	@echo ''
+	@echo '    make clean'
+	@echo '        Clean working folder'
+	@echo ''
 
-$(TOP_MODULE) : $(SC_SRCS) $(SC_TOP_H)
-	$(CXX) $(CXXFLAGS) \
-		-DEMULATION \
-		-I. -I$(SYSTEMC_INCLUDE) \
-		-L$(SYSTEMC_LIBDIR) -Wl,-rpath=$(SYSTEMC_LIBDIR) \
-		-lsystemc -lm \
-		-o $(TOP_MODULE) $(SC_SRCS)
+build : $(SC_TARGET)
 
-run : $(TOP_MODULE)
-	./$(TOP_MODULE)
+$(SC_TARGET): $(SC_SRCS) $(SC_HDRS)
+	$(CXX) $(CXXFLAGS) -I$(SYSTEMC_INCLUDE) -L$(SYSTEMC_LIBDIR) \
+		-I$(SC_HDRS_PATH) \
+		-DPSCE_EMULATION \
+		-lsystemc -o$(SC_TARGET) $(SC_SRCS)
+
+run : ./$(SC_TARGET)
+	./$(SC_TARGET)
+
+wave :
+	gtkwave sc_VALU8_Mult_tb.vcd --save=sc_VALU8_Mult_tb.gtkw &
 
 clean :
-	rm -f $(TOP_MODULE)
+	rm -f $(SC_TARGET)
 	rm -f *.vcd
 
-wave: sc_VALU_wrapper.vcd
-	gtkwave sc_VALU_wrapper.vcd --save=sc_VALU_wrapper.gtkw &
+debug : $(SC_TARGET)
+	ddd $(SC_TARGET)
 

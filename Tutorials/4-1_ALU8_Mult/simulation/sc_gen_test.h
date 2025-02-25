@@ -10,7 +10,6 @@ Revision History: Dec 15 2023,
 #define _SC_GEN_TEST_H_
 
 #include "systemc.h"
-#include "VALU8_Mult.h"
 #include "def_commands.h"
 
 SC_MODULE(sc_Gen_Test)
@@ -44,6 +43,8 @@ SC_MODULE(sc_Gen_Test)
 
         regA_Val = 0xAA;
         regB_Val = 0x55;
+
+	srand(time(NULL));
 
     REPEAT:
         // Initialize
@@ -110,9 +111,9 @@ SC_MODULE(sc_Gen_Test)
         }
         
         nSim++;
-        regA_Val+=3;
-        regB_Val+=7;
-        if (nSim<80)
+        regA_Val = rand() & 0x00FF;
+        regB_Val = rand() & 0x00FF;
+        if (nSim<100)
             goto REPEAT;
         else
             sc_stop();

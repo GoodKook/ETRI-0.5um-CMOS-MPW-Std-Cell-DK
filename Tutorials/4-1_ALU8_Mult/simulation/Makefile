@@ -18,6 +18,7 @@ SC_TOP_H     =	sc_ALU8_Mult_tb.h \
 VERILATOR    = verilator
 CFLAGS       = -CFLAGS -std=c++17
 CFLAGS		+= -CFLAGS -g
+CFLAGS		+= -CFLAGS -DVERILATED_VCD_SC
 
 TOP_MODULE   = ALU8_Mult
 TARGET       = V$(TOP_MODULE)

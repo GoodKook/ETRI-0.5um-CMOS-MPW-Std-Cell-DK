@@ -71,6 +71,7 @@ magic: $(TOP_MODULE)_F.mag
 	magic -d XR $(TOP_MODULE)_F.mag
 
 clean :
+	rm -f fail.out
 	rm -f *.log
 	rm -f *.ext
 	rm -f DRC_$(TOP_MODULE)*.txt

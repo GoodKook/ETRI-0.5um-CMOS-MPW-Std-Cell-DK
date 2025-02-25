@@ -1,0 +1,15 @@
+### Yosys targetting GoWin
+# yosys -s ALU8_Mult_wrapper.ys | tee synthesis.log
+#
+
+read_verilog ../../ALU8_Mult_wrapper.v
+read_verilog ../../../source/ALU8_Mult.v
+read_verilog ../../../source/ALU8.v
+
+hierarchy -check -top ALU8_Mult_wrapper
+
+synth_gowin -top ALU8_Mult_wrapper -vout ALU8_Mult_wrapper.v
+
+write_verilog ALU8_Mult_wrapper.v
+stat
+
