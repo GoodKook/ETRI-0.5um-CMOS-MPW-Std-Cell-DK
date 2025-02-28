@@ -1004,18 +1004,11 @@ style  lambda=0.30(ETRI-G)
  scalefactor  30 15
  options calma-permissive-labels
 
- layer CWN nwell,rnw
- bloat-or pdiff,rpd,pdc/a,pfet * 180
- bloat-or nsd,nsc/a * 90
- bloat-or nfi * 120
- labels nwell,rnw
+ layer CWN nwell
+ labels nwell
  calma 2 0
 
  layer CWP pwell
- bloat-or ndiff,rnd,ndc/a,nfet * 180
- bloat-or psd,psc/a * 90
- bloat-or pfi * 120
- and-not CWN
  labels pwell
  calma 3 0
 
@@ -1117,7 +1110,8 @@ style  lambda=0.30(ETRI-G)
  calma 36 0
 
  layer CV2 XPAD2
- squares 240 60 300
+# squares 240 60 300
+ and-not pad
  calma 35 0
 
  layer CM2 pad
@@ -1125,12 +1119,13 @@ style  lambda=0.30(ETRI-G)
  calma 34 0
 
  layer CV1 XPAD2
- squares 60 60 300
+# squares 60 60 300
+ and-not pad
  calma 33 0
 
  layer CM1 pad
- bloat-or pad * 60
- shrink 60
+# bloat-or pad * 60
+# shrink 60
  calma 32 0
 
  layer CM1 m1,rm1,ndc/m1,nsc/m1,pdc/m1,psc/m1,pc/m1,p2c,m2c/m1
@@ -1244,8 +1239,8 @@ style  lambda=0.30(ETRI-G)
  calma 48 0
 
  layer XP pad,xp
- bloat-or pad * 60
- shrink 60
+# bloat-or pad * 60
+# shrink 60
  labels pad,xp
  calma 37 0
 
@@ -2347,32 +2342,11 @@ style  lambda=0.30(ETRI-G)
 
 # N-Well ---------------------------------------------------------------------
  layer nwell CWN
- and-not CWNR
- and-not CTA
  labels CWN
- calma CWN 2 *
-
- layer rnw CWN
- and-not CWNR
- and CRE
- and-not CSB
- and-not CRD
- and-not CAA
- and-not CPG
- calma CWN 2 *
-
- layer rnw CWN
- and-not CWNR
- and CRW
- and-not CRD
- and-not CAA
- and-not CPG
  calma CWN 2 *
 
 # P-Well ---------------------------------------------------------------------
  layer pwell CWP
- and-not CTA
- labels CWP
  calma CWP 3 *
 
 # Active (diff, transistor) --------------------------------------------------
@@ -2640,7 +2614,7 @@ style  lambda=0.30(ETRI-G)
  and CM1
  calma CCC 31 *
 
-# Generic Poly contact -------------------------------------------------------
+# Generic contact ------------------------------------------------------------
  layer gc CCP
  and-not CPG
  and-not CPC
@@ -2673,6 +2647,12 @@ style  lambda=0.30(ETRI-G)
  layer gc CCC
  and-not COP
  and-not CM1
+ calma CCC 31 *
+
+ layer gc CCA
+ calma CCC 31 *
+
+ layer gc CCC
  calma CCC 31 *
 
 # Generic Poly2 contact ------------------------------------------------------
