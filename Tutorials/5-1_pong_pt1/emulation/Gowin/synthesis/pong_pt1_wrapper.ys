@@ -1,0 +1,14 @@
+### Yosys taargetting GoWin
+# yosys -s pong_pt1_wrapper.ys | tee synthesis.log
+#
+
+read_verilog ../../pong_pt1_wrapper.v
+read_verilog -sv ../../../source/pong_pt1.v
+read_verilog -sv ../../../source/pixel_gen.v
+
+hierarchy -check -top pong_pt1_wrapper
+
+synth_gowin -top pong_pt1_wrapper -vout pong_pt1_wrapper.v
+
+write_verilog  pong_pt1_wrapper.v
+stat

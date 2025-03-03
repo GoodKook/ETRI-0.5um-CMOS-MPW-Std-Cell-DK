@@ -2,8 +2,9 @@
 ## Poorman's Standard-Emulator by GoodKook, goodkook@gmail.com
 #	Makefile for Co-Emulation of sample project "DUT"
 #
+TOP_MODULE   = DUT
 
-VERILOG_SRCS = ../source/DUT.v \
+VERILOG_SRCS = ../source/$(TOP_MODULE).v \
                ../source/LS163.v
 SC_SRCS      = ../simulation/sc_main.cpp \
                ../simulation/sc_DUT_TB.cpp
@@ -17,7 +18,6 @@ CFLAGS       = -std=c++17
 CFLAGS1      = -D$(SC_DEFS)
 VFLAGS       = -DENT_ENP_CONTROL
 
-TOP_MODULE   = DUT
 TARGET       = V$(TOP_MODULE)
 TARGET_DIR   = obj_dir
 
@@ -30,14 +30,14 @@ export CXX				= clang++
 export CXXFLAGS			= -std=c++17
 
 all :
-	@echo 'Makefile for "DUT" Co-Emulation: Verilog RTL(*) under SystemC Testbench'
+	@echo 'Makefile for "'$(TOP_MODULE)'" Co-Emulation: Verilog RTL(*) under SystemC Testbench'
 	@echo '  Poorman`s Std. Co-Emulation(PSCE), GoodKook, goodkook@gmail.com'
 	@echo ''
 	@echo '    make build'
 	@echo '        Builds executable of "DUT" with Verilated RTL-vs-Hardware and SystemC TB'
 	@echo ''
 	@echo '    make run'
-	@echo '        Simulate "DUT"'
+	@echo '        Simulate "'$(TOP_MODULE)'"'
 	@echo ''
 	@echo '    make wave'
 	@echo '        View SystemC generated waveform'
@@ -63,8 +63,8 @@ lint : $(VERILOG_SRCS)
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
 
-wave : sc_DUT_TB.vcd
-	gtkwave sc_DUT_TB.vcd --save=sc_DUT_TB.gtkw &
+wave : sc_$(TOP_MODULE)_TB.vcd
+	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)

@@ -3,12 +3,13 @@
 #	Makefile for QFlow of sample project "DUT", target tech. ETRI 0.5um CMOS
 #
 
-VERILOG_SRCS	=	./source/DUT.v \
-					./source/LS163.v
 TOP_MODULE		=	DUT
 
+VERILOG_SRCS	=	./source/$(TOP_MODULE).v \
+					./source/LS163.v
+
 all :
-	@echo 'Makefile for "DUT" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
+	@echo 'Makefile for "'$(TOP_MODULE)'" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
 	@echo '  Poorman`s Std. Co-Emulation(PSCE), GoodKook, goodkook@gmail.com'
 	@echo ''
 	@echo 'Usage:'

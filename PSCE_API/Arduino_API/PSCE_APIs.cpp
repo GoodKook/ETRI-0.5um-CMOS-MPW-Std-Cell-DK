@@ -4,7 +4,7 @@
 // Purpose : Arduino DUE PSCE-APIs
 // Author  : GoodKook, goodkook@gmail.com
 
-//#include "PinMap_TANG_25K.h"
+#include "PinMap_TANG_25K.h"
 //#include "PinMap_A7_100T.h"
 #include "PSCE_APIs.h"
 
@@ -188,7 +188,7 @@ void PSCE::DUT_Negedge_Clk()
 // Receive Emulator/DUT in-vector from HOST ------------------------------
 void PSCE::RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap)
 {
-  int rxByte[MAX_RX_BYTE];
+//  int rxByte[MAX_RX_BYTE];
 
   while(true)
   {
@@ -228,7 +228,11 @@ void PSCE::TxPacket(uint8_t nTX)
     {
       DUT_Output();
       for(int addr_emu=0; addr_emu<nTX; addr_emu++)
+      {
+        txByte[addr_emu] = (uint)EMU_Output((uint8_t)addr_emu);
+        //Serial.write(EMU_Output((uint8_t)txByte[addr_emu]));
         Serial.write(EMU_Output((uint8_t)addr_emu));
+      }
 
       return;
     }
@@ -242,3 +246,23 @@ void PSCE::EMU_Blinker(uint8_t Speed)
   counter += 1;
   digitalWriteDirect(LED_BUILTIN, (counter & Speed)? HIGH:LOW);
 }
+
+//---------------------------------------------------------------------
+void PSCE::Set_DUT_Delay(uint32_t nDelay)
+{
+  clk_dut_delay = nDelay;
+}
+uint32_t PSCE::Get_DUT_Delay()
+{
+  return(clk_dut_delay);
+}
+//---------------------------------------------------------------------
+void PSCE::Set_EMU_Delay(uint32_t nDelay)
+{
+  clk_emu_delay = nDelay;
+}
+uint32_t PSCE::Get_EMU_Delay()
+{
+  return(clk_emu_delay);
+}
+

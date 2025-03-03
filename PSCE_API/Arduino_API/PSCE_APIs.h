@@ -15,6 +15,7 @@
 #endif
 
 #define MAX_RX_BYTE 8 // rxByte[]
+#define MAX_TX_BYTE 8 // txByte[]
 
 class PSCE
 {
@@ -42,11 +43,20 @@ public:
   void    DUT_Output();
   void    DUT_Posedge_Clk();
   void    DUT_Negedge_Clk();
-
+  // Set Clock Delay
+  void    Set_DUT_Delay(uint32_t nDelay);
+  void    Set_EMU_Delay(uint32_t nDelay);
+  uint32_t Get_DUT_Delay();
+  uint32_t Get_EMU_Delay();
+  
+  // Transact between Emulator-MI and SystemC/Software TB
   void    RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap);
   void    TxPacket(uint8_t nTX);
   void    EMU_Blinker(uint8_t Speed);
-  
+
+  uint rxByte[MAX_RX_BYTE];
+  uint txByte[MAX_TX_BYTE];
+
 private:
   uint32_t  clk_dut_delay;
   uint32_t  clk_emu_delay;

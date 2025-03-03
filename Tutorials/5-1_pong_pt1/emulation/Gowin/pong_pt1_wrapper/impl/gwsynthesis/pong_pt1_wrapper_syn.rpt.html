@@ -1,0 +1,2007 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>synthesis Report</title>
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
+div#main_wrapper{ width: 100%; }
+div#content { margin-left: 350px; margin-right: 30px; }
+div#catalog_wrapper {position: fixed; top: 30px; width: 350px; float: left; }
+div#catalog ul { list-style-type: none; }
+div#catalog li { text-align: left; list-style-type:circle; color: #0084ff; margin-top: 3px; margin-bottom: 3px; }
+div#catalog a { display:inline-block; text-decoration: none; color: #0084ff; font-weight: bold; padding: 3px; }
+div#catalog a:visited { color: #0084ff; }
+div#catalog a:hover { color: #fff; background: #0084ff; }
+hr { margin-top: 30px; margin-bottom: 30px; }
+h1, h3 { text-align: center; }
+h1 {margin-top: 50px; }
+table, th, td { border: 1px solid #aaa; }
+table { border-collapse:collapse; margin-top: 10px; margin-bottom: 20px; width: 100%; }
+th, td { padding: 5px 5px 5px 5px; }
+th { color: #fff; font-weight: bold; background-color: #0084ff; }
+table.summary_table td.label { width: 24%; min-width: 200px; background-color: #dee8f4; }
+table.detail_table td.label { min-width: 100px; width: 8%;}
+</style>
+</head>
+<body>
+<div id="main_wrapper">
+<div id="catalog_wrapper">
+<div id="catalog">
+<ul>
+<li><a href="#about" style=" font-size: 16px;">Synthesis Messages</a></li>
+<li><a href="#summary" style=" font-size: 16px;">Synthesis Details</a></li>
+<li><a href="#resource" style=" font-size: 16px;">Resource</a>
+<ul>
+<li><a href="#usage" style=" font-size: 14px;">Resource Usage Summary</a></li>
+<li><a href="#utilization" style=" font-size: 14px;">Resource Utilization Summary</a></li>
+</ul>
+</li>
+<li><a href="#timing" style=" font-size: 16px;">Timing</a>
+<ul>
+<li><a href="#clock" style=" font-size: 14px;">Clock Summary</a></li>
+<li><a href="#performance" style=" font-size: 14px;">Max Frequency Summary</a></li>
+<li><a href="#detail timing" style=" font-size: 14px;">Detail Timing Paths Informations</a></li>
+</ul>
+</li>
+</ul>
+</div><!-- catalog -->
+</div><!-- catalog_wrapper -->
+<div id="content">
+<h1><a name="about">Synthesis Messages</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label">Report Title</td>
+<td>GowinSynthesis Report</td>
+</tr>
+<tr>
+<td class="label">Design File</td>
+<td>/home/goodkook/ETRI050_DesignKit/devel/Tutorials/5-1_pong_pt1/emulation/Gowin/synthesis/pong_pt1_wrapper.v<br>
+</td>
+</tr>
+<tr>
+<td class="label">GowinSynthesis Constraints File</td>
+<td>---</td>
+</tr>
+<tr>
+<td class="label">Tool Version</td>
+<td>V1.9.9.03 Education</td>
+</tr>
+<tr>
+<td class="label">Part Number</td>
+<td>GW5A-LV25MG121NC1/I0</td>
+</tr>
+<tr>
+<td class="label">Device</td>
+<td>GW5A-25</td>
+</tr>
+<tr>
+<td class="label">Device Version</td>
+<td>A</td>
+</tr>
+<tr>
+<td class="label">Created Time</td>
+<td>Mon Mar  3 15:30:05 2025
+</td>
+</tr>
+<tr>
+<td class="label">Legal Announcement</td>
+<td>Copyright (C)2014-2024 Gowin Semiconductor Corporation. ALL rights reserved.</td>
+</tr>
+</table>
+<h1><a name="summary">Synthesis Details</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label">Top Level Module</td>
+<td>pong_pt1_wrapper</td>
+</tr>
+<tr>
+<td class="label">Synthesis Process</td>
+<td>Running parser:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.323s, Elapsed time = 0h 0m 0.338s, Peak memory usage = 154.004MB<br/>Running netlist conversion:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 0MB<br/>Running device independent optimization:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 0: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.003s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 1: CPU time = 0h 0m 0.011s, Elapsed time = 0h 0m 0.003s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 2: CPU time = 0h 0m 0.008s, Elapsed time = 0h 0m 0.004s, Peak memory usage = 154.004MB<br/>Running inference:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 0: CPU time = 0h 0m 0.014s, Elapsed time = 0h 0m 0.009s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 1: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 2: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.001s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 154.004MB<br/>Running technical mapping:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 0: CPU time = 0h 0m 0.004s, Elapsed time = 0h 0m 0.002s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 1: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.001s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 2: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.001s, Peak memory usage = 154.004MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 3: CPU time = 0h 0m 0.045s, Elapsed time = 0h 0m 0.037s, Peak memory usage = 155.648MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 4: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 155.648MB<br/>Generate output files:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.125s, Elapsed time = 0h 0m 0.15s, Peak memory usage = 161.508MB<br/></td>
+</tr>
+<tr>
+<td class="label">Total Time and Memory Usage</td>
+<td>CPU time = 0h 0m 0.538s, Elapsed time = 0h 0m 0.549s, Peak memory usage = 161.508MB</td>
+</tr>
+</table>
+<h1><a name="resource">Resource</a></h1>
+<h2><a name="usage">Resource Usage Summary</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label"><b>Resource</b></td>
+<td><b>Usage</b></td>
+</tr>
+<tr>
+<td class="label"><b>I/O Port </b></td>
+<td>27</td>
+</tr>
+<tr>
+<td class="label"><b>I/O Buf </b></td>
+<td>21</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspIBUF</td>
+<td>9</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspOBUF</td>
+<td>12</td>
+</tr>
+<tr>
+<td class="label"><b>Register </b></td>
+<td>76</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFRE</td>
+<td>24</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFPE</td>
+<td>4</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFCE</td>
+<td>48</td>
+</tr>
+<tr>
+<td class="label"><b>LUT </b></td>
+<td>200</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT1</td>
+<td>76</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT2</td>
+<td>48</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT3</td>
+<td>33</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT4</td>
+<td>43</td>
+</tr>
+<tr>
+<td class="label"><b>ALU </b></td>
+<td>271</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspALU</td>
+<td>271</td>
+</tr>
+</table>
+<h2><a name="utilization">Resource Utilization Summary</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label"><b>Resource</b></td>
+<td><b>Usage</b></td>
+<td><b>Utilization</b></td>
+</tr>
+<tr>
+<td class="label">Logic</td>
+<td>471(200 LUT, 271 ALU) / 23040</td>
+<td>3%</td>
+</tr>
+<tr>
+<td class="label">Register</td>
+<td>76 / 23280</td>
+<td><1%</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp--Register as Latch</td>
+<td>0 / 23280</td>
+<td>0%</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp--Register as FF</td>
+<td>76 / 23280</td>
+<td><1%</td>
+</tr>
+<tr>
+<td class="label">BSRAM</td>
+<td>0 / 56</td>
+<td>0%</td>
+</tr>
+</table>
+<h1><a name="timing">Timing</a></h1>
+<h2><a name="clock">Clock Summary:</a></h2>
+<table class="summary_table">
+<tr>
+<th>Clock Name</th>
+<th>Type</th>
+<th>Period</th>
+<th>Frequency(MHz)</th>
+<th>Rise</th>
+<th>Fall</th>
+<th>Source</th>
+<th>Master</th>
+<th>Object</th>
+</tr>
+<tr>
+<td>clk_emu</td>
+<td>Base</td>
+<td>10.000</td>
+<td>100.0</td>
+<td>0.000</td>
+<td>5.000</td>
+<td> </td>
+<td> </td>
+<td>clk_emu_IBUF_I/I </td>
+</tr>
+<tr>
+<td>clk_dut</td>
+<td>Base</td>
+<td>10.000</td>
+<td>100.0</td>
+<td>0.000</td>
+<td>5.000</td>
+<td> </td>
+<td> </td>
+<td>u_pong_pt1.clk_IBUF_O/I </td>
+</tr>
+</table>
+<h2><a name="performance">Max Frequency Summary:</a></h2>
+<table class="summary_table">
+<tr>
+<th>No.</th>
+<th>Clock Name</th>
+<th>Constraint</th>
+<th>Actual Fmax</th>
+<th>Logic Level</th>
+<th>Entity</th>
+</tr>
+<tr>
+<td>1</td>
+<td>clk_emu</td>
+<td>100.000(MHz)</td>
+<td>580.552(MHz)</td>
+<td>2</td>
+<td>TOP</td>
+</tr>
+<tr>
+<td>2</td>
+<td>clk_dut</td>
+<td>100.000(MHz)</td>
+<td>158.919(MHz)</td>
+<td>8</td>
+<td>TOP</td>
+</tr>
+</table>
+<h2><a name="detail timing">Detail Timing Paths Information</a></h2>
+<h3>Path&nbsp1</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>1.783</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>8.494</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>10.276</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>vectOut[0][5]_DFFE_Q</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk_dut[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>clk_emu[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_dut</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.clk_IBUF_O/I</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>52</td>
+<td>u_pong_pt1.clk_IBUF_O/O</td>
+</tr>
+<tr>
+<td>0.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/CLK</td>
+</tr>
+<tr>
+<td>0.757</td>
+<td>0.382</td>
+<td>tC2Q</td>
+<td>RR</td>
+<td>6</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/Q</td>
+</tr>
+<tr>
+<td>1.132</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/I0</td>
+</tr>
+<tr>
+<td>1.659</td>
+<td>0.526</td>
+<td>tINS</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/F</td>
+</tr>
+<tr>
+<td>2.034</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/I1</td>
+</tr>
+<tr>
+<td>2.764</td>
+<td>0.730</td>
+<td>tINS</td>
+<td>RR</td>
+<td>9</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/SUM</td>
+</tr>
+<tr>
+<td>3.139</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>3.600</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>3.975</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>4.111</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>4.486</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>4.572</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>4.947</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1/I2</td>
+</tr>
+<tr>
+<td>5.409</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>20</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1/F</td>
+</tr>
+<tr>
+<td>5.784</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>6.245</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>6.620</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>6.756</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>7.131</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>7.217</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>2</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>7.592</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][5]_DFFE_Q_D_LUT4_F/I0</td>
+</tr>
+<tr>
+<td>8.119</td>
+<td>0.526</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][5]_DFFE_Q_D_LUT4_F/F</td>
+</tr>
+<tr>
+<td>8.494</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][5]_DFFE_Q/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_emu</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>clk_emu_IBUF_I/I</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>24</td>
+<td>clk_emu_IBUF_I/O</td>
+</tr>
+<tr>
+<td>10.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][5]_DFFE_Q/CLK</td>
+</tr>
+<tr>
+<td>10.340</td>
+<td>-0.035</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>vectOut[0][5]_DFFE_Q</td>
+</tr>
+<tr>
+<td>10.276</td>
+<td>-0.064</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>vectOut[0][5]_DFFE_Q</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>8</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 3.611, 44.480%; route: 4.125, 50.809%; tC2Q: 0.382, 4.711%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp2</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>1.970</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>8.306</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>10.276</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>vectOut[1][1]_DFFRE_Q</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk_dut[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>clk_emu[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_dut</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.clk_IBUF_O/I</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>52</td>
+<td>u_pong_pt1.clk_IBUF_O/O</td>
+</tr>
+<tr>
+<td>0.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/CLK</td>
+</tr>
+<tr>
+<td>0.757</td>
+<td>0.382</td>
+<td>tC2Q</td>
+<td>RR</td>
+<td>6</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/Q</td>
+</tr>
+<tr>
+<td>1.132</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/I0</td>
+</tr>
+<tr>
+<td>1.659</td>
+<td>0.526</td>
+<td>tINS</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/F</td>
+</tr>
+<tr>
+<td>2.034</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/I1</td>
+</tr>
+<tr>
+<td>2.764</td>
+<td>0.730</td>
+<td>tINS</td>
+<td>RR</td>
+<td>9</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/SUM</td>
+</tr>
+<tr>
+<td>3.139</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>3.600</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>3.975</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>4.111</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>4.486</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>4.572</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>4.947</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O/S0</td>
+</tr>
+<tr>
+<td>5.200</td>
+<td>0.252</td>
+<td>tINS</td>
+<td>RR</td>
+<td>8</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>5.575</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>6.036</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>6.411</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>6.547</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>6.922</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>7.009</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>7.384</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O/I0</td>
+</tr>
+<tr>
+<td>7.470</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O/O</td>
+</tr>
+<tr>
+<td>7.845</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O/I1</td>
+</tr>
+<tr>
+<td>7.931</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q_D_MUX2_LUT8_O/O</td>
+</tr>
+<tr>
+<td>8.306</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_emu</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>clk_emu_IBUF_I/I</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>24</td>
+<td>clk_emu_IBUF_I/O</td>
+</tr>
+<tr>
+<td>10.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q/CLK</td>
+</tr>
+<tr>
+<td>10.340</td>
+<td>-0.035</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>vectOut[1][1]_DFFRE_Q</td>
+</tr>
+<tr>
+<td>10.276</td>
+<td>-0.064</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>vectOut[1][1]_DFFRE_Q</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>7</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 3.049, 38.440%; route: 4.500, 56.737%; tC2Q: 0.382, 4.823%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp3</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>1.970</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>8.306</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>10.276</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>vectOut[0][6]_DFFE_Q</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk_dut[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>clk_emu[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_dut</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.clk_IBUF_O/I</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>52</td>
+<td>u_pong_pt1.clk_IBUF_O/O</td>
+</tr>
+<tr>
+<td>0.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/CLK</td>
+</tr>
+<tr>
+<td>0.757</td>
+<td>0.382</td>
+<td>tC2Q</td>
+<td>RR</td>
+<td>6</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/Q</td>
+</tr>
+<tr>
+<td>1.132</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/I0</td>
+</tr>
+<tr>
+<td>1.659</td>
+<td>0.526</td>
+<td>tINS</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/F</td>
+</tr>
+<tr>
+<td>2.034</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/I1</td>
+</tr>
+<tr>
+<td>2.764</td>
+<td>0.730</td>
+<td>tINS</td>
+<td>RR</td>
+<td>9</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/SUM</td>
+</tr>
+<tr>
+<td>3.139</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>3.600</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>3.975</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>4.111</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>4.486</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>4.572</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O_S0_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>4.947</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O/S0</td>
+</tr>
+<tr>
+<td>5.200</td>
+<td>0.252</td>
+<td>tINS</td>
+<td>RR</td>
+<td>8</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>5.575</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>6.036</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>6.411</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>6.547</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>6.922</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>7.009</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O_I0_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>7.384</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O/I0</td>
+</tr>
+<tr>
+<td>7.470</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O_I1_MUX2_LUT7_O/O</td>
+</tr>
+<tr>
+<td>7.845</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O/I1</td>
+</tr>
+<tr>
+<td>7.931</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q_D_MUX2_LUT8_O/O</td>
+</tr>
+<tr>
+<td>8.306</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_emu</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>clk_emu_IBUF_I/I</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>24</td>
+<td>clk_emu_IBUF_I/O</td>
+</tr>
+<tr>
+<td>10.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q/CLK</td>
+</tr>
+<tr>
+<td>10.340</td>
+<td>-0.035</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>vectOut[0][6]_DFFE_Q</td>
+</tr>
+<tr>
+<td>10.276</td>
+<td>-0.064</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>vectOut[0][6]_DFFE_Q</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>7</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 3.049, 38.440%; route: 4.500, 56.737%; tC2Q: 0.382, 4.823%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp4</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>2.684</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>7.592</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>10.276</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>vectOut[1][2]_DFFRE_Q</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk_dut[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>clk_emu[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_dut</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.clk_IBUF_O/I</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>52</td>
+<td>u_pong_pt1.clk_IBUF_O/O</td>
+</tr>
+<tr>
+<td>0.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/CLK</td>
+</tr>
+<tr>
+<td>0.757</td>
+<td>0.382</td>
+<td>tC2Q</td>
+<td>RR</td>
+<td>6</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/Q</td>
+</tr>
+<tr>
+<td>1.132</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/I0</td>
+</tr>
+<tr>
+<td>1.659</td>
+<td>0.526</td>
+<td>tINS</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_LUT1_F/F</td>
+</tr>
+<tr>
+<td>2.034</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/I1</td>
+</tr>
+<tr>
+<td>2.764</td>
+<td>0.730</td>
+<td>tINS</td>
+<td>RR</td>
+<td>9</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT_I1_ALU_I1/SUM</td>
+</tr>
+<tr>
+<td>3.139</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>3.600</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>3.975</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>4.111</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>4.486</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>4.572</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1_I2_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>4.947</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1/I2</td>
+</tr>
+<tr>
+<td>5.409</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>20</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE_Q_ALU_I0_SUM_LUT2_I0_F_DFFCE_D_Q_ALU_I1_1_SUM_LUT4_I0_1/F</td>
+</tr>
+<tr>
+<td>5.784</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/I2</td>
+</tr>
+<tr>
+<td>6.245</td>
+<td>0.461</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O_I0_LUT3_F/F</td>
+</tr>
+<tr>
+<td>6.620</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O/I0</td>
+</tr>
+<tr>
+<td>6.756</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O_I1_MUX2_LUT5_O/O</td>
+</tr>
+<tr>
+<td>7.131</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O/I1</td>
+</tr>
+<tr>
+<td>7.217</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>2</td>
+<td>vectOut[1][2]_DFFRE_Q_D_MUX2_LUT6_O/O</td>
+</tr>
+<tr>
+<td>7.592</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_emu</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>clk_emu_IBUF_I/I</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>24</td>
+<td>clk_emu_IBUF_I/O</td>
+</tr>
+<tr>
+<td>10.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q/CLK</td>
+</tr>
+<tr>
+<td>10.340</td>
+<td>-0.035</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>vectOut[1][2]_DFFRE_Q</td>
+</tr>
+<tr>
+<td>10.276</td>
+<td>-0.064</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>vectOut[1][2]_DFFRE_Q</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>7</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 3.085, 42.743%; route: 3.750, 51.957%; tC2Q: 0.382, 5.300%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp5</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>3.708</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>6.356</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>10.064</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk_dut[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>clk_dut[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_dut</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.clk_IBUF_O/I</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>52</td>
+<td>u_pong_pt1.clk_IBUF_O/O</td>
+</tr>
+<tr>
+<td>0.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/CLK</td>
+</tr>
+<tr>
+<td>0.757</td>
+<td>0.382</td>
+<td>tC2Q</td>
+<td>RR</td>
+<td>6</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D/Q</td>
+</tr>
+<tr>
+<td>1.132</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D_Q_ALU_I1/I1</td>
+</tr>
+<tr>
+<td>1.695</td>
+<td>0.562</td>
+<td>tINS</td>
+<td>RF</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_CIN_ALU_COUT_SUM_DFFCE_D_Q_ALU_I1/COUT</td>
+</tr>
+<tr>
+<td>1.695</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>FF</td>
+<td>2</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I1_LUT4_F_I3_LUT4_F_I2_ALU_SUM/CIN</td>
+</tr>
+<tr>
+<td>1.745</td>
+<td>0.050</td>
+<td>tINS</td>
+<td>FR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_S0_MUX2_LUT6_O_I1_MUX2_LUT5_O_I1_LUT4_F_I3_LUT4_F_I2_ALU_SUM/COUT</td>
+</tr>
+<tr>
+<td>1.745</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I1/CIN</td>
+</tr>
+<tr>
+<td>1.795</td>
+<td>0.050</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I1/COUT</td>
+</tr>
+<tr>
+<td>1.795</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/CIN</td>
+</tr>
+<tr>
+<td>1.845</td>
+<td>0.050</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/COUT</td>
+</tr>
+<tr>
+<td>1.845</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/CIN</td>
+</tr>
+<tr>
+<td>1.895</td>
+<td>0.050</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/COUT</td>
+</tr>
+<tr>
+<td>1.895</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/CIN</td>
+</tr>
+<tr>
+<td>1.945</td>
+<td>0.050</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/COUT</td>
+</tr>
+<tr>
+<td>1.945</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/CIN</td>
+</tr>
+<tr>
+<td>2.189</td>
+<td>0.244</td>
+<td>tINS</td>
+<td>RR</td>
+<td>4</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_DFFPE_D_Q_ALU_I0_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_COUT_ALU_CIN_SUM_DFFCE_D_Q_ALU_I0/SUM</td>
+</tr>
+<tr>
+<td>2.564</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT/I1</td>
+</tr>
+<tr>
+<td>3.126</td>
+<td>0.562</td>
+<td>tINS</td>
+<td>RF</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0_I1_ALU_COUT_CIN_ALU_COUT_CIN_ALU_COUT/COUT</td>
+</tr>
+<tr>
+<td>3.126</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>FF</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0_I1_ALU_COUT_CIN_ALU_COUT/CIN</td>
+</tr>
+<tr>
+<td>3.176</td>
+<td>0.050</td>
+<td>tINS</td>
+<td>FR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0_I1_ALU_COUT_CIN_ALU_COUT/COUT</td>
+</tr>
+<tr>
+<td>3.176</td>
+<td>0.000</td>
+<td>tNET</td>
+<td>RR</td>
+<td>2</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0_I1_ALU_COUT/CIN</td>
+</tr>
+<tr>
+<td>3.226</td>
+<td>0.050</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0_I1_ALU_COUT/COUT</td>
+</tr>
+<tr>
+<td>3.601</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0/I1</td>
+</tr>
+<tr>
+<td>4.117</td>
+<td>0.516</td>
+<td>tINS</td>
+<td>RR</td>
+<td>7</td>
+<td>u_pong_pt1.pg.y_delta_next[8]_LUT2_I0/F</td>
+</tr>
+<tr>
+<td>4.492</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_I1_LUT2_F/I1</td>
+</tr>
+<tr>
+<td>5.009</td>
+<td>0.516</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_I1_LUT2_F/F</td>
+</tr>
+<tr>
+<td>5.384</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0/I1</td>
+</tr>
+<tr>
+<td>5.520</td>
+<td>0.136</td>
+<td>tINS</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0/O</td>
+</tr>
+<tr>
+<td>5.895</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0/I0</td>
+</tr>
+<tr>
+<td>5.981</td>
+<td>0.086</td>
+<td>tINS</td>
+<td>RR</td>
+<td>3</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0/O</td>
+</tr>
+<tr>
+<td>6.356</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE/CE</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk_dut</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>1</td>
+<td>u_pong_pt1.clk_IBUF_O/I</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tINS</td>
+<td>RR</td>
+<td>52</td>
+<td>u_pong_pt1.clk_IBUF_O/O</td>
+</tr>
+<tr>
+<td>10.375</td>
+<td>0.375</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE/CLK</td>
+</tr>
+<tr>
+<td>10.064</td>
+<td>-0.311</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>down_LUT4_I0_F_MUX2_LUT5_I1_S0_LUT3_F_I1_ALU_COUT_I1_ALU_I0_1_COUT_LUT2_I0_F_LUT4_I3_F_MUX2_LUT5_I0_O_MUX2_LUT6_I0_O_DFFPE_CE</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>8</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 2.974, 49.718%; route: 2.625, 43.887%; tC2Q: 0.382, 6.395%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.375, 100.000%</td></tr>
+</table>
+<br/>
+</div><!-- content -->
+</div><!-- main_wrapper -->
+</body>
+</html>

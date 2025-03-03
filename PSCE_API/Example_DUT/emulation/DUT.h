@@ -39,7 +39,9 @@ SC_MODULE(DUT)
     void DUT_thread(void)
     {
         uint8_t     x, y, txPacket[N_TX], rxPacket[N_RX];
-
+        int nTx, nRx;
+        
+        
         while(true)
         {
             //-------------------------------------------------------
@@ -51,18 +53,20 @@ SC_MODULE(DUT)
             txPacket[1] = (uint8_t)(nCLR.read()?   0x08:0x00) |
                           (uint8_t)(nLOAD.read()?  0x04:0x00) |
                           (uint8_t)(Digit.read() & 0x03);
+
             // Send to Emulator
             for (int i=0; i<N_TX; i++)
             {
                 x = txPacket[i];
-                while(write(fd, &x, 1)<=0)  usleep(1);
+                while(write(fd, &x, 1)<=0)  usleep(100);
             }
             // Receive from Emulator
             for (int i=0; i<N_RX; i++)
             {
-                while(read(fd, &y, 1)<=0)   usleep(1);
+                while(read(fd, &y, 1)<=0)   usleep(100);
                 rxPacket[i] = y;
             }
+
             // Dis-assemble emulator output byte to Verilog wrapper
             Dout.write((uint16_t)rxPacket[1]<<8 | (uint16_t)rxPacket[0]);
             RCO.write((rxPacket[2]&0x01)? true:false);
