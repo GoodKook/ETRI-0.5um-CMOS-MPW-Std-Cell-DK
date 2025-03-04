@@ -1,0 +1,25 @@
+timestamp 1728304916
+version 8.3
+tech scmos
+style AMI0.5um(amic5)from:T11Z
+scale 1000 1 15
+resistclasses 82400 102700 816000 816000 1 22300 41300 41300 90 90 60
+port "Y" 1 63 83 77 97 m2
+port "A" 0 23 83 37 97 m2
+port "vdd" 2 -6 232 126 248 m1
+port "gnd" 3 -6 -8 126 8 m1
+node "Y" 1901 11423.4 63 83 m2 1280 224 2560 384 0 0 0 0 0 0 0 0 0 0 0 0 4380 900 392 84 0 0
+node "A" 3906 3596.37 23 83 m2 0 0 0 0 0 0 0 0 0 0 3252 1518 0 0 0 0 340 80 392 84 0 0
+node "vdd" 4055 24027.2 -6 232 m1 1584 288 3520 568 17110 526 0 0 0 0 0 0 0 0 0 0 5208 812 0 0 0 0
+substrate "gnd" 0 0 -6 -8 m1 1760 328 1584 288 0 0 0 0 0 0 0 0 0 0 0 0 3768 572 0 0 0 0
+cap "A" "Y" 308.88
+cap "vdd" "Y" 189.72
+cap "vdd" "A" 807.84
+device mosfet nfet 81 14 82 15 4 40 "gnd" "A" 8 0 "Y" 40 320,56 "gnd" 40 560,108
+device mosfet nfet 61 14 62 15 4 40 "gnd" "A" 8 0 "gnd" 40 320,56 "Y" 40 320,56
+device mosfet nfet 41 14 42 15 4 40 "gnd" "A" 8 0 "Y" 40 320,56 "gnd" 40 320,56
+device mosfet nfet 21 14 22 15 4 40 "gnd" "A" 8 0 "gnd" 40 560,108 "Y" 40 320,56
+device mosfet pfet 81 146 82 147 4 80 "vdd" "A" 8 0 "Y" 80 640,96 "vdd" 80 1120,188
+device mosfet pfet 61 146 62 147 4 80 "vdd" "A" 8 0 "vdd" 80 640,96 "Y" 80 640,96
+device mosfet pfet 41 146 42 147 4 80 "vdd" "A" 8 0 "Y" 80 640,96 "vdd" 80 640,96
+device mosfet pfet 21 146 22 147 4 80 "vdd" "A" 8 0 "vdd" 80 1120,188 "Y" 80 640,96

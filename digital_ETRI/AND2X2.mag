@@ -1,0 +1,107 @@
+magic
+tech scmos
+magscale 1 2
+timestamp 1728304163
+<< nwell >>
+rect -12 134 112 252
+<< ntransistor >>
+rect 21 14 25 54
+rect 31 14 35 54
+rect 51 14 55 54
+<< ptransistor >>
+rect 21 186 25 226
+rect 43 186 47 226
+rect 65 146 69 226
+<< ndiffusion >>
+rect 19 14 21 54
+rect 25 14 31 54
+rect 35 14 37 54
+rect 49 14 51 54
+rect 55 14 57 54
+<< pdiffusion >>
+rect 19 186 21 226
+rect 25 186 27 226
+rect 39 186 43 226
+rect 47 186 51 226
+rect 63 146 65 226
+rect 69 146 71 226
+<< ndcontact >>
+rect 7 14 19 54
+rect 37 14 49 54
+rect 57 14 69 54
+<< pdcontact >>
+rect 7 186 19 226
+rect 27 186 39 226
+rect 51 146 63 226
+rect 71 146 83 226
+<< psubstratepcontact >>
+rect -6 -6 106 6
+<< nsubstratencontact >>
+rect -6 234 106 246
+<< polysilicon >>
+rect 21 226 25 230
+rect 43 226 47 230
+rect 65 226 69 230
+rect 21 123 25 186
+rect 16 111 25 123
+rect 21 54 25 111
+rect 43 109 47 186
+rect 31 97 44 109
+rect 31 54 35 97
+rect 65 72 69 146
+rect 57 60 69 72
+rect 51 54 55 60
+rect 21 10 25 14
+rect 31 10 35 14
+rect 51 10 55 14
+<< polycontact >>
+rect 4 111 16 123
+rect 44 97 56 109
+rect 45 60 57 72
+<< metal1 >>
+rect -6 246 106 248
+rect -6 232 106 234
+rect 7 226 19 232
+rect 51 226 63 232
+rect 28 72 36 186
+rect 71 111 79 146
+rect 77 97 79 111
+rect 7 64 45 72
+rect 7 54 19 64
+rect 71 54 79 97
+rect 69 44 79 54
+rect 37 8 49 14
+rect -6 6 106 8
+rect -6 -8 106 -6
+<< m2contact >>
+rect 3 97 17 111
+rect 43 109 57 123
+rect 63 97 77 111
+<< metal2 >>
+rect 43 123 57 137
+rect 3 83 17 97
+rect 63 83 77 97
+<< m1p >>
+rect -6 232 106 248
+rect -6 -8 106 8
+<< m2p >>
+rect 43 123 57 137
+rect 3 83 17 97
+rect 63 83 77 97
+<< labels >>
+rlabel metal1 -6 -8 106 8 0 gnd
+port 4 nsew ground bidirectional abutment
+rlabel metal1 -6 232 106 248 0 vdd
+port 3 nsew power bidirectional abutment
+rlabel metal2 3 83 17 97 0 A
+port 0 nsew signal input
+rlabel metal2 63 83 77 97 0 Y
+port 2 nsew signal output
+rlabel metal2 43 123 57 137 0 B
+port 1 nsew signal input
+<< properties >>
+string FIXED_BBOX 0 0 100 240
+string LEFclass CORE
+string LEFsite core
+string LEFsymmetry X Y
+<< end >>

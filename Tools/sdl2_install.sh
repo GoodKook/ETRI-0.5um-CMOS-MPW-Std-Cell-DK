@@ -3,7 +3,7 @@
 echo "SDL2 Build & Install"
 echo "--------------------"
 
-cd SDL2/SDL2/
+cd SDL2
 tar xvf SDL2-2.30.12.tar.gz
 cd SDL2-2.30.12
 ./configure

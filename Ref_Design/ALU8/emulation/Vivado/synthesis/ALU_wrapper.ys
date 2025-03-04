@@ -1,7 +1,0 @@
-### Yosys taargetting Xilinx
-read_verilog -DEMULATION ../../../source/ALU_wrapper.v
-read_verilog ../../../source/ALU8.v
-
-synth_xilinx -top ALU_wrapper -family xc7 -flatten
-write_verilog  ALU_wrapper.v
-stat

@@ -83,6 +83,7 @@ clean_all :
 	rm -f comp.json
 	rm -f comp.out
 	rm -f fillcells.txt
+	rm -f fail.out
 	rm -f $(TOP_MODULE).cel
 	rm -f $(TOP_MODULE).cel.bak
 	rm -f $(TOP_MODULE).cfg
@@ -98,3 +99,4 @@ clean_all :
 	rm -f $(TOP_MODULE).rc
 	rm -f $(TOP_MODULE)_unroute.def
 	rm -f migrate_$(TOP_MODULE).tcl
+

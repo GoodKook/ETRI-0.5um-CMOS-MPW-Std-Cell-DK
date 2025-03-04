@@ -2,7 +2,7 @@
 export DK_HOME=~/ETRI050_DesignKit
 export DK_STD_CELL=$(DK_HOME)/digital_ETRI
 export DK_ANA_LIB=$(DK_HOME)/analog_ETRI
-export DK_PAD_LIB=$(DK_HOME)/pads_ETRI050
+export DK_PAD_LIB=$(DK_HOME)/pads_ETRI
 export DK_TECH=$(DK_HOME)/tech
 export DK_SCRIPT=$(DK_HOME)/scripts
 
