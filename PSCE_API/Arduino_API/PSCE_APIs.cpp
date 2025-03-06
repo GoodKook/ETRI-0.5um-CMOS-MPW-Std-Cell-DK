@@ -1,13 +1,14 @@
 //-------------------------------------------------------------------
 // Project : Poorman's Standard Co-Emulator(PSCE)
 // Filename: PSCE_APIs.cpp
-// Purpose : Arduino DUE PSCE-APIs
+// Purpose : Arduino DUE/Raspberry PI PICO PSCE-APIs
 // Author  : GoodKook, goodkook@gmail.com
+// History
 
-#include "PinMap_TANG_25K.h"
-//#include "PinMap_A7_100T.h"
 #include "PSCE_APIs.h"
 
+#ifdef DUE_OVERCLOCK
+// Direct access to port: Non-Arduino Std. R/W
 void PSCE::digitalWriteDirect(int pin, boolean val)
 {
   if(val) g_APinDescription[pin].pPort -> PIO_SODR = g_APinDescription[pin].ulPin;
@@ -18,6 +19,7 @@ int PSCE::digitalReadDirect(int pin)
 {
   return !!(g_APinDescription[pin].pPort -> PIO_PDSR & g_APinDescription[pin].ulPin);
 }
+#endif  // DUE_OVERCLOCK
 
 //-------------------------------------------------------------------
 void PSCE::establishContact()
@@ -33,6 +35,7 @@ void PSCE::establishContact()
 //-------------------------------------------------------------------
 void PSCE::init()
 {
+#ifdef DUE_OVERCLOCK
   // Over-clocking DUE
   // MULA: 18UL for 114MHz, 15UL for 96MHz, 84MHz for 13UL (as in system_sam3xa.c):
   // ex) Initialize PLLA to (18+1)*6=114MHz
@@ -51,6 +54,7 @@ void PSCE::init()
   while (!(PMC->PMC_SR & PMC_SR_MCKRDY)) {} 
 
   SystemCoreClockUpdate();  // !!!!! for UART !!!!!
+#endif // DUE_OVERCLOCK
 
   // start serial port at 38400/115200 bps:
   Serial.begin(115200);
@@ -186,6 +190,22 @@ void PSCE::DUT_Negedge_Clk()
 }
 
 // Receive Emulator/DUT in-vector from HOST ------------------------------
+bool PSCE::RxPacket_nb(uint8_t nRX)
+{
+  if (Serial.available() >= nRX)
+  {
+    for(int addr_emu=0; addr_emu<nRX; addr_emu++)
+    {
+      rxByte[addr_emu] = Serial.read();
+      EMU_Input(addr_emu, rxByte[addr_emu]);
+    }
+    DUT_Input();
+
+    return true;
+  }
+  
+  return false;
+}
 void PSCE::RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap)
 {
 //  int rxByte[MAX_RX_BYTE];
@@ -220,6 +240,23 @@ void PSCE::RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap)
 }
 
 // Send Emulator/DUT out-vector to HOST ------------------------------
+bool PSCE::TxPacket_nb(uint8_t nTX)
+{
+  if (Serial.availableForWrite() >= nTX)
+  {
+    DUT_Output();
+    for(int addr_emu=0; addr_emu<nTX; addr_emu++)
+    {
+      txByte[addr_emu] = (uint)EMU_Output((uint8_t)addr_emu);
+      //Serial.write(EMU_Output((uint8_t)txByte[addr_emu]));
+      Serial.write(EMU_Output((uint8_t)addr_emu));
+    }
+
+    return true;
+  }
+
+  return false;
+}
 void PSCE::TxPacket(uint8_t nTX)
 {
   while(true)
@@ -246,23 +283,3 @@ void PSCE::EMU_Blinker(uint8_t Speed)
   counter += 1;
   digitalWriteDirect(LED_BUILTIN, (counter & Speed)? HIGH:LOW);
 }
-
-//---------------------------------------------------------------------
-void PSCE::Set_DUT_Delay(uint32_t nDelay)
-{
-  clk_dut_delay = nDelay;
-}
-uint32_t PSCE::Get_DUT_Delay()
-{
-  return(clk_dut_delay);
-}
-//---------------------------------------------------------------------
-void PSCE::Set_EMU_Delay(uint32_t nDelay)
-{
-  clk_emu_delay = nDelay;
-}
-uint32_t PSCE::Get_EMU_Delay()
-{
-  return(clk_emu_delay);
-}
-

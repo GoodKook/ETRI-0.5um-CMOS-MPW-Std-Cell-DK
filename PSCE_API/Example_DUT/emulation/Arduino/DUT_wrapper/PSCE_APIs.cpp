@@ -4,10 +4,12 @@
 // Purpose : Arduino DUE PSCE-APIs
 // Author  : GoodKook, goodkook@gmail.com
 
-#include "PinMap_TANG_25K.h"
-//#include "PinMap_A7_100T.h"
 #include "PSCE_APIs.h"
 
+#include "PinMap_TANG_25K.h"
+//#include "PinMap_A7_100T.h"
+
+#ifdef DUE_OVERCLOCK
 void PSCE::digitalWriteDirect(int pin, boolean val)
 {
   if(val) g_APinDescription[pin].pPort -> PIO_SODR = g_APinDescription[pin].ulPin;
@@ -18,6 +20,7 @@ int PSCE::digitalReadDirect(int pin)
 {
   return !!(g_APinDescription[pin].pPort -> PIO_PDSR & g_APinDescription[pin].ulPin);
 }
+#endif
 
 //-------------------------------------------------------------------
 void PSCE::establishContact()
@@ -33,6 +36,7 @@ void PSCE::establishContact()
 //-------------------------------------------------------------------
 void PSCE::init()
 {
+#ifdef DUE_OVERCLOCK  
   // Over-clocking DUE
   // MULA: 18UL for 114MHz, 15UL for 96MHz, 84MHz for 13UL (as in system_sam3xa.c):
   // ex) Initialize PLLA to (18+1)*6=114MHz
@@ -51,6 +55,7 @@ void PSCE::init()
   while (!(PMC->PMC_SR & PMC_SR_MCKRDY)) {} 
 
   SystemCoreClockUpdate();  // !!!!! for UART !!!!!
+#endif
 
   // start serial port at 38400/115200 bps:
   Serial.begin(115200);

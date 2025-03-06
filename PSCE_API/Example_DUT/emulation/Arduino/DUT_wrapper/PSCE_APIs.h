@@ -16,6 +16,14 @@
 
 #define MAX_RX_BYTE 8 // rxByte[]
 
+//#define DUE_OVERCLOCK
+#define PI_PICO
+
+#ifndef DUE_OVERCLOCK
+#define digitalWriteDirect  digitalWrite
+#define digitalReadDirect   digitalRead
+#endif
+
 class PSCE
 {
 public:
@@ -27,9 +35,10 @@ public:
   // Arduino DUE
   void    establishContact();
   void    init();   // Overclocked to 114Mhz, UART Baudrate to 115200
+#ifdef DUE_OVERCLOCK
   void    digitalWriteDirect(int pin, boolean val);
   int     digitalReadDirect(int pin);
-
+#endif
   // Test-vectors to/from Emulator: Arduino DUE Interface
   void    Set_EMU_Address(uint8_t address);
   void    Set_EMU_Data(uint8_t data);

@@ -1,11 +1,27 @@
 //-------------------------------------------------------------------
 // Project : Poorman's Standard Co-Emulator(PSCE)
 // Filename: PSCE_APIs.h
-// Purpose : Arduino DUE PSCE-APIs
+// Purpose : Arduino DUE/Raspberry PI PICO PSCE-APIs
 // Author  : GoodKook, goodkook@gmail.com
 
 #ifndef PSCE_APIS_H_
 #define PSCE_APIS_H_
+
+//-------------------------------------------------------------------
+// !!! IMPOTANCE: PSCE-MI Board Selection
+//#define DUE_OVERCLOCK
+//#define PI_PICO
+//-------------------------------------------------------------------
+// !!! IMPORTANCE: PSCE FPGA Board Selection
+#include "PinMap_TANG_25K.h"
+//#include "PinMap_A7_100T.h"
+//--------------------------------------------------------------------
+// DUE Board: Overclocking & Non-Arduino Std Port R/W
+#ifndef DUE_OVERCLOCK
+#define digitalWriteDirect  digitalWrite
+#define digitalReadDirect   digitalRead
+#endif
+//--------------------------------------------------------------------
 
 #include <Arduino.h>
 
@@ -28,8 +44,11 @@ public:
   // Arduino DUE
   void    establishContact();
   void    init();   // Overclocked to 114Mhz, UART Baudrate to 115200
+
+#ifdef DUE_OVERCLOCK
   void    digitalWriteDirect(int pin, boolean val);
   int     digitalReadDirect(int pin);
+#endif
 
   // Test-vectors to/from Emulator: Arduino DUE Interface
   void    Set_EMU_Address(uint8_t address);
@@ -43,21 +62,18 @@ public:
   void    DUT_Output();
   void    DUT_Posedge_Clk();
   void    DUT_Negedge_Clk();
-  // Set Clock Delay
-  void    Set_DUT_Delay(uint32_t nDelay);
-  void    Set_EMU_Delay(uint32_t nDelay);
-  uint32_t Get_DUT_Delay();
-  uint32_t Get_EMU_Delay();
-  
-  // Transact between Emulator-MI and SystemC/Software TB
+
   void    RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap);
+  bool    RxPacket_nb(uint8_t nRX);
   void    TxPacket(uint8_t nTX);
+  bool    TxPacket_nb(uint8_t nTX);
+  
   void    EMU_Blinker(uint8_t Speed);
 
   uint rxByte[MAX_RX_BYTE];
   uint txByte[MAX_TX_BYTE];
 
-private:
+//private:
   uint32_t  clk_dut_delay;
   uint32_t  clk_emu_delay;
 };
