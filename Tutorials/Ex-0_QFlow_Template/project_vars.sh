@@ -30,11 +30,11 @@
 # set nofanout =
 # set fanout_options = "-l 300 -c 75"
 # set source_file_list =
-# set is_system_verilog =
+set is_system_verilog = 1
 
 # Placement command options:
 # -------------------------------------------
-#set initial_density = 
+set initial_density = 0.75
 # set graywolf_options =
 set addspacers_options = "-stripe 8 225 PG"
 # set addspacers_power =

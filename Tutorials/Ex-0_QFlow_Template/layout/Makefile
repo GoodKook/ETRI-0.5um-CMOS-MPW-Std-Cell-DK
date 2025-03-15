@@ -6,7 +6,7 @@ export DK_PAD_LIB=$(DK_HOME)/pads_ETRI050
 export DK_TECH=$(DK_HOME)/tech
 export DK_SCRIPT=$(DK_HOME)/scripts
 
-TOP_MODULE = Design_Top_Here
+TOP_MODULE = Your_Design
 
 all :
 	@echo ''

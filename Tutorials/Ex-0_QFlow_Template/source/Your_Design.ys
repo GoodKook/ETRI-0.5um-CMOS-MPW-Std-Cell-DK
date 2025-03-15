@@ -1,10 +1,10 @@
 # Synthesis script for yosys created by qflow
 read_liberty -lib -ignore_miss_dir -setattr blackbox /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
-read_verilog  /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-1_loop/source/test.v
-read_verilog  test_flow_control_loop_delay_pipe.v
+read_verilog -sv /home/goodkook/ETRI050_DesignKit/devel/Tutorials/XX-0_QFlow_Template/source/Your_Design.v
+read_verilog -sv pixel_gen.v
 
 # High-level synthesis
-synth -top test
+synth -top Your_Design
 # Map register flops
 dfflibmap -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
 opt
@@ -21,5 +21,5 @@ iopadmap -outpad BUFX2 A:Y -bits
 opt
 clean
 rename -enumerate
-write_verilog  test_mapped.v
+write_verilog  Your_Design_mapped.v
 stat

@@ -10,7 +10,7 @@ SCRIPTS_PATH = ~/ETRI050_DesignKit/scripts
 PAD_PATH =  ~/ETRI050_DesignKit/pads_ETRI
 LAYOUT_PATH = ../layout
 
-CHIP_NAME = Design_Top_Here
+CHIP_NAME = Your_Design
 
 PAD_X = 97.5
 PAD_Y = 97.5

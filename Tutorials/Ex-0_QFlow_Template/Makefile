@@ -1,6 +1,6 @@
 
-VERILOG_SRCS =	./source/test.v
-TOP_MODULE = test
+VERILOG_SRCS =	./source/Your_Design.v
+TOP_MODULE = Your_Design
 
 all :
 	@echo ''
