@@ -31,6 +31,7 @@ build_net: VERILOG_SRCS = \
 	~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v
 
 VERILATOR    = verilator
+ARGS         =--sc -Wall --pins-sc-uint --trace --timing
 VCFLAGS    	 = -CFLAGS -std=c++17
 VCFLAGS		+= -CFLAGS -g
 VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
@@ -92,7 +93,7 @@ build : $(TARGET_DIR)/$(TARGET)
 build_net : $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
-	$(VERILATOR) --sc -Wall --trace --timing --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
+	$(VERILATOR) $(ARGS) --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 build_tim : $(TOP_MODULE)

@@ -18,23 +18,23 @@ History : Mar. 2025, First release
 SC_MODULE(sc_fxp_sqrt_top_TB)
 {
 
-    sc_clock            ap_clk;
-    sc_signal<bool>     ap_rst;
-    sc_signal<bool>     ap_start;
-    sc_signal<bool>     ap_done;
-    sc_signal<bool>     ap_continue;
-    sc_signal<bool>     ap_idle;
-    sc_signal<bool>     ap_ready;
-    sc_signal<uint32_t> in_val;
-    sc_signal<uint32_t> ap_return;
+    sc_clock                ap_clk;
+    sc_signal<bool>         ap_rst;
+    sc_signal<bool>         ap_start;
+    sc_signal<bool>         ap_done;
+    sc_signal<bool>         ap_continue;
+    sc_signal<bool>         ap_idle;
+    sc_signal<bool>         ap_ready;
+    sc_signal<sc_uint<12> > in_val;
+    sc_signal<sc_uint<10> > ap_return;
 #ifdef EMULATED_CO_SIM
 #endif
 
     Vfxp_sqrt_top*      u_Vfxp_sqrt_top;
 
-    sc_signal<in_data_t>    input_val;
+    sc_signal<in_data_t> input_val;
     sc_signal<float>        CmathOut;
-    sc_signal<out_data_t>   RefOut;
+    sc_signal<out_data_t>	RefOut;
     out_data_t              DutOut;
 
     // Test utilities

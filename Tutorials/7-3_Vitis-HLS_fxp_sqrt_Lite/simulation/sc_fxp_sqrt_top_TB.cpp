@@ -35,15 +35,15 @@ void sc_fxp_sqrt_top_TB::Test_Gen()
 
         if (ap_idle.read())
         {
-            input_val = (in_data_t)0;  // 24-bit width
-            in_val.write(input_val.get_new_value());
+            input_val = 0;
+            in_val.write((sc_uint<12>)input_val.get_new_value());
             ap_start.write(true);
         }
 
         if (ap_ready.read())
         {
-            input_val = (in_data_t)rand();  // 24-bit width
-            in_val.write(input_val.get_new_value());
+            input_val = rand();
+            in_val.write((sc_uint<12>)input_val.get_new_value());
 
             CmathOut = (float)sqrt((float)input_val.get_new_value());
             RefOut   = fxp_sqrt_top((in_data_t&)input_val.get_new_value());
@@ -57,7 +57,7 @@ void sc_fxp_sqrt_top_TB::Test_Gen()
 void sc_fxp_sqrt_top_TB::Test_Mon()
 {
     float fsqrt, max_err = 0.0;
-    sc_uint<32> _ap_return;
+    sc_uint<10> _ap_return;
 
     int test_count = 0;
 

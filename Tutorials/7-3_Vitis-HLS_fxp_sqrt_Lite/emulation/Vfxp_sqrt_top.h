@@ -19,15 +19,15 @@ History : Feb. 2025, First release
 
 SC_MODULE(Vfxp_sqrt_top)
 {
-    sc_in<bool>         ap_clk;
-    sc_in<bool>         ap_rst;
-    sc_in<bool>         ap_start;
-    sc_out<bool>        ap_done;
-    sc_in<bool>         ap_continue;
-    sc_out<bool>        ap_idle;
-    sc_out<bool>        ap_ready;
-    sc_in<uint32_t>     in_val;
-    sc_out<uint32_t>    ap_return;
+    sc_in<bool>             ap_clk;
+    sc_in<bool>             ap_rst;
+    sc_in<bool>             ap_start;
+    sc_out<bool>            ap_done;
+    sc_in<bool>             ap_continue;
+    sc_out<bool>            ap_idle;
+    sc_out<bool>            ap_ready;
+    sc_in<sc_uint<12> >     in_val;
+    sc_out<sc_uint<10> >    ap_return;
 
 #define N_TX    2
 #define N_RX    2
