@@ -1,5 +1,5 @@
 /*
-  'fir_pe' Co-Emulation interface
+  Co-Emulation Modeling Interface
 */
 
 //#define EMULATION_CA

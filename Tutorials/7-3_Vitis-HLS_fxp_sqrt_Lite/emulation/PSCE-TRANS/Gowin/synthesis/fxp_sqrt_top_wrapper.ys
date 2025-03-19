@@ -1,0 +1,16 @@
+### Yosys taargetting GoWin
+# yosys -s Your_Design_wrapper.ys | tee synthesis.log
+#
+
+read_verilog ../../../fxp_sqrt_top_wrapper.v
+read_verilog -sv ../../../../source/fxp_sqrt_top.v
+read_verilog -sv ../../../../source/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v
+read_verilog -sv ../../../../source/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_89_1.v
+
+hierarchy -check -top fxp_sqrt_top_wrapper
+
+synth_gowin -top fxp_sqrt_top_wrapper -vout fxp_sqrt_top_wrapper.v -noalu
+
+write_verilog  fxp_sqrt_top_wrapper.v
+
+stat

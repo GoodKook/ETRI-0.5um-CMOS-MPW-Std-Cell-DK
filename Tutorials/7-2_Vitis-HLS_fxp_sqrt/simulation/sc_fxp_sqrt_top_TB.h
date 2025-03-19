@@ -31,7 +31,11 @@ SC_MODULE(sc_fxp_sqrt_top_TB)
 #endif
 
     Vfxp_sqrt_top*      u_Vfxp_sqrt_top;
-    in_data_t           input_val;
+
+    sc_signal<in_data_t>    input_val;
+    sc_signal<float>        CmathOut;
+    sc_signal<out_data_t>   RefOut;
+    out_data_t              DutOut;
 
     // Test utilities
     void Test_Gen();

@@ -34,12 +34,16 @@ void sc_test_TB::Test_Gen()
 
         if (ap_idle.read())
         {
-            for(int i=0; i<10; i++) MEM_A[i] = (sc_int<8>)rand();
+            for(int i=0; i<10; i++) MEM_A[i] = 0;
             ap_start.write(true);
         }
+        if (ap_ready.read())
+		{
+            for(int i=0; i<10; i++)
+                MEM_A[i] = (sc_int<8>)rand();
 
-        if (ap_done.read())
-            ap_start.write(false);
+            RefOut.write(test(MEM_A));
+		}
     }
     sc_stop();
 }
@@ -50,7 +54,6 @@ void sc_test_TB::Test_Gen()
 void sc_test_TB::Test_Mon()
 {
     int test_count = 0;
-    sc_int<13> _result, result = (int)test(MEM_A);
 
     while(true)
     {
@@ -58,19 +61,17 @@ void sc_test_TB::Test_Mon()
 
         if (ap_done.read())
         {
-            result  = test(MEM_A);
-            _result = ap_return.read();
+            DutOut = ap_return.read();
 
-            if (_result!=result)
-            {
-                printf("Error[%d]:", test_count++);
-                cout << std::setw(5) << result << " == " << std::setw(5) << _result << std::endl;
-            }
+            if (RefOut!=DutOut)
+                cout << "Error[";
             else
-            {
-                printf("Pass[%d]:", test_count++);
-                cout << std::setw(5) << result << " == " << std::setw(5) << _result << std::endl;
-            }
+                cout << "Pass [";
+            cout << std::setw(3) << test_count++ << "]:";
+            cout << "RefOut=" << std::setw(5) << RefOut;
+            cout << " | ";
+            cout << "DutOut=" << std::setw(5) << DutOut;
+            cout << std::endl;
         }
     }
 }

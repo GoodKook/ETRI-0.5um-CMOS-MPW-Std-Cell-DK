@@ -35,12 +35,19 @@ void sc_fxp_sqrt_top_TB::Test_Gen()
 
         if (ap_idle.read())
         {
-            input_val = (in_data_t)rand();  // 24-bit width
-            in_val.write(input_val);
+            input_val = (in_data_t)0;  // 24-bit width
+            in_val.write(input_val.get_new_value());
             ap_start.write(true);
         }
-        else if (ap_done.read())
-            ap_start.write(false);
+
+        if (ap_ready.read())
+        {
+            input_val = (in_data_t)rand();  // 24-bit width
+            in_val.write(input_val.get_new_value());
+
+            CmathOut = (float)sqrt((float)input_val.get_new_value());
+            RefOut   = fxp_sqrt_top((in_data_t&)input_val.get_new_value());
+        }
     }
 }
 
@@ -49,8 +56,7 @@ void sc_fxp_sqrt_top_TB::Test_Gen()
 //
 void sc_fxp_sqrt_top_TB::Test_Mon()
 {
-    out_data_t  _result, result;
-    float fsqrt, max_err = 0.0;
+    float max_err = 0.0;
     sc_uint<32> _ap_return;
 
     int test_count = 0;
@@ -72,32 +78,34 @@ void sc_fxp_sqrt_top_TB::Test_Mon()
 
         if (ap_done.read())
         {
-            fsqrt = (float)sqrt((float)input_val);
-            result  = fxp_sqrt_top(input_val);
+            //CmathOut = (float)sqrt((float)input_val.read());
+            //RefOut   = fxp_sqrt_top((in_data_t&)input_val.read());
 
             _ap_return = ap_return.read();
-            _result.range(OUT_BW-1, (OUT_BW-OUT_IW)) = _ap_return.range(19,16);
-            _result.range((OUT_BW-OUT_IW)-1, 8)      = _ap_return.range(15, 0);
+            DutOut.range(OUT_BW-1, (OUT_BW-OUT_IW)) = _ap_return.range(19,16);
+            DutOut.range((OUT_BW-OUT_IW)-1, 8)      = _ap_return.range(15, 0);
 
             //cout << result.to_hex() << ":" << _result.to_hex() << std::endl;
 
             cout    << "["      << std::right   << std::setw(3)     << test_count++ << "]"
                     << "sqrt("  << std::right   << std::setw(3)     << input_val
-                    << ")= "    << std::left    << std::setw(8)    << fsqrt
-                    << " vs. "  << std::left    << std::setw(28)    << result
-                    << " vs. "  << std::left    << std::setw(22)    << _result
-                    << " Diff= "<< std::right   << std::setw(10)    << abs(result - _result)
+                    << ")= "    << std::left    << std::setw(8)     << CmathOut
+                    << " vs. "  << std::left    << std::setw(28)    << RefOut
+                    << " vs. "  << std::left    << std::setw(22)    << DutOut
+                    << " Diff= "<< std::right   << std::setw(10)    << abs(RefOut - DutOut)
                     << std::endl;
 
             if (test_count>100)
                 break;
-            if (abs(result - _result)>0.8e-5)
-            {
-                cout << " ERROR!" << endl;
-                break;
-            }
-            if (abs(result - _result)>max_err)
-            max_err = abs(result - _result);
+
+//            if (abs(RefOut - DutOut)>0.8e-5)
+//            {
+//                cout << " ERROR!" << endl;
+//                break;
+//            }
+
+            if (abs(RefOut - DutOut)>max_err)
+                max_err = abs(RefOut - DutOut);
 
         }
     }

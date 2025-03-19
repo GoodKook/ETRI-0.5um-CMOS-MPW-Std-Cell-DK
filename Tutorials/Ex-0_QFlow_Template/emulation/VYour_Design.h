@@ -84,7 +84,7 @@ SC_MODULE(VYour_Design)
                 rxPacket[i] = y;
             }
 
-            // DUT input bitmap
+            // DUT output bitmap
             p_tick.write((rxPacket[0] & 0x08)? true : false);
             hsync.write( (rxPacket[0] & 0x04)? true : false);
             vsync.write( (rxPacket[0] & 0x02)? true : false);
