@@ -9,8 +9,8 @@
 
 //-------------------------------------------------------------------
 // !!! IMPOTANCE: PSCE-MI Board Selection
-//#define DUE_OVERCLOCK
-#define PI_PICO
+#define DUE_OVERCLOCK
+//#define PI_PICO
 //#define ESP32_S3
 //-------------------------------------------------------------------
 // !!! IMPORTANCE: PSCE FPGA Board Selection

@@ -33,7 +33,7 @@ SC_MODULE(sc_test_TB)
     Vtest*      u_Vtest;
     sc_int<8>               MEM_A[10];
     sc_int<13>	            DutOut;
-    sc_signal<sc_int<13> >  RefOut;
+    sc_int<13>  RefOut;
 
 
     // Test utilities

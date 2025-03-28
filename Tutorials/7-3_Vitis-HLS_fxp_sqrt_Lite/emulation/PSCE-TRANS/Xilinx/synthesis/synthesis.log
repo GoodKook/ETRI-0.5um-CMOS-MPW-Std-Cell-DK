@@ -1,0 +1,2280 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.50+56 (git sha1 176131b50, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+
+-- Executing script file `fxp_sqrt_top_wrapper.ys' --
+
+1. Executing Verilog-2005 frontend: ../../../fxp_sqrt_top_wrapper.v
+Parsing Verilog input from `../../../fxp_sqrt_top_wrapper.v' to AST representation.
+Generating RTLIL representation for module `\fxp_sqrt_top_wrapper'.
+Warning: Replacing memory \vectOut with list of registers. See ../../../fxp_sqrt_top_wrapper.v:60
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: ../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v
+Parsing SystemVerilog input from `../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v' to AST representation.
+Generating RTLIL representation for module `\fxp_sqrt_top'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: ../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v
+Parsing SystemVerilog input from `../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v' to AST representation.
+Generating RTLIL representation for module `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: ../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v
+Parsing SystemVerilog input from `../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v' to AST representation.
+Generating RTLIL representation for module `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \fxp_sqrt_top_wrapper
+Used module:     \fxp_sqrt_top
+Used module:         \fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1
+Used module:             \fxp_sqrt_top_flow_control_loop_pipe_sequential_init
+
+5.2. Analyzing design hierarchy..
+Top module:  \fxp_sqrt_top_wrapper
+Used module:     \fxp_sqrt_top
+Used module:         \fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1
+Used module:             \fxp_sqrt_top_flow_control_loop_pipe_sequential_init
+Removed 0 unused modules.
+
+6. Executing SYNTH_XILINX pass.
+
+6.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/cells_sim.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\VCC'.
+Generating RTLIL representation for module `\GND'.
+Generating RTLIL representation for module `\IBUF'.
+Generating RTLIL representation for module `\IBUFG'.
+Generating RTLIL representation for module `\OBUF'.
+Generating RTLIL representation for module `\IOBUF'.
+Generating RTLIL representation for module `\OBUFT'.
+Generating RTLIL representation for module `\BUFG'.
+Generating RTLIL representation for module `\BUFGCTRL'.
+Generating RTLIL representation for module `\BUFHCE'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\LUT1'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\LUT3'.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\LUT5'.
+Generating RTLIL representation for module `\LUT6'.
+Generating RTLIL representation for module `\LUT6_2'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\$__ABC9_LUT8'.
+Generating RTLIL representation for module `\MUXCY'.
+Generating RTLIL representation for module `\MUXF5'.
+Generating RTLIL representation for module `\MUXF6'.
+Generating RTLIL representation for module `\MUXF7'.
+Generating RTLIL representation for module `\MUXF8'.
+Generating RTLIL representation for module `\MUXF9'.
+Generating RTLIL representation for module `\XORCY'.
+Generating RTLIL representation for module `\CARRY4'.
+Generating RTLIL representation for module `\CARRY8'.
+Generating RTLIL representation for module `\ORCY'.
+Generating RTLIL representation for module `\MULT_AND'.
+Generating RTLIL representation for module `\FDRE'.
+Generating RTLIL representation for module `\FDRE_1'.
+Generating RTLIL representation for module `\FDSE'.
+Generating RTLIL representation for module `\FDSE_1'.
+Generating RTLIL representation for module `\FDRSE'.
+Generating RTLIL representation for module `\FDRSE_1'.
+Generating RTLIL representation for module `\FDCE'.
+Generating RTLIL representation for module `\FDCE_1'.
+Generating RTLIL representation for module `\FDPE'.
+Generating RTLIL representation for module `\FDPE_1'.
+Generating RTLIL representation for module `\FDCPE'.
+Generating RTLIL representation for module `\FDCPE_1'.
+Generating RTLIL representation for module `\LDCE'.
+Generating RTLIL representation for module `\LDPE'.
+Generating RTLIL representation for module `\LDCPE'.
+Generating RTLIL representation for module `\AND2B1L'.
+Generating RTLIL representation for module `\OR2L'.
+Generating RTLIL representation for module `\RAM16X1S'.
+Generating RTLIL representation for module `\RAM16X1S_1'.
+Generating RTLIL representation for module `\RAM32X1S'.
+Generating RTLIL representation for module `\RAM32X1S_1'.
+Generating RTLIL representation for module `\RAM64X1S'.
+Generating RTLIL representation for module `\RAM64X1S_1'.
+Generating RTLIL representation for module `\RAM128X1S'.
+Generating RTLIL representation for module `\RAM128X1S_1'.
+Generating RTLIL representation for module `\RAM256X1S'.
+Generating RTLIL representation for module `\RAM512X1S'.
+Generating RTLIL representation for module `\RAM16X2S'.
+Generating RTLIL representation for module `\RAM32X2S'.
+Generating RTLIL representation for module `\RAM64X2S'.
+Generating RTLIL representation for module `\RAM16X4S'.
+Generating RTLIL representation for module `\RAM32X4S'.
+Generating RTLIL representation for module `\RAM16X8S'.
+Generating RTLIL representation for module `\RAM32X8S'.
+Generating RTLIL representation for module `\RAM16X1D'.
+Generating RTLIL representation for module `\RAM16X1D_1'.
+Generating RTLIL representation for module `\RAM32X1D'.
+Generating RTLIL representation for module `\RAM32X1D_1'.
+Generating RTLIL representation for module `\RAM64X1D'.
+Generating RTLIL representation for module `\RAM64X1D_1'.
+Generating RTLIL representation for module `\RAM128X1D'.
+Generating RTLIL representation for module `\RAM256X1D'.
+Generating RTLIL representation for module `\RAM32M'.
+Generating RTLIL representation for module `\RAM32M16'.
+Generating RTLIL representation for module `\RAM64M'.
+Generating RTLIL representation for module `\RAM64M8'.
+Generating RTLIL representation for module `\RAM32X16DR8'.
+Generating RTLIL representation for module `\RAM64X8SW'.
+Generating RTLIL representation for module `\ROM16X1'.
+Generating RTLIL representation for module `\ROM32X1'.
+Generating RTLIL representation for module `\ROM64X1'.
+Generating RTLIL representation for module `\ROM128X1'.
+Generating RTLIL representation for module `\ROM256X1'.
+Generating RTLIL representation for module `\SRL16'.
+Generating RTLIL representation for module `\SRL16E'.
+Generating RTLIL representation for module `\SRLC16'.
+Generating RTLIL representation for module `\SRLC16E'.
+Generating RTLIL representation for module `\SRLC32E'.
+Generating RTLIL representation for module `\CFGLUT5'.
+Generating RTLIL representation for module `\MULT18X18'.
+Generating RTLIL representation for module `\MULT18X18S'.
+Generating RTLIL representation for module `\MULT18X18SIO'.
+Generating RTLIL representation for module `\DSP48A'.
+Generating RTLIL representation for module `\DSP48A1'.
+Generating RTLIL representation for module `\DSP48'.
+Generating RTLIL representation for module `\DSP48E1'.
+Generating RTLIL representation for module `\RAMB18E1'.
+Generating RTLIL representation for module `\RAMB36E1'.
+Successfully finished Verilog frontend.
+
+6.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/cells_xtra.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/cells_xtra.v' to AST representation.
+Generating RTLIL representation for module `\RAMB4_S1'.
+Generating RTLIL representation for module `\RAMB4_S2'.
+Generating RTLIL representation for module `\RAMB4_S4'.
+Generating RTLIL representation for module `\RAMB4_S8'.
+Generating RTLIL representation for module `\RAMB4_S16'.
+Generating RTLIL representation for module `\RAMB4_S1_S1'.
+Generating RTLIL representation for module `\RAMB4_S1_S2'.
+Generating RTLIL representation for module `\RAMB4_S1_S4'.
+Generating RTLIL representation for module `\RAMB4_S1_S8'.
+Generating RTLIL representation for module `\RAMB4_S1_S16'.
+Generating RTLIL representation for module `\RAMB4_S2_S2'.
+Generating RTLIL representation for module `\RAMB4_S2_S4'.
+Generating RTLIL representation for module `\RAMB4_S2_S8'.
+Generating RTLIL representation for module `\RAMB4_S2_S16'.
+Generating RTLIL representation for module `\RAMB4_S4_S4'.
+Generating RTLIL representation for module `\RAMB4_S4_S8'.
+Generating RTLIL representation for module `\RAMB4_S4_S16'.
+Generating RTLIL representation for module `\RAMB4_S8_S8'.
+Generating RTLIL representation for module `\RAMB4_S8_S16'.
+Generating RTLIL representation for module `\RAMB4_S16_S16'.
+Generating RTLIL representation for module `\RAMB16_S1'.
+Generating RTLIL representation for module `\RAMB16_S2'.
+Generating RTLIL representation for module `\RAMB16_S4'.
+Generating RTLIL representation for module `\RAMB16_S9'.
+Generating RTLIL representation for module `\RAMB16_S18'.
+Generating RTLIL representation for module `\RAMB16_S36'.
+Generating RTLIL representation for module `\RAMB16_S1_S1'.
+Generating RTLIL representation for module `\RAMB16_S1_S2'.
+Generating RTLIL representation for module `\RAMB16_S1_S4'.
+Generating RTLIL representation for module `\RAMB16_S1_S9'.
+Generating RTLIL representation for module `\RAMB16_S1_S18'.
+Generating RTLIL representation for module `\RAMB16_S1_S36'.
+Generating RTLIL representation for module `\RAMB16_S2_S2'.
+Generating RTLIL representation for module `\RAMB16_S2_S4'.
+Generating RTLIL representation for module `\RAMB16_S2_S9'.
+Generating RTLIL representation for module `\RAMB16_S2_S18'.
+Generating RTLIL representation for module `\RAMB16_S2_S36'.
+Generating RTLIL representation for module `\RAMB16_S4_S4'.
+Generating RTLIL representation for module `\RAMB16_S4_S9'.
+Generating RTLIL representation for module `\RAMB16_S4_S18'.
+Generating RTLIL representation for module `\RAMB16_S4_S36'.
+Generating RTLIL representation for module `\RAMB16_S9_S9'.
+Generating RTLIL representation for module `\RAMB16_S9_S18'.
+Generating RTLIL representation for module `\RAMB16_S9_S36'.
+Generating RTLIL representation for module `\RAMB16_S18_S18'.
+Generating RTLIL representation for module `\RAMB16_S18_S36'.
+Generating RTLIL representation for module `\RAMB16_S36_S36'.
+Generating RTLIL representation for module `\RAMB16BWE_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36'.
+Generating RTLIL representation for module `\RAMB16BWE_S18_S9'.
+Generating RTLIL representation for module `\RAMB16BWE_S18_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S9'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S36'.
+Generating RTLIL representation for module `\RAMB16BWER'.
+Generating RTLIL representation for module `\RAMB8BWER'.
+Generating RTLIL representation for module `\FIFO16'.
+Generating RTLIL representation for module `\RAMB16'.
+Generating RTLIL representation for module `\RAMB32_S64_ECC'.
+Generating RTLIL representation for module `\FIFO18'.
+Generating RTLIL representation for module `\FIFO18_36'.
+Generating RTLIL representation for module `\FIFO36'.
+Generating RTLIL representation for module `\FIFO36_72'.
+Generating RTLIL representation for module `\RAMB18'.
+Generating RTLIL representation for module `\RAMB36'.
+Generating RTLIL representation for module `\RAMB18SDP'.
+Generating RTLIL representation for module `\RAMB36SDP'.
+Generating RTLIL representation for module `\FIFO18E1'.
+Generating RTLIL representation for module `\FIFO36E1'.
+Generating RTLIL representation for module `\FIFO18E2'.
+Generating RTLIL representation for module `\FIFO36E2'.
+Generating RTLIL representation for module `\RAMB18E2'.
+Generating RTLIL representation for module `\RAMB36E2'.
+Generating RTLIL representation for module `\URAM288'.
+Generating RTLIL representation for module `\URAM288_BASE'.
+Generating RTLIL representation for module `\DSP48E'.
+Generating RTLIL representation for module `\DSP48E2'.
+Generating RTLIL representation for module `\FDDRCPE'.
+Generating RTLIL representation for module `\FDDRRSE'.
+Generating RTLIL representation for module `\IFDDRCPE'.
+Generating RTLIL representation for module `\IFDDRRSE'.
+Generating RTLIL representation for module `\OFDDRCPE'.
+Generating RTLIL representation for module `\OFDDRRSE'.
+Generating RTLIL representation for module `\OFDDRTCPE'.
+Generating RTLIL representation for module `\OFDDRTRSE'.
+Generating RTLIL representation for module `\IDDR2'.
+Generating RTLIL representation for module `\ODDR2'.
+Generating RTLIL representation for module `\IDDR'.
+Generating RTLIL representation for module `\IDDR_2CLK'.
+Generating RTLIL representation for module `\ODDR'.
+Generating RTLIL representation for module `\IDELAYCTRL'.
+Generating RTLIL representation for module `\IDELAY'.
+Generating RTLIL representation for module `\ISERDES'.
+Generating RTLIL representation for module `\OSERDES'.
+Generating RTLIL representation for module `\IODELAY'.
+Generating RTLIL representation for module `\ISERDES_NODELAY'.
+Generating RTLIL representation for module `\IODELAYE1'.
+Generating RTLIL representation for module `\ISERDESE1'.
+Generating RTLIL representation for module `\OSERDESE1'.
+Generating RTLIL representation for module `\IDELAYE2'.
+Generating RTLIL representation for module `\ODELAYE2'.
+Generating RTLIL representation for module `\ISERDESE2'.
+Generating RTLIL representation for module `\OSERDESE2'.
+Generating RTLIL representation for module `\PHASER_IN'.
+Generating RTLIL representation for module `\PHASER_IN_PHY'.
+Generating RTLIL representation for module `\PHASER_OUT'.
+Generating RTLIL representation for module `\PHASER_OUT_PHY'.
+Generating RTLIL representation for module `\PHASER_REF'.
+Generating RTLIL representation for module `\PHY_CONTROL'.
+Generating RTLIL representation for module `\IDDRE1'.
+Generating RTLIL representation for module `\ODDRE1'.
+Generating RTLIL representation for module `\IDELAYE3'.
+Generating RTLIL representation for module `\ODELAYE3'.
+Generating RTLIL representation for module `\ISERDESE3'.
+Generating RTLIL representation for module `\OSERDESE3'.
+Generating RTLIL representation for module `\BITSLICE_CONTROL'.
+Generating RTLIL representation for module `\RIU_OR'.
+Generating RTLIL representation for module `\RX_BITSLICE'.
+Generating RTLIL representation for module `\RXTX_BITSLICE'.
+Generating RTLIL representation for module `\TX_BITSLICE'.
+Generating RTLIL representation for module `\TX_BITSLICE_TRI'.
+Generating RTLIL representation for module `\IODELAY2'.
+Generating RTLIL representation for module `\IODRP2'.
+Generating RTLIL representation for module `\IODRP2_MCB'.
+Generating RTLIL representation for module `\ISERDES2'.
+Generating RTLIL representation for module `\OSERDES2'.
+Generating RTLIL representation for module `\IBUF_DLY_ADJ'.
+Generating RTLIL representation for module `\IBUF_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUF_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUF_ANALOG'.
+Generating RTLIL representation for module `\IBUFE3'.
+Generating RTLIL representation for module `\IBUFDS'.
+Generating RTLIL representation for module `\IBUFDS_DLY_ADJ'.
+Generating RTLIL representation for module `\IBUFDS_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUFDSE3'.
+Generating RTLIL representation for module `\IBUFDS_DPHY'.
+Generating RTLIL representation for module `\IBUFGDS'.
+Generating RTLIL representation for module `\IBUFGDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IOBUF_DCIEN'.
+Generating RTLIL representation for module `\IOBUF_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFE3'.
+Generating RTLIL representation for module `\IOBUFDS'.
+Generating RTLIL representation for module `\IOBUFDS_DCIEN'.
+Generating RTLIL representation for module `\IOBUFDS_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT_DCIEN'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFDSE3'.
+Generating RTLIL representation for module `\OBUFDS'.
+Generating RTLIL representation for module `\OBUFDS_DPHY'.
+Generating RTLIL representation for module `\OBUFTDS'.
+Generating RTLIL representation for module `\KEEPER'.
+Generating RTLIL representation for module `\PULLDOWN'.
+Generating RTLIL representation for module `\PULLUP'.
+Generating RTLIL representation for module `\DCIRESET'.
+Generating RTLIL representation for module `\HPIO_VREF'.
+Generating RTLIL representation for module `\BUFGCE'.
+Generating RTLIL representation for module `\BUFGCE_1'.
+Generating RTLIL representation for module `\BUFGMUX'.
+Generating RTLIL representation for module `\BUFGMUX_1'.
+Generating RTLIL representation for module `\BUFGMUX_CTRL'.
+Generating RTLIL representation for module `\BUFGMUX_VIRTEX4'.
+Generating RTLIL representation for module `\BUFG_GT'.
+Generating RTLIL representation for module `\BUFG_GT_SYNC'.
+Generating RTLIL representation for module `\BUFG_PS'.
+Generating RTLIL representation for module `\BUFGCE_DIV'.
+Generating RTLIL representation for module `\BUFH'.
+Generating RTLIL representation for module `\BUFIO2'.
+Generating RTLIL representation for module `\BUFIO2_2CLK'.
+Generating RTLIL representation for module `\BUFIO2FB'.
+Generating RTLIL representation for module `\BUFPLL'.
+Generating RTLIL representation for module `\BUFPLL_MCB'.
+Generating RTLIL representation for module `\BUFIO'.
+Generating RTLIL representation for module `\BUFIODQS'.
+Generating RTLIL representation for module `\BUFR'.
+Generating RTLIL representation for module `\BUFMR'.
+Generating RTLIL representation for module `\BUFMRCE'.
+Generating RTLIL representation for module `\DCM'.
+Generating RTLIL representation for module `\DCM_SP'.
+Generating RTLIL representation for module `\DCM_CLKGEN'.
+Generating RTLIL representation for module `\DCM_ADV'.
+Generating RTLIL representation for module `\DCM_BASE'.
+Generating RTLIL representation for module `\DCM_PS'.
+Generating RTLIL representation for module `\PMCD'.
+Generating RTLIL representation for module `\PLL_ADV'.
+Generating RTLIL representation for module `\PLL_BASE'.
+Generating RTLIL representation for module `\MMCM_ADV'.
+Generating RTLIL representation for module `\MMCM_BASE'.
+Generating RTLIL representation for module `\MMCME2_ADV'.
+Generating RTLIL representation for module `\MMCME2_BASE'.
+Generating RTLIL representation for module `\PLLE2_ADV'.
+Generating RTLIL representation for module `\PLLE2_BASE'.
+Generating RTLIL representation for module `\MMCME3_ADV'.
+Generating RTLIL representation for module `\MMCME3_BASE'.
+Generating RTLIL representation for module `\PLLE3_ADV'.
+Generating RTLIL representation for module `\PLLE3_BASE'.
+Generating RTLIL representation for module `\MMCME4_ADV'.
+Generating RTLIL representation for module `\MMCME4_BASE'.
+Generating RTLIL representation for module `\PLLE4_ADV'.
+Generating RTLIL representation for module `\PLLE4_BASE'.
+Generating RTLIL representation for module `\BUFT'.
+Generating RTLIL representation for module `\IN_FIFO'.
+Generating RTLIL representation for module `\OUT_FIFO'.
+Generating RTLIL representation for module `\HARD_SYNC'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3E'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3A'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN6'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX4'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX5'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX6'.
+Generating RTLIL representation for module `\STARTUPE2'.
+Generating RTLIL representation for module `\STARTUPE3'.
+Generating RTLIL representation for module `\CAPTURE_SPARTAN3'.
+Generating RTLIL representation for module `\CAPTURE_SPARTAN3A'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX4'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX5'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX6'.
+Generating RTLIL representation for module `\CAPTUREE2'.
+Generating RTLIL representation for module `\ICAP_SPARTAN3A'.
+Generating RTLIL representation for module `\ICAP_SPARTAN6'.
+Generating RTLIL representation for module `\ICAP_VIRTEX4'.
+Generating RTLIL representation for module `\ICAP_VIRTEX5'.
+Generating RTLIL representation for module `\ICAP_VIRTEX6'.
+Generating RTLIL representation for module `\ICAPE2'.
+Generating RTLIL representation for module `\ICAPE3'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN3'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN3A'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN6'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX4'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX5'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX6'.
+Generating RTLIL representation for module `\BSCANE2'.
+Generating RTLIL representation for module `\DNA_PORT'.
+Generating RTLIL representation for module `\DNA_PORTE2'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX4'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX5'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX6'.
+Generating RTLIL representation for module `\FRAME_ECCE2'.
+Generating RTLIL representation for module `\FRAME_ECCE3'.
+Generating RTLIL representation for module `\FRAME_ECCE4'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX4'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX5'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX6'.
+Generating RTLIL representation for module `\USR_ACCESSE2'.
+Generating RTLIL representation for module `\POST_CRC_INTERNAL'.
+Generating RTLIL representation for module `\SUSPEND_SYNC'.
+Generating RTLIL representation for module `\KEY_CLEAR'.
+Generating RTLIL representation for module `\MASTER_JTAG'.
+Generating RTLIL representation for module `\SPI_ACCESS'.
+Generating RTLIL representation for module `\EFUSE_USR'.
+Generating RTLIL representation for module `\SYSMON'.
+Generating RTLIL representation for module `\XADC'.
+Generating RTLIL representation for module `\SYSMONE1'.
+Generating RTLIL representation for module `\SYSMONE4'.
+Generating RTLIL representation for module `\GTPA1_DUAL'.
+Generating RTLIL representation for module `\GT11_CUSTOM'.
+Generating RTLIL representation for module `\GT11_DUAL'.
+Generating RTLIL representation for module `\GT11CLK'.
+Generating RTLIL representation for module `\GT11CLK_MGT'.
+Generating RTLIL representation for module `\GTP_DUAL'.
+Generating RTLIL representation for module `\GTX_DUAL'.
+Generating RTLIL representation for module `\CRC32'.
+Generating RTLIL representation for module `\CRC64'.
+Generating RTLIL representation for module `\GTHE1_QUAD'.
+Generating RTLIL representation for module `\GTXE1'.
+Generating RTLIL representation for module `\IBUFDS_GTXE1'.
+Generating RTLIL representation for module `\IBUFDS_GTHE1'.
+Generating RTLIL representation for module `\GTHE2_CHANNEL'.
+Generating RTLIL representation for module `\GTHE2_COMMON'.
+Generating RTLIL representation for module `\GTPE2_CHANNEL'.
+Generating RTLIL representation for module `\GTPE2_COMMON'.
+Generating RTLIL representation for module `\GTXE2_CHANNEL'.
+Generating RTLIL representation for module `\GTXE2_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE2'.
+Generating RTLIL representation for module `\GTHE3_CHANNEL'.
+Generating RTLIL representation for module `\GTHE3_COMMON'.
+Generating RTLIL representation for module `\GTYE3_CHANNEL'.
+Generating RTLIL representation for module `\GTYE3_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE3'.
+Generating RTLIL representation for module `\OBUFDS_GTE3'.
+Generating RTLIL representation for module `\OBUFDS_GTE3_ADV'.
+Generating RTLIL representation for module `\GTHE4_CHANNEL'.
+Generating RTLIL representation for module `\GTHE4_COMMON'.
+Generating RTLIL representation for module `\GTYE4_CHANNEL'.
+Generating RTLIL representation for module `\GTYE4_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE4'.
+Generating RTLIL representation for module `\OBUFDS_GTE4'.
+Generating RTLIL representation for module `\OBUFDS_GTE4_ADV'.
+Generating RTLIL representation for module `\GTM_DUAL'.
+Generating RTLIL representation for module `\IBUFDS_GTM'.
+Generating RTLIL representation for module `\OBUFDS_GTM'.
+Generating RTLIL representation for module `\OBUFDS_GTM_ADV'.
+Generating RTLIL representation for module `\HSDAC'.
+Generating RTLIL representation for module `\HSADC'.
+Generating RTLIL representation for module `\RFDAC'.
+Generating RTLIL representation for module `\RFADC'.
+Generating RTLIL representation for module `\PCIE_A1'.
+Generating RTLIL representation for module `\PCIE_EP'.
+Generating RTLIL representation for module `\PCIE_2_0'.
+Generating RTLIL representation for module `\PCIE_2_1'.
+Generating RTLIL representation for module `\PCIE_3_0'.
+Generating RTLIL representation for module `\PCIE_3_1'.
+Generating RTLIL representation for module `\PCIE40E4'.
+Generating RTLIL representation for module `\PCIE4CE4'.
+Generating RTLIL representation for module `\EMAC'.
+Generating RTLIL representation for module `\TEMAC'.
+Generating RTLIL representation for module `\TEMAC_SINGLE'.
+Generating RTLIL representation for module `\CMAC'.
+Generating RTLIL representation for module `\CMACE4'.
+Generating RTLIL representation for module `\MCB'.
+Generating RTLIL representation for module `\HBM_REF_CLK'.
+Generating RTLIL representation for module `\HBM_SNGLBLI_INTF_APB'.
+Generating RTLIL representation for module `\HBM_SNGLBLI_INTF_AXI'.
+Generating RTLIL representation for module `\HBM_ONE_STACK_INTF'.
+Generating RTLIL representation for module `\HBM_TWO_STACK_INTF'.
+Generating RTLIL representation for module `\PPC405_ADV'.
+Generating RTLIL representation for module `\PPC440'.
+Generating RTLIL representation for module `\PS7'.
+Generating RTLIL representation for module `\PS8'.
+Generating RTLIL representation for module `\ILKN'.
+Generating RTLIL representation for module `\ILKNE4'.
+Generating RTLIL representation for module `\VCU'.
+Generating RTLIL representation for module `\FE'.
+Successfully finished Verilog frontend.
+
+6.3. Executing HIERARCHY pass (managing design hierarchy).
+
+6.3.1. Analyzing design hierarchy..
+Top module:  \fxp_sqrt_top_wrapper
+Used module:     \fxp_sqrt_top
+Used module:         \fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1
+Used module:             \fxp_sqrt_top_flow_control_loop_pipe_sequential_init
+
+6.3.2. Analyzing design hierarchy..
+Top module:  \fxp_sqrt_top_wrapper
+Used module:     \fxp_sqrt_top
+Used module:         \fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1
+Used module:             \fxp_sqrt_top_flow_control_loop_pipe_sequential_init
+Removed 0 unused modules.
+
+6.4. Executing PROC pass (convert processes to netlists).
+
+6.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139 in module RAM64M.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019 in module RAM32M.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$966 in module RAM128X1D.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$929 in module RAM64X1D.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$911 in module RAM32X1D_1.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$881 in module RAM32X1D.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:815$830 in module FDPE_1.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:774$827 in module FDPE.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:736$812 in module FDCE_1.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:695$809 in module FDCE.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:592$794 in module FDSE_1.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:559$790 in module FDSE.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:527$772 in module FDRE_1.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:494$768 in module FDRE.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:290$206 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:282$198 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:274$190 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:266$182 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:258$176 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:250$170 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:242$166 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:234$160 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:226$154 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:218$146 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:201$136 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:182$130 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:172$124 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:162$118 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:152$112 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:142$107 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 2 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:130$99 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:122$97 in module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:97$90 in module fxp_sqrt_top_flow_control_loop_pipe_sequential_init.
+Marked 2 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:85$86 in module fxp_sqrt_top_flow_control_loop_pipe_sequential_init.
+Marked 2 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:67$81 in module fxp_sqrt_top_flow_control_loop_pipe_sequential_init.
+Marked 3 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:178$67 in module fxp_sqrt_top.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:170$65 in module fxp_sqrt_top.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:162$61 in module fxp_sqrt_top.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:154$59 in module fxp_sqrt_top.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:144$57 in module fxp_sqrt_top.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:136$55 in module fxp_sqrt_top.
+Marked 2 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:100$35 in module fxp_sqrt_top.
+Marked 1 switch rules as full_case in process $proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:92$33 in module fxp_sqrt_top.
+Removed 1 dead cases from process $proc$../../../fxp_sqrt_top_wrapper.v:49$6 in module fxp_sqrt_top_wrapper.
+Marked 3 switch rules as full_case in process $proc$../../../fxp_sqrt_top_wrapper.v:49$6 in module fxp_sqrt_top_wrapper.
+Removed a total of 1 dead cases.
+
+6.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 100 assignments to connections.
+
+6.4.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\SRLC32E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2405$1268'.
+  Set init value: \r = 0
+Found init rule in `\SRLC16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2361$1261'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\SRLC16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2329$1254'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\SRL16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2292$1251'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\SRL16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2264$1244'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1980$1217'.
+  Set init value: \mem_d = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1979$1216'.
+  Set init value: \mem_c = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1978$1215'.
+  Set init value: \mem_b = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1977$1214'.
+  Set init value: \mem_a = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1806$1117'.
+  Set init value: \mem_d = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1805$1116'.
+  Set init value: \mem_c = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1804$1115'.
+  Set init value: \mem_b = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1803$1114'.
+  Set init value: \mem_a = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1712$996'.
+  Set init value: \mem = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1607$959'.
+  Set init value: \mem = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1561$923'.
+  Set init value: \mem = 0
+Found init rule in `\RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1502$905'.
+  Set init value: \mem = 0
+Found init rule in `\FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$833'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$829'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$815'.
+  Set init value: \Q = 1'0
+Found init rule in `\FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$811'.
+  Set init value: \Q = 1'0
+Found init rule in `\FDSE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$797'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDSE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$793'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDRE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$775'.
+  Set init value: \Q = 1'0
+Found init rule in `\FDRE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$771'.
+  Set init value: \Q = 1'0
+Found init rule in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:0$224'.
+  Set init value: \ap_CS_fsm = 1'1
+  Set init value: \ap_enable_reg_pp0_iter1 = 1'0
+  Set init value: \i1_fu_60 = 4'0000
+  Set init value: \s_12_fu_64 = 13'0000000000000
+  Set init value: \q_star4_fu_68 = 11'00000000000
+  Set init value: \q6_fu_72 = 11'00000000000
+  Set init value: \ap_done_reg = 1'0
+Found init rule in `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:0$96'.
+  Set init value: \ap_loop_init_int = 1'1
+  Set init value: \ap_done_cache = 1'0
+Found init rule in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:0$80'.
+  Set init value: \ap_CS_fsm = 3'001
+  Set init value: \grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_ap_start_reg = 1'0
+
+6.4.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \PRE in `\FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:815$830'.
+Found async reset \PRE in `\FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:774$827'.
+Found async reset \CLR in `\FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:736$812'.
+Found async reset \CLR in `\FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:695$809'.
+
+6.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~79 debug messages>
+
+6.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\SRLC32E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2405$1268'.
+Creating decoders for process `\SRLC32E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2413$1267'.
+     1/1: $0\r[31:0]
+Creating decoders for process `\SRLC16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2361$1261'.
+Creating decoders for process `\SRLC16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2369$1260'.
+     1/1: $0\r[15:0]
+Creating decoders for process `\SRLC16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2329$1254'.
+Creating decoders for process `\SRLC16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2332$1253'.
+Creating decoders for process `\SRL16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2292$1251'.
+Creating decoders for process `\SRL16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2299$1250'.
+     1/1: $0\r[15:0]
+Creating decoders for process `\SRL16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2264$1244'.
+Creating decoders for process `\SRL16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2266$1243'.
+Creating decoders for process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1980$1217'.
+Creating decoders for process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1979$1216'.
+Creating decoders for process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1978$1215'.
+Creating decoders for process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1977$1214'.
+Creating decoders for process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+     1/8: $1$lookahead\mem_d$1138[63:0]$1155
+     2/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1991$1129[5:0]$1151
+     3/8: $1$lookahead\mem_c$1137[63:0]$1154
+     4/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1990$1128[5:0]$1150
+     5/8: $1$lookahead\mem_b$1136[63:0]$1153
+     6/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1989$1127[5:0]$1149
+     7/8: $1$lookahead\mem_a$1135[63:0]$1152
+     8/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1988$1126[5:0]$1148
+Creating decoders for process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1806$1117'.
+Creating decoders for process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1805$1116'.
+Creating decoders for process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1804$1115'.
+Creating decoders for process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1803$1114'.
+Creating decoders for process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+     1/8: $1$lookahead\mem_d$1018[63:0]$1035
+     2/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1817$1001[31:0]$1031
+     3/8: $1$lookahead\mem_c$1017[63:0]$1034
+     4/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1816$1000[31:0]$1030
+     5/8: $1$lookahead\mem_b$1016[63:0]$1033
+     6/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1815$999[31:0]$1029
+     7/8: $1$lookahead\mem_a$1015[63:0]$1032
+     8/8: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1814$998[31:0]$1028
+Creating decoders for process `\RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1712$996'.
+Creating decoders for process `\RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$966'.
+     1/2: $1$lookahead\mem$965[127:0]$970
+     2/2: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$961[6:0]$969
+Creating decoders for process `\RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1607$959'.
+Creating decoders for process `\RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$929'.
+     1/2: $1$lookahead\mem$928[63:0]$933
+     2/2: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$924[5:0]$932
+Creating decoders for process `\RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1561$923'.
+Creating decoders for process `\RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$911'.
+     1/2: $1$lookahead\mem$910[31:0]$915
+     2/2: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$906[4:0]$914
+Creating decoders for process `\RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1502$905'.
+Creating decoders for process `\RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$881'.
+     1/2: $1$lookahead\mem$880[31:0]$885
+     2/2: $1$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$876[4:0]$884
+Creating decoders for process `\FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$833'.
+Creating decoders for process `\FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:815$830'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$829'.
+Creating decoders for process `\FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:774$827'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$815'.
+Creating decoders for process `\FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:736$812'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$811'.
+Creating decoders for process `\FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:695$809'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDSE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$797'.
+Creating decoders for process `\FDSE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:592$794'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDSE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$793'.
+Creating decoders for process `\FDSE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:559$790'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDRE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$775'.
+Creating decoders for process `\FDRE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:527$772'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDRE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$771'.
+Creating decoders for process `\FDRE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:494$768'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:0$224'.
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:365$223'.
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:290$206'.
+     1/1: $1\ap_NS_fsm[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:282$198'.
+     1/1: $1\s_4_out_ap_vld[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:274$190'.
+     1/1: $1\q_1_out_ap_vld[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:266$182'.
+     1/1: $1\p_v_out_ap_vld[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:258$176'.
+     1/1: $1\ap_sig_allocacmp_i1_load[3:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:250$170'.
+     1/1: $1\ap_ready_int[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:242$166'.
+     1/1: $1\ap_idle_pp0[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:234$160'.
+     1/1: $1\ap_idle[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:226$154'.
+     1/1: $1\ap_done_int[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:218$146'.
+     1/1: $1\ap_condition_exit_pp0_iter0_stage0[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:211$142'.
+     1/2: $0\icmp_ln106_reg_310[0:0]
+     2/2: $0\sub_ln108_reg_305[3:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:201$136'.
+     1/1: $0\s_12_fu_64[12:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:182$130'.
+     1/10: $0\q_star4_fu_68[10:1] [9]
+     2/10: $0\q_star4_fu_68[10:1] [7]
+     3/10: $0\q_star4_fu_68[10:1] [6]
+     4/10: $0\q_star4_fu_68[10:1] [5]
+     5/10: $0\q_star4_fu_68[10:1] [4]
+     6/10: $0\q_star4_fu_68[10:1] [3]
+     7/10: $0\q_star4_fu_68[10:1] [2]
+     8/10: $0\q_star4_fu_68[10:1] [1]
+     9/10: $0\q_star4_fu_68[10:1] [0]
+    10/10: $0\q_star4_fu_68[10:1] [8]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:172$124'.
+     1/1: $0\q6_fu_72[10:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:162$118'.
+     1/1: $0\i1_fu_60[3:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:152$112'.
+     1/1: $0\ap_loop_exit_ready_pp0_iter1_reg[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:142$107'.
+     1/1: $0\ap_enable_reg_pp0_iter1[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:130$99'.
+     1/1: $0\ap_done_reg[0:0]
+Creating decoders for process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:122$97'.
+     1/1: $0\ap_CS_fsm[0:0]
+Creating decoders for process `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:0$96'.
+Creating decoders for process `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:97$90'.
+     1/1: $1\ap_done[0:0]
+Creating decoders for process `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:85$86'.
+     1/1: $0\ap_done_cache[0:0]
+Creating decoders for process `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:67$81'.
+     1/1: $0\ap_loop_init_int[0:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:0$80'.
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:178$67'.
+     1/3: $3\ap_NS_fsm[2:0]
+     2/3: $2\ap_NS_fsm[2:0]
+     3/3: $1\ap_NS_fsm[2:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:170$65'.
+     1/1: $1\ap_ready[0:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:162$61'.
+     1/1: $1\ap_idle[0:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:154$59'.
+     1/1: $1\ap_done[0:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:144$57'.
+     1/1: $1\ap_ST_fsm_state2_blk[0:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:136$55'.
+     1/1: $1\ap_ST_fsm_state1_blk[0:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:130$53'.
+     1/1: $0\s_reg_156[10:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:124$49'.
+     1/1: $0\s_4_loc_fu_50[12:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:118$45'.
+     1/1: $0\q_1_loc_fu_42[10:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:112$41'.
+     1/1: $0\p_v_loc_fu_46[9:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:100$35'.
+     1/1: $0\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_ap_start_reg[0:0]
+Creating decoders for process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:92$33'.
+     1/1: $0\ap_CS_fsm[2:0]
+Creating decoders for process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+     1/24: $3$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_DATA[7:0]$32
+     2/24: $0\vectOut[1][4:0] [4]
+     3/24: $0\vectOut[1][4:0] [3]
+     4/24: $0\vectOut[1][4:0] [2]
+     5/24: $0\vectOut[1][4:0] [1:0]
+     6/24: $2$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_DATA[7:0]$30
+     7/24: $2$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_ADDR[2:0]$29
+     8/24: $2$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_DATA[7:0]$28
+     9/24: $2$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_ADDR[0:0]$27
+    10/24: $0\in_val[11:0] [11:4]
+    11/24: $0\in_val[11:0] [3:0]
+    12/24: $1$mem2bits$\stimIn$../../../fxp_sqrt_top_wrapper.v:54$3[7:0]$18
+    13/24: $1$mem2bits$\stimIn$../../../fxp_sqrt_top_wrapper.v:53$2[7:0]$17
+    14/24: $1$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$22
+    15/24: $1$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_DATA[7:0]$21
+    16/24: $1$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_ADDR[2:0]$20
+    17/24: $1$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_DATA[7:0]$16
+    18/24: $1$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_ADDR[0:0]$15
+    19/24: $2$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$31
+    20/24: $0\vectOut[0][7:0]
+    21/24: $1$mem2bits$\stimIn$../../../fxp_sqrt_top_wrapper.v:55$4[7:0]$19
+    22/24: $0\ap_start[0:0]
+    23/24: $0\ap_rst[0:0]
+    24/24: $0\Dout_emu[7:0]
+
+6.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_NS_fsm' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:290$206'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\s_4_out_ap_vld' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:282$198'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\q_1_out_ap_vld' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:274$190'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\p_v_out_ap_vld' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:266$182'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_sig_allocacmp_i1_load' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:258$176'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_ready_int' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:250$170'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_idle_pp0' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:242$166'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_idle' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:234$160'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_done_int' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:226$154'.
+No latch inferred for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_condition_exit_pp0_iter0_stage0' from process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:218$146'.
+No latch inferred for signal `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.\ap_done' from process `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:97$90'.
+No latch inferred for signal `\fxp_sqrt_top.\ap_NS_fsm' from process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:178$67'.
+No latch inferred for signal `\fxp_sqrt_top.\ap_ready' from process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:170$65'.
+No latch inferred for signal `\fxp_sqrt_top.\ap_idle' from process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:162$61'.
+No latch inferred for signal `\fxp_sqrt_top.\ap_done' from process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:154$59'.
+No latch inferred for signal `\fxp_sqrt_top.\ap_ST_fsm_state2_blk' from process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:144$57'.
+No latch inferred for signal `\fxp_sqrt_top.\ap_ST_fsm_state1_blk' from process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:136$55'.
+
+6.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\SRLC32E.\r' using process `\SRLC32E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2413$1267'.
+  created $dff cell `$procdff$1759' with positive edge clock.
+Creating register for signal `\SRLC16E.\r' using process `\SRLC16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2369$1260'.
+  created $dff cell `$procdff$1760' with positive edge clock.
+Creating register for signal `\SRLC16.\r' using process `\SRLC16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2332$1253'.
+  created $dff cell `$procdff$1761' with positive edge clock.
+Creating register for signal `\SRL16E.\r' using process `\SRL16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2299$1250'.
+  created $dff cell `$procdff$1762' with positive edge clock.
+Creating register for signal `\SRL16.\r' using process `\SRL16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2266$1243'.
+  created $dff cell `$procdff$1763' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_a' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1764' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_b' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1765' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_c' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1766' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_d' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1767' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1988$1126' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1768' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1989$1127' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1769' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1990$1128' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1770' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1991$1129' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1771' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_a$1135' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1772' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_b$1136' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1773' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_c$1137' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1774' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_d$1138' using process `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+  created $dff cell `$procdff$1775' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_a' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1776' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_b' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1777' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_c' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1778' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_d' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1779' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1814$998' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1780' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1815$999' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1781' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1816$1000' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1782' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1817$1001' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1783' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_a$1015' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1784' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_b$1016' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1785' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_c$1017' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1786' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_d$1018' using process `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+  created $dff cell `$procdff$1787' with positive edge clock.
+Creating register for signal `\RAM128X1D.\mem' using process `\RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$966'.
+  created $dff cell `$procdff$1788' with positive edge clock.
+Creating register for signal `\RAM128X1D.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$961' using process `\RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$966'.
+  created $dff cell `$procdff$1789' with positive edge clock.
+Creating register for signal `\RAM128X1D.$lookahead\mem$965' using process `\RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$966'.
+  created $dff cell `$procdff$1790' with positive edge clock.
+Creating register for signal `\RAM64X1D.\mem' using process `\RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$929'.
+  created $dff cell `$procdff$1791' with positive edge clock.
+Creating register for signal `\RAM64X1D.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$924' using process `\RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$929'.
+  created $dff cell `$procdff$1792' with positive edge clock.
+Creating register for signal `\RAM64X1D.$lookahead\mem$928' using process `\RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$929'.
+  created $dff cell `$procdff$1793' with positive edge clock.
+Creating register for signal `\RAM32X1D_1.\mem' using process `\RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$911'.
+  created $dff cell `$procdff$1794' with negative edge clock.
+Creating register for signal `\RAM32X1D_1.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$906' using process `\RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$911'.
+  created $dff cell `$procdff$1795' with negative edge clock.
+Creating register for signal `\RAM32X1D_1.$lookahead\mem$910' using process `\RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$911'.
+  created $dff cell `$procdff$1796' with negative edge clock.
+Creating register for signal `\RAM32X1D.\mem' using process `\RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$881'.
+  created $dff cell `$procdff$1797' with positive edge clock.
+Creating register for signal `\RAM32X1D.$bitselwrite$pos$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$876' using process `\RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$881'.
+  created $dff cell `$procdff$1798' with positive edge clock.
+Creating register for signal `\RAM32X1D.$lookahead\mem$880' using process `\RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$881'.
+  created $dff cell `$procdff$1799' with positive edge clock.
+Creating register for signal `\FDPE_1.\Q' using process `\FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:815$830'.
+  created $adff cell `$procdff$1802' with negative edge clock and positive level reset.
+Creating register for signal `\FDPE.\Q' using process `\FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:774$827'.
+  created $adff cell `$procdff$1805' with positive edge clock and positive level reset.
+Creating register for signal `\FDCE_1.\Q' using process `\FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:736$812'.
+  created $adff cell `$procdff$1808' with negative edge clock and positive level reset.
+Creating register for signal `\FDCE.\Q' using process `\FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:695$809'.
+  created $adff cell `$procdff$1811' with positive edge clock and positive level reset.
+Creating register for signal `\FDSE_1.\Q' using process `\FDSE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:592$794'.
+  created $dff cell `$procdff$1812' with negative edge clock.
+Creating register for signal `\FDSE.\Q' using process `\FDSE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:559$790'.
+  created $dff cell `$procdff$1813' with positive edge clock.
+Creating register for signal `\FDRE_1.\Q' using process `\FDRE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:527$772'.
+  created $dff cell `$procdff$1814' with negative edge clock.
+Creating register for signal `\FDRE.\Q' using process `\FDRE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:494$768'.
+  created $dff cell `$procdff$1815' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\q_star4_fu_68 [0]' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:365$223'.
+  created $dff cell `$procdff$1816' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\sub_ln108_reg_305' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:211$142'.
+  created $dff cell `$procdff$1817' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\icmp_ln106_reg_310' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:211$142'.
+  created $dff cell `$procdff$1818' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\s_12_fu_64' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:201$136'.
+  created $dff cell `$procdff$1819' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\q_star4_fu_68 [10:1]' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:182$130'.
+  created $dff cell `$procdff$1820' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\q6_fu_72' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:172$124'.
+  created $dff cell `$procdff$1821' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\i1_fu_60' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:162$118'.
+  created $dff cell `$procdff$1822' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_loop_exit_ready_pp0_iter1_reg' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:152$112'.
+  created $dff cell `$procdff$1823' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_enable_reg_pp0_iter1' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:142$107'.
+  created $dff cell `$procdff$1824' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_done_reg' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:130$99'.
+  created $dff cell `$procdff$1825' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.\ap_CS_fsm' using process `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:122$97'.
+  created $dff cell `$procdff$1826' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.\ap_done_cache' using process `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:85$86'.
+  created $dff cell `$procdff$1827' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.\ap_loop_init_int' using process `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:67$81'.
+  created $dff cell `$procdff$1828' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top.\s_reg_156' using process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:130$53'.
+  created $dff cell `$procdff$1829' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top.\s_4_loc_fu_50' using process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:124$49'.
+  created $dff cell `$procdff$1830' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top.\q_1_loc_fu_42' using process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:118$45'.
+  created $dff cell `$procdff$1831' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top.\p_v_loc_fu_46' using process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:112$41'.
+  created $dff cell `$procdff$1832' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_ap_start_reg' using process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:100$35'.
+  created $dff cell `$procdff$1833' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top.\ap_CS_fsm' using process `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:92$33'.
+  created $dff cell `$procdff$1834' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.\Dout_emu' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1835' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.\ap_rst' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1836' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.\ap_start' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1837' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.\in_val' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1838' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.\vectOut[0]' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1839' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.\vectOut[1] [4:0]' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1840' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_ADDR' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1841' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_DATA' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1842' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$mem2bits$\stimIn$../../../fxp_sqrt_top_wrapper.v:53$2' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1843' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$mem2bits$\stimIn$../../../fxp_sqrt_top_wrapper.v:54$3' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1844' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$mem2bits$\stimIn$../../../fxp_sqrt_top_wrapper.v:55$4' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1845' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_ADDR' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1846' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_DATA' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1847' with positive edge clock.
+Creating register for signal `\fxp_sqrt_top_wrapper.$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN' using process `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+  created $dff cell `$procdff$1848' with positive edge clock.
+
+6.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `SRLC32E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2405$1268'.
+Found and cleaned up 1 empty switch in `\SRLC32E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2413$1267'.
+Removing empty process `SRLC32E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2413$1267'.
+Removing empty process `SRLC16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2361$1261'.
+Found and cleaned up 1 empty switch in `\SRLC16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2369$1260'.
+Removing empty process `SRLC16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2369$1260'.
+Removing empty process `SRLC16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2329$1254'.
+Removing empty process `SRLC16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2332$1253'.
+Removing empty process `SRL16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2292$1251'.
+Found and cleaned up 1 empty switch in `\SRL16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2299$1250'.
+Removing empty process `SRL16E.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2299$1250'.
+Removing empty process `SRL16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2264$1244'.
+Removing empty process `SRL16.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:2266$1243'.
+Removing empty process `RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1980$1217'.
+Removing empty process `RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1979$1216'.
+Removing empty process `RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1978$1215'.
+Removing empty process `RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1977$1214'.
+Found and cleaned up 1 empty switch in `\RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+Removing empty process `RAM64M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1986$1139'.
+Removing empty process `RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1806$1117'.
+Removing empty process `RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1805$1116'.
+Removing empty process `RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1804$1115'.
+Removing empty process `RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1803$1114'.
+Found and cleaned up 1 empty switch in `\RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+Removing empty process `RAM32M.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1812$1019'.
+Removing empty process `RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1712$996'.
+Found and cleaned up 1 empty switch in `\RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$966'.
+Removing empty process `RAM128X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1716$966'.
+Removing empty process `RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1607$959'.
+Found and cleaned up 1 empty switch in `\RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$929'.
+Removing empty process `RAM64X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1611$929'.
+Removing empty process `RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1561$923'.
+Found and cleaned up 1 empty switch in `\RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$911'.
+Removing empty process `RAM32X1D_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1565$911'.
+Removing empty process `RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1502$905'.
+Found and cleaned up 1 empty switch in `\RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$881'.
+Removing empty process `RAM32X1D.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:1506$881'.
+Removing empty process `FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$833'.
+Found and cleaned up 1 empty switch in `\FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:815$830'.
+Removing empty process `FDPE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:815$830'.
+Removing empty process `FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$829'.
+Found and cleaned up 1 empty switch in `\FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:774$827'.
+Removing empty process `FDPE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:774$827'.
+Removing empty process `FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$815'.
+Found and cleaned up 1 empty switch in `\FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:736$812'.
+Removing empty process `FDCE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:736$812'.
+Removing empty process `FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$811'.
+Found and cleaned up 1 empty switch in `\FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:695$809'.
+Removing empty process `FDCE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:695$809'.
+Removing empty process `FDSE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$797'.
+Found and cleaned up 2 empty switches in `\FDSE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:592$794'.
+Removing empty process `FDSE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:592$794'.
+Removing empty process `FDSE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$793'.
+Found and cleaned up 2 empty switches in `\FDSE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:559$790'.
+Removing empty process `FDSE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:559$790'.
+Removing empty process `FDRE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$775'.
+Found and cleaned up 2 empty switches in `\FDRE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:527$772'.
+Removing empty process `FDRE_1.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:527$772'.
+Removing empty process `FDRE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:0$771'.
+Found and cleaned up 2 empty switches in `\FDRE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:494$768'.
+Removing empty process `FDRE.$proc$/usr/local/bin/../share/yosys/xilinx/cells_sim.v:494$768'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:0$224'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:365$223'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:290$206'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:290$206'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:282$198'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:282$198'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:274$190'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:274$190'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:266$182'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:266$182'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:258$176'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:258$176'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:250$170'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:250$170'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:242$166'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:242$166'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:234$160'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:234$160'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:226$154'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:226$154'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:218$146'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:218$146'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:211$142'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:211$142'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:201$136'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:201$136'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:182$130'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:182$130'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:172$124'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:172$124'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:162$118'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:162$118'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:152$112'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:152$112'.
+Found and cleaned up 2 empty switches in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:142$107'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:142$107'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:130$99'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:130$99'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:122$97'.
+Removing empty process `fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:122$97'.
+Removing empty process `fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:0$96'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:97$90'.
+Removing empty process `fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:97$90'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:85$86'.
+Removing empty process `fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:85$86'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:67$81'.
+Removing empty process `fxp_sqrt_top_flow_control_loop_pipe_sequential_init.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v:67$81'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:0$80'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:178$67'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:178$67'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:170$65'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:170$65'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:162$61'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:162$61'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:154$59'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:154$59'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:144$57'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:144$57'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:136$55'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:136$55'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:130$53'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:130$53'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:124$49'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:124$49'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:118$45'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:118$45'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:112$41'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:112$41'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:100$35'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:100$35'.
+Found and cleaned up 1 empty switch in `\fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:92$33'.
+Removing empty process `fxp_sqrt_top.$proc$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:92$33'.
+Found and cleaned up 3 empty switches in `\fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+Removing empty process `fxp_sqrt_top_wrapper.$proc$../../../fxp_sqrt_top_wrapper.v:49$6'.
+Cleaned up 79 empty switches.
+
+6.4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+<suppressed ~99 debug messages>
+Optimizing module fxp_sqrt_top_flow_control_loop_pipe_sequential_init.
+<suppressed ~9 debug messages>
+Optimizing module fxp_sqrt_top.
+<suppressed ~25 debug messages>
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~1 debug messages>
+
+6.5. Executing FLATTEN pass (flatten design).
+Deleting now unused module fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.
+Deleting now unused module fxp_sqrt_top_flow_control_loop_pipe_sequential_init.
+Deleting now unused module fxp_sqrt_top.
+<suppressed ~3 debug messages>
+
+6.6. Executing TRIBUF pass.
+
+6.7. Executing DEMINOUT pass (demote inout ports to input or output).
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~2 debug messages>
+
+6.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 33 unused cells and 403 unused wires.
+<suppressed ~42 debug messages>
+
+6.10. Executing CHECK pass (checking for obvious problems).
+Checking module fxp_sqrt_top_wrapper...
+Warning: Wire fxp_sqrt_top_wrapper.\vectOut[1] [7] is used but has no driver.
+Warning: Wire fxp_sqrt_top_wrapper.\vectOut[1] [6] is used but has no driver.
+Warning: Wire fxp_sqrt_top_wrapper.\vectOut[1] [5] is used but has no driver.
+Found and reported 3 problems.
+
+6.11. Executing OPT pass (performing simple optimizations).
+
+6.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+6.11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1555: \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.ap_condition_exit_pp0_iter0_stage0 -> 1'1
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\u_fxp_sqrt_top.$procmux$1599.
+    dead port 2/2 on $mux $flatten\u_fxp_sqrt_top.$procmux$1607.
+    dead port 1/2 on $mux $procmux$1652.
+    dead port 1/2 on $mux $procmux$1655.
+    dead port 1/2 on $mux $procmux$1685.
+    dead port 1/2 on $mux $procmux$1691.
+    dead port 1/2 on $mux $procmux$1736.
+Removed 7 multiplexer ports.
+<suppressed ~51 debug messages>
+
+6.11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+    Consolidated identical input bits for $mux cell $procmux$1733:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$1733_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$1733_Y [0]
+      New connections: $procmux$1733_Y [7:1] = { $procmux$1733_Y [0] $procmux$1733_Y [0] $procmux$1733_Y [0] $procmux$1733_Y [0] $procmux$1733_Y [0] $procmux$1733_Y [0] $procmux$1733_Y [0] }
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+    Consolidated identical input bits for $mux cell $procmux$1718:
+      Old ports: A=$2$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$31, B=8'00000000, Y=$0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14
+      New ports: A=$procmux$1733_Y [0], B=1'0, Y=$0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0]
+      New connections: $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [7:1] = { $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0] $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0] $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0] $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0] $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0] $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0] $0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_EN[7:0]$14 [0] }
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 2 changes.
+
+6.11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+6.11.6. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1816 ($dff) from module fxp_sqrt_top_wrapper.
+
+6.11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 0 unused cells and 18 unused wires.
+<suppressed ~1 debug messages>
+
+6.11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.11.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.11.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~51 debug messages>
+
+6.11.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.11.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.11.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.11.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.11.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.11.16. Finished OPT passes. (There is nothing left to do.)
+
+6.12. Executing FSM pass (extract and optimize FSM).
+
+6.12.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.12.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.12.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.12.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.12.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.12.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.12.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.13. Executing OPT pass (performing simple optimizations).
+
+6.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~51 debug messages>
+
+6.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1840 ($dff) from module fxp_sqrt_top_wrapper (D = { \ap_done \ap_idle \ap_done \ap_return [9:8] }, Q = \vectOut[1] [4:0]).
+Adding EN signal on $procdff$1839 ($dff) from module fxp_sqrt_top_wrapper (D = \ap_return [7:0], Q = \vectOut[0]).
+Adding EN signal on $procdff$1838 ($dff) from module fxp_sqrt_top_wrapper (D = { $memrd$\stimIn$../../../fxp_sqrt_top_wrapper.v:56$26_DATA $memrd$\stimIn$../../../fxp_sqrt_top_wrapper.v:53$23_DATA [7:4] }, Q = \in_val).
+Adding EN signal on $procdff$1837 ($dff) from module fxp_sqrt_top_wrapper (D = $memrd$\stimIn$../../../fxp_sqrt_top_wrapper.v:53$23_DATA [1], Q = \ap_start).
+Adding EN signal on $procdff$1836 ($dff) from module fxp_sqrt_top_wrapper (D = $memrd$\stimIn$../../../fxp_sqrt_top_wrapper.v:53$23_DATA [0], Q = \ap_rst).
+Adding EN signal on $procdff$1835 ($dff) from module fxp_sqrt_top_wrapper (D = $3$mem2reg_rd$\vectOut$../../../fxp_sqrt_top_wrapper.v:69$1_DATA[7:0]$32, Q = \Dout_emu).
+Adding SRST signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.\flow_control_loop_pipe_sequential_init_U.$procdff$1828 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.\flow_control_loop_pipe_sequential_init_U.$procmux$1586_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.flow_control_loop_pipe_sequential_init_U.ap_loop_init_int, rval = 1'1).
+Adding EN signal on $auto$ff.cc:266:slice$1875 ($sdff) from module fxp_sqrt_top_wrapper (D = 1'0, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.flow_control_loop_pipe_sequential_init_U.ap_loop_init_int).
+Adding SRST signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.\flow_control_loop_pipe_sequential_init_U.$procdff$1827 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.\flow_control_loop_pipe_sequential_init_U.$procmux$1581_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.flow_control_loop_pipe_sequential_init_U.ap_done_cache, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1879 ($sdff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.\flow_control_loop_pipe_sequential_init_U.$procmux$1581_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.flow_control_loop_pipe_sequential_init_U.ap_done_cache).
+Adding SRST signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1826 ($dff) from module fxp_sqrt_top_wrapper (D = 1'x, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.ap_CS_fsm, rval = 1'1).
+Adding SRST signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1824 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1559_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.ap_enable_reg_pp0_iter1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1886 ($sdff) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_ap_start_reg, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.ap_enable_reg_pp0_iter1).
+Adding EN signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1823 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1555_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.ap_loop_exit_ready_pp0_iter1_reg).
+Adding EN signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1822 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1548_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.i1_fu_60).
+Adding EN signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1821 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1541_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q6_fu_72).
+Adding SRST signal on $auto$ff.cc:266:slice$1894 ($dffe) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1538_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q6_fu_72, rval = 11'00000000000).
+Adding EN signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1820 ($dff) from module fxp_sqrt_top_wrapper (D = { $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1471_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1534_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1478_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1485_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1492_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1499_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1506_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1513_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1520_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1527_Y }, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q_star4_fu_68 [10:1]).
+Adding SRST signal on $auto$ff.cc:266:slice$1900 ($dffe) from module fxp_sqrt_top_wrapper (D = { $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1468_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1531_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1475_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1482_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1489_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1496_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1503_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1510_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1517_Y $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1524_Y }, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q_star4_fu_68 [10:1], rval = 10'0000000000).
+Adding EN signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1819 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1464_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64).
+Adding SRST signal on $auto$ff.cc:266:slice$1906 ($dffe) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1461_Y [12:11], Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 [12:11], rval = 2'00).
+Adding EN signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1818 ($dff) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.icmp_ln106_fu_142_p2, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.icmp_ln106_reg_310).
+Adding EN signal on $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procdff$1817 ($dff) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.sub_ln108_fu_130_p2, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.sub_ln108_reg_305).
+Adding SRST signal on $flatten\u_fxp_sqrt_top.$procdff$1834 ($dff) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.ap_NS_fsm, Q = \u_fxp_sqrt_top.ap_CS_fsm, rval = 3'001).
+Adding SRST signal on $flatten\u_fxp_sqrt_top.$procdff$1833 ($dff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.$procmux$1640_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_ap_start_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1916 ($sdff) from module fxp_sqrt_top_wrapper (D = $flatten\u_fxp_sqrt_top.$procmux$1640_Y, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_ap_start_reg).
+Adding EN signal on $flatten\u_fxp_sqrt_top.$procdff$1832 ($dff) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_p_v_out, Q = \u_fxp_sqrt_top.p_v_loc_fu_46).
+Adding EN signal on $flatten\u_fxp_sqrt_top.$procdff$1831 ($dff) from module fxp_sqrt_top_wrapper (D = { \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60_p_v_out 1'1 }, Q = \u_fxp_sqrt_top.q_1_loc_fu_42).
+Adding EN signal on $flatten\u_fxp_sqrt_top.$procdff$1830 ($dff) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_fu_219_p3, Q = \u_fxp_sqrt_top.s_4_loc_fu_50).
+Adding EN signal on $flatten\u_fxp_sqrt_top.$procdff$1829 ($dff) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.add_ln102_fu_82_p2 [11:1], Q = \u_fxp_sqrt_top.s_reg_156).
+Setting constant 1-bit at position 0 on $auto$ff.cc:266:slice$1921 ($dffe) from module fxp_sqrt_top_wrapper.
+Setting constant 1-bit at position 0 on $auto$ff.cc:266:slice$1883 ($sdff) from module fxp_sqrt_top_wrapper.
+
+6.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 58 unused cells and 45 unused wires.
+<suppressed ~60 debug messages>
+
+6.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~15 debug messages>
+
+6.13.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+6.13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.13.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+6.13.13. Executing OPT_DFF pass (perform DFF optimizations).
+Removing always-active EN on $auto$ff.cc:266:slice$1887 ($sdffe) from module fxp_sqrt_top_wrapper.
+Removing always-active EN on $auto$ff.cc:266:slice$1888 ($dffe) from module fxp_sqrt_top_wrapper.
+Removing always-active EN on $auto$ff.cc:266:slice$1914 ($dffe) from module fxp_sqrt_top_wrapper.
+Removing always-active EN on $auto$ff.cc:266:slice$1913 ($dffe) from module fxp_sqrt_top_wrapper.
+
+6.13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~1 debug messages>
+
+6.13.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.13.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.13.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+6.13.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.13.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.13.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.13.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.13.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.13.23. Finished OPT passes. (There is nothing left to do.)
+
+6.14. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 address bits (of 3) from memory init port fxp_sqrt_top_wrapper.$auto$proc_memwr.cc:45:proc_memwr$1849 (stimIn).
+Removed top 31 address bits (of 32) from memory read port fxp_sqrt_top_wrapper.$memrd$\stimIn$../../../fxp_sqrt_top_wrapper.v:53$23 (stimIn).
+Removed top 31 address bits (of 32) from memory read port fxp_sqrt_top_wrapper.$memrd$\stimIn$../../../fxp_sqrt_top_wrapper.v:56$26 (stimIn).
+Removed top 2 bits (of 3) from mux cell fxp_sqrt_top_wrapper.$procmux$1724 ($mux).
+Removed top 2 bits (of 13) from mux cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1464 ($mux).
+Removed top 9 bits (of 13) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:355$221 ($shl).
+Removed top 9 bits (of 13) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:353$220 ($shl).
+Removed top 3 bits (of 4) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:327$210 ($add).
+Removed top 2 bits (of 3) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$procmux$1608_CMP0 ($eq).
+Removed top 1 bits (of 3) from mux cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$procmux$1605 ($mux).
+Removed top 1 bits (of 3) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$procmux$1600_CMP0 ($eq).
+Removed top 12 bits (of 13) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$gt$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:217$78 ($gt).
+Removed top 10 bits (of 11) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:205$75 ($add).
+Removed top 1 bits (of 12) from port A of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:203$74 ($add).
+Removed top 11 bits (of 12) from port B of cell fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:203$74 ($add).
+Removed top 2 bits (of 3) from mux cell fxp_sqrt_top_wrapper.$procmux$1688 ($mux).
+Removed top 2 bits (of 3) from wire fxp_sqrt_top_wrapper.$0$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_ADDR[2:0]$12.
+Removed top 2 bits (of 3) from wire fxp_sqrt_top_wrapper.$2$memwr$\stimIn$../../../fxp_sqrt_top_wrapper.v:68$5_ADDR[2:0]$29.
+Removed top 1 bits (of 3) from wire fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.$2\ap_NS_fsm[2:0].
+Removed top 2 bits (of 13) from wire fxp_sqrt_top_wrapper.$flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$procmux$1464_Y.
+
+6.15. Executing PEEPOPT pass (run peephole optimizers).
+
+6.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+6.17. Executing PMUX2SHIFTX pass.
+Inspecting $pmux cell fxp_sqrt_top_wrapper/$flatten\u_fxp_sqrt_top.$procmux$1610.
+  data width: 3 (next power-of-2 = 4, log2 = 2)
+  checking ctrl signal \u_fxp_sqrt_top.ap_CS_fsm
+    table of choices:
+      0: 3'100: 3'001
+      1: 3'010: $flatten\u_fxp_sqrt_top.$3\ap_NS_fsm[2:0]
+      2: 3'001: { 1'0 $auto$wreduce.cc:513:run$1927 [1:0] }
+    optimizing one-hot encoding.
+      0: new crtl signal is \u_fxp_sqrt_top.ap_CS_fsm [2].
+      1: new crtl signal is \u_fxp_sqrt_top.ap_CS_fsm [1].
+      2: new crtl signal is \u_fxp_sqrt_top.ap_CS_fsm [0].
+Removed 3 unused cells and 3 unused wires.
+
+6.18. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\stimIn'[0] in module `\fxp_sqrt_top_wrapper': merging output FF to cell.
+    Write port 0: don't care on collision.
+Checking read port `\stimIn'[1] in module `\fxp_sqrt_top_wrapper': merging output FF to cell.
+    Write port 0: don't care on collision.
+
+6.19. Executing TECHMAP pass (map to technology primitives).
+
+6.19.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+6.19.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/xc7_dsp_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/xc7_dsp_map.v' to AST representation.
+Generating RTLIL representation for module `\$__MUL25X18'.
+Successfully finished Verilog frontend.
+
+6.19.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+6.20. Executing OPT_EXPR pass (perform const folding).
+
+6.21. Executing WREDUCE pass (reducing word size of cells).
+
+6.22. Executing XILINX_DSP pass (pack resources into DSPs).
+
+6.23. Executing TECHMAP pass (map to technology primitives).
+
+6.23.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+6.23.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/cmp2lcu.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/cmp2lcu.v' to AST representation.
+Generating RTLIL representation for module `\_80_lcu_cmp_'.
+Generating RTLIL representation for module `\$__CMP2LCU'.
+Successfully finished Verilog frontend.
+
+6.23.3. Continuing TECHMAP pass.
+Using template $paramod$080fd9a828ff364051fd8b75e0449220e807cdc6\_80_lcu_cmp_ for cells of type $gt.
+Using template $paramod$2ee183becbb5e7e2bc490f198d295fe72bc15467\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$846ef86f2941b8ca6b4c249eaeb9c50f97758632\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$36d634b350e4a30d0b9ea2051df3d37b138ba27f\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$364a8971dbab7d9405f111443fc5db6e054b2a4c\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$b08e14939132feb20ef471a55f383d74b8ffdc8d\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$b72ad57b17516b20b26e40a158dcd464e6aab537\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$619596eb0a3792a37426f6d9a1120e3714790787\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$2e0a9f1ba56d4efbe6310404d2421e0bb24808d2\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$a6a444842478a2bdd1e6f06875ef6269986b5057\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$36789b843dafee991cee47b9b2334217b8c54474\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$0294377a66682383f6fbe7af51329a05a6ea0d1e\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$79d8173039876bd211dbe8b6676420a312460674\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$8674585206ce15f27cb2b8dbff12dc101c5f3fad\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$8d4fe84297127d3212075a5cf3c1eb0a07bfa9e9\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$e724d33d0bd8719122daebff717a0c39ded990e9\$__CMP2LCU for cells of type $__CMP2LCU.
+Using template $paramod$3f73cacbbfe1aa70e62e9bfbfcf9b43f84b3a227\$__CMP2LCU for cells of type $__CMP2LCU.
+No more expansions possible.
+<suppressed ~445 debug messages>
+
+6.24. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module fxp_sqrt_top_wrapper:
+  creating $macc model for $flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:203$74 ($add).
+  creating $macc model for $flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:205$75 ($add).
+  creating $macc model for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:327$210 ($add).
+  creating $macc model for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:345$214 ($add).
+  creating $macc model for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$sub$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:343$213 ($sub).
+  creating $macc model for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$sub$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:357$222 ($sub).
+  creating $alu model for $macc $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$sub$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:357$222.
+  creating $alu model for $macc $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$sub$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:343$213.
+  creating $alu model for $macc $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:345$214.
+  creating $alu model for $macc $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:327$210.
+  creating $alu model for $macc $flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:205$75.
+  creating $alu model for $macc $flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:203$74.
+  creating $alu cell for $flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:203$74: $auto$alumacc.cc:495:replace_alu$2041
+  creating $alu cell for $flatten\u_fxp_sqrt_top.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top.v:205$75: $auto$alumacc.cc:495:replace_alu$2044
+  creating $alu cell for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:327$210: $auto$alumacc.cc:495:replace_alu$2047
+  creating $alu cell for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$add$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:345$214: $auto$alumacc.cc:495:replace_alu$2050
+  creating $alu cell for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$sub$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:343$213: $auto$alumacc.cc:495:replace_alu$2053
+  creating $alu cell for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$sub$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:357$222: $auto$alumacc.cc:495:replace_alu$2056
+  created 6 $alu and 0 $macc cells.
+
+6.25. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module fxp_sqrt_top_wrapper that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:355$221 ($shl):
+    Found 1 activation_patterns using ctrl signal \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 [12].
+    Found 1 candidates: $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:353$220
+    Analyzing resource sharing with $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:353$220 ($shl):
+      Found 1 activation_patterns using ctrl signal \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 [12].
+      Activation pattern for cell $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:355$221: \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 [12] = 1'1
+      Activation pattern for cell $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:353$220: \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 [12] = 1'0
+      Size of SAT problem: 8 variables, 19 clauses
+      According to the SAT solver this pair of cells can be shared.
+      Activation signal for $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:355$221: $auto$share.cc:977:make_cell_activation_logic$2059
+      New cell: $auto$share.cc:667:make_supercell$2066 ($shl)
+  Analyzing resource sharing options for $auto$share.cc:667:make_supercell$2066 ($shl):
+    Cell is always active. Therefore no sharing is possible.
+Removing 2 cells in module fxp_sqrt_top_wrapper:
+  Removing cell $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:353$220 ($shl).
+  Removing cell $flatten\u_fxp_sqrt_top.\grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.$shl$../../../../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1.v:355$221 ($shl).
+
+6.26. Executing OPT pass (performing simple optimizations).
+
+6.26.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~49 debug messages>
+
+6.26.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+6.26.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+6.26.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.26.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.26.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.26.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 3 unused cells and 203 unused wires.
+<suppressed ~5 debug messages>
+
+6.26.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.26.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.26.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+6.26.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.26.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.26.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.26.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.26.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.26.16. Finished OPT passes. (There is nothing left to do.)
+
+6.27. Executing MEMORY pass.
+
+6.27.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.27.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.27.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.27.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.27.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.27.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.27.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory fxp_sqrt_top_wrapper.stimIn by address:
+  Merging ports 0, 1 (address 1'1).
+
+6.27.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.27.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+6.27.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.29. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+using FF mapping for memory fxp_sqrt_top_wrapper.stimIn
+<suppressed ~1799 debug messages>
+
+6.30. Executing TECHMAP pass (map to technology primitives).
+
+6.30.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/lutrams_xc5v_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/lutrams_xc5v_map.v' to AST representation.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_SP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_DP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_QP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_OP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_SDP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_64X8SW_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_32X16DR8_'.
+Successfully finished Verilog frontend.
+
+6.30.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~9 debug messages>
+
+6.31. Executing TECHMAP pass (map to technology primitives).
+
+6.31.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/brams_xc6v_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/brams_xc6v_map.v' to AST representation.
+Generating RTLIL representation for module `\$__XILINX_BLOCKRAM_TDP_'.
+Generating RTLIL representation for module `\$__XILINX_BLOCKRAM_SDP_'.
+Successfully finished Verilog frontend.
+
+6.31.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+6.32. Executing OPT pass (performing simple optimizations).
+
+6.32.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~41 debug messages>
+
+6.32.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+6.32.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $auto$ff.cc:266:slice$1889 ($dffe) from module fxp_sqrt_top_wrapper (D = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.i_fu_136_p2, Q = \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.i1_fu_60, rval = 4'0000).
+
+6.32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 3 unused cells and 34 unused wires.
+<suppressed ~4 debug messages>
+
+6.32.5. Rerunning OPT passes. (Removed registers in this run.)
+
+6.32.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~1 debug messages>
+
+6.32.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.32.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.32.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.32.10. Finished fast OPT passes.
+
+6.33. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \stimIn in module \fxp_sqrt_top_wrapper:
+  created 2 $dff cells and 0 static cells of width 8.
+Extracted data FF from read port 0 of fxp_sqrt_top_wrapper.stimIn: $\stimIn$rdreg[0]
+  read interface: 1 $dff and 0 $mux cells.
+  write interface: 2 write mux blocks.
+
+6.34. Executing OPT pass (performing simple optimizations).
+
+6.34.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~6 debug messages>
+
+6.34.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+6.34.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+6.34.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+    Consolidated identical input bits for $mux cell $auto$share.cc:660:make_supercell$2063:
+      Old ports: A={ \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q6_fu_72 2'01 }, B={ \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q_star4_fu_68 [10:1] 3'011 }, Y=$auto$share.cc:657:make_supercell$2061
+      New ports: A={ \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q6_fu_72 1'0 }, B={ \u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.q_star4_fu_68 [10:1] 2'01 }, Y=$auto$share.cc:657:make_supercell$2061 [12:1]
+      New connections: $auto$share.cc:657:make_supercell$2061 [0] = 1'1
+    Consolidated identical input bits for $mux cell $flatten\u_fxp_sqrt_top.$procmux$1597:
+      Old ports: A=3'010, B=3'100, Y=$flatten\u_fxp_sqrt_top.$3\ap_NS_fsm[2:0]
+      New ports: A=2'01, B=2'10, Y=$flatten\u_fxp_sqrt_top.$3\ap_NS_fsm[2:0] [2:1]
+      New connections: $flatten\u_fxp_sqrt_top.$3\ap_NS_fsm[2:0] [0] = 1'0
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 2 changes.
+
+6.34.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.34.6. Executing OPT_SHARE pass.
+
+6.34.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.34.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~1 debug messages>
+
+6.34.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.34.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.34.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+6.34.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.34.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.34.14. Executing OPT_SHARE pass.
+
+6.34.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\stimIn[1]$2441 ($dff) from module fxp_sqrt_top_wrapper (D = \Din_emu, Q = \stimIn[1]).
+Adding EN signal on $memory\stimIn[0]$2439 ($dff) from module fxp_sqrt_top_wrapper (D = \Din_emu, Q = \stimIn[0]).
+
+6.34.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+6.34.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.34.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.34.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fxp_sqrt_top_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+6.34.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fxp_sqrt_top_wrapper.
+Performed a total of 0 changes.
+
+6.34.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+Removed a total of 0 cells.
+
+6.34.22. Executing OPT_SHARE pass.
+
+6.34.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.34.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+
+6.34.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+
+6.34.26. Finished OPT passes. (There is nothing left to do.)
+
+6.35. Executing XILINX_SRL pass (Xilinx shift register extraction).
+
+6.36. Executing TECHMAP pass (map to technology primitives).
+
+6.36.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+6.36.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/arith_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_xilinx_lcu'.
+Generating RTLIL representation for module `\_80_xilinx_alu'.
+Successfully finished Verilog frontend.
+
+6.36.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod\_80_xilinx_lcu\WIDTH=s32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $sdffce.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$c841755b4464cb9eea46bd8f4fc077f57a98b4f5\_80_xilinx_alu for cells of type $alu.
+Using template $paramod$constmap:c768cd6444756a5c6d9fce4e78a54e591ffad6de$paramod$f242921df9fa568c5af203d64ab47039c3992988\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $sdff.
+Using template $paramod$01fe19f9dda8b9e9d09f18ddb916cc3285499526\_80_xilinx_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$418b96f4892c9e1a6a74526184651c8ae040d0c0\_90_alu for cells of type $alu.
+Using template $paramod$26ede1013f1cc532305d06449b6bc78c4a87786f\_80_xilinx_alu for cells of type $alu.
+Using template $paramod$6d1b9c1ebbe7746b4e540df7e076a3cec64ddce6\_80_xilinx_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $sdffe.
+Using template $paramod$32e7c4d6f92ff4337599ece53082d2e88a82a9f2\_90_pmux for cells of type $pmux.
+Using template $paramod$674141544fade965cf052b5e9d5b65813fc4e151\_80_xilinx_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~699 debug messages>
+
+6.37. Executing OPT pass (performing simple optimizations).
+
+6.37.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~105 debug messages>
+
+6.37.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fxp_sqrt_top_wrapper'.
+<suppressed ~93 debug messages>
+Removed a total of 31 cells.
+
+6.37.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.37.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fxp_sqrt_top_wrapper..
+Removed 40 unused cells and 172 unused wires.
+<suppressed ~41 debug messages>
+
+6.37.5. Finished fast OPT passes.
+
+6.38. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Mapping port fxp_sqrt_top_wrapper.Addr_emu using IBUF.
+Mapping port fxp_sqrt_top_wrapper.Din_emu using IBUF.
+Mapping port fxp_sqrt_top_wrapper.Dout_emu using OBUF.
+Mapping port fxp_sqrt_top_wrapper.clk_dut using IBUF.
+Mapping port fxp_sqrt_top_wrapper.clk_emu using IBUF.
+Mapping port fxp_sqrt_top_wrapper.get_emu using IBUF.
+Mapping port fxp_sqrt_top_wrapper.load_emu using IBUF.
+
+6.39. Executing TECHMAP pass (map to technology primitives).
+
+6.39.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+6.39.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/cells_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$__SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_MUXF78'.
+Successfully finished Verilog frontend.
+
+6.39.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~76 debug messages>
+Removed 0 unused cells and 1 unused wires.
+
+6.40. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+6.41. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fxp_sqrt_top_wrapper.
+<suppressed ~14 debug messages>
+
+6.42. Executing ABC pass (technology mapping using ABC).
+
+6.42.1. Extracting gate netlist of module `\fxp_sqrt_top_wrapper' to `<abc-temp-dir>/input.blif'..
+Extracted 242 gates and 370 wires to a netlist network with 126 inputs and 123 outputs.
+
+6.42.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lut <abc-temp-dir>/lutdefs.txt 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + if 
+ABC: + mfs2 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.42.1.2. Re-integrating ABC results.
+ABC RESULTS:              $lut cells:      134
+ABC RESULTS:        internal signals:      121
+ABC RESULTS:           input signals:      126
+ABC RESULTS:          output signals:      123
+Removing temp directory.
+Removed 0 unused cells and 326 unused wires.
+
+6.43. Executing TECHMAP pass (map to technology primitives).
+
+6.43.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/ff_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/ff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFSRE_NPPP_'.
+Generating RTLIL representation for module `\$_DFFSRE_PPPP_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DLATCH_NP0_'.
+Generating RTLIL representation for module `\$_DLATCH_PP0_'.
+Generating RTLIL representation for module `\$_DLATCH_NP1_'.
+Generating RTLIL representation for module `\$_DLATCH_PP1_'.
+Generating RTLIL representation for module `\$_DLATCH_NPP_'.
+Generating RTLIL representation for module `\$_DLATCH_PPP_'.
+Successfully finished Verilog frontend.
+
+6.43.2. Continuing TECHMAP pass.
+Using template $paramod\$_SDFFE_PP0P_\_TECHMAP_WIREINIT_Q_=1'0 for cells of type $_SDFFE_PP0P_.
+Using template $paramod\$_SDFFE_PP0P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_SDFFE_PP0P_.
+Using template $paramod\$_SDFFE_PP1P_\_TECHMAP_WIREINIT_Q_=1'1 for cells of type $_SDFFE_PP1P_.
+No more expansions possible.
+<suppressed ~172 debug messages>
+
+6.44. Executing XILINX_SRL pass (Xilinx shift register extraction).
+
+6.45. Executing TECHMAP pass (map to technology primitives).
+
+6.45.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/lut_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/lut_map.v' to AST representation.
+Generating RTLIL representation for module `\$lut'.
+Successfully finished Verilog frontend.
+
+6.45.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/xilinx/cells_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/xilinx/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$__SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_MUXF78'.
+Successfully finished Verilog frontend.
+
+6.45.3. Continuing TECHMAP pass.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11001010 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod$ee19d45db61acb4c70d938b97483a4ed4b792645\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod$285df9c9745474c1332da8443cb35202aad2efcb\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001110 for cells of type $lut.
+Using template $paramod$56310ff701860d13f2863d5da88c08ae3780813d\$lut for cells of type $lut.
+Using template $paramod$674a3eb2979dbdc5a4bc1754e1e95903cde6b072\$lut for cells of type $lut.
+Using template $paramod$eeed37ce45abdda29d3e180f2d1dfc0c4c376530\$lut for cells of type $lut.
+Using template $paramod$d2ef43814113ff73f9ebc73be6b7b228fcced45d\$lut for cells of type $lut.
+Using template $paramod$975f278e35bc3a7b527334b0e8beb056717c8d40\$lut for cells of type $lut.
+Using template $paramod$09be681192f9ae69b1ecbdc6b0624cbdb6601333\$lut for cells of type $lut.
+Using template $paramod$f0fbfe01328bea9934a44074ab51a63f38b96c13\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod$528a12792b82eff5506e5b169444bb35b42c290d\$lut for cells of type $lut.
+Using template $paramod$677eadbd12e0d51c4db7f718d4a86eb8e0301254\$lut for cells of type $lut.
+Using template $paramod$462075a7343ff1fae590e7b99cf189603e887550\$lut for cells of type $lut.
+Using template $paramod$a5ad8a0568c81aece6617fbeb5a9087e34c16a72\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1001 for cells of type $lut.
+Using template $paramod$d2e78bfed709a18e8a8d6c7bba2b956f1f4d2ade\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11111000 for cells of type $lut.
+Using template $paramod$11942162c103239876fad0abb4ba14f88fbcf168\$lut for cells of type $lut.
+Using template $paramod$7bb6a37e65823eeb4b38c370fec30ab082759a14\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$e28d6723d9f96af1ae5499731cec9308395326de\$lut for cells of type $lut.
+Using template $paramod$8c2c1e59c8876a3c2b20cc33cb8585da498e9286\$lut for cells of type $lut.
+Using template $paramod$63b4437c07cf61d891c5b8f2781be304e94714af\$lut for cells of type $lut.
+Using template $paramod$02fd8bc11db745ee8a7c5f8d3e04ef850a11b6c8\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1011 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01001011 for cells of type $lut.
+Using template $paramod$b03fecf0e7042ea7b0722bc0754a2c5383677ce0\$lut for cells of type $lut.
+Using template $paramod$46aa79a8c20e4a0c55b9a14d851111ee1ddc630d\$lut for cells of type $lut.
+Using template $paramod$64669a7e87c28e39425dffff48145545533b4971\$lut for cells of type $lut.
+Using template $paramod$f70f0627770daac8b24c28c35a87d81ba99126c5\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11110001 for cells of type $lut.
+Using template $paramod$affcedaca2cff35b0cd7a5d2990e0a14da466550\$lut for cells of type $lut.
+Using template $paramod$fd71002c7857e8b66fe87b9d3730b099e1330ac4\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0110 for cells of type $lut.
+Using template $paramod$60524732a4a0e15f873ebec2f78b317402e09ada\$lut for cells of type $lut.
+Using template $paramod$d96ecacaced5bed024aff3a250bbd184ffd43b9e\$lut for cells of type $lut.
+Using template $paramod$2b6b842a74bf161fc0d55eea064d7ebb489bec8a\$lut for cells of type $lut.
+Using template $paramod$de43393825214423198a10a632d2bad4c6325195\$lut for cells of type $lut.
+Using template $paramod$83f02837323a4540bc0840b0b966ce27a3b076fa\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11101111 for cells of type $lut.
+Using template $paramod$b4d0f4738a5ce50c7f36c2aa2ecc09cfb874f2b6\$lut for cells of type $lut.
+Using template $paramod$b297295e19b03521716155b85537bbe86d6a9ae6\$lut for cells of type $lut.
+Using template $paramod$ec1b6d7fb9f6a3415f963619ee3e2e14b307af4e\$lut for cells of type $lut.
+Using template $paramod$921947bc4bc791dc7f39f6e3c009d9c56b7d0634\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
+Using template $paramod$38f9bf4dd2329347b8471f0a98443dd323386889\$lut for cells of type $lut.
+Using template $paramod$cd0c2a3d5302372e3760f1a1037771a8cae61f4b\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10110100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11101011 for cells of type $lut.
+Using template $paramod$901da0fd4a1e2f9e22a6fd57db228b42f33313b9\$lut for cells of type $lut.
+Using template $paramod$ede3ec7ca66f4b0d81af050565e7400b28750263\$lut for cells of type $lut.
+Using template $paramod$161fc8ed7877c60d21d6b3c4a1c74d301fd84caa\$lut for cells of type $lut.
+Using template $paramod$6fa98a5c1544ef91e9ee1ce757b2ab59186c6681\$lut for cells of type $lut.
+Using template $paramod$59e75a61b2e4a983c96d8aa2f40028bf6469834d\$lut for cells of type $lut.
+Using template $paramod$835a3c91c27bafecc03d36b9068c9e37f7511071\$lut for cells of type $lut.
+Using template $paramod$318a2fcd23d9458ae8025783965f1345ee12c141\$lut for cells of type $lut.
+Using template $paramod$9a4874c44b01cbc914d1cc0b8d67f715e0e713b4\$lut for cells of type $lut.
+Using template $paramod$692927e279b3d5c42ee4aacb287247c0b34943ed\$lut for cells of type $lut.
+Using template $paramod$be51cfd48900e404835d98c2613313f460ccafaa\$lut for cells of type $lut.
+Using template $paramod$6b2aba51905066aeaf0b5b7cd09ad82e110f3de4\$lut for cells of type $lut.
+Using template $paramod$f18569300906f69e82b2370c26117cb7ad311fbd\$lut for cells of type $lut.
+Using template $paramod$6709b3129258be66bbcf2a715f76f216df7333ab\$lut for cells of type $lut.
+Using template $paramod$901d2b78169b0251038e2888e48f047726d8f4d1\$lut for cells of type $lut.
+Using template $paramod$07bd2983970c965343e2efa8110fedf4bb85645b\$lut for cells of type $lut.
+No more expansions possible.
+<suppressed ~1055 debug messages>
+
+6.46. Executing XILINX_DFFOPT pass (optimize FF control signal usage).
+Optimizing FFs in fxp_sqrt_top_wrapper.
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2592/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2583/$iopadmap$Dout_emu (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2590/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2581/$iopadmap$Dout_emu (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2582/$iopadmap$Dout_emu (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2594/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2589/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2591/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2593/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2802/vectOut[1] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2868/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2579/$iopadmap$Dout_emu (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2803/vectOut[1] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2588/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2587/vectOut[0] (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2580/$iopadmap$Dout_emu (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2869/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2805/vectOut[1] (2 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2870/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2871/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2872/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2873/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2874/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2875/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2876/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2877/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+  Merging D + CE LUTs for $auto$ff.cc:266:slice$2878/u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.s_12_fu_64 (3 -> 5)
+
+6.47. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in fxp_sqrt_top_wrapper.
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3407.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (6 -> 3)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3407.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (6 -> 4)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3406.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (6 -> 0)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3407.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (6 -> 3)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3410.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (6 -> 3)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3421.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (6 -> 4)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3421.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (6 -> 4)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3427.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (6 -> 4)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3410.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (6 -> 4)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3407.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (6 -> 3)
+  Optimizing lut $abc$3343$auto$blifparse.cc:535:parse_blif$3427.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (6 -> 4)
+
+6.48. Executing CLKBUFMAP pass (inserting clock buffers).
+Inserting BUFG on fxp_sqrt_top_wrapper.$iopadmap$clk_emu[0].
+Inserting BUFG on fxp_sqrt_top_wrapper.u_fxp_sqrt_top.ap_clk[0].
+Removed 27 unused cells and 1031 unused wires.
+
+6.49. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fxp_sqrt_top_wrapper'. Setting top module to fxp_sqrt_top_wrapper.
+
+6.49.1. Analyzing design hierarchy..
+Top module:  \fxp_sqrt_top_wrapper
+
+6.49.2. Analyzing design hierarchy..
+Top module:  \fxp_sqrt_top_wrapper
+Removed 0 unused modules.
+
+6.50. Printing statistics.
+
+=== fxp_sqrt_top_wrapper ===
+
+   Number of wires:                194
+   Number of wire bits:            848
+   Number of public wires:         107
+   Number of public wire bits:     555
+   Number of ports:                  7
+   Number of port bits:             23
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                302
+     $scopeinfo                      3
+     BUFG                            2
+     CARRY4                         15
+     FDRE                          119
+     FDSE                            2
+     IBUF                           15
+     INV                             3
+     LUT2                           26
+     LUT3                           24
+     LUT4                           12
+     LUT5                           26
+     LUT6                           38
+     MUXF7                           8
+     MUXF8                           1
+     OBUF                            8
+
+   Estimated number of LCs:        100
+
+6.51. Executing CHECK pass (checking for obvious problems).
+Checking module fxp_sqrt_top_wrapper...
+Found and reported 0 problems.
+
+7. Executing Verilog backend.
+
+7.1. Executing BMUXMAP pass.
+
+7.2. Executing DEMUXMAP pass.
+Dumping module `\fxp_sqrt_top_wrapper'.
+
+8. Printing statistics.
+
+=== fxp_sqrt_top_wrapper ===
+
+   Number of wires:                194
+   Number of wire bits:            848
+   Number of public wires:         107
+   Number of public wire bits:     555
+   Number of ports:                  7
+   Number of port bits:             23
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                302
+     $scopeinfo                      3
+     BUFG                            2
+     CARRY4                         15
+     FDRE                          119
+     FDSE                            2
+     IBUF                           15
+     INV                             3
+     LUT2                           26
+     LUT3                           24
+     LUT4                           12
+     LUT5                           26
+     LUT6                           38
+     MUXF7                           8
+     MUXF8                           1
+     OBUF                            8
+
+Warnings: 4 unique messages, 4 total
+End of script. Logfile hash: b4463d53cf, CPU: user 2.72s system 0.08s, MEM: 128.58 MB peak
+Yosys 0.50+56 (git sha1 176131b50, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 57% 25x read_verilog (1 sec), 9% 20x opt_clean (0 sec), ...

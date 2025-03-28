@@ -1,0 +1,21 @@
+
+Vitis install Troubleshoot
+https://www.daiphys.com/portal/fpga/xilinx/tools/vitis.html
+
+Set locale to "en_US.UTF-8"
+
+	sudo apt-get install language-pack-en
+	sudo locale-gen en_US.UTF-8
+	sudo update-locale LANG=en_US.UTF-8 LC_MESSAGES=POSIX
+
+	locale
+	locale -a
+
+Additional Lis.:
+
+	sudo apt install libtinfo5
+
+After Install run as admin privilige,
+
+	/opt/Xilinx/Vitis/2024.2/scripts/installLibs.sh
+

@@ -1,0 +1,61 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: ../fxp_sqrt_top.cpp, Line: 22, Column: 5 }
+Function:        _Z12fxp_sqrt_topR9ap_ufixedILi24ELi8EL9ap_q_mode5EL9ap_o_mode3ELi0EE
+Args:            
+  - Callee:          'void fxp_sqrt<28, 4, 24, 8>(ap_ufixed<28, 4, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<24, 8, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: ../fxp_sqrt.h, Line: 79, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fxp_sqrt_top(ap_ufixed<24, 8, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: ../fxp_sqrt_top.cpp, Line: 20, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: ../fxp_sqrt_top.cpp, Line: 22, Column: 5 }
+Function:        _Z12fxp_sqrt_topR9ap_ufixedILi24ELi8EL9ap_q_mode5EL9ap_o_mode3ELi0EE
+Args:            
+  - Callee:          'void fxp_sqrt<28, 4, 24, 8>(ap_ufixed<28, 4, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<24, 8, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: ../fxp_sqrt.h, Line: 79, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fxp_sqrt_top(ap_ufixed<24, 8, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: ../fxp_sqrt_top.cpp, Line: 20, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_fxp_sqrt_top_ir
+Args:            
+  - Callee:          'fxp_sqrt_top(ap_ufixed<24, 8, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: ../fxp_sqrt_top.cpp, Line: 20, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_fxp_sqrt_top_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ../fxp_sqrt_top.cpp, Line: 20, Column: 0 }
+Function:        _Z12fxp_sqrt_topR9ap_ufixedILi24ELi8EL9ap_q_mode5EL9ap_o_mode3ELi0EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void fxp_sqrt<28, 4, 24, 8>(ap_ufixed<28, 4, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<24, 8, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: ../fxp_sqrt.h, Line: 79, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fxp_sqrt_top(ap_ufixed<24, 8, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: ../fxp_sqrt_top.cpp, Line: 20, Column: 0 }
+  - String:          ''''
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_104_1
+  - String:          '> at '
+  - LoopLoc:         '../fxp_sqrt.h:104:23'
+  - String:          ' '
+...

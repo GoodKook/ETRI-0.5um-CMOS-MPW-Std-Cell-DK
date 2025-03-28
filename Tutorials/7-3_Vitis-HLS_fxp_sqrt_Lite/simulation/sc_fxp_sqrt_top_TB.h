@@ -9,8 +9,9 @@ History : Mar. 2025, First release
 #define _SC_FXP_SQRT_TOP_TB_H_
 
 #include <systemc.h>
-#include "untimed/fxp_sqrt_top.h"
+#include "fxp_sqrt_top.h"
 #include "Vfxp_sqrt_top.h"
+
 #ifdef VCD_TRACE_DUT_VERILOG
 #include <verilated_vcd_sc.h>
 #endif
@@ -22,7 +23,6 @@ SC_MODULE(sc_fxp_sqrt_top_TB)
     sc_signal<bool>         ap_rst;
     sc_signal<bool>         ap_start;
     sc_signal<bool>         ap_done;
-    sc_signal<bool>         ap_continue;
     sc_signal<bool>         ap_idle;
     sc_signal<bool>         ap_ready;
     sc_signal<sc_uint<12> > in_val;
@@ -32,10 +32,11 @@ SC_MODULE(sc_fxp_sqrt_top_TB)
 
     Vfxp_sqrt_top*      u_Vfxp_sqrt_top;
 
-    sc_signal<in_data_t> input_val;
+    sc_signal<in_data_t>    input_val;
     sc_signal<float>        CmathOut;
     sc_signal<out_data_t>	RefOut;
     out_data_t              DutOut;
+    sc_signal<float>        fDutOut;
 
     // Test utilities
     void Test_Gen();
@@ -64,7 +65,6 @@ SC_MODULE(sc_fxp_sqrt_top_TB)
         u_Vfxp_sqrt_top->ap_rst(ap_rst);
         u_Vfxp_sqrt_top->ap_start(ap_start);
         u_Vfxp_sqrt_top->ap_done(ap_done);
-        u_Vfxp_sqrt_top->ap_continue(ap_continue);
         u_Vfxp_sqrt_top->ap_idle(ap_idle);
         u_Vfxp_sqrt_top->ap_ready(ap_ready);
         u_Vfxp_sqrt_top->in_val(in_val);
@@ -80,11 +80,11 @@ SC_MODULE(sc_fxp_sqrt_top_TB)
         sc_trace(fp, ap_rst, "ap_rst");
         sc_trace(fp, ap_start, "ap_start");
         sc_trace(fp, ap_done, "ap_done");
-        sc_trace(fp, ap_continue, "ap_continue");
         sc_trace(fp, ap_idle, "ap_idle");
         sc_trace(fp, ap_ready, "ap_ready");
         sc_trace(fp, in_val, "in_val");
         sc_trace(fp, ap_return, "ap_return");
+        sc_trace(fp, fDutOut, "fDutOut");
 #endif
 
 #ifdef VCD_TRACE_DUT_VERILOG

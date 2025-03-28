@@ -1,0 +1,101 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2.2 (lin64) Build 6060944 Thu Mar 06 19:10:09 MST 2025
+| Date         : Thu Mar 27 20:58:07 2025
+| Host         : GoodKook-Skull running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_control_sets -verbose -file test_wrapper_control_sets_placed.rpt
+| Design       : test_wrapper
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    23 |
+|    Minimum number of control sets                        |    23 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   141 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    23 |
+| >= 0 to < 4        |    17 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     1 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               5 |            4 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               1 |            1 |
+| Yes          | No                    | No                     |              47 |           12 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              14 |           14 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------+------------------+------------------+----------------+--------------+
+|  Clock Signal  | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+---------------+------------------+------------------+----------------+--------------+
+|  u_test.ap_clk | _011_         | _021_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _017_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _028_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _027_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _026_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _025_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _024_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _020_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _023_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _019_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _022_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _011_         | _018_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk | _010_         | ap_rst           |                1 |              1 |         1.00 |
+|  u_test.ap_clk | A_ce0         | _014_            |                1 |              1 |         1.00 |
+|  u_test.ap_clk |               | ap_rst           |                1 |              1 |         1.00 |
+|  u_test.ap_clk |               |                  |                1 |              1 |         1.00 |
+|  _044_         | _015_         |                  |                1 |              2 |         2.00 |
+|  _044_         |               |                  |                3 |              4 |         1.33 |
+|  u_test.ap_clk | A_ce0         |                  |                1 |              4 |         4.00 |
+|  _044_         | _013_         |                  |                2 |              5 |         2.50 |
+|  _044_         | _016_         |                  |                1 |              8 |         8.00 |
+|  _044_         | _046_[1]      |                  |                3 |             10 |         3.33 |
+|  _044_         | _012_         |                  |                4 |             18 |         4.50 |
++----------------+---------------+------------------+------------------+----------------+--------------+
+
+

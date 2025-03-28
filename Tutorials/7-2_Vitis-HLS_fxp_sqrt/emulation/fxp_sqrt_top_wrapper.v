@@ -23,7 +23,6 @@ module fxp_sqrt_top_wrapper(
     // DUT interface: registered input
     reg         ap_rst;
     reg         ap_start;
-    reg         ap_continue;
     reg [23:0]  in_val;
     // DUT interface: output wire. DUT's output will be captured
     wire        ap_done;
@@ -35,10 +34,10 @@ module fxp_sqrt_top_wrapper(
 //      +-------+-+-+-+-+                       +---------------+
 //  [0] |       |3|2|1|0|                   [0] |7 6 5 4 3 2 1 0|
 //      +-------+-+-+-+-+                       +-------+-------+
-//               | | | |                                |
-//               | | | +---ap_rst                       +----------ap_return[7:0]
-//               | | +-----ap_start             +---------------+
-//               | +-------ap_continue      [1] |7 6 5 4 3 2 1 0|
+//               |   | |                                |
+//               |   | +---ap_rst                       +----------ap_return[7:0]
+//               |   +-----ap_start             +---------------+
+//               |                          [1] |7 6 5 4 3 2 1 0|
 //               +---------(ap_clk)             +-------+-------+
 //      +---------------+                               |
 //  [1] |7 6 5 4 3 2 1 0|                               +----------ap_return[15:8]
@@ -62,7 +61,6 @@ module fxp_sqrt_top_wrapper(
         begin
             ap_rst          <= stimIn[0][0];
             ap_start        <= stimIn[0][1];
-            ap_continue     <= stimIn[0][2];
             in_val[7:0]     <= stimIn[1];
             in_val[15:8]    <= stimIn[2];
             in_val[23:16]   <= stimIn[3];
@@ -90,7 +88,6 @@ module fxp_sqrt_top_wrapper(
         .ap_rst(ap_rst),
         .ap_start(ap_start),
         .ap_done(ap_done),
-        .ap_continue(ap_continue),
         .ap_idle(ap_idle),
         .ap_ready(ap_ready),
         .in_val(in_val),

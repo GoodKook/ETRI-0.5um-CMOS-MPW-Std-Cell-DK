@@ -13,11 +13,13 @@ DUT_NAME = test
 SC_TARGET   = sc_$(DUT_NAME)_TB
 SC_EMU_PATH = ../emulation
 SC_SIM_PATH = ../simulation
+VITIS_HLS_PATH = ../Vitis-HLS
+
 SC_HDRS     =  \
 	$(SC_EMU_PATH)/V$(DUT_NAME).h \
 	$(SC_SIM_PATH)/sc_$(DUT_NAME)_TB.h
 SC_SRCS      = \
-	$(SC_SIM_PATH)/untimed/test.cpp \
+	$(VITIS_HLS_PATH)/test.cpp \
 	$(SC_SIM_PATH)/sc_main.cpp \
 	$(SC_SIM_PATH)/sc_$(DUT_NAME)_TB.cpp
 
@@ -59,6 +61,8 @@ $(SC_TARGET): $(SC_SRCS) $(SC_HDRS)
 	$(CXX) $(CXXFLAGS) -I$(SYSTEMC_INCLUDE) -L$(SYSTEMC_LIBDIR) \
 		-I$(SC_EMU_PATH) \
 		-I$(SC_SIM_PATH) \
+		-I$(VITIS_HLS_PATH) \
+		-DVM_SC=1 \
 		-D$(VCD_TRACE) \
 		-D$(EMULATION_MODE) \
 		-lsystemc -o$(SC_TARGET) $(SC_SRCS)

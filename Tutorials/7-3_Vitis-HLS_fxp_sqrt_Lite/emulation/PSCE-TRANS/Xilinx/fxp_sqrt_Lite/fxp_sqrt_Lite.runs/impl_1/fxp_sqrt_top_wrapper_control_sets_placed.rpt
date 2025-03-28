@@ -1,0 +1,93 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2.2 (lin64) Build 6060944 Thu Mar 06 19:10:09 MST 2025
+| Date         : Fri Mar 28 11:16:24 2025
+| Host         : GoodKook-Skull running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_control_sets -verbose -file fxp_sqrt_top_wrapper_control_sets_placed.rpt
+| Design       : fxp_sqrt_top_wrapper
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    15 |
+|    Minimum number of control sets                        |    15 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    63 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    15 |
+| >= 0 to < 4        |     5 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     2 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     3 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              33 |           11 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               4 |            1 |
+| Yes          | No                    | No                     |              68 |           21 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              16 |            7 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------+-----------------------------------------------------------------------------------------+------------------+------------------+----------------+--------------+
+|      Clock Signal      |                                      Enable Signal                                      | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------+-----------------------------------------------------------------------------------------+------------------+------------------+----------------+--------------+
+|  _077_                 | _021_                                                                                   |                  |                1 |              1 |         1.00 |
+|  u_fxp_sqrt_top.ap_clk | _018_                                                                                   | ap_rst           |                1 |              1 |         1.00 |
+|  u_fxp_sqrt_top.ap_clk | u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.ap_enable_reg_pp0_iter0 | _022_            |                1 |              1 |         1.00 |
+|  u_fxp_sqrt_top.ap_clk | _020_                                                                                   | ap_rst           |                1 |              1 |         1.00 |
+|  _077_                 | _086_[1]                                                                                |                  |                1 |              3 |         3.00 |
+|  u_fxp_sqrt_top.ap_clk |                                                                                         | ap_rst           |                1 |              4 |         4.00 |
+|  u_fxp_sqrt_top.ap_clk | u_fxp_sqrt_top.grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_106_1_fu_60.ap_enable_reg_pp0_iter0 |                  |                1 |              4 |         4.00 |
+|  _077_                 | _023_                                                                                   |                  |                2 |              5 |         2.50 |
+|  _077_                 | _024_                                                                                   |                  |                3 |              8 |         2.67 |
+|  u_fxp_sqrt_top.ap_clk | u_fxp_sqrt_top.ap_CS_fsm[0]                                                             |                  |                3 |             11 |         3.67 |
+|  _077_                 | _085_[1]                                                                                |                  |                3 |             13 |         4.33 |
+|  u_fxp_sqrt_top.ap_clk | _019_                                                                                   | _078_[2]         |                4 |             13 |         3.25 |
+|  _077_                 |                                                                                         |                  |                5 |             16 |         3.20 |
+|  u_fxp_sqrt_top.ap_clk |                                                                                         |                  |                6 |             17 |         2.83 |
+|  u_fxp_sqrt_top.ap_clk | _025_                                                                                   |                  |                7 |             23 |         3.29 |
++------------------------+-----------------------------------------------------------------------------------------+------------------+------------------+----------------+--------------+
+
+

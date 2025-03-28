@@ -9,27 +9,35 @@ export CXXFLAGS			= -std=c++17
 
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS =  \
-	./untimed/test.cpp \
+	../Vitis-HLS/test.cpp \
 	./sc_main.cpp \
 	./sc_test_TB.cpp
 SC_HDRS = \
+	../Vitis-HLS/test.h \
 	./sc_test_TB.h
 
 # Verilator vars -----------------------------------------------
+VITIS_SYN_PATH = \
+	../Vitis-HLS/hls_component/test/hls/syn/verilog
+
 lint: VERILOG_SRCS =  \
-	../source/test.v \
-	../source/test_flow_control_loop_delay_pipe.v
+	$(VITIS_SYN_PATH)/test.v \
+	$(VITIS_SYN_PATH)/test_flow_control_loop_delay_pipe.v
 build: VERILOG_SRCS =  \
-	../source/test.v \
-	../source/test_flow_control_loop_delay_pipe.v
+	$(VITIS_SYN_PATH)/test.v \
+	$(VITIS_SYN_PATH)/test_flow_control_loop_delay_pipe.v
+run: VERILOG_SRCS =  \
+	$(VITIS_SYN_PATH)/test.v \
+	$(VITIS_SYN_PATH)/test_flow_control_loop_delay_pipe.v
 build_net: VERILOG_SRCS = \
 	../synthesis/test.v \
 	~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v
 
 VERILATOR    = verilator
+VL_WARNING   = -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
 VCFLAGS    	 = -CFLAGS -std=c++17
 VCFLAGS		+= -CFLAGS -g
-VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
+VCFLAGS		+= -CFLAGS -I../../Vitis-HLS
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_TEST_TB
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_DUT_VERILOG
 VCFLAGS		+= -LDFLAGS -lm
@@ -87,7 +95,7 @@ build : $(TARGET_DIR)/$(TARGET)
 build_net : $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
-	$(VERILATOR) --sc -Wall --trace --timing --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
+	$(VERILATOR) --sc $(VL_WARNING) --trace --timing --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 build_tim : $(TOP_MODULE)
@@ -96,7 +104,7 @@ $(TOP_MODULE) : $(VERILOG_SRCS)
 	iverilog -g2005-sv -Tmin -gspecify -o $(TOP_MODULE) $(VERILOG_SRCS)
 
 lint : ../source/$(TOP_MODULE).v
-	$(VERILATOR) --sc  --timing -Wall -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
+	$(VERILATOR) --sc  --timing $(VL_WARNING) -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
 
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)

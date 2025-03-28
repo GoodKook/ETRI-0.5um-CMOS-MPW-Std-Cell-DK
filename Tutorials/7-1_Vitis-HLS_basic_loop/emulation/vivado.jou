@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# Vivado v2024.2.2 (64-bit)
+# SW Build 6060944 on Thu Mar 06 19:10:09 MST 2025
+# IP Build 6050500 on Thu Mar  6 23:33:39 MST 2025
+# SharedData Build 6060542 on Thu Mar 06 10:31:07 MST 2025
+# Start of session at: Thu Mar 27 20:56:30 2025
+# Process ID         : 144572
+# Current directory  : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-1_Vitis-HLS_basic_loop/emulation
+# Command line       : vivado
+# Log file           : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-1_Vitis-HLS_basic_loop/emulation/vivado.log
+# Journal file       : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-1_Vitis-HLS_basic_loop/emulation/vivado.jou
+# Running On         : GoodKook-Skull
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 22.04.5 LTS
+# Processor Detail   : Intel(R) Core(TM) i7-8809G CPU @ 3.10GHz
+# CPU Frequency      : 3095.999 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 25205 MB
+# Swap memory        : 6442 MB
+# Total Virtual      : 31648 MB
+# Available Virtual  : 28412 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-1_Vitis-HLS_basic_loop/emulation/PSCE-TRANS/Xilinx/test_wrapper/test_wrapper.xpr
+reset_run impl_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-1_Vitis-HLS_basic_loop/emulation/PSCE-TRANS/Xilinx/test_wrapper/test_wrapper.runs/impl_1/test_wrapper.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-1_Vitis-HLS_basic_loop/emulation/PSCE-TRANS/Xilinx/test_wrapper/test_wrapper.runs/impl_1/test_wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]

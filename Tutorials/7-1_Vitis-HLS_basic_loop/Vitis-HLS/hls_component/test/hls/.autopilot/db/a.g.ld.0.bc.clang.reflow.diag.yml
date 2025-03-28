@@ -1,0 +1,21 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_test_ir
+Args:            
+  - Callee:          'test(ap_int<8>*)'
+    DebugLoc:        { File: ../test.cpp, Line: 20, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_test_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        LOOP_1
+  - String:          '> at '
+  - LoopLoc:         '../test.cpp:26:5'
+  - String:          ' '
+...

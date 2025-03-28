@@ -23,7 +23,6 @@ SC_MODULE(Vfxp_sqrt_top)
     sc_in<bool>         ap_rst;
     sc_in<bool>         ap_start;
     sc_out<bool>        ap_done;
-    sc_in<bool>         ap_continue;
     sc_out<bool>        ap_idle;
     sc_out<bool>        ap_ready;
     sc_in<uint32_t>     in_val;
@@ -36,10 +35,10 @@ SC_MODULE(Vfxp_sqrt_top)
 //      +-------+-+-+-+-+                       +---------------+
 //  [0] |       |3|2|1|0|                   [0] |7 6 5 4 3 2 1 0|
 //      +-------+-+-+-+-+                       +-------+-------+
-//               | | | |                                |
-//               | | | +---ap_rst                       +----------ap_return[7:0]
-//               | | +-----ap_start             +---------------+
-//               | +-------ap_continue      [1] |7 6 5 4 3 2 1 0|
+//               |   | |                                |
+//               |   | +---ap_rst                       +----------ap_return[7:0]
+//               |   +-----ap_start             +---------------+
+//               |                          [1] |7 6 5 4 3 2 1 0|
 //               +---------ap_clk               +-------+-------+
 //      +---------------+                               |
 //  [1] |7 6 5 4 3 2 1 0|                               +----------ap_return[15:8]
@@ -71,7 +70,6 @@ SC_MODULE(Vfxp_sqrt_top)
             txPacket[0] = (uint8_t)(
                             (ap_rst.read()?      0x01:0x00) |
                             (ap_start.read()?    0x02:0x00) |
-                            (ap_continue.read()? 0x04:0x00) |
                             (ap_clk.read()?      0x08:0x00));
             txPacket[1] = (uint8_t)(in_val.read()       & 0x0000FF);
             txPacket[2] = (uint8_t)(in_val.read() >> 8  & 0x0000FF);
@@ -105,7 +103,6 @@ SC_MODULE(Vfxp_sqrt_top)
             txPacket[0] = (uint8_t)(
                 (ap_rst.read()?      0x01:0x00) |
                 (ap_start.read()?    0x02:0x00) |
-                (ap_continue.read()? 0x04:0x00) |
                 (ap_clk.read()?      0x08:0x00));
             txPacket[1] = (uint8_t)(in_val.read()       & 0x0000FF);
             txPacket[2] = (uint8_t)(in_val.read() >> 8  & 0x0000FF);

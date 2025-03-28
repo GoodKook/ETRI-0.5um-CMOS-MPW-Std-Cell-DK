@@ -17,7 +17,6 @@ Revision History: Mar. 2025
 //
 void sc_fxp_sqrt_top_TB::Test_Gen()
 {
-    ap_continue.write(true);
     ap_start.write(false);
     ap_rst.write(true);
     wait(ap_clk.posedge_event());
@@ -63,15 +62,15 @@ void sc_fxp_sqrt_top_TB::Test_Mon()
 
     cout    << "[ N ]"
             << "sqrt(Val)= C-Math  "
-            << " vs. SystemC Fixed Point         "
+            << " vs. SystemC Fixed Point"
             << " vs. Hardware"
             << std::endl;
-
     cout    << " --- "
             << "---------  ------- "
-            << " vs. -------------------         "
             << " vs. -------------------"
+            << " vs. ------------------"
             << std::endl;
+
     while(true)
     {
         wait(ap_clk.posedge_event());
@@ -84,14 +83,15 @@ void sc_fxp_sqrt_top_TB::Test_Mon()
             _ap_return = ap_return.read();
             DutOut.range(OUT_BW-1, (OUT_BW-OUT_IW)) = _ap_return.range(7,4);
             DutOut.range((OUT_BW-OUT_IW)-1, 2)      = _ap_return.range(3,0);
+            fDutOut.write(DutOut.to_float());   // for VCD Trace
 
             //cout << result.to_hex() << ":" << _result.to_hex() << std::endl;
 
             cout    << "["      << std::right   << std::setw(3)     << test_count++ << "]"
                     << "sqrt("  << std::right   << std::setw(3)     << input_val
                     << ")= "    << std::left    << std::setw(8)     << CmathOut
-                    << " vs. "  << std::left    << std::setw(28)    << RefOut
-                    << " vs. "  << std::left    << std::setw(22)    << DutOut
+                    << " vs. "  << std::left    << std::setw(19)    << RefOut
+                    << " vs. "  << std::left    << std::setw(18)    << DutOut
                     << " Diff= "<< std::right   << std::setw(10)    << abs(RefOut - DutOut)
                     << std::endl;
 
@@ -111,12 +111,12 @@ void sc_fxp_sqrt_top_TB::Test_Mon()
 
     cout    << " --- "
             << "---------  ------- "
-            << " vs. -------------------         "
             << " vs. -------------------"
+            << " vs. ------------------"
             << std::endl;
     cout    << "[ N ]"
             << "sqrt(Val)= C-Math  "
-            << " vs. SystemC Fixed Point         "
+            << " vs. SystemC Fixed Point"
             << " vs. Hardware"
             << std::endl;
     cout << "Max Err = " << max_err << endl;

@@ -1,0 +1,14 @@
+### Yosys taargetting GoWin
+# yosys -s Your_Design_wrapper.ys | tee synthesis.log
+#
+
+read_verilog ../../../test_wrapper.v
+read_verilog -sv ../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v
+read_verilog -sv ../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v
+
+hierarchy -check -top test_wrapper
+
+synth_xilinx -top test_wrapper -family xc7 -flatten
+write_verilog test_wrapper.v
+
+stat

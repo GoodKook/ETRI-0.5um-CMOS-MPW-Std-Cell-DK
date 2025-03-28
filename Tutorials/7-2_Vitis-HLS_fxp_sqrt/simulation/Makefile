@@ -9,31 +9,39 @@ export CXXFLAGS			= -std=c++17
 
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS =  \
-	./untimed/fxp_sqrt_top.cpp \
+	../Vitis-HLS/fxp_sqrt_top.cpp \
 	./sc_main.cpp \
 	./sc_fxp_sqrt_top_TB.cpp
 SC_HDRS = \
-	./untimed/fxp_sqrt.h \
-	./untimed/fxp_sqrt_top.h \
+	../Vitis-HLS/fxp_sqrt.h \
+	../Vitis-HLS/fxp_sqrt_top.h \
 	./sc_fxp_sqrt_top_TB.h
 
 # Verilator vars -----------------------------------------------
+VITIS_SYN_PATH = \
+	../Vitis-HLS/hls_component/fxp_sqrt_top/hls/syn/verilog
+
 lint: VERILOG_SRCS =  \
-	../source/fxp_sqrt_top.v \
-	../source/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v \
-	../source/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_89_1.v
+	$(VITIS_SYN_PATH)/fxp_sqrt_top.v \
+	$(VITIS_SYN_PATH)/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v \
+	$(VITIS_SYN_PATH)/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1.v
 build: VERILOG_SRCS =  \
-	../source/fxp_sqrt_top.v \
-	../source/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v \
-	../source/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_89_1.v
+	$(VITIS_SYN_PATH)/fxp_sqrt_top.v \
+	$(VITIS_SYN_PATH)/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v \
+	$(VITIS_SYN_PATH)/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1.v
+run: VERILOG_SRCS =  \
+	$(VITIS_SYN_PATH)/fxp_sqrt_top.v \
+	$(VITIS_SYN_PATH)/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v \
+	$(VITIS_SYN_PATH)/fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1.v
 build_net: VERILOG_SRCS = \
 	../source/fxp_sqrt_top.v \
 	~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v
 
 VERILATOR    = verilator
+VL_WARNING   = -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
 VCFLAGS    	 = -CFLAGS -std=c++17
 VCFLAGS		+= -CFLAGS -g
-VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
+VCFLAGS		+= -CFLAGS -I../../Vitis-HLS
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_TEST_TB
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_DUT_VERILOG
 VCFLAGS		+= -CFLAGS -DSC_INCLUDE_FX
@@ -92,7 +100,7 @@ build : $(TARGET_DIR)/$(TARGET)
 build_net : $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
-	$(VERILATOR) --sc -Wall --trace --timing --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
+	$(VERILATOR) --sc $(VL_WARNING) --trace --timing --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 build_tim : $(TOP_MODULE)
@@ -101,7 +109,7 @@ $(TOP_MODULE) : $(VERILOG_SRCS)
 	iverilog -g2005-sv -Tmin -gspecify -o $(TOP_MODULE) $(VERILOG_SRCS)
 
 lint : ../source/$(TOP_MODULE).v
-	$(VERILATOR) --sc  --timing -Wall -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
+	$(VERILATOR) --sc  --timing $(VL_WARNING) -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
 
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)

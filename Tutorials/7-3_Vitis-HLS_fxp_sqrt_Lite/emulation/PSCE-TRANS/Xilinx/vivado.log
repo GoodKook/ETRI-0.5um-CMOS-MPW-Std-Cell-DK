@@ -1,0 +1,80 @@
+#-----------------------------------------------------------
+# Vivado v2024.2.2 (64-bit)
+# SW Build 6060944 on Thu Mar 06 19:10:09 MST 2025
+# IP Build 6050500 on Thu Mar  6 23:33:39 MST 2025
+# SharedData Build 6060542 on Thu Mar 06 10:31:07 MST 2025
+# Start of session at: Fri Mar 28 11:13:13 2025
+# Process ID         : 875
+# Current directory  : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx
+# Command line       : vivado
+# Log file           : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/vivado.log
+# Journal file       : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/vivado.jou
+# Running On         : GoodKook-Skull
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 22.04.5 LTS
+# Processor Detail   : Intel(R) Core(TM) i7-8809G CPU @ 3.10GHz
+# CPU Frequency      : 3095.999 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 25205 MB
+# Swap memory        : 6442 MB
+# Total Virtual      : 31648 MB
+# Available Virtual  : 31061 MB
+#-----------------------------------------------------------
+start_gui
+create_project fxp_sqrt_Lite /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/fxp_sqrt_Lite -part xc7a100tcsg324-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2024.2/data/ip'.
+set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
+set_property design_mode GateLvl [current_fileset]
+INFO: [Vivado 12-3498] Setting project source management mode (property SOURCE_MGMT_MODE) to "None".
+add_files -norecurse /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/synthesis/fxp_sqrt_top_wrapper.v
+add_files -fileset constrs_1 -norecurse /home/goodkook/ETRI050_DesignKit/devel/PSCE_API/Board/A7_100T/constraints/Arty-A7-100-Master.xdc
+set_property top_file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/synthesis/fxp_sqrt_top_wrapper.v [current_fileset]
+set_property top fxp_sqrt_top_wrapper [current_fileset]
+launch_runs impl_1 -jobs 4
+[Fri Mar 28 11:16:01 2025] Launched impl_1...
+Run output will be captured here: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/fxp_sqrt_Lite/fxp_sqrt_Lite.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Fri Mar 28 11:16:58 2025] Launched impl_1...
+Run output will be captured here: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/fxp_sqrt_Lite/fxp_sqrt_Lite.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2024.2.2
+  **** Build date : Jan 17 2025 at 17:04:14
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 31 2024-03:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210319B9B157A
+set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/fxp_sqrt_Lite/fxp_sqrt_Lite.runs/impl_1/fxp_sqrt_top_wrapper.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/7-3_Vitis-HLS_fxp_sqrt_Lite/emulation/PSCE-TRANS/Xilinx/fxp_sqrt_Lite/fxp_sqrt_Lite.runs/impl_1/fxp_sqrt_top_wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 28 11:24:37 2025...

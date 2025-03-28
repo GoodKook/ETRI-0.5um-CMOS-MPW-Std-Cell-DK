@@ -7,7 +7,6 @@ Purpose: Testbench
 Revision History: Mar. 2025
 *******************************************************************************/
 #include "sc_fxp_sqrt_top_TB.h"
-//#include "untimed/test.h"
 
 #include <iostream> // std::cout, std::hex, std::endl
 #include <iomanip>  // std::setiosflags
@@ -17,7 +16,6 @@ Revision History: Mar. 2025
 //
 void sc_fxp_sqrt_top_TB::Test_Gen()
 {
-    ap_continue.write(true);
     ap_start.write(false);
     ap_rst.write(true);
     wait(ap_clk.posedge_event());

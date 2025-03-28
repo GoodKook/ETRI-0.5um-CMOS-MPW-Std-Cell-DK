@@ -14,7 +14,7 @@ sudo apt install -y \
     build-essential cmake gperf gdb unzip meson \
     xterm libx11-dev libmotif-dev \
     xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable \
-    libxaw7-dev x11-xserver-utils \
+    libxaw7-dev x11-xserver-utils libtinfo5 \
     clang bison flex gawk git libgit2-dev \
     libfl2 libfl-dev dbus dbus-x11 \
     libreadline-dev tcl-dev tk-dev libffi-dev \

@@ -7,7 +7,7 @@ Purpose: Testbench
 Revision History: Mar. 2025
 *******************************************************************************/
 #include "sc_test_TB.h"
-#include "untimed/test.h"
+#include "test.h"
 
 #include <iostream> // std::cout, std::hex, std::endl
 #include <iomanip>  // std::setiosflags
@@ -32,20 +32,19 @@ void sc_test_TB::Test_Gen()
     {
         wait(ap_clk.posedge_event());
 
-        if (ap_idle.read())
-        {
-            for(int i=0; i<10; i++) MEM_A[i] = 0;
-            ap_start.write(true);
-        }
-        if (ap_ready.read())
-		{
-            for(int i=0; i<10; i++)
+        // Interface signal Priority: ap_done > ap_idle
+        if (ap_done.read())
+		{                           // As hardware release DONE
+            ap_start.write(false);  // Hold hardware to prepare new test vector
+		}
+        else if (ap_idle.read())
+        {                           // At hardware's IDLE state,
+            for(int i=0; i<10; i++) // Generate new test vector
                 MEM_A[i] = (sc_int<8>)rand();
 
-            RefOut.write(test(MEM_A));
-		}
+            ap_start.write(true);   // Then, START hardware
+        }
     }
-    sc_stop();
 }
 
 //
@@ -61,7 +60,8 @@ void sc_test_TB::Test_Mon()
 
         if (ap_done.read())
         {
-            DutOut = ap_return.read();
+            RefOut = test(MEM_A);       // Un-Timed(Algorithm) Result
+            DutOut = ap_return.read();  // Hardware Result
 
             if (RefOut!=DutOut)
                 cout << "Error[";
@@ -72,8 +72,13 @@ void sc_test_TB::Test_Mon()
             cout << " | ";
             cout << "DutOut=" << std::setw(5) << DutOut;
             cout << std::endl;
+
+            if (test_count>100)
+                break;
         }
     }
+
+    sc_stop();
 }
 
 

@@ -11,8 +11,8 @@ int sc_main(int argc, char** argv)
 {
     sc_test_TB u_sc_test_TB("u_sc_test_TB");
     
-    sc_start(100, SC_US);
-    //sc_start();
+    //sc_start(100, SC_US);
+    sc_start();
 
     return 0;
 }

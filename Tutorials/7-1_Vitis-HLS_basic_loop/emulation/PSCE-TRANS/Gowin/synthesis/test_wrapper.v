@@ -167,174 +167,174 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
   wire \stimIn[1][7] ;
   wire \stimIn[1][7]_DFFE_Q_D ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[0] ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[1] ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[2] ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[3] ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[4] ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[5] ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[6] ;
   (* hdlname = "u_test A_q0" *)
-  (* src = "../../../../source/test.v:38.14-38.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:34.14-34.18" *)
   wire \u_test.A_q0[7] ;
   (* hdlname = "u_test ap_block_pp0_stage0" *)
-  (* src = "../../../../source/test.v:57.9-57.28" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:53.9-53.28" *)
   wire \u_test.ap_block_pp0_stage0 ;
   (* hdlname = "u_test ap_block_pp0_stage0_11001" *)
-  (* src = "../../../../source/test.v:54.9-54.34" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:50.9-50.34" *)
   wire \u_test.ap_block_pp0_stage0_11001 ;
   (* hdlname = "u_test ap_block_pp0_stage0_subdone" *)
-  (* src = "../../../../source/test.v:48.9-48.36" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:44.9-44.36" *)
   wire \u_test.ap_block_pp0_stage0_subdone ;
   (* hdlname = "u_test ap_clk" *)
-  (* src = "../../../../source/test.v:30.9-30.15" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:26.9-26.15" *)
   wire \u_test.ap_clk ;
   (* hdlname = "u_test ap_condition_exit_pp0_iter0_stage0_pp0_iter1_reg" *)
-  (* src = "../../../../source/test.v:53.8-53.56" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:49.8-49.56" *)
   wire \u_test.ap_condition_exit_pp0_iter0_stage0_pp0_iter1_reg ;
   (* hdlname = "u_test ap_done" *)
-  (* src = "../../../../source/test.v:33.10-33.17" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:29.10-29.17" *)
   wire \u_test.ap_done ;
   (* hdlname = "u_test ap_done_int" *)
-  (* src = "../../../../source/test.v:69.8-69.19" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:65.8-65.19" *)
   wire \u_test.ap_done_int ;
   (* hdlname = "u_test ap_done_reg" *)
-  (* src = "../../../../source/test.v:67.8-67.19" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:63.8-63.19" *)
   wire \u_test.ap_done_reg ;
   (* hdlname = "u_test ap_done_sig" *)
-  (* src = "../../../../source/test.v:74.9-74.20" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:70.9-70.20" *)
   wire \u_test.ap_done_sig ;
   (* hdlname = "u_test ap_enable_reg_pp0_iter1" *)
-  (* src = "../../../../source/test.v:46.8-46.31" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:42.8-42.31" *)
   wire \u_test.ap_enable_reg_pp0_iter1 ;
   wire \u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ;
   (* hdlname = "u_test ap_loop_exit_ready_delayed" *)
-  (* src = "../../../../source/test.v:55.8-55.34" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:51.8-51.34" *)
   wire \u_test.ap_loop_exit_ready_delayed ;
   (* hdlname = "u_test ap_loop_exit_ready_pp0_iter1_reg" *)
-  (* src = "../../../../source/test.v:66.8-66.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:62.8-62.40" *)
   wire \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   wire \u_test.ap_loop_exit_ready_pp0_iter1_reg_DFF_Q_D ;
   (* hdlname = "u_test ap_loop_init" *)
-  (* src = "../../../../source/test.v:60.9-60.21" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:56.9-56.21" *)
   wire \u_test.ap_loop_init ;
   (* hdlname = "u_test ap_ready" *)
-  (* src = "../../../../source/test.v:35.10-35.18" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:31.10-31.18" *)
   wire \u_test.ap_ready ;
   (* hdlname = "u_test ap_ready_sig" *)
-  (* src = "../../../../source/test.v:73.9-73.21" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:69.9-69.21" *)
   wire \u_test.ap_ready_sig ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[0] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[10] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[11] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[12] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[1] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[2] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[3] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[4] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[5] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[6] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[7] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[8] ;
   (* hdlname = "u_test ap_return" *)
-  (* src = "../../../../source/test.v:39.16-39.25" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:35.16-35.25" *)
   wire \u_test.ap_return[9] ;
   (* hdlname = "u_test ap_rst" *)
-  (* src = "../../../../source/test.v:31.9-31.15" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:27.9-27.15" *)
   wire \u_test.ap_rst ;
   (* hdlname = "u_test ap_start" *)
-  (* src = "../../../../source/test.v:32.9-32.17" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:28.9-28.17" *)
   wire \u_test.ap_start ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_clk" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:29.9-29.15" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:28.9-28.15" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_clk ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_done" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:35.9-35.16" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:34.9-34.16" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_done ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_done_int" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:42.9-42.20" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:41.9-41.20" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_done_int ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_loop_exit_done" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:52.9-52.26" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:51.9-51.26" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_loop_exit_done ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_loop_exit_ready_delayed" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:51.9-51.35" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:50.9-50.35" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_loop_exit_ready_delayed ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_loop_init" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:46.10-46.22" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:45.10-45.22" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_loop_init ;
   wire \u_test.flow_control_loop_delay_pipe_U.ap_loop_init_DFFSE_Q_SET ;
   wire \u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_ready" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:34.9-34.17" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:33.9-33.17" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_ready ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_rst" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:30.9-30.15" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:29.9-29.15" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_rst ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U ap_start" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:33.9-33.17" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:32.9-32.17" *)
   wire \u_test.flow_control_loop_delay_pipe_U.ap_start ;
   (* hdlname = "u_test flow_control_loop_delay_pipe_U rewind_ap_ready_reg" *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:57.8-57.27" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:56.8-56.27" *)
   wire \u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg ;
   wire \u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_DFFRE_Q_CE ;
   wire \u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_DFFRE_Q_D ;
   wire \u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[0] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[10] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[11] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[1] ;
   (* src = "/usr/local/bin/../share/yosys/gowin/cells_map.v:169.9-169.11" *)
   wire \u_test.out_accum2_fu_46[1]_MUX2_LUT7_S0_1_O ;
   (* src = "/usr/local/bin/../share/yosys/gowin/cells_map.v:169.13-169.15" *)
   wire \u_test.out_accum2_fu_46[1]_MUX2_LUT7_S0_O ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[2] ;
   (* src = "/usr/local/bin/../share/yosys/gowin/cells_map.v:171.43-171.68|/usr/local/bin/../share/yosys/gowin/cells_map.v:164.41-164.66|/usr/local/bin/../share/yosys/gowin/cells_map.v:157.9-157.11" *)
   wire \u_test.out_accum2_fu_46[2]_MUX2_LUT6_S0_1_I0 ;
@@ -393,112 +393,112 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
   (* src = "/usr/local/bin/../share/yosys/gowin/cells_map.v:171.43-171.68|/usr/local/bin/../share/yosys/gowin/cells_map.v:163.13-163.15" *)
   wire \u_test.out_accum2_fu_46[2]_MUX2_LUT6_S0_O ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[3] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[4] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[5] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[6] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[7] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[8] ;
   (* hdlname = "u_test out_accum2_fu_46" *)
-  (* src = "../../../../source/test.v:62.14-62.30" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:58.14-58.30" *)
   wire \u_test.out_accum2_fu_46[9] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[0] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[10] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[11] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[1] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[2] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[3] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[4] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[5] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[6] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[7] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[8] ;
   (* hdlname = "u_test out_accum_fu_105_p2" *)
-  (* src = "../../../../source/test.v:63.21-63.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:59.21-59.40" *)
   wire \u_test.out_accum_fu_105_p2[9] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[0] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[10] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[11] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[1] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[2] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[3] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[4] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[5] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[6] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[7] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[8] ;
   (* hdlname = "u_test sext_ln27_fu_101_p1" *)
-  (* src = "../../../../source/test.v:65.21-65.40" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:61.21-61.40" *)
   wire \u_test.sext_ln27_fu_101_p1[9] ;
   (* hdlname = "u_test x1_fu_42" *)
-  (* src = "../../../../source/test.v:58.13-58.21" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:54.13-54.21" *)
   wire \u_test.x1_fu_42[0] ;
   wire \u_test.x1_fu_42[0]_DFFE_Q_D ;
   (* hdlname = "u_test x1_fu_42" *)
-  (* src = "../../../../source/test.v:58.13-58.21" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:54.13-54.21" *)
   wire \u_test.x1_fu_42[1] ;
   wire \u_test.x1_fu_42[1]_DFFE_Q_D ;
   (* hdlname = "u_test x1_fu_42" *)
-  (* src = "../../../../source/test.v:58.13-58.21" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:54.13-54.21" *)
   wire \u_test.x1_fu_42[2] ;
   wire \u_test.x1_fu_42[2]_DFFE_Q_D ;
   (* hdlname = "u_test x1_fu_42" *)
-  (* src = "../../../../source/test.v:58.13-58.21" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:54.13-54.21" *)
   wire \u_test.x1_fu_42[3] ;
   wire \u_test.x1_fu_42[3]_DFFE_Q_D ;
   (* src = "/usr/local/bin/../share/yosys/gowin/cells_map.v:151.9-151.11" *)
@@ -507,196 +507,196 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
   wire \u_test.x1_fu_42[3]_DFFE_Q_D_MUX2_LUT5_O_I1 ;
   wire \u_test.x1_fu_42[3]_LUT3_I0_F ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[0] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[10] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[11] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[12] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[13] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[14] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[15] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[16] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[17] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[18] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[19] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[1] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[20] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[21] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[22] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[23] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[24] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[25] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[26] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[27] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[28] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[29] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[2] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[30] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[31] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[32] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[33] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[34] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[35] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[36] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[37] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[38] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[39] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[3] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[40] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[41] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[42] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[43] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[44] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[45] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[46] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[47] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[48] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[49] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[4] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[50] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[51] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[52] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[53] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[54] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[55] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[56] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[57] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[58] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[59] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[5] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[60] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[61] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[62] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[63] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[6] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[7] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[8] ;
   (* hdlname = "u_test zext_ln26_fu_76_p1" *)
-  (* src = "../../../../source/test.v:56.15-56.33" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:52.15-52.33" *)
   wire \u_test.zext_ln26_fu_76_p1[9] ;
   (* src = "../../../test_wrapper.v:20.17-20.24" *)
   wire \vectOut[0][0] ;
@@ -1369,7 +1369,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .O(\u_test.ap_clk )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:124.1-132.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:31.7-31.59" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:120.1-128.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:31.7-31.59" *)
   DFFR \u_test.ap_enable_reg_pp0_iter1_DFFR_Q  (
     .CLK(\u_test.ap_clk ),
     .D(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F ),
@@ -1386,7 +1386,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I1(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:134.1-142.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:13.6-13.47" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:130.1-138.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:13.6-13.47" *)
   DFF \u_test.ap_loop_exit_ready_pp0_iter1_reg_DFF_Q  (
     .CLK(\u_test.ap_clk ),
     .D(\u_test.ap_loop_exit_ready_pp0_iter1_reg_DFF_Q_D ),
@@ -1415,7 +1415,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I3(\u_test.x1_fu_42[0]_DFFE_Q_D )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:75.1-84.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:67.8-67.66" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:74.1-83.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:67.8-67.66" *)
   DFFSE \u_test.flow_control_loop_delay_pipe_U.ap_loop_init_DFFSE_Q  (
     .CE(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F ),
     .CLK(\u_test.ap_clk ),
@@ -1433,7 +1433,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I1(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test_flow_control_loop_delay_pipe.v:86.1-94.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test_flow_control_loop_delay_pipe.v:85.1-93.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_DFFRE_Q  (
     .CE(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_DFFRE_Q_CE ),
     .CLK(\u_test.ap_clk ),
@@ -1451,7 +1451,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I1(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[0]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1468,7 +1468,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .S0(\u_test.out_accum2_fu_46[0] )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[10]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1477,7 +1477,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[11]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1486,7 +1486,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[1]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1511,7 +1511,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .S0(\u_test.out_accum2_fu_46[1] )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[2]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1778,7 +1778,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I3(\A_q0[0] )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[3]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1787,7 +1787,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[4]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1796,7 +1796,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[5]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1805,7 +1805,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[6]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1814,7 +1814,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[7]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1832,7 +1832,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I1(\u_test.out_accum2_fu_46[7] )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[8]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1841,7 +1841,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:144.1-152.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:140.1-148.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:43.8-43.68" *)
   DFFRE \u_test.out_accum2_fu_46[9]_DFFRE_Q  (
     .CE(\u_test.ap_enable_reg_pp0_iter1_LUT2_I0_F ),
     .CLK(\u_test.ap_clk ),
@@ -1850,7 +1850,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .RESET(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:154.1-158.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:150.1-154.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
   DFFE \u_test.x1_fu_42[0]_DFFE_Q  (
     .CE(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F ),
     .CLK(\u_test.ap_clk ),
@@ -1868,7 +1868,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I2(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:154.1-158.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:150.1-154.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
   DFFE \u_test.x1_fu_42[1]_DFFE_Q  (
     .CE(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F ),
     .CLK(\u_test.ap_clk ),
@@ -1886,7 +1886,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I2(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:154.1-158.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:150.1-154.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
   DFFE \u_test.x1_fu_42[2]_DFFE_Q  (
     .CE(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F ),
     .CLK(\u_test.ap_clk ),
@@ -1905,7 +1905,7 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I3(\u_test.flow_control_loop_delay_pipe_U.ap_loop_init_LUT2_I0_F )
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../source/test.v:154.1-158.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
+  (* src = "../../../../Vitis-HLS/hls_component/test/hls/syn/verilog/test.v:150.1-154.4|/usr/local/bin/../share/yosys/gowin/cells_map.v:19.7-19.56" *)
   DFFE \u_test.x1_fu_42[3]_DFFE_Q  (
     .CE(\u_test.flow_control_loop_delay_pipe_U.rewind_ap_ready_reg_LUT2_I1_F ),
     .CLK(\u_test.ap_clk ),
@@ -3255,11 +3255,30 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
     .I2(\u_test.out_accum2_fu_46[10] ),
     .I3(\u_test.out_accum2_fu_46[9] )
   );
+  assign \ap_return[4]  = \ap_return[0] ;
+  assign \ap_return[5]  = \ap_return[0] ;
+  assign \ap_return[6]  = \ap_return[0] ;
+  assign \ap_return[7]  = \ap_return[0] ;
+  assign \ap_return[8]  = \ap_return[0] ;
+  assign \ap_return[9]  = \ap_return[0] ;
+  assign \ap_return[10]  = \ap_return[0] ;
+  assign \ap_return[11]  = \ap_return[0] ;
+  assign \ap_return[12]  = \ap_return[0] ;
+  assign \u_test.A_q0[7]  = \A_q0[7] ;
+  assign \u_test.A_q0[6]  = \A_q0[6] ;
+  assign \u_test.A_q0[5]  = \A_q0[5] ;
   assign \u_test.A_q0[4]  = \A_q0[4] ;
   assign \u_test.A_q0[3]  = \A_q0[3] ;
   assign \u_test.A_q0[2]  = \A_q0[2] ;
   assign \u_test.A_q0[1]  = \A_q0[1] ;
   assign \u_test.A_q0[0]  = \A_q0[0] ;
+  assign \u_test.ap_return[12]  = \ap_return[0] ;
+  assign \u_test.ap_return[11]  = \ap_return[0] ;
+  assign \u_test.ap_return[10]  = \ap_return[0] ;
+  assign \u_test.ap_return[9]  = \ap_return[0] ;
+  assign \u_test.ap_return[8]  = \ap_return[0] ;
+  assign \u_test.ap_return[7]  = \ap_return[0] ;
+  assign \u_test.ap_return[6]  = \ap_return[0] ;
   assign \u_test.out_accum_fu_105_p2[11]  = \ap_return[0] ;
   assign \u_test.out_accum_fu_105_p2[10]  = \ap_return[0] ;
   assign \u_test.out_accum_fu_105_p2[9]  = \ap_return[0] ;
@@ -3276,121 +3295,103 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
   assign \vectOut[2][6]  = \ap_return[0] ;
   assign \vectOut[2][5]  = \ap_return[0] ;
   assign \vectOut[2][4]  = \vectOut[2][3] ;
-  assign \u_test.sext_ln27_fu_101_p1[7]  = \A_q0[7] ;
-  assign \u_test.sext_ln27_fu_101_p1[8]  = \A_q0[7] ;
-  assign \u_test.sext_ln27_fu_101_p1[9]  = \A_q0[7] ;
-  assign \vectOut[0][0]  = \vectOut[0][2] ;
-  assign \u_test.zext_ln26_fu_76_p1[0]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[1]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[2]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[3]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[4]  = \ap_return[0] ;
-  assign \u_test.ap_return[12]  = \ap_return[0] ;
-  assign \u_test.ap_return[11]  = \ap_return[0] ;
-  assign \u_test.ap_return[10]  = \ap_return[0] ;
-  assign \u_test.ap_return[9]  = \ap_return[0] ;
-  assign \u_test.ap_return[8]  = \ap_return[0] ;
-  assign \u_test.ap_return[7]  = \ap_return[0] ;
-  assign \u_test.ap_return[6]  = \ap_return[0] ;
   assign \u_test.ap_return[5]  = \ap_return[0] ;
   assign \u_test.ap_return[4]  = \ap_return[0] ;
   assign \u_test.ap_return[3]  = \ap_return[0] ;
   assign \u_test.ap_return[2]  = \ap_return[0] ;
   assign \u_test.ap_return[1]  = \ap_return[0] ;
   assign \u_test.ap_return[0]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[5]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[6]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[7]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[8]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[9]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[10]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[11]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[12]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[13]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[14]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[15]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[16]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[17]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[18]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[19]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[20]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[21]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[22]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[23]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[24]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[25]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[26]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[27]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[28]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[29]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[30]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[31]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[32]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[33]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[34]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[35]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[36]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[37]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[38]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[39]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[40]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[41]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[42]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[43]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[44]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[45]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[46]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[47]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[48]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[49]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[50]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[51]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[52]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[53]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[54]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[55]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[56]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[57]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[58]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[59]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[60]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[61]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[62]  = \ap_return[0] ;
-  assign \u_test.zext_ln26_fu_76_p1[63]  = \ap_return[0] ;
-  assign \u_test.sext_ln27_fu_101_p1[10]  = \A_q0[7] ;
-  assign \u_test.sext_ln27_fu_101_p1[11]  = \A_q0[7] ;
   assign \ap_return[1]  = \ap_return[0] ;
   assign \ap_return[2]  = \ap_return[0] ;
-  assign \ap_return[3]  = \ap_return[0] ;
-  assign \ap_return[4]  = \ap_return[0] ;
-  assign \ap_return[5]  = \ap_return[0] ;
-  assign \ap_return[6]  = \ap_return[0] ;
-  assign \ap_return[7]  = \ap_return[0] ;
-  assign \ap_return[8]  = \ap_return[0] ;
-  assign \ap_return[9]  = \ap_return[0] ;
-  assign \ap_return[10]  = \ap_return[0] ;
-  assign \ap_return[11]  = \ap_return[0] ;
-  assign \ap_return[12]  = \ap_return[0] ;
-  assign \u_test.sext_ln27_fu_101_p1[0]  = \A_q0[0] ;
-  assign \u_test.sext_ln27_fu_101_p1[1]  = \A_q0[1] ;
-  assign \u_test.sext_ln27_fu_101_p1[2]  = \A_q0[2] ;
-  assign \u_test.sext_ln27_fu_101_p1[3]  = \A_q0[3] ;
   assign \stimIn[0][7]  = \ap_return[0] ;
   assign \stimIn[0][6]  = \ap_return[0] ;
   assign \stimIn[0][5]  = \ap_return[0] ;
   assign \stimIn[0][4]  = \ap_return[0] ;
   assign \stimIn[0][3]  = \ap_return[0] ;
   assign \stimIn[0][2]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[63]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[62]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[61]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[60]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[59]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[58]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[57]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[56]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[55]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[54]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[53]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[52]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[51]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[50]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[49]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[48]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[47]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[46]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[45]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[44]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[43]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[42]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[41]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[40]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[39]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[38]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[37]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[36]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[35]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[34]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[33]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[32]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[31]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[30]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[29]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[28]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[27]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[26]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[25]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[24]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[23]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[22]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[21]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[20]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[19]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[18]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[17]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[16]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[15]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[14]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[13]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[12]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[11]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[10]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[9]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[8]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[7]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[6]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[5]  = \ap_return[0] ;
+  assign \u_test.sext_ln27_fu_101_p1[0]  = \A_q0[0] ;
+  assign \u_test.sext_ln27_fu_101_p1[1]  = \A_q0[1] ;
+  assign \u_test.sext_ln27_fu_101_p1[2]  = \A_q0[2] ;
+  assign \u_test.sext_ln27_fu_101_p1[3]  = \A_q0[3] ;
   assign \u_test.sext_ln27_fu_101_p1[4]  = \A_q0[4] ;
   assign \u_test.sext_ln27_fu_101_p1[5]  = \A_q0[5] ;
   assign \u_test.sext_ln27_fu_101_p1[6]  = \A_q0[6] ;
+  assign \u_test.sext_ln27_fu_101_p1[7]  = \A_q0[7] ;
+  assign \u_test.sext_ln27_fu_101_p1[8]  = \A_q0[7] ;
+  assign \u_test.sext_ln27_fu_101_p1[9]  = \A_q0[7] ;
+  assign \u_test.sext_ln27_fu_101_p1[10]  = \A_q0[7] ;
+  assign \u_test.sext_ln27_fu_101_p1[11]  = \A_q0[7] ;
+  assign \u_test.zext_ln26_fu_76_p1[4]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[3]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[2]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[1]  = \ap_return[0] ;
+  assign \u_test.zext_ln26_fu_76_p1[0]  = \ap_return[0] ;
   assign ap_done = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   assign ap_ready = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   assign \u_test.ap_block_pp0_stage0  = \ap_return[0] ;
   assign \u_test.ap_block_pp0_stage0_11001  = \ap_return[0] ;
   assign \u_test.ap_block_pp0_stage0_subdone  = \ap_return[0] ;
   assign \u_test.ap_condition_exit_pp0_iter0_stage0_pp0_iter1_reg  = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
-  assign \u_test.A_q0[5]  = \A_q0[5] ;
+  assign \ap_return[3]  = \ap_return[0] ;
   assign \u_test.ap_done  = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   assign \u_test.ap_done_int  = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   assign \u_test.ap_done_reg  = \ap_return[0] ;
@@ -3402,7 +3403,6 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
   assign \u_test.ap_rst  = ap_rst;
   assign \u_test.ap_start  = ap_start;
   assign \u_test.flow_control_loop_delay_pipe_U.ap_clk  = \u_test.ap_clk ;
-  assign \u_test.A_q0[6]  = \A_q0[6] ;
   assign \u_test.flow_control_loop_delay_pipe_U.ap_done  = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   assign \u_test.flow_control_loop_delay_pipe_U.ap_done_int  = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   assign \u_test.flow_control_loop_delay_pipe_U.ap_loop_exit_done  = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
@@ -3410,5 +3410,5 @@ module test_wrapper(\Din_emu[0] , \Din_emu[1] , \Din_emu[2] , \Din_emu[3] , \Din
   assign \u_test.flow_control_loop_delay_pipe_U.ap_ready  = \u_test.ap_loop_exit_ready_pp0_iter1_reg ;
   assign \u_test.flow_control_loop_delay_pipe_U.ap_rst  = ap_rst;
   assign \u_test.flow_control_loop_delay_pipe_U.ap_start  = ap_start;
-  assign \u_test.A_q0[7]  = \A_q0[7] ;
+  assign \vectOut[0][0]  = \vectOut[0][2] ;
 endmodule
