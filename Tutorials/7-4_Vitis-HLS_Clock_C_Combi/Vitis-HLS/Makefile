@@ -1,4 +1,7 @@
 
+export LD_LIBRARY_PATH := /usr/bin:$(LD_LIBRARY_PATH)
+export PATH            := =/opt/Xilinx/Vivado/2024.2/bin/:/opt/Xilinx/Vitis_HLS/2024.2/bin:/opt/Xilinx/Vitis/2024.2/bin/:/opt/Xilinx/DocNav:$(PATH)
+
 all:
 	@echo "\"Clock\" Model in C"
 	@echo "    C-Model Test:"
