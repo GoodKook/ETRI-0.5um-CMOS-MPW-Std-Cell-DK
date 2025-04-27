@@ -1,0 +1,26 @@
+### Yosys targetting Xilinx
+# yosys -s fir_wrapper.ys | tee synthesis.log
+#
+
+read_verilog ../../../fir_wrapper.v
+read_verilog ../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v
+read_verilog ../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+read_verilog ../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v
+read_verilog ../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v
+read_verilog ../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v
+read_verilog ../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v
+read_verilog ../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v
+
+hierarchy -check -top fir_wrapper
+
+synth_xilinx -top fir_wrapper -family xc7
+
+write_verilog fir_wrapper.v
+
+stat
+
+#select -list
+#select -module fir_wrapper
+#show
+
+
