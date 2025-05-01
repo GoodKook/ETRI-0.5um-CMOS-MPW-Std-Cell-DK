@@ -1,23 +1,20 @@
 # -----------------------------------------------------
+export SYSTEMC			= /opt/systemc
+export SYSTEMC_HOME		= $(SYSTEMC)
+export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
+export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
+export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
+
 TOP_MODULE   = shifter
 
 VERILOG_SRCS = $(TOP_MODULE).v
 SC_SRCS      = sc_main.cpp
 SC_TOP_H     = sc_$(TOP_MODULE)_TB.h
 VERILATOR    = verilator
-CFLAGS       = -std=c++17
-#CFLAGS1      = -g
+CFLAGS       = -g
 
 TARGET       = V$(TOP_MODULE)
 TARGET_DIR   = obj_dir
-
-export SYSTEMC			= /usr/local/systemc-3.0.0
-export SYSTEMC_HOME		= $(SYSTEMC)
-export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
-export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib-linux64
-export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
-export CXX				= clang++
-export CXXFLAGS			= -std=c++17
 
 all :
 	@echo 'Makefile for Example: $(TOP_MODULE)'

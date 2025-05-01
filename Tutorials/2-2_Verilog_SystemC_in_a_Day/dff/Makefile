@@ -1,22 +1,19 @@
 # -----------------------------------------------------
+export SYSTEMC			= /opt/systemc
+export SYSTEMC_HOME		= $(SYSTEMC)
+export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
+export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
+export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
+
 VERILOG_SRCS = dff.v
 SC_SRCS      = sc_main.cpp
 SC_TOP_H     = sc_dff_TB.h
 VERILATOR    = verilator
-CFLAGS       = -std=c++17
-#CFLAGS1      = -g
+CFLAGS       = -g
 
 TOP_MODULE   = dff
 TARGET       = V$(TOP_MODULE)
 TARGET_DIR   = obj_dir
-
-export SYSTEMC			= /usr/local/systemc-3.0.0
-export SYSTEMC_HOME		= $(SYSTEMC)
-export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
-export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib-linux64
-export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
-export CXX				= clang++
-export CXXFLAGS			= -std=c++17
 
 all :
 	@echo 'Makefile for Example: dff'

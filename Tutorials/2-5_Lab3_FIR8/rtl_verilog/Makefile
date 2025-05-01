@@ -13,11 +13,11 @@ SC_TOP_H = \
     ../sc_timed/sc_$(TOP_MODULE)_tb.h
 
 VERILATOR = verilator
-CFLAGS    = -CFLAGS -std=c++17
 CFLAGS   += -CFLAGS -I../sc_timed
 #CFLAGS  += -CFLAGS -DVCD_TRACE_FIR8_TB
 CFLAGS   += -CFLAGS -DVCD_TRACE_FIR8
 CFLAGS   += -CFLAGS -DVERILATED_CO_SIM
+CFLAGS   += -CFLAGS -D$(VERSION)
 LDFLAGS   = -LDFLAGS -lgsl
 
 #VERILOG_DEFS = +define+
@@ -25,13 +25,21 @@ LDFLAGS   = -LDFLAGS -lgsl
 TARGET     = V$(TOP_MODULE)
 TARGET_DIR = obj_dir
 
-export SYSTEMC          = /usr/local/systemc-3.0.0
+export SYSTEMC          = /opt/systemc
 export SYSTEMC_HOME     = $(SYSTEMC)
 export SYSTEMC_INCLUDE  = $(SYSTEMC_HOME)/include
-export SYSTEMC_LIBDIR   = $(SYSTEMC_HOME)/lib-linux64
+export SYSTEMC_LIBDIR   = $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH :=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
-export CXX              = clang++
-export CXXFLAGS         = -std=c++17
+
+ifeq ($(HW_STYLE), MACC)
+	VERSION=FIR_MAC_VERSION
+else ifeq ($(HW_STYLE), SHIFT)
+	VERSION=FIR_SHIFTER_VERSION
+else ifeq ($(HW_STYLE), ARRAY)
+	VERSION=FIR_ARRAY_VERSION
+else
+	VERSION=FIR_MAC_VERSION
+endif
 
 all :
 	@echo
@@ -72,6 +80,9 @@ all :
 	@echo '    make clean'
 	@echo '        Clean working folder'
 	@echo
+	@echo '    * command-line variable HW_STYLE must be set before build'
+	@echo '      HW_STYLE=[MACC | SHIFT | ARRAY] make build'
+	@echo
 
 build : $(TARGET_DIR)/$(TARGET)
 
@@ -98,7 +109,7 @@ wave : sc_$(TOP_MODULE).vcd
 	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
 
 plot : sc_$(TOP_MODULE)_tb_out.txt
-	../sc_timed/sc_plotDFT.py
+	python3 ../sc_timed/sc_plotDFT.py
 
 clean :
 	rm -rf $(TARGET_DIR)

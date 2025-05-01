@@ -1,11 +1,9 @@
 # -----------------------------------------------------
-export SYSTEMC         = /usr/local/systemc-3.0.0
+export SYSTEMC         = /opt/systemc
 export SYSTEMC_HOME    = $(SYSTEMC)
 export SYSTEMC_INCLUDE = $(SYSTEMC_HOME)/include
-export SYSTEMC_LIBDIR  = $(SYSTEMC_HOME)/lib-linux64
+export SYSTEMC_LIBDIR  = $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH :=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
-export CXX             = clang++
-export CXXFLAGS        = -std=c++17
 
 SC_TOP  = sc_fir8_tb
 SC_SRCS = \
@@ -15,12 +13,23 @@ SC_SRCS = \
 SC_HDRS = \
     sc_fir_pe.h \
     sc_fir8.h $(SC_TOP).h
-CFLAGS  = -std=c++17 -g
+CFLAGS  = -g
 CFLAGS += -DVCD_TRACE_FIR8
 CFLAGS += -DVCD_TRACE_FIR8_TB
+CFLAGS += -D$(VERSION)
 LIBS    = -lsystemc
 LIBS   += -lm
 LIBS   += -lgsl
+
+ifeq ($(HW_STYLE), MACC)
+	VERSION=FIR_MAC_VERSION
+else ifeq ($(HW_STYLE), SHIFT)
+	VERSION=FIR_SHIFTER_VERSION
+else ifeq ($(HW_STYLE), ARRAY)
+	VERSION=FIR_ARRAY_VERSION
+else
+	VERSION=FIR_MAC_VERSION
+endif
 
 all:
 	@echo
@@ -52,6 +61,9 @@ all:
 	@echo '             build'
 	@echo '             run'
 	@echo '             clean'
+	@echo
+	@echo '    * command-line variable HW_STYLE must be set before build'
+	@echo '      HW_STYLE=[MACC | SHIFT | ARRAY] make build'
 	@echo
 
 build: $(SC_TOP)

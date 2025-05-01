@@ -7,8 +7,18 @@ SRCS = fir8.cpp fir8_tb.cpp calcDFT.cpp cnoise.cpp
 HDRS = fir8.h cnoise.h
 EXEC = fir8_tb
 
-INC_PATH = -I. -I/opt/local/include
+INC_PATH = -I.
 LIBS = -lm -lgsl
+
+ifeq ($(HW_STYLE), MACC)
+	VERSION=FIR_MAC_VERSION
+else ifeq ($(HW_STYLE), SHIFT)
+	VERSION=FIR_SHIFTER_VERSION
+else ifeq ($(HW_STYLE), ARRAY)
+	VERSION=FIR_ARRAY_VERSION
+else
+	VERSION=FIR_MAC_VERSION
+endif
 
 all:
 	@echo
@@ -25,11 +35,14 @@ all:
 	@echo '             plot_fy'
 	@echo '             clean'
 	@echo
+	@echo '    * command-line variable HW_STYLE must be set before build'
+	@echo '      HW_STYLE=[MACC | SHIFT | ARRAY] make build'
+	@echo
 
 build: $(EXEC)
 
 $(EXEC): $(SRCS) $(HDRS)
-	gcc $(INC_PATH) $(LIBS) -o $(EXEC) $(SRCS) $(LIBS)
+	gcc $(INC_PATH) -D$(VERSION) $(LIBS) -o $(EXEC) $(SRCS) $(LIBS)
 
 run: $(EXEC)
 	./$(EXEC) | tee $(EXEC)_out.txt
