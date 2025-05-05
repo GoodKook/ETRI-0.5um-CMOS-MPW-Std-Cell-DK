@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/fir8_wrapper.tcl"
+  variable script "/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/fir8_wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -106,10 +106,9 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 1
-  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 4  }
   open_checkpoint fir8_wrapper_routed.dcp
-  set_property webtalk.parent_dir /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/fir8_wrapper.cache/wt [current_project]
+  set_property webtalk.parent_dir /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.cache/wt [current_project]
 set_property TOP fir8_wrapper [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

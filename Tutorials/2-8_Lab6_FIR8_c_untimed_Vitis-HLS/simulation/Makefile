@@ -32,16 +32,6 @@ VITIS_SYN_PATH = \
 VERILOG_SRCS =  \
 		$(VITIS_SYN_PATH)/*.v
 
-# iVerilog Timing Sim. vars ---------------------------------------
-build_tim: VERILOG_SRCS = \
-	./fir_TB.v \
-	../synthesis/fir.v \
-	~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v
-
-build_net: VERILOG_SRCS = \
-	../source/fir.v \
-	~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v
-
 VERILATOR    = verilator
 VL_WARNING   = -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
 VL_SC_PINS	 = --pins-sc-uint
@@ -53,8 +43,9 @@ VCFLAGS		+= -CFLAGS -DVCD_TRACE_DUT_VERILOG
 VCFLAGS		+= -CFLAGS -DSC_INCLUDE_FX
 VCFLAGS		+= -LDFLAGS -lm
 VCFLAGS		+= -LDFLAGS -lgsl
-#VCFLAGS		+= -CFLAGS -fPIC
-#VCFLAGS		+= -LDFLAGS -shared
+ifeq ($(HW_STYLE),)
+	HW_STYLE = FIR_MAC_VERSION
+endif
 VCFLAGS		+= -CFLAGS -D$(HW_STYLE)
 build_emu: VCFLAGS += -CFLAGS -DEMULATED_CO_SIM
 
@@ -67,14 +58,11 @@ all :
 	@echo 'Makefile for Co-Simulation of "Vitis-HLS example, fir"'
 	@echo 'Usage:'
 	@echo '    make lint      ; Linting Verilog'
-	@echo '    make build     ; Building Co-Simulation Verilog RTL with SystemC TB'
+	@echo '    make build     ; Building Co-Simulation Verilated RTL with SystemC TB'
 	@echo '    make build_emu ; Building Co-Emulation FPGA+Verilog RTL with SystemC TB'
-	@echo '    make build_net ; Building Co-Simulation Verilog netlist(Zero-Delay) with SystemC TB'
-	@echo '    make build_tim ; Building Co-Simulation Verilog netlist(timing-sim) with SystemVerilog TB'
 	@echo '    make run       ; Running Co-Sumlation with SystemC TB'
-	@echo '    make run_tim   ; Running Timing simulation with SystemVerilog TB'
+	@echo '    make run_trans ; Running Transaction Level'
 	@echo '    make wave      ; View DUT Verilog trace(Functional)'
-	@echo '    make wave_tim  ; View DUT Verilog trace(Timing)'
 	@echo '    make clean     ; Clean up working folder'
 	@echo
 	@echo '    * command-line variable HW_STYLE must be set before build'
@@ -84,16 +72,9 @@ build : $(TARGET_DIR)/$(TARGET)
 
 build_emu : $(TARGET_DIR)/$(TARGET)
 
-build_net : $(TARGET_DIR)/$(TARGET)
-
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS) $(REF_SRCS)
 	$(VERILATOR) --sc $(VL_SC_PINS) $(VL_WARNING) --trace --timing --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS) $(REF_SRCS)
-
-build_tim : $(TOP_MODULE)
-
-$(TOP_MODULE) : $(VERILOG_SRCS)
-	iverilog -g2005-sv -Tmin -gspecify -o $(TOP_MODULE) $(VERILOG_SRCS)
 
 lint :
 	$(VERILATOR) --sc $(VL_SC_PINS) --timing $(VL_WARNING) -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
@@ -105,15 +86,19 @@ run : $(TARGET_DIR)/$(TARGET)
 	cp $(VITIS_SYN_PATH)/*.dat .
 	./$(TARGET_DIR)/$(TARGET)
 
+run_trans: fir.cpp
+	gcc -o fir fir.cpp
+	rm -f fir_fifo
+	mkfifo fir_fifo
+	python3 ./sc_plotDFT.py &
+	./fir
+
 run_tim : $(TOP_MODULE)
 	./$(TOP_MODULE)
 
 wave : V$(TOP_MODULE).vcd
 	gtkwave sc_$(TOP_MODULE)_tb.vcd --save=sc_$(TOP_MODULE)_tb.gtkw &
 	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
-
-wave_tim : $(TOP_MODULE)_TB.vcd
-	gtkwave $(TOP_MODULE)_TB.vcd --save=$(TOP_MODULE)_TB.gtkw &
 
 clean :
 	rm -f *.vcd

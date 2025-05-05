@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-7_Lab4_FIR8_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.runs/impl_1/fir_wrapper.tcl"
+  variable script "/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.runs/impl_1/fir_wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -114,13 +114,13 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-7_Lab4_FIR8_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.cache/wt [current_project]
-  set_property parent.project_path /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-7_Lab4_FIR8_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.xpr [current_project]
-  set_property ip_output_repo /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-7_Lab4_FIR8_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.cache/wt [current_project]
+  set_property parent.project_path /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.xpr [current_project]
+  set_property ip_output_repo /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/fir_wrapper/fir_wrapper.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  read_verilog /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-7_Lab4_FIR8_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/synthesis/fir_wrapper.v
+  read_verilog /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Xilinx/synthesis/fir_wrapper.v
 OPTRACE "read constraints: implementation" START { }
   read_xdc /home/goodkook/ETRI050_DesignKit/devel/PSCE_API/Board/A7_100T/constraints/Arty-A7-100-Master.xdc
 OPTRACE "read constraints: implementation" END { }

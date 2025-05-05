@@ -3,80 +3,43 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sun Apr 20 12:49:23 2025
-# Process ID         : 22229
-# Current directory  : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper
+# Start of session at: Sat May  3 06:48:39 2025
+# Process ID         : 62059
+# Current directory  : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper
 # Command line       : vivado
-# Log file           : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/vivado.log
-# Journal file       : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/vivado.jou
+# Log file           : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/vivado.log
+# Journal file       : /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/vivado.jou
 # Running On         : goodkook-VirtualBox
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.2 LTS
 # Processor Detail   : Intel(R) Core(TM) i7-8809G CPU @ 3.10GHz
-# CPU Frequency      : 3095.994 MHz
+# CPU Frequency      : 3096.004 MHz
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
-# Host memory        : 16769 MB
+# Host memory        : 24890 MB
 # Swap memory        : 4294 MB
-# Total Virtual      : 21064 MB
-# Available Virtual  : 17414 MB
+# Total Virtual      : 29185 MB
+# Available Virtual  : 28021 MB
 #-----------------------------------------------------------
 start_gui
-xhub::refresh_catalog [xhub::get_xstores xilinx_board_store]
-xhub::refresh_catalog: Time (s): cpu = 00:00:08 ; elapsed = 00:00:38 . Memory (MB): peak = 7451.590 ; gain = 0.035 ; free physical = 398 ; free virtual = 16023
-set_param board.repoPaths {/home/goodkook/.Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store}
-xhub::install [xhub::get_xitems digilentinc.com:xilinx_board_store:arty-a7-100:1.1]
-INFO: [xhubtcl-76-32]  
-INFO: [Common 17-1570] Installing object digilentinc.com:xilinx_board_store:arty-a7-100:1.1 from remote host https://github.com/Xilinx/XilinxBoardStore.git
-INFO: [Common 17-1573] Object digilentinc.com:xilinx_board_store:arty-a7-100:1.1 has been installed successfully.
-create_project fir8_wrapper . -part xc7a100tcsg324-1
+open_project /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.xpr
+INFO: [Project 1-313] Project file moved from '/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper' since last save.
+INFO: [filemgmt 56-1] Board Part Repository Path: Directory not found as '/home/goodkook/ETRI050_DesignKit/.Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store'; using path '/home/goodkook/.Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store' instead.
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.gen/sources_1'.
+WARNING: [Project 1-312] File not found as '/home/goodkook/ETRI050_DesignKit/devel/Tutorials/PSCE_API/Board/A7_100T/constraints/Arty-A7-100-Master.xdc'; using path '/home/goodkook/ETRI050_DesignKit/devel/PSCE_API/Board/A7_100T/constraints/Arty-A7-100-Master.xdc' instead.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-312] File not found as '/home/goodkook/ETRI050_DesignKit/devel/Tutorials/PSCE_API/Board/A7_100T/constraints/Arty-A7-100-Master.xdc'; using path '/home/goodkook/ETRI050_DesignKit/devel/PSCE_API/Board/A7_100T/constraints/Arty-A7-100-Master.xdc' instead.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2024.2/data/ip'.
-create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 7626.555 ; gain = 173.965 ; free physical = 339 ; free virtual = 15839
-set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
-set_property design_mode GateLvl [current_fileset]
-INFO: [Vivado 12-3498] Setting project source management mode (property SOURCE_MGMT_MODE) to "None".
-add_files -norecurse /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/synthesis/fir8_wrapper.v
-add_files -fileset constrs_1 -norecurse /home/goodkook/ETRI050_DesignKit/devel/PSCE_API/Board/A7_100T/constraints/Arty-A7-100-Master.xdc
-set_property top_file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/synthesis/fir8_wrapper.v [current_fileset]
-set_property top fir8_wrapper [current_fileset]
+reset_run impl_1
 launch_runs impl_1 -jobs 4
-[Sun Apr 20 12:53:05 2025] Launched impl_1...
-Run output will be captured here: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/runme.log
+[Sat May  3 06:49:54 2025] Launched impl_1...
+Run output will be captured here: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/runme.log
 launch_runs impl_1 -to_step write_bitstream -jobs 4
-[Sun Apr 20 12:57:38 2025] Launched impl_1...
-Run output will be captured here: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/runme.log
-open_run impl_1
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 7848.242 ; gain = 0.000 ; free physical = 1937 ; free virtual = 15664
-INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2024.2
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7903.117 ; gain = 0.000 ; free physical = 1811 ; free virtual = 15537
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-INFO: [Designutils 20-5722] Start Reading Physical Databases.
-Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-Read PlaceDB: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-Read Physdb Files: Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.09 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-Restored from archive | CPU: 0.100000 secs | Memory: 0.503448 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.09 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8468.320 ; gain = 0.000 ; free physical = 1143 ; free virtual = 14869
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:40 ; elapsed = 00:00:31 . Memory (MB): peak = 8747.059 ; gain = 1046.020 ; free physical = 829 ; free virtual = 14560
-close_design
+[Sat May  3 06:52:27 2025] Launched impl_1...
+Run output will be captured here: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/runme.log
 open_hw_manager
 connect_hw_server -allow_non_jtag
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
@@ -101,19 +64,18 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 8788.289 ; gain = 0.105 ; free physical = 768 ; free virtual = 14584
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210319B9B157A
-set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/fir8_wrapper.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/fir8_wrapper.bit} [get_hw_devices xc7a100t_0]
 current_hw_device [get_hw_devices xc7a100t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/fir8_wrapper.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1/fir8_wrapper.bit} [get_hw_devices xc7a100t_0]
 program_hw_devices [get_hw_devices xc7a100t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 20 13:14:15 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat May  3 06:54:02 2025...

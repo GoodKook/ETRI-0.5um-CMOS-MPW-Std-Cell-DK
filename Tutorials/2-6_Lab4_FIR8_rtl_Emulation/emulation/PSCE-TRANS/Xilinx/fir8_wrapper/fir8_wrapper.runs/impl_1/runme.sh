@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/emulation/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1'
+HD_PWD='/home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_rtl_Emulation/emulation/PSCE-TRANS/Xilinx/fir8_wrapper/fir8_wrapper.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

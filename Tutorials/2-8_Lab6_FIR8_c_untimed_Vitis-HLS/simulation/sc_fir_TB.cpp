@@ -56,7 +56,11 @@ void sc_fir_TB::Test_Gen()
             ap_start.write(true);
         }
 
+#ifdef EMULATED_CO_SIM
+        if (E_ap_ready.read())
+#else
         if (ap_ready.read())
+#endif
         {
             // Prepare Input
             _x =  sc_uint<8>(AMPLITUDE/16.0*(cos((2*M_PI/F_SAMPLE) *   51.0 * t + (float)(rand() %  10)/ 10.0)+1))
@@ -90,7 +94,11 @@ void sc_fir_TB::Test_Mon()
     {
         wait(ap_clk.posedge_event());
 
+#ifdef EMULATED_CO_SIM
+        if (E_ap_done.read())
+#else
         if (ap_done.read())
+#endif
         {
             cout
                 << "[" << std::setw(4) << test_count << "] "
@@ -108,8 +116,11 @@ void sc_fir_TB::Test_Mon()
                 if (fir_fifo>0)
                 {
                     unsigned short _x = x.read();
+#ifdef EMULATED_CO_SIM
+                    unsigned short _y = E_y.read();
+#else
                     unsigned short _y = y.read();
-
+#endif
                     if((nWrite = write(fir_fifo, &_x, sizeof(short))) < sizeof(short))
                         fprintf(stderr,"fir_fifo: x write error\n");
                     if((nWrite = write(fir_fifo, &_y, sizeof(short))) < sizeof(short))

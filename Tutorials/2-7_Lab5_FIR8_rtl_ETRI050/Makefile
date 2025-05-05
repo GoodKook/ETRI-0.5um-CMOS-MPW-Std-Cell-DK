@@ -1,7 +1,7 @@
 
 VERILOG_SRCS =	\
 	../2-5_Lab3_FIR8/rtl_verilog/fir_pe.v \
-	../2-5_Lab3_FIR8/rtl_verilog/fir8.v
+	../2-6_Lab4_FIR8_rtl_Emulation/source/fir8.v
 TOP_MODULE = fir8
 
 all :
@@ -17,7 +17,9 @@ all :
 	@echo '             migrate'
 	@echo '             lvs'
 	@echo '             size'
-	@echo ''
+	@echo
+	@echo '             clean'
+	@echo
 	@echo '             config_m1f'
 	@echo '             config_m2f'
 	@echo '             clean_cell'
@@ -27,6 +29,12 @@ all :
 synthesize : ./log/synth.log
 
 ./log/synth.log : $(VERILOG_SRCS)
+	@if ! [ -L ./source/fir_pe.v ]; then \
+		ln -s ../../2-5_Lab3_FIR8/rtl_verilog/fir_pe.v ./source/fir_pe.v; \
+	fi
+	@if ! [ -L ./source/fir8.v ]; then \
+		ln -s ../../2-6_Lab4_FIR8_rtl_Emulation/source/fir8.v ./source/fir8.v; \
+	fi
 	qflow synthesize -T etri050 $(TOP_MODULE)
 
 # -----------------------------------------------------
@@ -79,6 +87,12 @@ size: ./layout/$(TOP_MODULE).mag ./log/magic_db.log
 	~/ETRI050_DesignKit/scripts/size_core.sh $(TOP_MODULE)
 
 clean :
+	@if [ -L ./source/fir_pe.v ]; then \
+		rm -f ./source/fir_pe.v; \
+	fi
+	@if [ -L ./source/fir8.v ]; then \
+		rm -f ./source/fir8.v; \
+	fi
 	rm -f ./log/*
 	rm -f ./synthesis/*
 	touch project_vars.sh

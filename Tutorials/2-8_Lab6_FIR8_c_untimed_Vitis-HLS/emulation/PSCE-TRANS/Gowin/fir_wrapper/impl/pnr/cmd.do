@@ -1,9 +1,9 @@
--d /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/Vitis_HLS/PSCE-TRANS/Gowin/fir_wrapper/impl/gwsynthesis/fir_wrapper.vg
+-d /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Gowin/fir_wrapper/impl/gwsynthesis/fir_wrapper.vg
 -p GW5A-25A-MBGA121N-1
 -pn GW5A-LV25MG121NC1/I0
--cst /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/Vitis_HLS/PSCE-TRANS/Gowin/fir_wrapper/src/psce_wrapper.cst
--cfg /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/Vitis_HLS/PSCE-TRANS/Gowin/fir_wrapper/impl/pnr/device.cfg
--sdc /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-6_Lab4_FIR8_Emulation/Vitis_HLS/PSCE-TRANS/Gowin/fir_wrapper/src/psce_wrapper.sdc
+-cst /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Gowin/fir_wrapper/src/psce_wrapper.cst
+-cfg /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Gowin/fir_wrapper/impl/pnr/device.cfg
+-sdc /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Gowin/fir_wrapper/src/psce_wrapper.sdc
 -bit
 -tr
 -ph

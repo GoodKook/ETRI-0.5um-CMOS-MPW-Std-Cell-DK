@@ -2,31 +2,31 @@
 
 (* dynports =  1  *)
 (* hdlname = "fir_mac_muladd_8ns_6ns_16ns_16_4_1" *)
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:54.1-93.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:54.1-93.10" *)
 module \$paramod$235f28d4f3756563ae56d8342a74c5428c94a82a\fir_mac_muladd_8ns_6ns_16ns_16_4_1 (clk, reset, ce, din0, din1, din2, dout);
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:74.7-74.9" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:74.7-74.9" *)
   input ce;
   wire ce;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:72.7-72.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:72.7-72.10" *)
   input clk;
   wire clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:76.25-76.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:76.25-76.29" *)
   input [7:0] din0;
   wire [7:0] din0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:77.25-77.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:77.25-77.29" *)
   input [5:0] din1;
   wire [5:0] din1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:78.25-78.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:78.25-78.29" *)
   input [15:0] din2;
   wire [15:0] din2;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:79.26-79.30" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:79.26-79.30" *)
   output [15:0] dout;
   wire [15:0] dout;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:73.7-73.12" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:73.7-73.12" *)
   input reset;
   wire reset;
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:82.44-91.19" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:82.44-91.19" *)
   fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0 fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U (
     .ce(ce),
     .clk(clk),
@@ -40,22 +40,22 @@ endmodule
 
 (* dynports =  1  *)
 (* hdlname = "fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R" *)
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:7.1-41.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:7.1-41.10" *)
 module \$paramod$7ea3157b04fd3706e11e42fcd0c231a4e6473754\fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R (address0, ce0, q0, reset, clk);
   wire [5:0] _0_;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:15.25-15.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:15.25-15.33" *)
   input [2:0] address0;
   wire [2:0] address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:16.7-16.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:16.7-16.10" *)
   input ce0;
   wire ce0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:20.7-20.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:20.7-20.10" *)
   input clk;
   wire clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:17.27-17.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:17.27-17.29" *)
   output [5:0] q0;
   wire [5:0] q0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:19.7-19.12" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v:19.7-19.12" *)
   input reset;
   wire reset;
   (* module_not_derived = 32'd1 *)
@@ -146,7 +146,7 @@ endmodule
 
 (* dynports =  1  *)
 (* hdlname = "fir_shift_reg_RAM_AUTO_1R1W" *)
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:7.1-80.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:7.1-80.10" *)
 module \$paramod$b8a3f50e9ed503e7e4022fd33e39115c9f2350f1\fir_shift_reg_RAM_AUTO_1R1W (address0, ce0, d0, we0, q0, address1, ce1, d1, we1, q1, reset, clk);
   wire [7:0] _000_;
   wire [7:0] _001_;
@@ -317,31 +317,31 @@ module \$paramod$b8a3f50e9ed503e7e4022fd33e39115c9f2350f1\fir_shift_reg_RAM_AUTO
   (* force_downto = 32'd1 *)
   (* src = "/usr/local/bin/../share/yosys/xilinx/lut_map.v:30.21-30.22" *)
   wire [2:0] _102_;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:23.25-23.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:23.25-23.33" *)
   input [2:0] address0;
   wire [2:0] address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:29.25-29.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:29.25-29.33" *)
   input [2:0] address1;
   wire [2:0] address1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:24.7-24.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:24.7-24.10" *)
   input ce0;
   wire ce0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:30.7-30.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:30.7-30.10" *)
   input ce1;
   wire ce1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:36.7-36.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:36.7-36.10" *)
   input clk;
   wire clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:25.22-25.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:25.22-25.24" *)
   input [7:0] d0;
   wire [7:0] d0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:31.22-31.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:31.22-31.24" *)
   input [7:0] d1;
   wire [7:0] d1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:27.27-27.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:27.27-27.29" *)
   output [7:0] q0;
   wire [7:0] q0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:33.27-33.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:33.27-33.29" *)
   output [7:0] q1;
   wire [7:0] q1;
   wire [7:0] \ram[0] ;
@@ -352,13 +352,13 @@ module \$paramod$b8a3f50e9ed503e7e4022fd33e39115c9f2350f1\fir_shift_reg_RAM_AUTO
   wire [7:0] \ram[5] ;
   wire [7:0] \ram[6] ;
   wire [7:0] \ram[7] ;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:35.7-35.12" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:35.7-35.12" *)
   input reset;
   wire reset;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:26.7-26.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:26.7-26.10" *)
   input we0;
   wire we0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:32.7-32.10" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v:32.7-32.10" *)
   input we1;
   wire we1;
   (* module_not_derived = 32'd1 *)
@@ -3103,7 +3103,7 @@ module \$paramod$b8a3f50e9ed503e7e4022fd33e39115c9f2350f1\fir_shift_reg_RAM_AUTO
 endmodule
 
 (* CORE_GENERATION_INFO = "fir_fir,hls_ip_2024_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7a100t-csg324-2I,HLS_INPUT_CLOCK=1000.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.570000,HLS_SYN_LAT=27,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=143,HLS_SYN_LUT=284,HLS_VERSION=2024_2}" *)
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:11.1-340.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir.v:11.1-340.10" *)
 module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x);
   (* src = "/usr/local/bin/../share/yosys/xilinx/lut_map.v:78.12-78.14" *)
   wire _00_;
@@ -3112,112 +3112,112 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
   wire _02_;
   wire _03_;
   (* fsm_encoding = "none" *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:44.41-44.50" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:44.41-44.50" *)
   wire [4:0] ap_CS_fsm;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:45.9-45.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:45.9-45.25" *)
   wire ap_CS_fsm_state1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:75.9-75.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:75.9-75.25" *)
   wire ap_CS_fsm_state2;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:77.9-77.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:77.9-77.25" *)
   wire ap_CS_fsm_state3;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:78.9-78.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:78.9-78.25" *)
   wire ap_CS_fsm_state4;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:79.9-79.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:79.9-79.25" *)
   wire ap_CS_fsm_state5;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:80.13-80.22" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:80.13-80.22" *)
   wire [4:0] ap_NS_fsm;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:83.9-83.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:83.9-83.29" *)
   wire ap_ST_fsm_state3_blk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:85.9-85.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:85.9-85.29" *)
   wire ap_ST_fsm_state5_blk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:29.9-29.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:29.9-29.15" *)
   input ap_clk;
   wire ap_clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:32.10-32.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:32.10-32.17" *)
   output ap_done;
   wire ap_done;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:33.10-33.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:33.10-33.17" *)
   output ap_idle;
   wire ap_idle;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:34.10-34.18" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:34.10-34.18" *)
   output ap_ready;
   wire ap_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:30.9-30.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:30.9-30.15" *)
   input ap_rst;
   wire ap_rst;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:31.9-31.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:31.9-31.17" *)
   input ap_start;
   wire ap_start;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:70.15-70.55" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:70.15-70.55" *)
   wire [15:0] grp_fir_Pipeline_MACC_LOOP_fu_59_acc_out;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:71.9-71.56" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:71.9-71.56" *)
   (* unused_bits = "0" *)
   wire grp_fir_Pipeline_MACC_LOOP_fu_59_acc_out_ap_vld;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:67.9-67.49" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:67.9-67.49" *)
   wire grp_fir_Pipeline_MACC_LOOP_fu_59_ap_done;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:68.9-68.49" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:68.9-68.49" *)
   (* unused_bits = "0" *)
   wire grp_fir_Pipeline_MACC_LOOP_fu_59_ap_idle;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:69.9-69.50" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:69.9-69.50" *)
   wire grp_fir_Pipeline_MACC_LOOP_fu_59_ap_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:66.9-66.50" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:66.9-66.50" *)
   wire grp_fir_Pipeline_MACC_LOOP_fu_59_ap_start;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:76.8-76.53" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:76.8-76.53" *)
   wire grp_fir_Pipeline_MACC_LOOP_fu_59_ap_start_reg;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:72.14-72.65" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:72.14-72.65" *)
   wire [2:0] grp_fir_Pipeline_MACC_LOOP_fu_59_shift_reg_address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:73.9-73.55" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:73.9-73.55" *)
   wire grp_fir_Pipeline_MACC_LOOP_fu_59_shift_reg_ce0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:55.9-55.52" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:55.9-55.52" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_ap_done;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:56.9-56.52" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:56.9-56.52" *)
   (* unused_bits = "0" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_ap_idle;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:57.9-57.53" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:57.9-57.53" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_ap_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:54.9-54.53" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:54.9-54.53" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_ap_start;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:74.8-74.56" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:74.8-74.56" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:58.14-58.68" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:58.14-58.68" *)
   wire [2:0] grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:62.14-62.68" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:62.14-62.68" *)
   wire [2:0] grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:59.9-59.58" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:59.9-59.58" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:63.9-63.58" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:63.9-63.58" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:61.14-61.62" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:61.14-61.62" *)
   wire [7:0] grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:65.14-65.62" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:65.14-65.62" *)
   wire [7:0] grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:60.9-60.58" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:60.9-60.58" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:64.9-64.58" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:64.9-64.58" *)
   wire grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:46.13-46.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:46.13-46.31" *)
   wire [2:0] shift_reg_address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:47.8-47.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:47.8-47.21" *)
   wire shift_reg_ce0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:50.8-50.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:50.8-50.21" *)
   wire shift_reg_ce1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:49.14-49.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:49.14-49.26" *)
   wire [7:0] shift_reg_q0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:52.14-52.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:52.14-52.26" *)
   wire [7:0] shift_reg_q1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:48.8-48.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:48.8-48.21" *)
   wire shift_reg_we0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:51.8-51.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:51.8-51.21" *)
   wire shift_reg_we1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:37.14-37.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:37.14-37.15" *)
   input [7:0] x;
   wire [7:0] x;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:53.13-53.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:53.13-53.26" *)
   wire [7:0] x_read_reg_72;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:35.16-35.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:35.16-35.17" *)
   output [15:0] y;
   wire [15:0] y;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:36.10-36.18" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:36.10-36.18" *)
   output y_ap_vld;
   wire y_ap_vld;
   (* module_not_derived = 32'd1 *)
@@ -3376,7 +3376,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .O(shift_reg_ce1)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:167.1-177.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:167.1-177.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _20_ (
@@ -3387,7 +3387,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:155.1-165.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:155.1-165.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _21_ (
@@ -3398,7 +3398,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _22_ (
@@ -3409,7 +3409,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _23_ (
@@ -3420,7 +3420,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _24_ (
@@ -3431,7 +3431,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _25_ (
@@ -3442,7 +3442,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _26_ (
@@ -3453,7 +3453,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _27_ (
@@ -3464,7 +3464,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _28_ (
@@ -3475,7 +3475,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:179.1-183.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _29_ (
@@ -3486,7 +3486,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
   FDSE #(
     .INIT(1'h1)
   ) _30_ (
@@ -3497,7 +3497,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .S(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _31_ (
@@ -3508,7 +3508,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _32_ (
@@ -3519,7 +3519,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _33_ (
@@ -3530,7 +3530,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:147.1-153.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _34_ (
@@ -3552,7 +3552,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .O(_03_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:133.28-145.2" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:133.28-145.2" *)
   fir_fir_Pipeline_MACC_LOOP grp_fir_Pipeline_MACC_LOOP_fu_59 (
     .acc_out(grp_fir_Pipeline_MACC_LOOP_fu_59_acc_out),
     .acc_out_ap_vld(grp_fir_Pipeline_MACC_LOOP_fu_59_acc_out_ap_vld),
@@ -3567,7 +3567,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .shift_reg_q0(shift_reg_q0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:114.31-131.2" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:114.31-131.2" *)
   fir_fir_Pipeline_SHIFTER_LOOP grp_fir_Pipeline_SHIFTER_LOOP_fu_51 (
     .ap_clk(ap_clk),
     .ap_done(grp_fir_Pipeline_SHIFTER_LOOP_fu_51_ap_done),
@@ -3586,7 +3586,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
     .shift_reg_we1(grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1),
     .x(x_read_reg_72)
   );
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir.v:99.1-112.2" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir.v:99.1-112.2" *)
   \$paramod$b8a3f50e9ed503e7e4022fd33e39115c9f2350f1\fir_shift_reg_RAM_AUTO_1R1W  shift_reg_U (
     .address0(shift_reg_address0),
     .address1(grp_fir_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1),
@@ -3612,7 +3612,7 @@ module fir(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, y, y_ap_vld, x)
   assign y_ap_vld = ap_done;
 endmodule
 
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:9.1-375.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:9.1-375.10" *)
 module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, acc_out, acc_out_ap_vld, shift_reg_address0, shift_reg_ce0, shift_reg_q0);
   (* src = "/usr/local/bin/../share/yosys/xilinx/lut_map.v:78.12-78.14" *)
   wire _00_;
@@ -3624,123 +3624,123 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
   wire _06_;
   wire _07_;
   (* force_downto = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:335.29-335.54|/usr/local/bin/../share/yosys/xilinx/arith_map.v:116.23-116.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:335.29-335.54|/usr/local/bin/../share/yosys/xilinx/arith_map.v:116.23-116.25" *)
   (* unused_bits = "0 1 2 3" *)
   wire [3:0] _08_;
   (* force_downto = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:335.29-335.54|/usr/local/bin/../share/yosys/xilinx/arith_map.v:112.23-112.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:335.29-335.54|/usr/local/bin/../share/yosys/xilinx/arith_map.v:112.23-112.24" *)
   wire [3:0] _09_;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:61.14-61.23" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:61.14-61.23" *)
   wire [15:0] acc_fu_36;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:31.16-31.23" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:31.16-31.23" *)
   output [15:0] acc_out;
   wire [15:0] acc_out;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:32.10-32.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:32.10-32.24" *)
   output acc_out_ap_vld;
   wire acc_out_ap_vld;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:69.14-69.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:69.14-69.31" *)
   wire [3:0] add_ln66_fu_96_p2;
   (* fsm_encoding = "none" *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:40.41-40.50" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:40.41-40.50" *)
   wire ap_CS_fsm;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:41.9-41.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:41.9-41.29" *)
   wire ap_CS_fsm_pp0_stage0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:60.9-60.28" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:60.9-60.28" *)
   wire ap_block_pp0_stage0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:71.9-71.34" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:71.9-71.34" *)
   wire ap_block_pp0_stage0_01001;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:55.9-55.34" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:55.9-55.34" *)
   wire ap_block_pp0_stage0_11001;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:48.9-48.36" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:48.9-48.36" *)
   wire ap_block_pp0_stage0_subdone;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:25.9-25.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:25.9-25.15" *)
   input ap_clk;
   wire ap_clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:50.8-50.42" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:50.8-50.42" *)
   wire ap_condition_exit_pp0_iter0_stage0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:77.9-77.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:77.9-77.24" *)
   wire ap_continue_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:28.10-28.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:28.10-28.17" *)
   output ap_done;
   wire ap_done;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:78.8-78.19" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:78.8-78.19" *)
   wire ap_done_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:76.8-76.19" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:76.8-76.19" *)
   wire ap_done_reg;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:83.9-83.20" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:83.9-83.20" *)
   wire ap_done_sig;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:42.9-42.32" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:42.9-42.32" *)
   wire ap_enable_reg_pp0_iter0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:43.8-43.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:43.8-43.31" *)
   wire ap_enable_reg_pp0_iter1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:44.8-44.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:44.8-44.31" *)
   wire ap_enable_reg_pp0_iter2;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:45.8-45.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:45.8-45.31" *)
   wire ap_enable_reg_pp0_iter3;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:46.8-46.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:46.8-46.31" *)
   wire ap_enable_reg_pp0_iter4;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:29.10-29.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:29.10-29.17" *)
   output ap_idle;
   wire ap_idle;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:51.9-51.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:51.9-51.27" *)
   wire ap_loop_exit_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:67.8-67.40" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:67.8-67.40" *)
   wire ap_loop_exit_ready_pp0_iter3_reg;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:64.9-64.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:64.9-64.21" *)
   wire ap_loop_init;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:30.10-30.18" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:30.10-30.18" *)
   output ap_ready;
   wire ap_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:52.8-52.20" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:52.8-52.20" *)
   wire ap_ready_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:82.9-82.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:82.9-82.21" *)
   wire ap_ready_sig;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:26.9-26.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:26.9-26.15" *)
   input ap_rst;
   wire ap_rst;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:63.14-63.39" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:63.14-63.39" *)
   wire [15:0] ap_sig_allocacmp_acc_load;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:70.13-70.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:70.13-70.31" *)
   wire [3:0] ap_sig_allocacmp_i;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:27.9-27.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:27.9-27.17" *)
   input ap_start;
   wire ap_start;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:81.9-81.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:81.9-81.21" *)
   wire ap_start_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:53.14-53.34" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:53.14-53.34" *)
   wire [2:0] filter_taps_address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:72.8-72.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:72.8-72.29" *)
   wire filter_taps_ce0_local;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:54.14-54.28" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:54.14-54.28" *)
   wire [5:0] filter_taps_q0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:74.14-74.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:74.14-74.27" *)
   wire [7:0] grp_fu_132_p0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:84.15-84.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:84.15-84.29" *)
   wire [13:0] grp_fu_132_p00;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:75.14-75.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:75.14-75.27" *)
   wire [5:0] grp_fu_132_p1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:85.15-85.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:85.15-85.29" *)
   wire [13:0] grp_fu_132_p10;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:62.15-62.28" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:62.15-62.28" *)
   wire [15:0] grp_fu_132_p3;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:68.13-68.22" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:68.13-68.22" *)
   wire [3:0] i_1_fu_40;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:49.14-49.32" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:49.14-49.32" *)
   wire icmp_ln66_fu_90_p2;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:58.13-58.44" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:58.13-58.44" *)
   wire icmp_ln66_reg_156_pp0_iter2_reg;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:33.15-33.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:33.15-33.33" *)
   output [2:0] shift_reg_address0;
   wire [2:0] shift_reg_address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:34.10-34.23" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:34.10-34.23" *)
   output shift_reg_ce0;
   wire shift_reg_ce0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:73.8-73.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:73.8-73.27" *)
   wire shift_reg_ce0_local;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:35.14-35.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:35.14-35.26" *)
   input [7:0] shift_reg_q0;
   wire [7:0] shift_reg_q0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:59.15-59.34" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:59.15-59.34" *)
   wire [63:0] zext_ln66_fu_102_p1;
   (* module_not_derived = 32'd1 *)
   (* src = "/usr/local/bin/../share/yosys/xilinx/lut_map.v:61.26-63.41" *)
@@ -4082,7 +4082,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .O(_07_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:335.29-335.54|/usr/local/bin/../share/yosys/xilinx/arith_map.v:176.11-184.5" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:335.29-335.54|/usr/local/bin/../share/yosys/xilinx/arith_map.v:176.11-184.5" *)
   CARRY4 _44_ (
     .CI(1'h0),
     .CO(_08_),
@@ -4092,7 +4092,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .S({ ap_sig_allocacmp_i[3:1], _09_[0] })
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _45_ (
@@ -4103,7 +4103,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(_04_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _46_ (
@@ -4114,7 +4114,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(_05_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _47_ (
@@ -4125,7 +4125,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(_06_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:216.1-224.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _48_ (
@@ -4166,7 +4166,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .Q(ap_loop_exit_ready_pp0_iter3_reg)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _51_ (
@@ -4177,7 +4177,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _52_ (
@@ -4188,7 +4188,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _53_ (
@@ -4199,7 +4199,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _54_ (
@@ -4210,7 +4210,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _55_ (
@@ -4221,7 +4221,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _56_ (
@@ -4232,7 +4232,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _57_ (
@@ -4243,7 +4243,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _58_ (
@@ -4254,7 +4254,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _59_ (
@@ -4265,7 +4265,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _60_ (
@@ -4276,7 +4276,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _61_ (
@@ -4287,7 +4287,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _62_ (
@@ -4298,7 +4298,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _63_ (
@@ -4309,7 +4309,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _64_ (
@@ -4320,7 +4320,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _65_ (
@@ -4331,7 +4331,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:206.1-214.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _66_ (
@@ -4342,7 +4342,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:196.1-204.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:196.1-204.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _67_ (
@@ -4353,7 +4353,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:186.1-194.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:186.1-194.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _68_ (
@@ -4364,7 +4364,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:164.1-174.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:164.1-174.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _69_ (
@@ -4375,7 +4375,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(_03_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:176.1-184.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:176.1-184.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _70_ (
@@ -4386,7 +4386,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:152.1-162.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:152.1-162.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _71_ (
@@ -4396,7 +4396,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .Q(ap_done_reg),
     .R(_02_)
   );
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:104.1-110.2" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:104.1-110.2" *)
   \$paramod$7ea3157b04fd3706e11e42fcd0c231a4e6473754\fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R  filter_taps_U (
     .address0(ap_sig_allocacmp_i[2:0]),
     .ce0(shift_reg_ce0),
@@ -4405,7 +4405,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .reset(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:129.44-142.2" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:129.44-142.2" *)
   fir_flow_control_loop_pipe_sequential_init flow_control_loop_pipe_sequential_init_U (
     .ap_clk(ap_clk),
     .ap_continue_int(ap_continue_int),
@@ -4420,7 +4420,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
     .ap_start(ap_start),
     .ap_start_int(shift_reg_ce0)
   );
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:119.1-127.2" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v:119.1-127.2" *)
   \$paramod$235f28d4f3756563ae56d8342a74c5428c94a82a\fir_mac_muladd_8ns_6ns_16ns_16_4_1  mac_muladd_8ns_6ns_16ns_16_4_1_U3 (
     .ce(1'h1),
     .clk(ap_clk),
@@ -4455,7 +4455,7 @@ module fir_fir_Pipeline_MACC_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap
   assign zext_ln66_fu_102_p1 = { 60'h000000000000000, ap_sig_allocacmp_i };
 endmodule
 
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:9.1-317.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:9.1-317.10" *)
 module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle, ap_ready, x, shift_reg_address0, shift_reg_ce0, shift_reg_we0, shift_reg_d0, shift_reg_address1, shift_reg_ce1, shift_reg_we1, shift_reg_d1, shift_reg_q1);
   wire _00_;
   wire _01_;
@@ -4465,140 +4465,140 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
   wire _05_;
   wire _06_;
   (* force_downto = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:265.30-265.76|/usr/local/bin/../share/yosys/xilinx/arith_map.v:116.23-116.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:265.30-265.76|/usr/local/bin/../share/yosys/xilinx/arith_map.v:116.23-116.25" *)
   (* unused_bits = "0 1 2 3" *)
   wire [3:0] _07_;
   (* force_downto = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:265.30-265.76|/usr/local/bin/../share/yosys/xilinx/arith_map.v:112.23-112.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:265.30-265.76|/usr/local/bin/../share/yosys/xilinx/arith_map.v:112.23-112.24" *)
   wire [3:0] _08_;
   (* force_downto = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:116.23-116.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:116.23-116.25" *)
   (* unused_bits = "0 1 2" *)
   wire [2:0] _09_;
   (* force_downto = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:170.23-170.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:170.23-170.24" *)
   (* unused_bits = "0 1 2 3" *)
   wire [3:0] _10_;
   (* force_downto = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:168.23-168.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:168.23-168.24" *)
   (* unused_bits = "3" *)
   wire [3:0] _11_;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:67.14-67.32" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:67.14-67.32" *)
   wire [3:0] add_ln56_fu_115_p2;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:76.14-76.32" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:76.14-76.32" *)
   wire [2:0] add_ln61_fu_104_p2;
   (* fsm_encoding = "none" *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:49.41-49.50" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:49.41-49.50" *)
   wire ap_CS_fsm;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:50.9-50.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:50.9-50.29" *)
   wire ap_CS_fsm_pp0_stage0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:64.9-64.28" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:64.9-64.28" *)
   wire ap_block_pp0_stage0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:60.9-60.34" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:60.9-60.34" *)
   wire ap_block_pp0_stage0_11001;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:54.9-54.36" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:54.9-54.36" *)
   wire ap_block_pp0_stage0_subdone;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:30.9-30.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:30.9-30.15" *)
   input ap_clk;
   wire ap_clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:56.8-56.42" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:56.8-56.42" *)
   wire ap_condition_exit_pp0_iter0_stage0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:78.9-78.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:78.9-78.24" *)
   wire ap_continue_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:33.10-33.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:33.10-33.17" *)
   output ap_done;
   wire ap_done;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:79.8-79.19" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:79.8-79.19" *)
   wire ap_done_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:77.8-77.19" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:77.8-77.19" *)
   wire ap_done_reg;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:84.9-84.20" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:84.9-84.20" *)
   wire ap_done_sig;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:51.9-51.32" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:51.9-51.32" *)
   wire ap_enable_reg_pp0_iter0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:52.8-52.31" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:52.8-52.31" *)
   wire ap_enable_reg_pp0_iter1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:34.10-34.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:34.10-34.17" *)
   output ap_idle;
   wire ap_idle;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:57.9-57.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:57.9-57.27" *)
   wire ap_loop_exit_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:68.9-68.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:68.9-68.21" *)
   wire ap_loop_init;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:35.10-35.18" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:35.10-35.18" *)
   output ap_ready;
   wire ap_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:58.8-58.20" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:58.8-58.20" *)
   wire ap_ready_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:83.9-83.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:83.9-83.21" *)
   wire ap_ready_sig;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:31.9-31.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:31.9-31.15" *)
   input ap_rst;
   wire ap_rst;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:69.13-69.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:69.13-69.33" *)
   (* unused_bits = "3" *)
   wire [3:0] ap_sig_allocacmp_i_1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:32.9-32.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:32.9-32.17" *)
   input ap_start;
   wire ap_start;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:82.9-82.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:82.9-82.21" *)
   wire ap_start_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:59.13-59.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:59.13-59.24" *)
   wire [3:0] i_1_reg_137;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:66.13-66.20" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:66.13-66.20" *)
   wire [3:0] i_fu_40;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:61.14-61.32" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:61.14-61.32" *)
   wire icmp_ln58_fu_98_p2;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:62.13-62.30" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:62.13-62.30" *)
   wire icmp_ln58_reg_145;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:37.15-37.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:37.15-37.33" *)
   output [2:0] shift_reg_address0;
   wire [2:0] shift_reg_address0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:41.15-41.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:41.15-41.33" *)
   output [2:0] shift_reg_address1;
   wire [2:0] shift_reg_address1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:71.13-71.37" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:71.13-71.37" *)
   wire [2:0] shift_reg_address1_local;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:38.10-38.23" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:38.10-38.23" *)
   output shift_reg_ce0;
   wire shift_reg_ce0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:74.8-74.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:74.8-74.27" *)
   wire shift_reg_ce0_local;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:42.10-42.23" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:42.10-42.23" *)
   output shift_reg_ce1;
   wire shift_reg_ce1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:70.8-70.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:70.8-70.27" *)
   wire shift_reg_ce1_local;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:40.15-40.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:40.15-40.27" *)
   output [7:0] shift_reg_d0;
   wire [7:0] shift_reg_d0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:44.15-44.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:44.15-44.27" *)
   output [7:0] shift_reg_d1;
   wire [7:0] shift_reg_d1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:45.14-45.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:45.14-45.26" *)
   input [7:0] shift_reg_q1;
   wire [7:0] shift_reg_q1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:39.10-39.23" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:39.10-39.23" *)
   output shift_reg_we0;
   wire shift_reg_we0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:73.8-73.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:73.8-73.27" *)
   wire shift_reg_we0_local;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:43.10-43.23" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:43.10-43.23" *)
   output shift_reg_we1;
   wire shift_reg_we1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:72.8-72.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:72.8-72.27" *)
   wire shift_reg_we1_local;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:55.14-55.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:55.14-55.26" *)
   (* unused_bits = "0" *)
   wire tmp_fu_86_p3;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:75.14-75.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:75.14-75.33" *)
   wire [2:0] trunc_ln56_fu_94_p1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:36.14-36.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:36.14-36.15" *)
   input [7:0] x;
   wire [7:0] x;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:65.15-65.34" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:65.15-65.34" *)
   wire [63:0] zext_ln56_fu_126_p1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:63.15-63.34" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:63.15-63.34" *)
   wire [63:0] zext_ln61_fu_110_p1;
   (* module_not_derived = 32'd1 *)
   (* src = "/usr/local/bin/../share/yosys/xilinx/lut_map.v:47.26-48.41" *)
@@ -4843,7 +4843,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .O(_06_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:265.30-265.76|/usr/local/bin/../share/yosys/xilinx/arith_map.v:176.11-184.5" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:265.30-265.76|/usr/local/bin/../share/yosys/xilinx/arith_map.v:176.11-184.5" *)
   CARRY4 _36_ (
     .CI(1'h0),
     .CO(_07_),
@@ -4853,7 +4853,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .S(_08_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:176.11-184.5" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:267.30-267.74|/usr/local/bin/../share/yosys/xilinx/arith_map.v:176.11-184.5" *)
   CARRY4 _37_ (
     .CI(1'h0),
     .CO({ _10_[3], _09_ }),
@@ -4863,7 +4863,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .S({ 1'h0, _08_[2:0] })
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
   FDSE #(
     .INIT(1'h0)
   ) _38_ (
@@ -4874,7 +4874,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .S(_03_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
   FDSE #(
     .INIT(1'h0)
   ) _39_ (
@@ -4885,7 +4885,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .S(_04_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
   FDSE #(
     .INIT(1'h0)
   ) _40_ (
@@ -4896,7 +4896,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .S(_05_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:143.1-151.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _41_ (
@@ -4907,7 +4907,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .R(_06_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _42_ (
@@ -4918,7 +4918,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _43_ (
@@ -4929,7 +4929,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _44_ (
@@ -4940,7 +4940,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:153.1-158.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'hx)
   ) _45_ (
@@ -4951,7 +4951,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .R(1'h0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:131.1-141.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:131.1-141.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _46_ (
@@ -4962,7 +4962,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .R(_02_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:119.1-129.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:119.1-129.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _47_ (
@@ -4973,7 +4973,7 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
     .R(_01_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:96.44-109.2" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v:96.44-109.2" *)
   fir_flow_control_loop_pipe_sequential_init flow_control_loop_pipe_sequential_init_U (
     .ap_clk(ap_clk),
     .ap_continue_int(ap_continue_int),
@@ -5016,48 +5016,48 @@ module fir_fir_Pipeline_SHIFTER_LOOP(ap_clk, ap_rst, ap_start, ap_done, ap_idle,
   assign zext_ln61_fu_110_p1 = { 61'h0000000000000000, add_ln61_fu_104_p2 };
 endmodule
 
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:11.1-106.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:11.1-106.10" *)
 module fir_flow_control_loop_pipe_sequential_init(ap_clk, ap_rst, ap_start, ap_ready, ap_done, ap_start_int, ap_ready_int, ap_done_int, ap_continue_int, ap_loop_init, ap_loop_exit_ready, ap_loop_exit_done);
   wire _0_;
   wire _1_;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:26.9-26.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:26.9-26.15" *)
   input ap_clk;
   wire ap_clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:38.9-38.24" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:38.9-38.24" *)
   output ap_continue_int;
   wire ap_continue_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:32.9-32.16" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:32.9-32.16" *)
   output ap_done;
   wire ap_done;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:45.5-45.18" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:45.5-45.18" *)
   wire ap_done_cache;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:37.9-37.20" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:37.9-37.20" *)
   input ap_done_int;
   wire ap_done_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:49.9-49.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:49.9-49.26" *)
   input ap_loop_exit_done;
   wire ap_loop_exit_done;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:48.9-48.27" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:48.9-48.27" *)
   input ap_loop_exit_ready;
   wire ap_loop_exit_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:41.10-41.22" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:41.10-41.22" *)
   output ap_loop_init;
   wire ap_loop_init;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:43.5-43.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:43.5-43.21" *)
   wire ap_loop_init_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:31.9-31.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:31.9-31.17" *)
   output ap_ready;
   wire ap_ready;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:36.9-36.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:36.9-36.21" *)
   input ap_ready_int;
   wire ap_ready_int;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:27.9-27.15" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:27.9-27.15" *)
   input ap_rst;
   wire ap_rst;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:30.9-30.17" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:30.9-30.17" *)
   input ap_start;
   wire ap_start;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:35.9-35.21" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:35.9-35.21" *)
   output ap_start_int;
   wire ap_start_int;
   (* module_not_derived = 32'd1 *)
@@ -5098,7 +5098,7 @@ module fir_flow_control_loop_pipe_sequential_init(ap_clk, ap_rst, ap_start, ap_r
     .O(ap_loop_init)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:85.1-94.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:85.1-94.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:68.41-68.95" *)
   FDRE #(
     .INIT(1'h0)
   ) _6_ (
@@ -5109,7 +5109,7 @@ module fir_flow_control_loop_pipe_sequential_init(ap_clk, ap_rst, ap_start, ap_r
     .R(ap_rst)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:67.1-76.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v:67.1-76.4|/usr/local/bin/../share/yosys/xilinx/ff_map.v:79.41-79.95" *)
   FDSE #(
     .INIT(1'h1)
   ) _7_ (
@@ -5124,41 +5124,41 @@ module fir_flow_control_loop_pipe_sequential_init(ap_clk, ap_rst, ap_start, ap_r
   assign ap_start_int = ap_start;
 endmodule
 
-(* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:11.1-51.10" *)
+(* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:11.1-51.10" *)
 module fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0(clk, rst, ce, in0, in1, in2, dout);
   (* unused_bits = "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] _0_;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:20.28-20.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:20.28-20.29" *)
   wire [24:0] a;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:21.28-21.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:21.28-21.29" *)
   wire [17:0] b;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:22.28-22.29" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:22.28-22.29" *)
   wire [47:0] c;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:14.11-14.13" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:14.11-14.13" *)
   input ce;
   wire ce;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:12.11-12.14" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:12.11-12.14" *)
   input clk;
   wire clk;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:18.24-18.28" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:18.24-18.28" *)
   output [15:0] dout;
   wire [15:0] dout;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:15.22-15.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:15.22-15.25" *)
   input [7:0] in0;
   wire [7:0] in0;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:16.22-16.25" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:16.22-16.25" *)
   input [5:0] in1;
   wire [5:0] in1;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:17.23-17.26" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:17.23-17.26" *)
   input [15:0] in2;
   wire [15:0] in2;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:28.28-28.33" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:28.28-28.33" *)
   wire [47:0] p_reg;
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:13.11-13.14" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:13.11-13.14" *)
   input rst;
   wire rst;
   (* module_not_derived = 32'd1 *)
-  (* src = "../../../../../2-5_Lab3_FIR8/Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:34.13-34.26|/usr/local/bin/../share/yosys/mul2dsp.v:91.5-95.4|/usr/local/bin/../share/yosys/mul2dsp.v:253.6-257.5|/usr/local/bin/../share/yosys/xilinx/xc7_dsp_map.v:30.4-48.3" *)
+  (* src = "../../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v:34.13-34.26|/usr/local/bin/../share/yosys/mul2dsp.v:91.5-95.4|/usr/local/bin/../share/yosys/mul2dsp.v:253.6-257.5|/usr/local/bin/../share/yosys/xilinx/xc7_dsp_map.v:30.4-48.3" *)
   DSP48E1 #(
     .ACASCREG(32'd1),
     .ADREG(32'sd0),
