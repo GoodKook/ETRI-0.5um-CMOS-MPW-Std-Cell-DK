@@ -1,0 +1,42 @@
+asminc.o: asminc.c ../common/chartype.h ../common/inline.h \
+ ../common/strbuf.h ../common/attrib.h ../common/check.h asminc.h \
+ comments.h attrtab.h error.h ../common/attrib.h labels.h
+attrtab.o: attrtab.c error.h ../common/attrib.h attrtab.h
+code.o: code.c ../common/check.h ../common/attrib.h code.h error.h \
+ ../common/attrib.h global.h
+comments.o: comments.c ../common/xmalloc.h attrtab.h comments.h error.h \
+ ../common/attrib.h
+data.o: data.c attrtab.h code.h error.h ../common/attrib.h global.h \
+ labels.h output.h data.h
+error.o: error.c error.h ../common/attrib.h
+global.o: global.c global.h
+handler.o: handler.c ../common/xsprintf.h ../common/attrib.h attrtab.h \
+ code.h error.h ../common/attrib.h global.h handler.h opctable.h \
+ ../common/cpu.h opcdesc.h labels.h output.h
+infofile.o: infofile.c ../common/cpu.h ../common/xmalloc.h asminc.h \
+ attrtab.h comments.h error.h ../common/attrib.h global.h infofile.h \
+ labels.h opctable.h opcdesc.h scanner.h segment.h
+labels.o: labels.c ../common/xmalloc.h ../common/xsprintf.h \
+ ../common/attrib.h attrtab.h code.h comments.h error.h \
+ ../common/attrib.h global.h labels.h output.h
+main.o: main.c ../common/abend.h ../common/attrib.h ../common/cmdline.h \
+ ../common/cpu.h ../common/fname.h ../common/print.h ../common/version.h \
+ attrtab.h code.h comments.h data.h error.h ../common/attrib.h global.h \
+ infofile.h labels.h opctable.h opcdesc.h output.h scanner.h
+opc6502.o: opc6502.c handler.h ../common/attrib.h opctable.h \
+ ../common/cpu.h opcdesc.h opc6502.h
+opc65816.o: opc65816.c handler.h ../common/attrib.h opctable.h \
+ ../common/cpu.h opcdesc.h opc65816.h
+opc65c02.o: opc65c02.c handler.h ../common/attrib.h opctable.h \
+ ../common/cpu.h opcdesc.h opc65c02.h
+opc65sc02.o: opc65sc02.c handler.h ../common/attrib.h opctable.h \
+ ../common/cpu.h opcdesc.h opc65sc02.h
+opctable.o: opctable.c error.h ../common/attrib.h opc6502.h opcdesc.h \
+ opc65816.h opc65c02.h opc65sc02.h opctable.h ../common/cpu.h
+output.o: output.c ../common/addrsize.h ../common/cpu.h \
+ ../common/version.h code.h error.h ../common/attrib.h global.h output.h
+scanner.o: scanner.c ../common/chartype.h ../common/inline.h \
+ ../common/xsprintf.h ../common/attrib.h global.h error.h \
+ ../common/attrib.h scanner.h
+segment.o: segment.c ../common/addrsize.h ../common/xmalloc.h attrtab.h \
+ segment.h

@@ -1,0 +1,31 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+read_verilog  /home/goodkook/ETRI050_DesignKit/devel/Ref_Design/CPU_4004/all/source/i4004.v
+read_verilog  scratchpad.v
+read_verilog  instruction_pointer.v
+read_verilog  alu.v
+read_verilog  instruction_decode.v
+read_verilog  timing_io.v
+read_verilog  timing_generator.v
+read_verilog  counter.v
+
+# High-level synthesis
+synth -top i4004
+# Map register flops
+dfflibmap -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+opt
+
+# Map combinatorial cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+
+clean -purge
+# Output buffering
+iopadmap -outpad BUFX2 A:Y -bits
+# Cleanup
+opt
+clean
+rename -enumerate
+write_verilog  i4004_mapped.v
+stat

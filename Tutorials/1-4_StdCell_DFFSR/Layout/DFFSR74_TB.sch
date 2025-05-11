@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 930 -880 1730 -480 {flags=graph
+B 2 920 -870 1720 -470 {flags=graph
 y1=0
 y2=5
 ypos1=0
@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=7e-08
+x1=5.2472368e-08
+x2=9.179397e-08
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -34,8 +34,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=7e-08
+x1=5.2472368e-08
+x2=9.179397e-08
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,7 +49,7 @@ logy=0
 color="6 8"
 node="r
 s"}
-B 2 940 -440 1740 -40 {flags=graph
+B 2 920 -470 1720 -70 {flags=graph
 y1=-0.084
 y2=5.1
 ypos1=0
@@ -57,15 +57,14 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=7e-08
+x1=5.2472368e-08
+x2=9.179397e-08
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="d
-q"
-color="21 4"
+node=d
+color=21
 dataset=-1
 unitx=1
 logx=0
@@ -79,14 +78,35 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=7e-08
+x1=5.2472368e-08
+x2=9.179397e-08
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 node=i(vdd)
 color=9
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+B 2 920 -70 1720 330 {flags=graph
+y1=-0.082
+y2=5.1
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=5.2472368e-08
+x2=9.179397e-08
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=q
+color=6
 dataset=-1
 unitx=1
 logx=0
@@ -121,7 +141,7 @@ C {lab_pin.sym} 520 -620 0 1 {name=p5 sig_type=std_logic lab=Q}
 C {vsource.sym} 130 -610 0 0 {name=Vdd value=5 savecurrent=false}
 C {vdd.sym} 130 -640 0 0 {name=l1 lab=VDD}
 C {gnd.sym} 130 -580 0 0 {name=l2 lab=GND}
-C {vsource.sym} 650 -370 0 0 {name=VDin value="pwl(0 5 21n 5 22n 0 53n 0 54n 5)" savecurrent=false}
+C {vsource.sym} 490 -470 0 0 {name=VDin value="pwl(0 5 21n 5 22n 0 60n 0 61n 5 72n 5 73n 0 84n 0 85n 5)" savecurrent=false}
 C {lab_pin.sym} 650 -420 0 1 {name=p6 sig_type=std_logic lab=D}
 C {gnd.sym} 650 -340 0 0 {name=l3 lab=GND}
 C {vsource.sym} 170 -370 0 0 {name=VRin value="pwl(0 5 9n 5 10n 0 19n 0 20n 5)" savecurrent=false}
@@ -144,7 +164,7 @@ simulator=ngspice
 only_toplevel=false 
 value="
 .include ~/ETRI050_DesignKit/tech/05cmos_model_240201.lib
-.tran 0.01 70n
+.tran 0.01 100n
 .save all
 "}
 C {vdd.sym} 340 -670 0 0 {name=l8 lab=VDD}

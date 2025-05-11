@@ -1,0 +1,1 @@
+/home/goodkook/ETRI050_DesignKit/layout/scripts/netgen_setup.tcl

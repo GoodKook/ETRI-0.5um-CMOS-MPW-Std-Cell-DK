@@ -1,0 +1,346 @@
+anonname.o: anonname.c ../common/xsprintf.h ../common/attrib.h anonname.h \
+ ident.h
+asmcode.o: asmcode.c ../common/check.h ../common/attrib.h asmcode.h \
+ ../common/attrib.h codeopt.h codeseg.h ../common/coll.h \
+ ../common/check.h ../common/inline.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h symentry.h datatype.h ../common/mmodel.h \
+ funcdesc.h dataseg.h segments.h opcodes.h stackptr.h symtab.h
+asmlabel.o: asmlabel.c ../common/chartype.h ../common/inline.h asmlabel.h \
+ error.h ../common/attrib.h lineinfo.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h
+asmstmt.o: asmstmt.c ../common/xsprintf.h ../common/attrib.h asmlabel.h \
+ codegen.h ../common/coll.h ../common/check.h ../common/inline.h \
+ segments.h ../common/attrib.h opcodes.h ../common/inline.h datatype.h \
+ ../common/mmodel.h funcdesc.h error.h lineinfo.h ../common/strbuf.h \
+ expr.h exprdesc.h ../common/fp.h asmcode.h function.h litpool.h \
+ scanner.h ident.h stackptr.h symtab.h symentry.h asmstmt.h
+assignment.o: assignment.c asmcode.h ../common/attrib.h assignment.h \
+ exprdesc.h ../common/fp.h ../common/inline.h datatype.h \
+ ../common/mmodel.h funcdesc.h codegen.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h segments.h \
+ opcodes.h error.h lineinfo.h ../common/strbuf.h expr.h loadexpr.h \
+ scanner.h ident.h stdnames.h typecmp.h typeconv.h
+casenode.o: casenode.c ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/xmalloc.h asmlabel.h \
+ error.h ../common/attrib.h lineinfo.h ../common/strbuf.h casenode.h
+codeent.o: codeent.c ../common/chartype.h ../common/inline.h \
+ ../common/check.h ../common/attrib.h ../common/debugflag.h \
+ ../common/xmalloc.h ../common/xsprintf.h codeent.h ../common/coll.h \
+ ../common/check.h ../common/inline.h codelab.h lineinfo.h \
+ ../common/strbuf.h opcodes.h reginfo.h codeinfo.h error.h \
+ ../common/attrib.h global.h ../common/intstack.h output.h
+codegen.o: codegen.c ../common/check.h ../common/attrib.h ../common/cpu.h \
+ ../common/strbuf.h ../common/check.h ../common/inline.h \
+ ../common/version.h ../common/xmalloc.h ../common/xsprintf.h asmcode.h \
+ ../common/attrib.h asmlabel.h casenode.h ../common/coll.h codeseg.h \
+ ../common/inline.h codelab.h lineinfo.h symentry.h datatype.h \
+ ../common/mmodel.h funcdesc.h dataseg.h error.h global.h \
+ ../common/intstack.h segments.h opcodes.h stackptr.h textseg.h util.h \
+ codegen.h
+codelab.o: codelab.c ../common/check.h ../common/attrib.h \
+ ../common/xmalloc.h codeent.h ../common/coll.h ../common/check.h \
+ ../common/inline.h ../common/inline.h codelab.h lineinfo.h \
+ ../common/strbuf.h opcodes.h reginfo.h output.h ../common/attrib.h
+codeinfo.o: codeinfo.c ../common/chartype.h ../common/inline.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h \
+ ../common/debugflag.h codeent.h ../common/inline.h codelab.h lineinfo.h \
+ ../common/strbuf.h opcodes.h reginfo.h codeseg.h ../common/attrib.h \
+ symentry.h datatype.h ../common/mmodel.h funcdesc.h error.h symtab.h \
+ codeinfo.h
+codeopt.o: codeopt.c ../common/abend.h ../common/attrib.h \
+ ../common/chartype.h ../common/inline.h ../common/cpu.h \
+ ../common/print.h ../common/xmalloc.h asmlabel.h codeent.h \
+ ../common/coll.h ../common/check.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h coptadd.h \
+ codeseg.h ../common/attrib.h symentry.h datatype.h ../common/mmodel.h \
+ funcdesc.h coptc02.h coptcmp.h coptind.h coptneg.h coptptrload.h \
+ coptpush.h coptsize.h coptstop.h coptstore.h coptsub.h copttest.h \
+ error.h global.h ../common/intstack.h codeopt.h
+codeseg.o: codeseg.c ../common/chartype.h ../common/inline.h \
+ ../common/check.h ../common/attrib.h ../common/debugflag.h global.h \
+ ../common/intstack.h ../common/hashstr.h ../common/strbuf.h \
+ ../common/check.h ../common/strbuf.h ../common/strutil.h \
+ ../common/xmalloc.h asmlabel.h codeent.h ../common/coll.h \
+ ../common/inline.h codelab.h lineinfo.h opcodes.h reginfo.h codeinfo.h \
+ codeseg.h ../common/attrib.h symentry.h datatype.h ../common/mmodel.h \
+ funcdesc.h error.h ident.h output.h
+compile.o: compile.c ../common/debugflag.h ../common/version.h \
+ ../common/xmalloc.h ../common/xsprintf.h ../common/attrib.h asmlabel.h \
+ asmstmt.h codegen.h ../common/coll.h ../common/check.h \
+ ../common/inline.h segments.h ../common/attrib.h opcodes.h \
+ ../common/inline.h compile.h declare.h scanner.h ../common/fp.h \
+ datatype.h ../common/mmodel.h funcdesc.h ident.h lineinfo.h \
+ ../common/strbuf.h symtab.h symentry.h error.h expr.h exprdesc.h \
+ asmcode.h function.h global.h ../common/intstack.h input.h litpool.h \
+ macrotab.h output.h pragma.h preproc.h standard.h
+coptadd.o: coptadd.c ../common/chartype.h ../common/inline.h codeent.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h ../common/inline.h \
+ codelab.h lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h \
+ coptadd.h codeseg.h ../common/attrib.h symentry.h datatype.h \
+ ../common/mmodel.h funcdesc.h
+coptc02.o: coptc02.c codeent.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h error.h \
+ ../common/attrib.h coptc02.h codeseg.h symentry.h datatype.h \
+ ../common/mmodel.h funcdesc.h
+coptcmp.o: coptcmp.c codeent.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h error.h \
+ ../common/attrib.h coptcmp.h codeseg.h symentry.h datatype.h \
+ ../common/mmodel.h funcdesc.h
+coptind.o: coptind.c ../common/cpu.h codeent.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h \
+ ../common/inline.h codelab.h lineinfo.h ../common/strbuf.h opcodes.h \
+ reginfo.h coptind.h codeseg.h ../common/attrib.h symentry.h datatype.h \
+ ../common/mmodel.h funcdesc.h codeinfo.h codeopt.h error.h
+coptneg.o: coptneg.c codeent.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h coptneg.h \
+ codeseg.h ../common/attrib.h symentry.h datatype.h ../common/mmodel.h \
+ funcdesc.h
+coptptrload.o: coptptrload.c ../common/xmalloc.h codeent.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h ../common/inline.h \
+ ../common/inline.h codelab.h lineinfo.h ../common/strbuf.h opcodes.h \
+ reginfo.h codeinfo.h coptptrload.h codeseg.h ../common/attrib.h \
+ symentry.h datatype.h ../common/mmodel.h funcdesc.h
+coptpush.o: coptpush.c codeent.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h coptpush.h \
+ codeseg.h ../common/attrib.h symentry.h datatype.h ../common/mmodel.h \
+ funcdesc.h
+coptsize.o: coptsize.c ../common/cpu.h codeent.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h \
+ ../common/inline.h codelab.h lineinfo.h ../common/strbuf.h opcodes.h \
+ reginfo.h codeinfo.h coptsize.h codeseg.h ../common/attrib.h symentry.h \
+ datatype.h ../common/mmodel.h funcdesc.h
+coptstop.o: coptstop.c ../common/chartype.h ../common/inline.h codeent.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h ../common/inline.h \
+ codelab.h lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h \
+ coptstop.h codeseg.h ../common/attrib.h symentry.h datatype.h \
+ ../common/mmodel.h funcdesc.h error.h
+coptstore.o: coptstore.c codeent.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h coptstore.h \
+ codeseg.h ../common/attrib.h symentry.h datatype.h ../common/mmodel.h \
+ funcdesc.h
+coptsub.o: coptsub.c ../common/chartype.h ../common/inline.h codeent.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h ../common/inline.h \
+ codelab.h lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h \
+ coptsub.h codeseg.h ../common/attrib.h symentry.h datatype.h \
+ ../common/mmodel.h funcdesc.h
+copttest.o: copttest.c codeent.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/inline.h codelab.h \
+ lineinfo.h ../common/strbuf.h opcodes.h reginfo.h codeinfo.h copttest.h \
+ codeseg.h ../common/attrib.h symentry.h datatype.h ../common/mmodel.h \
+ funcdesc.h
+dataseg.o: dataseg.c ../common/check.h ../common/attrib.h \
+ ../common/xmalloc.h ../common/xsprintf.h dataseg.h ../common/attrib.h \
+ ../common/coll.h ../common/check.h ../common/inline.h symentry.h \
+ ../common/inline.h datatype.h ../common/mmodel.h funcdesc.h error.h \
+ lineinfo.h ../common/strbuf.h output.h
+datatype.o: datatype.c ../common/addrsize.h ../common/check.h \
+ ../common/attrib.h ../common/mmodel.h ../common/xmalloc.h codegen.h \
+ ../common/coll.h ../common/check.h ../common/inline.h segments.h \
+ ../common/attrib.h opcodes.h ../common/inline.h datatype.h funcdesc.h \
+ error.h lineinfo.h ../common/strbuf.h ../common/fp.h global.h \
+ ../common/intstack.h symtab.h symentry.h
+declare.o: declare.c ../common/addrsize.h ../common/mmodel.h \
+ ../common/xmalloc.h anonname.h codegen.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h segments.h \
+ ../common/attrib.h opcodes.h ../common/inline.h datatype.h funcdesc.h \
+ declare.h scanner.h ../common/fp.h ident.h lineinfo.h ../common/strbuf.h \
+ symtab.h symentry.h declattr.h error.h expr.h exprdesc.h asmcode.h \
+ function.h global.h ../common/intstack.h litpool.h pragma.h standard.h \
+ typeconv.h
+declattr.o: declattr.c error.h ../common/attrib.h lineinfo.h \
+ ../common/strbuf.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h scanner.h ../common/fp.h datatype.h \
+ ../common/inline.h ../common/mmodel.h funcdesc.h ident.h symtab.h \
+ symentry.h typecmp.h declattr.h declare.h
+error.o: error.c ../common/print.h ../common/attrib.h global.h \
+ ../common/intstack.h ../common/inline.h input.h ../common/strbuf.h \
+ ../common/check.h lineinfo.h scanner.h ../common/fp.h datatype.h \
+ ../common/attrib.h ../common/inline.h ../common/mmodel.h funcdesc.h \
+ ident.h stmt.h error.h
+expr.o: expr.c ../common/check.h ../common/attrib.h ../common/debugflag.h \
+ ../common/xmalloc.h asmcode.h ../common/attrib.h asmlabel.h asmstmt.h \
+ assignment.h exprdesc.h ../common/fp.h ../common/inline.h datatype.h \
+ ../common/mmodel.h funcdesc.h codegen.h ../common/coll.h \
+ ../common/check.h ../common/inline.h segments.h opcodes.h declare.h \
+ scanner.h ident.h lineinfo.h ../common/strbuf.h symtab.h symentry.h \
+ error.h function.h global.h ../common/intstack.h litpool.h loadexpr.h \
+ macrotab.h preproc.h shiftexpr.h stackptr.h standard.h stdfunc.h expr.h \
+ typecmp.h typeconv.h
+exprdesc.o: exprdesc.c ../common/check.h ../common/attrib.h \
+ ../common/strbuf.h ../common/check.h ../common/inline.h asmlabel.h \
+ datatype.h ../common/attrib.h ../common/inline.h ../common/mmodel.h \
+ funcdesc.h error.h lineinfo.h exprdesc.h ../common/fp.h asmcode.h \
+ stackptr.h symentry.h
+funcdesc.o: funcdesc.c ../common/xmalloc.h funcdesc.h
+function.o: function.c ../common/check.h ../common/attrib.h \
+ ../common/xmalloc.h asmcode.h ../common/attrib.h asmlabel.h codegen.h \
+ ../common/coll.h ../common/check.h ../common/inline.h segments.h \
+ opcodes.h ../common/inline.h error.h lineinfo.h ../common/strbuf.h \
+ funcdesc.h global.h ../common/intstack.h litpool.h locals.h scanner.h \
+ ../common/fp.h datatype.h ../common/mmodel.h ident.h stackptr.h \
+ standard.h stmt.h symtab.h symentry.h function.h
+global.o: global.c global.h ../common/intstack.h ../common/inline.h
+goto.o: goto.c codegen.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h segments.h ../common/attrib.h \
+ opcodes.h ../common/inline.h error.h lineinfo.h ../common/strbuf.h \
+ scanner.h ../common/fp.h datatype.h ../common/mmodel.h funcdesc.h \
+ ident.h symtab.h symentry.h goto.h
+hexval.o: hexval.c ../common/chartype.h ../common/inline.h error.h \
+ ../common/attrib.h lineinfo.h ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h hexval.h
+ident.o: ident.c ../common/chartype.h ../common/inline.h ident.h
+incpath.o: incpath.c ../common/searchpath.h incpath.h
+input.o: input.c ../common/check.h ../common/attrib.h ../common/coll.h \
+ ../common/check.h ../common/inline.h ../common/print.h \
+ ../common/xmalloc.h codegen.h segments.h ../common/attrib.h opcodes.h \
+ ../common/inline.h error.h lineinfo.h ../common/strbuf.h incpath.h \
+ input.h
+lineinfo.o: lineinfo.c ../common/chartype.h ../common/inline.h \
+ ../common/check.h ../common/attrib.h ../common/xmalloc.h global.h \
+ ../common/intstack.h input.h ../common/strbuf.h ../common/check.h \
+ lineinfo.h
+litpool.o: litpool.c ../common/check.h ../common/attrib.h \
+ ../common/tgttrans.h ../common/strbuf.h ../common/check.h \
+ ../common/inline.h asmlabel.h codegen.h ../common/coll.h segments.h \
+ ../common/attrib.h opcodes.h ../common/inline.h error.h lineinfo.h \
+ ../common/strbuf.h global.h ../common/intstack.h litpool.h
+loadexpr.o: loadexpr.c codegen.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h segments.h ../common/attrib.h \
+ opcodes.h ../common/inline.h error.h lineinfo.h ../common/strbuf.h \
+ exprdesc.h ../common/fp.h asmcode.h datatype.h ../common/mmodel.h \
+ funcdesc.h global.h ../common/intstack.h loadexpr.h
+locals.o: locals.c ../common/xmalloc.h ../common/xsprintf.h \
+ ../common/attrib.h anonname.h asmlabel.h codegen.h ../common/coll.h \
+ ../common/check.h ../common/inline.h segments.h ../common/attrib.h \
+ opcodes.h ../common/inline.h declare.h scanner.h ../common/fp.h \
+ datatype.h ../common/mmodel.h funcdesc.h ident.h lineinfo.h \
+ ../common/strbuf.h symtab.h symentry.h error.h expr.h exprdesc.h \
+ asmcode.h function.h global.h ../common/intstack.h loadexpr.h locals.h \
+ stackptr.h standard.h typeconv.h
+loop.o: loop.c ../common/check.h ../common/attrib.h ../common/xmalloc.h \
+ error.h ../common/attrib.h lineinfo.h ../common/strbuf.h \
+ ../common/check.h ../common/inline.h loop.h stackptr.h datatype.h \
+ ../common/inline.h ../common/mmodel.h funcdesc.h
+macrotab.o: macrotab.c ../common/hashstr.h ../common/attrib.h \
+ ../common/strbuf.h ../common/check.h ../common/inline.h \
+ ../common/xmalloc.h error.h ../common/attrib.h lineinfo.h \
+ ../common/strbuf.h macrotab.h ../common/coll.h ../common/inline.h
+main.o: main.c ../common/abend.h ../common/attrib.h ../common/chartype.h \
+ ../common/inline.h ../common/cmdline.h ../common/cpu.h \
+ ../common/debugflag.h ../common/fname.h ../common/mmodel.h \
+ ../common/print.h ../common/segnames.h ../common/target.h \
+ ../common/cpu.h ../common/tgttrans.h ../common/strbuf.h \
+ ../common/check.h ../common/version.h ../common/xmalloc.h asmcode.h \
+ ../common/attrib.h compile.h codeopt.h codeseg.h ../common/coll.h \
+ ../common/inline.h codelab.h lineinfo.h ../common/strbuf.h symentry.h \
+ datatype.h funcdesc.h error.h global.h ../common/intstack.h incpath.h \
+ input.h macrotab.h output.h scanner.h ../common/fp.h ident.h segments.h \
+ opcodes.h standard.h svnversion.h
+opcodes.o: opcodes.c ../common/check.h ../common/attrib.h ../common/cpu.h \
+ codeinfo.h error.h ../common/attrib.h lineinfo.h ../common/strbuf.h \
+ ../common/check.h ../common/inline.h opcodes.h ../common/inline.h
+output.o: output.c ../common/check.h ../common/attrib.h ../common/fname.h \
+ ../common/print.h ../common/xmalloc.h error.h ../common/attrib.h \
+ lineinfo.h ../common/strbuf.h ../common/check.h ../common/inline.h \
+ global.h ../common/intstack.h output.h
+preproc.o: preproc.c ../common/chartype.h ../common/inline.h \
+ ../common/check.h ../common/attrib.h ../common/inline.h \
+ ../common/print.h ../common/xmalloc.h codegen.h ../common/coll.h \
+ ../common/check.h segments.h ../common/attrib.h opcodes.h error.h \
+ lineinfo.h ../common/strbuf.h expr.h datatype.h ../common/mmodel.h \
+ funcdesc.h exprdesc.h ../common/fp.h asmcode.h global.h \
+ ../common/intstack.h ident.h incpath.h input.h macrotab.h preproc.h \
+ scanner.h standard.h
+pragma.o: pragma.c ../common/segnames.h ../common/tgttrans.h \
+ ../common/strbuf.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h codegen.h ../common/coll.h segments.h \
+ ../common/attrib.h opcodes.h ../common/inline.h error.h lineinfo.h \
+ ../common/strbuf.h expr.h datatype.h ../common/mmodel.h funcdesc.h \
+ exprdesc.h ../common/fp.h asmcode.h global.h ../common/intstack.h \
+ litpool.h scanner.h ident.h scanstrbuf.h symtab.h symentry.h pragma.h
+reginfo.o: reginfo.c ../common/xmalloc.h reginfo.h ../common/inline.h
+scanner.o: scanner.c ../common/chartype.h ../common/inline.h \
+ ../common/fp.h ../common/tgttrans.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h datatype.h ../common/attrib.h \
+ ../common/inline.h ../common/mmodel.h funcdesc.h error.h lineinfo.h \
+ ../common/strbuf.h function.h global.h ../common/intstack.h hexval.h \
+ ident.h input.h litpool.h preproc.h scanner.h standard.h symtab.h \
+ symentry.h
+scanstrbuf.o: scanstrbuf.c ../common/chartype.h ../common/inline.h \
+ ../common/tgttrans.h ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h datatype.h ../common/attrib.h ../common/inline.h \
+ ../common/mmodel.h funcdesc.h error.h lineinfo.h ../common/strbuf.h \
+ hexval.h ident.h scanstrbuf.h
+segments.o: segments.c ../common/chartype.h ../common/inline.h \
+ ../common/check.h ../common/attrib.h ../common/coll.h ../common/check.h \
+ scanner.h ../common/fp.h datatype.h ../common/attrib.h \
+ ../common/inline.h ../common/mmodel.h funcdesc.h ident.h lineinfo.h \
+ ../common/strbuf.h ../common/segnames.h ../common/strstack.h \
+ ../common/xmalloc.h codeent.h codelab.h opcodes.h reginfo.h codeseg.h \
+ symentry.h dataseg.h error.h textseg.h segments.h
+shiftexpr.o: shiftexpr.c asmcode.h ../common/attrib.h codegen.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h ../common/inline.h \
+ segments.h opcodes.h ../common/inline.h datatype.h ../common/mmodel.h \
+ funcdesc.h error.h lineinfo.h ../common/strbuf.h expr.h exprdesc.h \
+ ../common/fp.h loadexpr.h scanner.h ident.h shiftexpr.h \
+ ../common/intstack.h
+stackptr.o: stackptr.c stackptr.h datatype.h ../common/attrib.h \
+ ../common/inline.h ../common/mmodel.h funcdesc.h
+standard.o: standard.c standard.h ../common/intstack.h ../common/inline.h
+stdfunc.o: stdfunc.c ../common/attrib.h ../common/check.h \
+ ../common/attrib.h asmcode.h asmlabel.h codegen.h ../common/coll.h \
+ ../common/check.h ../common/inline.h segments.h opcodes.h \
+ ../common/inline.h error.h lineinfo.h ../common/strbuf.h funcdesc.h \
+ global.h ../common/intstack.h litpool.h loadexpr.h scanner.h \
+ ../common/fp.h datatype.h ../common/mmodel.h ident.h stackptr.h \
+ stdfunc.h expr.h exprdesc.h symtab.h symentry.h stdnames.h typeconv.h
+stdnames.o: stdnames.c stdnames.h
+stmt.o: stmt.c ../common/coll.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h ../common/xmalloc.h asmcode.h ../common/attrib.h \
+ asmlabel.h codegen.h segments.h opcodes.h ../common/inline.h datatype.h \
+ ../common/mmodel.h funcdesc.h error.h lineinfo.h ../common/strbuf.h \
+ expr.h exprdesc.h ../common/fp.h function.h global.h \
+ ../common/intstack.h goto.h litpool.h loadexpr.h locals.h loop.h \
+ pragma.h scanner.h ident.h stackptr.h stmt.h swstmt.h symtab.h \
+ symentry.h testexpr.h typeconv.h
+svnversion.o: svnversion.c
+swstmt.o: swstmt.c ../common/coll.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h ../common/xmalloc.h asmcode.h ../common/attrib.h \
+ asmlabel.h casenode.h codegen.h segments.h opcodes.h ../common/inline.h \
+ datatype.h ../common/mmodel.h funcdesc.h error.h lineinfo.h \
+ ../common/strbuf.h expr.h exprdesc.h ../common/fp.h global.h \
+ ../common/intstack.h loop.h scanner.h ident.h stmt.h swstmt.h
+symentry.o: symentry.c ../common/xmalloc.h anonname.h symentry.h \
+ ../common/inline.h datatype.h ../common/attrib.h ../common/mmodel.h \
+ funcdesc.h
+symtab.o: symtab.c ../common/check.h ../common/attrib.h \
+ ../common/debugflag.h ../common/hashstr.h ../common/strbuf.h \
+ ../common/check.h ../common/inline.h ../common/xmalloc.h asmcode.h \
+ ../common/attrib.h asmlabel.h codegen.h ../common/coll.h segments.h \
+ opcodes.h ../common/inline.h datatype.h ../common/mmodel.h funcdesc.h \
+ declare.h scanner.h ../common/fp.h ident.h lineinfo.h ../common/strbuf.h \
+ symtab.h symentry.h error.h global.h ../common/intstack.h stackptr.h \
+ typecmp.h
+testexpr.o: testexpr.c codegen.h ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h segments.h ../common/attrib.h \
+ opcodes.h ../common/inline.h error.h lineinfo.h ../common/strbuf.h \
+ expr.h datatype.h ../common/mmodel.h funcdesc.h exprdesc.h \
+ ../common/fp.h asmcode.h loadexpr.h scanner.h ident.h testexpr.h
+textseg.o: textseg.c ../common/xmalloc.h ../common/xsprintf.h \
+ ../common/attrib.h output.h ../common/attrib.h textseg.h \
+ ../common/coll.h ../common/check.h ../common/inline.h symentry.h \
+ ../common/inline.h datatype.h ../common/mmodel.h funcdesc.h
+typecmp.o: typecmp.c funcdesc.h symtab.h datatype.h ../common/attrib.h \
+ ../common/inline.h ../common/mmodel.h symentry.h typecmp.h
+typeconv.o: typeconv.c ../common/shift.h codegen.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h segments.h \
+ ../common/attrib.h opcodes.h ../common/inline.h datatype.h \
+ ../common/mmodel.h funcdesc.h declare.h scanner.h ../common/fp.h ident.h \
+ lineinfo.h ../common/strbuf.h symtab.h symentry.h error.h expr.h \
+ exprdesc.h asmcode.h loadexpr.h typecmp.h typeconv.h
+util.o: util.c util.h

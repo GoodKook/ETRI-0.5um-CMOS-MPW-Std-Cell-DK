@@ -45,24 +45,11 @@ PSCE psce(DELAY_MICROS);
 #define AP_READY  0x04
 #define Y_AP_VLD  0x08
 
-void SetInputs()
+void Advance_Clock()
 {
-    for(int addr_emu=0; addr_emu<N_RX; addr_emu++)
-      psce.EMU_Input(addr_emu, psce.rxByte[addr_emu]);
-    psce.DUT_Input();
-}
-
-void GetOutputs()
-{
-    psce.DUT_Output();
-    for(int addr_emu=0; addr_emu<N_TX; addr_emu++)
-      psce.txByte[addr_emu] = (uint)psce.EMU_Output((uint8_t)addr_emu);
-}
-
-void ClockCycle()
-{
-    psce.DUT_Posedge_Clk();
-    psce.DUT_Negedge_Clk();
+    psce.DUT_SetInputs(N_RX);
+    psce.DUT_ClockCycle_Pos();
+    psce.DUT_GetOutputs(N_TX);
 }
 
 void setup()
@@ -72,94 +59,50 @@ void setup()
   digitalWrite(LED_BUILTIN, LOW);
 
   psce.rxByte[0] = AP_RESET;
-  SetInputs();
-  ClockCycle();
-  ClockCycle();
-  ClockCycle();
+  psce.DUT_SetInputs(N_RX);
+  psce.DUT_ClockCycle_Pos();
+  psce.DUT_ClockCycle_Pos();
+  psce.DUT_ClockCycle_Pos();
 
   digitalWrite(LED_BUILTIN, HIGH);
 
   do {
     psce.rxByte[0] = AP_START;
-    SetInputs();
-    ClockCycle();
-    GetOutputs();
+    Advance_Clock();
   } while(psce.txByte[2] & AP_IDLE);
 
   digitalWrite(LED_BUILTIN, LOW);
 }
-#define F_SAMPLE  4800
-int nSample = 0;
-uint8_t rxByte[F_SAMPLE];
-uint8_t txByte[F_SAMPLE*2];
 
 void loop()
 {
-  // Receive Data from Host
-  nSample = 0;
-  while(nSample < F_SAMPLE)
+  psce.EMU_Blinker(0x40);
+
+  // Receive Data
+  while (Serial.available()==0) delay(1);
+  psce.rxByte[1] = Serial.read();
+  Serial.write((uint8_t)psce.rxByte[1]);
+  // Process DUT: Input hand-shake
+  while(!(psce.txByte[2] & AP_READY))
   {
-    if(Serial.available()>=1)
-    {
-      rxByte[nSample] = Serial.read();
-      Serial.write(rxByte[nSample]);
-      nSample++;
-      psce.EMU_Blinker(0x80);
-    }
-    else delay(1);
+    psce.rxByte[0] = AP_START;
+    Advance_Clock();
   }
-
-  // Transact with FPGA
-  digitalWrite(LED_BUILTIN, LOW);
-  nSample = 0;
-  while(nSample < F_SAMPLE)
+  // Process DUT: Valid output hand-shake
+  do
   {
-    while(!(psce.txByte[2] & AP_READY))
-    {
-      psce.rxByte[0] = AP_START;
-      psce.rxByte[1] = rxByte[nSample];
-      SetInputs();
-      ClockCycle();
-      GetOutputs();
-    }
-
-    do
-    {
-      psce.rxByte[0] = AP_START;
-      psce.rxByte[1] = rxByte[nSample];
-      SetInputs();
-      ClockCycle();
-      GetOutputs();
-    } while(!(psce.txByte[2] & Y_AP_VLD));
-
-    txByte[nSample*2]     = psce.txByte[0];
-    txByte[(nSample*2)+1] = psce.txByte[1];
-
-    while(!(psce.txByte[2] & AP_DONE))
-    {
-      psce.rxByte[0] = AP_START;
-      psce.rxByte[1] = rxByte[nSample];
-      SetInputs();
-      ClockCycle();
-      GetOutputs();
-    }
-
-    nSample++;
-  }
-
-  // Transmit Data to Host
-  digitalWrite(LED_BUILTIN, HIGH);
-  nSample = 0;
-  while(nSample < F_SAMPLE)
+    psce.rxByte[0] = AP_START;
+    Advance_Clock();
+  } while(!(psce.txByte[2] & Y_AP_VLD));
+  // Transmit Result
+  while(Serial.availableForWrite()<2) delay(1);
+  Serial.write((uint8_t)psce.txByte[0]);
+  Serial.write((uint8_t)psce.txByte[1]);
+  // Process DUT: DONE
+  while(!(psce.txByte[2] & AP_DONE))
   {
-    if (Serial.availableForWrite()>=2)
-    {
-      Serial.write((uint8_t)txByte[nSample*2]);
-      Serial.write((uint8_t)txByte[(nSample*2)+1]);
-      nSample++;
-      psce.EMU_Blinker(0x80);
-    }
-    else  delay(1);
+    psce.rxByte[0] = AP_START;
+    Advance_Clock();
   }
 }
 

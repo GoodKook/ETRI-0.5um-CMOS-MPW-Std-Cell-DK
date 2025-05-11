@@ -1,0 +1,19 @@
+convert.o: convert.c ../common/debugflag.h ../common/print.h \
+ ../common/attrib.h ../common/version.h ../common/xmalloc.h \
+ ../common/xsprintf.h error.h ../common/attrib.h global.h model.h o65.h \
+ ../common/coll.h ../common/check.h ../common/inline.h convert.h
+error.o: error.c ../common/cmdline.h ../common/attrib.h error.h \
+ ../common/attrib.h
+fileio.o: fileio.c ../common/xmalloc.h error.h ../common/attrib.h \
+ fileio.h ../common/filepos.h
+global.o: global.c ../common/segnames.h global.h
+main.o: main.c ../common/chartype.h ../common/inline.h \
+ ../common/cmdline.h ../common/attrib.h ../common/debugflag.h \
+ ../common/fname.h ../common/print.h ../common/segnames.h \
+ ../common/version.h ../common/xmalloc.h ../common/xsprintf.h convert.h \
+ error.h ../common/attrib.h global.h model.h o65.h ../common/coll.h \
+ ../common/check.h
+model.o: model.c ../common/strutil.h error.h ../common/attrib.h model.h
+o65.o: o65.c ../common/chartype.h ../common/inline.h ../common/xmalloc.h \
+ error.h ../common/attrib.h fileio.h ../common/filepos.h o65.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h

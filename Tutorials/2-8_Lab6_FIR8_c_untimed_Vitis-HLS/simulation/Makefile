@@ -57,16 +57,22 @@ all :
 	@echo
 	@echo 'Makefile for Co-Simulation of "Vitis-HLS example, fir"'
 	@echo 'Usage:'
-	@echo '    make lint      ; Linting Verilog'
-	@echo '    make build     ; Building Co-Simulation Verilated RTL with SystemC TB'
-	@echo '    make build_emu ; Building Co-Emulation FPGA+Verilog RTL with SystemC TB'
-	@echo '    make run       ; Running Co-Sumlation with SystemC TB'
-	@echo '    make run_trans ; Running Transaction Level'
-	@echo '    make wave      ; View DUT Verilog trace(Functional)'
-	@echo '    make clean     ; Clean up working folder'
+	@echo '    make lint      	; Linting Verilog'
+	@echo '    make build     	; Building Co-Simulation Verilated RTL with SystemC TB'
+	@echo '    make build_emu 	; Building Co-Emulation FPGA+Verilog RTL with SystemC TB'
+	@echo '    make build_TL 	; Building Transaction Level, Co-Emulation FPGA with C/C++ function-call'
+	@echo '    make build_TL_Bulk'
+	@echo '    make run       	; Running Co-Sumlation with SystemC TB'
+	@echo '    make run_TL    	; Running Transaction Level'
+	@echo '    make run_TL_Bulk	; Running Transaction Level(Bulky 4800 Sample)'
+	@echo '    make wave      	; View DUT Verilog trace(Functional)'
+	@echo '    make clean     	; Clean up working folder'
 	@echo
 	@echo '    * command-line variable HW_STYLE must be set before build'
 	@echo '      HW_STYLE=[FIR_MAC_VERSION | FIR_SHIFTER_VERSION | FIR_ARRAY_VERSION] make build'
+
+lint :
+	$(VERILATOR) --sc $(VL_SC_PINS) --timing $(VL_WARNING) -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
 
 build : $(TARGET_DIR)/$(TARGET)
 
@@ -76,22 +82,34 @@ $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS) $(REF_SRCS)
 	$(VERILATOR) --sc $(VL_SC_PINS) $(VL_WARNING) --trace --timing --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS) $(REF_SRCS)
 
-lint :
-	$(VERILATOR) --sc $(VL_SC_PINS) --timing $(VL_WARNING) -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
+build_TL: $(TOP_MODULE)_TL
+
+$(TOP_MODULE)_TL: $(TOP_MODULE)_TL.cpp
+	gcc -o $(TOP_MODULE)_TL $(TOP_MODULE)_TL.cpp
+
+build_TL_Bulk: $(TOP_MODULE)_TL_Bulk
+
+$(TOP_MODULE)_TL_Bulk: $(TOP_MODULE)_TL_Bulk.cpp
+	gcc -o $(TOP_MODULE)_TL_Bulk $(TOP_MODULE)_TL_Bulk.cpp
 
 run : $(TARGET_DIR)/$(TARGET)
-	rm -f fir_fifo
-	mkfifo fir_fifo
+	rm -f $(TOP_MODULE)_fifo
+	mkfifo $(TOP_MODULE)_fifo
 	python3 ./sc_plotDFT.py &
 	cp $(VITIS_SYN_PATH)/*.dat .
 	./$(TARGET_DIR)/$(TARGET)
 
-run_trans: fir.cpp
-	gcc -o fir fir.cpp
-	rm -f fir_fifo
-	mkfifo fir_fifo
+run_TL: $(TOP_MODULE)_TL
+	rm -f $(TOP_MODULE)_fifo
+	mkfifo $(TOP_MODULE)_fifo
 	python3 ./sc_plotDFT.py &
-	./fir
+	./$(TOP_MODULE)_TL
+
+run_TL_Bulk: $(TOP_MODULE)_TL_Bulk
+	rm -f $(TOP_MODULE)_fifo
+	mkfifo $(TOP_MODULE)_fifo
+	python3 ./sc_plotDFT.py &
+	./$(TOP_MODULE)_TL_Bulk
 
 run_tim : $(TOP_MODULE)
 	./$(TOP_MODULE)
@@ -103,9 +121,11 @@ wave : V$(TOP_MODULE).vcd
 clean :
 	rm -f *.vcd
 	rm -f *.dat
-	rm -f fir_fifo
 	rm -rf $(TARGET_DIR)
 	rm -f $(TOP_MODULE)
+	rm -f $(TOP_MODULE)_fifo
+	rm -f $(TOP_MODULE)_TL
+	rm -f $(TOP_MODULE)_TL_Bulk
 
 debug : $(TARGET_DIR)/$(TARGET)
 	ddd $(TARGET_DIR)/$(TARGET)

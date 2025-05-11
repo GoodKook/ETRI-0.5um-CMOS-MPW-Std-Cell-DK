@@ -1,0 +1,214 @@
+anonname.o: anonname.c anonname.h ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h
+asserts.o: asserts.c ../common/assertdefs.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h \
+ ../common/xmalloc.h asserts.h error.h ../common/attrib.h \
+ ../common/filepos.h expr.h ../common/exprdefs.h objfile.h \
+ ../common/strbuf.h scanner.h token.h ../common/inline.h spool.h \
+ ../common/strpool.h ../common/coll.h ../common/strbuf.h
+condasm.o: condasm.c error.h ../common/attrib.h ../common/filepos.h \
+ expr.h ../common/exprdefs.h instr.h ../common/cpu.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h nexttok.h \
+ scanner.h token.h ../common/inline.h symbol.h symtab.h segrange.h \
+ ../common/coll.h symentry.h ../common/cddefs.h spool.h \
+ ../common/strpool.h ../common/coll.h ../common/strbuf.h condasm.h
+dbginfo.o: dbginfo.c ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h error.h ../common/attrib.h \
+ ../common/filepos.h expr.h ../common/exprdefs.h filetab.h lineinfo.h \
+ ../common/coll.h global.h nexttok.h scanner.h token.h ../common/inline.h \
+ dbginfo.h
+ea65.o: ea65.c ea.h ea65.h error.h ../common/attrib.h ../common/filepos.h \
+ expr.h ../common/exprdefs.h instr.h ../common/cpu.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h nexttok.h \
+ scanner.h token.h ../common/inline.h
+easw16.o: easw16.c ea.h ea65.h error.h ../common/attrib.h \
+ ../common/filepos.h expr.h ../common/exprdefs.h instr.h ../common/cpu.h \
+ ../common/strbuf.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h nexttok.h scanner.h token.h ../common/inline.h
+enum.o: enum.c ../common/addrsize.h condasm.h enum.h error.h \
+ ../common/attrib.h ../common/filepos.h expr.h ../common/exprdefs.h \
+ nexttok.h scanner.h ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h token.h ../common/inline.h symbol.h \
+ symtab.h segrange.h ../common/coll.h symentry.h ../common/cddefs.h \
+ spool.h ../common/strpool.h ../common/coll.h ../common/strbuf.h
+error.o: error.c ../common/strbuf.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h error.h ../common/attrib.h ../common/filepos.h \
+ filetab.h nexttok.h scanner.h token.h ../common/inline.h
+expr.o: expr.c ../common/check.h ../common/attrib.h ../common/cpu.h \
+ ../common/exprdefs.h ../common/print.h ../common/shift.h \
+ ../common/strbuf.h ../common/check.h ../common/inline.h \
+ ../common/tgttrans.h ../common/strbuf.h ../common/version.h \
+ ../common/xmalloc.h error.h ../common/attrib.h ../common/filepos.h \
+ expr.h global.h instr.h nexttok.h scanner.h token.h ../common/inline.h \
+ objfile.h segment.h ../common/fragdefs.h ../common/segdefs.h \
+ ../common/addrsize.h fragment.h sizeof.h studyexpr.h symbol.h symtab.h \
+ segrange.h ../common/coll.h symentry.h ../common/cddefs.h spool.h \
+ ../common/strpool.h ../common/coll.h toklist.h ulabel.h
+feature.o: feature.c global.h feature.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h
+filetab.o: filetab.c ../common/check.h ../common/attrib.h \
+ ../common/coll.h ../common/check.h ../common/inline.h \
+ ../common/hashtab.h ../common/xmalloc.h ../common/xmalloc.h error.h \
+ ../common/attrib.h ../common/filepos.h filetab.h ../common/strbuf.h \
+ objfile.h spool.h ../common/strpool.h ../common/coll.h \
+ ../common/strbuf.h
+fragment.o: fragment.c ../common/xmalloc.h fragment.h \
+ ../common/exprdefs.h ../common/filepos.h lineinfo.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h global.h \
+ scanner.h ../common/strbuf.h token.h ../common/inline.h
+global.o: global.c ../common/addrsize.h global.h
+incpath.o: incpath.c ../common/searchpath.h incpath.h
+instr.o: instr.c ../common/addrsize.h ../common/assertdefs.h \
+ ../common/attrib.h ../common/bitops.h ../common/attrib.h \
+ ../common/check.h ../common/mmodel.h asserts.h ea.h ea65.h easw16.h \
+ error.h ../common/filepos.h expr.h ../common/exprdefs.h global.h instr.h \
+ ../common/cpu.h ../common/strbuf.h ../common/check.h ../common/inline.h \
+ nexttok.h scanner.h token.h ../common/inline.h objcode.h spool.h \
+ ../common/strpool.h ../common/coll.h ../common/strbuf.h studyexpr.h \
+ symtab.h segrange.h ../common/coll.h symentry.h ../common/cddefs.h
+istack.o: istack.c ../common/check.h ../common/attrib.h \
+ ../common/xmalloc.h error.h ../common/attrib.h ../common/filepos.h \
+ istack.h
+lineinfo.o: lineinfo.c ../common/coll.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h ../common/xmalloc.h objfile.h \
+ ../common/filepos.h ../common/strbuf.h lineinfo.h global.h
+listing.o: listing.c ../common/check.h ../common/attrib.h \
+ ../common/fname.h ../common/fragdefs.h ../common/version.h \
+ ../common/xmalloc.h error.h ../common/attrib.h ../common/filepos.h \
+ filetab.h ../common/strbuf.h ../common/check.h ../common/inline.h \
+ global.h listing.h fragment.h ../common/exprdefs.h segment.h \
+ ../common/inline.h ../common/segdefs.h ../common/addrsize.h
+macpack.o: macpack.c ../common/check.h ../common/attrib.h \
+ ../common/strbuf.h ../common/check.h ../common/inline.h \
+ ../common/strutil.h error.h ../common/attrib.h ../common/filepos.h \
+ scanner.h token.h ../common/inline.h macpack.h atari.inc cbm.inc cpu.inc \
+ generic.inc longbranch.inc
+macro.o: macro.c ../common/check.h ../common/attrib.h ../common/hashstr.h \
+ ../common/strbuf.h ../common/check.h ../common/inline.h \
+ ../common/hashtab.h ../common/xmalloc.h ../common/xmalloc.h condasm.h \
+ error.h ../common/attrib.h ../common/filepos.h global.h instr.h \
+ ../common/cpu.h ../common/strbuf.h istack.h nexttok.h scanner.h token.h \
+ ../common/inline.h pseudo.h toklist.h macro.h
+main.o: main.c ../common/addrsize.h ../common/chartype.h \
+ ../common/inline.h ../common/cmdline.h ../common/attrib.h \
+ ../common/mmodel.h ../common/print.h ../common/strbuf.h \
+ ../common/check.h ../common/target.h ../common/cpu.h \
+ ../common/tgttrans.h ../common/strbuf.h ../common/version.h \
+ ../common/abend.h asserts.h error.h ../common/attrib.h \
+ ../common/filepos.h expr.h ../common/exprdefs.h feature.h filetab.h \
+ global.h incpath.h instr.h ../common/cpu.h istack.h lineinfo.h \
+ ../common/coll.h listing.h fragment.h macpack.h macro.h nexttok.h \
+ scanner.h token.h ../common/inline.h objfile.h options.h pseudo.h \
+ segment.h ../common/fragdefs.h ../common/segdefs.h ../common/addrsize.h \
+ sizeof.h spool.h ../common/strpool.h ../common/coll.h symtab.h \
+ segrange.h symentry.h ../common/cddefs.h ulabel.h
+nexttok.o: nexttok.c ../common/chartype.h ../common/inline.h \
+ ../common/check.h ../common/attrib.h ../common/strbuf.h \
+ ../common/check.h error.h ../common/attrib.h ../common/filepos.h expr.h \
+ ../common/exprdefs.h global.h scanner.h token.h ../common/inline.h \
+ toklist.h nexttok.h
+objcode.o: objcode.c error.h ../common/attrib.h ../common/filepos.h \
+ fragment.h ../common/exprdefs.h objcode.h expr.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h segment.h \
+ ../common/fragdefs.h ../common/inline.h ../common/segdefs.h \
+ ../common/addrsize.h
+objfile.o: objfile.c ../common/fname.h ../common/objdefs.h global.h \
+ error.h ../common/attrib.h ../common/filepos.h objfile.h \
+ ../common/strbuf.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h
+options.o: options.c ../common/optdefs.h ../common/xmalloc.h error.h \
+ ../common/attrib.h ../common/filepos.h objfile.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h options.h \
+ spool.h ../common/strpool.h ../common/coll.h ../common/strbuf.h
+pseudo.o: pseudo.c ../common/assertdefs.h ../common/bitops.h \
+ ../common/attrib.h ../common/cddefs.h ../common/coll.h ../common/check.h \
+ ../common/inline.h ../common/symdefs.h ../common/tgttrans.h \
+ ../common/strbuf.h ../common/xmalloc.h anonname.h ../common/strbuf.h \
+ asserts.h condasm.h dbginfo.h enum.h error.h ../common/attrib.h \
+ ../common/filepos.h expr.h ../common/exprdefs.h feature.h global.h \
+ incpath.h instr.h ../common/cpu.h listing.h fragment.h macpack.h macro.h \
+ nexttok.h scanner.h token.h ../common/inline.h objcode.h options.h \
+ pseudo.h repeat.h segment.h ../common/fragdefs.h ../common/segdefs.h \
+ ../common/addrsize.h sizeof.h spool.h ../common/strpool.h \
+ ../common/coll.h struct.h symbol.h symtab.h segrange.h symentry.h
+repeat.o: repeat.c ../common/xmalloc.h error.h ../common/attrib.h \
+ ../common/filepos.h expr.h ../common/exprdefs.h nexttok.h scanner.h \
+ ../common/strbuf.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h token.h ../common/inline.h toklist.h repeat.h
+scanner.o: scanner.c ../common/addrsize.h ../common/attrib.h \
+ ../common/chartype.h ../common/inline.h ../common/check.h \
+ ../common/attrib.h ../common/fname.h ../common/xmalloc.h condasm.h \
+ error.h ../common/filepos.h filetab.h ../common/strbuf.h \
+ ../common/check.h global.h incpath.h instr.h ../common/cpu.h istack.h \
+ listing.h fragment.h ../common/exprdefs.h macro.h toklist.h scanner.h \
+ token.h ../common/inline.h
+segment.o: segment.c ../common/addrsize.h ../common/mmodel.h \
+ ../common/segnames.h ../common/xmalloc.h error.h ../common/attrib.h \
+ ../common/filepos.h fragment.h ../common/exprdefs.h global.h lineinfo.h \
+ ../common/coll.h ../common/attrib.h ../common/check.h ../common/inline.h \
+ listing.h objcode.h expr.h ../common/strbuf.h objfile.h segment.h \
+ ../common/fragdefs.h ../common/inline.h ../common/segdefs.h \
+ ../common/addrsize.h spool.h ../common/strpool.h ../common/coll.h \
+ ../common/strbuf.h studyexpr.h symtab.h segrange.h symentry.h \
+ ../common/cddefs.h
+segrange.o: segrange.c ../common/xmalloc.h segment.h ../common/fragdefs.h \
+ ../common/inline.h ../common/segdefs.h ../common/addrsize.h fragment.h \
+ ../common/exprdefs.h ../common/filepos.h segrange.h ../common/coll.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h
+sizeof.o: sizeof.c ../common/addrsize.h expr.h ../common/exprdefs.h \
+ sizeof.h ../common/strbuf.h ../common/attrib.h ../common/check.h \
+ ../common/inline.h symtab.h ../common/inline.h segrange.h \
+ ../common/coll.h symentry.h ../common/cddefs.h ../common/filepos.h \
+ spool.h ../common/strpool.h ../common/coll.h ../common/strbuf.h
+spool.o: spool.c objfile.h ../common/filepos.h ../common/strbuf.h \
+ ../common/attrib.h ../common/check.h ../common/inline.h spool.h \
+ ../common/strpool.h ../common/coll.h ../common/strbuf.h
+struct.o: struct.c ../common/addrsize.h condasm.h error.h \
+ ../common/attrib.h ../common/filepos.h expr.h ../common/exprdefs.h \
+ nexttok.h scanner.h ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h token.h ../common/inline.h sizeof.h \
+ symbol.h symtab.h segrange.h ../common/coll.h symentry.h \
+ ../common/cddefs.h spool.h ../common/strpool.h ../common/coll.h \
+ ../common/strbuf.h struct.h
+studyexpr.o: studyexpr.c ../common/check.h ../common/attrib.h \
+ ../common/print.h ../common/shift.h ../common/xmalloc.h error.h \
+ ../common/attrib.h ../common/filepos.h segment.h ../common/fragdefs.h \
+ ../common/inline.h ../common/segdefs.h ../common/addrsize.h fragment.h \
+ ../common/exprdefs.h studyexpr.h symtab.h segrange.h ../common/coll.h \
+ ../common/check.h ../common/inline.h symentry.h ../common/cddefs.h \
+ ../common/strbuf.h spool.h ../common/strpool.h ../common/coll.h \
+ ../common/strbuf.h ulabel.h
+symentry.o: symentry.c ../common/addrsize.h ../common/xmalloc.h error.h \
+ ../common/attrib.h ../common/filepos.h expr.h ../common/exprdefs.h \
+ global.h scanner.h ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h token.h ../common/inline.h \
+ segment.h ../common/fragdefs.h ../common/segdefs.h ../common/addrsize.h \
+ fragment.h spool.h ../common/strpool.h ../common/coll.h \
+ ../common/strbuf.h studyexpr.h symentry.h ../common/cddefs.h \
+ ../common/coll.h symtab.h segrange.h
+symbol.o: symbol.c ../common/strbuf.h ../common/attrib.h \
+ ../common/check.h ../common/inline.h error.h ../common/attrib.h \
+ ../common/filepos.h nexttok.h scanner.h token.h ../common/inline.h \
+ symbol.h symtab.h ../common/exprdefs.h segrange.h ../common/coll.h \
+ symentry.h ../common/cddefs.h spool.h ../common/strpool.h \
+ ../common/coll.h ../common/strbuf.h
+symtab.o: symtab.c ../common/addrsize.h ../common/check.h \
+ ../common/attrib.h ../common/hashstr.h ../common/strbuf.h \
+ ../common/check.h ../common/inline.h ../common/mmodel.h \
+ ../common/symdefs.h ../common/xmalloc.h global.h error.h \
+ ../common/attrib.h ../common/filepos.h expr.h ../common/exprdefs.h \
+ objfile.h ../common/strbuf.h scanner.h token.h ../common/inline.h \
+ segment.h ../common/fragdefs.h ../common/segdefs.h ../common/addrsize.h \
+ fragment.h sizeof.h spool.h ../common/strpool.h ../common/coll.h \
+ studyexpr.h symtab.h segrange.h ../common/coll.h symentry.h \
+ ../common/cddefs.h
+token.o: token.c token.h ../common/inline.h
+toklist.o: toklist.c ../common/check.h ../common/attrib.h \
+ ../common/xmalloc.h error.h ../common/attrib.h ../common/filepos.h \
+ istack.h nexttok.h scanner.h ../common/strbuf.h ../common/check.h \
+ ../common/inline.h token.h ../common/inline.h toklist.h
+ulabel.o: ulabel.c ../common/check.h ../common/attrib.h ../common/coll.h \
+ ../common/check.h ../common/inline.h ../common/filepos.h \
+ ../common/xmalloc.h error.h ../common/attrib.h expr.h \
+ ../common/exprdefs.h scanner.h ../common/strbuf.h token.h \
+ ../common/inline.h ulabel.h
