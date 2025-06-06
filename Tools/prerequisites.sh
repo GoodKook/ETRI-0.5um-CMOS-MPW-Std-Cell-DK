@@ -14,7 +14,7 @@ sudo apt install -y \
     build-essential cmake gperf gdb unzip meson \
     xterm libx11-dev libmotif-dev \
     xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable \
-    libxaw7-dev x11-xserver-utils libtinfo5 \
+    libxaw7-dev x11-xserver-utils \
     clang bison flex gawk git libgit2-dev \
     libfl2 libfl-dev dbus dbus-x11 \
     libreadline-dev tcl-dev tk-dev libffi-dev \
@@ -30,18 +30,20 @@ sudo apt install -y \
     qtbase5-dev qtdeclarative5-dev qtcreator \
     qtchooser qt5-qmake qtbase5-dev-tools \
     qttools5-dev libqt5xmlpatterns5-dev \
-    ruby ruby-dev libz-dev \
+    ruby ruby-dev zlib1g-dev \
     qtmultimedia5-dev libqt5multimediawidgets5 libqt5svg5-dev \
     swig libtool libjpeg-dev \
     perl perl-doc libgtk2.0-dev libgtk-3-dev gettext help2man \
+    libcanberra-gtk-module libcanberra-gtk3-module \
     desktop-file-utils libbz2-dev libjudy-dev \
     google-perftools libgoogle-perftools-dev \
     ant default-jre libfl-dev \
-    uuid uuid-dev \
-    libsecret-1-dev doxygen nemo gedit gedit-plugin-multi-edit
+    uuid uuid-dev libsecret-1-dev \
+    xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted
+
 sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 sudo pip3 install git+https://github.com/antmicro/astsee.git
 cpan install Pod::Perldoc
 
 sudo apt --fix-broken install
-
+sudo apt 

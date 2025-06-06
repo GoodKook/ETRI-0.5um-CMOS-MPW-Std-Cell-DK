@@ -1,0 +1,20 @@
+Install Gowin IDE
+-----------------
+
+1. Make a directory for the Gowin IDE tool
+
+    sudo mkdir /opt/Gowin
+    cd /opt/Gowin
+
+2. Change ownership,
+
+    sudo chown -R root:root IDE
+    sudo chown -R root:root Programmer
+
+3. Make don't use freetype fonts,
+
+    cd /opt/Gowin/IDE/lib
+    sudo mv libfreetype.so.6 libfreetype.so.6.BAK
+
+4. Follow Programmer driver install,
+

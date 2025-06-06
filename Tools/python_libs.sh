@@ -2,12 +2,8 @@
 echo "Python Packages"
 echo "----------------"
 
-sudo python3 -m pip install -U pip
-sudo python3 -m pip install -U numpy
-sudo python3 -m pip install -U matplotlib
-sudo python3 -m pip install -U PILLOW
+sudo apt install python3-pip
+sudo apt install python3-numpy
+sudo apt install python3-matplotlib
+sudo apt install python3-pil
 
-python3 -m pip install -U pip
-python3 -m pip install -U numpy
-python3 -m pip install -U matplotlib
-python3 -m pip install -U PILLOW

@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-./prerequisites.sh
 ./z3_build.sh
 ./sdl_install.sh
 ./python_libs.sh
@@ -13,11 +12,11 @@
 ./qrouter_build.sh
 ./ngspice44_build.sh
 ./xschem_build.sh
+./gtkwave_install.sh
+./yosys_build.sh
 ./systemc_build.sh
 ./iverilog_build.sh
 ./verilator_build.sh
-./gtkwave_install.sh
-./yosys_build.sh
 ./qflow-1.4.100_etri050_build.sh
 
 echo ""

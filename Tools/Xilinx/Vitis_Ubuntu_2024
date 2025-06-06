@@ -1,0 +1,36 @@
+
+https://adaptivesupport.amd.com/s/question/0D54U000092qvr0SAA/vitis-unified-ide-not-launching-in-ubuntu-2204?language=en_US
+
+When you run installLibs.sh from Vitis/2024.2/scripts, do you see any packages that can't be installed?
+
+I know you've stated that your Ubuntu is 22.04.2 LTS
+
+However, we have recently seeing an issue similar to what you've explained above. See this thread, where it seems like ${XILINX_VITIS}/lib/lnx64.o/Ubuntu/libstdc++.so.6 only supports up to GLIBCXX_3.4.25 and CXXABI_1.3.11, while libgallium and libLLVM require newer releases (up to GLIBCXX_3.4.30 and CXXABI_1.3.13).
+
+However, the issue in the above mentioned thread, is with Ubuntu 24.04.1, where Ubuntu has 'forced' some updates to be applied, that are released only recently.
+
+The following has helped other users (not sure if this will help here to, as in your case you are not running Ubuntu 24.04)
+
+# Change to xilinx tool installation directory. By default, it is '/opt/Xilinx/'
+
+    cd <xilinx_install_dir>
+
+# Change to directory where problematic standard libraries are.
+
+    cd Vitis/2024.2/lib/lnx64.o/Ubuntu/
+
+# Make backup copies of your current libraries.
+
+    mv libstdc++.so libstdc++.so.bkup
+    mv libstdc++.so.6 libstdc++.so.6.bkup
+
+# Soft-link system libraries.
+
+    ln -s /lib/x86_64-linux-gnu/libstdc++.so.6 libstdc++.so.6
+    ln -s /lib/x86_64-linux-gnu/libstdc++.so.6 libstdc++.so
+
+# If the last step does not work due to wrong system libraries,
+# you can look for them with this command:
+
+    ldconfig -p | grep stdc++
+

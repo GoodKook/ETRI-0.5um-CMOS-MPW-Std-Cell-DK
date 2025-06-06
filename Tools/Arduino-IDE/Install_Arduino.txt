@@ -1,0 +1,29 @@
+
+Arduino-IDE (AppImage)
+----------------------
+https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing/
+
+1. Download Arduino-IDE AppImage for Linux
+
+    https://www.arduino.cc/en/software/
+
+2. Change downloaded AppImage as executable,
+
+    chmod +x arduino-ide_2.3.6_Linux_64bit.AppImage
+
+* In case you cannot run the AppImage file, make sure that FUSE is installed on your system.
+
+In Ubuntu (>= 22.04):
+
+    sudo add-apt-repository universe
+    sudo apt install libfuse2
+
+-----------------------------------------------
+
+1. Extract .Zip archive
+2. Goto the directory where extracted arduino-ide, set the right permissions to the chrome-sandbox file:
+
+    sudo chown root:root chrome-sandbox
+    sudo chmod 4755 chrome-sandbox
+
+

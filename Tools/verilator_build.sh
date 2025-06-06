@@ -18,7 +18,6 @@ cd verilator
 git pull
 
 autoconf
-#./configure "CXX=g++ -std=gnu++2a"
 ./configure
 make -j `nproc`
 sudo make install
