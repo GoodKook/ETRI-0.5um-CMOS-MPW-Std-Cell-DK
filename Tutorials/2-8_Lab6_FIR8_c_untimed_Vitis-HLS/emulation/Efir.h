@@ -56,9 +56,9 @@ inline void _EMU_IO_(void)
     {
         uint8_t tx, rx, txPacket[N_TX], rxPacket[N_RX];
 
-        txPacket[0]  = ap_rst?   0x01 : 0x00;
-        txPacket[0] |= ap_start? 0x02 : 0x00;
-        txPacket[0] |= ap_clk?   0x08 : 0x00;
+        txPacket[0]  = ap_rst.read()?   0x01 : 0x00;
+        txPacket[0] |= ap_start.read()? 0x02 : 0x00;
+        txPacket[0] |= ap_clk.read()?   0x08 : 0x00;
         txPacket[1] = (uint8_t)(x.read());
 
         // Send to Emulator
@@ -94,14 +94,22 @@ inline void _EMU_IO_(void)
         }
     }
 
+    void Efir_method(void)
+    {
+        _EMU_IO_();
+    }
+
     // Arduino Serial IF
     int fd;                 // Serial port file descriptor
     struct termios options; // Serial port setting
 
     SC_CTOR(Efir): ap_clk("ap_clk")
     {
-        SC_THREAD(Efir_thread);
-        sensitive << ap_clk;
+        //SC_THREAD(Efir_thread);
+        //sensitive << ap_clk;
+
+        SC_METHOD(Efir_method);
+        sensitive << x << ap_rst << ap_start << ap_clk;
 
         // Arduino DUT
         //fd = open("/dev/ttyACM0", O_RDWR | O_NDELAY | O_NOCTTY);

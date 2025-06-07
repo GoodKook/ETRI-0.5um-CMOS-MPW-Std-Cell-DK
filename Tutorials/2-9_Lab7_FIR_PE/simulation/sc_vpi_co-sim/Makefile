@@ -55,7 +55,7 @@ $(VLT_TARGET) : $(VLT_DIR)/V$(VLT_TOP_MODULE).h
 	cd $(VLT_DIR);make -f V$(VLT_TOP_MODULE).mk;cd ..
 
 $(VLT_DIR)/V$(VLT_TOP_MODULE).h: $(VLT_SRCS)
-	verilator --sc -Wall -CFLAGS -fPIC \
+	verilator --sc -Wall -CFLAGS -fPIC -CFLAGS -DFIR_SHIFTER_VERSION \
 				--top-module $(VLT_TOP_MODULE) $(VLT_SRCS)
 
 # Build VPI -----------------------------------------------------
@@ -84,7 +84,7 @@ VPI_LIB_PATH = \
     -L${SYSTEMC_LIBDIR} \
     -L$(VLT_DIR)
 VPI_CFLAGS = \
-    -fPIC
+    -fPIC -DFIR_SHIFTER_VERSION
 VPI_LFLAGS = \
 	-shared \
 	-latomic \

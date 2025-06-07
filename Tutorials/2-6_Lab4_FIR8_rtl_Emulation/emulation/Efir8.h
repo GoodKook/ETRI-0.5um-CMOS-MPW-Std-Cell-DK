@@ -28,34 +28,45 @@ SC_MODULE(Efir8)
 #define N_TX    3
 #define N_RX    3
 
-    void Efir8_thread(void)
+inline void _DUT_IO_(void)
     {
         uint8_t     tx, rx, txPacket[N_TX], rxPacket[N_RX];
 
+        txPacket[0] = (uint8_t)Xin.read();
+        txPacket[1] = (uint8_t)(Yin.read());
+        txPacket[2] = (uint8_t)(Yin.read()>>8);
+        txPacket[2] |= (clk.read())? 0x80 : 0x00;
+
+        // Send to Emulator
+        for (int i=0; i<N_TX; i++)
+        {
+            tx = txPacket[i];
+            while(write(fd, &tx, 1)<=0)  usleep(1);
+        }
+        // Receive from Emulator
+        for (int i=0; i<N_RX; i++)
+        {
+            while(read(fd, &rx, 1)<=0)   usleep(1);
+            rxPacket[i] = rx;
+        }
+
+        Xout.write((sc_uint<8>)(rxPacket[0]));
+        Yout.write((sc_uint<16>)rxPacket[1] | (sc_uint<16>)rxPacket[2]<<8);
+    }
+
+    void Efir8_thread(void)
+    {
         while(true)
         {
             // Positive edge Clock
             wait(clk.posedge_event());
-            txPacket[0] = (uint8_t)Xin.read();
-            txPacket[1] = (uint8_t)(Yin.read());
-            txPacket[2] = (uint8_t)(Yin.read()>>8);
-
-            // Send to Emulator
-            for (int i=0; i<N_TX; i++)
-            {
-                tx = txPacket[i];
-                while(write(fd, &tx, 1)<=0)  usleep(1);
-            }
-            // Receive from Emulator
-            for (int i=0; i<N_RX; i++)
-            {
-                while(read(fd, &rx, 1)<=0)   usleep(1);
-                rxPacket[i] = rx;
-            }
-
-            Xout.write((sc_uint<8>)(rxPacket[0]));
-            Yout.write((sc_uint<16>)rxPacket[1] | (sc_uint<16>)rxPacket[2]<<8);
+            _DUT_IO_();
         }
+    }
+
+    void Efir8_method(void)
+    {
+        _DUT_IO_();
     }
 
     // Arduino Serial IF
@@ -67,8 +78,11 @@ SC_MODULE(Efir8)
         Xin("Xin"), Xout("Xout"),
         Yin("Yin"), Yout("Yout")
     {
-        SC_THREAD(Efir8_thread);
-        sensitive << clk;
+        //SC_THREAD(Efir8_thread);
+        //sensitive << clk;
+
+        SC_METHOD(Efir8_method);
+        sensitive << clk << Xin << Yin;
 
         // Arduino DUT
         //fd = open("/dev/ttyACM0", O_RDWR | O_NDELAY | O_NOCTTY);

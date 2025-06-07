@@ -56,39 +56,23 @@ TARGET_DIR   = obj_dir
 # Build Rules --------------------------------------------------
 all :
 	@echo
-	@echo 'Makefile for Co-Simulation of "Vitis-HLS example, fir"'
+	@echo 'Makefile for Co-Simulation of "Vitis-HLS example, fir_pe"'
 	@echo ''
 	@echo 'Usage:'
-	@echo '    Linting Verilog,'
-	@echo '        make lint'
+	@echo '        make lint        ; Linting Verilog,'
+	@echo '        make build       ; Building functional-sim with SystemC TB,'
+	@echo '        make build_emu   ; Building functional-sim with SystemC TB,'
+	@echo '        make build_net   ; Building netlist-sim with SystemC TB,'
+	@echo '        make build_tim   ; Building Timing-sim with SystemVerilog TB,'
+	@echo
+	@echo '        make run         ; Running Functional simulation,'
+	@echo '        make run_tim     ; Running Timing simulation,'
 	@echo ''
-	@echo '    Building functional-sim with SystemC TB,'
-	@echo '        make build'
-	@echo ''
-	@echo '    Building functional-sim with SystemC TB,'
-	@echo '        make build_emu'
-	@echo ''
-	@echo '    Building netlist-sim with SystemC TB,'
-	@echo '        make build_net'
-	@echo ''
-	@echo '    Building Timing-sim with SystemVerilog TB,'
-	@echo '        make build_tim'
-	@echo ''
-	@echo '    Running Functional simulation,'
-	@echo '        make run'
-	@echo ''
-	@echo '    Running Timing simulation,'
-	@echo '        make run_tim'
-	@echo ''
-	@echo '    View DUT Verilog trace(Functional),'
-	@echo '        make wave'
-	@echo ''
-	@echo '    View DUT Verilog trace(Timing),'
-	@echo '        make wave_tim'
-	@echo ''
-	@echo '    Clean up working folder,'
-	@echo '        make clean'
-	@echo ''
+	@echo '        make wave        ; View DUT Verilog trace(Functional),'
+	@echo '        make wave_tim    ; View DUT Verilog trace(Timing),'
+	@echo
+	@echo '        make clean       ; Clean up working folder,'
+	@echo
 	@echo '    * command-line variable HW_STYLE must be set before build'
 	@echo '      HW_STYLE=[FIR_MAC_VERSION | FIR_SHIFTER_VERSION | FIR_ARRAY_VERSION] make build'
 
@@ -111,7 +95,6 @@ lint :
 	$(VERILATOR) --sc $(VL_SC_PINS) --timing $(VL_WARNING) -CFLAGS -fPIC --top-module $(TOP_MODULE) $(VERILOG_SRCS)
 
 run : $(TARGET_DIR)/$(TARGET)
-	cp $(VITIS_SYN_PATH)/*.dat .
 	./$(TARGET_DIR)/$(TARGET)
 
 run_tim : $(TOP_MODULE)

@@ -19,9 +19,8 @@ build: VERILOG_SRCS =  ../source/fir_pe.v
 build_net: VERILOG_SRCS =  ../synthesis/fir_pe.v \
 					~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v
 VERILATOR    = verilator
-VCFLAGS    	 = -CFLAGS -std=c++17
-#VCFLAGS    	 = -CFLAGS -std=c++2a
-VCFLAGS		+= -CFLAGS -g
+VCFLAGS		= -CFLAGS -g
+VCFLAGS		+= -CFLAGS -DFIR_SHIFTER_VERSION
 VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8_TB
@@ -44,7 +43,7 @@ TARGET_DIR   = obj_dir
 all :
 	@echo
 	@echo 'Makefile for Co-Simulation of "FIR_PE, 4-bit IO for MPW pad limit"'
-	@echo ''
+	@echo
 	@echo 'SystemC Testbench'
 	@echo '      +-----------------------------------------------------------+'
 	@echo '      | sc_fir8                                                   |'
@@ -61,42 +60,27 @@ all :
 	@echo 'Clk-----+-----------+----------- ... -+------------+              |'
 	@echo '      +-----------------------------------------------------------+'
 	@echo '        V_fir_pe[]: Instantiate Verilated fir_pe in sc_fir8 (array)'
-	@echo ''
+	@echo
 	@echo 'Usage:'
-	@echo '    Linting Verilog,'
-	@echo '        make lint'
-	@echo ''
-	@echo '    Building functional-sim with SystemC TB,'
-	@echo '        make build'
-	@echo ''
-	@echo '    Building netlist-sim with SystemC TB,'
-	@echo '        make build_net'
-	@echo ''
-	@echo '    Building Timing-sim with SystemVerilog TB,'
-	@echo '        make build_tim'
-	@echo ''
-	@echo '    Running Functional simulation,'
-	@echo '        make run'
-	@echo ''
-	@echo '    Running Timing simulation,'
-	@echo '        make run_tim'
-	@echo ''
-	@echo '    View DUT Verilog trace(Functional),'
-	@echo '        make wave'
-	@echo ''
-	@echo '    View DUT Verilog trace(Timing),'
-	@echo '        make wave_tim'
-	@echo ''
-	@echo '    Clean up working folder,'
-	@echo '        make clean'
-	@echo ''
+	@echo '    make lint        ; Linting Verilog'
+	@echo '    make build       ; Building functional-sim with SystemC TB,'
+	@echo '    make build_net   ; Building netlist-sim with SystemC TB,'
+	@echo '    make run         ; Running Functional simulation,'
+	@echo '    make wave        ; View DUT Verilog trace(Functional),'
+	@echo
+	@echo '    make build_tim   ; Building Timing-sim with SystemVerilog TB,'
+	@echo '    make run_tim     ; Running Timing simulation,'
+	@echo '    make wave_tim    ; View DUT Verilog trace(Timing),'
+	@echo
+	@echo '    make clean       ; Clean up working folder,'
+	@echo
 
 build : $(TARGET_DIR)/$(TARGET)
 
 build_net : $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
-	$(VERILATOR) --sc -Wall --trace --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
+	$(VERILATOR) --sc -Wall -Wno-UNUSEDSIGNAL --trace --top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 		$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 build_tim : $(TOP_MODULE)

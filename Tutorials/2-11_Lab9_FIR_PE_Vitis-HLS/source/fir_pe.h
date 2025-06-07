@@ -22,7 +22,7 @@ typedef ap_uint<4>  output_t;
 typedef ap_uint<8>  data_t;
 typedef ap_uint<16> acc_t;
 #endif
- 
-void fir_pe(data_t Cin, input_t Xin, input_t Yin, output_t* Xout, output_t* Yout);
+
+void fir_pe(data_t Cin, input_t Xin, input_t Yin, bool Rdy, output_t* Xout, output_t* Yout, bool* Vld);
  
  #endif

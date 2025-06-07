@@ -153,36 +153,44 @@ void PSCE::Clk_EMU()
 // Set Inputs for Emulator ------------------------------------------
 void PSCE::EMU_Input(uint8_t address, uint8_t data)
 {
+  //noInterrupts();
   Set_EMU_Address(address);
   Set_EMU_Data(data);
   Clk_EMU();
+  //interrupts();
 }
 // Get output from Emulator -----------------------------------------
 uint8_t PSCE::EMU_Output(uint8_t address)
 {
   uint8_t ret;
   
+  //noInterrupts();
   Set_EMU_Address(address);
   Clk_EMU();
   ret = Get_EMU_Data();
+  //interrupts();
 
   return ret;
 }
 // Set Inputs for DUT -----------------------------------------------
 void PSCE::DUT_Input()
 {
+  //noInterrupts();
   digitalWriteDirect(PIN_LOAD_EMU, HIGH);
   Clk_EMU();
   digitalWriteDirect(PIN_LOAD_EMU, LOW);
   //Clk_EMU();
+  //interrupts();
 }
 // Get Outputs from DUT ---------------------------------------------
 void PSCE::DUT_Output()
 {
+  //noInterrupts();
   digitalWriteDirect(PIN_GET_EMU, HIGH);
   Clk_EMU();
   digitalWriteDirect(PIN_GET_EMU, LOW);
   //Clk_EMU();
+  //interrupts();
 }
 // Clocking DUT -----------------------------------------------------
 void PSCE::DUT_Posedge_Clk()

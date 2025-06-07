@@ -31,73 +31,88 @@ SC_MODULE(E_fir_pe)
 #define N_TX    3
 #define N_RX    2
 
+// Emulation Transactor --------------------------------------------------------
+// DUT's input bitmap                       DUT's output bitmap
+//      +---------------+                       +-------+-------+
+//  [0] |7 6 5 4 3 2 1 0|                   [0] |7 6 5 4|3 2 1 0|
+//      +-------+-------+                       +-------+-------+
+//              |                                   |        |
+//              +---------Cin[7:0]                  |        +-----Xout[3:0]
+//      +-------+-------+                           +--------------Yout[3:0]
+//  [1] |7 6 5 4|3 2 1 0|                       +-------------+-+
+//      +-------+-------+                   [1] |7 6 5 4 3 2 1|0|
+//          |       |                           +-------------+-+
+//          |       +-----Xin[3:0]                             |
+//          +-------------Yin[3:0]                             +---Vld
+//      +-----------+-+-+
+//  [2] |7 6 5 4 3 2|1|0|
+//      +-----------+-+-+
+//                   | |
+//                   | +----Rdy
+//                   +------clk
+//
+inline void _EMU_IO_(void)
+    {
+        uint8_t x, y, txPacket[N_TX], rxPacket[N_RX];
+
+        txPacket[0] = (uint8_t)Cin.read();      // Cin
+        txPacket[1] = (uint8_t)(Yin.read())<<4 | (uint8_t)(Xin.read()); // Yin | Xin
+        txPacket[2] = (uint8_t)Rdy.read()? 0x01:0x00;
+        txPacket[2]|= (uint8_t)clk.read()? 0x02:0x00;
+
+        // Send to Emulator
+        for (int i=0; i<N_TX; i++)
+        {
+            x = txPacket[i];
+            while(write(fd, &x, 1)<=0)  usleep(1);
+        }
+        // Receive from Emulator
+        for (int i=0; i<N_RX; i++)
+        {
+            while(read(fd, &y, 1)<=0)   usleep(1);
+            rxPacket[i] = y;
+        }
+
+        Yout.write((sc_uint<4>)(rxPacket[0]>>4));
+        Xout.write((sc_uint<4>)(rxPacket[0] & 0x0F));
+        Vld.write(rxPacket[1]? true:false);
+    }
+
     void pe_thread(void)
     {
-        uint8_t     x, y, txPacket[N_TX], rxPacket[N_RX];
+        //uint8_t     x, y, txPacket[N_TX], rxPacket[N_RX];
 
         while(true)
         {
             // Positive edge Clock
             wait(clk.posedge_event());
-            txPacket[0] = (uint8_t)Cin.read();      // Cin
-            txPacket[1] = (uint8_t)(Yin.read())<<4 | (uint8_t)(Xin.read()); // Yin | Xin
-            txPacket[2] = (uint8_t)Rdy.read()? 0x01:0x00;
-
-            // Send to Emulator
-            for (int i=0; i<N_TX; i++)
-            {
-                x = txPacket[i];
-                while(write(fd, &x, 1)<=0)  usleep(1);
-            }
-            // Receive from Emulator
-            for (int i=0; i<N_RX; i++)
-            {
-                while(read(fd, &y, 1)<=0)   usleep(1);
-                rxPacket[i] = y;
-            }
-
-            Yout.write((sc_uint<4>)(rxPacket[0]>>4));
-            Xout.write((sc_uint<4>)(rxPacket[0] & 0x0F));
-            Vld.write(rxPacket[1]? true:false);
-
-#ifdef LA_FIFO
-        x  = 0x02;                      // clk=1
-        x |= txPacket[2] & 0x01;        // Rdy
-        x |= rxPacket[1]? 0x04:0x00;    // Vld
-        x |= (rxPacket[0]  & 0x01)<<4;  // Yout0
-        x |= (rxPacket[0]  & 0x02)<<4;  // Yout1
-        x |= (rxPacket[0]  & 0x04)<<4;  // Yout2
-        x |= (rxPacket[0]  & 0x08)<<4;  // Yout3
-        if((nWrite = write(la_fifo, &x, 1)) < 1)
-            fprintf(stderr,"la_fifo: write error\n");
-        else
-            fflush(0);
-
-        wait(clk.negedge_event());
-        x  &= 0xFD;       // clk=0
-        if((nWrite = write(la_fifo, &x, 1)) < 1)
-            fprintf(stderr,"la_fifo: write error\n");
-        else
-            fflush(0);
-#endif
+            _EMU_IO_();
+            // Negative edge Clock
+            wait(clk.negedge_event());
+            _EMU_IO_();
         }
+    }
+
+    void pe_method(void)
+    {
+        _EMU_IO_();
     }
 
     // Arduino Serial IF
     int fd;                 // Serial port file descriptor
     struct termios options; // Serial port setting
 
-#ifdef LA_FIFO
-	int la_fifo, nWrite;
-#endif
+    sc_trace_file* fp;  // VCD file
 
     SC_CTOR(E_fir_pe):
         clk("clk"),
         Cin("Cin"), Xin("Xin"), Xout("Xout"),
         Yin("Yin"), Yout("Yout")
     {
-        SC_THREAD(pe_thread);
-        sensitive << clk;
+        //SC_THREAD(pe_thread);
+        //sensitive << clk;
+        SC_METHOD(pe_method);
+        sensitive << clk << Rdy << Cin << Xin << Yin;
 
         // Arduino DUT
         //fd = open("/dev/ttyACM0", O_RDWR | O_NDELAY | O_NOCTTY);
@@ -125,11 +140,16 @@ SC_MODULE(E_fir_pe)
             write(fd, &rx, 1);
         printf("Connection established...\n");
 
-#ifdef LA_FIFO
-        la_fifo = open("la_fifo", O_WRONLY);
-        if(la_fifo<0)
-            fprintf(stderr,"la_fifo: open error\n");
-#endif
+        // WAVE
+        fp = sc_create_vcd_trace_file("E_fir_pe");
+        fp->set_time_unit(100, SC_PS);  // resolution (trace) ps
+        sc_trace(fp, clk, "clk");
+        sc_trace(fp, Xin,  "Xin");
+        sc_trace(fp, Xout, "Xout");
+        sc_trace(fp, Yin,  "Yin");
+        sc_trace(fp, Yout, "Yout");
+        sc_trace(fp, Rdy,  "Rdy");
+        sc_trace(fp, Vld,  "Vld");
     }
     
     ~E_fir_pe(void)

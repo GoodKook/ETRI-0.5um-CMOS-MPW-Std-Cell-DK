@@ -6,7 +6,7 @@
 
 // Co-Emulation interface -------------------------------------------
 // Followings are DUT specific defs
-#define DELAY_MICROS    10
+#define DELAY_MICROS    1
 
 #define N_RX            2   // Number of byte to DUT's inputs
 #define N_TX            3   // Number of byte from DUT's output

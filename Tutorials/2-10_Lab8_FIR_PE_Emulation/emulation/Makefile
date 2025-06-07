@@ -1,31 +1,29 @@
 # SystemC Environments -----------------------------------------
-export SYSTEMC         = /usr/local/systemc-3.0.0
+export SYSTEMC         = /opt/systemc
 export SYSTEMC_HOME    = $(SYSTEMC)
 export SYSTEMC_INCLUDE = $(SYSTEMC_HOME)/include
-export SYSTEMC_LIBDIR  = $(SYSTEMC_HOME)/lib-linux64
+export SYSTEMC_LIBDIR  = $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH :=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
-export CXX             = clang++
-export CXXFLAGS        = -std=c++17
 
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS = \
-    ../../2-7_Lab5_FIR_PE/simulation/sc_main.cpp \
-    ../../2-7_Lab5_FIR_PE/simulation/sc_fir8_tb.cpp \
+    ../../2-9_Lab7_FIR_PE/simulation/sc_main.cpp \
+    ../../2-9_Lab7_FIR_PE/simulation/sc_fir8_tb.cpp \
     ../../2-5_Lab3_FIR8/c_untimed/fir8.cpp \
     ../../2-5_Lab3_FIR8/c_untimed/cnoise.cpp
 SC_HDRS = \
-    ../../2-7_Lab5_FIR_PE/simulation/sc_fir8.h \
-    ../../2-7_Lab5_FIR_PE/simulation/sc_fir8_tb.h \
-    ../../2-7_Lab5_FIR_PE/simulation/V_fir_pe.h \
+    ../../2-9_Lab7_FIR_PE/simulation/sc_fir8.h \
+    ../../2-9_Lab7_FIR_PE/simulation/sc_fir8_tb.h \
+    ../../2-9_Lab7_FIR_PE/simulation/V_fir_pe.h \
     ./E_fir_pe.h
 
 # Verilator vars -----------------------------------------------
-VERILOG_SRCS =  ../../2-7_Lab5_FIR_PE/source/fir_pe.v
+VERILOG_SRCS =  ../../2-9_Lab7_FIR_PE/source/fir_pe.v
 VERILATOR    = verilator
-VCFLAGS    	 = -CFLAGS -std=c++17
-VCFLAGS		+= -CFLAGS -g
+VCFLAGS		 = -CFLAGS -g
 VCFLAGS		+= -CFLAGS -I./obj_dir
-VCFLAGS		+= -CFLAGS -I../../../2-7_Lab5_FIR_PE/simulation
+VCFLAGS		+= -CFLAGS -I../../../2-9_Lab7_FIR_PE/simulation
+VCFLAGS		+= -CFLAGS -DFIR_SHIFTER_VERSION
 VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
 VCFLAGS		+= -CFLAGS -I..
 VCFLAGS		+= -CFLAGS -DEMULATED_CO_SIM
@@ -74,7 +72,6 @@ all :
 	@echo '        Emulate $(TOP_MODULE)'
 	@echo ''
 	@echo '    make wave'
-	@echo '    make wave_tb'
 	@echo '        View waveform'
 	@echo ''
 	@echo '    make plot'
@@ -94,8 +91,13 @@ run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
 
 wave :
-	../../2-5_Lab3_FIR8/sc_timed/sc_plotDFT.py &
 	gtkwave sc_fir8.vcd --save=sc_fir8.gtkw &
+	gtkwave sc_fir8_tb.vcd --save=sc_fir8_tb.gtkw &
+	gtkwave Vfir_pe.vcd --save=Vfir_pe.gtkw &
+	gtkwave E_fir_pe.vcd --save=E_fir_pe.gtkw &
+
+plot :
+	python3 ../../2-5_Lab3_FIR8/sc_timed/sc_plotDFT.py &
 
 clean :
 	rm -rf $(TARGET_DIR)
