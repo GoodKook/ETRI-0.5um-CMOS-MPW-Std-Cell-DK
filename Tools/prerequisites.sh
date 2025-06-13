@@ -41,9 +41,10 @@ sudo apt install -y \
     uuid uuid-dev libsecret-1-dev \
     xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted
 
-sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
-sudo pip3 install git+https://github.com/antmicro/astsee.git
-cpan install Pod::Perldoc
+#sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
+#
+#sudo pip3 install git+https://github.com/antmicro/astsee.git
+#cpan install Pod::Perldoc
 
 sudo apt --fix-broken install
-sudo apt 
+

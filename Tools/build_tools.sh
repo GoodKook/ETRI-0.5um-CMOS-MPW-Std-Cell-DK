@@ -2,6 +2,7 @@
 
 ./z3_build.sh
 ./sdl_install.sh
+./sdl2_install.sh
 ./python_libs.sh
 ./gsl_build.sh
 ./graywolf_build.sh
@@ -14,6 +15,7 @@
 ./xschem_build.sh
 ./gtkwave_install.sh
 ./yosys_build.sh
+#./yosys-f4pga-plugins.sh
 ./systemc_build.sh
 ./iverilog_build.sh
 ./verilator_build.sh
