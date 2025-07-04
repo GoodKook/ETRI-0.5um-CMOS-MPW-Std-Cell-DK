@@ -6,8 +6,8 @@ export SYSTEMC_LIBDIR   = $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH :=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 
 VERILOG_SRCS = dff.v
-SC_SRCS      = sc_main.cpp
-SC_TOP_H     = sc_dff_TB.h
+SC_SRCS      = ../dff/sc_main.cpp
+SC_TOP_H     = ../dff/sc_dff_TB.h
 VERILATOR    = verilator
 CFLAGS       = -g
 
@@ -18,7 +18,7 @@ TARGET_DIR   = obj_dir
 all :
 	@echo 'Makefile for Example: dff at RTL'
 	@echo '================================'
-	@cat dff_Config.txt
+	@cat ../dff/dff_Config.txt
 	@echo ''
 	@echo '    make build'
 	@echo '        Builds executable of "$(TOP_MODULE)" with Verilated RTL and SystemC TB'

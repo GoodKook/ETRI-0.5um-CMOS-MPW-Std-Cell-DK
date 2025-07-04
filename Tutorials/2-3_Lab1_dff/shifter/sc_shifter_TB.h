@@ -11,13 +11,16 @@ Revision History: Aug. 1, 2024
 #include <systemc.h>
 #include "Vshifter.h" // Verilated DUT
 
+#include <verilated_vcd_sc.h>
+
 SC_MODULE(sc_shifter_TB)
 {
     sc_clock                clk;
-    sc_signal<bool>         rst, 
-    sc_signal<sc_bv<7> >    rst, din, qout;
+    sc_signal<bool>         rst;
+    sc_signal<sc_uint<8> >  din, qout;
 
     Vshifter*   u_Vshifter;
+    VerilatedVcdSc*     tfp;    // Verilator VCD
 
     sc_trace_file* fp;      // SystemC VCD file
 
@@ -41,10 +44,24 @@ SC_MODULE(sc_shifter_TB)
         sc_trace(fp, rst, "rst");
         sc_trace(fp, din, "din");
         sc_trace(fp, qout, "qout");
+
+        // Trace Verilated Verilog internals
+        Verilated::traceEverOn(true);
+
+        tfp = new VerilatedVcdSc;
+        sc_start(SC_ZERO_TIME);
+        u_Vshifter->trace(tfp, 99);  // Trace levels of hierarchy
+        tfp->open("Vshifter.vcd");
+    }
+
+    ~sc_shifter_TB()
+    {
+        tfp->close();
     }
 
     void test_generator()
     {
+        uint8_t test_in[] = "SHIFTER";
         int test_count =0;
 
         din.write(0);
@@ -56,7 +73,7 @@ SC_MODULE(sc_shifter_TB)
         
         while(true)
         {
-            din.write(1);
+            din.write(test_in[test_count]);
             wait(clk.posedge_event());
 
             if (test_count>6)

@@ -1,7 +1,7 @@
 /**************************************
 Vendor: GoodKook, goodkook@gmail.com
 Associated Filename: dff.v
-Purpose: D-FlipFlop
+Purpose: D-FlipFlop at RTL
 Revision History: Aug. 1, 2024
 ***************************************/
 //       D-FlipFlop
@@ -14,17 +14,21 @@ Revision History: Aug. 1, 2024
 //    --->CLK      |
 //       |         |
 //       +---------+
+//
+
+/* verilator lint_off BLKSEQ */
 
 module dff(clk, d, q);
 input clk, d;
 output q;
 
 reg q;
+reg q1;
 
-//always @(posedge clk or posedge d) // edge trigger
 always @(posedge clk) // edge trigger
 begin
-        q <= d;
+        q1 <= d;
+        q <= q1;
 end
 
 //assign q = (clk)? d : q;    // Circular combinational logic

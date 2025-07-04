@@ -50,6 +50,7 @@ run : $(TARGET_DIR)/$(TARGET)
 
 wave : sc_$(TOP_MODULE)_TB.vcd
 	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
+	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)

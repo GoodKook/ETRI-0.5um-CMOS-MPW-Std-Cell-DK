@@ -11,7 +11,7 @@ int sc_main(int argc, char** argv)
     //Verilated::commandArgs(argc, argv);
 
     sc_dff_TB u_sc_dff_TB("u_sc_dff_TB");
-    
+
     //sc_start(10, SC_MS);
     sc_start();
 

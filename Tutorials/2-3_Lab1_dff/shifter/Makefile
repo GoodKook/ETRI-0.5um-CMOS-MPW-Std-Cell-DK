@@ -38,7 +38,7 @@ all :
 build : $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_TOP_H)
-	$(VERILATOR) --sc -Wall --trace --top-module $(TOP_MODULE) --exe --build \
+	$(VERILATOR) --sc -Wall --trace --pins-sc-uint --top-module $(TOP_MODULE) --exe --build \
 		-CFLAGS $(CFLAGS) \
 		$(VERILOG_SRCS) $(SC_SRCS)
 
@@ -50,6 +50,7 @@ run : $(TARGET_DIR)/$(TARGET)
 
 wave : sc_$(TOP_MODULE)_TB.vcd
 	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
+	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)

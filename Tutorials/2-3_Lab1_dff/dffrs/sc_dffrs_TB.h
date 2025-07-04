@@ -11,12 +11,15 @@ Revision History: Aug. 1, 2024
 #include <systemc.h>
 #include "Vdffrs.h" // Verilated DUT
 
+#include <verilated_vcd_sc.h>
+
 SC_MODULE(sc_dffrs_TB)
 {
     sc_clock        clk;
     sc_signal<bool> r, s, d, q;
 
     Vdffrs*   u_Vdffrs;
+    VerilatedVcdSc*     tfp;    // Verilator VCD
 
     sc_trace_file* fp;  // VCD file
 
@@ -42,8 +45,21 @@ SC_MODULE(sc_dffrs_TB)
         sc_trace(fp, s, "s");
         sc_trace(fp, d, "d");
         sc_trace(fp, q, "q");
+
+        // Trace Verilated Verilog internals
+        Verilated::traceEverOn(true);
+
+        tfp = new VerilatedVcdSc;
+        sc_start(SC_ZERO_TIME);
+        u_Vdffrs->trace(tfp, 99);  // Trace levels of hierarchy
+        tfp->open("Vdffrs.vcd");
     }
 
+    ~sc_dffrs_TB()
+    {
+        tfp->close();
+    }
+    
     void test_generator()
     {
         int test_count =0;
