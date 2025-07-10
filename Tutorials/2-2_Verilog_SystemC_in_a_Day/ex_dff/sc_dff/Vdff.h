@@ -1,8 +1,8 @@
 
 /*******************************************************************************
 Vendor: GoodKook, goodkook@gmail.com
-Associated Filename: sc_dff_TB.cpp
-Purpose: Testbench
+Associated Filename: Vdff.h
+Purpose: D-FlipFlop in Behavioral SystemC
 Revision History: Aug. 1, 2024
 *******************************************************************************/
 #ifndef _SC_VDFF_H_
@@ -20,6 +20,8 @@ SC_MODULE(Vdff)
     {
         SC_METHOD(behavior);
         sensitive << clk;
+        //sensitive << clk.pos();
+        //sensitive << clk << d;
     }
 
     void behavior()

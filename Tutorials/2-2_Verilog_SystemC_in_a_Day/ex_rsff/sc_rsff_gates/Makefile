@@ -5,9 +5,9 @@ export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
 export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 
-SC_EXEC   = sc_dff_TB
-SC_SRCS   = ../dff/sc_main.cpp
-SC_TOP_H  = ../dff/$(SC_EXEC).h
+SC_EXEC   = sc_rsff_TB
+SC_SRCS   = sc_main.cpp
+SC_TOP_H  = Vrsff.h $(SC_EXEC).h
 
 CFLAGS = -g
 LIBS    = -lsystemc
