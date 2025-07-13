@@ -12,11 +12,18 @@ SC_TOP_H  = Vrsff.h $(SC_EXEC).h
 CFLAGS = -g
 LIBS    = -lsystemc
 
+ifeq ($(DELAY), ZERO_TIME)
+	CDEFS = -DZERO_TIME
+else
+	CDEFS =
+endif
+
 all :
 	@echo 'Makefile for Example: $(SC_EXEC)'
 	@echo ''
 	@echo '    make build'
 	@echo '        Builds executable of "$(SC_EXEC)" with Verilated RTL and SystemC TB'
+	@echo '        Command-Line: DELAY=ZERO_TIME'
 	@echo ''
 	@echo '    make run'
 	@echo '        Simulate $(SC_EXEC)'
@@ -31,7 +38,7 @@ all :
 build : $(SC_EXEC)
 
 $(SC_EXEC) : $(SC_SRCS) $(SC_TOP_H)
-	clang++ -I. -I../c_untimed -I$(SYSTEMC_INCLUDE) $(CFLAGS) -L$(SYSTEMC_LIBDIR) \
+	clang++ -I. -I../c_untimed -I$(SYSTEMC_INCLUDE) $(CFLAGS) $(CDEFS) -L$(SYSTEMC_LIBDIR) \
 			-o $(SC_EXEC) $(LIBS) $(SC_SRCS)
 
 run : $(SC_EXEC)
@@ -41,8 +48,8 @@ wave : $(SC_EXEC).vcd
 	gtkwave $(SC_EXEC).vcd --save=$(SC_EXEC).gtkw &
 
 clean :
-	rm -f $(SC_EXEC)
-	rm -f *.vcd
+	rm -f ./$(SC_EXEC)
+	rm -f ./*.vcd
 
 debug : $(SC_EXEC)
 	ddd $(SC_EXEC)

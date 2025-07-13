@@ -44,16 +44,20 @@ SC_MODULE(sc_rsff_TB)
         s.write(false);
         wait(10, SC_NS);
 
-        r.write(true);
-        s.write(true);
-        wait(10, SC_NS);
-
         r.write(false);
         s.write(true);
         wait(10, SC_NS);
 
         r.write(true);
         s.write(false);
+        wait(10, SC_NS);
+
+        r.write(true);
+        s.write(true);
+        wait(10, SC_NS);
+
+        r.write(false);
+        s.write(true);
         wait(10, SC_NS);
 
         r.write(true);

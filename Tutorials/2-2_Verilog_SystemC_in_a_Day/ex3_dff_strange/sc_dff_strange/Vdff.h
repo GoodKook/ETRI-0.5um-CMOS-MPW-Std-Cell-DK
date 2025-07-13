@@ -58,6 +58,8 @@ SC_MODULE(Vdff)
 
     void beh_output()
     {
+        printf("\n[%03d] beh_output     : clk=%c _q=%c",
+            (int)(sc_time_stamp()).to_double()/1000, clk.read()? '1':'0', _q.read()? '1':'0');
         q.write(_q);
     }
 };

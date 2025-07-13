@@ -1,8 +1,8 @@
 //
-// Filename: ex_class.cpp
+// Filename: templated_class.cpp
 //      Simple example for Templated Class
 //
-// Compile: gcc -o ex_class ex_class.cpp -lm
+// Compile: gcc -o templated_class templated_class.cpp -lm
 //
 #include <stdio.h>
 #include <string.h>
@@ -66,6 +66,17 @@ class bit_vector_t
         write(szVal);
     }
 
+    void update(void)
+    {
+        m_curr_val = m_next_val;
+    }
+
+    bool notyfy_event()
+    {
+        if (m_curr_val != m_next_val)   return true;
+        else                            return false;
+    }
+    
     char* to_string()
     {
         for (int i=0; i<(int)N; i++)
