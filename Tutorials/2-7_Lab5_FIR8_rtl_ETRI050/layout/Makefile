@@ -6,13 +6,19 @@ export DK_PAD_LIB=$(DK_HOME)/pads_ETRI
 export DK_TECH=$(DK_HOME)/tech
 export DK_SCRIPT=$(DK_HOME)/scripts
 
-TOP_MODULE = fir8
+ifeq ($(TOP), fir8)
+	TOP_MODULE=fir8
+else ifeq ($(TOP), fir_pe)
+	TOP_MODULE=fir_pe
+else
+	TOP_MODULE=fir8
+endif
 
 all :
 	@echo ''
 	@echo 'Makefile for "'$(TOP_MODULE)'" Layout'
 	@echo 'Usage:'
-	@echo '    make [option]'
+	@echo '    TOP=fir8|fir_pe  make [option]'
 	@echo '         Use one of following options'
 	@echo '             stack'
 	@echo '             drc'

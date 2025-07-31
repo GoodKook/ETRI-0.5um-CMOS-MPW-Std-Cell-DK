@@ -2,13 +2,20 @@
 VERILOG_SRCS =	\
 	../2-5_Lab3_FIR8/rtl_verilog/fir_pe.v \
 	../2-6_Lab4_FIR8_rtl_Emulation/source/fir8.v
-TOP_MODULE = fir8
+
+ifeq ($(TOP), fir8)
+	TOP_MODULE=fir8
+else ifeq ($(TOP), fir_pe)
+	TOP_MODULE=fir_pe
+else
+	TOP_MODULE=fir8
+endif
 
 all :
 	@echo ''
 	@echo 'Makefile for "$(TOP_MODULE)" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
 	@echo 'Usage:'
-	@echo '    make [option]'
+	@echo '    TOP=fir8|fir_pe make [option]'
 	@echo '         Use one of following options'
 	@echo '             synthesize'
 	@echo '             place'
