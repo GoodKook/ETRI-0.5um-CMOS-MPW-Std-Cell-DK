@@ -1,4 +1,6 @@
 /* Verilog module written by vlog2Verilog (qflow) */
+/* With bit-blasted vectors */
+/* With power connections converted to binary 1, 0 */
 
 module fir_pe(
     input [5:0] Cin,
@@ -10,9 +12,6 @@ module fir_pe(
     output [3:0] Yout,
     input clk
 );
-
-wire vdd = 1'b1;
-wire gnd = 1'b0;
 
 wire [15:0] y ;
 wire _588_ ;

@@ -1,4 +1,4 @@
-# IRSIM simulation for fir_pe_Core
+# IRSIM simulation for fir_pe
 
 
 vector Cin {Cin[5]} {Cin[4]} {Cin[3]} {Cin[2]} {Cin[1]} {Cin[0]}

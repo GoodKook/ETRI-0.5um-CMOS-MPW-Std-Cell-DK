@@ -1,6 +1,5 @@
-/* Verilog module written by vlog2Verilog (qflow) */
-
-module fir_pe(
+/* Verilog module written by DEF2Verilog (qflow) */
+module fir_pe (
     input [5:0] Cin,
     input Rdy,
     output Vld,
@@ -10,9 +9,6 @@ module fir_pe(
     output [3:0] Yout,
     input clk
 );
-
-wire vdd = 1'b1;
-wire gnd = 1'b0;
 
 wire [15:0] y ;
 wire _588_ ;
@@ -679,6 +675,7 @@ wire _345_ ;
 wire _574_ ;
 wire _154_ ;
 wire _383_ ;
+wire gnd = 1'b0 ;
 wire _439_ ;
 wire _192_ ;
 wire _668_ ;
@@ -773,6 +770,7 @@ wire _31_ ;
 wire _368_ ;
 wire _597_ ;
 wire _177_ ;
+wire vdd = 1'b1 ;
 wire _712_ ;
 wire _28_ ;
 wire _521_ ;
