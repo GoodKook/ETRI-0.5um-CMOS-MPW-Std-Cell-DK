@@ -1,15 +1,14 @@
 /* Verilog module written by vlog2Verilog (qflow) */
 
-module fir_pe(
-    input [5:0] Cin,
-    input Rdy,
-    output Vld,
-    input [3:0] Xin,
-    output [3:0] Xout,
-    input [3:0] Yin,
-    output [3:0] Yout,
-    input clk
-);
+module fir_pe(Cin, Rdy, Vld, Xin, Xout, Yin, Yout, clk);
+    input [5:0] Cin;
+    input Rdy;
+    output Vld;
+    input [3:0] Xin;
+    output [3:0] Xout;
+    input [3:0] Yin;
+    output [3:0] Yout;
+    input clk;
 
 wire vdd = 1'b1;
 wire gnd = 1'b0;
