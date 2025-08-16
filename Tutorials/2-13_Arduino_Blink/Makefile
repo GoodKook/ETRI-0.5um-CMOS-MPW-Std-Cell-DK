@@ -22,6 +22,8 @@ all:
 	@echo "    LIB_NAME=[libname] make lib_search"
 	@echo "    LIB_NAME=[libname] make lib_install"
 	@echo
+	@echo "    make upload_pico"
+	@echo
 
 help:
 	arduino-cli help
@@ -61,3 +63,13 @@ lib_search:
 
 lib_install:
 	arduino-cli lib install $(LIB_NAME)
+
+compile_pico:
+	arduino-cli compile --fqbn $(FQBN) $(SKETCH) -e
+
+upload_pico: $(SKETCH)/build/rp2040.rp2040.generic/$(SKETCH).ino.uf2
+	sudo mount -t drvfs f: ~/_uf2_
+	cp $(SKETCH)/build/rp2040.rp2040.rpipicow/$(SKETCH).ino.uf2 ~/_uf2_
+
+
+
