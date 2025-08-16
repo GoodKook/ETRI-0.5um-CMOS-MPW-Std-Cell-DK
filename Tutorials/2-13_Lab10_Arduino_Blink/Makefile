@@ -24,6 +24,18 @@ all:
 	@echo
 	@echo "    make upload_pico"
 	@echo
+	@echo "For ESP32S3 board:"
+	@echo "    FQBN=esp32:esp32:esp32s3 SKETCH=Blink make compile"
+	@echo "    PORT=/dev/ttyACM0 FQBN=esp32:esp32:esp32s3 SKETCH=Blink make upload"
+	@echo
+	@echo "For Raspberry Pi Pico W board:"
+	@echo "    FQBN=rp2040:rp2040:rpipicow SKETCH=Blink make compile"
+	@echo "    PORT=/dev/ttyACM0 FQBN=rp2040:rp2040:rpipicow SKETCH=Blink make upload"
+	@echo
+	@echo "For Arduino DUE board:"
+	@echo "    FQBN=arduino:sam:arduino_due_x_dbg SKETCH=Blink make compile"
+	@echo "    PORT=/dev/ttyACM0 FQBN=arduino:sam:arduino_due_x_dbg SKETCH=Blink make upload"
+	@echo
 
 help:
 	arduino-cli help
