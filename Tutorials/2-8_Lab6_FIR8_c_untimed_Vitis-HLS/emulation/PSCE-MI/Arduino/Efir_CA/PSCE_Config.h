@@ -17,8 +17,8 @@
 //#include "PinMap_TANG_25K.h"
 #include "PinMap_A7_100T.h"
 // OLED Display -----------------------------------------------------
-// !!! IMPOTANCE: Slow emulation when debug message on OLED Display
-#define OLED_DISPLAY
+// !!! IMPORTANCE: Slow emulation when debug message on OLED Display
+//#define OLED_DISPLAY
 
 #include "PSCE_APIs.h"
 
