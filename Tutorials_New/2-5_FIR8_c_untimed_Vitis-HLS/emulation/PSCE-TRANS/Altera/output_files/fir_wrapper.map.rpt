@@ -1,0 +1,721 @@
+Analysis & Synthesis report for fir_wrapper
+Fri May  2 14:16:09 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter2_reg
+ 10. State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter1_reg
+ 11. State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156
+ 12. State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|icmp_ln58_reg_145
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Parameter Settings for User Entity Instance: Top-level Entity: |fir_wrapper
+ 19. Parameter Settings for User Entity Instance: fir:u_fir
+ 20. Parameter Settings for User Entity Instance: fir:u_fir|fir_shift_reg_RAM_AUTO_1R1W:shift_reg_U
+ 21. Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51
+ 22. Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59
+ 23. Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U
+ 24. Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3
+ 25. Parameter Settings for Inferred Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|lpm_mult:Mult0
+ 26. lpm_mult Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3"
+ 28. Port Connectivity Checks: "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59"
+ 29. Port Connectivity Checks: "fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
+ 33. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                             ;
++------------------------------------+-----------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May  2 14:16:09 2025               ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Standard Edition ;
+; Revision Name                      ; fir_wrapper                                         ;
+; Top-level Entity Name              ; fir_wrapper                                         ;
+; Family                             ; Cyclone IV E                                        ;
+; Total logic elements               ; 347                                                 ;
+;     Total combinational functions  ; 274                                                 ;
+;     Dedicated logic registers      ; 227                                                 ;
+; Total registers                    ; 227                                                 ;
+; Total pins                         ; 23                                                  ;
+; Total virtual pins                 ; 0                                                   ;
+; Total memory bits                  ; 0                                                   ;
+; Embedded Multiplier 9-bit elements ; 1                                                   ;
+; Total PLLs                         ; 0                                                   ;
++------------------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; fir_wrapper        ; fir_wrapper        ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                                                                                                                                       ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                                                                                                                        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                                            ; Library ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v                                                                                                    ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v                          ;         ;
+; ../../../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v                                                                                             ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v                   ;         ;
+; ../../../fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v                                                                                     ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v           ;         ;
+; ../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v                                                                                                  ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v                        ;         ;
+; ../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v                                                                             ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v   ;         ;
+; ../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v                                                                                                     ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v                           ;         ;
+; ../../../fir/hls_component/syn/verilog/fir.v                                                                                                                            ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v                                                  ;         ;
+; ../../fir_wrapper.v                                                                                                                                                     ; yes             ; User Verilog HDL File        ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/fir_wrapper.v                                                              ;         ;
+; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat ; yes             ; Auto-Found Unspecified File  ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat ;         ;
+; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.dat                        ; yes             ; Auto-Found Unspecified File  ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.dat                        ;         ;
+; lpm_mult.tdf                                                                                                                                                            ; yes             ; Megafunction                 ; /opt/intelFPGA_standard/24.1std/quartus/libraries/megafunctions/lpm_mult.tdf                                                                                            ;         ;
+; aglobal241.inc                                                                                                                                                          ; yes             ; Megafunction                 ; /opt/intelFPGA_standard/24.1std/quartus/libraries/megafunctions/aglobal241.inc                                                                                          ;         ;
+; lpm_add_sub.inc                                                                                                                                                         ; yes             ; Megafunction                 ; /opt/intelFPGA_standard/24.1std/quartus/libraries/megafunctions/lpm_add_sub.inc                                                                                         ;         ;
+; multcore.inc                                                                                                                                                            ; yes             ; Megafunction                 ; /opt/intelFPGA_standard/24.1std/quartus/libraries/megafunctions/multcore.inc                                                                                            ;         ;
+; bypassff.inc                                                                                                                                                            ; yes             ; Megafunction                 ; /opt/intelFPGA_standard/24.1std/quartus/libraries/megafunctions/bypassff.inc                                                                                            ;         ;
+; altshift.inc                                                                                                                                                            ; yes             ; Megafunction                 ; /opt/intelFPGA_standard/24.1std/quartus/libraries/megafunctions/altshift.inc                                                                                            ;         ;
+; db/mult_6at.tdf                                                                                                                                                         ; yes             ; Auto-Generated Megafunction  ; /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Altera/db/mult_6at.tdf                                          ;         ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 347           ;
+;                                             ;               ;
+; Total combinational functions               ; 274           ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 130           ;
+;     -- 3 input functions                    ; 129           ;
+;     -- <=2 input functions                  ; 15            ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 259           ;
+;     -- arithmetic mode                      ; 15            ;
+;                                             ;               ;
+; Total registers                             ; 227           ;
+;     -- Dedicated logic registers            ; 227           ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 23            ;
+;                                             ;               ;
+; Embedded Multiplier 9-bit elements          ; 1             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; clk_dut~input ;
+; Maximum fan-out                             ; 181           ;
+; Total fan-out                               ; 1542          ;
+; Average fan-out                             ; 2.81          ;
++---------------------------------------------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++-------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------+--------------+
+; Compilation Hierarchy Node                                                                            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                    ; Entity Name                                        ; Library Name ;
++-------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------+--------------+
+; |fir_wrapper                                                                                          ; 274 (22)            ; 227 (46)                  ; 0           ; 1            ; 1       ; 0         ; 23   ; 0            ; |fir_wrapper                                                                                                                                                                                                                                                                           ; fir_wrapper                                        ; work         ;
+;    |fir:u_fir|                                                                                        ; 252 (16)            ; 181 (15)                  ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir                                                                                                                                                                                                                                                                 ; fir                                                ; work         ;
+;       |fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|                                   ; 70 (47)             ; 75 (27)                   ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59                                                                                                                                                                                                     ; fir_fir_Pipeline_MACC_LOOP                         ; work         ;
+;          |fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U|                           ; 3 (3)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U                                                                                                                                    ; fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R ; work         ;
+;          |fir_flow_control_loop_pipe_sequential_init:flow_control_loop_pipe_sequential_init_U|        ; 4 (4)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_flow_control_loop_pipe_sequential_init:flow_control_loop_pipe_sequential_init_U                                                                                                                 ; fir_flow_control_loop_pipe_sequential_init         ; work         ;
+;          |fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|                       ; 16 (0)              ; 42 (0)                    ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3                                                                                                                                ; fir_mac_muladd_8ns_6ns_16ns_16_4_1                 ; work         ;
+;             |fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U| ; 16 (16)             ; 42 (42)                   ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U                                        ; fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0         ; work         ;
+;                |lpm_mult:Mult0|                                                                       ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|lpm_mult:Mult0                         ; lpm_mult                                           ; work         ;
+;                   |mult_6at:auto_generated|                                                           ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|lpm_mult:Mult0|mult_6at:auto_generated ; mult_6at                                           ; work         ;
+;       |fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|                             ; 21 (16)             ; 11 (9)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51                                                                                                                                                                                               ; fir_fir_Pipeline_SHIFTER_LOOP                      ; work         ;
+;          |fir_flow_control_loop_pipe_sequential_init:flow_control_loop_pipe_sequential_init_U|        ; 5 (5)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|fir_flow_control_loop_pipe_sequential_init:flow_control_loop_pipe_sequential_init_U                                                                                                           ; fir_flow_control_loop_pipe_sequential_init         ; work         ;
+;       |fir_shift_reg_RAM_AUTO_1R1W:shift_reg_U|                                                       ; 145 (145)           ; 80 (80)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |fir_wrapper|fir:u_fir|fir_shift_reg_RAM_AUTO_1R1W:shift_reg_U                                                                                                                                                                                                                         ; fir_shift_reg_RAM_AUTO_1R1W                        ; work         ;
++-------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter2_reg ;
++-----------------------------------+------------------------------------------------------------------------------------------------+
+; Name                              ; icmp_ln66_reg_156_pp0_iter2_reg.1                                                              ;
++-----------------------------------+------------------------------------------------------------------------------------------------+
+; icmp_ln66_reg_156_pp0_iter2_reg.0 ; 0                                                                                              ;
+; icmp_ln66_reg_156_pp0_iter2_reg.1 ; 1                                                                                              ;
++-----------------------------------+------------------------------------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter1_reg ;
++-----------------------------------+------------------------------------------------------------------------------------------------+
+; Name                              ; icmp_ln66_reg_156_pp0_iter1_reg.1                                                              ;
++-----------------------------------+------------------------------------------------------------------------------------------------+
+; icmp_ln66_reg_156_pp0_iter1_reg.0 ; 0                                                                                              ;
+; icmp_ln66_reg_156_pp0_iter1_reg.1 ; 1                                                                                              ;
++-----------------------------------+------------------------------------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156 ;
++---------------------+------------------------------------------------------------------------------------------------+
+; Name                ; icmp_ln66_reg_156.1                                                                            ;
++---------------------+------------------------------------------------------------------------------------------------+
+; icmp_ln66_reg_156.0 ; 0                                                                                              ;
+; icmp_ln66_reg_156.1 ; 1                                                                                              ;
++---------------------+------------------------------------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fir_wrapper|fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|icmp_ln58_reg_145 ;
++---------------------+------------------------------------------------------------------------------------------------------+
+; Name                ; icmp_ln58_reg_145.1                                                                                  ;
++---------------------+------------------------------------------------------------------------------------------------------+
+; icmp_ln58_reg_145.0 ; 0                                                                                                    ;
+; icmp_ln58_reg_145.1 ; 1                                                                                                    ;
++---------------------+------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                                                                                                                                    ; Reason for Removal                                                                                                                                                                                                                                      ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|ap_CS_fsm[0]                                                                                                                                                               ; Stuck at VCC due to stuck port data_in                                                                                                                                                                                                                  ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|ap_done_reg                                                                                                                                                                ; Stuck at GND due to stuck port data_in                                                                                                                                                                                                                  ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|b_reg[6..17]  ; Stuck at GND due to stuck port data_in                                                                                                                                                                                                                  ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|a_reg[8..24]  ; Stuck at GND due to stuck port data_in                                                                                                                                                                                                                  ;
+; fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|ap_CS_fsm[0]                                                                                                                                                         ; Stuck at VCC due to stuck port data_in                                                                                                                                                                                                                  ;
+; fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|ap_done_reg                                                                                                                                                          ; Stuck at GND due to stuck port data_in                                                                                                                                                                                                                  ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|m_reg[16..42] ; Lost fanout                                                                                                                                                                                                                                             ;
+; vectOut[2][2]                                                                                                                                                                                                                                    ; Merged with vectOut[2][0]                                                                                                                                                                                                                               ;
+; vectOut[2][3]                                                                                                                                                                                                                                    ; Merged with vectOut[2][0]                                                                                                                                                                                                                               ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|m_reg[14,15]  ; Stuck at GND due to stuck port data_in                                                                                                                                                                                                                  ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U|q0[4]                                                                                                     ; Merged with fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U|q0[0]                                                                                                ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U|q0[5]                                                                                                     ; Merged with fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U|q0[1]                                                                                                ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|b_reg[4]      ; Merged with fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|b_reg[0] ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|b_reg[5]      ; Merged with fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|b_reg[1] ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter2_reg.1                                                                                                                                          ; Lost fanout                                                                                                                                                                                                                                             ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter1_reg.1                                                                                                                                          ; Lost fanout                                                                                                                                                                                                                                             ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156.1                                                                                                                                                        ; Lost fanout                                                                                                                                                                                                                                             ;
+; Total Number of Removed Registers = 71                                                                                                                                                                                                           ;                                                                                                                                                                                                                                                         ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                             ;
++---------------------------------------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------------------------------------------+
+; Register name                                                                                           ; Reason for Removal ; Registers Removed due to This Register                                                                   ;
++---------------------------------------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------------------------------------------+
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter2_reg.1 ; Lost Fanouts       ; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156_pp0_iter1_reg.1, ;
+;                                                                                                         ;                    ; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|icmp_ln66_reg_156.1                ;
++---------------------------------------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 227   ;
+; Number of registers using Synchronous Clear  ; 6     ;
+; Number of registers using Synchronous Load   ; 12    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 78    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                               ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                ; Fan out ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; fir:u_fir|ap_CS_fsm[0]                                                                                                                                                           ; 14      ;
+; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_flow_control_loop_pipe_sequential_init:flow_control_loop_pipe_sequential_init_U|ap_loop_init_int       ; 6       ;
+; fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|fir_flow_control_loop_pipe_sequential_init:flow_control_loop_pipe_sequential_init_U|ap_loop_init_int ; 13      ;
+; Total number of inverted registers = 3                                                                                                                                           ;         ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |fir_wrapper|Dout_emu[7]~reg0 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |fir_wrapper|Dout_emu[1]~reg0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |fir_wrapper ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; NUM_STIM_ARRAY ; 2     ; Signed Integer                                     ;
+; NUM_OUT_ARRAY  ; 3     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fir:u_fir ;
++------------------+-------+-----------------------------+
+; Parameter Name   ; Value ; Type                        ;
++------------------+-------+-----------------------------+
+; ap_ST_fsm_state1 ; 00001 ; Unsigned Binary             ;
+; ap_ST_fsm_state2 ; 00010 ; Unsigned Binary             ;
+; ap_ST_fsm_state3 ; 00100 ; Unsigned Binary             ;
+; ap_ST_fsm_state4 ; 01000 ; Unsigned Binary             ;
+; ap_ST_fsm_state5 ; 10000 ; Unsigned Binary             ;
++------------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fir:u_fir|fir_shift_reg_RAM_AUTO_1R1W:shift_reg_U ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; DataWidth      ; 8     ; Signed Integer                                                        ;
+; AddressWidth   ; 3     ; Signed Integer                                                        ;
+; AddressRange   ; 8     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51 ;
++----------------------+-------+-------------------------------------------------------------------------------------------+
+; Parameter Name       ; Value ; Type                                                                                      ;
++----------------------+-------+-------------------------------------------------------------------------------------------+
+; ap_ST_fsm_pp0_stage0 ; 1     ; Unsigned Binary                                                                           ;
++----------------------+-------+-------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59 ;
++----------------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name       ; Value ; Type                                                                                ;
++----------------------+-------+-------------------------------------------------------------------------------------+
+; ap_ST_fsm_pp0_stage0 ; 1     ; Unsigned Binary                                                                     ;
++----------------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                                       ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; DataWidth      ; 6     ; Signed Integer                                                                                                                                             ;
+; AddressWidth   ; 3     ; Signed Integer                                                                                                                                             ;
+; AddressRange   ; 8     ; Signed Integer                                                                                                                                             ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                                           ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ID             ; 1     ; Signed Integer                                                                                                                                                 ;
+; NUM_STAGE      ; 4     ; Signed Integer                                                                                                                                                 ;
+; din0_WIDTH     ; 8     ; Signed Integer                                                                                                                                                 ;
+; din1_WIDTH     ; 6     ; Signed Integer                                                                                                                                                 ;
+; din2_WIDTH     ; 16    ; Signed Integer                                                                                                                                                 ;
+; dout_WIDTH     ; 16    ; Signed Integer                                                                                                                                                 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                                                                                                                                                                                                               ;
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                                                                                                                                                                                                         ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                                                                                                                                                                                                       ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                                                                                                                                                                                                       ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                                                                                                                                                                                                     ;
+; LPM_WIDTHA                                     ; 8            ; Untyped                                                                                                                                                                                                                            ;
+; LPM_WIDTHB                                     ; 6            ; Untyped                                                                                                                                                                                                                            ;
+; LPM_WIDTHP                                     ; 14           ; Untyped                                                                                                                                                                                                                            ;
+; LPM_WIDTHR                                     ; 14           ; Untyped                                                                                                                                                                                                                            ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                                                                                                                                                                                                            ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                                                                                                                                                                                                            ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                                                                                                                                                                                                            ;
+; LATENCY                                        ; 0            ; Untyped                                                                                                                                                                                                                            ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                                                                                                                                                                                            ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                                                                                                                                                                                                            ;
+; USE_EAB                                        ; OFF          ; Untyped                                                                                                                                                                                                                            ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                                                                                                                                                                                                                            ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                                                                                                                                                                                            ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                                                                                                                                                                                            ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                                                                                                                                                                                                ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                                                                                                                                                                                            ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                                                                                                                                                                                            ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                                                                                                                                                                                            ;
+; CBXI_PARAMETER                                 ; mult_6at     ; Untyped                                                                                                                                                                                                                            ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                                                                                                                                                                                            ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                                                                                                                                                                                            ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                                                                                                                                                                                            ;
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                                                                                                                                                                                                            ;
++---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Name                                  ; Value                                                                                                                                                                                                                                             ;
++---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Number of entity instances            ; 1                                                                                                                                                                                                                                                 ;
+; Entity Instance                       ; fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                                                                                                                                                                                                                                 ;
+;     -- LPM_WIDTHB                     ; 6                                                                                                                                                                                                                                                 ;
+;     -- LPM_WIDTHP                     ; 14                                                                                                                                                                                                                                                ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                                                                                                                                                                                                          ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                                                                                                                                                                                                                ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                                                                                                                                                                                                                ;
+;     -- USE_EAB                        ; OFF                                                                                                                                                                                                                                               ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                                                                                                                                                                                              ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                                                                                                                                                                                                ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                                                                                                                                                                                                ;
++---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3" ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; ce   ; Input ; Info     ; Stuck at VCC                                                                                                                                 ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59"                        ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; ap_idle        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; acc_out_ap_vld ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51"           ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; ap_idle ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 23                          ;
+; cycloneiii_ff         ; 227                         ;
+;     ENA               ; 74                          ;
+;     ENA SLD           ; 4                           ;
+;     SCLR              ; 6                           ;
+;     SLD               ; 8                           ;
+;     plain             ; 135                         ;
+; cycloneiii_lcell_comb ; 274                         ;
+;     arith             ; 15                          ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 14                          ;
+;     normal            ; 259                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 115                         ;
+;         4 data inputs ; 130                         ;
+; cycloneiii_mac_mult   ; 1                           ;
+; cycloneiii_mac_out    ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.64                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
+    Info: Processing started: Fri May  2 14:15:56 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fir_wrapper -c fir_wrapper
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (10335): Unrecognized synthesis attribute "ram_style" at ../../../fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v(38) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v Line: 38
+Info (12021): Found 1 design units, including 1 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v
+    Info (12023): Found entity 1: fir_shift_reg_RAM_AUTO_1R1W File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v Line: 7
+Info (12021): Found 2 design units, including 2 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v
+    Info (12023): Found entity 1: fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0 File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v Line: 11
+    Info (12023): Found entity 2: fir_mac_muladd_8ns_6ns_16ns_16_4_1 File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v Line: 54
+Info (12021): Found 1 design units, including 1 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v
+    Info (12023): Found entity 1: fir_flow_control_loop_pipe_sequential_init File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_flow_control_loop_pipe_sequential_init.v Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v
+    Info (12023): Found entity 1: fir_fir_Pipeline_SHIFTER_LOOP File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+    Info (12023): Found entity 1: fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v
+    Info (12023): Found entity 1: fir_fir_Pipeline_MACC_LOOP File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 9
+Warning (10335): Unrecognized synthesis attribute "CORE_GENERATION_INFO" at ../../../fir/hls_component/syn/verilog/fir.v(9) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v
+    Info (12023): Found entity 1: fir File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/fir_wrapper.v
+    Info (12023): Found entity 1: fir_wrapper File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/fir_wrapper.v Line: 21
+Info (12127): Elaborating entity "fir_wrapper" for the top level hierarchy
+Warning (10030): Net "vectOut[2][7..4]" at fir_wrapper.v(35) has no driver or initial value, using a default initial value '0' File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/fir_wrapper.v Line: 35
+Info (12128): Elaborating entity "fir" for hierarchy "fir:u_fir" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/fir_wrapper.v Line: 99
+Warning (10306): Invalid value "none" for synthesis attribute "fsm_encoding" at ../../../fir/hls_component/syn/verilog/fir.v(44) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 44
+Warning (10036): Verilog HDL or VHDL warning at fir.v(81): object "ap_ST_fsm_state1_blk" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 81
+Warning (10036): Verilog HDL or VHDL warning at fir.v(82): object "ap_ST_fsm_state2_blk" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 82
+Warning (10036): Verilog HDL or VHDL warning at fir.v(83): object "ap_ST_fsm_state3_blk" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 83
+Warning (10036): Verilog HDL or VHDL warning at fir.v(84): object "ap_ST_fsm_state4_blk" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 84
+Warning (10036): Verilog HDL or VHDL warning at fir.v(85): object "ap_ST_fsm_state5_blk" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 85
+Warning (10230): Verilog HDL assignment warning at fir.v(243): truncated value with size 32 to match size of target (3) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 243
+Warning (10230): Verilog HDL assignment warning at fir.v(319): truncated value with size 32 to match size of target (5) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 319
+Info (10264): Verilog HDL Case Statement information at fir.v(290): all case item expressions in this case statement are onehot File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 290
+Info (12128): Elaborating entity "fir_shift_reg_RAM_AUTO_1R1W" for hierarchy "fir:u_fir|fir_shift_reg_RAM_AUTO_1R1W:shift_reg_U" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 112
+Info (12128): Elaborating entity "fir_fir_Pipeline_SHIFTER_LOOP" for hierarchy "fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 131
+Warning (10306): Invalid value "none" for synthesis attribute "fsm_encoding" at ../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v(49) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 49
+Warning (10036): Verilog HDL or VHDL warning at fir_fir_Pipeline_SHIFTER_LOOP.v(81): object "ap_enable_pp0" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 81
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_SHIFTER_LOOP.v(213): truncated value with size 64 to match size of target (3) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 213
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_SHIFTER_LOOP.v(215): truncated value with size 32 to match size of target (3) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 215
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_SHIFTER_LOOP.v(218): truncated value with size 32 to match size of target (3) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 218
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_SHIFTER_LOOP.v(260): truncated value with size 32 to match size of target (1) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 260
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_SHIFTER_LOOP.v(293): truncated value with size 64 to match size of target (3) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 293
+Info (12128): Elaborating entity "fir_flow_control_loop_pipe_sequential_init" for hierarchy "fir:u_fir|fir_fir_Pipeline_SHIFTER_LOOP:grp_fir_Pipeline_SHIFTER_LOOP_fu_51|fir_flow_control_loop_pipe_sequential_init:flow_control_loop_pipe_sequential_init_U" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_SHIFTER_LOOP.v Line: 109
+Info (12128): Elaborating entity "fir_fir_Pipeline_MACC_LOOP" for hierarchy "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir.v Line: 145
+Warning (10306): Invalid value "none" for synthesis attribute "fsm_encoding" at ../../../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v(40) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 40
+Warning (10036): Verilog HDL or VHDL warning at fir_fir_Pipeline_MACC_LOOP.v(71): object "ap_block_pp0_stage0_01001" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 71
+Warning (10036): Verilog HDL or VHDL warning at fir_fir_Pipeline_MACC_LOOP.v(80): object "ap_enable_pp0" assigned a value but never read File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 80
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP.v(328): truncated value with size 32 to match size of target (1) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 328
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP.v(357): truncated value with size 64 to match size of target (3) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 357
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP.v(359): truncated value with size 14 to match size of target (8) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 359
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP.v(363): truncated value with size 14 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 363
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP.v(369): truncated value with size 64 to match size of target (3) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 369
+Info (12128): Elaborating entity "fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R" for hierarchy "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 110
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(1): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 1
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(2): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 2
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(3): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 3
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(4): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 4
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(5): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 5
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(6): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 6
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(7): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 7
+Warning (10230): Verilog HDL assignment warning at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat(8): truncated value with size 8 to match size of target (6) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat Line: 8
+Warning (10030): Net "rom0.data_a" at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v(23) has no driver or initial value, using a default initial value '0' File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v Line: 23
+Warning (10030): Net "rom0.waddr_a" at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v(23) has no driver or initial value, using a default initial value '0' File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v Line: 23
+Warning (10030): Net "rom0.we_a" at fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v(23) has no driver or initial value, using a default initial value '0' File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v Line: 23
+Info (12128): Elaborating entity "fir_mac_muladd_8ns_6ns_16ns_16_4_1" for hierarchy "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v Line: 127
+Info (12128): Elaborating entity "fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0" for hierarchy "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v Line: 91
+Warning (10230): Verilog HDL assignment warning at fir_mac_muladd_8ns_6ns_16ns_16_4_1.v(49): truncated value with size 48 to match size of target (16) File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v Line: 49
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276004): RAM logic "fir:u_fir|fir_shift_reg_RAM_AUTO_1R1W:shift_reg_U|ram" is uninferred due to inappropriate RAM size File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_shift_reg_RAM_AUTO_1R1W.v Line: 38
+    Info (276004): RAM logic "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R:filter_taps_U|rom0" is uninferred due to inappropriate RAM size File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v Line: 23
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|Mult0" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v Line: 34
+Info (12130): Elaborated megafunction instantiation "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|lpm_mult:Mult0" File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v Line: 34
+Info (12133): Instantiated megafunction "fir:u_fir|fir_fir_Pipeline_MACC_LOOP:grp_fir_Pipeline_MACC_LOOP_fu_59|fir_mac_muladd_8ns_6ns_16ns_16_4_1:mac_muladd_8ns_6ns_16ns_16_4_1_U3|fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0:fir_mac_muladd_8ns_6ns_16ns_16_4_1_DSP48_0_U|lpm_mult:Mult0" with the following parameter: File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v Line: 34
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "6"
+    Info (12134): Parameter "LPM_WIDTHP" = "14"
+    Info (12134): Parameter "LPM_WIDTHR" = "14"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_6at.tdf
+    Info (12023): Found entity 1: mult_6at File: /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Altera/db/mult_6at.tdf Line: 29
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 30 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Altera/output_files/fir_wrapper.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 376 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 352 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 407 megabytes
+    Info: Processing ended: Fri May  2 14:16:09 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:23
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/goodkook/ETRI050_DesignKit/devel/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/emulation/PSCE-TRANS/Altera/output_files/fir_wrapper.map.smsg.
+
+

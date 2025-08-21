@@ -1,0 +1,30 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+read_verilog  ~/ETRI050_DesignKit/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/ETRI050/source/fir.v
+read_verilog fir_fir_Pipeline_MACC_LOOP.v
+read_verilog fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+read_verilog fir_fir_Pipeline_SHIFTER_LOOP.v
+read_verilog fir_flow_control_loop_pipe_sequential_init.v
+read_verilog fir_mac_muladd_8ns_6ns_16ns_16_4_1.v
+read_verilog fir_shift_reg_RAM_AUTO_1R1W.v
+
+# High-level synthesis
+synth -top fir
+# Map register flops
+dfflibmap -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+opt
+
+# Map combinatorial cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+
+clean -purge
+# Output buffering
+iopadmap -outpad BUFX2 A:Y -bits
+# Cleanup
+opt
+clean
+rename -enumerate
+write_verilog  fir_mapped.v
+stat
