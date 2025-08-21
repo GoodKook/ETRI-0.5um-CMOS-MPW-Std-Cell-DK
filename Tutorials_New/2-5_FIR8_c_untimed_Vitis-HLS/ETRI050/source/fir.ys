@@ -1,6 +1,6 @@
 # Synthesis script for yosys created by qflow
 read_liberty -lib -ignore_miss_dir -setattr blackbox /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
-read_verilog  ~/ETRI050_DesignKit/Tutorials/2-8_Lab6_FIR8_c_untimed_Vitis-HLS/ETRI050/source/fir.v
+read_verilog  ~/ETRI050_DesignKit/Tutorials/2-5_FIR8_c_untimed_Vitis-HLS/ETRI050/source/fir.v
 read_verilog fir_fir_Pipeline_MACC_LOOP.v
 read_verilog fir_fir_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
 read_verilog fir_fir_Pipeline_SHIFTER_LOOP.v

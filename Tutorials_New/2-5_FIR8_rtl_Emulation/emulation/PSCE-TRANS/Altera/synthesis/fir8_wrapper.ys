@@ -3,13 +3,14 @@
 #
 
 read_verilog ../../../fir8_wrapper.v
-read_verilog ../../../../../2-5_Lab3_FIR8/rtl_verilog/fir_pe.v
+read_verilog ../../../../../2-5_FIR8/rtl_verilog/fir_pe.v
 read_verilog -sv ../../../../source/fir8.v
 
 hierarchy -check -top fir8_wrapper
 
-synth_intel -top fir8_wrapper -family cycloneiv
+synth_intel -top fir8_wrapper -family cycloneive
 
 write_verilog fir8_wrapper.v
+
 stat
 

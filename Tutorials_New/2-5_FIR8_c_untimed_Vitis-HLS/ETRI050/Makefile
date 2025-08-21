@@ -31,7 +31,10 @@ all :
 	@echo ''
 
 # -----------------------------------------------------
-synthesize : ./log/synth.log
+synthesize : ./log/synth.log 
+
+../../fir/hls_component/syn/verilog/fir.v:
+	make -C .. csynth
 
 ./log/synth.log : $(VERILOG_SRCS)
 	@if [ -w ./source/fir.ys ]; then \

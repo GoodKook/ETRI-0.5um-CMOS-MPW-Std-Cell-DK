@@ -1,6 +1,6 @@
 
 all:
-	@echo "FIR8: 8-Tap Digital Filter described as follows;"
+	@echo "FIR8: 8-Tap Digital Filter at each abstration level"
 	@echo
 	@echo "    make c_untimed"
 	@echo "    make sc_timed"
@@ -8,7 +8,7 @@ all:
 	@echo
 	@echo "    make clean"
 	@echo
-	@echo "    CC BY-NC, GoodKook, goodkook@gmail.com"
+	@echo "    CC BY-NC, by GoodKook, goodkook@gmail.com"
 	@echo
 
 c_untimed: ./c_untimed/fir8_tb
@@ -26,6 +26,7 @@ rtl_verilog: ./rtl_verilog/obj_dir/Vfir8
 ./rtl_verilog/obj_dir/Vfir8:
 	make -C ./rtl_verilog build
 	make -C ./rtl_verilog run
+	make -C ./rtl_verilog wave
 
 clean:
 	make -C ./c_untimed clean

@@ -2,7 +2,7 @@
 TOP_MODULE=fir8_wrapper
 VERILOG_SRC= \
 	../../../$(TOP_MODULE).v \
-	../../../../../2-5_Lab3_FIR8/rtl_verilog/fir_pe.v \
+	../../../../../2-5_FIR8/rtl_verilog/fir_pe.v \
 	../../../../source/fir8.v
 
 all: $(TOP_MODULE).v

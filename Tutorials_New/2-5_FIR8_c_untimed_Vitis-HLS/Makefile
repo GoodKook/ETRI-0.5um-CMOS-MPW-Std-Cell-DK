@@ -19,11 +19,12 @@ else
 endif
 
 all:
-	@echo "Vitis-HLS Project: $(TOP_MODULE)"
-	@echo "    make csynth"
-	@echo "    make view_rpt"
-	@echo "    make co-sim"
-	@echo "    make clean"
+	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
+	@echo
+	@echo '    make csynth'
+	@echo '    make view_rpt'
+	@echo '    make co-sim'
+	@echo '    make clean'
 	@echo
 	@echo '    * command-line variable HW_STYLE must be set before build'
 	@echo '      HW_STYLE=[MACC | SHIFT | ARRAY] make csynth'
@@ -38,8 +39,31 @@ all:
 	@echo '  (3) Build and Run Co-Emulator'
 	@echo '        make co-emu'
 	@echo
-	@echo '    CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo 'Targetting ETRI050 node,'
+	@echo '  (1) Synthesize'
+	@echo '        make synth_ETRI050'
+	@echo '  (2) P&R, Generate layout'
+	@echo '        make pnr_ETRI050'
+	@echo '  (3) View GDS'
+	@echo '        make layout'
+	@echo
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
 
+#---------------------------------------------------------------
+synth_ETRI050:
+	make -C ETRI050 synthesize
+
+pnr_ETRI050:
+	make -C ETRI050 place
+	make -C ETRI050 route
+	make -C ETRI050 migrate
+
+layout:
+	make -C ETRI050/layout mag2gds
+	make -C ETRI050/layout klayout
+
+#---------------------------------------------------------------
 build-mi:
 	MODE=CA make -C ./emulation/PSCE-MI/Arduino build
 
@@ -50,6 +74,7 @@ build-trans:
 	make -C ./emulation/PSCE-TRANS/Altera_Cmd build
 	make -C ./emulation/PSCE-TRANS/Altera_Cmd gen_rbf
 
+#---------------------------------------------------------------
 config-trans:
 	make -C ./emulation/PSCE-TRANS/Altera_Cmd config
 
@@ -76,4 +101,7 @@ clean:
 	rm -rf $(TOP_MODULE)
 	make -C simulation clean
 	make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
+	make -C ./ETRI050 clean
+	make -C ./ETRI050/layout clean
+	make -C ./ETRI050/layout clean_all
 

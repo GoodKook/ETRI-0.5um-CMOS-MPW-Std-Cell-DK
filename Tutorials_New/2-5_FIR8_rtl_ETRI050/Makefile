@@ -1,7 +1,7 @@
 
 VERILOG_SRCS =	\
-	../2-5_Lab3_FIR8/rtl_verilog/fir_pe.v \
-	../2-6_Lab4_FIR8_rtl_Emulation/source/fir8.v
+	../2-5_FIR8/rtl_verilog/fir_pe.v \
+	../2-5_FIR8_rtl_Emulation/source/fir8.v
 
 ifeq ($(TOP), fir8)
 	TOP_MODULE=fir8
@@ -30,19 +30,33 @@ all :
 	@echo '             config_m1f'
 	@echo '             config_m2f'
 	@echo '             clean_cell'
-	@echo ''
+	@echo
+	@echo '* Netlist simulation after synthesize'
+	@echo '        make net-build'
+	@echo '        make net-sim'
+	@echo
+	@echo '  CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
 
 # -----------------------------------------------------
 synthesize : ./log/synth.log
 
 ./log/synth.log : $(VERILOG_SRCS)
 	@if ! [ -L ./source/fir_pe.v ]; then \
-		ln -s ../../2-5_Lab3_FIR8/rtl_verilog/fir_pe.v ./source/fir_pe.v; \
+		ln -s ../../2-5_FIR8/rtl_verilog/fir_pe.v ./source/fir_pe.v; \
 	fi
 	@if ! [ -L ./source/fir8.v ]; then \
-		ln -s ../../2-6_Lab4_FIR8_rtl_Emulation/source/fir8.v ./source/fir8.v; \
+		ln -s ../../2-5_FIR8_rtl_Emulation/source/fir8.v ./source/fir8.v; \
 	fi
 	qflow synthesize -T etri050 $(TOP_MODULE)
+
+# -----------------------------------------------------
+net-build :
+	make -C simulation build
+
+net-sim :
+	make -C simulation run
+	make -C simulation wave
 
 # -----------------------------------------------------
 place : ./log/place.log
@@ -103,6 +117,7 @@ clean :
 	rm -f ./log/*
 	rm -f ./synthesis/*
 	touch project_vars.sh
+	make -C simulation clean
 
 #--------------------------------------------------------------------------------
 CELL_SRC1 = ~/ETRI050_DesignKit/digital_ETRI050_m1f

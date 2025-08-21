@@ -9,16 +9,16 @@ export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 TOP_MODULE = fir8
 
 SC_SRCS = \
-    ../../2-5_Lab3_FIR8/sc_timed/sc_main.cpp \
-    ../../2-5_Lab3_FIR8/sc_timed/sc_fir8_tb.cpp \
-    ../../2-5_Lab3_FIR8/c_untimed/fir8.cpp \
-    ../../2-5_Lab3_FIR8/c_untimed/cnoise.cpp
+    ../../2-5_FIR8/sc_timed/sc_main.cpp \
+    ../../2-5_FIR8/sc_timed/sc_fir8_tb.cpp \
+    ../../2-5_FIR8/c_untimed/fir8.cpp \
+    ../../2-5_FIR8/c_untimed/cnoise.cpp
 SC_HDRS = \
-    ../../2-5_Lab3_FIR8/sc_timed/sc_fir_pe.h \
-    ../../2-5_Lab3_FIR8/sc_timed/sc_fir8.h \
+    ../../2-5_FIR8/sc_timed/sc_fir_pe.h \
+    ../../2-5_FIR8/sc_timed/sc_fir8.h \
 	./E$(TOP_MODULE).h
 SC_TOP_H = \
-    ../../2-5_Lab3_FIR8/sc_timed/sc_$(TOP_MODULE)_tb.h
+    ../../2-5_FIR8/sc_timed/sc_$(TOP_MODULE)_tb.h
 
 CFLAGS  = -g
 CFLAGS += -DVCD_TRACE_FIR8
@@ -83,7 +83,7 @@ all :
 build : $(TARGET)
 
 $(TARGET): $(SC_SRCS) $(SC_HDRS) $(SC_TOP_H)
-	clang++ -I. -I../../2-5_Lab3_FIR8/c_untimed -I$(SYSTEMC_INCLUDE) $(CFLAGS) -L$(SYSTEMC_LIBDIR) \
+	clang++ -I. -I../../2-5_FIR8/c_untimed -I$(SYSTEMC_INCLUDE) $(CFLAGS) -L$(SYSTEMC_LIBDIR) \
 			-o $(TARGET) $(LIBS) $(SC_SRCS)
 
 run : $(TARGET)
@@ -96,7 +96,7 @@ wave : sc_$(TOP_MODULE).vcd
 	gtkwave sc_$(TOP_MODULE).vcd --save=sc_$(TOP_MODULE).gtkw &
 
 plot : sc_$(TOP_MODULE)_tb_out.txt
-	python3 ../../2-5_Lab3_FIR8/sc_timed/sc_plotDFT.py
+	python3 ../../2-5_FIR8/sc_timed/sc_plotDFT.py
 
 clean :
 	rm -f E$(TOP_MODULE)

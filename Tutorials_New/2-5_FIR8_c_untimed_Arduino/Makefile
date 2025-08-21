@@ -7,7 +7,8 @@ export FQBN=arduino:sam:arduino_due_x_dbg
 
 all:
 	@echo "Arduino-CLI Simple Example \"Blink\""
-	@echo "    make blink_ex"
+	@echo "    make build-blink"
+	@echo "    make upload-blink"
 	@echo
 	@echo "Arduino-CLI for $(SKETCH): Running fir() on Arduino DUE"
 	@echo
@@ -17,9 +18,14 @@ all:
 	@echo "    make build_TL"
 	@echo "    make run"
 	@echo
+	@echo " CC BY-NC, by GoodKook, goodkook@gmail.com"
+	@echo
 
-blink_ex:
-	FQBN=arduino:sam:arduino_due_x_dbg SKETCH=Blink make -C ./Arduino_Blink compile
+build-blink:
+	FQBN=$(FQBN) SKETCH=Blink make -C ./Arduino_Blink compile
+
+upload-blink:
+	FQBN=$(FQBN) SKETCH=Blink make -C ./Arduino_Blink upload
 
 build: ./$(SKETCH)/$(SKETCH).ino
 	@if ! [ -L ./FIR8/fir8.cpp ]; then \
@@ -48,7 +54,6 @@ run: $(SKETCH)_TL  ./emulation/$(SKETCH)_TL.cpp
 	./$(SKETCH)_TL
 
 clean:
-	make -C ./Arduino_Blink clean	
 	rm -f $(SKETCH)_TL
 	rm -f $(SKETCH)_fifo
 	rm -f *.log
