@@ -3,11 +3,14 @@ VERILOG_SRCS =	./source/fir_pe.v
 TOP_MODULE = fir_pe
 
 all :
+	touch project_vars.sh
 	@echo ''
-	@echo 'Makefile for "FIR_PE" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
+	@echo 'Makefile for "$(TOP_MODULE)" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
 	@echo 'Usage:'
 	@echo '    make [option]'
 	@echo '         Use one of following options'
+	@echo '             simulation'
+	@echo '             emulation'
 	@echo '             synthesize'
 	@echo '             place'
 	@echo '             sta'
@@ -15,11 +18,87 @@ all :
 	@echo '             migrate'
 	@echo '             lvs'
 	@echo '             size'
-	@echo ''
+	@echo '             layout'
+	@echo
 	@echo '             config_m1f'
 	@echo '             config_m2f'
 	@echo '             clean_cell'
+	@echo
+	@echo '    CC BY-NC, by GoodKook, goodkook@gmail.com'
 	@echo ''
+
+
+# -----------------------------------------------------
+simulation: help_sim
+help_sim:
+	@echo 'Co-Simulating "$(TOP_MODULE)" ........'
+	@echo
+	@echo '  (1) Functional Co-Simulation: Verilog + SystemCTB'
+	@echo '        make sim-functional'
+	@echo
+	@echo '  (2) Zero-Delay Netlist Co-Simulation with Verilated Func. Std-Cell Model'
+	@echo '        make sim-netlist'
+	@echo
+	@echo '  (3) Timing Netlist Co-Simulation via iVerilog-VPI with Timing Std-Cell Model'
+	@echo '        make sim-timing'
+	@echo
+	@echo '    CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
+
+sim-functional:
+	make -C ./simulation build
+	make -C ./simulation run
+
+sim-netlist: ./log/synth.log ./synthesis/fir_pe.v
+	make -C ./simulation clean
+	make -C ./simulation build_net
+	make -C ./simulation run
+
+sim-timing: ./log/synth.log ./synthesis/fir_pe.v
+	make -C ./simulation clean
+	make -C ./simulation/sc_vpi_co-sim build_tim
+	make -C ./simulation/sc_vpi_co-sim run
+	make -C ./simulation/sc_vpi_co-sim wave
+
+# -----------------------------------------------------
+emulation: help_emu
+help_emu:
+	@echo 'Co-Emulating "$(TOP_MODULE)" ........'
+	@echo
+	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
+	@echo '        make build-mi'
+	@echo '        make upload-mi'
+	@echo
+	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
+	@echo '        make build-trans'
+	@echo '        make config-trans'
+	@echo
+	@echo '  (3) Build and Run Co-Emulator'
+	@echo '        make co-emu'
+	@echo '        make wave'
+	@echo '        make plot'
+	@echo
+	@echo '    CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
+
+build-mi:
+	make -C ./emulation/PSCE-MI/Arduino build
+
+upload-mi:
+	make -C ./emulation/PSCE-MI/Arduino upload
+
+build-trans:
+	make -C ./emulation/PSCE-TRANS/Altera_Cmd build
+
+config-trans:
+	make -C ./emulation/PSCE-TRANS/Altera_Cmd config
+
+co-emu: ./emulation/obj_dir/Vfir_pe
+	make -C ./emulation run
+	make -C ./emulation wave
+
+./emulation/obj_dir/Vfir_pe:
+	make -C ./emulation build
 
 # -----------------------------------------------------
 synthesize : ./log/synth.log
@@ -73,13 +152,28 @@ lvs : ./log/lvs.log project_vars.sh
 	~/ETRI050_DesignKit/scripts/fix_net_name.sh ./synthesis/$(TOP_MODULE).spc
 	qflow lvs -T etri050 $(TOP_MODULE)
 
+# -----------------------------------------------------
 size: ./layout/$(TOP_MODULE).mag ./log/magic_db.log
 	~/ETRI050_DesignKit/scripts/size_core.sh $(TOP_MODULE)
+
+# -----------------------------------------------------
+layout: klayout
+klayout:
+	make -C layout mag2gds
+	make -C layout klayout
 
 clean :
 	rm -f ./log/*
 	rm -f ./synthesis/*
 	touch project_vars.sh
+	make -C ./simulation clean
+	make -C ./simulation/sc_vpi_co-sim clean
+	make -C ./emulation clean
+	make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
+	make -C ./layout clean
+	make -C ./layout clean_all
+	rm -f ./layout/$(TOP_MODULE)_F.mag
+	rm -f ./layout/$(TOP_MODULE)_F.gds
 
 #--------------------------------------------------------------------------------
 CELL_SRC1 = ~/ETRI050_DesignKit/digital_ETRI050_m1f

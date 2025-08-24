@@ -9,8 +9,8 @@ export LD_LIBRARY_PATH :=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 SC_SRCS = \
     ../simulation/sc_main.cpp \
     ../simulation/sc_fir8_tb.cpp \
-    ../../2-5_FIR8/c_untimed/fir8.cpp \
-    ../../2-5_FIR8/c_untimed/cnoise.cpp
+    ../../3-1_FIR8/c_untimed/fir8.cpp \
+    ../../3-1_FIR8/c_untimed/cnoise.cpp
 SC_HDRS = \
     ../simulation/sc_fir8.h \
     ../simulation/sc_fir8_tb.h \
@@ -24,7 +24,7 @@ VCFLAGS		 = -CFLAGS -g
 VCFLAGS		+= -CFLAGS -I./obj_dir
 VCFLAGS		+= -CFLAGS -I../simulation
 VCFLAGS		+= -CFLAGS -DFIR_SHIFTER_VERSION
-VCFLAGS		+= -CFLAGS -I../../../2-5_FIR8/c_untimed
+VCFLAGS		+= -CFLAGS -I../../../3-1_FIR8/c_untimed
 VCFLAGS		+= -CFLAGS -I..
 VCFLAGS		+= -CFLAGS -DEMULATED_CO_SIM
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8

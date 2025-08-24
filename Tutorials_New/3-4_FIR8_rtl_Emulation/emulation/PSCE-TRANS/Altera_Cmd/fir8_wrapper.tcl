@@ -62,7 +62,7 @@ if {$make_assignments} {
 	set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 	set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 	set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-	set_global_assignment -name VERILOG_FILE "../../../../2-5_FIR8/rtl_verilog/fir_pe.v"
+	set_global_assignment -name VERILOG_FILE "../../../../3-1_FIR8/rtl_verilog/fir_pe.v"
 	set_global_assignment -name VERILOG_FILE ../../../source/fir8.v
 	set_global_assignment -name VERILOG_FILE ../../fir8_wrapper.v
 	set_location_assignment PIN_132 -to Dout_emu[7]

@@ -19,6 +19,7 @@ else
 endif
 
 all:
+	@clear
 	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
 	@echo
 	@echo '    make csynth'

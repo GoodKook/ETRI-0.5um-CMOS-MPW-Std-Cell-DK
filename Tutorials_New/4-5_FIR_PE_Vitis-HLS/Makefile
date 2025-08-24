@@ -1,5 +1,5 @@
 export LD_LIBRARY_PATH :=/usr/bin:$(LD_LIBRARY_PATH)
-export PATH :=/opt/Xilinx/Vivado/2024.2/bin/:/opt/Xilinx/Vitis_HLS/2024.2/bin:/opt/Xilinx/Vitis/2024.2/bin/:/opt/Xilinx/DocNav:$(PATH)
+export PATH :=/opt/Xilinx/2025.1/Vivado/bin:/opt/Xilinx/2025.1/Vitis/bin:$(PATH)
 
 TOP_MODULE = fir_pe
 CPP_FILES = ./source/fir_pe.cpp

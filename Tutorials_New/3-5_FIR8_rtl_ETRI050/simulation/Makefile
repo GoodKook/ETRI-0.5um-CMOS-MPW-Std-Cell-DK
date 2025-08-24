@@ -12,12 +12,12 @@ VERILOG_SRCS = \
     ../synthesis/$(TOP_MODULE).v
 
 SC_SRCS = \
-    ../../2-5_FIR8/sc_timed/sc_main.cpp \
-    ../../2-5_FIR8/sc_timed/sc_fir8_tb.cpp \
-    ../../2-5_FIR8/c_untimed/fir8.cpp \
-    ../../2-5_FIR8/c_untimed/cnoise.cpp
+    ../../3-1_FIR8/sc_timed/sc_main.cpp \
+    ../../3-1_FIR8/sc_timed/sc_fir8_tb.cpp \
+    ../../3-1_FIR8/c_untimed/fir8.cpp \
+    ../../3-1_FIR8/c_untimed/cnoise.cpp
 SC_TOP_H = \
-    ../../2-5_FIR8/sc_timed/sc_$(TOP_MODULE)_tb.h
+    ../../3-1_FIR8/sc_timed/sc_$(TOP_MODULE)_tb.h
 
 VERILATOR = verilator
 LINT_WARNING = -Wno-UNUSEDSIGNAL

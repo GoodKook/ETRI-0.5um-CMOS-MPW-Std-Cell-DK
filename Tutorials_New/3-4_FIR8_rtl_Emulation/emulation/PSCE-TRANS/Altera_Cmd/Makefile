@@ -25,7 +25,7 @@ output_file.rbf: ./output_files/$(PROJECT).sof
 	quartus_cpf -c ./output_files/$(PROJECT).sof output_file.rbf
 
 config: output_file.rbf
-	openFPGALoader -c digilent_hs2 output_file.rbf
+	sudo openFPGALoader -c digilent_hs2 output_file.rbf
 
 clean:
 	rm -rf ./output_files

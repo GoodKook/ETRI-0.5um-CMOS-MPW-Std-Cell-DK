@@ -8,8 +8,8 @@ export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS      =  ./sc_main.cpp \
 				./sc_fir8_tb.cpp \
-				../../2-5_Lab3_FIR8/c_untimed/fir8.cpp \
-				../../2-5_Lab3_FIR8/c_untimed/cnoise.cpp
+				../../3-1_FIR8/c_untimed/fir8.cpp \
+				../../3-1_FIR8/c_untimed/cnoise.cpp
 SC_HDRS      =  ./sc_fir8.h \
 				./sc_fir8_tb.h \
 				./V_fir_pe.h
@@ -21,7 +21,7 @@ build_net: VERILOG_SRCS =  ../synthesis/fir_pe.v \
 VERILATOR    = verilator
 VCFLAGS		= -CFLAGS -g
 VCFLAGS		+= -CFLAGS -DFIR_SHIFTER_VERSION
-VCFLAGS		+= -CFLAGS -I../../../2-5_Lab3_FIR8/c_untimed
+VCFLAGS		+= -CFLAGS -I../../../3-1_FIR8/c_untimed
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_FIR8_TB
 VCFLAGS		+= -LDFLAGS -lm
@@ -97,7 +97,7 @@ lint : ../source/$(TOP_MODULE).v
 
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
-	../../2-5_Lab3_FIR8/sc_timed/sc_plotDFT.py &
+	python3 ../../3-1_FIR8/sc_timed/sc_plotDFT.py &
 	gtkwave sc_fir8.vcd --save=sc_fir8.gtkw &
 
 run_tim : $(TOP_MODULE)

@@ -61,8 +61,8 @@ $(VLT_DIR)/V$(VLT_TOP_MODULE).h: $(VLT_SRCS)
 # Build VPI -----------------------------------------------------
 VPI_TARGET 	= vpi_stub.vpi
 VPI_SRCS 	= \
-    ../../../2-5_FIR8/c_untimed/fir8.cpp \
-    ../../../2-5_FIR8/c_untimed/cnoise.cpp \
+    ../../../3-1_FIR8/c_untimed/fir8.cpp \
+    ../../../3-1_FIR8/c_untimed/cnoise.cpp \
     vpi_stub.cpp \
     vpi_fir8_tb.cpp \
     sc_fir8_tb.cpp \
@@ -78,7 +78,7 @@ VPI_INC_PATH = \
     -I/usr/local/include/iverilog \
     -I$(VLT_DIR) \
     -I${SYSTEMC_INCLUDE} \
-    -I../../../2-5_FIR8/c_untimed \
+    -I../../../3-1_FIR8/c_untimed \
     -I..
 VPI_LIB_PATH = \
     -L${SYSTEMC_LIBDIR} \

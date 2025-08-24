@@ -1,7 +1,7 @@
 
 VERILOG_SRCS =	\
-	../2-5_FIR8/rtl_verilog/fir_pe.v \
-	../2-5_FIR8_rtl_Emulation/source/fir8.v
+	../3-1_FIR8/rtl_verilog/fir_pe.v \
+	../3-4_FIR8_rtl_Emulation/source/fir8.v
 
 ifeq ($(TOP), fir8)
 	TOP_MODULE=fir8
@@ -43,10 +43,10 @@ synthesize : ./log/synth.log
 
 ./log/synth.log : $(VERILOG_SRCS)
 	@if ! [ -L ./source/fir_pe.v ]; then \
-		ln -s ../../2-5_FIR8/rtl_verilog/fir_pe.v ./source/fir_pe.v; \
+		ln -s ../../3-1_FIR8/rtl_verilog/fir_pe.v ./source/fir_pe.v; \
 	fi
 	@if ! [ -L ./source/fir8.v ]; then \
-		ln -s ../../2-5_FIR8_rtl_Emulation/source/fir8.v ./source/fir8.v; \
+		ln -s ../../3-4_FIR8_rtl_Emulation/source/fir8.v ./source/fir8.v; \
 	fi
 	qflow synthesize -T etri050 $(TOP_MODULE)
 

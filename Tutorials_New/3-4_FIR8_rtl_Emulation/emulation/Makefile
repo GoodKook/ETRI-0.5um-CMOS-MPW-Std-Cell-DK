@@ -9,16 +9,16 @@ export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 TOP_MODULE = fir8
 
 SC_SRCS = \
-    ../../2-5_FIR8/sc_timed/sc_main.cpp \
-    ../../2-5_FIR8/sc_timed/sc_fir8_tb.cpp \
-    ../../2-5_FIR8/c_untimed/fir8.cpp \
-    ../../2-5_FIR8/c_untimed/cnoise.cpp
+    ../../3-1_FIR8/sc_timed/sc_main.cpp \
+    ../../3-1_FIR8/sc_timed/sc_fir8_tb.cpp \
+    ../../3-1_FIR8/c_untimed/fir8.cpp \
+    ../../3-1_FIR8/c_untimed/cnoise.cpp
 SC_HDRS = \
-    ../../2-5_FIR8/sc_timed/sc_fir_pe.h \
-    ../../2-5_FIR8/sc_timed/sc_fir8.h \
+    ../../3-1_FIR8/sc_timed/sc_fir_pe.h \
+    ../../3-1_FIR8/sc_timed/sc_fir8.h \
 	./E$(TOP_MODULE).h
 SC_TOP_H = \
-    ../../2-5_FIR8/sc_timed/sc_$(TOP_MODULE)_tb.h
+    ../../3-1_FIR8/sc_timed/sc_$(TOP_MODULE)_tb.h
 
 CFLAGS  = -g
 CFLAGS += -DVCD_TRACE_FIR8

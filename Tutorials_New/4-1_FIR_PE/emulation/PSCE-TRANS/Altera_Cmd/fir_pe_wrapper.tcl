@@ -47,7 +47,7 @@ if {$make_assignments} {
 	set_global_assignment -name ORIGINAL_QUARTUS_VERSION 24.1STD.0
 	set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:35:15  MAY 11, 2025"
 	set_global_assignment -name LAST_QUARTUS_VERSION "24.1std.0 Standard Edition"
-	set_global_assignment -name VERILOG_FILE "../../../../2-6_FIR_PE/source/fir_pe.v"
+	set_global_assignment -name VERILOG_FILE "../../../../4-1_FIR_PE/source/fir_pe.v"
 	set_global_assignment -name VERILOG_FILE ../../../fir_pe_wrapper.v
 	set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 	set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
