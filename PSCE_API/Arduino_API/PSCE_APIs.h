@@ -4,17 +4,9 @@
 // Purpose : Arduino DUE/Raspberry PI PICO PSCE-APIs
 // Author  : GoodKook, goodkook@gmail.com
 
-#ifndef PSCE_APIS_H_
-#define PSCE_APIS_H_
+#ifndef _PSCE_APIS_H_
+#define _PSCE_APIS_H_
 
-//-------------------------------------------------------------------
-// !!! IMPOTANCE: PSCE-MI Board Selection
-//#define DUE_OVERCLOCK
-//#define PI_PICO
-//-------------------------------------------------------------------
-// !!! IMPORTANCE: PSCE FPGA Board Selection
-#include "PinMap_TANG_25K.h"
-//#include "PinMap_A7_100T.h"
 //--------------------------------------------------------------------
 // DUE Board: Overclocking & Non-Arduino Std Port R/W
 #ifndef DUE_OVERCLOCK
@@ -24,6 +16,13 @@
 //--------------------------------------------------------------------
 
 #include <Arduino.h>
+#ifdef OLED_DISPLAY
+#include <Wire.h>
+#include <U8g2lib.h>        // OLED Display Libraries
+#define SCREEN_WIDTH 128    // OLED display width, in pixels
+#define SCREEN_HEIGHT 64    // OLED display height, in pixels
+#include "PSCE_Splash.h"    // PSCE-MI Splash image
+#endif
 
 #if defined(__GNUC__)
 #pragma GCC optimize ("Ofast")
@@ -41,8 +40,8 @@ public:
     clk_dut_delay = clk_delay;
     clk_emu_delay = clk_delay;
   }; // Constructor
-  // Arduino DUE
-  void    establishContact();
+
+  void    establishContact(); // with SystemC TB
   void    init();   // Overclocked to 114Mhz, UART Baudrate to 115200
 
 #ifdef DUE_OVERCLOCK
@@ -76,6 +75,25 @@ public:
 //private:
   uint32_t  clk_dut_delay;
   uint32_t  clk_emu_delay;
+
+#ifdef OLED_DISPLAY
+  /// Display for Debuging ------------------------------------------------
+  // Define display object: 0.96" OLED Display Controller SSD1306
+#if defined(ESP32_S3)
+  U8G2_SSD1306_128X64_NONAME_F_HW_I2C* u8g2;
+#elif defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)
+  // DUE Default I2C: Rotation(R0), SDA(20), SCL(21), Address(0x3C)
+  U8G2_SSD1306_128X64_NONAME_F_HW_I2C*  u8g2;
+  //U8G2_SH1106_128X64_NONAME_F_HW_I2C* u8g2;
+#elif defined(PI_PICO)
+  // PICO Software I2C: Rotation(R0), SDA(GPIO28/#34), SCL(GPIO27/#32), Address(0x3C)
+  U8G2_SSD1306_128X64_NONAME_F_SW_I2C*  u8g2;
+#endif
+
+  void disp_prepare(void);
+  bool disp_init();
+  void disp_print(int16_t x, int16_t y, char* szMsg);
+#endif  // OLED_DIAPLAY
 };
 
 #endif

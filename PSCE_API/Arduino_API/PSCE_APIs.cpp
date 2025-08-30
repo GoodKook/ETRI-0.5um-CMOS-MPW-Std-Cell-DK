@@ -5,10 +5,11 @@
 // Author  : GoodKook, goodkook@gmail.com
 // History
 
+#include "PSCE_Config.h"
 #include "PSCE_APIs.h"
 
 #ifdef DUE_OVERCLOCK
-// Direct access to port: Non-Arduino Std. R/W
+// Direct access to port: Non-Arduino Std. R/W --------------------------
 void PSCE::digitalWriteDirect(int pin, boolean val)
 {
   if(val) g_APinDescription[pin].pPort -> PIO_SODR = g_APinDescription[pin].ulPin;
@@ -20,26 +21,41 @@ int PSCE::digitalReadDirect(int pin)
   return !!(g_APinDescription[pin].pPort -> PIO_PDSR & g_APinDescription[pin].ulPin);
 }
 #endif  // DUE_OVERCLOCK
-
 //-------------------------------------------------------------------
 void PSCE::establishContact()
 {
-  while (Serial.available() <= 0)
-  {
-    Serial.print('A');  // send a capital A
-    delay(300);
-    if (Serial.read()==(int)'A')
-      break;
-  }
+  unsigned char Req = 0, Ack = 0;
+  
+  while (Serial.available() > 0)   Serial.read();   // Clear RX Buffer
+
+  while (Serial.available() <= 0)   delay(100);     // Wait for Host request
+  Req = (unsigned char)Serial.read();
+
+  while(Serial.availableForWrite() <= 0)    delay(100);
+  Ack = Req;
+  Serial.write(Ack); // Ack
 }
 //-------------------------------------------------------------------
 void PSCE::init()
 {
+  // Monitoring LED: Starting Init
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWriteDirect(LED_BUILTIN, HIGH);
+
+#ifdef OLED_DISPLAY
+  // OLED Display for Debugging --------------------
+  disp_init();
+  disp_print(0,0,(char*)"PSCE-Model Interface\nBridge the Gap between\n SystemC/C++ TB &\n Hardware/RTL DUT\n\nREADY!");
+  delay(5000);
+#endif
+
 #ifdef DUE_OVERCLOCK
   // Over-clocking DUE
   // MULA: 18UL for 114MHz, 15UL for 96MHz, 84MHz for 13UL (as in system_sam3xa.c):
   // ex) Initialize PLLA to (18+1)*6=114MHz
 
+//#define SYS_BOARD_PLLAR (CKGR_PLLAR_ONE | CKGR_PLLAR_MULA(13UL) | CKGR_PLLAR_PLLACOUNT(0x3fUL) | CKGR_PLLAR_DIVA(1UL))
+//#define SYS_BOARD_PLLAR (CKGR_PLLAR_ONE | CKGR_PLLAR_MULA(15UL) | CKGR_PLLAR_PLLACOUNT(0x3fUL) | CKGR_PLLAR_DIVA(1UL))
 #define SYS_BOARD_PLLAR (CKGR_PLLAR_ONE | CKGR_PLLAR_MULA(18UL) | CKGR_PLLAR_PLLACOUNT(0x3fUL) | CKGR_PLLAR_DIVA(1UL))
 #define SYS_BOARD_MCKR  (PMC_MCKR_PRES_CLK_2 | PMC_MCKR_CSS_PLLA_CLK)
 
@@ -56,13 +72,20 @@ void PSCE::init()
   SystemCoreClockUpdate();  // !!!!! for UART !!!!!
 #endif // DUE_OVERCLOCK
 
-  // start serial port at 38400/115200 bps:
-  Serial.begin(115200);
+  // Monitoring LED: Wait for Host request
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWriteDirect(LED_BUILTIN, LOW);
+
+  // start serial port at 38400/115200 bps: 
+  Serial.begin(UART_BPS);
   while (!Serial)
   {
-    ;  // wait for serial port to connect. Needed for native USB port only
+    // wait for serial port to connect. Needed for native USB port only
+    // Monitoring LED: Opening UART Failed
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWriteDirect(LED_BUILTIN, HIGH);
   }
-  establishContact();  // send a byte to establish contact until receiver responds
+  establishContact();
 
   // Set digital pins to output connecting FPGA's INPUT
   pinMode(PIN_GET_EMU  , OUTPUT);   digitalWriteDirect(PIN_GET_EMU  , LOW);
@@ -96,7 +119,7 @@ void PSCE::init()
 
   // Monitoring LED
   pinMode(LED_BUILTIN, OUTPUT);
-  digitalWriteDirect(LED_BUILTIN, HIGH);
+  digitalWriteDirect(LED_BUILTIN, LOW);
 }
 
 // Write Address to Emulation wrapper -------------------------------
@@ -146,36 +169,44 @@ void PSCE::Clk_EMU()
 // Set Inputs for Emulator ------------------------------------------
 void PSCE::EMU_Input(uint8_t address, uint8_t data)
 {
+  //noInterrupts();
   Set_EMU_Address(address);
   Set_EMU_Data(data);
   Clk_EMU();
+  //interrupts();
 }
 // Get output from Emulator -----------------------------------------
 uint8_t PSCE::EMU_Output(uint8_t address)
 {
   uint8_t ret;
   
+  //noInterrupts();
   Set_EMU_Address(address);
   Clk_EMU();
   ret = Get_EMU_Data();
+  //interrupts();
 
   return ret;
 }
 // Set Inputs for DUT -----------------------------------------------
 void PSCE::DUT_Input()
 {
+  //noInterrupts();
   digitalWriteDirect(PIN_LOAD_EMU, HIGH);
   Clk_EMU();
   digitalWriteDirect(PIN_LOAD_EMU, LOW);
   //Clk_EMU();
+  //interrupts();
 }
 // Get Outputs from DUT ---------------------------------------------
 void PSCE::DUT_Output()
 {
+  //noInterrupts();
   digitalWriteDirect(PIN_GET_EMU, HIGH);
   Clk_EMU();
   digitalWriteDirect(PIN_GET_EMU, LOW);
   //Clk_EMU();
+  //interrupts();
 }
 // Clocking DUT -----------------------------------------------------
 void PSCE::DUT_Posedge_Clk()
@@ -283,3 +314,68 @@ void PSCE::EMU_Blinker(uint8_t Speed)
   counter += 1;
   digitalWriteDirect(LED_BUILTIN, (counter & Speed)? HIGH:LOW);
 }
+
+#ifdef OLED_DISPLAY
+// Display for Debuging ------------------------------------------------
+// Define display object: 0.96" OLED Display Controller SSD1306
+void PSCE::disp_prepare(void)
+{
+    u8g2->setFont(u8g2_font_6x10_tf);
+    u8g2->setFontRefHeightExtendedText();
+    u8g2->setDrawColor(1);
+    u8g2->setFontPosTop();
+    u8g2->setFontDirection(0);
+}
+
+bool PSCE::disp_init()
+{
+#if defined(ESP32_S3)
+  u8g2 = new U8G2_SSD1306_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE, 0, 45);  // Display Reset Pine: NONE, SLK=0, SDA=45
+#elif defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)
+  u8g2 = new U8G2_SSD1306_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE);   // Display Reset Pine: NONE
+  //u8g2 = new U8G2_SH1106_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE);  // Display Reset Pine: NONE
+#elif defined(PI_PICO)
+  // PICO Software I2C: Rotation(R0), SDA(GPIO28/#34), SCL(GPIO27/#32), Address(0x3C)
+  u8g2 = new U8G2_SSD1306_128X64_NONAME_F_SW_I2C(U8G2_R0, /* clock=*/ 27, /* data=*/ 28, /* reset=*/ U8X8_PIN_NONE);
+#endif
+
+    u8g2->begin();
+
+    u8g2->clearBuffer();
+    u8g2->setBitmapMode(false);  // Solid
+    u8g2->drawBitmap(0, 0, SCREEN_WIDTH/8, SCREEN_HEIGHT, noexpn_bmp); // 8-pixels per a byte
+    u8g2->sendBuffer();
+    delay(2000);
+
+    u8g2->clearBuffer();
+    u8g2->setBitmapMode(false);  // Solid
+    u8g2->drawBitmap(0, 0, SCREEN_WIDTH/8, SCREEN_HEIGHT, goodkook_bmp); // 8-pixels per a byte
+    u8g2->sendBuffer();
+    delay(2000);
+
+    disp_prepare();
+
+    return true;
+}
+
+void PSCE::disp_print(int16_t x, int16_t y, char* szMsg)
+{
+    int nIdx = 0;
+
+    u8g2->clearBuffer();
+
+    for (int i=0; i<strlen(szMsg); i++)
+    {
+        if (szMsg[i]=='\n')
+        {
+            szMsg[i] = '\0';
+            u8g2->drawStr((u8g2_uint_t)x, (u8g2_uint_t)y, (const char*)(szMsg+nIdx));
+            nIdx = (i+1);
+            y += 10;
+        }
+    }
+    u8g2->drawStr((u8g2_uint_t)x, (u8g2_uint_t)y, (const char*)(szMsg+nIdx));
+
+    u8g2->sendBuffer();
+}
+#endif  // OLED_DISPLAY
