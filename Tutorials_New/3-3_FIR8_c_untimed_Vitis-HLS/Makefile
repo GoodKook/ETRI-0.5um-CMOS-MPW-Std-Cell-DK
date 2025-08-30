@@ -73,9 +73,10 @@ emulation_help:
 	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
 	@echo '  For Co-Emulation,'
 	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
-	@echo '        make build-mi'
-	@echo '        make upload-mi'
+	@echo '        MI=[module] make build-mi'
+	@echo '        MI=[module] make upload-mi'
 	@echo '        make clean-mi'
+	@echo "        * NOTE: module=[DUE_NORMAL|PI_PICO]] "
 	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
 	@echo '        make build-trans'
 	@echo '        make config-trans'
@@ -87,10 +88,10 @@ emulation_help:
 	@echo
 #---------------------------------------------------------------
 build-mi:
-	MODE=CA make -C ./emulation/PSCE-MI/Arduino build
+	MODE=CA MI=$(MI) make -C ./emulation/PSCE-MI/Arduino build
 
 upload-mi:
-	MODE=CA make -C ./emulation/PSCE-MI/Arduino upload
+	MODE=CA MI=$(MI) make -C ./emulation/PSCE-MI/Arduino upload
 
 clean-mi:
 	MODE=CA make -C ./emulation/PSCE-MI/Arduino clean
