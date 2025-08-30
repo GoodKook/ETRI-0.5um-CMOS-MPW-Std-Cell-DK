@@ -1,27 +1,32 @@
 #-------------------------------------------------------------------------
 export SKETCH=FIR8
 export PORT=/dev/ttyACM0
+ifeq ($(MI), DUE_NORMAL)
+	export FQBN=arduino:sam:arduino_due_x_dbg
+else ifeq ($(MI), PI_PICO)
+	export FQBN=rp2040:rp2040:rpipico
+endif
 #export FQBN=rp2040:rp2040:rpipicow
-export FQBN=rp2040:rp2040:rpipico
-#export FQBN=arduino:sam:arduino_due_x_dbg
 #export FQBN=esp32:esp32:esp32s3
 
 all:
 	@echo "Arduino-CLI Simple Example \"Blink\""
 	@echo
-	@echo "    make build-blink"
-	@echo "    make upload-blink"
+	@echo "    MI=[module] make build-blink"
+	@echo "    MI=[module] make upload-blink"
 	@echo "    make clean-blink"
 	@echo
 	@echo "Arduino-CLI for $(SKETCH): Running fir() on Arduino DUE"
 	@echo
-	@echo "    make build"
-	@echo "    make upload"
+	@echo "    MI=[module] make build"
+	@echo "    MI=[module] make upload"
 	@echo
 	@echo "    make build_TL"
 	@echo "    make run"
 	@echo
 	@echo "    make clean"
+	@echo
+	@echo "NOTE: module=[DUE_NORMAL|PI_PICO]] "
 	@echo
 	@echo " CC BY-NC, by GoodKook, goodkook@gmail.com"
 	@echo
@@ -41,7 +46,7 @@ build: ./$(SKETCH)/$(SKETCH).ino
 	@if ! [ -L ./FIR8/fir8.h ]; then \
 		ln -s ../../3-1_FIR8/c_untimed/fir8.h ./FIR8/fir8.h ; fi
 	arduino-cli compile --clean --fqbn $(FQBN) $(SKETCH) \
-			--build-property compiler.cpp.extra_flags=\"-DFIR_SHIFTER_VERSION\" \
+			--build-property compiler.cpp.extra_flags="-DFIR_SHIFTER_VERSION -D$(MI)" \
 			--build-path ./$(SKETCH)/build
 
 upload:

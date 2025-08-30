@@ -48,6 +48,7 @@ bool fir(acc_t* Yout, data_t Xin)
         else
         {
             fprintf(stderr, "Connection failed...\n");
+            fprintf(stderr, "Reset MI board!\n");
             return false;
         }
         usleep(100);

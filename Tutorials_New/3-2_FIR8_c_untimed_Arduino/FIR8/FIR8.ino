@@ -24,17 +24,21 @@ void establishContact() //-----------------------------------------------
 
 void setup() //----------------------------------------------------------
 {
-  // start serial port
+#if defined(PI_PICO)
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
+#endif
+// start serial port
   Serial.begin(9600);
   while (!Serial)
   {
     ;  // wait for serial port to connect. Needed for native USB port only
   }
-  establishContact(); // send a byte to establish contact until receiver responds
-
-  // Monitoring LED
+#if defined(DUE_NORMAL)
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
+#endif
+  establishContact(); // send a byte to establish contact until receiver responds
 }
 
 void loop() //-----------------------------------------------------------
