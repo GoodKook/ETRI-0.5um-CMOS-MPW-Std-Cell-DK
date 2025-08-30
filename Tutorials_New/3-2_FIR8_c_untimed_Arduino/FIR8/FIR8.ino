@@ -10,16 +10,16 @@
 
 void establishContact() //-----------------------------------------------
 {
-  while (Serial.available() <= 0)
-  {
-    Serial.print('A');  // send a capital A
-    delay(300);
-    if (Serial.read()==(int)'A')
-    {
-      delay(300);
-      break;
-    }
-  }
+  unsigned char Req = 0, Ack = 0;
+  
+  while (Serial.available() > 0)   Serial.read();   // Clear RX Buffer
+
+  while (Serial.available() <= 0)   delay(100);     // Wait for Host request
+  Req = (unsigned char)Serial.read();
+
+  while(Serial.availableForWrite() <= 0)    delay(100);
+  Ack = Req;
+  Serial.write(Ack); // Ack
 }
 
 void setup() //----------------------------------------------------------
@@ -68,5 +68,4 @@ void loop() //-----------------------------------------------------------
     Serial.write((data_t)(y>>8) & 0x0FF); // MSB
   }
 }
-
 

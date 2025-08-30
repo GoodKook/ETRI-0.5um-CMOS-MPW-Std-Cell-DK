@@ -1,7 +1,8 @@
 #------------------------------------------------------------------
 export PORT=/dev/ttyACM0
 #export FQBN=rp2040:rp2040:rpipicow
-export FQBN=arduino:sam:arduino_due_x_dbg
+export FQBN=rp2040:rp2040:rpipico
+#export FQBN=arduino:sam:arduino_due_x_dbg
 #export FQBN=esp32:esp32:esp32s3
 
 ifeq ($(MODE), CA)
@@ -36,9 +37,9 @@ all:
 
 build: ./$(SKETCH)/$(SKETCH).ino
 	arduino-cli compile --clean --fqbn $(FQBN) $(SKETCH) \
-		--build-property compiler.cpp.extra_flags=\"-DOLED_DISPLAY\" \
-		--build-path ./$(SKETCH)/build
-
+		--build-path ./$(SKETCH)/build \
+		--build-property compiler.cpp.extra_flags=" -DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+#		--build-property compiler.cpp.extra_flags="-DOLED_DISPLAY -DDUE_NORMAL -DUART_BPS=115200 -DCYCLONE_IV"
 
 upload:
 	arduino-cli upload -p $(PORT) --fqbn $(FQBN) $(SKETCH) \
@@ -46,3 +47,4 @@ upload:
 
 clean:
 	rm -rf ./$(SKETCH)/build
+

@@ -112,6 +112,7 @@ inline void _EMU_IO_(void)
         sensitive << x << ap_rst << ap_start << ap_clk;
 
         // Arduino DUT
+        fprintf(stderr, "Opening emulator port......\n");
         //fd = open("/dev/ttyACM0", O_RDWR | O_NDELAY | O_NOCTTY);
         fd = open("/dev/ttyACM0", O_RDWR | O_NOCTTY);
         if (fd < 0)
@@ -120,7 +121,8 @@ inline void _EMU_IO_(void)
             return;
         }
         // Set up serial port
-        options.c_cflag = B115200 | CS8 | CLOCAL | CREAD;
+        //options.c_cflag = B115200 | CS8 | CLOCAL | CREAD;
+        options.c_cflag = UART_BPS| CS8 | CLOCAL | CREAD;
         options.c_iflag = IGNPAR;
         options.c_oflag = 0;
         options.c_lflag = 0;
@@ -129,13 +131,17 @@ inline void _EMU_IO_(void)
         tcsetattr(fd, TCSANOW, &options);
 
         // Establish Contact
-        int len = 0;
-        char rx;
-        while(!len)
-            len = read(fd, &rx, 1);
-        if (rx=='A')
-            len = write(fd, &rx, 1);
-        printf("Connection established...\n");
+        fprintf(stderr, "Request emulator connection......\n");
+        unsigned char _rx, _tx = 'A';
+        while(write(fd, &_tx, 1)<=0)  usleep(10);
+        while(read(fd, &_rx, 1)<=0)   usleep(10);
+        if (_rx=='A')
+            fprintf(stderr, "Connection established...\n");
+        else
+        {
+            fprintf(stderr, "Connection failed...\n");
+            sc_stop();
+        }
     }
     
     ~Efir(void)

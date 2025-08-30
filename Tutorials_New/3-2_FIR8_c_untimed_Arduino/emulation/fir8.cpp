@@ -39,13 +39,18 @@ bool fir(acc_t* Yout, data_t Xin)
         tcsetattr(fd, TCSANOW, &options);
         // Establish Contact
         int len = 0;
-        char rx;
-        while(!len)
-            len = read(fd, &rx, 1);
-        if (rx=='A')
-            len = write(fd, &rx, 1);
-        fprintf(stderr, "Connection established...\n");
-        //usleep(100);
+        fprintf(stderr, "Request emulator connection......\n");
+        _tx = 'A';
+        while(write(fd, &_tx, 1)<=0)  usleep(10);
+        while(read(fd, &_rx, 1)<=0)   usleep(10);
+        if (_rx=='A')
+            fprintf(stderr, "Connection established...\n");
+        else
+        {
+            fprintf(stderr, "Connection failed...\n");
+            return false;
+        }
+        usleep(100);
     }
     //------------------------------------------------------------------
     // Send to Emulator

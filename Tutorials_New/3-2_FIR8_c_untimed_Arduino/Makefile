@@ -2,7 +2,8 @@
 export SKETCH=FIR8
 export PORT=/dev/ttyACM0
 #export FQBN=rp2040:rp2040:rpipicow
-export FQBN=arduino:sam:arduino_due_x_dbg
+export FQBN=rp2040:rp2040:rpipico
+#export FQBN=arduino:sam:arduino_due_x_dbg
 #export FQBN=esp32:esp32:esp32s3
 
 all:

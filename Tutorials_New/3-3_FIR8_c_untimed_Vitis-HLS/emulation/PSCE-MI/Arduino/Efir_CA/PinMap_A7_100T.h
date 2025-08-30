@@ -1,13 +1,13 @@
 //-------------------------------------------------------------------
 // Project : Poorman's Standard Co-Emulator(PSCE)
 // Filename: PinMap_A7_100T.h
-// Purpose : Arduino DUE Pin-Map for Digilent's A7-100T (Xilinx)
+// Purpose : Arduino DUE Pin-Map for Digilent's A7-100T (Xilinx)/CYCLONE_IV(GoodKook)
 // Author  : GoodKook, goodkook@gmail.com
 
 #ifndef _PINMAP_A7_100T_
 #define _PINMAP_A7_100T_
 
-#if defined(DUE_OVERCLOCK)	///////////////////////////////////////////////
+#if defined(DUE_OVERCLOCK) || defined(DUE_NORMAL) ///////////////////////////////////////////////
 //          Arduino DUE D#  // MI_BOARD |A7-100T
 #define PIN_DOUT_EMU_0  44  // JB-1     |JB-1
 #define PIN_DOUT_EMU_1  42  // JB-2     |JB-2
@@ -37,7 +37,33 @@
 #define PIN_ADDR_EMU_2  23  // JD-10    |JD-10
 
 #elif defined(PI_PICO)	///////////////////////////////////////////////////////
-//           RP2040 GPIO#   //          |A7-100T
+//           RP2040 GPIO# 
+#define PIN_DOUT_EMU_7  7 
+#define PIN_DOUT_EMU_6  5 
+#define PIN_DOUT_EMU_5  3 
+#define PIN_DOUT_EMU_4  1 
+#define PIN_DOUT_EMU_3  6 
+#define PIN_DOUT_EMU_2  4 
+#define PIN_DOUT_EMU_1  2 
+#define PIN_DOUT_EMU_0  0 
+
+#define PIN_DIN_EMU_7   15
+#define PIN_DIN_EMU_6   13
+#define PIN_DIN_EMU_5   11
+#define PIN_DIN_EMU_4   9  
+#define PIN_DIN_EMU_3   14 
+#define PIN_DIN_EMU_2   12 
+#define PIN_DIN_EMU_1   10 
+#define PIN_DIN_EMU_0   8  
+
+#define PIN_IO_REQ      22  //- Direct IQ Request from FPGA/DUT
+#define PIN_LOAD_EMU    18
+#define PIN_GET_EMU     16
+#define PIN_ADDR_EMU_2  26 
+#define PIN_ADDR_EMU_1  21 
+#define PIN_ADDR_EMU_0  19 
+#define PIN_CLK_EMU     17 
+#define PIN_CLK_DUT     20 
 
 #elif defined(ESP32_S3)	///////////////////////////////////////////////////////
 //          ESP32-S3 GPIO#  // MI-Board |A7-100T

@@ -81,7 +81,7 @@ public:
   // Define display object: 0.96" OLED Display Controller SSD1306
 #if defined(ESP32_S3)
   U8G2_SSD1306_128X64_NONAME_F_HW_I2C* u8g2;
-#elif defined(DUE_OVERCLOCK)
+#elif defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)
   // DUE Default I2C: Rotation(R0), SDA(20), SCL(21), Address(0x3C)
   U8G2_SSD1306_128X64_NONAME_F_HW_I2C*  u8g2;
   //U8G2_SH1106_128X64_NONAME_F_HW_I2C* u8g2;

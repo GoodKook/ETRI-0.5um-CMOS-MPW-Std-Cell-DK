@@ -30,19 +30,17 @@ all:
 	@echo '    * command-line variable HW_STYLE must be set before build'
 	@echo '      HW_STYLE=[MACC | SHIFT | ARRAY] make csynth'
 	@echo
-	@echo 'For Co-Emulation,'
-	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
-	@echo '        make build-mi'
-	@echo '        make upload-mi'
-	@echo '        make clean-mi'
-	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
-	@echo '        make build-trans'
-	@echo '        make config-trans'
-	@echo '        make clean-trans'
-	@echo '  (3) Build and Run Co-Emulator'
-	@echo '        make co-emu'
+	@echo '    make emulation'
+	@echo '    make ETRI050'
 	@echo
-	@echo 'Targetting ETRI050 node,'
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
+
+#---------------------------------------------------------------
+ETRI050: ETRI050_help
+ETRI050_help:
+	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
+	@echo '  Targetting ETRI050 node,'
 	@echo '  (1) Synthesize'
 	@echo '        make synth_ETRI050'
 	@echo '  (2) Netlist Simulation'
@@ -54,7 +52,6 @@ all:
 	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 	@echo
-
 #---------------------------------------------------------------
 synth_ETRI050:
 	make -C ETRI050 synthesize
@@ -70,6 +67,24 @@ pnr_ETRI050:
 layout_ETRI050:
 	make -C ETRI050/layout mag2gds
 	make -C ETRI050/layout klayout
+#---------------------------------------------------------------
+emulation: emulation_help
+emulation_help:
+	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
+	@echo '  For Co-Emulation,'
+	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
+	@echo '        make build-mi'
+	@echo '        make upload-mi'
+	@echo '        make clean-mi'
+	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
+	@echo '        make build-trans'
+	@echo '        make config-trans'
+	@echo '        make clean-trans'
+	@echo '  (3) Build and Run Co-Emulator'
+	@echo '        make co-emu'
+	@echo
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
 #---------------------------------------------------------------
 build-mi:
 	MODE=CA make -C ./emulation/PSCE-MI/Arduino build
