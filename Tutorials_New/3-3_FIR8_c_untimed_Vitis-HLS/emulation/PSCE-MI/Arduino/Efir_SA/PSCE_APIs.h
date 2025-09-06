@@ -61,10 +61,13 @@ public:
   void    DUT_Output();
   void    DUT_Posedge_Clk();
   void    DUT_Negedge_Clk();
+  void    DUT_ClockCycle_Pos();
+  void    DUT_ClockCycle_Neg();
+  void    DUT_SetInputs(uint8_t nRX);
+  void    DUT_GetOutputs(uint8_t nTX);
 
-  void    RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap, bool bClocking);
+  void    RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap);
   bool    RxPacket_nb(uint8_t nRX);
-  
   void    TxPacket(uint8_t nTX);
   bool    TxPacket_nb(uint8_t nTX);
   
@@ -82,7 +85,7 @@ public:
   // Define display object: 0.96" OLED Display Controller SSD1306
 #if defined(ESP32_S3)
   U8G2_SSD1306_128X64_NONAME_F_HW_I2C* u8g2;
-#elif defined(DUE_OVERCLOCK)
+#elif defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)
   // DUE Default I2C: Rotation(R0), SDA(20), SCL(21), Address(0x3C)
   U8G2_SSD1306_128X64_NONAME_F_HW_I2C*  u8g2;
   //U8G2_SH1106_128X64_NONAME_F_HW_I2C* u8g2;

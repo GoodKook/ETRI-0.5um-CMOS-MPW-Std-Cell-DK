@@ -10,6 +10,10 @@ History  : Aug. 2025, First Release
 #include <time.h>       /* time */
 #include <math.h>
 
+#include <stdio.h>
+#include <fcntl.h>
+#include <sys/stat.h>   // FIFO
+
 #include "fir8.h"
 #include "cnoise.h"
 
@@ -32,6 +36,8 @@ data_t gen_signal(int level_denom, int freq, int t, int phase_shift)
 int main()
 {
     int     fir_fifo;
+    char*   szFifo = (char*)"FIR8_fifo";
+
     acc_t   Xin;
     acc_t   Yout;
 
@@ -43,7 +49,8 @@ int main()
     // Alpha=0(White Noise), range=+/-NOISE_RANGE
 
     // FIFO to connect Python plot
-    fir_fifo = open("FIR8_fifo", O_WRONLY);
+    mkfifo(szFifo, 0666);
+    fir_fifo = open(szFifo, O_WRONLY);
 
     for (int i=0; i<F_SAMPLE; i++)
     {
@@ -72,5 +79,6 @@ int main()
 
     fprintf(stderr, "Wait for Python Visualization.........\n");
 
+    unlink(szFifo);
     return 0;
 }

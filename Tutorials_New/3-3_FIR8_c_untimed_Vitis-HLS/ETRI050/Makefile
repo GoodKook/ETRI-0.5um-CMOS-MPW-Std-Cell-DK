@@ -7,7 +7,7 @@ VERILOG_SRCS =	\
 	../fir/hls_component/syn/verilog/fir_fir_Pipeline_MACC_LOOP.v \
 	../fir/hls_component/syn/verilog/fir_mac_muladd_8ns_6ns_16ns_16_4_1.v \
 	../fir/hls_component/syn/verilog/fir.v
-TOP_MODULE = fir
+TOP_MODULE = fir_hls
 
 all :
 	touch project_vars.sh

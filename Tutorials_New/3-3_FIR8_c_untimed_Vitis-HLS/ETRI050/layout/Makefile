@@ -6,7 +6,7 @@ export DK_PAD_LIB=$(DK_HOME)/pads_ETRI
 export DK_TECH=$(DK_HOME)/tech
 export DK_SCRIPT=$(DK_HOME)/scripts
 
-TOP_MODULE = fir
+TOP_MODULE = fir_hls
 
 all :
 	@echo ''

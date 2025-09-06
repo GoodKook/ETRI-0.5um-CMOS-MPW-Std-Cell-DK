@@ -63,8 +63,6 @@ $(SKETCH)_TL: ./emulation/$(SKETCH)_TL.cpp
 		-lm -lgsl
 
 run: $(SKETCH)_TL  ./emulation/$(SKETCH)_TL.cpp
-	rm -f $(SKETCH)_fifo
-	mkfifo $(SKETCH)_fifo
 	python3 ./sc_plotDFT.py &
 	./$(SKETCH)_TL
 #--------------------------------------------------------------------

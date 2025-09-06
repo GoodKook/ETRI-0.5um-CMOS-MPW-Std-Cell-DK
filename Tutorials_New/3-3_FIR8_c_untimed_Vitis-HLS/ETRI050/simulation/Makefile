@@ -23,12 +23,12 @@ VPI_SRCS 	= \
     ../../../3-1_FIR8/c_untimed/fir8.cpp \
     ../../../3-1_FIR8/c_untimed/cnoise.cpp \
     vpi_stub.cpp \
-    vpi_fir_tb.cpp \
-    sc_fir_TB.cpp
+    vpi_fir_hls_tb.cpp \
+    sc_fir_hls_TB.cpp
 VPI_HDRS 	= \
-	./sc_fir_TB.h  \
-	./vpi_fir_tb_exports.h  \
-	./vpi_fir_tb_ports.h
+	./sc_fir_hls_TB.h  \
+	./vpi_fir_hls_tb_exports.h  \
+	./vpi_fir_hls_tb_ports.h
 VPI_INC_PATH = \
     -I/usr/local/share/verilator/include \
     -I/usr/local/share/verilator/include/vltstd \
@@ -55,10 +55,10 @@ $(VPI_TARGET) : $(VPI_SRCS) $(VPI_HDRS)
 			 $(VPI_LFLAGS)
 
 # iVerilog ---------------------------------------------------------------
-IVL_TARGET = fir_TB
+IVL_TARGET = fir_hls_TB
 IVL_SRCS   = $(IVL_TARGET).v \
 			~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells_func.v \
-			../synthesis/fir.v
+			../synthesis/fir_hls.v
 
 $(IVL_TARGET) : $(IVL_SRCS) $(VPI_TARGET) $(VLT_TARGET)
 	iverilog -g2005-sv -Tmin -gspecify -o $(IVL_TARGET) $(IVL_SRCS)
@@ -79,6 +79,6 @@ run : $(IVL_TARGET) $(VPI_TARGET)
 	vvp -M. -mvpi_stub ${IVL_TARGET} -v
 
 wave :
-	gtkwave test_fir.vcd --save=test_fir.gtkw &
-	gtkwave sc_fir_TB.vcd --save=sc_fir_TB.gtkw &
+	gtkwave fir_hls_TB.vcd --save=fir_hls_TB.gtkw &
+	gtkwave sc_fir_hls_TB.vcd --save=sc_fir_hls_TB.gtkw &
 

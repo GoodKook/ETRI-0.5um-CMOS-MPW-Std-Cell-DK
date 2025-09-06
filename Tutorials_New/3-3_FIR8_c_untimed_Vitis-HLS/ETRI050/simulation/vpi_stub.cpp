@@ -10,11 +10,11 @@
 #include <vpi_user.h>
 #include <veriuser.h>
 
-#include "vpi_fir_tb_ports.h"
-#include "vpi_fir_tb_exports.h"
+#include "vpi_fir_hls_tb_ports.h"
+#include "vpi_fir_hls_tb_exports.h"
 
 // RTL-SystemC communitation data
-typedef struct fir
+typedef struct fir_hls
 {
     // Simulation control from SC-TB
     vpiHandle   sync_sc; // Trigger SystemC TB
@@ -32,12 +32,12 @@ typedef struct fir
     vpiHandle   y_ap_vld;
 } t_if;
 
-int sc_fir_tb_tf(char *user_data);
+int sc_fir_hls_tb_tf(char *user_data);
 int sc_sync_callback(p_cb_data cb_data);
 
 static void my_task(void);
 
-int sc_fir_tb_tf(char *user_data)
+int sc_fir_hls_tb_tf(char *user_data)
 {
     vpiHandle   inst_h, args;
     s_vpi_value value_s;
@@ -158,8 +158,8 @@ static void my_task()
       s_vpi_systf_data tf_data;
 
       tf_data.type      = vpiSysTask;
-      tf_data.tfname    = (PLI_BYTE8 *)"$sc_fir_tb";    // Verilog TB view
-      tf_data.calltf    = sc_fir_tb_tf;
+      tf_data.tfname    = (PLI_BYTE8 *)"$sc_fir_hls_tb";    // Verilog TB view
+      tf_data.calltf    = sc_fir_hls_tb_tf;
       tf_data.compiletf = 0;
       tf_data.sizetf    = 0;
       vpi_register_systf(&tf_data);

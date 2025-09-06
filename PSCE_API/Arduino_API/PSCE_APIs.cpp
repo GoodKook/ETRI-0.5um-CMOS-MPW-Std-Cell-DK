@@ -219,6 +219,28 @@ void PSCE::DUT_Negedge_Clk()
   digitalWriteDirect(PIN_CLK_DUT, LOW);
   delayMicroseconds(clk_dut_delay);
 }
+void PSCE::DUT_ClockCycle_Pos()
+{
+    DUT_Posedge_Clk();
+    DUT_Negedge_Clk();
+}
+void PSCE::DUT_ClockCycle_Neg()
+{
+    DUT_Negedge_Clk();
+    DUT_Posedge_Clk();
+}
+void PSCE::DUT_SetInputs(uint8_t nRX)
+{
+    for(int addr_emu=0; addr_emu<nRX; addr_emu++)
+      EMU_Input(addr_emu, rxByte[addr_emu]);
+    DUT_Input();
+}
+void PSCE::DUT_GetOutputs(uint8_t nTX)
+{
+    DUT_Output();
+    for(int addr_emu=0; addr_emu<nTX; addr_emu++)
+      txByte[addr_emu] = (uint)EMU_Output((uint8_t)addr_emu);
+}
 
 // Receive Emulator/DUT in-vector from HOST ------------------------------
 bool PSCE::RxPacket_nb(uint8_t nRX)

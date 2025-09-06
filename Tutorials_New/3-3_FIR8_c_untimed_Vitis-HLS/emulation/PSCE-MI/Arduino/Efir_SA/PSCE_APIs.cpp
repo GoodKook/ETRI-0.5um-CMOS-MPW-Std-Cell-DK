@@ -24,17 +24,24 @@ int PSCE::digitalReadDirect(int pin)
 //-------------------------------------------------------------------
 void PSCE::establishContact()
 {
-  while (Serial.available() <= 0)
-  {
-    Serial.print('A');  // send a capital A
-    delay(300);
-    if (Serial.read()==(int)'A')
-      break;
-  }
+  unsigned char Req = 0, Ack = 0;
+  
+  while (Serial.available() > 0)   Serial.read();   // Clear RX Buffer
+
+  while (Serial.available() <= 0)   delay(100);     // Wait for Host request
+  Req = (unsigned char)Serial.read();
+
+  while(Serial.availableForWrite() <= 0)    delay(100);
+  Ack = Req;
+  Serial.write(Ack); // Ack
 }
 //-------------------------------------------------------------------
 void PSCE::init()
 {
+  // Monitoring LED: Starting Init
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWriteDirect(LED_BUILTIN, HIGH);
+
 #ifdef OLED_DISPLAY
   // OLED Display for Debugging --------------------
   disp_init();
@@ -47,6 +54,8 @@ void PSCE::init()
   // MULA: 18UL for 114MHz, 15UL for 96MHz, 84MHz for 13UL (as in system_sam3xa.c):
   // ex) Initialize PLLA to (18+1)*6=114MHz
 
+//#define SYS_BOARD_PLLAR (CKGR_PLLAR_ONE | CKGR_PLLAR_MULA(13UL) | CKGR_PLLAR_PLLACOUNT(0x3fUL) | CKGR_PLLAR_DIVA(1UL))
+//#define SYS_BOARD_PLLAR (CKGR_PLLAR_ONE | CKGR_PLLAR_MULA(15UL) | CKGR_PLLAR_PLLACOUNT(0x3fUL) | CKGR_PLLAR_DIVA(1UL))
 #define SYS_BOARD_PLLAR (CKGR_PLLAR_ONE | CKGR_PLLAR_MULA(18UL) | CKGR_PLLAR_PLLACOUNT(0x3fUL) | CKGR_PLLAR_DIVA(1UL))
 #define SYS_BOARD_MCKR  (PMC_MCKR_PRES_CLK_2 | PMC_MCKR_CSS_PLLA_CLK)
 
@@ -63,13 +72,20 @@ void PSCE::init()
   SystemCoreClockUpdate();  // !!!!! for UART !!!!!
 #endif // DUE_OVERCLOCK
 
-  // start serial port at 38400/115200 bps:
-  Serial.begin(115200);
+  // Monitoring LED: Wait for Host request
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWriteDirect(LED_BUILTIN, LOW);
+
+  // start serial port at 38400/115200 bps: 
+  Serial.begin(UART_BPS);
   while (!Serial)
   {
-    ;  // wait for serial port to connect. Needed for native USB port only
+    // wait for serial port to connect. Needed for native USB port only
+    // Monitoring LED: Opening UART Failed
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWriteDirect(LED_BUILTIN, HIGH);
   }
-  establishContact();  // send a byte to establish contact until receiver responds
+  establishContact();
 
   // Set digital pins to output connecting FPGA's INPUT
   pinMode(PIN_GET_EMU  , OUTPUT);   digitalWriteDirect(PIN_GET_EMU  , LOW);
@@ -103,7 +119,7 @@ void PSCE::init()
 
   // Monitoring LED
   pinMode(LED_BUILTIN, OUTPUT);
-  digitalWriteDirect(LED_BUILTIN, HIGH);
+  digitalWriteDirect(LED_BUILTIN, LOW);
 }
 
 // Write Address to Emulation wrapper -------------------------------
@@ -153,36 +169,44 @@ void PSCE::Clk_EMU()
 // Set Inputs for Emulator ------------------------------------------
 void PSCE::EMU_Input(uint8_t address, uint8_t data)
 {
+  //noInterrupts();
   Set_EMU_Address(address);
   Set_EMU_Data(data);
   Clk_EMU();
+  //interrupts();
 }
 // Get output from Emulator -----------------------------------------
 uint8_t PSCE::EMU_Output(uint8_t address)
 {
   uint8_t ret;
   
+  //noInterrupts();
   Set_EMU_Address(address);
   Clk_EMU();
   ret = Get_EMU_Data();
+  //interrupts();
 
   return ret;
 }
 // Set Inputs for DUT -----------------------------------------------
 void PSCE::DUT_Input()
 {
+  //noInterrupts();
   digitalWriteDirect(PIN_LOAD_EMU, HIGH);
   Clk_EMU();
   digitalWriteDirect(PIN_LOAD_EMU, LOW);
   //Clk_EMU();
+  //interrupts();
 }
 // Get Outputs from DUT ---------------------------------------------
 void PSCE::DUT_Output()
 {
+  //noInterrupts();
   digitalWriteDirect(PIN_GET_EMU, HIGH);
   Clk_EMU();
   digitalWriteDirect(PIN_GET_EMU, LOW);
   //Clk_EMU();
+  //interrupts();
 }
 // Clocking DUT -----------------------------------------------------
 void PSCE::DUT_Posedge_Clk()
@@ -194,6 +218,28 @@ void PSCE::DUT_Negedge_Clk()
 {
   digitalWriteDirect(PIN_CLK_DUT, LOW);
   delayMicroseconds(clk_dut_delay);
+}
+void PSCE::DUT_ClockCycle_Pos()
+{
+    DUT_Posedge_Clk();
+    DUT_Negedge_Clk();
+}
+void PSCE::DUT_ClockCycle_Neg()
+{
+    DUT_Negedge_Clk();
+    DUT_Posedge_Clk();
+}
+void PSCE::DUT_SetInputs(uint8_t nRX)
+{
+    for(int addr_emu=0; addr_emu<nRX; addr_emu++)
+      EMU_Input(addr_emu, rxByte[addr_emu]);
+    DUT_Input();
+}
+void PSCE::DUT_GetOutputs(uint8_t nTX)
+{
+    DUT_Output();
+    for(int addr_emu=0; addr_emu<nTX; addr_emu++)
+      txByte[addr_emu] = (uint)EMU_Output((uint8_t)addr_emu);
 }
 
 // Receive Emulator/DUT in-vector from HOST ------------------------------
@@ -213,7 +259,7 @@ bool PSCE::RxPacket_nb(uint8_t nRX)
   
   return false;
 }
-void PSCE::RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap, bool bClocking)
+void PSCE::RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap)
 {
 //  int rxByte[MAX_RX_BYTE];
 
@@ -227,8 +273,6 @@ void PSCE::RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap, bool bClo
         EMU_Input(addr_emu, rxByte[addr_emu]);
       }
       DUT_Input();
-
-      if (!bClocking) return; // NO Clocking
 
       if (!CLK_Bitmap)      // Internal Clock
       {
@@ -309,7 +353,7 @@ bool PSCE::disp_init()
 {
 #if defined(ESP32_S3)
   u8g2 = new U8G2_SSD1306_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE, 0, 45);  // Display Reset Pine: NONE, SLK=0, SDA=45
-#elif defined(DUE_OVERCLOCK)
+#elif defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)
   u8g2 = new U8G2_SSD1306_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE);   // Display Reset Pine: NONE
   //u8g2 = new U8G2_SH1106_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE);  // Display Reset Pine: NONE
 #elif defined(PI_PICO)

@@ -1,3 +1,9 @@
+// *********************************************************
+// Filename: fir_TL.cpp
+// Purpose : Transactional fir()
+// Author  : goodkook@gmail.com
+// History : Sep. 2025, First release
+// *********************************************************
 
 // Includes for accessing Arduino via serial port
 #include <stdio.h>
@@ -5,6 +11,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <termios.h>
+#include <sys/stat.h>   // FIFO
 
 #include <stdint.h>
 #include <math.h>
@@ -40,13 +47,17 @@ bool fir(uint8_t Xin, uint16_t* Yout)
         tcsetattr(fd, TCSANOW, &options);
 
         // Establish Contact
-        int len = 0;
-        char rx;
-        while(!len)
-            len = read(fd, &rx, 1);
-        if (rx=='A')
-            len = write(fd, &rx, 1);
-        fprintf(stderr, "Connection established...\n");
+        fprintf(stderr, "Request emulator connection......\n");
+        unsigned char _rx, _tx = 'A';
+        while(write(fd, &_tx, 1)<=0)  usleep(10);
+        while(read(fd, &_rx, 1)<=0)   usleep(10);
+        if (_rx=='A')
+            fprintf(stderr, "Connection established...\n");
+        else
+        {
+            fprintf(stderr, "Connection failed...\n");
+            return false;
+        }
     }
 
     uint8_t     _tx, _rx;
@@ -77,14 +88,25 @@ bool fir(uint8_t Xin, uint16_t* Yout)
 
 int main()
 {
-    int         fir_fifo;
+    int     fir_fifo;
+    char*   szFifo = (char*)"fir_fifo";
+
+    struct timespec start, end;
+    double time_spent;
+
     uint16_t    Xin;
     uint16_t    Yout;
 
     bool bRet = false;
 
     // Connect Python plot via FIFO
-    fir_fifo = open("fir_fifo", O_WRONLY);
+    mkfifo(szFifo, 0666);
+    fir_fifo = open(szFifo, O_WRONLY);
+    if(fir_fifo<0)
+        fprintf(stderr,"fir_fifo: open error\n");
+
+    // Measure start time
+    clock_gettime(CLOCK_MONOTONIC, &start);
 
     srand(time(NULL));
     for (int i=0; i<N_SAMPLE; i++)
@@ -105,5 +127,13 @@ int main()
 
     fprintf(stderr, "Wait for Python Visualization.........\n");
 
+    // Measure running time
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    time_spent = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+    printf("=====================================================\n");
+    printf("fir: %f seconds to execute (Monotonic time).\n", time_spent);
+    printf("=====================================================\n");
+
+        unlink(szFifo); 
     return 0;
 }

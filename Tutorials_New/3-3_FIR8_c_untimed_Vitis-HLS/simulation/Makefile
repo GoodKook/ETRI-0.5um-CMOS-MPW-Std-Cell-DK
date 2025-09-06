@@ -95,8 +95,6 @@ $(TOP_MODULE)_TL_Bulk: $(TOP_MODULE)_TL_Bulk.cpp
 	gcc -o $(TOP_MODULE)_TL_Bulk $(TOP_MODULE)_TL_Bulk.cpp
 
 run : $(TARGET_DIR)/$(TARGET)
-	rm -f $(TOP_MODULE)_fifo
-	mkfifo $(TOP_MODULE)_fifo
 	python3 ./sc_plotDFT.py &
 	cp $(VITIS_SYN_PATH)/*.dat .
 	./$(TARGET_DIR)/$(TARGET)

@@ -8,7 +8,7 @@
 #ifndef _PINMAP_TANG_25K_
 #define _PINMAP_TANG_25K_
 
-#if defined(DUE_OVERCLOCK)	///////////////////////////////////////////////
+#if defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)	///////////////////////////////////////////////
 //          Arduino DUE D#  // MI-Board |TANG25K
 #define PIN_DOUT_EMU_7  53  // JA-7     |J4-12
 #define PIN_DOUT_EMU_6  52  // JA-1     |J4-11

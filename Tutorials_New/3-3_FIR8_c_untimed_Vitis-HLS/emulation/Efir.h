@@ -67,12 +67,16 @@ inline void _EMU_IO_(void)
             tx = txPacket[i];
             while(write(fd, &tx, 1)<=0)  usleep(1);
         }
+        //printf("%d-bytes sent...\n", N_TX);
+        //fflush(0);
         // Receive from Emulator
         for (int i=0; i<N_RX; i++)
         {
             while(read(fd, &rx, 1)<=0)   usleep(1);
             rxPacket[i] = rx;
         }
+        //printf("%d-bytes received...\n", N_RX);
+        //fflush(0);
 
         y.write((sc_uint<16>)((rxPacket[1]<<8) | rxPacket[0]));
         y_ap_vld.write((bool)(rxPacket[2]&0x08)? true:false);

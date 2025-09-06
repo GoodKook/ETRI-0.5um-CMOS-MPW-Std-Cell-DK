@@ -11,8 +11,11 @@ History : Apr. 2025, First release
 #include "fir8.h"   // Untimed C-Model
 
 #include <systemc.h>
+
 #include <stdio.h>
+#include <time.h>   // Measure running time
 #include <fcntl.h>
+#include <sys/stat.h>   // FIFO
 
 #ifdef EMULATED_CO_SIM
 #include "Efir.h"
@@ -63,10 +66,20 @@ SC_MODULE(sc_fir_TB)
 
     // FIFO interface to Python
     int fir_fifo, nWrite;
+    char* szFifo = (char*)"fir_fifo";
+
+    struct timespec start, end;
+    double time_spent;
 
     SC_CTOR(sc_fir_TB):
         ap_clk("ap_clk", 100, SC_NS, 0.5, 0.0, SC_NS, false)
     {
+        // Connect Python plot via FIFO
+        mkfifo(szFifo, 0666);
+        fir_fifo = open(szFifo, O_WRONLY);
+        if(fir_fifo<0)
+            fprintf(stderr,"fir_fifo: open error\n");
+
         SC_THREAD(Test_Gen);
         sensitive << ap_clk;
 
@@ -134,15 +147,20 @@ SC_MODULE(sc_fir_TB)
         u_Vfir->trace(tfp, 99);  // Trace levels of hierarchy
         tfp->open("Vfir.vcd");
 #endif
-
-        // Connect Python plot via FIFO
-        fir_fifo = open("fir_fifo", O_WRONLY);
-        if(fir_fifo<0)
-            fprintf(stderr,"fir_fifo: open error\n");
+        // Measure start time
+        clock_gettime(CLOCK_MONOTONIC, &start);
     }
     
     ~sc_fir_TB(void)
     {
+        // Measure running time
+        clock_gettime(CLOCK_MONOTONIC, &end);
+        time_spent = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+        printf("=====================================================\n");
+        printf("fir: %f seconds to execute (Monotonic time).\n", time_spent);
+        printf("=====================================================\n");
+
+        unlink(szFifo); 
 #ifdef VCD_TRACE_DUT_VERILOG
         tfp->close();
 #endif

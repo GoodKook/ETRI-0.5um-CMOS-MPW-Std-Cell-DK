@@ -50,13 +50,12 @@ public:
 #endif
 
   // Test-vectors to/from Emulator: Arduino DUE Interface
-  void    EMU_Set_Address(uint8_t address);
-  void    EMU_Set_Data(uint8_t data);
-  uint8_t EMU_Get_Data();
-  void    EMU_Clk();
+  void    Set_EMU_Address(uint8_t address);
+  void    Set_EMU_Data(uint8_t data);
+  uint8_t Get_EMU_Data();
+  void    Clk_EMU();
   void    EMU_Input(uint8_t address, uint8_t data);
   uint8_t EMU_Output(uint8_t address);
-  void    EMU_Blinker(uint8_t Speed);
   // Transact between DUT and Emulation wrapper
   void    DUT_Input();
   void    DUT_Output();
@@ -67,11 +66,12 @@ public:
   void    DUT_SetInputs(uint8_t nRX);
   void    DUT_GetOutputs(uint8_t nTX);
 
-  void    RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap, bool bClocking);
+  void    RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap);
   bool    RxPacket_nb(uint8_t nRX);
-
   void    TxPacket(uint8_t nTX);
   bool    TxPacket_nb(uint8_t nTX);
+  
+  void    EMU_Blinker(uint8_t Speed);
 
   uint rxByte[MAX_RX_BYTE];
   uint txByte[MAX_TX_BYTE];
@@ -85,7 +85,7 @@ public:
   // Define display object: 0.96" OLED Display Controller SSD1306
 #if defined(ESP32_S3)
   U8G2_SSD1306_128X64_NONAME_F_HW_I2C* u8g2;
-#elif defined(DUE_OVERCLOCK)
+#elif defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)
   // DUE Default I2C: Rotation(R0), SDA(20), SCL(21), Address(0x3C)
   U8G2_SSD1306_128X64_NONAME_F_HW_I2C*  u8g2;
   //U8G2_SH1106_128X64_NONAME_F_HW_I2C* u8g2;

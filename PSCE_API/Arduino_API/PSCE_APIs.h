@@ -61,6 +61,10 @@ public:
   void    DUT_Output();
   void    DUT_Posedge_Clk();
   void    DUT_Negedge_Clk();
+  void    DUT_ClockCycle_Pos();
+  void    DUT_ClockCycle_Neg();
+  void    DUT_SetInputs(uint8_t nRX);
+  void    DUT_GetOutputs(uint8_t nTX);
 
   void    RxPacket(uint8_t nRX, uint8_t CLK_Byte, uint8_t CLK_Bitmap);
   bool    RxPacket_nb(uint8_t nRX);
