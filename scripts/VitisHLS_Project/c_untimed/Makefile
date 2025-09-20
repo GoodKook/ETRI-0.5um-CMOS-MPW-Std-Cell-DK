@@ -27,23 +27,6 @@ all :
 		echo "*********************************"; \
 		exit 1; \
 	fi
-	@echo
-	@echo 'Makefile for un-timed C simulation of $(TOP_FUNCTION)'
-	@echo
-	@echo '    make build'
-	@echo '    make run'
-	@echo
-	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
-	@echo
-
-build : $(TOP_MODULE)
-$(TOP_MODULE) : $(SRCS) $(HDRS)
-	@if [ ! -n "$(TOP_FUNCTION)" ];  then \
-		echo "*********************************"; \
-		echo "!!! TOP_FUNCTION not declared !!!"; \
-		echo "*********************************"; \
-		exit 1; \
-	fi
 	@if [ ! -n "$(TYPE)" ];  then \
 		echo "*******************************************************"; \
 		echo "!!! Hardware TYPE must be defined !!!"; \
@@ -51,6 +34,18 @@ $(TOP_MODULE) : $(SRCS) $(HDRS)
 		echo "*******************************************************"; \
 		exit 1; \
 	fi
+	@echo
+	@echo 'Makefile for un-timed C simulation of $(TOP_FUNCTION)'
+	@echo
+	@echo '    TOP_FUNCTION=$(TOP_FUNCTION) TYPE=$(TYPE) make build'
+	@echo '    TOP_FUNCTION=$(TOP_FUNCTION) make run'
+	@echo '    TOP_FUNCTION=$(TOP_FUNCTION) make clean'
+	@echo
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
+
+build : $(TOP_MODULE)
+$(TOP_MODULE) : $(SRCS) $(HDRS)
 	$(CXX) -I$(SYSTEMC_INCLUDE) -L$(SYSTEMC_LIBDIR) \
 		-o $(TOP_MODULE) \
 		-D$(TYPE) \
@@ -58,21 +53,9 @@ $(TOP_MODULE) : $(SRCS) $(HDRS)
 		-lsystemc
 
 run : $(TOP_MODULE)
-	@if [ ! -n "$(TOP_FUNCTION)" ];  then \
-		echo "*********************************"; \
-		echo "!!! TOP_FUNCTION not declared !!!"; \
-		echo "*********************************"; \
-		exit 1; \
-	fi
 	./$(TOP_MODULE)
 
 clean :
-	@if [ ! -n "$(TOP_FUNCTION)" ];  then \
-		echo "*********************************"; \
-		echo "!!! TOP_FUNCTION not declared !!!"; \
-		echo "*********************************"; \
-		exit 1; \
-	fi
 	rm -rf $(TOP_MODULE)
 
 debug : $(TOP_MODULE)

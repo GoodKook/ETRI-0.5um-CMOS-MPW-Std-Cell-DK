@@ -13,10 +13,10 @@ CO-SIM_PATH = ./simulation
 #-------------------------------------------------------------------------------
 export CPP_FILES  := $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp
 # Export environmental variable for C-Synth & Simulation
-ifeq ($(HW_STYLE), )
-	export HW_STYLE=BIT_ACCURATE
-	export TYPE=BIT_ACCURATE_SC
-endif
+#ifeq ($(HW_STYLE), )
+#	export HW_STYLE=BIT_ACCURATE
+#	export TYPE=BIT_ACCURATE_SC
+#endif
 #---------------------------------------------------------------
 all:
 	@clear
@@ -24,6 +24,13 @@ all:
 		echo "*******************************"; \
 		echo "!!! TOP_MODULE not declared !!!"; \
 		echo "*******************************"; \
+		exit 1; \
+	fi
+	@if [ ! -n "$(HW_STYLE)" ];  then \
+		echo "****************************"; \
+		echo "!!! HW_STYLE not defined !!!"; \
+		echo '    HW_STYLE=COMBINATIONAL|REGISTERED|[BIT_ACCURATE]'; \
+		echo "****************************"; \
 		exit 1; \
 	fi
 	@echo
@@ -35,8 +42,6 @@ all:
 	@echo '    TOP_MODULE=$(TOP_MODULE) make co-sim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
-	@echo
-	@echo '    option for csim & csynth: HW_STYLE=COMBINATIONAL|REGISTERED|[BIT_ACCURATE]'
 	@echo
 	@echo '    make emulation'
 	@echo '    make ETRI050'
@@ -295,6 +300,11 @@ ETRI050_help:
 	@echo
 #---------------------------------------------------------------
 synth_ETRI050:
+	@if [ ! -d "$(ETRI050_PATH)/source" ];  then \
+		echo "Create ETRI050/source directory......"; \
+		mkdir $(ETRI050_PATH)/source; \
+	fi
+	cp $(HLS_CSYN_PATH)/$(TOP_MODULE).v $(ETRI050_PATH)/source; \
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050 synthesize
 
 sim_ETRI050:
