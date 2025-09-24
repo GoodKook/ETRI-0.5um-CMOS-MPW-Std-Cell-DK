@@ -19,6 +19,6 @@ box 0 0 0 0
 load $1.mag -force
 select top cell
 box
-quit -force
+quit -noprompt
 EOF
 cd ..

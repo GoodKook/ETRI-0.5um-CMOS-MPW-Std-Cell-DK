@@ -28,7 +28,7 @@ gds drccheck no
 gds flatten yes
 gds labels no
 gds write $1_F
-quit -force
+quit
 EOF
 
 
