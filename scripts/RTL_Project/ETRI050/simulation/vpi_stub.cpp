@@ -22,7 +22,6 @@ typedef struct TOP_MODULE
     // from SystemC TB to DUT's input ports
     vpiHandle   clk;
     vpiHandle   Rdy;
-    vpiHandle   Cin;
     vpiHandle   Xin;
     vpiHandle   Yin;
     // from DUT's output ports to SystemC TB
@@ -60,7 +59,6 @@ int sc_TOP_MODULE_tb_tf(char *user_data)
     // from SystemC TB to DUT's input ports
     ip->clk     = vpi_scan(args);
     ip->Rdy     = vpi_scan(args);
-    ip->Cin     = vpi_scan(args);
     ip->Xin     = vpi_scan(args);
     ip->Yin     = vpi_scan(args);
     // from DUT's output ports to SystemC TB
@@ -131,9 +129,6 @@ int sc_sync_callback(p_cb_data cb_data)
 
     value_s.value.integer = outvector.Rdy;
     vpi_put_value(ip->Rdy, &value_s, &delay, vpiTransportDelay);
-
-    value_s.value.integer = outvector.Cin;
-    vpi_put_value(ip->Cin, &value_s, &delay, vpiTransportDelay);
 
     value_s.value.integer = outvector.Xin;
     vpi_put_value(ip->Xin, &value_s, &delay, vpiTransportDelay);

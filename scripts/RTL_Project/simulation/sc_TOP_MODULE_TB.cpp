@@ -85,9 +85,9 @@ void sc_TOP_MODULE_TB::Test_Gen()
 void sc_TOP_MODULE_TB::Test_Mon()
 {
     int         n = 0;
-    uint16_t    yout, E_yout;
+    uint16_t    yout, _yout;
 
-    FILE *fp = fopen ( "sc_TOP_MODULE_out.txt", "w" );
+    FILE *fp = fopen ( "sc_TOP_MODULE_TB.txt", "w" );
 
     while(true)
     {
@@ -106,16 +106,24 @@ void sc_TOP_MODULE_TB::Test_Mon()
         wait(clk.posedge_event());
         yout |= ((uint16_t)Yout.read())<<12;
 
-        if (yout==0)    continue;
-
-        printf("[%4d] y=%d / Yout=%d ", n, (uint16_t)y[n], yout);
+        //if (yout==0)    continue;
+#ifdef VPI_SIM
+        _yRef.write(y[n]);
+        yRef.write(_yRef.read());
+#else
+        yRef.write(y[n]);
+#endif
+        printf("[%4d] yRef=%d / Yout=%d ", n, (uint16_t)yRef.read(), yout);
         fprintf(fp, "%5d %5d\n", (uint16_t)x[n], (uint16_t)yout);
-        if (y[n]==yout) printf("OK\n");
-        else            printf("ERROR\n");
+        if (yRef.read()==yout)  printf("OK\n");
+        else                    printf("ERROR\n");
 
         n++;
         if (n==F_SAMPLE)
         {
+#ifdef VPI_SIM
+            sc_Stopped.write(true);
+#endif
             fflush(fp);
             fclose(fp);
 

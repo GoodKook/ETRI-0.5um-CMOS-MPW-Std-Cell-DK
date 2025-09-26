@@ -81,6 +81,7 @@ co-sim: $(RTL_PATH)/$(TOP_MODULE).v
 			$(CO-SIM_PATH)/sc_$(TOP_MODULE)_TB.h; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/simulation/sc_main.cpp > \
 			$(CO-SIM_PATH)/sc_main.cpp; \
+		cp $(PRJ_CONFIG_PATH)/simulation/sc_plotDFT.py $(CO-SIM_PATH); \
 		echo "Copy un-timed model Makefile ......"; \
 		cp $(PRJ_CONFIG_PATH)/simulation/Makefile $(CO-SIM_PATH); \
 	fi
@@ -251,8 +252,6 @@ ETRI050_help:
 		echo "Create ETRI050/simulation directory......"; \
 		mkdir $(ETRI050_PATH)/simulation; \
 		cp $(PRJ_CONFIG_PATH)/ETRI050/simulation/Makefile $(ETRI050_PATH)/simulation; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/sc_TOP_MODULE_TB.cpp > \
-			$(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/sc_TOP_MODULE_TB.h > \
 			$(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.h; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/TOP_MODULE_TB.v > \
@@ -265,16 +264,12 @@ ETRI050_help:
 			$(ETRI050_PATH)/simulation/vpi_$(TOP_MODULE)_tb_exports.h; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/vpi_TOP_MODULE_tb_ports.h > \
 			$(ETRI050_PATH)/simulation/vpi_$(TOP_MODULE)_tb_ports.h; \
+		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp $(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
 	fi
-	@if [ ! -d "$(ETRI050_PATH)/source" ];  then \
-		echo "Create ETRI050/source directory......"; \
-		ln -s $(RTL_PATH) $(ETRI050_PATH)/source; \
+	@if [ ! -e "$(ETRI050_PATH)/source" ];  then \
+		echo "Link ETRI050/source directory......"; \
+		ln -s ../$(RTL_PATH) $(ETRI050_PATH)/source; \
 	fi
-#	@if [ ! -d "$(ETRI050_PATH)/source" ];  then \
-#		echo "Create ETRI050/source directory......"; \
-#		mkdir $(ETRI050_PATH)/source; \
-#		cp $(RTL_PATH)/$(TOP_MODULE).v $(ETRI050_PATH)/source; \
-#	fi
 	@if [ ! -d "$(ETRI050_PATH)/synthesis" ];  then \
 		echo "Create ETRI050/synthesis directory......"; \
 		mkdir $(ETRI050_PATH)/synthesis; \
@@ -296,11 +291,10 @@ ETRI050_help:
 	@echo
 #---------------------------------------------------------------
 synth_ETRI050:
-#	@if [ ! -d "$(ETRI050_PATH)/source" ];  then \
-#		echo "Create ETRI050/source directory......"; \
-#		mkdir $(ETRI050_PATH)/source; \
-#	fi
-#	cp $(RTL_PATH)/$(TOP_MODULE).v $(ETRI050_PATH)/source
+	@if [ ! -e "$(ETRI050_PATH)/source" ];  then \
+		echo "Link ETRI050/source directory......"; \
+		ln -s ../$(RTL_PATH) $(ETRI050_PATH)/source; \
+	fi
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050 synthesize
 
 sim_ETRI050:

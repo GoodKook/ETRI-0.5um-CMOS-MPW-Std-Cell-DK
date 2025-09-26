@@ -22,7 +22,6 @@ typedef struct tag_Output
 {
     unsigned long   clk;
     unsigned long   Rdy;
-    unsigned long   Cin;
     unsigned long   Xin;
     unsigned long   Yin;
     unsigned long   end_of_sim;

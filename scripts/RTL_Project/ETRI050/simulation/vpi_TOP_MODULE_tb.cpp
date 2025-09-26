@@ -45,7 +45,6 @@ void drive_hdl(void *Out_vector)
     p->end_of_sim   = u_sc_TOP_MODULE_TB->sc_Stopped.read();
     p->clk          = u_sc_TOP_MODULE_TB->clk.read();
     p->Rdy          = u_sc_TOP_MODULE_TB->Rdy.read();
-    p->Cin          = u_sc_TOP_MODULE_TB->Cin.read();
     p->Xin          = u_sc_TOP_MODULE_TB->Xin.read();
     p->Yin          = u_sc_TOP_MODULE_TB->Yin.read();
 }

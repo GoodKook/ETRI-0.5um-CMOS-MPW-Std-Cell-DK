@@ -34,6 +34,7 @@ all :
 # Build VPI -----------------------------------------------------
 VPI_TARGET 	= vpi_stub.vpi
 VPI_SRCS 	= \
+    ../../c_untimed/cnoise.cpp \
     ../../c_untimed/$(DUT_MODULE).cpp \
     ./vpi_stub.cpp \
     ./vpi_$(DUT_MODULE)_tb.cpp \
@@ -61,7 +62,7 @@ VPI_LFLAGS = \
 	-lgsl
 
 $(VPI_TARGET) : $(VPI_SRCS) $(VPI_HDRS)
-	$(CXX) $(CXXFLAGS) -DVM_SC=1 \
+	$(CXX) $(CXXFLAGS) -DVPI_SIM \
 			$(VPI_INC_PATH) $(VPI_LIB_PATH) \
 			$(VPI_CFLAGS) \
 			$(VPI_SRCS) \
@@ -83,7 +84,7 @@ $(IVL_TARGET) : $(IVL_SRCS) $(VPI_TARGET) $(VLT_TARGET)
 clean :
 	rm -rf $(VLT_DIR)
 	rm -f vpi_stub.vpi
-	rm -f sc_$(DUT_MODULE)_tb_out.txt
+	rm -f sc_$(DUT_MODULE)_TB.txt
 	rm -f *.vcd
 	rm -f $(VPI_TARGET)
 	rm -f $(IVL_TARGET)
