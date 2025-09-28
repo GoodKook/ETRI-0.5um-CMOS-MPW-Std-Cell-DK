@@ -13,6 +13,7 @@ all :
 	fi
 	@echo
 	@echo 'Makefile for "Vitis-HLS Ex.: basic_loops_primer" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
+	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make synthesize'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make place'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make sta'

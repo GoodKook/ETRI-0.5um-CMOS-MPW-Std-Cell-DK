@@ -36,7 +36,6 @@ all:
 	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make csim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make co-sim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
-	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
 	@echo
 	@echo '    make emulation'
 	@echo '    make ETRI050'
@@ -99,20 +98,6 @@ $(RTL_PATH)/$(TOP_MODULE).v:
 wave: $(RTL_PATH)/$(TOP_MODULE).v
 	TOP_MODULE=$(TOP_MODULE) make -C $(CO-SIM_PATH) wave
 #---------------------------------------------------------------
-clean:
-	@if [ ! -n "$(TOP_MODULE)" ];  then \
-		echo "*********************************"; \
-		echo "!!! TOP_MODULE not declared !!!"; \
-		echo "*********************************"; \
-		exit 1; \
-	fi
-	rm -f .gitignore
-	rm -rf _ide
-	rm -rf logs
-#	rm -rf $(TOP_MODULE)
-	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) clean
-	TOP_MODULE=$(TOP_MODULE) make -C $(CO-SIM_PATH) clean
-#---------------------------------------------------------------
 #  EMULATION MENU
 #---------------------------------------------------------------
 CO-EMU_PATH = ./emulation
@@ -146,6 +131,9 @@ emulation_help:
 	@if [ ! -f "$(CO-EMU_PATH)/Makefile" ];  then \
 		cp $(PRJ_CONFIG_PATH)/emulation/Makefile $(CO-EMU_PATH); \
 	fi
+	@if [ ! -f "$(CO-EMU_PATH)/Makefile.mk" ];  then \
+		cp $(PRJ_CONFIG_PATH)/emulation/Makefile.mk $(CO-EMU_PATH); \
+	fi
 	@if [ ! -f "$(CO-EMU_PATH)/E$(TOP_MODULE).h" ];  then \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/emulation/ETOP_MODULE.h > \
 			$(CO-EMU_PATH)/E$(TOP_MODULE).h; \
@@ -156,11 +144,9 @@ emulation_help:
 	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
-	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make clean-mi'
 	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make build-trans'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make config-trans'
-	@echo '        TOP_MODULE=$(TOP_MODULE) make clean-trans'
 	@echo '  (3) Build and Run Co-Emulator'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make co-emu'
 	@echo
@@ -183,9 +169,6 @@ build-mi:
 
 upload-mi:
 	MODE=$(MODE) MI=$(MI) make -C ./emulation/PSCE-MI upload
-
-clean-mi:
-	MODE=$(MODE) make -C ./emulation/PSCE-MI clean
 #(2)------------------------------------------------------------
 build-trans:
 	@if [ ! -d "$(PSCE-TRANS_PATH)" ];  then \
@@ -204,9 +187,6 @@ build-trans:
 
 config-trans:
 	TOP_MODULE=$(TOP_MODULE) make -C ./emulation/PSCE-TRANS/Altera_Cmd config
-
-clean-trans:
-	TOP_MODULE=$(TOP_MODULE) make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
 #(3)------------------------------------------------------------
 co-emu:
 	make -C $(CO-EMU_PATH) clean
@@ -313,24 +293,3 @@ layout_ETRI050:
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/layout klayout
 
 #---------------------------------------------------------------
-_clean:
-	@if [ ! -n "$(TOP_MODULE)" ];  then \
-		echo "*********************************"; \
-		echo "!!! TOP_MODULE not declared !!!"; \
-		echo "*********************************"; \
-		exit 1; \
-	fi
-	rm -f .gitignore
-	rm -rf _ide
-	rm -rf logs
-	rm -rf $(TOP_MODULE)
-	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) clean
-	make -C ./simulation clean
-	make -C ./emulation clean
-	MODE=CA make -C ./emulation/PSCE-MI clean
-	make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
-	make -C ./ETRI050 clean
-	make -C ./ETRI050/simulation clean
-	make -C ./ETRI050/layout clean
-	make -C ./ETRI050/layout clean_all
-

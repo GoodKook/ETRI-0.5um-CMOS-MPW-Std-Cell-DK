@@ -34,7 +34,8 @@
 #define N_TX            2   // Number of byte from DUT's output
 
 #define DUT_CLK_BYTE    2
-#define DUT_CLK_BITMAP  0x02  // Clock
+#define DUT_CLK_BITMAP  0x02  // Clock: METHOD emulation
+//#define DUT_CLK_BITMAP  0x00  // Clock: THREAD emulation
 
 PSCE psce(DELAY_MICROS);
 

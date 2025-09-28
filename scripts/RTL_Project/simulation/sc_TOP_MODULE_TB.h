@@ -57,7 +57,9 @@ SC_MODULE(sc_TOP_MODULE_TB)
 
     sc_uint<8>  x[F_SAMPLE];    // Time seq. input
     sc_uint<16> y[F_SAMPLE];    // Filter output
+
     sc_signal<sc_uint<16> > yRef;
+    sc_signal<sc_uint<16> > _yRef;
 
     SC_CTOR(sc_TOP_MODULE_TB):   // Constructor
     clk("clk", 100, SC_NS, 0.5, 0.0, SC_NS, false),

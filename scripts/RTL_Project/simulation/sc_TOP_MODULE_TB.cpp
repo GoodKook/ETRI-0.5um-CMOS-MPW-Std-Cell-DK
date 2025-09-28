@@ -107,7 +107,7 @@ void sc_TOP_MODULE_TB::Test_Mon()
         yout |= ((uint16_t)Yout.read())<<12;
 
         //if (yout==0)    continue;
-#ifdef VPI_SIM
+#if defined(VPI_SIM) || defined(EMULATED_CO_SIM)
         _yRef.write(y[n]);
         yRef.write(_yRef.read());
 #else

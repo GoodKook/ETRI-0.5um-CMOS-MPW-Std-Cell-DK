@@ -24,6 +24,7 @@ all :
 	fi
 	@echo
 	@echo 'Netlist timing simulation using iVerilog-VPI:$(TOP_MODULE)'
+	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make build'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
 	@echo
@@ -97,5 +98,5 @@ run : $(IVL_TARGET) $(VPI_TARGET)
 
 wave :
 	gtkwave $(DUT_MODULE)_TB.vcd --save=$(DUT_MODULE)_TB.gtkw &
-	gtkwave sc_$(DUT_MODULE)_tb.vcd --save=sc_$(DUT_MODULE)_tb.gtkw &
+	gtkwave sc_$(DUT_MODULE)_TB.vcd --save=sc_$(DUT_MODULE)_TB.gtkw &
 

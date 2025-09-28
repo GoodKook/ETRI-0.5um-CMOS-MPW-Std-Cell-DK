@@ -9,11 +9,12 @@ export DK_SCRIPT=$(DK_HOME)/scripts
 TOP_MODULE := $(TOP_MODULE)
 
 all :
-	@echo ''
+	@echo
 	@echo 'Makefile for "'$(TOP_MODULE)'" Layout'
 	@echo 'Usage:'
 	@echo '    make [option]'
 	@echo '         Use one of following options'
+	@echo
 	@echo '             stack'
 	@echo '             drc'
 	@echo '             lvs'
