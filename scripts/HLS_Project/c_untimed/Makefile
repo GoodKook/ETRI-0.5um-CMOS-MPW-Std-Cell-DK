@@ -49,7 +49,7 @@ build : $(TOP_MODULE_TB)
 $(TOP_MODULE_TB) : $(SRCS) $(HDRS)
 	$(CXX) -I$(SYSTEMC_INCLUDE) -L$(SYSTEMC_LIBDIR) \
 		-o $(TOP_MODULE_TB) \
-		-D$(HW_STYLE) \
+		-D$(HW_STYLE)_SC \
 		$(SRCS) \
 		$(LIBS)
 

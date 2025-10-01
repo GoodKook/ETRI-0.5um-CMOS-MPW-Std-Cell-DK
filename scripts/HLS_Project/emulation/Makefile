@@ -53,7 +53,7 @@ $(SC_TARGET): $(SC_SRCS) $(SC_HDRS)
 		-I$(SC_EMU_PATH) \
 		-I$(SC_SIM_PATH) \
 		-I$(C_UNTIMED_PATH) \
-		-D$(HW_STYLE) \
+		-D$(HW_STYLE)_SC \
 		-DEMULATED_CO_SIM \
 		-DVCD_TRACE_TEST_TB \
 		-lsystemc -o$(SC_TARGET) $(SC_SRCS)

@@ -52,7 +52,7 @@ VPI_INC_PATH = \
 VPI_LIB_PATH = \
     -L${SYSTEMC_LIBDIR}
 VPI_CFLAGS = \
-	-D$(HW_STYLE) \
+	-D$(HW_STYLE)_SC \
     -g -fPIC
 VPI_LFLAGS = \
 	-shared \
