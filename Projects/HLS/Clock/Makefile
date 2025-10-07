@@ -256,7 +256,7 @@ ETRI050_help:
 			$(ETRI050_PATH)/simulation/vpi_$(TOP_MODULE)_tb_ports.h; \
 	fi
 	@if [ ! -f "$(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp" ];  then \
-		ln -s ./simulation/sc_$(TOP_MODULE)_TB.cpp $(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
+		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp $(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
 	fi
 	@if [ ! -e "$(ETRI050_PATH)/source" ];  then \
 		echo "Link ETRI050/source directory......"; \

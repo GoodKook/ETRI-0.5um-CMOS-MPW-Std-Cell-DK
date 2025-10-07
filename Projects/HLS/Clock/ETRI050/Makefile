@@ -25,7 +25,7 @@ all :
 	@echo '             config_m1f'
 	@echo '             config_m2f'
 	@echo '             clean_cell'
-	@echo ''
+	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 
 # -----------------------------------------------------
