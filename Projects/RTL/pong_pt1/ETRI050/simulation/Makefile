@@ -6,6 +6,7 @@ export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 
 DUT_MODULE = $(TOP_MODULE)
+HW_STYLE = $(MODE)
 
 # Build Rules --------------------------------------------------
 all :
@@ -14,12 +15,6 @@ all :
 		echo "*********************************"; \
 		echo "!!! TOP_MODULE not declared !!!"; \
 		echo "*********************************"; \
-		exit 1; \
-	fi
-	@if [ ! -n "$(HW_STYLE)" ];  then \
-		echo "****************************"; \
-		echo "!!! HW_STYLE not defined !!!"; \
-		echo "****************************"; \
 		exit 1; \
 	fi
 	@echo

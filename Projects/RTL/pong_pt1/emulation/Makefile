@@ -33,7 +33,7 @@ all :
 	@echo
 	@echo 'Makefile for $(MODE)-Mode emulation of "$(DUT_NAME)"'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) make build'
+	@echo '    TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) make build'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
 	@echo

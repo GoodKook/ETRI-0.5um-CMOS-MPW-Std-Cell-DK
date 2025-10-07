@@ -31,7 +31,7 @@ SC_MODULE(sc_pong_pt1_TB)
 
     // Test utilities
     void Test_Gen();
-    void Test_Mon();
+    void Test_Mon_CA();
 
     sc_trace_file* fp;  // VCD file
 
@@ -45,7 +45,7 @@ SC_MODULE(sc_pong_pt1_TB)
         SC_THREAD(Test_Gen);
         sensitive << hsync;
 
-        SC_THREAD(Test_Mon);
+        SC_THREAD(Test_Mon_CA);
         sensitive << clk;
 
         enable.write(true);
@@ -64,7 +64,7 @@ SC_MODULE(sc_pong_pt1_TB)
         window = SDL_CreateWindow("SDL2 Window",
                               SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED,
-                              800, 600,
+                              128*2, 64*2,
                               SDL_WINDOW_SHOWN);
         if (!window) {
             printf("SDL Initialization Fail: %s\n", SDL_GetError());

@@ -11,6 +11,9 @@ all :
 		echo "*********************************"; \
 		exit 1; \
 	fi
+	@if [ ! -d "source" ];  then \
+		ln -s ../$(TOP_MODULE) ./source; \
+	fi
 	@echo
 	@echo 'Makefile for "Vitis-HLS Ex.: basic_loops_primer" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make synthesize'
