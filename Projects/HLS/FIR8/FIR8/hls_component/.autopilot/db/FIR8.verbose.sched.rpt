@@ -1,0 +1,156 @@
+
+
+================================================================
+== Vitis HLS Report for 'FIR8'
+================================================================
+* Date:           Wed Oct  1 06:43:19 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        FIR8
+* Solution:       hls_component (Vivado IP Flow Target)
+* Product family: aartix7
+* Target device:  xa7a100t-csg324-2I
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  1.00 us|  4.570 ns|     0.27 us|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       27|       27|  27.000 us|  27.000 us|   28|   28|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.75>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%x_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %x"   --->   Operation 6 'read' 'x_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%acc_1_loc = alloca i64 1"   --->   Operation 7 'alloca' 'acc_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [2/2] (1.75ns)   --->   "%call_ln0 = call void @FIR8_Pipeline_SHIFTER_LOOP, i8 %x_read, i8 %shift_reg"   --->   Operation 8 'call' 'call_ln0' <Predicate = true> <Delay = 1.75> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 2.64>
+ST_2 : Operation 9 [1/2] (2.64ns)   --->   "%call_ln0 = call void @FIR8_Pipeline_SHIFTER_LOOP, i8 %x_read, i8 %shift_reg"   --->   Operation 9 'call' 'call_ln0' <Predicate = true> <Delay = 2.64> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 10 [2/2] (0.00ns)   --->   "%call_ln0 = call void @FIR8_Pipeline_MACC_LOOP, i16 %acc_1_loc, i6 %filter_taps, i8 %shift_reg"   --->   Operation 10 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 11 [1/2] (0.00ns)   --->   "%call_ln0 = call void @FIR8_Pipeline_MACC_LOOP, i16 %acc_1_loc, i6 %filter_taps, i8 %shift_reg"   --->   Operation 11 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 2.90>
+ST_5 : Operation 12 [1/1] (0.00ns)   --->   "%spectopmodule_ln14 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [c_untimed/FIR8.cpp:14]   --->   Operation 12 'spectopmodule' 'spectopmodule_ln14' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 13 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %y"   --->   Operation 13 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %y, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 15 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %x"   --->   Operation 15 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %x, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 17 [1/1] (0.00ns)   --->   "%acc_1_loc_load = load i16 %acc_1_loc"   --->   Operation 17 'load' 'acc_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 18 [1/1] (1.84ns)   --->   "%icmp_ln86 = icmp_ult  i16 %acc_1_loc_load, i16 11000" [c_untimed/FIR8.cpp:86]   --->   Operation 18 'icmp' 'icmp_ln86' <Predicate = true> <Delay = 1.84> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 19 [1/1] (1.84ns)   --->   "%acc = add i16 %acc_1_loc_load, i16 54536" [c_untimed/FIR8.cpp:88]   --->   Operation 19 'add' 'acc' <Predicate = true> <Delay = 1.84> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 20 [1/1] (0.00ns)   --->   "%trunc_ln1 = partselect i10 @_ssdm_op_PartSelect.i10.i16.i32.i32, i16 %acc, i32 6, i32 15" [c_untimed/FIR8.cpp:86]   --->   Operation 20 'partselect' 'trunc_ln1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 21 [1/1] (1.06ns)   --->   "%select_ln86 = select i1 %icmp_ln86, i10 171, i10 %trunc_ln1" [c_untimed/FIR8.cpp:86]   --->   Operation 21 'select' 'select_ln86' <Predicate = true> <Delay = 1.06> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.06> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln90 = zext i10 %select_ln86" [c_untimed/FIR8.cpp:90]   --->   Operation 22 'zext' 'zext_ln90' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 23 [1/1] (0.00ns)   --->   "%write_ln90 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %y, i16 %zext_ln90" [c_untimed/FIR8.cpp:90]   --->   Operation 23 'write' 'write_ln90' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 24 [1/1] (0.00ns)   --->   "%ret_ln91 = ret" [c_untimed/FIR8.cpp:91]   --->   Operation 24 'ret' 'ret_ln91' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 1000.000ns, clock uncertainty: 270.000ns.
+
+ <State 1>: 1.755ns
+The critical path consists of the following:
+	wire read operation ('x_read') on port 'x' [5]  (0.000 ns)
+	'call' operation 0 bit ('call_ln0') to 'FIR8_Pipeline_SHIFTER_LOOP' [12]  (1.755 ns)
+
+ <State 2>: 2.648ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'FIR8_Pipeline_SHIFTER_LOOP' [12]  (2.648 ns)
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 0.000ns
+The critical path consists of the following:
+
+ <State 5>: 2.904ns
+The critical path consists of the following:
+	'load' operation 16 bit ('acc_1_loc_load') on local variable 'acc_1_loc' [14]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln86', c_untimed/FIR8.cpp:86) [15]  (1.840 ns)
+	'select' operation 10 bit ('select_ln86', c_untimed/FIR8.cpp:86) [18]  (1.064 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

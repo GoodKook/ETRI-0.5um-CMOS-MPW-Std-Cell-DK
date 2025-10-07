@@ -12,7 +12,7 @@ all :
 	@echo
 	@echo 'Makefile for "'$(TOP_MODULE)'" Layout'
 	@echo 'Usage:'
-	@echo '    make [option]'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make [option]'
 	@echo '         Use one of following options'
 	@echo
 	@echo '             stack'
@@ -27,7 +27,7 @@ all :
 	@echo '             clean'
 	@echo '             clean_all'
 	@echo ''
-
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 # -----------------------------------------------------
 stack: $(TOP_MODULE)_Stacked.log
 

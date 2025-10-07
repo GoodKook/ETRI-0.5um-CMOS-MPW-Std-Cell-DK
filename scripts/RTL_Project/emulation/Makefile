@@ -77,13 +77,13 @@ all :
 	@echo
 	@echo 'Makefile for Co-Simulation of Vitis-HLS example, $(TOP_MODULE)'
 	@echo
-	@echo '    make lint'
-	@echo '    make build'
-	@echo '        build options,'
-	@echo '            VCD_TRACE = [YES]|NO'
-	@echo '    make run'
-	@echo '    make wave'
-	@echo '    make clean'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make lint'
+	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) VCD_TRACE = [YES]|NO make build'
+	@echo
+	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
+	@echo
+	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
 	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 	@echo

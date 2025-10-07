@@ -23,18 +23,19 @@ all:
 	@echo
 	@echo 'Generate Chip-Top: $(CHIP_NAME)_Top.gds'
 	@echo
-	@echo '    make copy_pad_frame'
-	@echo '    make copy_core'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make copy_pad_frame'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make copy_core'
 	@echo
-	@echo '    make lvs_core'
-	@echo '    make stack_core'
-	@echo '    make drc_core'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make lvs_core'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make stack_core'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make drc_core'
 	@echo
-	@echo '    make extract_pad'
-	@echo '    make extract_pin_route'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make extract_pad'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make extract_pin_route'
 	@echo
-	@echo '    make generate_gds'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make generate_gds'
 	@echo
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 
 copy_pad_frame: $(CHIP_NAME)_Top.mag
 

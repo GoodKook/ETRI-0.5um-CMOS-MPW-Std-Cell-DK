@@ -1,0 +1,31 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_FIR8_ir
+Args:            
+  - Callee:          'FIR8(ap_uint<16>*, ap_uint<8>)'
+    DebugLoc:        { File: c_untimed/FIR8.cpp, Line: 67, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_FIR8_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        SHIFTER_LOOP
+  - String:          '> at '
+  - LoopLoc:         'c_untimed/FIR8.cpp:73:5'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        MACC_LOOP
+  - String:          '> at '
+  - LoopLoc:         'c_untimed/FIR8.cpp:83:5'
+  - String:          ' '
+...

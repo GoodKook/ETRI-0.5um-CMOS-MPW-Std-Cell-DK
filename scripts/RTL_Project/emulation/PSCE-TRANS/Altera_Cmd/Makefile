@@ -17,8 +17,8 @@ all:
 	@echo
 	@echo "Quartus Command Line for $(PROJECT)"
 	@echo
-	@echo "    make build"
-	@echo "    make gen_rbf"
+	@echo "    TOP_MODULE=$(TOP_MODULE) make build"
+	@echo "    TOP_MODULE=$(TOP_MODULE) make gen_rbf"
 	@echo "    make config"
 	@echo
 	@echo "CC BY-NC, GoodKook, goodkook@gmail.com"

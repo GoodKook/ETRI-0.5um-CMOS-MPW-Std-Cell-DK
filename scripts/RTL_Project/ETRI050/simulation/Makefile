@@ -22,6 +22,9 @@ all :
 		echo "****************************"; \
 		exit 1; \
 	fi
+	@if [ ! -f "sc_$(TOP_MODULE)_TB.cpp" ];  then \
+		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp sc_$(TOP_MODULE)_TB.cpp; \
+	fi
 	@echo
 	@echo 'Netlist timing simulation using iVerilog-VPI:$(TOP_MODULE)'
 	@echo
@@ -32,6 +35,7 @@ all :
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
 	@echo
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 # Build VPI -----------------------------------------------------
 VPI_TARGET 	= vpi_stub.vpi
 VPI_SRCS 	= \

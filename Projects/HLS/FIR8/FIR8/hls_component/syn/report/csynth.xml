@@ -1,0 +1,504 @@
+<profile>
+    <ReportVersion>
+        <Version>2025.1</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>aartix7</ProductFamily>
+        <Part>xa7a100t-csg324-2I</Part>
+        <TopModelName>FIR8</TopModelName>
+        <TargetClockPeriod>1000.00</TargetClockPeriod>
+        <ClockUncertainty>270.00</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>4.570</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>27</Best-caseLatency>
+            <Average-caseLatency>27</Average-caseLatency>
+            <Worst-caseLatency>27</Worst-caseLatency>
+            <Best-caseRealTimeLatency>27.000 us</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>27.000 us</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>27.000 us</Worst-caseRealTimeLatency>
+            <Interval-min>28</Interval-min>
+            <Interval-max>28</Interval-max>
+            <PerformancePragma>-</PerformancePragma>
+        </SummaryOfOverallLatency>
+        <SummaryOfViolations>
+            <IssueType>-</IssueType>
+            <ViolationType>-</ViolationType>
+            <SourceLocation>c_untimed/FIR8.cpp:14</SourceLocation>
+        </SummaryOfViolations>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <DSP>1</DSP>
+            <FF>143</FF>
+            <LUT>340</LUT>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>270</BRAM_18K>
+            <DSP>240</DSP>
+            <FF>126800</FF>
+            <LUT>63400</LUT>
+            <URAM>0</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>FIR8</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst</name>
+            <Object>FIR8</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_start</name>
+            <Object>FIR8</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_done</name>
+            <Object>FIR8</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_idle</name>
+            <Object>FIR8</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_ready</name>
+            <Object>FIR8</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>y</name>
+            <Object>y</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>16</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>y_ap_vld</name>
+            <Object>y</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>x</name>
+            <Object>x</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>8</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="3">
+            <ModuleName>FIR8</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63</InstName>
+                    <ModuleName>FIR8_Pipeline_SHIFTER_LOOP</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>63</ID>
+                    <BindInstances>icmp_ln75_fu_98_p2 add_ln78_fu_104_p2 add_ln73_fu_115_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_FIR8_Pipeline_MACC_LOOP_fu_71</InstName>
+                    <ModuleName>FIR8_Pipeline_MACC_LOOP</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>71</ID>
+                    <BindInstances>icmp_ln83_fu_90_p2 add_ln83_fu_96_p2 mac_muladd_8ns_6ns_16ns_16_4_1_U3 mac_muladd_8ns_6ns_16ns_16_4_1_U3 mac_muladd_8ns_6ns_16ns_16_4_1_U3 filter_taps_U</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>icmp_ln86_fu_83_p2 acc_fu_89_p2 select_ln86_fu_105_p3 shift_reg_U</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>FIR8_Pipeline_SHIFTER_LOOP</Name>
+            <Loops>
+                <SHIFTER_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>1000.00</TargetClockPeriod>
+                    <ClockUncertainty>270.00</ClockUncertainty>
+                    <EstimatedClockPeriod>4.570</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>10</Best-caseLatency>
+                    <Average-caseLatency>10</Average-caseLatency>
+                    <Worst-caseLatency>10</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>10.000 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>10.000 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>10.000 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>9</PipelineInitiationInterval>
+                    <PipelineType>loop auto-rewind stp (delay=0 clock cycles(s))</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <SHIFTER_LOOP>
+                        <Name>SHIFTER_LOOP</Name>
+                        <Slack>730.00</Slack>
+                        <TripCount>8</TripCount>
+                        <isPerfectNested>0</isPerfectNested>
+                        <Latency>8</Latency>
+                        <AbsoluteTimeLatency>8.000 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <PerformancePragma>-</PerformancePragma>
+                        <InstanceList/>
+                    </SHIFTER_LOOP>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>c_untimed/FIR8.cpp:73</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <SHIFTER_LOOP>
+                            <Name>SHIFTER_LOOP</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>c_untimed/FIR8.cpp:73</SourceLocation>
+                        </SHIFTER_LOOP>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>12</FF>
+                    <AVAIL_FF>126800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>90</LUT>
+                    <AVAIL_LUT>63400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>270</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>240</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln75_fu_98_p2" SOURCE="c_untimed/FIR8.cpp:75" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln75" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln78_fu_104_p2" SOURCE="c_untimed/FIR8.cpp:78" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln78" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln73_fu_115_p2" SOURCE="c_untimed/FIR8.cpp:73" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln73" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>FIR8_Pipeline_MACC_LOOP</Name>
+            <Loops>
+                <MACC_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>1000.00</TargetClockPeriod>
+                    <ClockUncertainty>270.00</ClockUncertainty>
+                    <EstimatedClockPeriod>4.139</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>13</Best-caseLatency>
+                    <Average-caseLatency>13</Average-caseLatency>
+                    <Worst-caseLatency>13</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>13.000 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>13.000 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>13.000 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>9</PipelineInitiationInterval>
+                    <PipelineType>loop auto-rewind stp (delay=0 clock cycles(s))</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <MACC_LOOP>
+                        <Name>MACC_LOOP</Name>
+                        <Slack>730.00</Slack>
+                        <TripCount>8</TripCount>
+                        <isPerfectNested>0</isPerfectNested>
+                        <Latency>11</Latency>
+                        <AbsoluteTimeLatency>11.000 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>5</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <PerformancePragma>-</PerformancePragma>
+                        <InstanceList/>
+                    </MACC_LOOP>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>c_untimed/FIR8.cpp:68</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <MACC_LOOP>
+                            <Name>MACC_LOOP</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>c_untimed/FIR8.cpp:83</SourceLocation>
+                        </MACC_LOOP>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>270</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>1</DSP>
+                    <AVAIL_DSP>240</AVAIL_DSP>
+                    <UTIL_DSP>~0</UTIL_DSP>
+                    <FF>100</FF>
+                    <AVAIL_FF>126800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>115</LUT>
+                    <AVAIL_LUT>63400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="MACC_LOOP" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln83_fu_90_p2" SOURCE="c_untimed/FIR8.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="MACC_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln83_fu_96_p2" SOURCE="c_untimed/FIR8.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln83" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:84" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln84" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op zext" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="zext" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:84" STORAGESUBTYPE="" URAM="0" VARIABLE="zext_ln84_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:84" STORAGESUBTYPE="" URAM="0" VARIABLE="acc_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="filter_taps_U" SOURCE="" STORAGESIZE="6 8 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="filter_taps" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>FIR8</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>1000.00</TargetClockPeriod>
+                    <ClockUncertainty>270.00</ClockUncertainty>
+                    <EstimatedClockPeriod>4.570</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>27</Best-caseLatency>
+                    <Average-caseLatency>27</Average-caseLatency>
+                    <Worst-caseLatency>27</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>27.000 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>27.000 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>27.000 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>28</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>c_untimed/FIR8.cpp:14</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>270</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>1</DSP>
+                    <AVAIL_DSP>240</AVAIL_DSP>
+                    <UTIL_DSP>~0</UTIL_DSP>
+                    <FF>143</FF>
+                    <AVAIL_FF>126800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>340</LUT>
+                    <AVAIL_LUT>63400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln86_fu_83_p2" SOURCE="c_untimed/FIR8.cpp:86" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln86" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="acc_fu_89_p2" SOURCE="c_untimed/FIR8.cpp:88" STORAGESUBTYPE="" URAM="0" VARIABLE="acc" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln86_fu_105_p3" SOURCE="c_untimed/FIR8.cpp:86" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln86" VISIBLE="false"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="shift_reg_U" SOURCE="" STORAGESIZE="8 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="shift_reg" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="y" index="0" direction="out" srcType="ap_uint&lt;16&gt;*" srcSize="16">
+            <hwRefs>
+                <hwRef type="port" interface="y" name="y" usage="data" direction="out"/>
+                <hwRef type="port" interface="y_ap_vld" name="y_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="x" index="1" direction="in" srcType="ap_uint&lt;8&gt;" srcSize="8">
+            <hwRefs>
+                <hwRef type="port" interface="x" name="x" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_ctrl" type="ap_ctrl" busTypeName="acc_handshake" mode="slave">
+            <portMaps>
+                <portMap portMapName="ap_start">start</portMap>
+                <portMap portMapName="ap_done">done</portMap>
+                <portMap portMapName="ap_idle">idle</portMap>
+                <portMap portMapName="ap_ready">ready</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_done</port>
+                <port>ap_idle</port>
+                <port>ap_ready</port>
+                <port>ap_start</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="y" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="16">
+            <portMaps>
+                <portMap portMapName="y">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>y</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="y"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="x" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="8">
+            <portMaps>
+                <portMap portMapName="x">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>x</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="x"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="x">ap_none, in, 8</column>
+                    <column name="y">ap_vld, out, 16</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table>
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst">reset, ap_rst</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, ap_done ap_idle ap_ready ap_start</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table>
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="y">out, ap_uint&lt;16&gt;*</column>
+                    <column name="x">in, ap_uint&lt;8&gt;</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table>
+                    <keys size="3">Argument, HW Interface, HW Type</keys>
+                    <column name="y">y, port</column>
+                    <column name="y">y_ap_vld, port</column>
+                    <column name="x">x, port</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ResolutionUrl key="ZZZ">docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
+    <PragmaReport/>
+</profile>
+
