@@ -1,0 +1,149 @@
+/*
+
+  Disp_SH1106.ino
+
+  Using Universal 8bit Graphics Library (https://github.com/olikraus/u8g2/)
+  Copyright (c) 2016, olikraus@gmail.com
+  All rights reserved.
+
+*/
+
+#include <Arduino.h>
+#include <U8g2lib.h>
+#include <Wire.h> // Hardware I2C
+
+U8G2_SH1106_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+
+#define SCREEN_WIDTH  128
+#define SCREEN_HEIGHT 64
+#define SCREEN_W_BYTE (SCREEN_WIDTH/8)
+unsigned char TableBMP[SCREEN_W_BYTE*SCREEN_HEIGHT];
+
+#define PIN_RGB     27
+#define PIN_VSYNC   26
+#define PIN_HSYNC   15
+#define PIN_P_TICK  14
+
+#define DRAW_BITMAP() { \
+    u8g2.firstPage();  \
+    do { \
+      u8g2.drawBitmap(0, 0, SCREEN_W_BYTE, SCREEN_HEIGHT, TableBMP); \
+    } while( u8g2.nextPage() ); \
+  }
+
+// PWM for Clock generator -----------------------
+#define _PWM_LOGLEVEL_    3
+#include "RP2040_PWM.h"
+RP2040_PWM* PWM_Instance; //creates pwm instance
+float frequency = 300000; //  Freq
+float dutyCycle = 50;     //  Duty in %
+#define PIN_CLK_OUT   29  //  PWM out pin
+//------------------------------------------------
+
+void u8g2_prepare(void)
+{
+    u8g2.setFont(u8g2_font_6x10_tf);
+    u8g2.setFontRefHeightExtendedText();
+    u8g2.setDrawColor(1);
+    u8g2.setFontPosTop();
+    u8g2.setFontDirection(0);
+}
+
+//---------------------------------------------------------------
+int xPos = 0, yPos = 0;
+
+void setup(void)
+{
+  pinMode(PIN_P_TICK, INPUT);
+  pinMode(PIN_HSYNC, INPUT);
+  pinMode(PIN_VSYNC, INPUT);
+  pinMode(PIN_RGB, INPUT);
+
+  u8g2.begin();
+  delay(1000);
+
+  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+    TableBMP[i] = 0xAA;
+  DRAW_BITMAP();
+  delay(500);
+
+  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+    TableBMP[i] = 0x55;
+  DRAW_BITMAP();
+  delay(500);
+
+  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+    TableBMP[i] = 0xFF;
+  DRAW_BITMAP();
+  delay(500);
+
+  u8g2.firstPage();  
+  do {
+    u8g2_prepare();
+    //u8g2->drawStr((u8g2_uint_t)x, (u8g2_uint_t)y, (const char*)(szMsg+nIdx));
+    u8g2.drawStr(0,0, "SH1106 Display");
+    u8g2.drawStr(0,12, "    Controller");
+  } while( u8g2.nextPage() );
+
+  // PWM for Clock generator----------------------------
+  PWM_Instance = new RP2040_PWM(PIN_CLK_OUT, frequency, dutyCycle);
+}
+
+//-------------------------------------------------------------------
+// Multi-Core:
+bool bUpdateBuffer = false;
+void setup1(void)
+{
+}
+
+void loop1()
+{
+  if (bUpdateBuffer)
+  {
+      DRAW_BITMAP();
+      bUpdateBuffer = false;
+  }
+}
+
+void loop(void)
+{
+  PWM_Instance->setPWM(PIN_CLK_OUT, frequency, dutyCycle);
+
+  while(true)
+  {
+    if (digitalRead(PIN_VSYNC))
+    {
+      xPos = yPos = 0;
+      bUpdateBuffer = true;
+//      DRAW_BITMAP();
+
+      while(digitalRead(PIN_VSYNC));  // Wait for End of VSYNC
+
+      // Following Two lines for Skip a frame
+      //while(!digitalRead(PIN_VSYNC));  // Wait for Start of VSYNC
+      //while(digitalRead(PIN_VSYNC));  // Wait for End of VSYNC
+    }
+    else if (digitalRead(PIN_HSYNC))
+    {
+      xPos = 0;
+      yPos++;
+      if (yPos>=SCREEN_HEIGHT) yPos = SCREEN_HEIGHT-1;
+      while(digitalRead(PIN_HSYNC));  // Wait for End of HSYNC
+    }
+    else if (digitalRead(PIN_P_TICK))
+    {
+      int address = (yPos*SCREEN_W_BYTE)+xPos/8;
+      if(!(xPos%8))  TableBMP[address] = 0x00;
+
+      if (digitalRead(PIN_RGB))
+        TableBMP[address] |= (uint8_t)(0x80>>(xPos%8));
+      else
+        TableBMP[address] &= ~(0x80>>(xPos%8));
+
+      xPos++;
+      if (xPos>=SCREEN_WIDTH) xPos = SCREEN_WIDTH-1;
+
+      while(digitalRead(PIN_P_TICK));  // Wait for End of P_TICK
+    }
+  }
+}
