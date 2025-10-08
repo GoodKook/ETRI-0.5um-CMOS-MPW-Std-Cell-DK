@@ -10,14 +10,14 @@ SCRIPTS_PATH = ~/ETRI050_DesignKit/scripts
 PAD_PATH =  ~/ETRI050_DesignKit/pads_ETRI
 LAYOUT_PATH = ../layout
 
-CHIP_NAME = $(TOP_MODULE)
+CHIP_NAME = pong_pt1
 
 PAD_X = 97.5
 PAD_Y = 97.5
-PIN_ROUTE_X =
-PIN_ROUTE_Y =
-CORE_X =
-CORE_Y =
+PIN_ROUTE_X = 441.0
+PIN_ROUTE_Y = 441.0
+CORE_X = 462.0
+CORE_Y = 531.3
 
 all:
 	@echo
@@ -75,20 +75,10 @@ $(CHIP_NAME)_Top.gds: $(CHIP_NAME)_Pad.mag $(CHIP_NAME)_Pin_Route.mag $(CHIP_NAM
 			$(CORE_X) $(CORE_Y)
 
 clean:
-	rm -f $(CHIP_NAME)_Pad.mag
-	rm -f $(CHIP_NAME)_Pad_F.mag
-	rm -f $(CHIP_NAME)_Pin_Route.mag
-	rm -f $(CHIP_NAME)_Pin_Route_F.mag
-	rm -f $(CHIP_NAME)_Top_F.mag
-	rm -f $(CHIP_NAME)_Core_F.mag
-	rm -f $(CHIP_NAME)_Core_DRC.mag
-	rm -f $(CHIP_NAME)_Core_LVS.mag
-	rm -f $(CHIP_NAME)_Core_Stack.mag
+	@echo "This project was submitted to My Chip MPW 2025-2"
+	@echo "Cleaning Disabled!"
 	
 clean_all:
-	rm -f *.txt
-	rm -f *.log
-	rm -f *.gds
-	rm -f *.ext
-	rm -f *.spice
+	@echo "This project was submitted to My Chip MPW 2025-2"
+	@echo "Cleaning Disabled!"
 

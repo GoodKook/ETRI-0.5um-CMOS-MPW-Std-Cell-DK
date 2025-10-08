@@ -12,7 +12,7 @@ all :
 	@echo ''
 	@echo 'Makefile for "'$(TOP_MODULE)'" Layout'
 	@echo 'Usage:'
-	@echo '    make [option]'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make [option]'
 	@echo '         Use one of following options'
 	@echo '             stack'
 	@echo '             drc'

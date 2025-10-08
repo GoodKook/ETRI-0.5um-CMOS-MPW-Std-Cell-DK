@@ -11,7 +11,7 @@
 ./klayout_install.sh
 ./netgen_build.sh
 ./qrouter_build.sh
-./ngspice44_build.sh
+./ngspice45.2_build.sh
 ./xschem_build.sh
 ./gtkwave_install.sh
 ./yosys_build.sh

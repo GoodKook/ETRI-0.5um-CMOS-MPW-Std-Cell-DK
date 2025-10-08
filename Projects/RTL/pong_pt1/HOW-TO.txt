@@ -1,0 +1,566 @@
+Project: pong_pt1
+
+1. Design Directory Structure
+2. RTL Simulation
+    2-1. Requirements
+    2-2. Build & Run
+3. Co-Emulation Modeling Interface(MI)
+    3-1. Requirements
+    3-2. Build Modeling Interface
+4. Co-Emulation Transactor(TRANS)
+    4-1. Requirements
+    4-2. Build Modeling Interface
+5. Run Co-Emulation
+    5-1. Requirements
+    5-2. Build & Run
+6. Targetting ETRI050 node
+    6-1. Requirements
+    6-2. Synthesis
+    6-3. Simulation
+    6-4. Auto-Placement & Route
+    6-5. Generate Layout
+    6-6. LVS
+7. Layout Check(Sign-off)
+    7-1. Stacked VIA
+    7-2. DRC & LVS
+8. Chip-Top
+    8-1. Pad to Core Routing
+    8-2. Generate GDS
+9. Chip Test
+    9-1. Requirements
+    9-2. Re-Use Modeling Interface of Emulation
+    9-3. Test Transactor
+    9-4. Run Chip-Tester
+10. Application
+    10-1. Requirements
+    10-2. Display Controller
+--------------------------------------------------
+1. Design Directory Structure
+    .
+    ├── env_settings
+    ├── pong_pt1 : RTL Verilog
+    │   ├── pixel_gen.v
+    │   ├── pong_pt1.v
+    │   └── pong_pt1.ys
+    ├── simulation : Co-Simulation
+    |   ├── Makefile
+    |   ├── sc_main.cpp
+    |   ├── sc_pong_pt1_TB.cpp
+    |   └── sc_pong_pt1_TB.h
+    ├── emulation : Co-Emulation
+    │   ├── Makefile
+    │   ├── Epong_pt1.h
+    │   ├── pong_pt1_tester.v
+    │   ├── pong_pt1_wrapper.v
+    │   ├── PSCE-MI
+    │   │   ├── Makefile
+    │   │   ├── Epong_pt1_CA
+    │   │   │   ├── Epong_pt1_CA.ino
+    │   │   │   ├── PinMap_A7_100T.h
+    │   │   │   ├── PinMap_TANG_25K.h
+    │   │   │   ├── PSCE_APIs.cpp
+    │   │   │   ├── PSCE_APIs.h
+    │   │   │   ├── PSCE_Config.h
+    │   │   │   └── PSCE_Splash.h
+    │   │   ├── Epong_pt1_SA
+    │   │   │   ├── Epong_pt1_SA.ino
+    │   │   │   ├── PinMap_A7_100T.h
+    │   │   │   ├── PinMap_TANG_25K.h
+    │   │   │   ├── PSCE_APIs.cpp
+    │   │   │   ├── PSCE_APIs.h
+    │   │   │   ├── PSCE_Config.h
+    │   │   │   └── PSCE_Splash.h
+    │   │   └── Epong_pt1_Disp : Display Controller/RP2040-Zero
+    │   │      ├── Epong_pt1_Disp.ino
+    │   │      ├── PWM_Generic_Debug.h
+    │   │      └── RP2040_PWM.h
+    │   └── PSCE-TRANS
+    │       └── Altera_Cmd
+    │           ├── Makefile
+    │           ├── pong_pt1_tester.tcl
+    │           └── pong_pt1_wrapper.tcl
+    └── ETRI050
+        ├── Makefile
+        ├── project_vars.sh
+        ├── chip_top
+        │   ├── Makefile
+        │   └── ETRI050_CMOS.lyp
+        ├── layout
+        │   ├── Makefile
+        │   ├── ETRI050_CMOS.lyp
+        │   ├── pong_pt1.cel2
+        │   └── pong_pt1.par
+        ├── log
+        ├── simulation
+        │   ├── Makefile
+        │   ├── pong_pt1_TB.v
+        │   ├── sc_pong_pt1_TB.cpp -> ../../simulation/sc_pong_pt1_TB.cpp
+        │   ├── sc_pong_pt1_TB.h
+        │   ├── vpi_pong_pt1_tb.cpp
+        │   ├── vpi_pong_pt1_tb_exports.h
+        │   ├── vpi_pong_pt1_tb_ports.h
+        │   └── vpi_stub.cpp
+        ├── source -> ../pong_pt1
+        └── synthesis
+
+2. RTL Simulation
+2-1. Requirements
+    SDL2
+    SystemC 3.x
+    Verilator
+2-2. Build & Run
+    $ cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
+    $ source env_settings
+    $ cd simulation
+    $ make
+        Makefile for Co-Simulation of Verilog-RTL example, pong_pt1 in MODE=CA
+
+            TOP_MODULE=pong_pt1 make lint
+            TOP_MODULE=pong_pt1 VCD_TRACE=[YES]|NO make build
+            make run
+            make wave
+            make clean
+
+        CC BY-NC, by GoodKook, goodkook@gmail.com
+    $ make build
+        verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+			--top-module pong_pt1  --exe --build \
+			-CFLAGS -g -CFLAGS -I../../c_untimed -CFLAGS -I/opt/systemc/include -CFLAGS \
+            -DVCD_TRACE_TEST_TB -CFLAGS -DVCD_TRACE_DUT_VERILOG -CFLAGS -DCA \
+            -LDFLAGS -lm -LDFLAGS -lgsl -LDFLAGS -lSDL2 \
+            ../pong_pt1/*.v ./sc_main.cpp ./sc_pong_pt1_TB.cpp
+    $ make run
+
+3. Co-Emulation Modeling Interface(MI)
+3-1. Requirements
+    Arduino DUE + Adaptor B/D
+3-2. Build Modeling Interface
+    $ cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
+    $ cd emulation/PSCE-MI
+    $ make
+        Arduino-CLI for Epong_pt1_CA
+
+            TOP_MODULE=pong_pt1 MODE=CA MI=DUE_NORMAL make build
+            TOP_MODULE=pong_pt1 MODE=CA MI=DUE_NORMAL make upload
+            TOP_MODULE=pong_pt1 MODE=CA MI=DUE_NORMAL make clean
+
+        * MODE must be one of followings;
+            CA           : Cycle Accurate
+            SA           : System Accurate/Clock controlled by MI
+        * MI must be one of followings;
+            DUE_NORMAL   : Arduino DUE
+            PI_PICO      : Raspberry Pi Pico
+
+        * Firmware of Display Controller/SH1106
+            MODE=Disp MI=PI_PICO make build
+            MODE=Disp MI=PI_PICO make upload
+
+        CC BY-NC, GoodKook, goodkook@gmail.com
+    $ make build
+        arduino-cli compile --clean --fqbn arduino:sam:arduino_due_x_dbg \
+            Epong_pt1_CA \
+        	--build-path ./Epong_pt1_CA/build \
+        	--build-property compiler.cpp.extra_flags="-DDUE_NORMAL -DUART_BPS=115200 -DCYCLONE_IV"
+        Sketch uses 12072 bytes (2%) of program storage space. Maximum is 524288 bytes.
+    $ make upload
+        arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:sam:arduino_due_x_dbg Epong_pt1_CA \
+        	--input-file ./Epong_pt1_CA/build/Epong_pt1_CA.ino.bin
+        Atmel SMART device 0x285e0a60 found
+        Erase flash
+        done in 0.046 seconds
+
+        Write 13252 bytes to flash (52 pages)
+        [==============================] 100% (52/52 pages)
+        done in 3.189 seconds
+        Set boot flash true
+        CPU reset.
+        New upload port: /dev/ttyACM0 (serial)
+
+4. Co-Emulation Transactor(TRANS)
+4-1. Requirements
+    Altera Cyclone IV:EP4CE10E22C8N Core B/D + Adaptor B/D
+4-2. Build Modeling Interface
+    $ cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
+    $ cd emulation/PSCE-TRANS/Altera_Cmd
+    $ make
+        Quartus Command Line for pong_pt1_wrapper
+
+            MODE=CA make build
+            * Set MODE=TESTER for Chip-Test wrapper
+            make gen_rbf
+            make config
+
+        CC BY-NC, GoodKook, goodkook@gmail.com
+    $ make build
+        quartus_sh -t pong_pt1_wrapper.tcl
+    $ make gen_rbf
+        quartus_cpf -c ./output_files/pong_pt1_wrapper.sof output_file.rbf
+    $ make config
+        sudo openFPGALoader -c digilent_hs2 output_file.rbf
+        empty
+        Jtag frequency : requested 6.00MHz    -> real 6.00MHz   
+        Load SRAM: [==================================================] 100.00%
+        Done
+
+5. Run Co-Emulation
+5-1. Requirements
+    RTL Simulation Testbench re-used
+5-2. Build & Run
+    $ cd cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
+    $ make
+        Makefile for CA-Mode emulation of "pong_pt1"
+
+            TOP_MODULE=pong_pt1 MODE=CA make build
+            TOP_MODULE=pong_pt1 make run
+            TOP_MODULE=pong_pt1 make clean
+
+        CC BY-NC, by GoodKook, goodkook@gmail.com
+    $ make build
+        clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+        	-I../emulation \
+        	-I../simulation \
+        	-I../c_untimed \
+        	-DCA \
+        	-DEMULATED_CO_SIM \
+        	-DVCD_TRACE_TEST_TB \
+        	-lsystemc -lSDL2 \
+        	-osc_pong_pt1_TB ../simulation/sc_pong_pt1_TB.cpp ../simulation/sc_main.cpp
+    $ make run
+        ./sc_pong_pt1_TB
+
+                SystemC 3.0.2-Accellera --- Jun 13 2025 17:49:45
+                Copyright (c) 1996-2025 by all Contributors,
+                ALL RIGHTS RESERVED
+
+        Info: (I703) tracing timescale unit set: 100 ps (Epong_pt1.vcd)
+        Request emulator connection......
+        Connection established...
+
+        Info: (I703) tracing timescale unit set: 100 ps (sc_pong_pt1_TB.vcd)
+        nVSync[1] nHSync[63]
+
+6. Targetting ETRI050 node
+6-1. Requirements
+    Open-Source Tools
+        Yosys
+        GrayWolf
+        QRouter
+        Netgen
+        Magic
+        QFlow
+6-2. Synthesis
+    $ cd cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
+    $ cd ETRI050
+    $ make
+        Makefile for "Verilog-RTL Ex.: pong_pt1" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology
+
+            TOP_MODULE=pong_pt1 make synthesize
+            TOP_MODULE=pong_pt1 make place
+            TOP_MODULE=pong_pt1 make sta
+            TOP_MODULE=pong_pt1 make route
+            TOP_MODULE=pong_pt1 make migrate
+            TOP_MODULE=pong_pt1 make lvs
+            TOP_MODULE=pong_pt1 make size
+
+                     config_m1f
+                     config_m2f
+                     clean_cell
+    $ make synthesize
+        qflow synthesize -T etri050 pong_pt1
+    Synthesized netlists are in the directory of "./synthesis"
+6-3. Simulation
+    $ cd simulation
+    $ pwd
+        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/ETRI050/simulation
+    $ make
+        Netlist timing simulation using iVerilog-VPI:pong_pt1
+
+            TOP_MODULE=pong_pt1 HW_STYLE=CA make build
+            TOP_MODULE=pong_pt1 make run
+
+            TOP_MODULE=pong_pt1 make wave
+
+            TOP_MODULE=pong_pt1 make clean
+    $ ll
+        total 40
+        drwxrwxr-x 2 goodkook goodkook 4096 Oct  8 14:35 ./
+        drwxrwxr-x 8 goodkook goodkook 4096 Oct  8 13:15 ../
+        -rw-r--r-- 1 goodkook goodkook 2831 Oct  7 11:28 Makefile
+        -rw-rw-r-- 1 goodkook goodkook 1990 Sep 26 20:37 pong_pt1_TB.v
+        lrwxrwxrwx 1 goodkook goodkook   35 Oct  8 14:35 sc_pong_pt1_TB.cpp -> ../../simulation/sc_pong_pt1_TB.cpp
+        -rw-rw-r-- 1 goodkook goodkook 2543 Oct  7 11:04 sc_pong_pt1_TB.h
+        -rw-rw-r-- 1 goodkook goodkook 1863 Sep 26 20:47 vpi_pong_pt1_tb.cpp
+        -rw-rw-r-- 1 goodkook goodkook  543 Sep 26 20:28 vpi_pong_pt1_tb_exports.h
+        -rw-rw-r-- 1 goodkook goodkook  748 Sep 26 20:43 vpi_pong_pt1_tb_ports.h
+        -rw-rw-r-- 1 goodkook goodkook 5044 Sep 26 20:42 vpi_stub.cpp
+    $ make build
+        g++  -DVPI_SIM \
+                -I/usr/local/include/iverilog \
+                -I/opt/systemc/include \
+                -I.. -L/opt/systemc/lib \
+        		-DCA -g -fPIC \
+        		./vpi_stub.cpp ./vpi_pong_pt1_tb.cpp ./sc_pong_pt1_TB.cpp \
+            		-o vpi_stub.vpi \
+        		 -shared -latomic -lsystemc -lgsl -lSDL2
+        iverilog -g2005-sv -Tmin -gspecify -o pong_pt1_TB \
+                pong_pt1_TB.v \
+                ~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
+                ../synthesis/pong_pt1_mapped.v
+    $ make run
+        vvp -M. -mvpi_stub pong_pt1_TB -v
+        Icarus Verilog started
+        VCD info: dumpfile pong_pt1_TB.vcd opened for output.
+
+        Info: (I703) tracing timescale unit set: 100 ps (sc_pong_pt1_TB.vcd)
+        #0 s SystemC started
+        nVSync[3] nHSync[16]
+6-4. Auto-Placement & Route
+    $ pwd
+        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/ETRI050
+    $ make place
+        qflow place -T etri050 pong_pt1
+    $ make route
+        qflow route -T etri050 pong_pt1
+6-5. Generate Layout
+    $ make migrate
+        qflow migrate -T etri050 pong_pt1
+6-6. LVS
+    $ make lvs
+        ~/ETRI050_DesignKit/scripts/fix_net_name.sh ./synthesis/pong_pt1.spc
+        ************************************************************************
+        * Replace back-slash with underscore on netname
+        ************************************************************************
+        qflow lvs -T etri050 pong_pt1
+    $ make size
+        ~/ETRI050_DesignKit/scripts/size_core.sh pong_pt1
+        ************************************************************************
+        * Measure the size of the Core
+        ************************************************************************
+        Root cell box:
+                   width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+        microns:  882.600 x 841.050  (-9.300, -3.600), ( 873.300,  837.450)  742310.812
+        lambda:   2942.00 x 2803.50  (-31.00, -12.00), ( 2911.00,  2791.50)  8247897.00
+        internal:   5884 x 5607    (   -62, -24   ), (  5822,  5583 )  32991588
+
+7. Layout Check
+7-1. Stacked VIA
+    $ pwd
+        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/ETRI050
+    $ make
+        Makefile for "pong_pt1" Layout
+        Usage:
+            TOP_MODULE=pong_pt1 make [option]
+                 Use one of following options
+                     stack
+                     drc
+                     lvs
+
+                     mag2gds
+                     klayout
+                     magic
+
+                     clean
+                     clean_all
+    $ make stack
+        ~/ETRI050_DesignKit/scripts/check_via_stack.py pong_pt1 m2contact m3contact 6 | \
+        	tee pong_pt1_Stacked.log
+        --------------------
+        Checking Stacked VIA in pong_pt1.mag
+             From VIA: << m2contact >>
+             To VIA  : << m3contact >>
+             Margin  : 6
+        Mult=1 / Div=2
+
+        [0][1][2][3][4][5][6][7][8][9]
+        [10][11][12][13][14][15][16][17][18][19]
+        [20][21][22][23][24][25][26][27][28][29]
+        [30][31][32][33][34][35][36][37][38][39]
+        [40][41][42][43][44][45][46][47][48][49]
+        [50][51][52][53][54][55][56][57][58][59]
+        [60][61][62][63][64][65][66][67][68][69]
+        [70][71][72][73][74][75][76][77][78][79]
+        [80][81][82][83][84][85][86][87][88][89]
+        [90][91][92][93][94][95][96][97][98][99]
+        [100][101][102][103][104][105][106][107][108][109]
+        [110][111][112][113][114][115][116][117][118][119]
+        [120][121][122][123][124][125][126][127][128][129]
+        [130][131][132][133][134][135][136][137][138][139]
+        [140][141][142][143][144][145][146][147][148][149]
+        [150][151][152][153][154][155][156][157][158][159]
+        [160][161][162][163][164][165][166][167][168]
+        ***************************************
+        No stacked Contact and/or Via found.
+7-2. DRC & LVS
+    $ make drc
+        ~/ETRI050_DesignKit/scripts/run_drc.sh pong_pt1 | tee pong_pt1_DRC.log
+    $ make lvs
+        ~/ETRI050_DesignKit/scripts/run_lvs.sh pong_pt1 | tee pong_pt1_LVS.log
+
+8. Chip-Top
+8-1. Pad to Core Routing
+    $ pwd
+        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/ETRI050
+    $ cd chip_top
+    $ make
+        Generate Chip-Top: pong_pt1_Top.gds
+
+            make copy_pad_frame
+            make copy_core
+
+            make lvs_core
+            make stack_core
+            make drc_core
+
+            make extract_pad
+            make extract_pin_route
+
+            make generate_gds
+    $ make copy_pad_frame
+        cp ~/ETRI050_DesignKit/pads_ETRI/MPW_PAD_28Pin_IO.mag ./pong_pt1_Top.mag
+    $ make copy_core
+        cp ../layout/pong_pt1.mag ./pong_pt1_Core.mag
+    
+    * Manual routing: Core to Pad
+
+    $ make extract_pad
+        python3 ~/ETRI050_DesignKit/scripts/xPad.py pong_pt1
+    $ make extract_pin_route
+        python3 ~/ETRI050_DesignKit/scripts/xPin_Route_Metal.py pong_pt1
+    $ ll
+        total 592
+        drwxrwxr-x 2 goodkook goodkook   4096 Oct  8 20:13 ./
+        drwxrwxr-x 8 goodkook goodkook   4096 Oct  8 13:15 ../
+        -rw-r--r-- 1 goodkook goodkook  14563 Sep 26 20:28 ETRI050_CMOS.lyp
+        -rw-r--r-- 1 goodkook goodkook    779 Sep 26 20:28 .magicrc
+        -rw-r--r-- 1 goodkook goodkook   2147 Aug 12 16:35 Makefile
+        -rw-rw-r-- 1 goodkook goodkook 545743 Oct  8 20:05 pong_pt1_Core.mag
+        -rw-rw-r-- 1 goodkook goodkook   6796 Oct  8 20:12 pong_pt1_Pad.mag
+        -rw-rw-r-- 1 goodkook goodkook   3814 Oct  8 20:13 pong_pt1_Pin_Route.mag
+        -rw-r--r-- 1 goodkook goodkook  10617 Jun 13 13:57 pong_pt1_Top.mag
+8-2. Generate GDS
+    $ make generate_gds
+        ~/ETRI050_DesignKit/scripts/generate_chip.sh pong_pt1 \
+        		97.5 97.5 \
+        		441.0 441.0 \
+        		462.0 531.3
+        ************************************************************************
+        * Generate GDS layout for Pad
+        ************************************************************************
+
+        Magic 8.3 revision 529 - Compiled on Fri Jun 13 05:45:16 PM KST 2025.
+        ....
+    $ ll
+        total 23696
+        drwxrwxr-x 2 goodkook goodkook     4096 Oct  8 20:15 ./
+        drwxrwxr-x 8 goodkook goodkook     4096 Oct  8 13:15 ../
+        -rw-r--r-- 1 goodkook goodkook    14563 Sep 26 20:28 ETRI050_CMOS.lyp
+        -rw-r--r-- 1 goodkook goodkook      779 Sep 26 20:28 .magicrc
+        -rw-r--r-- 1 goodkook goodkook     2147 Aug 12 16:35 Makefile
+        -rw-rw-r-- 1 goodkook goodkook  9612330 Oct  8 20:15 pong_pt1_Core_F.gds
+        -rw-rw-r-- 1 goodkook goodkook   545743 Oct  8 20:05 pong_pt1_Core.mag
+        -rw-rw-r-- 1 goodkook goodkook   559956 Oct  8 20:15 pong_pt1_Pad.gds
+        -rw-rw-r-- 1 goodkook goodkook     6796 Oct  8 20:12 pong_pt1_Pad.mag
+        -rw-rw-r-- 1 goodkook goodkook   127178 Oct  8 20:15 pong_pt1_Pin_Route_F.gds
+        -rw-rw-r-- 1 goodkook goodkook     3814 Oct  8 20:13 pong_pt1_Pin_Route.mag
+        -rw-rw-r-- 1 goodkook goodkook 13351136 Oct  8 20:15 pong_pt1_Top.gds
+        -rw-r--r-- 1 goodkook goodkook    10617 Jun 13 13:57 pong_pt1_Top.mag
+    $ klayout -l ETRI050_CMOS.lyp pong_pt1_Top.gds
+
+9. Chip Test
+9-1. Requirements
+    MyChip/pong_pt1 DUT
+    Emulation Kit(Arduino DUE & Cyclone IV B/D)
+    * Connection between MyChip/pong_pt1 to Emulation FPGA(Cyclone IV)
+        clk:    PIN_30 to MyChip_27
+	    enable: PIN_28 to MyChip_26
+	    reset:  PIN_32 to MyChip_25
+	    down:   PIN_31 to MyChip_24
+	    up:     PIN_34 to MyChip_23
+        p_tick: PIN_43 to MyChip_13
+	    hsync:  PIN_42 to MyChip_12
+	    vsync:  PIN_46 to MyChip_11
+	    rgb:    PIN_44 to MyChip_10
+9-2. Re-Use Modeling Interface of Emulation
+    * See section "3-2. Build Modeling Interface"
+9-3. Test Transactor
+    $ pwd
+        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/emulation/PSCE-TRANS/Altera_Cmd
+    $ make
+        Quartus Command Line for pong_pt1_wrapper
+
+            MODE=CA make build
+            * Set MODE=TESTER for Chip-Test wrapper
+            make gen_rbf
+            make config
+
+        CC BY-NC, GoodKook, goodkook@gmail.com
+    $ MODE=TESTER make build
+        quartus_sh -t pong_pt1_tester.tcl
+    $ MODE=TESTER make gen_rbf
+        quartus_cpf -c ./output_files/pong_pt1_tester.sof output_file.rbf
+    $ MODE=TESTER make config
+        sudo openFPGALoader -c digilent_hs2 output_file.rbf
+        [sudo] password for goodkook: 
+        empty
+        Jtag frequency : requested 6.00MHz    -> real 6.00MHz   
+        Load SRAM: [==================================================] 100.00%
+        Done
+9-4. Run Chip-Tester
+    * Running Chip-Tester is same as Emulation at CA mode
+    $ cd ../..
+    $ make build
+        clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+        	-I../emulation \
+        	-I../simulation \
+        	-I../c_untimed \
+        	-DCA \
+        	-DEMULATED_CO_SIM \
+        	-DVCD_TRACE_TEST_TB \
+        	-lsystemc -lSDL2 \
+        	-osc_pong_pt1_TB ../simulation/sc_pong_pt1_TB.cpp ../simulation/sc_main.cpp
+    $ make run
+        ./sc_pong_pt1_TB
+
+                SystemC 3.0.2-Accellera --- Jun 13 2025 17:49:45
+                Copyright (c) 1996-2025 by all Contributors,
+                ALL RIGHTS RESERVED
+
+        Info: (I703) tracing timescale unit set: 100 ps (Epong_pt1.vcd)
+        Request emulator connection......
+        Connection established...
+        nVSync[1] nHSync[63]
+
+10. Application
+10-1. Requirements
+    MyChip/pong_pt1 DUT
+    OLED Display (SH1106/128x64)
+    RP2040-Zero B/D
+        - Display Driver
+        - Clock Generator
+        - Dual-Core operation
+
+    * Connection between MyChip/pong_pt1 to Emulation FPGA(Cyclone IV)
+        clk:    PIN_29 to MyChip_27
+        p_tick: PIN_14 to MyChip_13
+	    hsync:  PIN_15 to MyChip_12
+	    vsync:  PIN_26 to MyChip_11
+	    rgb:    PIN_27 to MyChip_10
+	    enable: VDD3.3 to MyChip_26
+	    reset:  GND    to MyChip_25
+	    down:   Pull-Down to MyChip_24
+	    up:     Pull-Down to MyChip_23
+
+10-2. Display Controller
+    $ pwd
+        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/emulation/PSCE-MI
+    $ MODE=Disp MI=PI_PICO make build
+        arduino-cli compile --clean --fqbn rp2040:rp2040:rpipico Epong_pt1_Disp \
+        	--build-path ./Epong_pt1_Disp/build \
+        	--build-property compiler.cpp.extra_flags="-DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+        Sketch uses 73948 bytes (3%) of program storage space. Maximum is 2093056 bytes.
+    $  MODE=Disp MI=PI_PICO make upload
+        arduino-cli upload -p /dev/ttyACM0 --fqbn rp2040:rp2040:rpipico Epong_pt1_Disp \
+        	--input-file ./Epong_pt1_Disp/build/Epong_pt1_Disp.ino.bin
+        Resetting /dev/ttyACM0
+        Converting to uf2, output size: 182272, start address: 0x2000
+        Scanning for RP2040 devices

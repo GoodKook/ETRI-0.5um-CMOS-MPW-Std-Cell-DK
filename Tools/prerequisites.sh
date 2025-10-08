@@ -39,7 +39,7 @@ sudo apt install -y \
     google-perftools libgoogle-perftools-dev \
     ant default-jre libfl-dev \
     uuid uuid-dev libsecret-1-dev \
-    xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted
+    ddd xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted
 
 #sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 #

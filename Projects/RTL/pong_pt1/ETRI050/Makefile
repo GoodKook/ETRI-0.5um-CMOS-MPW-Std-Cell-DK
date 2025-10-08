@@ -15,14 +15,15 @@ all :
 		ln -s ../$(TOP_MODULE) ./source; \
 	fi
 	@echo
-	@echo 'Makefile for "Vitis-HLS Ex.: basic_loops_primer" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
+	@echo 'Makefile for "Verilog-RTL Ex.: $(TOP_MODULE)" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
+	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make synthesize'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make place'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make sta'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make route'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make migrate'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make lvs'
-	@echo '    TOP_MODULE=$(TOP_MODULE) make lvs'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make size'
 	@echo
 	@echo '             config_m1f'
 	@echo '             config_m2f'

@@ -41,8 +41,6 @@ VPI_HDRS 	= \
 	./vpi_$(DUT_MODULE)_tb_exports.h  \
 	./vpi_$(DUT_MODULE)_tb_ports.h
 VPI_INC_PATH = \
-    -I/usr/local/share/verilator/include \
-    -I/usr/local/share/verilator/include/vltstd \
     -I/usr/local/include/iverilog \
     -I${SYSTEMC_INCLUDE} \
     -I../../c_untimed \

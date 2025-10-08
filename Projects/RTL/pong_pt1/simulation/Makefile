@@ -69,7 +69,7 @@ all :
 		mv -f sc_TOP_MODULE_TB.h sc_$(TOP_MODULE)_TB.h; \
 	fi
 	@echo
-	@echo 'Makefile for Co-Simulation of Vitis-HLS example, $(TOP_MODULE) in MODE=$(MODE)'
+	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE) in MODE=$(MODE)'
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make lint'
 	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=[YES]|NO make build'
