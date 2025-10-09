@@ -105,12 +105,23 @@ Project: pong_pt1
 
 2. RTL Simulation
 2-1. Requirements
-    SDL2
-    SystemC 3.x
-    Verilator
+    Open-Source Tool
+        Verilator
+    Open-Source Libs.
+        SDL2
+        SystemC 3.x
 2-2. Build & Run
     $ cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
     $ source env_settings
+        #************************************************************************
+        #* Environment setting for RTL, Co-Simulmatio/Emulation & ETRI050
+        #************************************************************************
+        Setting Environment variables as follows;
+            PROJECT_DIR=/home/goodkook/ETRI050_DesignKit/devel/Projects/RTL/pong_pt1
+            TOP_MODULE=pong_pt1
+            HW_STYLE=NONE
+            MODE=CA
+            MI=DUE_NORMAL
     $ cd simulation
     $ make
         Makefile for Co-Simulation of Verilog-RTL example, pong_pt1 in MODE=CA
@@ -133,12 +144,12 @@ Project: pong_pt1
 
 3. Co-Emulation Modeling Interface(MI)
 3-1. Requirements
-    Arduino DUE + Adaptor B/D
+    Open-Source Hardware
+        Arduino DUE + Adaptor B/D
 3-2. Build Modeling Interface
-    $ cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
-    $ cd emulation/PSCE-MI
+    $ cd $PROJECT_DIR/emulation/PSCE-MI
     $ make
-        Arduino-CLI for Epong_pt1_CA
+        Arduino-CLI for Building Modeling-Interface of Epong_pt1_CA
 
             TOP_MODULE=pong_pt1 MODE=CA MI=DUE_NORMAL make build
             TOP_MODULE=pong_pt1 MODE=CA MI=DUE_NORMAL make upload
@@ -155,7 +166,6 @@ Project: pong_pt1
             MODE=Disp MI=PI_PICO make build
             MODE=Disp MI=PI_PICO make upload
 
-        CC BY-NC, GoodKook, goodkook@gmail.com
     $ make build
         arduino-cli compile --clean --fqbn arduino:sam:arduino_due_x_dbg \
             Epong_pt1_CA \
@@ -179,9 +189,8 @@ Project: pong_pt1
 4. Co-Emulation Transactor(TRANS)
 4-1. Requirements
     Altera Cyclone IV:EP4CE10E22C8N Core B/D + Adaptor B/D
-4-2. Build Modeling Interface
-    $ cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
-    $ cd emulation/PSCE-TRANS/Altera_Cmd
+4-2. Build Emulation Transactor
+    $ cd $PROJECT_DIR/emulation/PSCE-TRANS/Altera_Cmd/
     $ make
         Quartus Command Line for pong_pt1_wrapper
 
@@ -206,7 +215,7 @@ Project: pong_pt1
 5-1. Requirements
     RTL Simulation Testbench re-used
 5-2. Build & Run
-    $ cd cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
+    $ cd $PROJECT_DIR/emulation/
     $ make
         Makefile for CA-Mode emulation of "pong_pt1"
 
@@ -249,8 +258,7 @@ Project: pong_pt1
         Magic
         QFlow
 6-2. Synthesis
-    $ cd cd ~/ETRI050_DesignKit/Projects/RTL/pong_pt1
-    $ cd ETRI050
+    $ cd $PROJECT_DIR/ETRI050/
     $ make
         Makefile for "Verilog-RTL Ex.: pong_pt1" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology
 
@@ -267,7 +275,7 @@ Project: pong_pt1
                      clean_cell
     $ make synthesize
         qflow synthesize -T etri050 pong_pt1
-    Synthesized netlists are in the directory of "./synthesis"
+        * Synthesized netlists are in the directory of "./synthesis"
 6-3. Simulation
     $ cd simulation
     $ pwd
@@ -314,9 +322,10 @@ Project: pong_pt1
         Info: (I703) tracing timescale unit set: 100 ps (sc_pong_pt1_TB.vcd)
         #0 s SystemC started
         nVSync[3] nHSync[16]
+    $ make wave
+
 6-4. Auto-Placement & Route
-    $ pwd
-        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/ETRI050
+    $ cd $PROJECT_DIR/ETRI050
     $ make place
         qflow place -T etri050 pong_pt1
     $ make route
@@ -324,7 +333,7 @@ Project: pong_pt1
 6-5. Generate Layout
     $ make migrate
         qflow migrate -T etri050 pong_pt1
-6-6. LVS
+6-6. LVS(Layout versus Schematics)
     $ make lvs
         ~/ETRI050_DesignKit/scripts/fix_net_name.sh ./synthesis/pong_pt1.spc
         ************************************************************************
@@ -470,21 +479,10 @@ Project: pong_pt1
 9-1. Requirements
     MyChip/pong_pt1 DUT
     Emulation Kit(Arduino DUE & Cyclone IV B/D)
-    * Connection between MyChip/pong_pt1 to Emulation FPGA(Cyclone IV)
-        clk:    PIN_30 to MyChip_27
-	    enable: PIN_28 to MyChip_26
-	    reset:  PIN_32 to MyChip_25
-	    down:   PIN_31 to MyChip_24
-	    up:     PIN_34 to MyChip_23
-        p_tick: PIN_43 to MyChip_13
-	    hsync:  PIN_42 to MyChip_12
-	    vsync:  PIN_46 to MyChip_11
-	    rgb:    PIN_44 to MyChip_10
 9-2. Re-Use Modeling Interface of Emulation
     * See section "3-2. Build Modeling Interface"
 9-3. Test Transactor
-    $ pwd
-        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/emulation/PSCE-TRANS/Altera_Cmd
+    $ cd $PROJECT_DIR/emulation/PSCE-TRANS/Altera_Cmd
     $ make
         Quartus Command Line for pong_pt1_wrapper
 
@@ -507,7 +505,7 @@ Project: pong_pt1
         Done
 9-4. Run Chip-Tester
     * Running Chip-Tester is same as Emulation at CA mode
-    $ cd ../..
+    $ cd $PROJECT_DIR/emulation
     $ make build
         clang++ -I/opt/systemc/include -L/opt/systemc/lib \
         	-I../emulation \
@@ -551,8 +549,7 @@ Project: pong_pt1
 	    up:     Pull-Down to MyChip_23
 
 10-2. Display Controller
-    $ pwd
-        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/emulation/PSCE-MI
+    $ cd $PROJECT_DIR/emulation/PSCE-MI
     $ MODE=Disp MI=PI_PICO make build
         arduino-cli compile --clean --fqbn rp2040:rp2040:rpipico Epong_pt1_Disp \
         	--build-path ./Epong_pt1_Disp/build \
@@ -564,3 +561,6 @@ Project: pong_pt1
         Resetting /dev/ttyACM0
         Converting to uf2, output size: 182272, start address: 0x2000
         Scanning for RP2040 devices
+
+    * Youtube link to see "pong_pt1",
+        https://www.youtube.com/watch?v=X9EmajSiu0w

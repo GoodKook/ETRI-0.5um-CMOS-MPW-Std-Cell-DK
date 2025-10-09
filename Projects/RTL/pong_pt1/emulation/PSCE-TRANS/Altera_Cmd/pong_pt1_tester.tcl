@@ -72,16 +72,35 @@ if {$make_assignments} {
 	set_location_assignment PIN_114 -to Addr_emu[1]
 	set_location_assignment PIN_115 -to Addr_emu[0]
 # Ext. Pins for Chip Test
-    set_location_assignment PIN_30 -to xclk_dut
-	set_location_assignment PIN_28 -to xenable
-	set_location_assignment PIN_32 -to xreset
-	set_location_assignment PIN_31 -to xdown
-	set_location_assignment PIN_34 -to xup
+    set_location_assignment PIN_51 -to xclk_dut
+	set_location_assignment PIN_54 -to xenable
+	set_location_assignment PIN_53 -to xreset
+	set_location_assignment PIN_58 -to xdown
+	set_location_assignment PIN_55 -to xup
 
-    set_location_assignment PIN_43 -to xp_tick
-	set_location_assignment PIN_42 -to xhsync
-	set_location_assignment PIN_46 -to xvsync
-	set_location_assignment PIN_44 -to xrgb
+    set_location_assignment PIN_28 -to xp_tick
+	set_location_assignment PIN_32 -to xhsync
+	set_location_assignment PIN_31 -to xvsync
+	set_location_assignment PIN_34 -to xrgb
+
+    set_location_assignment PIN_49 -to xNAND_INA
+    set_location_assignment PIN_50 -to xNAND_OUT1A
+	set_location_assignment PIN_44 -to xNAND_OUT8A
+	set_location_assignment PIN_42 -to xINV_INA
+	set_location_assignment PIN_43 -to xINV_OUT1A
+	set_location_assignment PIN_38 -to xINV_OUT8A
+	set_location_assignment PIN_68 -to xNAND_IN
+    set_location_assignment PIN_69 -to xNAND_OUT1
+	set_location_assignment PIN_66 -to xNAND_OUT8
+	set_location_assignment PIN_59 -to xINV_IN
+	set_location_assignment PIN_65 -to xINV_OUT1
+	set_location_assignment PIN_64 -to xINV_OUT8
+    set_location_assignment PIN_46 -to xGND_4
+	set_location_assignment PIN_30 -to xGND_14
+	set_location_assignment PIN_60 -to xGND_22
+    set_location_assignment PIN_39 -to xVDD_8
+	set_location_assignment PIN_67 -to xVDD_18
+	set_location_assignment PIN_52 -to xVDD_28
 
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[6]
@@ -91,7 +110,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[0]
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu
+#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[6]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[5]
@@ -100,7 +119,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[0]
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu
+#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_dut
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to get_emu
@@ -108,7 +127,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[0]
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu
+#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu
 # Ext. Pins for Chip Test
     set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xclk_dut
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xenable
@@ -120,6 +139,25 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xhsync
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xvsync
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xrgb
+
+    set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xNAND_INA
+    set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xNAND_OUT1A
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xNAND_OUT8A
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_INA
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_OUT1A
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_OUT8A
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xNAND_IN
+    set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xNAND_OUT1
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xNAND_OUT8
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_IN
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_OUT1
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_OUT8
+    set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND_4
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND_14
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND_22
+    set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xVDD_8
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xVDD_18
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xVDD_28
 
 	set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 

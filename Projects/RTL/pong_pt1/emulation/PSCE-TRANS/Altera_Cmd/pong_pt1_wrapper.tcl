@@ -39,6 +39,7 @@ if {$make_assignments} {
 	set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
 	set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
 	set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+	set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 	set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 	set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 	set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
@@ -80,7 +81,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[0]
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu
+#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[6]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[5]
@@ -89,7 +90,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[0]
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu
+#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_dut
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to get_emu
@@ -97,7 +98,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[0]
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu
+#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu
 	set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 
 	# Including default assignments

@@ -44,7 +44,7 @@ all:
 		mv E$(TOP_MODULE)_$(MODE)/ETOP_MODULE_MODE.ino E$(TOP_MODULE)_$(MODE)/E$(TOP_MODULE)_$(MODE).ino; \
 	fi
 	@echo
-	@echo "Arduino-CLI for $(SKETCH)"
+	@echo "Arduino-CLI for Building Modeling-Interface of $(SKETCH)"
 	@echo
 	@echo "    TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build"
 	@echo "    TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload"
