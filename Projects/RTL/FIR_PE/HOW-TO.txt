@@ -1,0 +1,549 @@
+Project: FIR_PE
+
+1. Directory Structure
+2. Environment variables
+3. C/C++ Algorithm
+4. Co-Simulation
+5. Co-Emulation
+    5-1. Modeling Interface
+    5-2. DUT with Emulation Transactor
+    5-3. Run Co-Emulator (Testbench Reuse)
+6. Targetting ETRI050 node
+    6-1. Synthesis
+    6-2. Netlist Simulation (Testbench Reuse)
+    6-3. Auto-Placement & Route
+    6-4. Chip-Top
+7. Chip Test
+    7-1. Test Transactor
+    7-2. Run Chip-Tester (Testbench Reuse)
+--------------------------------------------------------
+
+1. Directory Structure
+.
+├── env_settings
+├── Makefile
+├── c_untimed
+│   ├── calcDFT.cpp
+│   ├── cnoise.cpp
+│   ├── cnoise.h
+│   ├── FIR_PE.cpp
+│   ├── FIR_PE.h
+│   ├── FIR_PE_TB.cpp
+│   ├── Makefile
+│   └── plotDFT.py
+├── FIR_PE
+│   ├── FIR_PE.v
+│   └── FIR_PE.ys
+├── simulation
+│   ├── Makefile
+│   ├── sc_FIR_PE_TB.cpp
+│   ├── sc_FIR_PE_TB.h
+│   ├── sc_main.cpp
+│   └── sc_plotDFT.py
+├── emulation
+│   ├── EFIR_PE.h
+│   ├── FIR_PE_tester.v
+│   ├── FIR_PE_wrapper.v
+│   ├── Makefile
+│   ├── Makefile.mk
+│   ├── PSCE-MI
+│   │   ├── Makefile
+│   │   └── EFIR_PE_CA
+│   │       ├── EFIR_PE_CA.ino
+│   │       ├── PinMap_A7_100T.h
+│   │       ├── PinMap_TANG_25K.h
+│   │       ├── PSCE_APIs.cpp
+│   │       ├── PSCE_APIs.h
+│   │       ├── PSCE_Config.h
+│   │       └── PSCE_Splash.h
+│   └── PSCE-TRANS
+│       └── Altera_Cmd
+│           ├── FIR_PE_tester.tcl
+│           ├── FIR_PE_wrapper.tcl
+│           └── Makefile
+└── ETRI050
+    ├── Makefile
+    ├── project_vars.sh
+    ├── chip_top
+    │   ├── ETRI050_CMOS.lyp
+    │   └── Makefile
+    ├── layout
+    │   ├── ETRI050_CMOS.lyp
+    │   ├── FIR_PE.cel2
+    │   ├── FIR_PE.par
+    │   └── Makefile
+    ├── MyChip_MPW
+    │   ├── FIR_PE_Rev_E_MPW240924
+    │   │   ├── Apply_Doc
+    │   │   │   ├── DRC_fir_pe.txt
+    │   │   │   ├── LVS_fir_pe.txt
+    │   │   │   └── 내칩MPW_2024_3차_제작지원신청서.pdf
+    │   │   └── chip_top
+    │   │       ├── ETRI050_CMOS.lyp
+    │   │       └── fir_pe_Top.mag
+    │   └── FIR_PE_Rev_E_MPW240924_MPW240925002_Chip_Test
+    │       └── Test_Rpt
+    │           ├── 연구노트18_칩테스트_MPW240925002_FIR_PE.pdf
+    │           └── Test_Log.tar.gz
+    └── simulation
+        ├── FIR_PE_TB.v
+        ├── Makefile
+        ├── sc_FIR_PE_TB.cpp -> ../../simulation/sc_FIR_PE_TB.cpp
+        ├── sc_FIR_PE_TB.h
+        ├── vpi_FIR_PE_tb.cpp
+        ├── vpi_FIR_PE_tb_exports.h
+        ├── vpi_FIR_PE_tb_ports.h
+        └── vpi_stub.cpp
+
+2. Environment variables
+
+    $ source env_settings
+        #************************************************************************
+        #* Environment setting for RTL, Co-Simulmatio/Emulation & ETRI050
+        #************************************************************************
+        Setting Environment variables as follows;
+            PROJECT_DIR=~/ETRI050_DesignKit/devel/Projects/RTL/FIR_PE
+            TOP_MODULE=FIR_PE
+            HW_STYLE=FIR_MAC_VERSION
+            MODE=CA
+            MI=DUE_NORMAL
+
+3. C/C++ Algorithm Simulation
+
+    $ cd $PROJECT_DIR/c_untimed
+    $ make
+
+        Makefile for un-timed C simulation of FIR_PE
+
+            TOP_MODULE=FIR_PE HW_STYLE=FIR_MAC_VERSION make build
+            TOP_MODULE=FIR_PE make run
+            TOP_MODULE=FIR_PE make clean
+
+    $ make build
+        clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+        	-o FIR_PE_TB \
+        	-DFIR_MAC_VERSION \
+        	./cnoise.cpp ./calcDFT.cpp ./FIR_PE.cpp ./FIR_PE_TB.cpp \
+        	-lsystemc -lgsl -lm
+
+    $ make run | tee result.txt
+        ./FIR_PE_TB
+
+                SystemC 3.0.2-Accellera --- Jun 13 2025 17:49:45
+                Copyright (c) 1996-2025 by all Contributors,
+                ALL RIGHTS RESERVED
+        0 144 36.787 576 36.264
+        1 76 33.693 2032 23.941
+        2 136 32.024 5056 22.150
+        ......
+        4795 154 32.031 14970 22.129
+        4796 59 30.387 14803 25.055
+        4797 127 31.361 15309 23.925
+        4798 104 32.024 15539 22.150
+        4799 27 33.693 15349 23.941
+
+    $ python3 plotDFT.py result.txt outputDFT
+
+4. Co-Simulation
+    Verilog RTL with SystemC Testbench
+    Use C/C++ Algorithm model as Reference
+
+    $ make
+        Makefile for Co-Simulation of Verilog-RTL example, FIR_PE
+
+            TOP_MODULE=FIR_PE make lint
+            TOP_MODULE=FIR_PE HW_STYLE=FIR_MAC_VERSION VCD_TRACE = [YES]|NO make build
+            TOP_MODULE=FIR_PE make run
+            TOP_MODULE=FIR_PE make wave
+            TOP_MODULE=FIR_PE make clean    
+
+    $ make build
+        verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+        			--top-module FIR_PE  --exe --build \
+        			-CFLAGS -g -CFLAGS -I../../c_untimed -CFLAGS -I/opt/systemc/include \
+                    -CFLAGS -DVCD_TRACE_TEST_TB -CFLAGS -DVCD_TRACE_DUT_VERILOG \
+                    -CFLAGS -DFIR_MAC_VERSION \
+                    -LDFLAGS -lm -LDFLAGS -lgsl \
+                    ../FIR_PE/*.v ../c_untimed/cnoise.cpp ../c_untimed/FIR_PE.cpp \
+                    ./sc_main.cpp ./sc_FIR_PE_TB.cpp
+
+    $ make run
+        ./obj_dir/VFIR_PE
+
+                SystemC 3.0.2-Accellera --- Jun 13 2025 17:49:45
+                Copyright (c) 1996-2025 by all Contributors,
+                ALL RIGHTS RESERVED
+
+        Info: (I703) tracing timescale unit set: 100 ps (sc_FIR_PE_TB.vcd)
+
+        Warning: (W509) module construction not properly completed: did you forget to add a sc_module_name parameter to your module constructor?: module 'u_sc_FIR_PE_TB'
+        In file: /home/goodkook/ETRI050_DesignKit/devel/Tools/systemc/src/sysc/kernel/sc_module.cpp:376
+        [   0] yRef=0 / Yout=0 OK
+        [   1] yRef=916 / Yout=916 OK
+        [   2] yRef=3240 / Yout=3240 OK
+        [   3] yRef=7721 / Yout=7721 OK
+        [   4] yRef=12921 / Yout=12921 OK
+        [   5] yRef=17370 / Yout=17370 OK
+        [   6] yRef=19812 / Yout=19812 OK
+        [   7] yRef=20324 / Yout=20324 OK
+        [   8] yRef=20099 / Yout=20099 OK
+        ......
+        [4792] yRef=16439 / Yout=16439 OK
+        [4793] yRef=17799 / Yout=17799 OK
+        [4794] yRef=19556 / Yout=19556 OK
+        [4795] yRef=21208 / Yout=21208 OK
+        [4796] yRef=22689 / Yout=22689 OK
+        [4797] yRef=23431 / Yout=23431 OK
+        [4798] yRef=22832 / Yout=22832 OK
+        [4799] yRef=20759 / Yout=20759 OK
+
+    $ gtkwave VFIR_PE.vcd
+
+    $ python3 sc_plotDFT.py sc_FIR_PE_TB.txt
+
+5. Co-Emulation
+    Implement Verilog RTL into FPGA(Cyclone IV)
+    Emulation Modeling Interface & Transactor
+
+5-1. Modeling Interface
+    Arduino DUE B/D
+
+    $ cd $PROJECT_DIR/emulation/PSCE-MI
+    $ make
+        Arduino-CLI for Emulation Modeling Interface of EFIR_PE_CA
+
+            TOP_MODULE=FIR_PE MODE=CA MI=DUE_NORMAL make build
+            TOP_MODULE=FIR_PE MODE=CA MI=DUE_NORMAL make upload
+            TOP_MODULE=FIR_PE MODE=CA MI=DUE_NORMAL make clean
+
+        * MODE must be one of followings;
+            CA           : Cycle Accurate
+        * MI must be one of followings;
+            DUE_NORMAL   : Arduino DUE
+            PI_PICO      : Raspberry Pi Pico
+
+    $ make build
+        arduino-cli compile --clean --fqbn arduino:sam:arduino_due_x_dbg EFIR_PE_CA \
+        	--build-path ./EFIR_PE_CA/build \
+        	--build-property compiler.cpp.extra_flags="-DOLED_DISPLAY -DDUE_NORMAL -DUART_BPS=115200 -DCYCLONE_IV"
+        Sketch uses 35048 bytes (6%) of program storage space. Maximum is 524288 bytes.    
+
+    $ make upload
+        arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:sam:arduino_due_x_dbg EFIR_PE_CA \
+        	--input-file ./EFIR_PE_CA/build/EFIR_PE_CA.ino.bin
+        Atmel SMART device 0x285e0a60 found
+        Erase flash
+        done in 0.052 seconds
+
+        Write 37316 bytes to flash (146 pages)
+        [==============================] 100% (146/146 pages)
+        done in 8.870 seconds
+        Set boot flash true
+        CPU reset.
+        New upload port: /dev/ttyACM0 (serial)
+
+5-2. DUT with Emulation Transactor
+
+    $ cd $PROJECT_DIR/emulation/PSCE-TRANS/Altera_Cmd/
+    $ make
+        Quartus Command Line for Emulation Transactor of FIR_PE_wrapper
+
+            TOP_MODULE=FIR_PE MODE=CA make build
+            TOP_MODULE=FIR_PE MODE=CA make gen_rbf
+            * Set MODE=TESTER for Chip-Test wrapper
+            make config
+
+    $ make build
+        quartus_sh -t FIR_PE_wrapper.tcl
+
+    $ make gen_rbf
+        quartus_cpf -c ./output_files/FIR_PE_wrapper.sof output_file.rbf
+
+    $ make config
+        sudo openFPGALoader -c digilent_hs2 output_file.rbf
+        [sudo] password for goodkook: 
+        empty
+        Jtag frequency : requested 6.00MHz    -> real 6.00MHz   
+        Load SRAM: [==================================================] 100.00%
+        Done
+
+5-3. Run Co-Emulator
+    Re-Use Testbench, used at Co-Simulation
+
+    $ cd $PROJECT_DIR/emulation
+    $ make build
+        verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+		    	--top-module FIR_PE  --exe --build \
+			    -CFLAGS -g \
+                -CFLAGS -I../../c_untimed \
+                -CFLAGS -I../../simulation \
+                -CFLAGS -I../../emulation \
+                -CFLAGS -I/opt/systemc/include \
+                -CFLAGS -DVCD_TRACE_TEST_TB \
+                -CFLAGS -DFIR_MAC_VERSION \
+                -CFLAGS -DEMULATED_CO_SIM \
+                -LDFLAGS -lm -LDFLAGS -lgsl \
+                ../FIR_PE/*.v \
+                ../c_untimed/cnoise.cpp \
+                ../c_untimed/FIR_PE.cpp \
+                ../simulation/sc_main.cpp \
+                ../simulation/sc_FIR_PE_TB.cpp
+
+    $ make run
+        ./obj_dir/VFIR_PE
+
+                SystemC 3.0.2-Accellera --- Jun 13 2025 17:49:45
+                Copyright (c) 1996-2025 by all Contributors,
+                ALL RIGHTS RESERVED
+
+        Info: (I703) tracing timescale unit set: 100 ps (EFIR_PE.vcd)
+        Request emulator connection......
+        Connection established...
+
+        Info: (I703) tracing timescale unit set: 100 ps (sc_FIR_PE_TB.vcd)
+        [   0] yRef=0 / Yout=17476 ERROR
+        [   1] yRef=0 / Yout=832 ERROR
+        [   2] yRef=944 / Yout=944 OK
+        [   3] yRef=3332 / Yout=3332 OK
+        [   4] yRef=7764 / Yout=7764 OK
+        [   5] yRef=12485 / Yout=12485 OK
+        [   6] yRef=15933 / Yout=15933 OK
+        [   7] yRef=17365 / Yout=17365 OK
+        [   8] yRef=17600 / Yout=17600 OK
+        ......
+
+    $ gtkwave EFIR_PE.vcd
+
+6. Targetting ETRI050 node
+
+    $ cd $PROJECT_DIR/ETRI050
+    $ make
+        Makefile for "Verilog-RTL Ex.: FIR_PE"
+        QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology
+
+            TOP_MODULE=FIR_PE make synthesize
+            TOP_MODULE=FIR_PE make place
+            TOP_MODULE=FIR_PE make sta
+            TOP_MODULE=FIR_PE make route
+            TOP_MODULE=FIR_PE make migrate
+            TOP_MODULE=FIR_PE make lvs
+            TOP_MODULE=FIR_PE make size
+
+6-1. Synthesis
+
+    $ make synthesize
+        qflow synthesize -T etri050 FIR_PE
+
+6-2. Netlist Simulation (Testbench Re-Use)
+    Post-Synthesis, Timing Simulation
+    Re-Use Testbench, used at Co-Simulation
+
+    $ cd simulation
+    $ pwd
+        ~/ETRI050_DesignKit/Projects/RTL/FIR_PE/ETRI050/simulation
+    $ ll
+        total 40
+        drwxrwxr-x 2 goodkook goodkook 4096 Oct 10 15:51 ./
+        drwxrwxr-x 8 goodkook goodkook 4096 Oct 10 15:45 ../
+        -rw-rw-r-- 1 goodkook goodkook 3470 Oct 10 15:38 FIR_PE_TB.v
+        -rw-r--r-- 1 goodkook goodkook 3148 Oct 10 15:38 Makefile
+        lrwxrwxrwx 1 goodkook goodkook   33 Oct 10 15:38 sc_FIR_PE_TB.cpp -> ../../simulation/sc_FIR_PE_TB.cpp
+        -rw-rw-r-- 1 goodkook goodkook 1756 Oct 10 15:38 sc_FIR_PE_TB.h
+        -rw-rw-r-- 1 goodkook goodkook 1719 Oct 10 15:38 vpi_FIR_PE_tb.cpp
+        -rw-rw-r-- 1 goodkook goodkook  537 Oct 10 15:38 vpi_FIR_PE_tb_exports.h
+        -rw-rw-r-- 1 goodkook goodkook  682 Oct 10 15:38 vpi_FIR_PE_tb_ports.h
+        -rw-rw-r-- 1 goodkook goodkook 4698 Oct 10 15:38 vpi_stub.cpp
+
+    $ make build
+        g++  -DVPI_SIM \
+    		-I/usr/local/share/verilator/include \
+            -I/usr/local/share/verilator/include/vltstd \
+            -I/usr/local/include/iverilog \
+            -I/opt/systemc/include \
+            -I../../c_untimed \
+            -I.. -L/opt/systemc/lib \
+    		-DFIR_MAC_VERSION -g -fPIC \
+    		../../c_untimed/cnoise.cpp \
+            ../../c_untimed/FIR_PE.cpp \
+            ./vpi_stub.cpp \
+            ./vpi_FIR_PE_tb.cpp \
+            ./sc_FIR_PE_TB.cpp \
+            -o vpi_stub.vpi \
+        	-shared -latomic -lsystemc -lgsl
+        iverilog -g2005-sv -Tmin -gspecify -o FIR_PE_TB \
+            FIR_PE_TB.v \
+            ~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
+            ../synthesis/FIR_PE_mapped.v
+
+    $ make run
+        vvp -M. -mvpi_stub FIR_PE_TB -v
+        Icarus Verilog started
+        VCD info: dumpfile FIR_PE_TB.vcd opened for output.
+
+        Info: (I703) tracing timescale unit set: 100 ps (sc_FIR_PE_TB.vcd)
+        #0 s SystemC started
+        [   0] yRef=0 / Yout=0 OK
+        [   1] yRef=0 / Yout=0 OK
+        [   2] yRef=816 / Yout=0 ERROR
+        [   3] yRef=2844 / Yout=0 ERROR
+        [   4] yRef=6712 / Yout=0 ERROR
+        [   5] yRef=11159 / Yout=0 ERROR
+        [   6] yRef=14744 / Yout=0 ERROR
+        [   7] yRef=16685 / Yout=0 ERROR
+        [   8] yRef=16820 / Yout=0 ERROR
+        [   9] yRef=16919 / Yout=16919 OK
+        [  10] yRef=17061 / Yout=17061 OK
+        [  11] yRef=17932 / Yout=17932 OK
+        .........
+
+    $ gtkwave FIR_PE_TB.vcd
+
+6-3. Auto-Placement & Route
+
+    $ cd $PROJECT_DIR/ETRI050
+    $ make place
+        qflow place -T etri050 FIR_PE
+
+    $ make route
+        qflow route -T etri050 FIR_PE
+
+    $ make migrate
+        qflow migrate -T etri050 FIR_PE
+
+    $ make lvs
+        ~/ETRI050_DesignKit/scripts/fix_net_name.sh ./synthesis/FIR_PE.spc
+        ************************************************************************
+        * Replace back-slash with underscore on netname
+        ************************************************************************
+        qflow lvs -T etri050 FIR_PE
+
+    $ make size
+        ~/ETRI050_DesignKit/scripts/size_core.sh FIR_PE
+        ************************************************************************
+        * Measure the size of the Core
+        ************************************************************************
+
+6-4. Chip-Top: Pad to Core Routing
+    $ cd $PROJECT_DIR/ETRI050/chip_top
+        ~/ETRI050_DesignKit/Projects/RTL/pong_pt1/ETRI050
+    $ make
+        Generate Chip-Top: FIR_PE_Top.gds
+
+            TOP_MODULE=FIR_PE make copy_pad_frame
+            TOP_MODULE=FIR_PE make copy_core
+
+            TOP_MODULE=FIR_PE make extract_pad
+            TOP_MODULE=FIR_PE make extract_pin_route
+
+            TOP_MODULE=FIR_PE make generate_gds
+
+    $ make copy_pad_frame
+        cp ~/ETRI050_DesignKit/pads_ETRI/MPW_PAD_28Pin_IO.mag ./FIR_PE_Top.mag
+
+    $ make copy_core
+        cp ../layout/FIR_PE.mag ./FIR_PE_Core.mag
+
+    * Route Core to Pad manually
+
+    $ magic -d XR FIR_PE_Top.mag
+
+        % getcell FIR_PE_Core
+        % goto FIR_PE_Core_0/clk
+        % goto FIR_PE_Core_0/\[0\]
+        % findbox zoom
+
+        * Set metal1 & 2 wire width to 3um
+
+    $ make extract_pad
+        python3 ~/ETRI050_DesignKit/scripts/xPad.py FIR_PE
+
+    $ make extract_pin_route
+        python3 ~/ETRI050_DesignKit/scripts/xPin_Route_Metal.py FIR_PE
+
+    $ ll
+        total 416
+        drwxrwxr-x 2 goodkook goodkook   4096 Oct 10 19:43 ./
+        drwxrwxr-x 8 goodkook goodkook   4096 Oct 10 15:45 ../
+        -rw-r--r-- 1 goodkook goodkook  14563 Oct 10 15:38 ETRI050_CMOS.lyp
+        -rw-rw-r-- 1 goodkook goodkook 370623 Oct 10 19:42 FIR_PE_Core.mag
+        -rw-rw-r-- 1 goodkook goodkook   7176 Oct 10 19:42 FIR_PE_Pad.mag
+        -rw-rw-r-- 1 goodkook goodkook    856 Oct 10 19:43 FIR_PE_Pin_Route.mag
+        -rw-r--r-- 1 goodkook goodkook   7329 Oct 10 19:42 FIR_PE_Top.mag
+        -rw-r--r-- 1 goodkook goodkook    779 Oct 10 15:38 .magicrc
+        -rw-r--r-- 1 goodkook goodkook   2568 Oct 10 15:38 Makefile
+
+    * Find Lower-Left position of FIR_PE_Pad.mag, FIR_PE_Pin_Route.mag and FIR_PE_Core.mag
+      in the Chip-Top, and Edit Makefile to give variables for the positions;
+
+            PAD_X = 97.5
+            PAD_Y = 97.5
+            PIN_ROUTE_X =598
+            PIN_ROUTE_Y =441
+            CORE_X =573.9
+            CORE_Y =576.9
+
+    $ make generate_gds
+        ~/ETRI050_DesignKit/scripts/generate_chip.sh FIR_PE \
+        		97.5 97.5 \
+        		598 441 \
+        		573.9 576.9
+
+        Magic 8.3 revision 529 - Compiled on Fri Jun 13 05:45:16 PM KST 2025.
+        ....
+
+    $ ll
+        total 18576
+        drwxrwxr-x 2 goodkook goodkook     4096 Oct 10 19:54 ./
+        drwxrwxr-x 8 goodkook goodkook     4096 Oct 10 15:45 ../
+        -rw-r--r-- 1 goodkook goodkook    14563 Oct 10 15:38 ETRI050_CMOS.lyp
+        -rw-rw-r-- 1 goodkook goodkook  7532984 Oct 10 19:54 FIR_PE_Core_F.gds
+        -rw-rw-r-- 1 goodkook goodkook   370623 Oct 10 19:42 FIR_PE_Core.mag
+        -rw-rw-r-- 1 goodkook goodkook   520314 Oct 10 19:54 FIR_PE_Pad.gds
+        -rw-rw-r-- 1 goodkook goodkook     7286 Oct 10 19:48 FIR_PE_Pad.mag
+        -rw-rw-r-- 1 goodkook goodkook      390 Oct 10 19:54 FIR_PE_Pin_Route_F.gds
+        -rw-rw-r-- 1 goodkook goodkook      943 Oct 10 19:48 FIR_PE_Pin_Route.mag
+        -rw-rw-r-- 1 goodkook goodkook 10530296 Oct 10 19:54 FIR_PE_Top.gds
+        -rw-r--r-- 1 goodkook goodkook     7526 Oct 10 19:48 FIR_PE_Top.mag
+        -rw-r--r-- 1 goodkook goodkook      779 Oct 10 15:38 .magicrc
+        -rw-r--r-- 1 goodkook goodkook     2584 Oct 10 19:50 Makefile
+
+    $ klayout -l ETRI050_CMOS.lyp FIR_PE_Top.gds
+
+    * All Done! Ready to submit MyChip MPW.
+
+7. Chip Test
+    Re-Use Testbench & Modeling Interface of CA-Mode Emulator's
+
+7-1. Test Transactor
+
+    $ cd $PROJECT_DIR/emulation/PSCE-TRANS/Altera_Cmd
+    $ make
+        Quartus Command Line for FIR_PE_wrapper
+
+            MODE=CA make build
+            * Set MODE=TESTER for Chip-Test wrapper
+            make gen_rbf
+            make config
+
+    $ MODE=TESTER make build
+        quartus_sh -t FIR_PE_tester.tcl
+
+    $ MODE=TESTER make gen_rbf
+        quartus_cpf -c ./output_files/FIR_PE_tester.sof output_file.rbf
+
+    $ MODE=TESTER make config
+        sudo openFPGALoader -c digilent_hs2 output_file.rbf
+        [sudo] password for goodkook: 
+        empty
+        Jtag frequency : requested 6.00MHz    -> real 6.00MHz   
+        Load SRAM: [==================================================] 100.00%
+        Done
+
+7-2. Run Chip-Tester
+    * Running Chip-Tester is same as Emulation at CA mode
+    * Re-Use Modeling Interface of Emulation
+
+    $ cd $PROJECT_DIR/emulation
+    $ make build
+    $ make run
+

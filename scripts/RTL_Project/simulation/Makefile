@@ -80,7 +80,7 @@ all :
 		mv -f sc_TOP_MODULE_TB.h sc_$(TOP_MODULE)_TB.h; \
 	fi
 	@echo
-	@echo 'Makefile for Co-Simulation of Vitis-HLS example, $(TOP_MODULE)'
+	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE)'
 	@echo
 	@echo '    make lint'
 	@echo '    make build'

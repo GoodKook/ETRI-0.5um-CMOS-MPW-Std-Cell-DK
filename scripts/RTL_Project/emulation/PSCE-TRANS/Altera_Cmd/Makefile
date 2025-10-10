@@ -15,7 +15,7 @@ all:
 		exit 1; \
 	fi
 	@echo
-	@echo "Quartus Command Line for $(PROJECT)"
+	@echo "Quartus Command Line for Emulation Transactor of $(PROJECT)"
 	@echo
 	@echo "    TOP_MODULE=$(TOP_MODULE) make build"
 	@echo "    TOP_MODULE=$(TOP_MODULE) make gen_rbf"
