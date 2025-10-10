@@ -1,4 +1,4 @@
-# File: TOP_MODULE_wrapper.tcl
+# File: TOP_MODULE_tester.tcl
 
 # Load Quartus Prime Tcl Project package
 package require ::quartus::project
@@ -9,16 +9,16 @@ set make_assignments 1
 
 # Check that the right project is open
 if {[is_project_open]} {
-	if {[string compare $quartus(project) "TOP_MODULE_wrapper"]} {
-		puts "Project TOP_MODULE_wrapper is not open"
+	if {[string compare $quartus(project) "TOP_MODULE_tester"]} {
+		puts "Project TOP_MODULE_tester is not open"
 		set make_assignments 0
 	}
 } else {
 	# Only open if not already open
-	if {[project_exists TOP_MODULE_wrapper]} {
-		project_open -revision TOP_MODULE_wrapper TOP_MODULE_wrapper
+	if {[project_exists TOP_MODULE_tester]} {
+		project_open -revision TOP_MODULE_tester TOP_MODULE_tester
 	} else {
-		project_new -revision TOP_MODULE_wrapper TOP_MODULE_wrapper
+		project_new -revision TOP_MODULE_tester TOP_MODULE_tester
 	}
 	set need_to_close_project 1
 }
@@ -31,7 +31,7 @@ if {$make_assignments} {
 	set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:09:03  APRIL 25, 2025"
 	set_global_assignment -name LAST_QUARTUS_VERSION "24.1std.0 Standard Edition"
 	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/TOP_MODULE.v
-	set_global_assignment -name VERILOG_FILE ../../TOP_MODULE_wrapper.v
+	set_global_assignment -name VERILOG_FILE ../../TOP_MODULE_tester.v
 	set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 	set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 	set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -73,6 +73,36 @@ if {$make_assignments} {
 	set_location_assignment PIN_114 -to Addr_emu[1]
 	set_location_assignment PIN_115 -to Addr_emu[0]
 
+# MyChip-Test I/F
+	set_location_assignment PIN_49 -to xVDD_1
+	set_location_assignment PIN_50 -to xXin[3]
+	set_location_assignment PIN_44 -to xXin[2]
+	set_location_assignment PIN_46 -to xXin[1]
+	set_location_assignment PIN_42 -to xXin[0]
+	set_location_assignment PIN_43 -to xRdy
+	set_location_assignment PIN_38 -to xVDD_7
+	set_location_assignment PIN_39 -to xYout[3]
+	set_location_assignment PIN_33 -to xYout[2]
+	set_location_assignment PIN_34 -to xYout[1]
+	set_location_assignment PIN_31 -to xYout[0]
+	set_location_assignment PIN_32 -to xYin[3]
+	set_location_assignment PIN_28 -to xYin[2]
+	set_location_assignment PIN_30 -to xYin[1]
+	set_location_assignment PIN_68 -to xYin[0]
+	set_location_assignment PIN_69 -to xVld
+	set_location_assignment PIN_66 -to xXout[0]
+	set_location_assignment PIN_67 -to xXout[1]
+	set_location_assignment PIN_64 -to xXout[2]
+	set_location_assignment PIN_65 -to xXout[3]
+	set_location_assignment PIN_59 -to xGND
+	set_location_assignment PIN_60 -to xCin[5]
+	set_location_assignment PIN_55 -to xCin[4]
+	set_location_assignment PIN_58 -to xCin[3]
+	set_location_assignment PIN_53 -to xCin[2]
+	set_location_assignment PIN_54 -to xCin[1]
+	set_location_assignment PIN_51 -to xCin[0]
+	set_location_assignment PIN_52 -to xclk
+
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[6]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[5]
@@ -99,6 +129,37 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[0]
 #	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu
+
+# MyChip-Test I/F
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xVDD_1
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXin[3]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXin[2]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXin[1]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXin[0]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xRdy
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xVDD_7
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYout[3]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYout[2]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYout[1]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYout[0]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYin[3]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYin[2]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYin[1]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xYin[0]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xVld
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXout[0]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXout[1]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXout[2]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xXout[3]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xCin[5]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xCin[4]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xCin[3]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xCin[2]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xCin[1]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xCin[0]
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xclk
+
 	set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 
 	# Including default assignments

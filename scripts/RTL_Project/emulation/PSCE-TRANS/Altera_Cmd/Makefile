@@ -4,7 +4,11 @@ export PATH :=/opt/intelFPGA_standard/24.1std/quartus/bin:/opt/intelFPGA_standar
 export LM_LICENSE_FILE :=/home/goodkook/.altera.quartus/quartus2_lic.dat
 
 #TOP_MODULE =
-PROJECT = $(TOP_MODULE)_wrapper
+ifeq ($(MODE), TESTER)
+	PROJECT = $(TOP_MODULE)_tester
+else
+	PROJECT = $(TOP_MODULE)_wrapper
+endif
 
 all:
 	@clear
@@ -14,11 +18,11 @@ all:
 		echo "*********************************"; \
 		exit 1; \
 	fi
-	@echo
 	@echo "Quartus Command Line for Emulation Transactor of $(PROJECT)"
 	@echo
-	@echo "    TOP_MODULE=$(TOP_MODULE) make build"
-	@echo "    TOP_MODULE=$(TOP_MODULE) make gen_rbf"
+	@echo "    TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) make build"
+	@echo "    TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) make gen_rbf"
+	@echo "    * Set MODE=TESTER for Chip-Test wrapper"
 	@echo "    make config"
 	@echo
 	@echo "CC BY-NC, GoodKook, goodkook@gmail.com"
@@ -42,5 +46,6 @@ clean:
 	rm -rf ./incremental_db
 	rm -f $(PROJECT).qpf
 	rm -f $(PROJECT).qsf
+	rm -f output_file.rbf
 
 

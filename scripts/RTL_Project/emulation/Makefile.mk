@@ -37,7 +37,7 @@ all :
 		exit 1; \
 	fi
 	@echo
-	@echo 'Makefile for CA-Mode emulation of "$(DUT_NAME)"'
+	@echo 'Makefile for $(MODE)-Mode emulation of "$(DUT_NAME)"'
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make build'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make run'

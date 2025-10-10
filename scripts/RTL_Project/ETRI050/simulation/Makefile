@@ -23,6 +23,7 @@ all :
 		exit 1; \
 	fi
 	@if [ ! -f "sc_$(TOP_MODULE)_TB.cpp" ];  then \
+		echo "Symbolic Link Testbench Re-Use..."; \
 		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp sc_$(TOP_MODULE)_TB.cpp; \
 	fi
 	@echo

@@ -11,8 +11,13 @@ all :
 		echo "*********************************"; \
 		exit 1; \
 	fi
+	@if [ ! -e "./source" ]; then \
+		echo "Symbolic link './source' to RTL..."; \
+		ln -s ../$(TOP_MODULE) ./source; \
+	fi
 	@echo
-	@echo 'Makefile for "Verilog-RTL Ex.: $(TOP_MODULE)" QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
+	@echo 'Makefile for "Verilog-RTL Ex.: $(TOP_MODULE)"'
+	@echo 'QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make synthesize'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make place'
@@ -20,7 +25,7 @@ all :
 	@echo '    TOP_MODULE=$(TOP_MODULE) make route'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make migrate'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make lvs'
-	@echo '    TOP_MODULE=$(TOP_MODULE) make lvs'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make size'
 	@echo
 	@echo '             config_m1f'
 	@echo '             config_m2f'
@@ -32,9 +37,6 @@ all :
 synthesize : ./log/synth.log
 
 ./log/synth.log : $(VERILOG_SRCS)
-	@if [ ! -e "./source" ]; then \
-		ln -s ../$(TOP_MODULE) ./source; \
-	fi
 	qflow synthesize -T etri050 $(TOP_MODULE)
 
 # -----------------------------------------------------

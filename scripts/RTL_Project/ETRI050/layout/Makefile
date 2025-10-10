@@ -26,7 +26,7 @@ all :
 	@echo ''
 	@echo '             clean'
 	@echo '             clean_all'
-	@echo ''
+	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 # -----------------------------------------------------
 stack: $(TOP_MODULE)_Stacked.log

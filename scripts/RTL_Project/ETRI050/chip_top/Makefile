@@ -26,10 +26,10 @@ all:
 	@echo '    TOP_MODULE=$(TOP_MODULE) make copy_pad_frame'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make copy_core'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) make lvs_core'
-	@echo '    TOP_MODULE=$(TOP_MODULE) make stack_core'
-	@echo '    TOP_MODULE=$(TOP_MODULE) make drc_core'
-	@echo
+#	@echo '    TOP_MODULE=$(TOP_MODULE) make lvs_core'
+#	@echo '    TOP_MODULE=$(TOP_MODULE) make stack_core'
+#	@echo '    TOP_MODULE=$(TOP_MODULE) make drc_core'
+#	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make extract_pad'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make extract_pin_route'
 	@echo

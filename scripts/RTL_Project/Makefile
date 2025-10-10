@@ -178,8 +178,12 @@ build-trans:
 		echo "Copy Co-Emulation Transactor ......"; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/emulation/TOP_MODULE_wrapper.v > \
 			$(CO-EMU_PATH)/$(TOP_MODULE)_wrapper.v; \
+		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/emulation/TOP_MODULE_tester.v > \
+			$(CO-EMU_PATH)/$(TOP_MODULE)_tester.v; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/emulation/PSCE-TRANS/Altera_Cmd/TOP_MODULE_wrapper.tcl > \
 			$(PSCE-TRANS_PATH)/Altera_Cmd/$(TOP_MODULE)_wrapper.tcl; \
+		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/emulation/PSCE-TRANS/Altera_Cmd/TOP_MODULE_tester.tcl > \
+			$(PSCE-TRANS_PATH)/Altera_Cmd/$(TOP_MODULE)_tester.tcl; \
 		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-TRANS/Altera_Cmd/Makefile $(PSCE-TRANS_PATH)/Altera_Cmd; \
 	fi
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd build
