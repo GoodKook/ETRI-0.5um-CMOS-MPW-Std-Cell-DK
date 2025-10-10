@@ -34,7 +34,9 @@ Project: pong_pt1
 10. Application
     10-1. Requirements
     10-2. Display Controller
+11. Youtube link
 --------------------------------------------------
+
 1. Design Directory Structure
     .
     ├── env_settings
@@ -479,6 +481,25 @@ Project: pong_pt1
 9-1. Requirements
     MyChip/pong_pt1 DUT
     Emulation Kit(Arduino DUE & Cyclone IV B/D)
+
+                     +------\_/------+
+          NAND_INA-->|1            28|---VDD
+        NAND_OUT1A<--|2            27|<--clk
+        NAND_OUT8A<--|3            26|<--enable
+               GND---|4            25|<--reset
+           INV_INA-->|5            24|<--down
+         INV_OUT1A<--|6  pong_pt1  23|<--up
+         INV_OUT8A<--|7            22|---GND
+               VDD---|8            21|<--INV_IN
+               GND---|9            20|-->INV_OUT1
+               rgb<--|10           19|-->INV_OUT8
+             vsync<--|11           18|---VDD
+             hsync<--|12           17|-->NAND_OUT8
+            p_tick<--|13           16|-->NAND_OUT1
+               GND---|14           15|<--NAND_IN
+                     +---------------+
+                          SOP28
+
 9-2. Re-Use Modeling Interface of Emulation
     * See section "3-2. Build Modeling Interface"
 9-3. Test Transactor
@@ -562,5 +583,9 @@ Project: pong_pt1
         Converting to uf2, output size: 182272, start address: 0x2000
         Scanning for RP2040 devices
 
-    * Youtube link to see "pong_pt1",
+11. Youtube link
+    Co-Simulation/Emulation & FPGA proto-typing "pong_pt1",
+        https://youtu.be/3liwrc6pmU4?si=uVIRiuR2f_PrRjKU
+
+    Working MyChip "pong_pt1",
         https://www.youtube.com/watch?v=X9EmajSiu0w
