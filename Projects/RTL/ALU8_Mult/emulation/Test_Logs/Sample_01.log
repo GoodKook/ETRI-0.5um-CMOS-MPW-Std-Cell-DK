@@ -1,0 +1,1007 @@
+./sc_ALU8_Mult_TB
+
+Info: (I703) tracing timescale unit set: 100 ps (EALU8_Mult.vcd)
+
+Info: (I703) tracing timescale unit set: 100 ps (sc_ALU8_Mult_TB.vcd)
+Reg.A=0xAA
+Reg.B=0x55
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAA[0xAA] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x0C {-VZ--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x55[0x55] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x72[0x72] OK	Flag=0x38 {CV---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAA[0xAA] OK	Flag=0x02 {---N-}
+Reg.A=0xAD
+Reg.B=0x5C
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAD[0xAD] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFD[0xFD] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x0C[0x0C] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xF1[0xF1] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x09[0x09] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x51[0x51] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x2C[0x2C] OK	Flag=0x3E {CVZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAD[0xAD] OK	Flag=0x02 {---N-}
+Reg.A=0xB0
+Reg.B=0x63
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB0[0xB0] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF3[0xF3] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x20[0x20] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xD3[0xD3] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x13[0x13] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x4D[0x4D] OK	Flag=0x18 {CV---}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x10[0x10] OK	Flag=0x44 {--Z--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB0[0xB0] OK	Flag=0x02 {---N-}
+Reg.A=0xB3
+Reg.B=0x6A
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB3[0xB3] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x22[0x22] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xD9[0xD9] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x1D[0x1D] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x49[0x49] OK	Flag=0x18 {CV---}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x1E[0x1E] OK	Flag=0x4A {-V-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB3[0xB3] OK	Flag=0x02 {---N-}
+Reg.A=0xB6
+Reg.B=0x71
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB6[0xB6] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF7[0xF7] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x30[0x30] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xC7[0xC7] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x27[0x27] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x45[0x45] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x56[0x56] OK	Flag=0x50 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB6[0xB6] OK	Flag=0x02 {---N-}
+Reg.A=0xB9
+Reg.B=0x78
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB9[0xB9] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF9[0xF9] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x38[0x38] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xC1[0xC1] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x31[0x31] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x41[0x41] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xB8[0xB8] OK	Flag=0x56 {C-ZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB9[0xB9] OK	Flag=0x02 {---N-}
+Reg.A=0xBC
+Reg.B=0x7F
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBC[0xBC] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x3C[0x3C] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xC3[0xC3] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x3B[0x3B] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x3D[0x3D] OK	Flag=0x18 {CV---}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x44[0x44] OK	Flag=0x5D {CVZ-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBC[0xBC] OK	Flag=0x02 {---N-}
+Reg.A=0xBF
+Reg.B=0x86
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBF[0xBF] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xBF[0xBF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x86[0x86] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x39[0x39] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x45[0x45] OK	Flag=0x19 {CV--H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x39[0x39] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xFA[0xFA] OK	Flag=0x63 {---NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBF[0xBF] OK	Flag=0x02 {---N-}
+Reg.A=0xC2
+Reg.B=0x8D
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC2[0xC2] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xCF[0xCF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x80[0x80] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x4F[0x4F] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x4F[0x4F] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x35[0x35] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xDA[0xDA] OK	Flag=0x6A {-V-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC2[0xC2] OK	Flag=0x02 {---N-}
+Reg.A=0xC5
+Reg.B=0x94
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC5[0xC5] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xD5[0xD5] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x84[0x84] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x51[0x51] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x59[0x59] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x31[0x31] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xE4[0xE4] OK	Flag=0x71 {C---H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC5[0xC5] OK	Flag=0x02 {---N-}
+Reg.A=0xC8
+Reg.B=0x9B
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC8[0xC8] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xDB[0xDB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x88[0x88] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x53[0x53] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x63[0x63] OK	Flag=0x19 {CV--H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x2D[0x2D] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x18[0x18] OK	Flag=0x79 {CV--H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC8[0xC8] OK	Flag=0x02 {---N-}
+Reg.A=0xCB
+Reg.B=0xA2
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCB[0xCB] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xEB[0xEB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x82[0x82] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x69[0x69] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x6D[0x6D] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x29[0x29] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x76[0x76] OK	Flag=0x80 {-----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCB[0xCB] OK	Flag=0x02 {---N-}
+Reg.A=0xCE
+Reg.B=0xA9
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCE[0xCE] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xEF[0xEF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x88[0x88] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x67[0x67] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x77[0x77] OK	Flag=0x19 {CV--H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x25[0x25] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xFE[0xFE] OK	Flag=0x87 {--ZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCE[0xCE] OK	Flag=0x02 {---N-}
+Reg.A=0xD1
+Reg.B=0xB0
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD1[0xD1] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF1[0xF1] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x90[0x90] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x61[0x61] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x81[0x81] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x21[0x21] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xB0[0xB0] OK	Flag=0x8F {-VZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD1[0xD1] OK	Flag=0x02 {---N-}
+Reg.A=0xD4
+Reg.B=0xB7
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD4[0xD4] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF7[0xF7] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x94[0x94] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x63[0x63] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x8B[0x8B] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x1D[0x1D] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x8C[0x8C] OK	Flag=0x97 {C-ZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD4[0xD4] OK	Flag=0x02 {---N-}
+Reg.A=0xD7
+Reg.B=0xBE
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD7[0xD7] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x96[0x96] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x69[0x69] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x95[0x95] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x19[0x19] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x92[0x92] OK	Flag=0x9F {CVZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD7[0xD7] OK	Flag=0x02 {---N-}
+Reg.A=0xDA
+Reg.B=0xC5
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xDA[0xDA] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xDF[0xDF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xC0[0xC0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x1F[0x1F] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x9F[0x9F] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x15[0x15] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xC2[0xC2] OK	Flag=0xA7 {--ZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xDA[0xDA] OK	Flag=0x02 {---N-}
+Reg.A=0xDD
+Reg.B=0xCC
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xDD[0xDD] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xDD[0xDD] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xCC[0xCC] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x11[0x11] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xA9[0xA9] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x11[0x11] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x1C[0x1C] OK	Flag=0xB0 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xDD[0xDD] OK	Flag=0x02 {---N-}
+Reg.A=0xE0
+Reg.B=0xD3
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE0[0xE0] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF3[0xF3] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xC0[0xC0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x33[0x33] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xB3[0xB3] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x0D[0x0D] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xA0[0xA0] OK	Flag=0xB8 {CV---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE0[0xE0] OK	Flag=0x02 {---N-}
+Reg.A=0xE3
+Reg.B=0xDA
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE3[0xE3] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xC2[0xC2] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x39[0x39] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xBD[0xBD] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x09[0x09] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x4E[0x4E] OK	Flag=0xC1 {----H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE3[0xE3] OK	Flag=0x02 {---N-}
+Reg.A=0xE6
+Reg.B=0xE1
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE6[0xE6] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xE7[0xE7] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xE0[0xE0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x07[0x07] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xC7[0xC7] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x05[0x05] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x26[0x26] OK	Flag=0xCA {-V-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE6[0xE6] OK	Flag=0x02 {---N-}
+Reg.A=0xE9
+Reg.B=0xE8
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE9[0xE9] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xE9[0xE9] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xE8[0xE8] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x01[0x01] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xD1[0xD1] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x01[0x01] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x28[0x28] OK	Flag=0xD3 {C--NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xE9[0xE9] OK	Flag=0x02 {---N-}
+Reg.A=0xEC
+Reg.B=0xEF
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xEC[0xEC] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xEF[0xEF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xEC[0xEC] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x03[0x03] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xDB[0xDB] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xFD[0xFD] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x54[0x54] OK	Flag=0xDC {CVZ--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xEC[0xEC] OK	Flag=0x02 {---N-}
+Reg.A=0xEF
+Reg.B=0xF6
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xEF[0xEF] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xE6[0xE6] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x19[0x19] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xE5[0xE5] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xF9[0xF9] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xAA[0xAA] OK	Flag=0xE5 {--Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xEF[0xEF] OK	Flag=0x02 {---N-}
+Reg.A=0xF2
+Reg.B=0xFD
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xF2[0xF2] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xF0[0xF0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x0F[0x0F] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xEF[0xEF] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xF5[0xF5] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x2A[0x2A] OK	Flag=0xEF {-VZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xF2[0xF2] OK	Flag=0x02 {---N-}
+Reg.A=0xF5
+Reg.B=0x04
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xF5[0xF5] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF5[0xF5] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x04[0x04] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xF1[0xF1] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xF9[0xF9] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xF1[0xF1] OK	Flag=0x13 {C--NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xD4[0xD4] OK	Flag=0x03 {---NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xF5[0xF5] OK	Flag=0x02 {---N-}
+Reg.A=0xF8
+Reg.B=0x0B
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xF8[0xF8] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x08[0x08] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xF3[0xF3] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x03[0x03] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xED[0xED] OK	Flag=0x12 {C--N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xA8[0xA8] OK	Flag=0x0A {-V-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xF8[0xF8] OK	Flag=0x02 {---N-}
+Reg.A=0xFB
+Reg.B=0x12
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x12[0x12] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xE9[0xE9] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x0D[0x0D] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xE9[0xE9] OK	Flag=0x13 {C--NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xA6[0xA6] OK	Flag=0x11 {C---H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+Reg.A=0xFE
+Reg.B=0x19
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xFE[0xFE] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x18[0x18] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xE7[0xE7] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x17[0x17] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xE5[0xE5] OK	Flag=0x13 {C--NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xCE[0xCE] OK	Flag=0x18 {CV---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xFE[0xFE] OK	Flag=0x02 {---N-}
+Reg.A=0x01
+Reg.B=0x20
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x01[0x01] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x21[0x21] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x04 {--Z--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x21[0x21] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x21[0x21] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xE1[0xE1] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x20[0x20] OK	Flag=0x00 {-----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x01[0x01] OK	Flag=0x00 {-----}
+Reg.A=0x04
+Reg.B=0x27
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x04[0x04] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x27[0x27] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x04[0x04] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x23[0x23] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x2B[0x2B] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xDD[0xDD] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x9C[0x9C] OK	Flag=0x00 {-----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x04[0x04] OK	Flag=0x00 {-----}
+Reg.A=0x07
+Reg.B=0x2E
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x07[0x07] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x2F[0x2F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x06[0x06] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x29[0x29] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x35[0x35] OK	Flag=0x01 {----H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xD9[0xD9] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x42[0x42] OK	Flag=0x01 {----H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x07[0x07] OK	Flag=0x00 {-----}
+Reg.A=0x0A
+Reg.B=0x35
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x0A[0x0A] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x3F[0x3F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x04 {--Z--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x3F[0x3F] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x3F[0x3F] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xD5[0xD5] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x12[0x12] OK	Flag=0x02 {---N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x0A[0x0A] OK	Flag=0x00 {-----}
+Reg.A=0x0D
+Reg.B=0x3C
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x0D[0x0D] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x3D[0x3D] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x0C[0x0C] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x31[0x31] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x49[0x49] OK	Flag=0x01 {----H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xD1[0xD1] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x0C[0x0C] OK	Flag=0x03 {---NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x0D[0x0D] OK	Flag=0x00 {-----}
+Reg.A=0x10
+Reg.B=0x43
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x10[0x10] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x53[0x53] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x04 {--Z--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x53[0x53] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x53[0x53] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xCD[0xCD] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x30[0x30] OK	Flag=0x04 {--Z--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x10[0x10] OK	Flag=0x00 {-----}
+Reg.A=0x13
+Reg.B=0x4A
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x13[0x13] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x5B[0x5B] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x02[0x02] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x59[0x59] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x5D[0x5D] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xC9[0xC9] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x7E[0x7E] OK	Flag=0x05 {--Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x13[0x13] OK	Flag=0x00 {-----}
+Reg.A=0x16
+Reg.B=0x51
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x16[0x16] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x57[0x57] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x10[0x10] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x47[0x47] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x67[0x67] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xC5[0xC5] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xF6[0xF6] OK	Flag=0x06 {--ZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x16[0x16] OK	Flag=0x00 {-----}
+Reg.A=0x19
+Reg.B=0x58
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x19[0x19] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x59[0x59] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x18[0x18] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x41[0x41] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x71[0x71] OK	Flag=0x01 {----H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xC1[0xC1] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x98[0x98] OK	Flag=0x08 {-V---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x19[0x19] OK	Flag=0x00 {-----}
+Reg.A=0x1C
+Reg.B=0x5F
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x1C[0x1C] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x5F[0x5F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x1C[0x1C] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x43[0x43] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x7B[0x7B] OK	Flag=0x01 {----H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xBD[0xBD] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x64[0x64] OK	Flag=0x0A {-V-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x1C[0x1C] OK	Flag=0x00 {-----}
+Reg.A=0x1F
+Reg.B=0x66
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x1F[0x1F] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x06[0x06] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x79[0x79] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x85[0x85] OK	Flag=0x0B {-V-NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xB9[0xB9] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x5A[0x5A] OK	Flag=0x0C {-VZ--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x1F[0x1F] OK	Flag=0x00 {-----}
+Reg.A=0x22
+Reg.B=0x6D
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x22[0x22] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x6F[0x6F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x20[0x20] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x4F[0x4F] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x8F[0x8F] OK	Flag=0x0A {-V-N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xB5[0xB5] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x7A[0x7A] OK	Flag=0x0E {-VZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x22[0x22] OK	Flag=0x00 {-----}
+Reg.A=0x25
+Reg.B=0x74
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x25[0x25] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x75[0x75] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x24[0x24] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x51[0x51] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x99[0x99] OK	Flag=0x0A {-V-N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xB1[0xB1] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xC4[0xC4] OK	Flag=0x10 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x25[0x25] OK	Flag=0x00 {-----}
+Reg.A=0x28
+Reg.B=0x7B
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x28[0x28] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x7B[0x7B] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x28[0x28] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x53[0x53] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xA3[0xA3] OK	Flag=0x0B {-V-NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xAD[0xAD] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x38[0x38] OK	Flag=0x13 {C--NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x28[0x28] OK	Flag=0x00 {-----}
+Reg.A=0x2B
+Reg.B=0x82
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x2B[0x2B] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xAB[0xAB] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x02[0x02] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xA9[0xA9] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xAD[0xAD] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xA9[0xA9] OK	Flag=0x0B {-V-NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xD6[0xD6] OK	Flag=0x15 {C-Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x2B[0x2B] OK	Flag=0x00 {-----}
+Reg.A=0x2E
+Reg.B=0x89
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x2E[0x2E] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xAF[0xAF] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x08[0x08] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xA7[0xA7] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xB7[0xB7] OK	Flag=0x03 {---NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xA5[0xA5] OK	Flag=0x0B {-V-NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x9E[0x9E] OK	Flag=0x18 {CV---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x2E[0x2E] OK	Flag=0x00 {-----}
+Reg.A=0x31
+Reg.B=0x90
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x31[0x31] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xB1[0xB1] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x10[0x10] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xA1[0xA1] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xC1[0xC1] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xA1[0xA1] OK	Flag=0x0B {-V-NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x90[0x90] OK	Flag=0x1B {CV-NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x31[0x31] OK	Flag=0x00 {-----}
+Reg.A=0x34
+Reg.B=0x97
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x34[0x34] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xB7[0xB7] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x14[0x14] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xA3[0xA3] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xCB[0xCB] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x9D[0x9D] OK	Flag=0x0A {-V-N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xAC[0xAC] OK	Flag=0x1E {CVZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x34[0x34] OK	Flag=0x00 {-----}
+Reg.A=0x37
+Reg.B=0x9E
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x37[0x37] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xBF[0xBF] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x16[0x16] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xA9[0xA9] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xD5[0xD5] OK	Flag=0x03 {---NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x99[0x99] OK	Flag=0x0A {-V-N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xF2[0xF2] OK	Flag=0x21 {----H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x37[0x37] OK	Flag=0x00 {-----}
+Reg.A=0x3A
+Reg.B=0xA5
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x3A[0x3A] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xBF[0xBF] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x20[0x20] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x9F[0x9F] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xDF[0xDF] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x95[0x95] OK	Flag=0x0B {-V-NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x62[0x62] OK	Flag=0x25 {--Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x3A[0x3A] OK	Flag=0x00 {-----}
+Reg.A=0x3D
+Reg.B=0xAC
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x3D[0x3D] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xBD[0xBD] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x2C[0x2C] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x91[0x91] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xE9[0xE9] OK	Flag=0x03 {---NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x91[0x91] OK	Flag=0x0B {-V-NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xFC[0xFC] OK	Flag=0x28 {-V---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x3D[0x3D] OK	Flag=0x00 {-----}
+Reg.A=0x40
+Reg.B=0xB3
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x40[0x40] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF3[0xF3] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x04 {--Z--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xF3[0xF3] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xF3[0xF3] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x8D[0x8D] OK	Flag=0x0A {-V-N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xC0[0xC0] OK	Flag=0x2C {-VZ--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x40[0x40] OK	Flag=0x00 {-----}
+Reg.A=0x43
+Reg.B=0xBA
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x43[0x43] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x02[0x02] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xF9[0xF9] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xFD[0xFD] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x89[0x89] OK	Flag=0x0A {-V-N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xAE[0xAE] OK	Flag=0x30 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x43[0x43] OK	Flag=0x00 {-----}
+Reg.A=0x46
+Reg.B=0xC1
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x46[0x46] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xC7[0xC7] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x40[0x40] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x87[0x87] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x07[0x07] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x85[0x85] OK	Flag=0x0B {-V-NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xC6[0xC6] OK	Flag=0x34 {C-Z--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x46[0x46] OK	Flag=0x00 {-----}
+Reg.A=0x49
+Reg.B=0xC8
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x49[0x49] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xC9[0xC9] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x48[0x48] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x81[0x81] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x11[0x11] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x81[0x81] OK	Flag=0x0B {-V-NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x08[0x08] OK	Flag=0x39 {CV--H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x49[0x49] OK	Flag=0x00 {-----}
+Reg.A=0x4C
+Reg.B=0xCF
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x4C[0x4C] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xCF[0xCF] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x4C[0x4C] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x83[0x83] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x1B[0x1B] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x7D[0x7D] OK	Flag=0x00 {-----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x74[0x74] OK	Flag=0x3D {CVZ-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x4C[0x4C] OK	Flag=0x00 {-----}
+Reg.A=0x4F
+Reg.B=0xD6
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x4F[0x4F] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xDF[0xDF] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x46[0x46] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x99[0x99] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x25[0x25] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x79[0x79] OK	Flag=0x01 {----H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x0A[0x0A] OK	Flag=0x42 {---N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x4F[0x4F] OK	Flag=0x00 {-----}
+Reg.A=0x52
+Reg.B=0xDD
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x52[0x52] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xDF[0xDF] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x50[0x50] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x8F[0x8F] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x2F[0x2F] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x75[0x75] OK	Flag=0x00 {-----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xCA[0xCA] OK	Flag=0x46 {--ZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x52[0x52] OK	Flag=0x00 {-----}
+Reg.A=0x55
+Reg.B=0xE4
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x55[0x55] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF5[0xF5] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x44[0x44] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xB1[0xB1] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x39[0x39] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x71[0x71] OK	Flag=0x01 {----H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xB4[0xB4] OK	Flag=0x4B {-V-NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x55[0x55] OK	Flag=0x00 {-----}
+Reg.A=0x58
+Reg.B=0xEB
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x58[0x58] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x48[0x48] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xB3[0xB3] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x43[0x43] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x6D[0x6D] OK	Flag=0x00 {-----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xC8[0xC8] OK	Flag=0x50 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x58[0x58] OK	Flag=0x00 {-----}
+Reg.A=0x5B
+Reg.B=0xF2
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x5B[0x5B] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x52[0x52] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xA9[0xA9] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x4D[0x4D] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x69[0x69] OK	Flag=0x01 {----H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x06[0x06] OK	Flag=0x56 {C-ZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x5B[0x5B] OK	Flag=0x00 {-----}
+Reg.A=0x5E
+Reg.B=0xF9
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x5E[0x5E] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x0A {-V-N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x58[0x58] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xA7[0xA7] OK	Flag=0x0A {-V-N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x57[0x57] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x65[0x65] OK	Flag=0x01 {----H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x6E[0x6E] OK	Flag=0x5B {CV-NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x5E[0x5E] OK	Flag=0x00 {-----}
+Reg.A=0x61
+Reg.B=0x00
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x61[0x61] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x61[0x61] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x04 {--Z--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x61[0x61] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x61[0x61] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x61[0x61] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x00[0x00] OK	Flag=0x00 {-----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x61[0x61] OK	Flag=0x00 {-----}
+Reg.A=0x64
+Reg.B=0x07
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x64[0x64] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x67[0x67] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x04[0x04] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x63[0x63] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x6B[0x6B] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x5D[0x5D] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xBC[0xBC] OK	Flag=0x02 {---N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x64[0x64] OK	Flag=0x00 {-----}
+Reg.A=0x67
+Reg.B=0x0E
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x67[0x67] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x6F[0x6F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x06[0x06] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x69[0x69] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x75[0x75] OK	Flag=0x01 {----H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x59[0x59] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xA2[0xA2] OK	Flag=0x05 {--Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x67[0x67] OK	Flag=0x00 {-----}
+Reg.A=0x6A
+Reg.B=0x15
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x6A[0x6A] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x04 {--Z--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x55[0x55] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xB2[0xB2] OK	Flag=0x08 {-V---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x6A[0x6A] OK	Flag=0x00 {-----}
+Reg.A=0x6D
+Reg.B=0x1C
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x6D[0x6D] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x7D[0x7D] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x0C[0x0C] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x71[0x71] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x89[0x89] OK	Flag=0x0B {-V-NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x51[0x51] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xEC[0xEC] OK	Flag=0x0B {-V-NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x6D[0x6D] OK	Flag=0x00 {-----}
+Reg.A=0x70
+Reg.B=0x23
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x70[0x70] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x73[0x73] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x20[0x20] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x53[0x53] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x93[0x93] OK	Flag=0x0A {-V-N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x4D[0x4D] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x50[0x50] OK	Flag=0x0F {-VZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x70[0x70] OK	Flag=0x00 {-----}
+Reg.A=0x73
+Reg.B=0x2A
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x73[0x73] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x7B[0x7B] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x22[0x22] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x59[0x59] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x9D[0x9D] OK	Flag=0x0A {-V-N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x49[0x49] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xDE[0xDE] OK	Flag=0x12 {C--N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x73[0x73] OK	Flag=0x00 {-----}
+Reg.A=0x76
+Reg.B=0x31
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x76[0x76] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x77[0x77] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x30[0x30] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x47[0x47] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xA7[0xA7] OK	Flag=0x0A {-V-N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x45[0x45] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x96[0x96] OK	Flag=0x16 {C-ZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x76[0x76] OK	Flag=0x00 {-----}
+Reg.A=0x79
+Reg.B=0x38
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x79[0x79] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x79[0x79] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x38[0x38] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x41[0x41] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xB1[0xB1] OK	Flag=0x0B {-V-NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x41[0x41] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x78[0x78] OK	Flag=0x1A {CV-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x79[0x79] OK	Flag=0x00 {-----}
+Reg.A=0x7C
+Reg.B=0x3F
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x7C[0x7C] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x3C[0x3C] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x43[0x43] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xBB[0xBB] OK	Flag=0x0B {-V-NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x3D[0x3D] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x84[0x84] OK	Flag=0x1E {CVZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x7C[0x7C] OK	Flag=0x00 {-----}
+Reg.A=0x7F
+Reg.B=0x46
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x46[0x46] OK	Flag=0x00 {-----}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x39[0x39] OK	Flag=0x00 {-----}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xC5[0xC5] OK	Flag=0x0B {-V-NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x39[0x39] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xBA[0xBA] OK	Flag=0x22 {---N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x7F[0x7F] OK	Flag=0x00 {-----}
+Reg.A=0x82
+Reg.B=0x4D
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x82[0x82] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xCF[0xCF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x0C {-VZ--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xCF[0xCF] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xCF[0xCF] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x35[0x35] OK	Flag=0x18 {CV---}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x1A[0x1A] OK	Flag=0x27 {--ZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x82[0x82] OK	Flag=0x02 {---N-}
+Reg.A=0x85
+Reg.B=0x54
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x85[0x85] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xD5[0xD5] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x04[0x04] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xD1[0xD1] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xD9[0xD9] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x31[0x31] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xA4[0xA4] OK	Flag=0x2B {-V-NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x85[0x85] OK	Flag=0x02 {---N-}
+Reg.A=0x88
+Reg.B=0x5B
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x88[0x88] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xDB[0xDB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x08[0x08] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xD3[0xD3] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xE3[0xE3] OK	Flag=0x03 {---NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x2D[0x2D] OK	Flag=0x18 {CV---}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x58[0x58] OK	Flag=0x30 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x88[0x88] OK	Flag=0x02 {---N-}
+Reg.A=0x8B
+Reg.B=0x62
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x8B[0x8B] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xEB[0xEB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x02[0x02] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xE9[0xE9] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xED[0xED] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x29[0x29] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x36[0x36] OK	Flag=0x35 {C-Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x8B[0x8B] OK	Flag=0x02 {---N-}
+Reg.A=0x8E
+Reg.B=0x69
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x8E[0x8E] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xEF[0xEF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x08[0x08] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xE7[0xE7] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xF7[0xF7] OK	Flag=0x03 {---NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x25[0x25] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x3E[0x3E] OK	Flag=0x3A {CV-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x8E[0x8E] OK	Flag=0x02 {---N-}
+Reg.A=0x91
+Reg.B=0x70
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x91[0x91] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF1[0xF1] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x10[0x10] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xE1[0xE1] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x01[0x01] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x21[0x21] OK	Flag=0x19 {CV--H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x70[0x70] OK	Flag=0x3F {CVZNH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x91[0x91] OK	Flag=0x02 {---N-}
+Reg.A=0x94
+Reg.B=0x77
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x94[0x94] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF7[0xF7] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x14[0x14] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xE3[0xE3] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x0B[0x0B] OK	Flag=0x10 {C----}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x1D[0x1D] OK	Flag=0x18 {CV---}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xCC[0xCC] OK	Flag=0x44 {--Z--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x94[0x94] OK	Flag=0x02 {---N-}
+Reg.A=0x97
+Reg.B=0x7E
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x97[0x97] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x16[0x16] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xE9[0xE9] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x15[0x15] OK	Flag=0x11 {C---H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x19[0x19] OK	Flag=0x18 {CV---}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x52[0x52] OK	Flag=0x4A {-V-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x97[0x97] OK	Flag=0x02 {---N-}
+Reg.A=0x9A
+Reg.B=0x85
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x9A[0x9A] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x9F[0x9F] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x80[0x80] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x1F[0x1F] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x1F[0x1F] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x15[0x15] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x02[0x02] OK	Flag=0x50 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x9A[0x9A] OK	Flag=0x02 {---N-}
+Reg.A=0x9D
+Reg.B=0x8C
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x9D[0x9D] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0x9D[0x9D] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x8C[0x8C] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x11[0x11] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x29[0x29] OK	Flag=0x19 {CV--H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x11[0x11] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xDC[0xDC] OK	Flag=0x55 {C-Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0x9D[0x9D] OK	Flag=0x02 {---N-}
+Reg.A=0xA0
+Reg.B=0x93
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA0[0xA0] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xB3[0xB3] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x80[0x80] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x33[0x33] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x33[0x33] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x0D[0x0D] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xE0[0xE0] OK	Flag=0x5B {CV-NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA0[0xA0] OK	Flag=0x02 {---N-}
+Reg.A=0xA3
+Reg.B=0x9A
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA3[0xA3] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xBB[0xBB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x82[0x82] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x39[0x39] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x3D[0x3D] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x09[0x09] OK	Flag=0x10 {C----}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x0E[0x0E] OK	Flag=0x62 {---N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA3[0xA3] OK	Flag=0x02 {---N-}
+Reg.A=0xA6
+Reg.B=0xA1
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA6[0xA6] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xA7[0xA7] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xA0[0xA0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x07[0x07] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x47[0x47] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x05[0x05] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x66[0x66] OK	Flag=0x68 {-V---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA6[0xA6] OK	Flag=0x02 {---N-}
+Reg.A=0xA9
+Reg.B=0xA8
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA9[0xA9] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xA9[0xA9] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xA8[0xA8] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x01[0x01] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x51[0x51] OK	Flag=0x19 {CV--H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0x01[0x01] OK	Flag=0x11 {C---H}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xE8[0xE8] OK	Flag=0x6E {-VZN-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xA9[0xA9] OK	Flag=0x02 {---N-}
+Reg.A=0xAC
+Reg.B=0xAF
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAC[0xAC] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xAF[0xAF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xAC[0xAC] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x03[0x03] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x5B[0x5B] OK	Flag=0x19 {CV--H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xFD[0xFD] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x94[0x94] OK	Flag=0x75 {C-Z-H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAC[0xAC] OK	Flag=0x02 {---N-}
+Reg.A=0xAF
+Reg.B=0xB6
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAF[0xAF] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xBF[0xBF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xA6[0xA6] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x19[0x19] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x65[0x65] OK	Flag=0x19 {CV--H}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xF9[0xF9] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x6A[0x6A] OK	Flag=0x7C {CVZ--}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xAF[0xAF] OK	Flag=0x02 {---N-}
+Reg.A=0xB2
+Reg.B=0xBD
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB2[0xB2] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xBF[0xBF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xB0[0xB0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x0F[0x0F] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x6F[0x6F] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xF5[0xF5] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x6A[0x6A] OK	Flag=0x83 {---NH}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB2[0xB2] OK	Flag=0x02 {---N-}
+Reg.A=0xB5
+Reg.B=0xC4
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB5[0xB5] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xF5[0xF5] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x84[0x84] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x71[0x71] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x79[0x79] OK	Flag=0x18 {CV---}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xF1[0xF1] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x94[0x94] OK	Flag=0x8A {-V-N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB5[0xB5] OK	Flag=0x02 {---N-}
+Reg.A=0xB8
+Reg.B=0xCB
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB8[0xB8] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x88[0x88] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x73[0x73] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x83[0x83] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xED[0xED] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xE8[0xE8] OK	Flag=0x91 {C---H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xB8[0xB8] OK	Flag=0x02 {---N-}
+Reg.A=0xBB
+Reg.B=0xD2
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBB[0xBB] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFB[0xFB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x92[0x92] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x69[0x69] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x8D[0x8D] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xE9[0xE9] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x66[0x66] OK	Flag=0x99 {CV--H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBB[0xBB] OK	Flag=0x02 {---N-}
+Reg.A=0xBE
+Reg.B=0xD9
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBE[0xBE] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x98[0x98] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x67[0x67] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0x97[0x97] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xE5[0xE5] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x0E[0x0E] OK	Flag=0xA1 {----H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xBE[0xBE] OK	Flag=0x02 {---N-}
+Reg.A=0xC1
+Reg.B=0xE0
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC1[0xC1] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xE1[0xE1] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xC0[0xC0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x21[0x21] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xA1[0xA1] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xE1[0xE1] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xE0[0xE0] OK	Flag=0xA8 {-V---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC1[0xC1] OK	Flag=0x02 {---N-}
+Reg.A=0xC4
+Reg.B=0xE7
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC4[0xC4] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xE7[0xE7] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xC4[0xC4] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x23[0x23] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xAB[0xAB] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xDD[0xDD] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xDC[0xDC] OK	Flag=0xB0 {C----}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC4[0xC4] OK	Flag=0x02 {---N-}
+Reg.A=0xC7
+Reg.B=0xEE
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC7[0xC7] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xEF[0xEF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xC6[0xC6] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x29[0x29] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xB5[0xB5] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xD9[0xD9] OK	Flag=0x02 {---N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x02[0x02] OK	Flag=0xB9 {CV--H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xC7[0xC7] OK	Flag=0x02 {---N-}
+Reg.A=0xCA
+Reg.B=0xF5
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCA[0xCA] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFF[0xFF] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xC0[0xC0] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x3F[0x3F] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xBF[0xBF] OK	Flag=0x12 {C--N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xD5[0xD5] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x52[0x52] OK	Flag=0xC1 {----H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCA[0xCA] OK	Flag=0x02 {---N-}
+Reg.A=0xCD
+Reg.B=0xFC
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCD[0xCD] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xFD[0xFD] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0xCC[0xCC] OK	Flag=0x02 {---N-}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0x31[0x31] OK	Flag=0x08 {-V---}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xC9[0xC9] OK	Flag=0x13 {C--NH}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xD1[0xD1] OK	Flag=0x03 {---NH}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0xCC[0xCC] OK	Flag=0xC9 {-V--H}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xCD[0xCD] OK	Flag=0x02 {---N-}
+Reg.A=0xD0
+Reg.B=0x03
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD0[0xD0] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xD3[0xD3] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x00[0x00] OK	Flag=0x0C {-VZ--}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xD3[0xD3] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xD3[0xD3] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xCD[0xCD] OK	Flag=0x12 {C--N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x70[0x70] OK	Flag=0x02 {---N-}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD0[0xD0] OK	Flag=0x02 {---N-}
+Reg.A=0xD3
+Reg.B=0x0A
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD3[0xD3] OK	Flag=0x02 {---N-}
+  CMD=[1C]{--- --- ---  CI OR }	Acc=0xDB[0xDB] OK	Flag=0x02 {---N-}
+  CMD=[0D]{--- --- --- --- AND}	Acc=0x02[0x02] OK	Flag=0x08 {-V---}
+  CMD=[1E]{--- --- ---  CI XOR}	Acc=0xD9[0xD9] OK	Flag=0x02 {---N-}
+  CMD=[03]{--- --- --- --- ADD}	Acc=0xDD[0xDD] OK	Flag=0x02 {---N-}
+  CMD=[17]{--- --- ---  CI SUB}	Acc=0xC9[0xC9] OK	Flag=0x12 {C--N-}
+  CMD=[80]{MUL --- --- --- nop}	Acc=0x3E[0x3E] OK	Flag=0x08 {-V---}
+  CMD=[0F]{--- --- --- --- nop}	Acc=0xD3[0xD3] OK	Flag=0x02 {---N-}
+
+Info: /OSCI/SystemC: Simulation stopped by user.
