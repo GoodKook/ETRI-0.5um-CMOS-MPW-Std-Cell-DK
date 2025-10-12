@@ -74,6 +74,23 @@ if {$make_assignments} {
 	set_location_assignment PIN_115 -to Addr_emu[0]
 
 # MyChip-Test I/F
+#                 +------\_/------+
+#           VDD---|1            28|<--Clk
+#        Xin[3]-->|2            27|<--Cin[0]
+#        Xin[2]-->|3            26|<--Cin[1]
+#        Xin[1]-->|4            25|<--Cin[2]
+#        Xin[0]-->|5            24|<--Cin[3]
+#           Rdy-->|6   FIR_PE   23|<--Cin[4]
+#           VDD---|7            22|<--Cin[5]
+#       Yout[3]<--|8            21|---GND
+#       Yout[2]<--|9            20|-->Xout[3]
+#       Yout[1]<--|10           19|-->Xout[2]
+#       Yout[0]<--|11           18|-->Xout[1]
+#        Yin[3]-->|12           17|-->Xout[0]
+#        Yin[2]-->|13           16|-->Vld
+#        Yin[1]-->|14           15|<--Yin[0]
+#                 +---------------+
+#                      SOP28
 	set_location_assignment PIN_49 -to xVDD_1
 	set_location_assignment PIN_50 -to xXin[3]
 	set_location_assignment PIN_44 -to xXin[2]
