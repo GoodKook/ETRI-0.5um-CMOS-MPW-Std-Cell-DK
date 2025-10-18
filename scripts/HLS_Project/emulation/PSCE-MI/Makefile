@@ -8,10 +8,10 @@ endif
 SKETCH=E$(DUT_NAME)_$(MODE)
 ifeq ($(MI), DUE_NORMAL)
 	export FQBN=arduino:sam:arduino_due_x_dbg
-	CPP_EXTRA="-DOLED_DISPLAY -DDUE_NORMAL -DUART_BPS=115200 -DCYCLONE_IV"
+	export CPP_EXTRA="-DOLED_DISPLAY -DDUE_NORMAL -DUART_BPS=115200 -DCYCLONE_IV"
 else ifeq ($(MI), PI_PICO)
 	export FQBN=rp2040:rp2040:rpipico
-	CPP_EXTRA="-DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+	export CPP_EXTRA="-DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
 else
 	MI = NONE
 endif
@@ -54,9 +54,38 @@ all:
 	@echo "CC BY-NC, GoodKook, goodkook@gmail.com"
 
 build: ./$(SKETCH)/$(SKETCH).ino
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/PinMap_A7_100T.h" ];  then \
+		ln -s ../PSCE_API/PinMap_A7_100T.h E$(TOP_MODULE)_$(MODE)/PinMap_A7_100T.h; \
+	fi
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/PinMap_TANG_25K.h" ];  then \
+		ln -s ../PSCE_API/PinMap_TANG_25K.h E$(TOP_MODULE)_$(MODE)/PinMap_TANG_25K.h ; \
+	fi
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/PSCE_APIs.cpp" ];  then \
+		ln -s ../PSCE_API/PSCE_APIs.cpp E$(TOP_MODULE)_$(MODE)/PSCE_APIs.cpp; \
+	fi
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/PSCE_APIs.h" ];  then \
+		ln -s ../PSCE_API/PSCE_APIs.h E$(TOP_MODULE)_$(MODE)/PSCE_APIs.h; \
+	fi
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/PSCE_Splash.h" ];  then \
+		ln -s ../PSCE_API/PSCE_Splash.h E$(TOP_MODULE)_$(MODE)/PSCE_Splash.h; \
+	fi
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/PSCE_Config.h" ];  then \
+		ln -s ../PSCE_API/PSCE_Config.h E$(TOP_MODULE)_$(MODE)/PSCE_Config.h; \
+	fi
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/TM1637Display.cpp" ];  then \
+		ln -s ../PSCE_API/TM1637Display.cpp E$(TOP_MODULE)_$(MODE)/TM1637Display.cpp; \
+	fi
+	@if [ ! -e "E$(TOP_MODULE)_$(MODE)/TM1637Display.h" ];  then \
+		ln -s ../PSCE_API/TM1637Display.h E$(TOP_MODULE)_$(MODE)/TM1637Display.h; \
+	fi
+	@if [ "$(MODE)" = "AL" ]; then \
+		echo "Linking Un-Timed model..."; \
+		ln -s ../../../c_untimed/$(TOP_MODULE).cpp E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).cpp; \
+		ln -s ../../../c_untimed/$(TOP_MODULE).h E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).h; \
+	fi
 	arduino-cli compile --clean --fqbn $(FQBN) $(SKETCH) \
 		--build-path ./$(SKETCH)/build \
-		--build-property compiler.cpp.extra_flags=$(CPP_EXTRA)
+		--build-property compiler.cpp.extra_flags=$(CPP_EXTRA)" -D$(HW_STYLE)"
 
 upload:
 	arduino-cli upload -p $(PORT) --fqbn $(FQBN) $(SKETCH) \

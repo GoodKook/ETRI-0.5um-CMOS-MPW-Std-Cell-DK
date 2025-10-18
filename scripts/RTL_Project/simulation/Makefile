@@ -110,7 +110,8 @@ wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
 
 clean :
 	rm -rf $(TARGET_DIR)
-	rm -f *.vcd
+	rm -f V$(TOP_MODULE).vcd
+	rm -f sc_$(TOP_MODULE)_TB.vcd
 	rm -f $(TOP_MODULE)
 	rm -f sc_$(TOP_MODULE)_TB.txt
 

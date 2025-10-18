@@ -1,0 +1,119 @@
+/**********************************************************************
+Filename: sc_TOP_MODULE_tb.h
+Purpose : Testbench
+Author  : goodkook@gmail.com
+History : Sep. 2025, First release
+***********************************************************************/
+
+#ifndef _SC_TOP_MODULE_TB_H_
+#define  _SC_TOP_MODULE_TB_H_
+
+#include <systemc.h>
+#include "TOP_MODULE.h"   // un-timed model
+#include "cnoise.h"
+
+#ifdef EMULATED_CO_SIM
+#include "ETOP_MODULE.h"
+#else
+#include "VTOP_MODULE.h"
+#endif
+#ifdef VCD_TRACE_DUT_VERILOG
+#include <verilated_vcd_sc.h>
+#endif
+
+SC_MODULE(sc_TOP_MODULE_TB)
+{
+    sc_clock                ap_clk;
+    sc_signal<bool>         ap_rst;
+    sc_signal<bool>         ap_start;
+    sc_signal<bool>         ap_done;
+    sc_signal<bool>         ap_idle;
+    sc_signal<bool>         ap_ready;
+    sc_signal<bool>         y_ap_vld;
+    sc_signal<sc_uint<8> >  x;
+    sc_signal<sc_uint<16> > y;
+
+#ifdef EMULATED_CO_SIM
+    ETOP_MODULE*     u_TOP_MODULE;
+#else
+    VTOP_MODULE*     u_TOP_MODULE;
+#endif
+
+    acc_t               _yRef[F_SAMPLE];
+    sc_signal<acc_t>    yRef;
+#ifdef EMULATED_CO_SIM
+    sc_signal<acc_t>    __yRef;
+#endif
+
+    // Test utilities
+    void Test_Gen();
+    void Test_Mon();
+
+#ifdef  VCD_TRACE_TEST_TB
+    sc_trace_file* fp;  // VCD file
+#endif
+
+#ifdef VCD_TRACE_DUT_VERILOG
+    VerilatedVcdSc*     tfp;    // Verilator VCD
+#endif
+
+    SC_CTOR(sc_TOP_MODULE_TB):
+        ap_clk("ap_clk", 100, SC_NS, 0.5, 0.0, SC_NS, false)
+    {
+        SC_THREAD(Test_Gen);
+        sensitive << ap_clk;
+
+        SC_THREAD(Test_Mon);
+        sensitive << ap_clk;
+
+        // Instaltiate DUT: "TOP_MODULE"
+#ifdef EMULATED_CO_SIM
+        u_TOP_MODULE = new ETOP_MODULE("u_ETOP_MODULE");
+#else
+        u_TOP_MODULE = new VTOP_MODULE("u_VTOP_MODULE");
+#endif
+        u_TOP_MODULE->ap_clk(ap_clk);
+        u_TOP_MODULE->ap_rst(ap_rst);
+        u_TOP_MODULE->ap_start(ap_start);
+        u_TOP_MODULE->ap_done(ap_done);
+        u_TOP_MODULE->ap_idle(ap_idle);
+        u_TOP_MODULE->ap_ready(ap_ready);
+        u_TOP_MODULE->y_ap_vld(y_ap_vld);
+        u_TOP_MODULE->x(x);
+        u_TOP_MODULE->y(y);
+
+#ifdef VCD_TRACE_TEST_TB
+        // WAVE
+        fp = sc_create_vcd_trace_file("sc_TOP_MODULE_TB");
+        fp->set_time_unit(100, SC_PS);  // resolution (trace) ps
+        sc_trace(fp, ap_clk,    "ap_clk");
+        sc_trace(fp, ap_rst,    "ap_rst");
+        sc_trace(fp, ap_start,  "ap_start");
+        sc_trace(fp, ap_done,   "ap_done");
+        sc_trace(fp, ap_idle,   "ap_idle");
+        sc_trace(fp, ap_ready,  "ap_ready");
+        sc_trace(fp, y_ap_vld,  "y_ap_vld");
+        sc_trace(fp, x,         "x");
+        sc_trace(fp, y,         "y");
+#endif
+
+#ifdef VCD_TRACE_DUT_VERILOG
+        // Trace Verilated Verilog internals
+        Verilated::traceEverOn(true);
+
+        tfp = new VerilatedVcdSc;
+        sc_start(SC_ZERO_TIME);
+        u_TOP_MODULE->trace(tfp, 99);  // Trace levels of hierarchy
+        tfp->open("VTOP_MODULE.vcd");
+#endif
+    }
+    
+    ~sc_TOP_MODULE_TB(void)
+    {
+#ifdef VCD_TRACE_DUT_VERILOG
+        tfp->close();
+#endif
+    }
+};
+
+#endif

@@ -34,9 +34,11 @@ void init_sc()
 void sample_hdl(void *In_vector)
 {
     IN_VECTOR *p = (IN_VECTOR *)In_vector;
-    u_sc_TOP_MODULE_TB->hh.write(p->hh);
-    u_sc_TOP_MODULE_TB->mm.write(p->mm);
-    u_sc_TOP_MODULE_TB->ss.write(p->ss);
+    u_sc_TOP_MODULE_TB->ap_done.write(p->ap_done);
+    u_sc_TOP_MODULE_TB->ap_idle.write(p->ap_idle);
+    u_sc_TOP_MODULE_TB->ap_ready.write(p->ap_ready);
+    u_sc_TOP_MODULE_TB->y_ap_vld.write(p->y_ap_vld);
+    u_sc_TOP_MODULE_TB->y.write(p->y);
 }
 // Call-Back: Read from SystemC TB & Drive HDL
 void drive_hdl(void *Out_vector)
@@ -45,8 +47,8 @@ void drive_hdl(void *Out_vector)
     p->end_of_sim   = u_sc_TOP_MODULE_TB->sc_Stopped.read();
     p->ap_clk       = u_sc_TOP_MODULE_TB->ap_clk.read();
     p->ap_rst       = u_sc_TOP_MODULE_TB->ap_rst.read();
-    p->clear        = u_sc_TOP_MODULE_TB->clear.read();
-    p->start_r      = u_sc_TOP_MODULE_TB->start_r.read();
+    p->ap_start     = u_sc_TOP_MODULE_TB->ap_start.read();
+    p->x            = u_sc_TOP_MODULE_TB->x.read();
 }
 // Advance SystemC kernel
 void exec_sc(void *invector, void *outvector)

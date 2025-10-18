@@ -39,8 +39,11 @@ SC_MODULE(sc_FIR8_TB)
     VFIR8*     u_FIR8;
 #endif
 
-    acc_t   yRef[F_SAMPLE];
-
+    acc_t               _yRef[F_SAMPLE];
+    sc_signal<acc_t>    yRef;
+#ifdef EMULATED_CO_SIM
+    sc_signal<acc_t>    __yRef;
+#endif
     // Test utilities
     void Test_Gen();
     void Test_Mon();
@@ -80,7 +83,7 @@ SC_MODULE(sc_FIR8_TB)
 
 #ifdef VCD_TRACE_TEST_TB
         // WAVE
-        fp = sc_create_vcd_trace_file("sc_FIR8_tb");
+        fp = sc_create_vcd_trace_file("sc_FIR8_TB");
         fp->set_time_unit(100, SC_PS);  // resolution (trace) ps
         sc_trace(fp, ap_clk,    "ap_clk");
         sc_trace(fp, ap_rst,    "ap_rst");

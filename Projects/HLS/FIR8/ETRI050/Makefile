@@ -25,15 +25,13 @@ all :
 	@echo '             config_m1f'
 	@echo '             config_m2f'
 	@echo '             clean_cell'
-	@echo
+	@echo ''
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
+
 # -----------------------------------------------------
 synthesize : ./log/synth.log
 
 ./log/synth.log : $(VERILOG_SRCS)
-	@if [ ! -e "./source" ]; then \
-		ln -s ../FIR8/hls_component/syn/verilog/ ./source; \
-	fi
 	qflow synthesize -T etri050 $(TOP_MODULE)
 
 # -----------------------------------------------------

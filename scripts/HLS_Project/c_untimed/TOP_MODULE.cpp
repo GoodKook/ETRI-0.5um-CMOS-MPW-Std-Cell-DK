@@ -1,68 +1,123 @@
-/********************************************************************
-Filename: TOP_MODULE.cpp
-Purpose : TOP_MODULE in C/C++ un-timed model
-History :
-*********************************************************************
-CC BY-NC, GoodKook, goodkook@gmail.com
-*********************************************************************/
+/* -----------------------------------------------------------
+Filename : TOP_MODULE.cpp
+Purpose  : FIR Filter (8-Tap)
+Author   : goodkook@gmail.com
+History  : Sep. 2025, First Release
 
-#if defined(BIT_ACCURATE)   // for Vitis-HLS
-#include <ap_int.h>
-#elif defined(BIT_ACCURATE_SC)  // SystemC simulation
-#include <systemc.h>
-#endif
+Reference: FIR Filter/Convolution
+https://dsp.stackexchange.com/questions/66451/fir-filtering-operation-also-convolution
+-------------------------------------------------------------- */
 
-void TOP_MODULE(bool clear, bool start, unsigned char *hh, unsigned char *mm, unsigned char *ss)
+#include <stdio.h>
+#include "TOP_MODULE.h"
+
+void TOP_MODULE ( acc_t *y, data_t x)
+#if defined(FIR_SHIFTER_VERSION)||defined(FIR_SHIFTER_VERSION_SC)
 {
-#pragma HLS interface mode=ap_none port=clear,start,hh,mm,ss
-#pragma HLS interface mode=ap_ctrl_none port=return
+    acc_t           acc;
+    data_t          data;
+    coef_t          c;
 
-#if defined(COMBINATIONAL) || defined(COMBINATIONAL_SC)
-    unsigned char _hh, _mm, _ss;
-#elif defined(REGISTERED) || defined(REGISTERED_SC)
-    static unsigned char _hh, _mm, _ss;
-#pragma HLS reset variable=_hh,_mm,_ss
-#elif defined(BIT_ACCURATE)|| defined(BIT_ACCURATE_SC)
-#if defined(SYSTEMC_H)
-    static sc_uint<5> _hh;
-    static sc_uint<6> _mm, _ss;
-#else
-    static ap_uint<5> _hh;
-    static ap_uint<6> _mm, _ss;
-#endif
-#pragma HLS reset variable=_hh,_mm,_ss
-#else
-#pragma message("HW_STYLE NOT defined; neither COMBINATIONAL nor REGISTERED nor BIT_ACCURATE")
-#endif
+    static data_t   shift_reg[FILTER_TAP_NUM];
 
-    if (clear)
+    acc=0;
+
+    for (int i=FILTER_TAP_NUM-1;i>=0;i--)
     {
-        _hh = _mm = _ss = 0;
-    }
-    else if (start)
-    {
-        if (_ss == 59)
+	    if (i==0)
         {
-            _ss = 0;
-            if (_mm == 59)
-            {
-                _mm = 0;
-                if (_hh==23)
-                    _hh = 0;
-                else
-                    _hh += 1;
-            }
-            else
-                _mm += 1;
+            shift_reg[0]=x;
+     	    data = x;
         }
         else
-            _ss += 1;
+        {
+            shift_reg[i] = shift_reg[i-1];
+            data = shift_reg[i-1];
+        }
+
+        c = filter_taps[i];
+        acc = acc + data*c;
     }
 
-    //printf("%02d:%02d:%02d", _hh, _mm, _ss);
-
-    *hh = _hh;
-    *mm = _mm;
-    *ss = _ss;
+    *y=acc;
 }
+#elif defined(FIR_MAC_VERSION)||defined(FIR_MAC_VERSION_SC)
+{
+    acc_t           acc;
+    static data_t   shift_reg[FILTER_TAP_NUM];
+
+    // Shifter
+    SHIFTER_LOOP:
+    for (int i=FILTER_TAP_NUM-1;i>=0;i--)
+    {
+	    if (i==0)
+            shift_reg[0]=x;
+        else
+            shift_reg[i] = shift_reg[i-1];
+    }
+    // Multiplier-Accumulator
+    acc = 0;
+    MACC_LOOP:
+    for (int i=0; i<FILTER_TAP_NUM;i++)
+        acc = acc + filter_taps[i] * shift_reg[i];
+
+    *y=acc;
+}
+#elif defined(FIR_MAC_VERSION_MPW)||defined(FIR_MAC_VERSION_MPW_SC)
+{
+    acc_t           acc;
+    static data_t   shift_reg[FILTER_TAP_NUM];
+
+    // Shifter
+    SHIFTER_LOOP:
+    for (int i=FILTER_TAP_NUM-1;i>=0;i--)
+    {
+	    if (i==0)
+            shift_reg[0]=x;
+        else
+            shift_reg[i] = shift_reg[i-1];
+    }
+    // Multiplier-Accumulator
+    acc = 0;
+    MACC_LOOP:
+    for (int i=0; i<FILTER_TAP_NUM;i++)
+        acc = acc + filter_taps[i] * shift_reg[i];
+
+    if (acc<11000)      acc = 11000;
+    //else if (acc>32767) acc = 32767;
+    else                acc = acc - 11000;
+
+    *y=(acc_t)(acc>>6);
+}
+#elif defined(FIR_ARRAY_VERSION)||defined(FIR_ARRAY_VERSION_SC)
+{
+    static data_t   _x[FILTER_TAP_NUM+1];
+    static acc_t    _y[FILTER_TAP_NUM+1];
+    static acc_t    __y[FILTER_TAP_NUM+1];
+
+    data_t __x;
+
+    _x[0] = x;
+    _y[0] = 0;
+    ARRAY_LOOP:
+    for (int i=FILTER_TAP_NUM; i>0; i--)
+    {
+        _y[i] = __y[i];
+        __y[i] = FIR_PE(filter_taps[i-1], _y[i-1], _x[i-1], (data_t*)&__x);
+        _x[i] = __x;
+    }
+
+    *y = _y[FILTER_TAP_NUM];
+}
+inline acc_t FIR_PE(coef_t Cin, acc_t Yin, data_t Xin, data_t* Xout)
+{
+    data_t   x = Xin;
+    acc_t    y = Yin + (Xin * Cin);
+
+    *Xout = x;
+    return y;
+}
+#else
+#pragma message("FIR function NOT defined; neither FIR_SHIFTER_VERSION nor FIR_MAC_VERSION nor FIR_MAC_VERSION_MPW nor FIR_ARRAY_VERSION")
+#endif
 

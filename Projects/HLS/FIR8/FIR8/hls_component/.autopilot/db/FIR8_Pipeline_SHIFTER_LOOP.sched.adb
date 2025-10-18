@@ -95,7 +95,7 @@
 						<name>i</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -111,7 +111,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -191,10 +191,10 @@
 					<Obj>
 						<type>0</type>
 						<id>5</id>
-						<name>i_write_ln73</name>
+						<name>i_write_ln51</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -210,7 +210,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -293,7 +293,7 @@
 						<name>i_1</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -309,7 +309,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -350,7 +350,7 @@
 						<name>tmp</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -366,7 +366,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -405,10 +405,10 @@
 					<Obj>
 						<type>0</type>
 						<id>10</id>
-						<name>br_ln73</name>
+						<name>br_ln51</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -424,7 +424,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -463,10 +463,10 @@
 					<Obj>
 						<type>0</type>
 						<id>12</id>
-						<name>zext_ln73</name>
+						<name>zext_ln51</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -482,7 +482,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -519,10 +519,10 @@
 					<Obj>
 						<type>0</type>
 						<id>13</id>
-						<name>trunc_ln73</name>
+						<name>trunc_ln51</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -538,7 +538,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -575,10 +575,10 @@
 					<Obj>
 						<type>0</type>
 						<id>17</id>
-						<name>icmp_ln75</name>
+						<name>icmp_ln53</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>53</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -594,7 +594,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>75</second>
+										<second>53</second>
 									</item>
 								</second>
 							</item>
@@ -632,10 +632,10 @@
 					<Obj>
 						<type>0</type>
 						<id>18</id>
-						<name>br_ln75</name>
+						<name>br_ln53</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>53</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -651,7 +651,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>75</second>
+										<second>53</second>
 									</item>
 								</second>
 							</item>
@@ -690,10 +690,10 @@
 					<Obj>
 						<type>0</type>
 						<id>20</id>
-						<name>add_ln78</name>
+						<name>add_ln56</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>78</lineNumber>
+						<lineNumber>56</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -709,7 +709,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>78</second>
+										<second>56</second>
 									</item>
 								</second>
 							</item>
@@ -747,10 +747,10 @@
 					<Obj>
 						<type>0</type>
 						<id>21</id>
-						<name>zext_ln78</name>
+						<name>zext_ln56</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>78</lineNumber>
+						<lineNumber>56</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -766,7 +766,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>78</second>
+										<second>56</second>
 									</item>
 								</second>
 							</item>
@@ -806,7 +806,7 @@
 						<name>shift_reg_addr</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>78</lineNumber>
+						<lineNumber>56</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -822,7 +822,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>78</second>
+										<second>56</second>
 									</item>
 								</second>
 							</item>
@@ -861,68 +861,10 @@
 					<Obj>
 						<type>0</type>
 						<id>23</id>
-						<name>shift_reg_addr_1</name>
-						<fileName>c_untimed/FIR8.cpp</fileName>
-						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>78</lineNumber>
-						<contextFuncName>FIR8</contextFuncName>
-						<contextNormFuncName>FIR8</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>c_untimed/FIR8.cpp</first>
-											<second>FIR8</second>
-										</first>
-										<second>78</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>3</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>3</count>
-					<item_version>0</item_version>
-					<item>82</item>
-					<item>83</item>
-					<item>84</item>
-				</oprand_edges>
-				<opcode>getelementptr</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>22</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_18">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>24</id>
 						<name>shift_reg_load</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>78</lineNumber>
+						<lineNumber>56</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -938,7 +880,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>78</second>
+										<second>56</second>
 									</item>
 								</second>
 							</item>
@@ -959,7 +901,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>85</item>
+					<item>82</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -970,15 +912,15 @@
 				<m_topoIndex>14</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_19">
+			<item class_id_reference="9" object_id="_18">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>25</id>
-						<name>shift_reg_addr_1_write_ln78</name>
+						<id>24</id>
+						<name>shift_reg_addr_1</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>78</lineNumber>
+						<lineNumber>56</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -994,7 +936,65 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>78</second>
+										<second>56</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>3</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>3</count>
+					<item_version>0</item_version>
+					<item>83</item>
+					<item>84</item>
+					<item>85</item>
+				</oprand_edges>
+				<opcode>getelementptr</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>22</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_19">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>25</id>
+						<name>shift_reg_addr_1_write_ln56</name>
+						<fileName>c_untimed/FIR8.cpp</fileName>
+						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
+						<lineNumber>56</lineNumber>
+						<contextFuncName>FIR8</contextFuncName>
+						<contextNormFuncName>FIR8</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>c_untimed/FIR8.cpp</first>
+											<second>FIR8</second>
+										</first>
+										<second>56</second>
 									</item>
 								</second>
 							</item>
@@ -1074,10 +1074,10 @@
 					<Obj>
 						<type>0</type>
 						<id>28</id>
-						<name>0_write_ln76</name>
+						<name>0_write_ln54</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>76</lineNumber>
+						<lineNumber>54</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -1093,7 +1093,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>76</second>
+										<second>54</second>
 									</item>
 								</second>
 							</item>
@@ -1131,10 +1131,10 @@
 					<Obj>
 						<type>0</type>
 						<id>29</id>
-						<name>br_ln76</name>
+						<name>br_ln54</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>76</lineNumber>
+						<lineNumber>54</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -1150,7 +1150,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>76</second>
+										<second>54</second>
 									</item>
 								</second>
 							</item>
@@ -1187,10 +1187,10 @@
 					<Obj>
 						<type>0</type>
 						<id>31</id>
-						<name>add_ln73</name>
+						<name>add_ln51</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -1206,7 +1206,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1244,10 +1244,10 @@
 					<Obj>
 						<type>0</type>
 						<id>32</id>
-						<name>i_write_ln73</name>
+						<name>i_write_ln51</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -1263,7 +1263,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1303,10 +1303,10 @@
 					<Obj>
 						<type>0</type>
 						<id>33</id>
-						<name>br_ln73</name>
+						<name>br_ln51</name>
 						<fileName>c_untimed/FIR8.cpp</fileName>
 						<fileDirectory>/home/goodkook/ETRI050_DesignKit/devel/Projects/HLS/FIR8</fileDirectory>
-						<lineNumber>73</lineNumber>
+						<lineNumber>51</lineNumber>
 						<contextFuncName>FIR8</contextFuncName>
 						<contextNormFuncName>FIR8</contextNormFuncName>
 						<inlineStackInfo>
@@ -1322,7 +1322,7 @@
 											<first>c_untimed/FIR8.cpp</first>
 											<second>FIR8</second>
 										</first>
-										<second>73</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1858,7 +1858,7 @@
 				<Obj>
 					<type>3</type>
 					<id>36</id>
-					<name>for.inc17.preheader.exitStub</name>
+					<name>for.inc16.preheader.exitStub</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -2123,42 +2123,42 @@
 			<item class_id_reference="20" object_id="_75">
 				<id>82</id>
 				<edge_type>1</edge_type>
-				<source_obj>2</source_obj>
+				<source_obj>22</source_obj>
 				<sink_obj>23</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_76">
 				<id>83</id>
 				<edge_type>1</edge_type>
-				<source_obj>79</source_obj>
-				<sink_obj>23</sink_obj>
+				<source_obj>2</source_obj>
+				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_77">
 				<id>84</id>
 				<edge_type>1</edge_type>
-				<source_obj>12</source_obj>
-				<sink_obj>23</sink_obj>
+				<source_obj>79</source_obj>
+				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_78">
 				<id>85</id>
 				<edge_type>1</edge_type>
-				<source_obj>22</source_obj>
+				<source_obj>12</source_obj>
 				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_79">
 				<id>86</id>
 				<edge_type>1</edge_type>
-				<source_obj>24</source_obj>
+				<source_obj>23</source_obj>
 				<sink_obj>25</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_80">
 				<id>87</id>
 				<edge_type>1</edge_type>
-				<source_obj>23</source_obj>
+				<source_obj>24</source_obj>
 				<sink_obj>25</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
@@ -2456,15 +2456,15 @@
 		<item>
 			<first>23</first>
 			<second>
-				<first>1</first>
-				<second>0</second>
+				<first>0</first>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>24</first>
 			<second>
-				<first>0</first>
-				<second>1</second>
+				<first>1</first>
+				<second>0</second>
 			</second>
 		</item>
 		<item>

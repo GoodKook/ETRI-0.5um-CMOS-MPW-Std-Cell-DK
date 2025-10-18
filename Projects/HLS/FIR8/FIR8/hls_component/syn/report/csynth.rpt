@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'FIR8'
 ================================================================
 + General Information: 
-    * Date:           Wed Oct  1 06:43:20 2025
+    * Date:           Sat Oct 18 17:03:32 2025
     * Version:        2025.1 (Build 6135595 on May 21 2025)
     * Project:        FIR8
     * Solution:       hls_component (Vivado IP Flow Target)
@@ -19,7 +19,7 @@
     |            Modules            | Issue|        |       Latency       | Iteration|         | Trip |          |      |         |           |           |     |
     |            & Loops            | Type |  Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM |   DSP   |     FF    |    LUT    | URAM|
     +-------------------------------+------+--------+---------+-----------+----------+---------+------+----------+------+---------+-----------+-----------+-----+
-    |+ FIR8                         |     -|  725.43|       27|  2.700e+04|         -|       28|     -|        no|     -|  1 (~0%)|  143 (~0%)|  340 (~0%)|    -|
+    |+ FIR8                         |     -|  725.43|       27|  2.700e+04|         -|       28|     -|        no|     -|  1 (~0%)|  143 (~0%)|  284 (~0%)|    -|
     | + FIR8_Pipeline_SHIFTER_LOOP  |     -|  725.43|       10|  1.000e+04|         -|        9|     -|    rewind|     -|        -|   12 (~0%)|   90 (~0%)|    -|
     |  o SHIFTER_LOOP               |     -|  730.00|        8|  8.000e+03|         2|        1|     8|       yes|     -|        -|          -|          -|    -|
     | + FIR8_Pipeline_MACC_LOOP     |     -|  725.86|       13|  1.300e+04|         -|        9|     -|    rewind|     -|  1 (~0%)|  100 (~0%)|  115 (~0%)|    -|
@@ -52,12 +52,12 @@
 == SW I/O Information
 ================================================================
 * Top Function Arguments
-+----------+-----------+--------------+
-| Argument | Direction | Datatype     |
-+----------+-----------+--------------+
-| y        | out       | ap_uint<16>* |
-| x        | in        | ap_uint<8>   |
-+----------+-----------+--------------+
++----------+-----------+-----------------+
+| Argument | Direction | Datatype        |
++----------+-----------+-----------------+
+| y        | out       | unsigned short* |
+| x        | in        | unsigned char   |
++----------+-----------+-----------------+
 
 * SW-to-HW Mapping
 +----------+--------------+---------+
@@ -72,24 +72,21 @@
 ================================================================
 == Bind Op Report
 ================================================================
-+--------------------------------------+-----+--------+-------------+--------+-----------+---------+
-| Name                                 | DSP | Pragma | Variable    | Op     | Impl      | Latency |
-+--------------------------------------+-----+--------+-------------+--------+-----------+---------+
-| + FIR8                               | 1   |        |             |        |           |         |
-|   icmp_ln86_fu_83_p2                 |     |        | icmp_ln86   | setlt  | auto      | 0       |
-|   acc_fu_89_p2                       |     |        | acc         | add    | fabric    | 0       |
-|   select_ln86_fu_105_p3              |     |        | select_ln86 | select | auto_sel  | 0       |
-|  + FIR8_Pipeline_SHIFTER_LOOP        | 0   |        |             |        |           |         |
-|    icmp_ln75_fu_98_p2                |     |        | icmp_ln75   | seteq  | auto      | 0       |
-|    add_ln78_fu_104_p2                |     |        | add_ln78    | add    | fabric    | 0       |
-|    add_ln73_fu_115_p2                |     |        | add_ln73    | add    | fabric    | 0       |
-|  + FIR8_Pipeline_MACC_LOOP           | 1   |        |             |        |           |         |
-|    icmp_ln83_fu_90_p2                |     |        | icmp_ln83   | seteq  | auto      | 0       |
-|    add_ln83_fu_96_p2                 |     |        | add_ln83    | add    | fabric    | 0       |
-|    mac_muladd_8ns_6ns_16ns_16_4_1_U3 | 1   |        | mul_ln84    | mul    | dsp_slice | 3       |
-|    mac_muladd_8ns_6ns_16ns_16_4_1_U3 | 1   |        | zext_ln84_2 | zext   | dsp_slice | 3       |
-|    mac_muladd_8ns_6ns_16ns_16_4_1_U3 | 1   |        | acc_1       | add    | dsp_slice | 3       |
-+--------------------------------------+-----+--------+-------------+--------+-----------+---------+
++--------------------------------------+-----+--------+-------------+-------+-----------+---------+
+| Name                                 | DSP | Pragma | Variable    | Op    | Impl      | Latency |
++--------------------------------------+-----+--------+-------------+-------+-----------+---------+
+| + FIR8                               | 1   |        |             |       |           |         |
+|  + FIR8_Pipeline_SHIFTER_LOOP        | 0   |        |             |       |           |         |
+|    icmp_ln53_fu_98_p2                |     |        | icmp_ln53   | seteq | auto      | 0       |
+|    add_ln56_fu_104_p2                |     |        | add_ln56    | add   | fabric    | 0       |
+|    add_ln51_fu_115_p2                |     |        | add_ln51    | add   | fabric    | 0       |
+|  + FIR8_Pipeline_MACC_LOOP           | 1   |        |             |       |           |         |
+|    icmp_ln61_fu_90_p2                |     |        | icmp_ln61   | seteq | auto      | 0       |
+|    add_ln61_fu_96_p2                 |     |        | add_ln61    | add   | fabric    | 0       |
+|    mac_muladd_8ns_6ns_16ns_16_4_1_U3 | 1   |        | mul_ln62    | mul   | dsp_slice | 3       |
+|    mac_muladd_8ns_6ns_16ns_16_4_1_U3 | 1   |        | zext_ln62_2 | zext  | dsp_slice | 3       |
+|    mac_muladd_8ns_6ns_16ns_16_4_1_U3 | 1   |        | acc_1       | add   | dsp_slice | 3       |
++--------------------------------------+-----+--------+-------------+-------+-----------+---------+
 
 
 ================================================================

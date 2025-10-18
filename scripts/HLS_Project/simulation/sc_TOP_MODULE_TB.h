@@ -9,6 +9,9 @@ History : Sep. 2025, First release
 #define  _SC_TOP_MODULE_TB_H_
 
 #include <systemc.h>
+#include "TOP_MODULE.h"   // un-timed model
+#include "cnoise.h"
+
 #ifdef EMULATED_CO_SIM
 #include "ETOP_MODULE.h"
 #else
@@ -22,11 +25,13 @@ SC_MODULE(sc_TOP_MODULE_TB)
 {
     sc_clock                ap_clk;
     sc_signal<bool>         ap_rst;
-    sc_signal<bool>         clear;
-    sc_signal<bool>         start_r;
-    sc_signal<sc_uint<8> >  hh;
-    sc_signal<sc_uint<8> >  mm;
-    sc_signal<sc_uint<8> >  ss;
+    sc_signal<bool>         ap_start;
+    sc_signal<bool>         ap_done;
+    sc_signal<bool>         ap_idle;
+    sc_signal<bool>         ap_ready;
+    sc_signal<bool>         y_ap_vld;
+    sc_signal<sc_uint<8> >  x;
+    sc_signal<sc_uint<16> > y;
 
 #ifdef EMULATED_CO_SIM
     ETOP_MODULE*     u_TOP_MODULE;
@@ -34,6 +39,11 @@ SC_MODULE(sc_TOP_MODULE_TB)
     VTOP_MODULE*     u_TOP_MODULE;
 #endif
 
+    acc_t               _yRef[F_SAMPLE];
+    sc_signal<acc_t>    yRef;
+#ifdef EMULATED_CO_SIM
+    sc_signal<acc_t>    __yRef;
+#endif
     // Test utilities
     void Test_Gen();
     void Test_Mon();
@@ -63,23 +73,27 @@ SC_MODULE(sc_TOP_MODULE_TB)
 #endif
         u_TOP_MODULE->ap_clk(ap_clk);
         u_TOP_MODULE->ap_rst(ap_rst);
-        u_TOP_MODULE->clear(clear);
-        u_TOP_MODULE->start_r(start_r);
-        u_TOP_MODULE->hh(hh);
-        u_TOP_MODULE->mm(mm);
-        u_TOP_MODULE->ss(ss);
+        u_TOP_MODULE->ap_start(ap_start);
+        u_TOP_MODULE->ap_done(ap_done);
+        u_TOP_MODULE->ap_idle(ap_idle);
+        u_TOP_MODULE->ap_ready(ap_ready);
+        u_TOP_MODULE->y_ap_vld(y_ap_vld);
+        u_TOP_MODULE->x(x);
+        u_TOP_MODULE->y(y);
 
 #ifdef VCD_TRACE_TEST_TB
         // WAVE
-        fp = sc_create_vcd_trace_file("sc_TOP_MODULE_tb");
+        fp = sc_create_vcd_trace_file("sc_TOP_MODULE_TB");
         fp->set_time_unit(100, SC_PS);  // resolution (trace) ps
         sc_trace(fp, ap_clk,    "ap_clk");
         sc_trace(fp, ap_rst,    "ap_rst");
-        sc_trace(fp, clear,     "clear");
-        sc_trace(fp, start_r,   "start_r");
-        sc_trace(fp, hh,        "hh");
-        sc_trace(fp, mm,        "mm");
-        sc_trace(fp, ss,        "ss");
+        sc_trace(fp, ap_start,  "ap_start");
+        sc_trace(fp, ap_done,   "ap_done");
+        sc_trace(fp, ap_idle,   "ap_idle");
+        sc_trace(fp, ap_ready,  "ap_ready");
+        sc_trace(fp, y_ap_vld,  "y_ap_vld");
+        sc_trace(fp, x,         "x");
+        sc_trace(fp, y,         "y");
 #endif
 
 #ifdef VCD_TRACE_DUT_VERILOG

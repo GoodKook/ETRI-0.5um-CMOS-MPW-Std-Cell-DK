@@ -50,7 +50,7 @@ void sc_FIR8_TB::Test_Gen()
 
         FIR8(&yn, xn[t]); // FIR Filter
 
-        yRef[t] = yn;
+        _yRef[t] = yn;
     }
 
     int test_count = 0;
@@ -88,7 +88,7 @@ void sc_FIR8_TB::Test_Gen()
 //
 void sc_FIR8_TB::Test_Mon()
 {
-    int test_count = -1;
+    int test_count = 0;
 
     while(true)
     {
@@ -97,14 +97,18 @@ void sc_FIR8_TB::Test_Mon()
         if (y_ap_vld.read())
         {
             if (test_count>=F_SAMPLE)   break;
+#ifdef EMULATED_CO_SIM
+            __yRef.write(_yRef[test_count]);
+            yRef.write(__yRef.read());
+#else
+            yRef.write(_yRef[test_count]);
+#endif
+            printf("[%4d] y=%5d Y=%5d ", test_count, (uint16_t)yRef.read(), (uint16_t)y.read());
 
-            if (test_count<0);   // Skip first valid hardware output
+            if ((uint16_t)yRef.read()==(uint16_t)y.read())
+               printf("OK\n");
             else
-            {
-                printf("[%4d] y=%5d Y=%5d ", test_count, (uint16_t)yRef[test_count], (uint16_t)y.read());
-                if ((uint16_t)yRef[test_count]==(uint16_t)y.read())   printf("OK\n");
-                else                                            printf("ERROR\n");
-            }
+                printf("ERROR\n");
 
             test_count++;
         }

@@ -59,10 +59,16 @@ $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp :
 		echo "Copy un-timed model template ......"; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.cpp > \
 			$(C_UNTIMED_PATH)/$(TOP_MODULE).cpp; \
+		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.h > \
+			$(C_UNTIMED_PATH)/$(TOP_MODULE).h; \
 		echo "Copy un-timed model testbench ......"; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE_TB.cpp > \
 			$(C_UNTIMED_PATH)/$(TOP_MODULE)_TB.cpp; \
 		echo "Copy un-timed model Makefile ......"; \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/calcDFT.cpp $(C_UNTIMED_PATH); \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.cpp $(C_UNTIMED_PATH); \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.h $(C_UNTIMED_PATH); \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/plotDFT.py $(C_UNTIMED_PATH); \
 		cp $(PRJ_CONFIG_PATH)/c_untimed/Makefile $(C_UNTIMED_PATH); \
 	fi
 #---------------------------------------------------------------
@@ -95,6 +101,7 @@ co-sim: $(HLS_CSYN_PATH)/$(TOP_MODULE).v
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/simulation/sc_main.cpp > \
 			$(CO-SIM_PATH)/sc_main.cpp; \
 		echo "Copy un-timed model Makefile ......"; \
+		cp $(PRJ_CONFIG_PATH)/simulation/sc_plotDFT.py $(CO-SIM_PATH); \
 		cp $(PRJ_CONFIG_PATH)/simulation/Makefile $(CO-SIM_PATH); \
 	fi
 	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation build
@@ -125,7 +132,7 @@ emulation_help:
 	fi
 	@if [ ! -n "$(MODE)" ];  then \
 		echo "*********************************"; \
-		echo "!!! MODE=CA|SA|TL not defined !!!"; \
+		echo "!!! MODE=AL|CA|SA|TL not defined !!!"; \
 		echo "*********************************"; \
 		exit 1; \
 	fi
@@ -142,7 +149,7 @@ emulation_help:
 	fi
 	@echo
 	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
-	@echo '  For Co-Emulation,'
+	@echo '  For Co-Emulation,MODE=AL|CA|SA'
 	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
@@ -161,12 +168,22 @@ build-mi:
 	@if [ ! -d "$(PSCE-MI_PATH)" ];  then \
 		echo "Create Co-Emulation MI directory......"; \
 		mkdir $(PSCE-MI_PATH); \
+	fi
+	@if [ ! -d "$(PSCE-MI_PATH)/PSCE_API" ];  then \
+		echo "Create Co-Emulation MI (PSCE-API) directory......"; \
+		mkdir $(PSCE-MI_PATH)/PSCE_API; \
+		echo "Copy Co-Emulation MI (PSCE-API) ......"; \
+		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/PSCE_API/* $(PSCE-MI_PATH)/PSCE_API; \
+	fi
+	@if [ ! -d "$(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE)" ];  then \
+		echo "Create Co-Emulation MI-$(MODE) directory......"; \
 		mkdir $(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE); \
 		echo "Copy Co-Emulation MI (PSCE-API) ......"; \
-		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE_MODE/*.h $(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE); \
-		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE_MODE/*.cpp $(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE); \
-		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE_MODE/ETOP_MODULE_MODE.ino \
-								$(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE)//E$(TOP_MODULE)_$(MODE).ino; \
+		sed "s/TOP_MODULE/${TOP_MODULE}/g" \
+			$(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE/ETOP_MODULE_$(MODE).ino > \
+			$(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE)/E$(TOP_MODULE)_$(MODE).ino; \
+	fi
+	@if [ ! -f "$(PSCE-MI_PATH)/Makefile" ]; then \
 		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/Makefile $(PSCE-MI_PATH); \
 	fi
 	TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make -C $(PSCE-MI_PATH) build
@@ -256,7 +273,7 @@ ETRI050_help:
 			$(ETRI050_PATH)/simulation/vpi_$(TOP_MODULE)_tb_ports.h; \
 	fi
 	@if [ ! -f "$(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp" ];  then \
-		ln -s ./simulation/sc_$(TOP_MODULE)_TB.cpp $(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
+		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp $(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
 	fi
 	@if [ ! -e "$(ETRI050_PATH)/source" ];  then \
 		echo "Link ETRI050/source directory......"; \

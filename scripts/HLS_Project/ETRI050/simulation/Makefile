@@ -39,6 +39,7 @@ all :
 # Build VPI -----------------------------------------------------
 VPI_TARGET 	= vpi_stub.vpi
 VPI_SRCS 	= \
+	../../c_untimed/cnoise.cpp \
     ../../c_untimed/$(DUT_MODULE).cpp \
     ./vpi_stub.cpp \
     ./vpi_$(DUT_MODULE)_tb.cpp \
@@ -86,10 +87,9 @@ $(IVL_TARGET) : $(IVL_SRCS) $(VPI_TARGET) $(VLT_TARGET)
 
 # Cleaning ----------------------------------------------------------------
 clean :
-	rm -rf $(VLT_DIR)
-	rm -f vpi_stub.vpi
 	rm -f sc_$(DUT_MODULE)_tb_out.txt
-	rm -f *.vcd
+	rm -f $(DUT_MODULE)_TB.vcd
+	rm -f sc_$(DUT_MODULE)_tb.vcd
 	rm -f $(VPI_TARGET)
 	rm -f $(IVL_TARGET)
 

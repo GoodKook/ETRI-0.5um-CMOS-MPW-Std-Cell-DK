@@ -40,7 +40,7 @@
             <BRAM_18K>0</BRAM_18K>
             <DSP>1</DSP>
             <FF>143</FF>
-            <LUT>340</LUT>
+            <LUT>284</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -152,7 +152,7 @@
             <Dir>in</Dir>
             <Bits>8</Bits>
             <Attribute>data</Attribute>
-            <CType>int</CType>
+            <CType>uint</CType>
         </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
@@ -160,21 +160,21 @@
             <ModuleName>FIR8</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63</InstName>
+                    <InstName>grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51</InstName>
                     <ModuleName>FIR8_Pipeline_SHIFTER_LOOP</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>63</ID>
-                    <BindInstances>icmp_ln75_fu_98_p2 add_ln78_fu_104_p2 add_ln73_fu_115_p2</BindInstances>
+                    <ID>51</ID>
+                    <BindInstances>icmp_ln53_fu_98_p2 add_ln56_fu_104_p2 add_ln51_fu_115_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>grp_FIR8_Pipeline_MACC_LOOP_fu_71</InstName>
+                    <InstName>grp_FIR8_Pipeline_MACC_LOOP_fu_59</InstName>
                     <ModuleName>FIR8_Pipeline_MACC_LOOP</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>71</ID>
-                    <BindInstances>icmp_ln83_fu_90_p2 add_ln83_fu_96_p2 mac_muladd_8ns_6ns_16ns_16_4_1_U3 mac_muladd_8ns_6ns_16ns_16_4_1_U3 mac_muladd_8ns_6ns_16ns_16_4_1_U3 filter_taps_U</BindInstances>
+                    <ID>59</ID>
+                    <BindInstances>icmp_ln61_fu_90_p2 add_ln61_fu_96_p2 mac_muladd_8ns_6ns_16ns_16_4_1_U3 mac_muladd_8ns_6ns_16ns_16_4_1_U3 mac_muladd_8ns_6ns_16ns_16_4_1_U3 filter_taps_U</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>icmp_ln86_fu_83_p2 acc_fu_89_p2 select_ln86_fu_105_p3 shift_reg_U</BindInstances>
+            <BindInstances>shift_reg_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -218,13 +218,13 @@
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>c_untimed/FIR8.cpp:73</SourceLocation>
+                    <SourceLocation>c_untimed/FIR8.cpp:51</SourceLocation>
                     <SummaryOfLoopViolations>
                         <SHIFTER_LOOP>
                             <Name>SHIFTER_LOOP</Name>
                             <IssueType>-</IssueType>
                             <ViolationType>-</ViolationType>
-                            <SourceLocation>c_untimed/FIR8.cpp:73</SourceLocation>
+                            <SourceLocation>c_untimed/FIR8.cpp:51</SourceLocation>
                         </SHIFTER_LOOP>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
@@ -249,9 +249,9 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln75_fu_98_p2" SOURCE="c_untimed/FIR8.cpp:75" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln75" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln78_fu_104_p2" SOURCE="c_untimed/FIR8.cpp:78" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln78" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln73_fu_115_p2" SOURCE="c_untimed/FIR8.cpp:73" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln73" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln53_fu_98_p2" SOURCE="c_untimed/FIR8.cpp:53" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln53" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln56_fu_104_p2" SOURCE="c_untimed/FIR8.cpp:56" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln56" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="SHIFTER_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln51_fu_115_p2" SOURCE="c_untimed/FIR8.cpp:51" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln51" VISIBLE="true"/>
             </BindNodes>
         </Module>
         <Module>
@@ -294,13 +294,13 @@
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>c_untimed/FIR8.cpp:68</SourceLocation>
+                    <SourceLocation>c_untimed/FIR8.cpp:46</SourceLocation>
                     <SummaryOfLoopViolations>
                         <MACC_LOOP>
                             <Name>MACC_LOOP</Name>
                             <IssueType>-</IssueType>
                             <ViolationType>-</ViolationType>
-                            <SourceLocation>c_untimed/FIR8.cpp:83</SourceLocation>
+                            <SourceLocation>c_untimed/FIR8.cpp:61</SourceLocation>
                         </MACC_LOOP>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
@@ -325,11 +325,11 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="MACC_LOOP" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln83_fu_90_p2" SOURCE="c_untimed/FIR8.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln83" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="MACC_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln83_fu_96_p2" SOURCE="c_untimed/FIR8.cpp:83" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln83" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:84" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln84" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op zext" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="zext" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:84" STORAGESUBTYPE="" URAM="0" VARIABLE="zext_ln84_2" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:84" STORAGESUBTYPE="" URAM="0" VARIABLE="acc_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="MACC_LOOP" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln61_fu_90_p2" SOURCE="c_untimed/FIR8.cpp:61" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln61" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="MACC_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln61_fu_96_p2" SOURCE="c_untimed/FIR8.cpp:61" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln61" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln62" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op zext" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="zext" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="zext_ln62_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp_slice" LATENCY="3" LOOP="MACC_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_8ns_6ns_16ns_16_4_1_U3" SOURCE="c_untimed/FIR8.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="acc_1" VISIBLE="true"/>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="filter_taps_U" SOURCE="" STORAGESIZE="6 8 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="filter_taps" VISIBLE="true"/>
             </BindNodes>
         </Module>
@@ -369,7 +369,7 @@
                     <FF>143</FF>
                     <AVAIL_FF>126800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>340</LUT>
+                    <LUT>284</LUT>
                     <AVAIL_LUT>63400</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -378,9 +378,6 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln86_fu_83_p2" SOURCE="c_untimed/FIR8.cpp:86" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln86" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="acc_fu_89_p2" SOURCE="c_untimed/FIR8.cpp:88" STORAGESUBTYPE="" URAM="0" VARIABLE="acc" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln86_fu_105_p3" SOURCE="c_untimed/FIR8.cpp:86" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln86" VISIBLE="false"/>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="shift_reg_U" SOURCE="" STORAGESIZE="8 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="shift_reg" VISIBLE="true"/>
             </BindNodes>
         </Module>
@@ -388,13 +385,13 @@
     <FIFOInformation/>
     <UserConfigCommands/>
     <Args>
-        <Arg ArgName="y" index="0" direction="out" srcType="ap_uint&lt;16&gt;*" srcSize="16">
+        <Arg ArgName="y" index="0" direction="out" srcType="unsigned short*" srcSize="16">
             <hwRefs>
                 <hwRef type="port" interface="y" name="y" usage="data" direction="out"/>
                 <hwRef type="port" interface="y_ap_vld" name="y_ap_vld" usage="control" direction="out"/>
             </hwRefs>
         </Arg>
-        <Arg ArgName="x" index="1" direction="in" srcType="ap_uint&lt;8&gt;" srcSize="8">
+        <Arg ArgName="x" index="1" direction="in" srcType="unsigned char" srcSize="8">
             <hwRefs>
                 <hwRef type="port" interface="x" name="x" usage="data" direction="in"/>
             </hwRefs>
@@ -484,8 +481,8 @@
             <item name="Top Function Arguments">
                 <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
-                    <column name="y">out, ap_uint&lt;16&gt;*</column>
-                    <column name="x">in, ap_uint&lt;8&gt;</column>
+                    <column name="y">out, unsigned short*</column>
+                    <column name="x">in, unsigned char</column>
                 </table>
             </item>
             <item name="SW-to-HW Mapping">

@@ -12,9 +12,12 @@
 typedef struct tag_Input
 {
     unsigned long   sync_sc;
-    unsigned long   hh;
-    unsigned long   mm;
-    unsigned long   ss;
+
+    unsigned long   ap_done;
+    unsigned long   ap_idle;
+    unsigned long   ap_ready;
+    unsigned long   y_ap_vld;
+    unsigned long   y;
 } IN_VECTOR;
 
 // to Verilog TB (DUT's input ports)
@@ -22,9 +25,11 @@ typedef struct tag_Output
 {
     unsigned long   ap_clk;
     unsigned long   ap_rst;
-    unsigned long   clear;
-    unsigned long   start_r;
+    unsigned long   ap_start;
+    unsigned long   x;
+
     unsigned long   end_of_sim;
 } OUT_VECTOR;
 
 #endif
+

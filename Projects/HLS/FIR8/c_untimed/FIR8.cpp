@@ -118,6 +118,6 @@ inline acc_t FIR_PE(coef_t Cin, acc_t Yin, data_t Xin, data_t* Xout)
     return y;
 }
 #else
-#pragma message("FIR function NOT defined; neither FIR_SHIFTER_VERSION nor FIR_MAC_VERSION nor FIR_ARRAY_VERSION")
+#pragma message("FIR function NOT defined; neither FIR_SHIFTER_VERSION nor FIR_MAC_VERSION nor FIR_MAC_VERSION_MPW nor FIR_ARRAY_VERSION")
 #endif
 

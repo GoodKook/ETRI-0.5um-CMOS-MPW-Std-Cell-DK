@@ -22,9 +22,8 @@ SC_SRCS = \
 	$(C_UNTIMED_PATH)/$(DUT_NAME).cpp \
 	$(SC_SIM_PATH)/sc_$(DUT_NAME)_TB.cpp \
 	$(SC_SIM_PATH)/sc_main.cpp
-SC_LIBS = \
-	-lsystemc \
-	-lm -lgsl
+LIBS = -lsystemc -lgsl
+
 # Build Rules --------------------------------------------------
 all :
 	@clear
@@ -59,10 +58,11 @@ $(SC_TARGET): $(SC_SRCS) $(SC_HDRS)
 		-D$(HW_STYLE)_SC \
 		-DEMULATED_CO_SIM \
 		-DVCD_TRACE_TEST_TB \
-		$(SC_LIBS) -o$(SC_TARGET) $(SC_SRCS)
+		$(LIBS) \
+		-o$(SC_TARGET) $(SC_SRCS)
 
-wave : sc_$(DUT_NAME)_tb.vcd
-	gtkwave sc_$(DUT_NAME)_tb.vcd --save=sc_$(DUT_NAME)_tb.gtkw &
+wave : sc_$(DUT_NAME)_TB.vcd
+	gtkwave sc_$(DUT_NAME)_TB.vcd --save=sc_$(DUT_NAME)_TB.gtkw &
 
 #	rm -f $(SC_TARGET).vcd
 #	mkfifo $(SC_TARGET).vcd
@@ -74,6 +74,7 @@ run: $(SC_TARGET)
 
 clean :
 	rm -f $(SC_TARGET)
-	rm -f *.vcd
+	rm -f sc_$(DUT_NAME)_TB.vcd
+	rm -f E$(DUT_NAME).vcd
 
 

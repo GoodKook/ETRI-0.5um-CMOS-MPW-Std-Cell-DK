@@ -59,10 +59,16 @@ $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp :
 		echo "Copy un-timed model template ......"; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.cpp > \
 			$(C_UNTIMED_PATH)/$(TOP_MODULE).cpp; \
+		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.h > \
+			$(C_UNTIMED_PATH)/$(TOP_MODULE).h; \
 		echo "Copy un-timed model testbench ......"; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE_TB.cpp > \
 			$(C_UNTIMED_PATH)/$(TOP_MODULE)_TB.cpp; \
 		echo "Copy un-timed model Makefile ......"; \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/calcDFT.cpp $(C_UNTIMED_PATH); \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.cpp $(C_UNTIMED_PATH); \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.h $(C_UNTIMED_PATH); \
+		cp $(PRJ_CONFIG_PATH)/c_untimed/plotDFT.py $(C_UNTIMED_PATH); \
 		cp $(PRJ_CONFIG_PATH)/c_untimed/Makefile $(C_UNTIMED_PATH); \
 	fi
 #---------------------------------------------------------------
@@ -95,6 +101,7 @@ co-sim: $(HLS_CSYN_PATH)/$(TOP_MODULE).v
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/simulation/sc_main.cpp > \
 			$(CO-SIM_PATH)/sc_main.cpp; \
 		echo "Copy un-timed model Makefile ......"; \
+		cp $(PRJ_CONFIG_PATH)/simulation/sc_plotDFT.py $(CO-SIM_PATH); \
 		cp $(PRJ_CONFIG_PATH)/simulation/Makefile $(CO-SIM_PATH); \
 	fi
 	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation build
@@ -102,20 +109,6 @@ co-sim: $(HLS_CSYN_PATH)/$(TOP_MODULE).v
 
 wave: $(HLS_CSYN_PATH)/$(TOP_MODULE).v
 	TOP_MODULE=$(TOP_MODULE) make -C $(CO-SIM_PATH) wave
-#---------------------------------------------------------------
-clean:
-	@if [ ! -n "$(TOP_MODULE)" ];  then \
-		echo "*********************************"; \
-		echo "!!! TOP_MODULE not declared !!!"; \
-		echo "*********************************"; \
-		exit 1; \
-	fi
-	rm -f .gitignore
-	rm -rf _ide
-	rm -rf logs
-#	rm -rf $(TOP_MODULE)
-	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) clean
-	TOP_MODULE=$(TOP_MODULE) make -C $(CO-SIM_PATH) clean
 #---------------------------------------------------------------
 #  EMULATION MENU
 #---------------------------------------------------------------
@@ -139,7 +132,7 @@ emulation_help:
 	fi
 	@if [ ! -n "$(MODE)" ];  then \
 		echo "*********************************"; \
-		echo "!!! MODE=CA|SA|TL not defined !!!"; \
+		echo "!!! MODE=AL|CA|SA|TL not defined !!!"; \
 		echo "*********************************"; \
 		exit 1; \
 	fi
@@ -175,12 +168,22 @@ build-mi:
 	@if [ ! -d "$(PSCE-MI_PATH)" ];  then \
 		echo "Create Co-Emulation MI directory......"; \
 		mkdir $(PSCE-MI_PATH); \
+	fi
+	@if [ ! -d "$(PSCE-MI_PATH)/PSCE_API" ];  then \
+		echo "Create Co-Emulation MI (PSCE-API) directory......"; \
+		mkdir $(PSCE-MI_PATH)/PSCE_API; \
+		echo "Copy Co-Emulation MI (PSCE-API) ......"; \
+		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/PSCE_API/* $(PSCE-MI_PATH)/PSCE_API; \
+	fi
+	@if [ ! -d "$(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE)" ];  then \
+		echo "Create Co-Emulation MI-$(MODE) directory......"; \
 		mkdir $(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE); \
 		echo "Copy Co-Emulation MI (PSCE-API) ......"; \
-		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE_MODE/*.h $(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE); \
-		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE_MODE/*.cpp $(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE); \
-		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE_MODE/ETOP_MODULE_MODE.ino \
-								$(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE)//E$(TOP_MODULE)_$(MODE).ino; \
+		sed "s/TOP_MODULE/${TOP_MODULE}/g" \
+			$(PRJ_CONFIG_PATH)/emulation/PSCE-MI/ETOP_MODULE/ETOP_MODULE_$(MODE).ino > \
+			$(PSCE-MI_PATH)/E$(TOP_MODULE)_$(MODE)/E$(TOP_MODULE)_$(MODE).ino; \
+	fi
+	@if [ ! -f "$(PSCE-MI_PATH)/Makefile" ]; then \
 		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-MI/Makefile $(PSCE-MI_PATH); \
 	fi
 	TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make -C $(PSCE-MI_PATH) build
@@ -256,8 +259,6 @@ ETRI050_help:
 		echo "Create ETRI050/simulation directory......"; \
 		mkdir $(ETRI050_PATH)/simulation; \
 		cp $(PRJ_CONFIG_PATH)/ETRI050/simulation/Makefile $(ETRI050_PATH)/simulation; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/sc_TOP_MODULE_TB.cpp > \
-			$(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/sc_TOP_MODULE_TB.h > \
 			$(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.h; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/TOP_MODULE_TB.v > \
@@ -270,6 +271,9 @@ ETRI050_help:
 			$(ETRI050_PATH)/simulation/vpi_$(TOP_MODULE)_tb_exports.h; \
 		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/ETRI050/simulation/vpi_TOP_MODULE_tb_ports.h > \
 			$(ETRI050_PATH)/simulation/vpi_$(TOP_MODULE)_tb_ports.h; \
+	fi
+	@if [ ! -f "$(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp" ];  then \
+		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp $(ETRI050_PATH)/simulation/sc_$(TOP_MODULE)_TB.cpp; \
 	fi
 	@if [ ! -e "$(ETRI050_PATH)/source" ];  then \
 		echo "Link ETRI050/source directory......"; \

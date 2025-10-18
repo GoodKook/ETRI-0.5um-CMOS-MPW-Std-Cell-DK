@@ -20,7 +20,7 @@ set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
 set C_modelArgList {
 	{ y int 16 regular {pointer 1}  }
-	{ x int 8 regular  }
+	{ x uint 8 regular  }
 }
 set hasAXIMCache 0
 set l_AXIML2Cache [list]
@@ -62,7 +62,7 @@ set ArgLastReadFirstWriteLatency {
 		x {Type I LastRead 0 FirstWrite -1}
 		shift_reg {Type IO LastRead 0 FirstWrite 0}}
 	FIR8_Pipeline_MACC_LOOP {
-		acc_1_out {Type O LastRead -1 FirstWrite 3}
+		acc_out {Type O LastRead -1 FirstWrite 3}
 		filter_taps {Type I LastRead -1 FirstWrite -1}
 		shift_reg {Type I LastRead 0 FirstWrite -1}}}
 

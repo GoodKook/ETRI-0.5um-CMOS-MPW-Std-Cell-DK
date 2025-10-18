@@ -20,13 +20,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "x", "Type" : "None", "Direction" : "I"},
 			{"Name" : "shift_reg", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63", "Port" : "shift_reg", "Inst_start_state" : "1", "Inst_end_state" : "2"},
-					{"ID" : "4", "SubInstance" : "grp_FIR8_Pipeline_MACC_LOOP_fu_71", "Port" : "shift_reg", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+					{"ID" : "2", "SubInstance" : "grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51", "Port" : "shift_reg", "Inst_start_state" : "1", "Inst_end_state" : "2"},
+					{"ID" : "4", "SubInstance" : "grp_FIR8_Pipeline_MACC_LOOP_fu_59", "Port" : "shift_reg", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "filter_taps", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_FIR8_Pipeline_MACC_LOOP_fu_71", "Port" : "filter_taps", "Inst_start_state" : "3", "Inst_end_state" : "4"}]}]},
+					{"ID" : "4", "SubInstance" : "grp_FIR8_Pipeline_MACC_LOOP_fu_59", "Port" : "filter_taps", "Inst_start_state" : "3", "Inst_end_state" : "4"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.shift_reg_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63", "Parent" : "0", "Child" : ["3"],
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51", "Parent" : "0", "Child" : ["3"],
 		"CDFG" : "FIR8_Pipeline_SHIFTER_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -46,8 +46,8 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "SHIFTER_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63.flow_control_loop_pipe_sequential_init_U", "Parent" : "2"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_71", "Parent" : "0", "Child" : ["5", "6", "7"],
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51.flow_control_loop_pipe_sequential_init_U", "Parent" : "2"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_59", "Parent" : "0", "Child" : ["5", "6", "7"],
 		"CDFG" : "FIR8_Pipeline_MACC_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -62,12 +62,12 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "acc_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "acc_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "filter_taps", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "shift_reg", "Type" : "Memory", "Direction" : "I"}],
 		"Loop" : [
 			{"Name" : "MACC_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter4", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter4", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_71.filter_taps_U", "Parent" : "4"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_71.mac_muladd_8ns_6ns_16ns_16_4_1_U3", "Parent" : "4"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_71.flow_control_loop_pipe_sequential_init_U", "Parent" : "4"}]}
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_59.filter_taps_U", "Parent" : "4"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_59.mac_muladd_8ns_6ns_16ns_16_4_1_U3", "Parent" : "4"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_FIR8_Pipeline_MACC_LOOP_fu_59.flow_control_loop_pipe_sequential_init_U", "Parent" : "4"}]}

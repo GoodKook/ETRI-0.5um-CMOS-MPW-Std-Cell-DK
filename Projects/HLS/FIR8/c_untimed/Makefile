@@ -21,10 +21,7 @@ SRCS =  \
 
 HDRS =
 
-LIBS = \
-	-lsystemc \
-	-lm -lgsl
-
+LIBS = -lsystemc -lgsl
 
 # Build Rules --------------------------------------------------
 all :

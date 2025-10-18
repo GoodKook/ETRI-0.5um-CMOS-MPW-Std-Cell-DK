@@ -76,10 +76,8 @@ all :
 	@echo
 	@echo 'Makefile for Co-Simulation of Vitis-HLS example, $(TOP_MODULE)'
 	@echo
-	@echo '    make lint'
-	@echo '    make build'
-	@echo '        build options,'
-	@echo '            VCD_TRACE = [YES]|NO'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make lint'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=[YES]|NO make build'
 	@echo '    make run'
 	@echo '    make wave'
 	@echo '    make clean'
@@ -98,23 +96,16 @@ $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
 				$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 run : $(TARGET_DIR)/$(TARGET)
-	@if [ ! -f ./FIR8_shift_reg_RAM_AUTO_1R1W.dat ];  then \
-		ln -s ../FIR8/hls_component/syn/verilog/FIR8_shift_reg_RAM_AUTO_1R1W.dat \
-				./FIR8_shift_reg_RAM_AUTO_1R1W.dat; \
-	fi
-	@if [ ! -f ./FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat ]; then \
-		ln -s ../FIR8/hls_component/syn/verilog/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat \
-				./FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat; \
-	fi
-	$(TARGET_DIR)/$(TARGET)
+	./$(TARGET_DIR)/$(TARGET)
 
-wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_tb.vcd
+wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
 	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
-	gtkwave sc_$(TOP_MODULE)_tb.vcd --save=sc_$(TOP_MODULE)_tb.gtkw &
+	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)
-	rm -f *.vcd
+	rm -f V$(TOP_MODULE).vcd
+	rm -f sc_$(TOP_MODULE)_TB.vcd
 	rm -f $(TOP_MODULE)
 
 debug : $(TARGET_DIR)/$(TARGET)

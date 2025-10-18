@@ -20,14 +20,14 @@ set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
 dict set ap_memory_interface_dict shift_reg { MEM_WIDTH 8 MEM_SIZE 8 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
 set C_modelArgList {
-	{ acc_1_out int 16 regular {pointer 1}  }
+	{ acc_out int 16 regular {pointer 1}  }
 	{ shift_reg int 8 regular {array 8 { 1 3 } 1 1 } {global 0}  }
 }
 set hasAXIMCache 0
 set l_AXIML2Cache [list]
 set AXIMCacheInstDict [dict create]
 set C_modelArgMapList {[ 
-	{ "Name" : "acc_1_out", "interface" : "wire", "bitwidth" : 16, "direction" : "WRITEONLY"} , 
+	{ "Name" : "acc_out", "interface" : "wire", "bitwidth" : 16, "direction" : "WRITEONLY"} , 
  	{ "Name" : "shift_reg", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY", "extern" : 0} ]}
 # RTL Port declarations: 
 set portNum 11
@@ -38,8 +38,8 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ acc_1_out sc_out sc_lv 16 signal 0 } 
-	{ acc_1_out_ap_vld sc_out sc_logic 1 outvld 0 } 
+	{ acc_out sc_out sc_lv 16 signal 0 } 
+	{ acc_out_ap_vld sc_out sc_logic 1 outvld 0 } 
 	{ shift_reg_address0 sc_out sc_lv 3 signal 1 } 
 	{ shift_reg_ce0 sc_out sc_logic 1 signal 1 } 
 	{ shift_reg_q0 sc_in sc_lv 8 signal 1 } 
@@ -51,15 +51,15 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "acc_1_out", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "acc_1_out", "role": "default" }} , 
- 	{ "name": "acc_1_out_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "acc_1_out", "role": "ap_vld" }} , 
+ 	{ "name": "acc_out", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "acc_out", "role": "default" }} , 
+ 	{ "name": "acc_out_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "acc_out", "role": "ap_vld" }} , 
  	{ "name": "shift_reg_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "shift_reg", "role": "address0" }} , 
  	{ "name": "shift_reg_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "shift_reg", "role": "ce0" }} , 
  	{ "name": "shift_reg_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "shift_reg", "role": "q0" }}  ]}
 
 set ArgLastReadFirstWriteLatency {
 	FIR8_Pipeline_MACC_LOOP {
-		acc_1_out {Type O LastRead -1 FirstWrite 3}
+		acc_out {Type O LastRead -1 FirstWrite 3}
 		filter_taps {Type I LastRead -1 FirstWrite -1}
 		shift_reg {Type I LastRead 0 FirstWrite -1}}}
 
@@ -75,6 +75,6 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	acc_1_out { ap_vld {  { acc_1_out out_data 1 16 }  { acc_1_out_ap_vld out_vld 1 1 } } }
+	acc_out { ap_vld {  { acc_out out_data 1 16 }  { acc_out_ap_vld out_vld 1 1 } } }
 	shift_reg { ap_memory {  { shift_reg_address0 mem_address 1 3 }  { shift_reg_ce0 mem_ce 1 1 }  { shift_reg_q0 mem_dout 0 8 } } }
 }

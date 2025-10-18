@@ -88,10 +88,9 @@ $(IVL_TARGET) : $(IVL_SRCS) $(VPI_TARGET) $(VLT_TARGET)
 
 # Cleaning ----------------------------------------------------------------
 clean :
-	rm -rf $(VLT_DIR)
-	rm -f vpi_stub.vpi
 	rm -f sc_$(DUT_MODULE)_TB.txt
-	rm -f *.vcd
+	rm -f $(DUT_MODULE)_TB.vcd
+	rm -f sc_$(DUT_MODULE)_TB.vcd
 	rm -f $(VPI_TARGET)
 	rm -f $(IVL_TARGET)
 

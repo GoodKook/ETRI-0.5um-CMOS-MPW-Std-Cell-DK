@@ -28,7 +28,8 @@ SC_MODULE(sc_FIR8_TB)
 
     sc_signal<bool>         sc_Stopped;
     
-    acc_t   yRef[F_SAMPLE];
+    acc_t                   _yRef[F_SAMPLE];
+    sc_signal<acc_t>        yRef;
 
     // Test utilities
     void Test_Gen();

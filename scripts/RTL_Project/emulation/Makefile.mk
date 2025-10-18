@@ -71,6 +71,8 @@ run: $(SC_TARGET)
 
 clean :
 	rm -f $(SC_TARGET)
-	rm -f *.vcd
+	rm -f E$(TOP_MODULE).vcd
+	rm -f sc_$(TOP_MODULE)_TB.vcd
+	rm -f sc_$(TOP_MODULE)_TB.txt
 
 

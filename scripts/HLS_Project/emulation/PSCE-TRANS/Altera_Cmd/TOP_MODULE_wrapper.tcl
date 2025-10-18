@@ -30,6 +30,12 @@ if {$make_assignments} {
 	set_global_assignment -name ORIGINAL_QUARTUS_VERSION 24.1STD.0
 	set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:09:03  APRIL 25, 2025"
 	set_global_assignment -name LAST_QUARTUS_VERSION "24.1std.0 Standard Edition"
+	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/hls_component/syn/verilog/TOP_MODULE_TOP_MODULE_Pipeline_MACC_LOOP.v
+	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/hls_component/syn/verilog/TOP_MODULE_TOP_MODULE_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/hls_component/syn/verilog/TOP_MODULE_TOP_MODULE_Pipeline_SHIFTER_LOOP.v
+	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/hls_component/syn/verilog/TOP_MODULE_flow_control_loop_pipe_sequential_init.v
+	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/hls_component/syn/verilog/TOP_MODULE_mac_muladd_8ns_6ns_16ns_16_4_1.v
+	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/hls_component/syn/verilog/TOP_MODULE_shift_reg_RAM_AUTO_1R1W.v
 	set_global_assignment -name VERILOG_FILE ../../../TOP_MODULE/hls_component/syn/verilog/TOP_MODULE.v
 	set_global_assignment -name VERILOG_FILE ../../TOP_MODULE_wrapper.v
 	set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
@@ -44,7 +50,6 @@ if {$make_assignments} {
 	set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 	set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 	set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-	set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 	set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 	set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 	set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -80,7 +85,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[0]
-#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[6]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[5]
@@ -89,7 +94,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu[0]
-#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Din_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_dut
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_emu
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to get_emu
@@ -97,7 +102,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[2]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[1]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu[0]
-#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Addr_emu
 	set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 
 	# Including default assignments

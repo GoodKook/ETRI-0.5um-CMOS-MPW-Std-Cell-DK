@@ -6,57 +6,143 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="FIR8_FIR8,hls_ip_2025_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7a100t-csg324-2I,HLS_INPUT_CLOCK=1000.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.883214,HLS_SYN_LAT=0,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=18,HLS_SYN_LUT=167,HLS_VERSION=2025_1}" *)
+(* CORE_GENERATION_INFO="FIR8_FIR8,hls_ip_2025_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7a100t-csg324-2I,HLS_INPUT_CLOCK=1000.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.570000,HLS_SYN_LAT=27,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=143,HLS_SYN_LUT=284,HLS_VERSION=2025_1}" *)
 
 module FIR8 (
         ap_clk,
         ap_rst,
-        clear,
-        start_r,
-        hh,
-        mm,
-        ss
+        ap_start,
+        ap_done,
+        ap_idle,
+        ap_ready,
+        y,
+        y_ap_vld,
+        x
 );
 
-parameter    ap_ST_fsm_state1 = 1'd1;
+parameter    ap_ST_fsm_state1 = 5'd1;
+parameter    ap_ST_fsm_state2 = 5'd2;
+parameter    ap_ST_fsm_state3 = 5'd4;
+parameter    ap_ST_fsm_state4 = 5'd8;
+parameter    ap_ST_fsm_state5 = 5'd16;
 
 input   ap_clk;
 input   ap_rst;
-input  [0:0] clear;
-input  [0:0] start_r;
-output  [7:0] hh;
-output  [7:0] mm;
-output  [7:0] ss;
+input   ap_start;
+output   ap_done;
+output   ap_idle;
+output   ap_ready;
+output  [15:0] y;
+output   y_ap_vld;
+input  [7:0] x;
 
-reg   [5:0] p_ss;
-reg   [5:0] p_mm;
-reg   [4:0] p_hh;
-reg   [5:0] ap_phi_mux_p_ss_loc_2_phi_fu_90_p10;
-(* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
+reg ap_done;
+reg ap_idle;
+reg ap_ready;
+reg y_ap_vld;
+
+(* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-wire   [0:0] clear_read_read_fu_60_p2;
-wire   [0:0] start_r_read_read_fu_54_p2;
-wire   [5:0] add_ln59_fu_162_p2;
-wire   [0:0] icmp_ln44_fu_156_p2;
-wire   [0:0] icmp_ln47_fu_181_p2;
-reg   [5:0] ap_phi_mux_p_mm_loc_3_phi_fu_108_p10;
-wire   [5:0] add_ln56_fu_187_p2;
-reg   [4:0] ap_phi_mux_p_hh_loc_3_phi_fu_125_p10;
-wire   [4:0] select_ln50_fu_218_p3;
-wire   [0:0] icmp_ln50_fu_206_p2;
-wire   [4:0] add_ln53_fu_212_p2;
-reg   [0:0] ap_NS_fsm;
-wire    ap_ST_fsm_state1_blk;
-reg    ap_condition_53;
+reg   [2:0] shift_reg_address0;
+reg    shift_reg_ce0;
+reg    shift_reg_we0;
+wire   [7:0] shift_reg_q0;
+reg    shift_reg_ce1;
+reg    shift_reg_we1;
+wire   [7:0] shift_reg_q1;
+reg   [7:0] x_read_reg_72;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_idle;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_ready;
+wire   [2:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address0;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce0;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we0;
+wire   [7:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d0;
+wire   [2:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce1;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1;
+wire   [7:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d1;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_idle;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_ready;
+wire   [15:0] grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out_ap_vld;
+wire   [2:0] grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_address0;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_ce0;
+reg    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg;
+wire    ap_CS_fsm_state2;
+reg    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg;
+wire    ap_CS_fsm_state3;
+wire    ap_CS_fsm_state4;
+wire    ap_CS_fsm_state5;
+reg   [4:0] ap_NS_fsm;
+reg    ap_ST_fsm_state1_blk;
+reg    ap_ST_fsm_state2_blk;
+wire    ap_ST_fsm_state3_blk;
+reg    ap_ST_fsm_state4_blk;
+wire    ap_ST_fsm_state5_blk;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 p_ss = 6'd0;
-#0 p_mm = 6'd0;
-#0 p_hh = 5'd0;
-#0 ap_CS_fsm = 1'd1;
+#0 ap_CS_fsm = 5'd1;
+#0 grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg = 1'b0;
+#0 grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg = 1'b0;
 end
+
+FIR8_shift_reg_RAM_AUTO_1R1W #(
+    .DataWidth( 8 ),
+    .AddressRange( 8 ),
+    .AddressWidth( 3 ))
+shift_reg_U(
+    .clk(ap_clk),
+    .reset(ap_rst),
+    .address0(shift_reg_address0),
+    .ce0(shift_reg_ce0),
+    .we0(shift_reg_we0),
+    .d0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d0),
+    .q0(shift_reg_q0),
+    .address1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1),
+    .ce1(shift_reg_ce1),
+    .we1(shift_reg_we1),
+    .d1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d1),
+    .q1(shift_reg_q1)
+);
+
+FIR8_FIR8_Pipeline_SHIFTER_LOOP grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .ap_start(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start),
+    .ap_done(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done),
+    .ap_idle(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_idle),
+    .ap_ready(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_ready),
+    .x(x_read_reg_72),
+    .shift_reg_address0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address0),
+    .shift_reg_ce0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce0),
+    .shift_reg_we0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we0),
+    .shift_reg_d0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d0),
+    .shift_reg_address1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1),
+    .shift_reg_ce1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce1),
+    .shift_reg_we1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1),
+    .shift_reg_d1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d1),
+    .shift_reg_q1(shift_reg_q1)
+);
+
+FIR8_FIR8_Pipeline_MACC_LOOP grp_FIR8_Pipeline_MACC_LOOP_fu_59(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .ap_start(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start),
+    .ap_done(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done),
+    .ap_idle(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_idle),
+    .ap_ready(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_ready),
+    .acc_out(grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out),
+    .acc_out_ap_vld(grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out_ap_vld),
+    .shift_reg_address0(grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_address0),
+    .shift_reg_ce0(grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_ce0),
+    .shift_reg_q0(shift_reg_q0)
+);
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
@@ -68,83 +154,165 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        p_hh <= 5'd0;
+        grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state1)) begin
-            if ((clear_read_read_fu_60_p2 == 1'd1)) begin
-                p_hh <= 5'd0;
-            end else if ((1'b1 == ap_condition_53)) begin
-                p_hh <= select_ln50_fu_218_p3;
-            end
+        if ((1'b1 == ap_CS_fsm_state3)) begin
+            grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg <= 1'b1;
+        end else if ((grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_ready == 1'b1)) begin
+            grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        p_mm <= 6'd0;
+        grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg <= 1'b0;
     end else begin
-        if ((((icmp_ln47_fu_181_p2 == 1'd1) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((clear_read_read_fu_60_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
-            p_mm <= 6'd0;
-        end else if (((icmp_ln47_fu_181_p2 == 1'd0) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-            p_mm <= add_ln56_fu_187_p2;
+        if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+            grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg <= 1'b1;
+        end else if ((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_ready == 1'b1)) begin
+            grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        p_ss <= 6'd0;
-    end else begin
-        if ((((icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((clear_read_read_fu_60_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
-            p_ss <= 6'd0;
-        end else if (((icmp_ln44_fu_156_p2 == 1'd0) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-            p_ss <= add_ln59_fu_162_p2;
-        end
-    end
-end
-
-assign ap_ST_fsm_state1_blk = 1'b0;
-
-always @ (*) begin
-    if (((icmp_ln47_fu_181_p2 == 1'd1) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_phi_mux_p_hh_loc_3_phi_fu_125_p10 = select_ln50_fu_218_p3;
-    end else if ((((icmp_ln47_fu_181_p2 == 1'd0) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((icmp_ln44_fu_156_p2 == 1'd0) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((start_r_read_read_fu_54_p2 == 1'd0) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)))) begin
-        ap_phi_mux_p_hh_loc_3_phi_fu_125_p10 = p_hh;
-    end else if (((clear_read_read_fu_60_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_phi_mux_p_hh_loc_3_phi_fu_125_p10 = 5'd0;
-    end else begin
-        ap_phi_mux_p_hh_loc_3_phi_fu_125_p10 = 'bx;
+    if ((1'b1 == ap_CS_fsm_state1)) begin
+        x_read_reg_72 <= x;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln47_fu_181_p2 == 1'd0) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_phi_mux_p_mm_loc_3_phi_fu_108_p10 = add_ln56_fu_187_p2;
-    end else if ((((icmp_ln44_fu_156_p2 == 1'd0) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((start_r_read_read_fu_54_p2 == 1'd0) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)))) begin
-        ap_phi_mux_p_mm_loc_3_phi_fu_108_p10 = p_mm;
-    end else if ((((icmp_ln47_fu_181_p2 == 1'd1) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((clear_read_read_fu_60_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
-        ap_phi_mux_p_mm_loc_3_phi_fu_108_p10 = 6'd0;
+    if ((ap_start == 1'b0)) begin
+        ap_ST_fsm_state1_blk = 1'b1;
     end else begin
-        ap_phi_mux_p_mm_loc_3_phi_fu_108_p10 = 'bx;
+        ap_ST_fsm_state1_blk = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln44_fu_156_p2 == 1'd0) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_phi_mux_p_ss_loc_2_phi_fu_90_p10 = add_ln59_fu_162_p2;
-    end else if (((start_r_read_read_fu_54_p2 == 1'd0) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_phi_mux_p_ss_loc_2_phi_fu_90_p10 = p_ss;
-    end else if ((((icmp_ln47_fu_181_p2 == 1'd1) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((icmp_ln47_fu_181_p2 == 1'd0) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1)) | ((clear_read_read_fu_60_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
-        ap_phi_mux_p_ss_loc_2_phi_fu_90_p10 = 6'd0;
+    if ((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done == 1'b0)) begin
+        ap_ST_fsm_state2_blk = 1'b1;
     end else begin
-        ap_phi_mux_p_ss_loc_2_phi_fu_90_p10 = 'bx;
+        ap_ST_fsm_state2_blk = 1'b0;
+    end
+end
+
+assign ap_ST_fsm_state3_blk = 1'b0;
+
+always @ (*) begin
+    if ((grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done == 1'b0)) begin
+        ap_ST_fsm_state4_blk = 1'b1;
+    end else begin
+        ap_ST_fsm_state4_blk = 1'b0;
+    end
+end
+
+assign ap_ST_fsm_state5_blk = 1'b0;
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        ap_done = 1'b1;
+    end else begin
+        ap_done = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0))) begin
+        ap_idle = 1'b1;
+    end else begin
+        ap_idle = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        ap_ready = 1'b1;
+    end else begin
+        ap_ready = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        shift_reg_address0 = grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_address0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        shift_reg_address0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address0;
+    end else begin
+        shift_reg_address0 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        shift_reg_ce0 = grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        shift_reg_ce0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce0;
+    end else begin
+        shift_reg_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        shift_reg_ce1 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce1;
+    end else begin
+        shift_reg_ce1 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        shift_reg_we0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we0;
+    end else begin
+        shift_reg_we0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        shift_reg_we1 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1;
+    end else begin
+        shift_reg_we1 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        y_ap_vld = 1'b1;
+    end else begin
+        y_ap_vld = 1'b0;
     end
 end
 
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
+            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+                ap_NS_fsm = ap_ST_fsm_state2;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state1;
+            end
+        end
+        ap_ST_fsm_state2 : begin
+            if (((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+                ap_NS_fsm = ap_ST_fsm_state3;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state2;
+            end
+        end
+        ap_ST_fsm_state3 : begin
+            ap_NS_fsm = ap_ST_fsm_state4;
+        end
+        ap_ST_fsm_state4 : begin
+            if (((grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+                ap_NS_fsm = ap_ST_fsm_state5;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state4;
+            end
+        end
+        ap_ST_fsm_state5 : begin
             ap_NS_fsm = ap_ST_fsm_state1;
         end
         default : begin
@@ -153,34 +321,20 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln53_fu_212_p2 = (p_hh + 5'd1);
-
-assign add_ln56_fu_187_p2 = (p_mm + 6'd1);
-
-assign add_ln59_fu_162_p2 = (p_ss + 6'd1);
-
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
-always @ (*) begin
-    ap_condition_53 = ((icmp_ln47_fu_181_p2 == 1'd1) & (icmp_ln44_fu_156_p2 == 1'd1) & (start_r_read_read_fu_54_p2 == 1'd1) & (clear_read_read_fu_60_p2 == 1'd0));
-end
+assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
-assign clear_read_read_fu_60_p2 = clear;
+assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-assign hh = ap_phi_mux_p_hh_loc_3_phi_fu_125_p10;
+assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
-assign icmp_ln44_fu_156_p2 = ((p_ss == 6'd59) ? 1'b1 : 1'b0);
+assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign icmp_ln47_fu_181_p2 = ((p_mm == 6'd59) ? 1'b1 : 1'b0);
+assign grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start = grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg;
 
-assign icmp_ln50_fu_206_p2 = ((p_hh == 5'd23) ? 1'b1 : 1'b0);
+assign grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg;
 
-assign mm = ap_phi_mux_p_mm_loc_3_phi_fu_108_p10;
-
-assign select_ln50_fu_218_p3 = ((icmp_ln50_fu_206_p2[0:0] == 1'b1) ? 5'd0 : add_ln53_fu_212_p2);
-
-assign ss = ap_phi_mux_p_ss_loc_2_phi_fu_90_p10;
-
-assign start_r_read_read_fu_54_p2 = start_r;
+assign y = grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out;
 
 endmodule //FIR8

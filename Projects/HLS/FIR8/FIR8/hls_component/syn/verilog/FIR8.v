@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="FIR8_FIR8,hls_ip_2025_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7a100t-csg324-2I,HLS_INPUT_CLOCK=1000.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.570000,HLS_SYN_LAT=27,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=143,HLS_SYN_LUT=340,HLS_VERSION=2025_1}" *)
+(* CORE_GENERATION_INFO="FIR8_FIR8,hls_ip_2025_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7a100t-csg324-2I,HLS_INPUT_CLOCK=1000.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.570000,HLS_SYN_LAT=27,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=143,HLS_SYN_LUT=284,HLS_VERSION=2025_1}" *)
 
 module FIR8 (
         ap_clk,
@@ -50,37 +50,33 @@ wire   [7:0] shift_reg_q0;
 reg    shift_reg_ce1;
 reg    shift_reg_we1;
 wire   [7:0] shift_reg_q1;
-reg   [7:0] x_read_reg_118;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_done;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_idle;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_ready;
-wire   [2:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_address0;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_ce0;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_we0;
-wire   [7:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_d0;
-wire   [2:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_address1;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_ce1;
-wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_we1;
-wire   [7:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_d1;
-wire    grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start;
-wire    grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_done;
-wire    grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_idle;
-wire    grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_ready;
-wire   [15:0] grp_FIR8_Pipeline_MACC_LOOP_fu_71_acc_1_out;
-wire    grp_FIR8_Pipeline_MACC_LOOP_fu_71_acc_1_out_ap_vld;
-wire   [2:0] grp_FIR8_Pipeline_MACC_LOOP_fu_71_shift_reg_address0;
-wire    grp_FIR8_Pipeline_MACC_LOOP_fu_71_shift_reg_ce0;
-reg    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start_reg;
+reg   [7:0] x_read_reg_72;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_idle;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_ready;
+wire   [2:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address0;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce0;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we0;
+wire   [7:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d0;
+wire   [2:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce1;
+wire    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1;
+wire   [7:0] grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d1;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_idle;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_ready;
+wire   [15:0] grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out_ap_vld;
+wire   [2:0] grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_address0;
+wire    grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_ce0;
+reg    grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg;
 wire    ap_CS_fsm_state2;
-reg    grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start_reg;
+reg    grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg;
 wire    ap_CS_fsm_state3;
 wire    ap_CS_fsm_state4;
 wire    ap_CS_fsm_state5;
-wire   [15:0] acc_fu_89_p2;
-wire   [0:0] icmp_ln86_fu_83_p2;
-wire   [9:0] trunc_ln1_fu_95_p4;
-wire   [9:0] select_ln86_fu_105_p3;
 reg   [4:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
@@ -92,8 +88,8 @@ wire    ap_ce_reg;
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 5'd1;
-#0 grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start_reg = 1'b0;
-#0 grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start_reg = 1'b0;
+#0 grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg = 1'b0;
+#0 grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg = 1'b0;
 end
 
 FIR8_shift_reg_RAM_AUTO_1R1W #(
@@ -106,45 +102,45 @@ shift_reg_U(
     .address0(shift_reg_address0),
     .ce0(shift_reg_ce0),
     .we0(shift_reg_we0),
-    .d0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_d0),
+    .d0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d0),
     .q0(shift_reg_q0),
-    .address1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_address1),
+    .address1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1),
     .ce1(shift_reg_ce1),
     .we1(shift_reg_we1),
-    .d1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_d1),
+    .d1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d1),
     .q1(shift_reg_q1)
 );
 
-FIR8_FIR8_Pipeline_SHIFTER_LOOP grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63(
+FIR8_FIR8_Pipeline_SHIFTER_LOOP grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start),
-    .ap_done(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_done),
-    .ap_idle(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_idle),
-    .ap_ready(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_ready),
-    .x(x_read_reg_118),
-    .shift_reg_address0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_address0),
-    .shift_reg_ce0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_ce0),
-    .shift_reg_we0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_we0),
-    .shift_reg_d0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_d0),
-    .shift_reg_address1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_address1),
-    .shift_reg_ce1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_ce1),
-    .shift_reg_we1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_we1),
-    .shift_reg_d1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_d1),
+    .ap_start(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start),
+    .ap_done(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done),
+    .ap_idle(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_idle),
+    .ap_ready(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_ready),
+    .x(x_read_reg_72),
+    .shift_reg_address0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address0),
+    .shift_reg_ce0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce0),
+    .shift_reg_we0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we0),
+    .shift_reg_d0(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d0),
+    .shift_reg_address1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address1),
+    .shift_reg_ce1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce1),
+    .shift_reg_we1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1),
+    .shift_reg_d1(grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_d1),
     .shift_reg_q1(shift_reg_q1)
 );
 
-FIR8_FIR8_Pipeline_MACC_LOOP grp_FIR8_Pipeline_MACC_LOOP_fu_71(
+FIR8_FIR8_Pipeline_MACC_LOOP grp_FIR8_Pipeline_MACC_LOOP_fu_59(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start),
-    .ap_done(grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_done),
-    .ap_idle(grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_idle),
-    .ap_ready(grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_ready),
-    .acc_1_out(grp_FIR8_Pipeline_MACC_LOOP_fu_71_acc_1_out),
-    .acc_1_out_ap_vld(grp_FIR8_Pipeline_MACC_LOOP_fu_71_acc_1_out_ap_vld),
-    .shift_reg_address0(grp_FIR8_Pipeline_MACC_LOOP_fu_71_shift_reg_address0),
-    .shift_reg_ce0(grp_FIR8_Pipeline_MACC_LOOP_fu_71_shift_reg_ce0),
+    .ap_start(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start),
+    .ap_done(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done),
+    .ap_idle(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_idle),
+    .ap_ready(grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_ready),
+    .acc_out(grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out),
+    .acc_out_ap_vld(grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out_ap_vld),
+    .shift_reg_address0(grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_address0),
+    .shift_reg_ce0(grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_ce0),
     .shift_reg_q0(shift_reg_q0)
 );
 
@@ -158,31 +154,31 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start_reg <= 1'b0;
+        grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state3)) begin
-            grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start_reg <= 1'b1;
-        end else if ((grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_ready == 1'b1)) begin
-            grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start_reg <= 1'b0;
+            grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg <= 1'b1;
+        end else if ((grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_ready == 1'b1)) begin
+            grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start_reg <= 1'b0;
+        grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg <= 1'b0;
     end else begin
         if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-            grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start_reg <= 1'b1;
-        end else if ((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_ready == 1'b1)) begin
-            grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start_reg <= 1'b0;
+            grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg <= 1'b1;
+        end else if ((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_ready == 1'b1)) begin
+            grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state1)) begin
-        x_read_reg_118 <= x;
+        x_read_reg_72 <= x;
     end
 end
 
@@ -195,7 +191,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_done == 1'b0)) begin
+    if ((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done == 1'b0)) begin
         ap_ST_fsm_state2_blk = 1'b1;
     end else begin
         ap_ST_fsm_state2_blk = 1'b0;
@@ -205,7 +201,7 @@ end
 assign ap_ST_fsm_state3_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_done == 1'b0)) begin
+    if ((grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done == 1'b0)) begin
         ap_ST_fsm_state4_blk = 1'b1;
     end else begin
         ap_ST_fsm_state4_blk = 1'b0;
@@ -240,9 +236,9 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        shift_reg_address0 = grp_FIR8_Pipeline_MACC_LOOP_fu_71_shift_reg_address0;
+        shift_reg_address0 = grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_address0;
     end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        shift_reg_address0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_address0;
+        shift_reg_address0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_address0;
     end else begin
         shift_reg_address0 = 'bx;
     end
@@ -250,9 +246,9 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        shift_reg_ce0 = grp_FIR8_Pipeline_MACC_LOOP_fu_71_shift_reg_ce0;
+        shift_reg_ce0 = grp_FIR8_Pipeline_MACC_LOOP_fu_59_shift_reg_ce0;
     end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        shift_reg_ce0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_ce0;
+        shift_reg_ce0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce0;
     end else begin
         shift_reg_ce0 = 1'b0;
     end
@@ -260,7 +256,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        shift_reg_ce1 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_ce1;
+        shift_reg_ce1 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_ce1;
     end else begin
         shift_reg_ce1 = 1'b0;
     end
@@ -268,7 +264,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        shift_reg_we0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_we0;
+        shift_reg_we0 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we0;
     end else begin
         shift_reg_we0 = 1'b0;
     end
@@ -276,7 +272,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        shift_reg_we1 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_shift_reg_we1;
+        shift_reg_we1 = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_shift_reg_we1;
     end else begin
         shift_reg_we1 = 1'b0;
     end
@@ -300,7 +296,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -310,7 +306,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            if (((grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+            if (((grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
@@ -325,8 +321,6 @@ always @ (*) begin
     endcase
 end
 
-assign acc_fu_89_p2 = ($signed(grp_FIR8_Pipeline_MACC_LOOP_fu_71_acc_1_out) + $signed(16'd54536));
-
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
@@ -337,16 +331,10 @@ assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
 assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start = grp_FIR8_Pipeline_MACC_LOOP_fu_71_ap_start_reg;
+assign grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start = grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg;
 
-assign grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_63_ap_start_reg;
+assign grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start = grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg;
 
-assign icmp_ln86_fu_83_p2 = ((grp_FIR8_Pipeline_MACC_LOOP_fu_71_acc_1_out < 16'd11000) ? 1'b1 : 1'b0);
-
-assign select_ln86_fu_105_p3 = ((icmp_ln86_fu_83_p2[0:0] == 1'b1) ? 10'd171 : trunc_ln1_fu_95_p4);
-
-assign trunc_ln1_fu_95_p4 = {{acc_fu_89_p2[15:6]}};
-
-assign y = select_ln86_fu_105_p3;
+assign y = grp_FIR8_Pipeline_MACC_LOOP_fu_59_acc_out;
 
 endmodule //FIR8

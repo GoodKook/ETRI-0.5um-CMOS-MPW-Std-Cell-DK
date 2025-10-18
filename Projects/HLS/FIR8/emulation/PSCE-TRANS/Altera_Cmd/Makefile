@@ -14,6 +14,7 @@ all:
 		echo "*********************************"; \
 		exit 1; \
 	fi
+	@echo
 	@echo "Quartus Command Line for $(PROJECT)"
 	@echo
 	@echo "    TOP_MODULE=$(TOP_MODULE) make build"
@@ -36,6 +37,7 @@ config: output_file.rbf
 	sudo openFPGALoader -c digilent_hs2 output_file.rbf
 
 clean:
+	rm -f output_file.rbf
 	rm -rf ./output_files
 	rm -rf ./db
 	rm -rf ./incremental_db

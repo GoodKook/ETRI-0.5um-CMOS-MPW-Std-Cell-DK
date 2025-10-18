@@ -14,12 +14,14 @@ TOP_MODULE_TB = $(TOP_MODULE)_TB
 
 # SystemC testbench Reuse --------------------------------------
 SRCS =  \
+	./calcDFT.cpp \
+	./cnoise.cpp \
 	./$(TOP_MODULE).cpp \
 	./$(TOP_MODULE_TB).cpp
 
 HDRS =
 
-LIBS = -lsystemc
+LIBS = -lsystemc -lgsl
 
 # Build Rules --------------------------------------------------
 all :

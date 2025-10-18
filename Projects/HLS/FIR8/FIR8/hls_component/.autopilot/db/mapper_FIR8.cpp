@@ -243,10 +243,9 @@ class AESL_RUNTIME_BC {
     string mName;
 };
 using hls::sim::Byte;
-struct __cosim_s1__ { char data[1]; };
-extern "C" void FIR8(volatile void *, __cosim_s1__);
-extern "C" void apatb_FIR8_hw(volatile void * __xlx_apatb_param_y, __cosim_s1__* __xlx_apatb_param_x) {
+extern "C" void FIR8(volatile void *, char);
+extern "C" void apatb_FIR8_hw(volatile void * __xlx_apatb_param_y, char __xlx_apatb_param_x) {
 using hls::sim::createStream;
   // DUT call
-  FIR8(__xlx_apatb_param_y, *__xlx_apatb_param_x);
+  FIR8(__xlx_apatb_param_y, __xlx_apatb_param_x);
 }

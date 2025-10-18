@@ -13,23 +13,27 @@ module TOP_MODULE_TB;
     // from SystemC TB to DUT's input ports
     reg ap_clk;
     reg ap_rst;
-    reg clear;
-    reg start_r;
+    reg ap_start;
+    reg [7:0] x;
 
     // from DUT's output ports to SystemC TB
-    reg [7:0] hh;
-    reg [7:0] mm;
-    reg [7:0] ss;
+    reg ap_done;
+    reg ap_idle;
+    reg ap_ready;
+    reg y_ap_vld;
+    reg [15:0] y;
 
     // Instantiate DUT
     TOP_MODULE u_TOP_MODULE (
         .ap_clk(ap_clk),
         .ap_rst(ap_rst),
-        .clear(clear),
-        .start_r(start_r),
-        .hh(hh),
-        .mm(mm),
-        .ss(ss));
+        .ap_start(ap_start),
+        .x(x),
+        .ap_done(ap_done),
+        .ap_idle(ap_idle),
+        .ap_ready(ap_ready),
+        .y_ap_vld(y_ap_vld),
+        .y(y));
 
     //--------------------------------------------------------------
     parameter CLOCK_PERIOD=100;
@@ -61,12 +65,14 @@ module TOP_MODULE_TB;
             // from SystemC TB to DUT's input ports
             ap_clk,
             ap_rst,
-            clear,
-            start_r,
+            ap_start,
+            x,
             // from DUT's output ports to SystemC TB
-            hh,
-            mm,
-            ss);
+            ap_done,
+            ap_idle,
+            ap_ready,
+            y_ap_vld,
+            y);
     end
 
     always @(end_of_sim)

@@ -1232,10 +1232,10 @@ namespace hls::sim
 
 
 extern "C"
-void FIR8_hw_stub_wrapper(void*, hls::sim::Byte<1>*);
+void FIR8_hw_stub_wrapper(void*, hls::sim::Byte<1>);
 
 extern "C"
-void apatb_FIR8_hw(void* __xlx_apatb_param_y, hls::sim::Byte<1>* __xlx_apatb_param_x)
+void apatb_FIR8_hw(void* __xlx_apatb_param_y, hls::sim::Byte<1> __xlx_apatb_param_x)
 {
   static hls::sim::Register port0 {
     .name = "y",
@@ -1258,7 +1258,7 @@ void apatb_FIR8_hw(void* __xlx_apatb_param_y, hls::sim::Byte<1>* __xlx_apatb_par
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_x),
 #endif
   };
-  port1.param = __xlx_apatb_param_x;
+  port1.param = &__xlx_apatb_param_x;
 
   try {
 #ifdef POST_CHECK

@@ -10,11 +10,11 @@
 #include <vpi_user.h>
 #include <veriuser.h>
 
-#include "vpi_TOP_MODULE_tb_ports.h"
-#include "vpi_TOP_MODULE_tb_exports.h"
+#include "vpi_FIR8_tb_ports.h"
+#include "vpi_FIR8_tb_exports.h"
 
 // RTL-SystemC communitation data
-typedef struct TOP_MODULE
+typedef struct FIR8
 {
     // Simulation control from SC-TB
     vpiHandle   sync_sc; // Trigger SystemC TB
@@ -22,20 +22,22 @@ typedef struct TOP_MODULE
     // from SystemC TB to DUT's input ports
     vpiHandle   ap_clk;
     vpiHandle   ap_rst;
-    vpiHandle   clear;
-    vpiHandle   start_r;
+    vpiHandle   ap_start;
+    vpiHandle   x;
     // from DUT's output ports to SystemC TB
-    vpiHandle   hh;
-    vpiHandle   mm;
-    vpiHandle   ss;
+    vpiHandle   ap_done;
+    vpiHandle   ap_idle;
+    vpiHandle   ap_ready;
+    vpiHandle   y_ap_vld;
+    vpiHandle   y;
 } t_if;
 
-int sc_TOP_MODULE_tb_tf(char *user_data);
+int sc_FIR8_tb_tf(char *user_data);
 int sc_sync_callback(p_cb_data cb_data);
 
 static void my_task(void);
 
-int sc_TOP_MODULE_tb_tf(char *user_data)
+int sc_FIR8_tb_tf(char *user_data)
 {
     vpiHandle   inst_h, args;
     s_vpi_value value_s;
@@ -59,12 +61,14 @@ int sc_TOP_MODULE_tb_tf(char *user_data)
     // from SystemC TB to DUT's input ports
     ip->ap_clk      = vpi_scan(args);
     ip->ap_rst      = vpi_scan(args);
-    ip->clear       = vpi_scan(args);
-    ip->start_r     = vpi_scan(args);
+    ip->ap_start    = vpi_scan(args);
+    ip->x           = vpi_scan(args);
     // from DUT's output ports to SystemC TB
-    ip->hh          = vpi_scan(args);
-    ip->mm          = vpi_scan(args);
-    ip->ss          = vpi_scan(args);
+    ip->ap_done     = vpi_scan(args);
+    ip->ap_idle     = vpi_scan(args);
+    ip->ap_ready    = vpi_scan(args);
+    ip->y_ap_vld    = vpi_scan(args);
+    ip->y           = vpi_scan(args);
 
     vpi_free_object(args);
   
@@ -107,14 +111,20 @@ int sc_sync_callback(p_cb_data cb_data)
     invector.sync_sc = value_s.value.integer;
     if (!invector.sync_sc)  return(0);  // if NOT pos-edge,
 
-    vpi_get_value(ip->hh, &value_s);
-    invector.hh = value_s.value.integer;
+    vpi_get_value(ip->ap_done, &value_s);
+    invector.ap_done = value_s.value.integer;
 
-    vpi_get_value(ip->mm, &value_s);
-    invector.mm = value_s.value.integer;
+    vpi_get_value(ip->ap_idle, &value_s);
+    invector.ap_idle = value_s.value.integer;
 
-    vpi_get_value(ip->ss, &value_s);
-    invector.ss = value_s.value.integer;
+    vpi_get_value(ip->ap_ready, &value_s);
+    invector.ap_ready = value_s.value.integer;
+
+    vpi_get_value(ip->y_ap_vld, &value_s);
+    invector.y_ap_vld = value_s.value.integer;
+
+    vpi_get_value(ip->y, &value_s);
+    invector.y = value_s.value.integer;
 
     //---------------------------------------------------------------
     // SystemC Execution
@@ -122,7 +132,7 @@ int sc_sync_callback(p_cb_data cb_data)
 
     //---------------------------------------------------------------
     // Write to Verilog TB(DUT's input ports)
-    value_s.value.integer = outvector.ap_clk;   // TOP_MODULE generator from SC
+    value_s.value.integer = outvector.ap_clk;   // FIR8 generator from SC
     vpi_put_value(ip->ap_clk, &value_s, NULL, vpiNoDelay); // NO-Delay!!!
 
     s_vpi_time delay = {vpiSimTime, 0, 10, 0.0}; // Now all inputs to DUT have delay
@@ -130,11 +140,11 @@ int sc_sync_callback(p_cb_data cb_data)
     value_s.value.integer = outvector.ap_rst;
     vpi_put_value(ip->ap_rst, &value_s, &delay, vpiTransportDelay);
 
-    value_s.value.integer = outvector.clear;
-    vpi_put_value(ip->clear, &value_s, &delay, vpiTransportDelay);
+    value_s.value.integer = outvector.ap_start;
+    vpi_put_value(ip->ap_start, &value_s, &delay, vpiTransportDelay);
 
-    value_s.value.integer = outvector.start_r;
-    vpi_put_value(ip->start_r, &value_s, &delay, vpiTransportDelay);
+    value_s.value.integer = outvector.x;
+    vpi_put_value(ip->x, &value_s, &delay, vpiTransportDelay);
 
     value_s.value.integer = outvector.end_of_sim;   // Ends Simulation
     vpi_put_value(ip->end_of_sim, &value_s, NULL, vpiNoDelay);
@@ -148,8 +158,8 @@ static void my_task()
       s_vpi_systf_data tf_data;
 
       tf_data.type      = vpiSysTask;
-      tf_data.tfname    = (PLI_BYTE8 *)"$sc_TOP_MODULE_tb";    // Verilog TB view
-      tf_data.calltf    = sc_TOP_MODULE_tb_tf;
+      tf_data.tfname    = (PLI_BYTE8 *)"$sc_FIR8_tb";    // Verilog TB view
+      tf_data.calltf    = sc_FIR8_tb_tf;
       tf_data.compiletf = 0;
       tf_data.sizetf    = 0;
       vpi_register_systf(&tf_data);

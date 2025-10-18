@@ -44,7 +44,7 @@ set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xa7a100t:-csg324:-2I
 set SourceFiles {sc {} c ../../c_untimed/FIR8.cpp}
-set SourceFlags {sc {} c -DFIR_MAC_VERSION_MPW}
+set SourceFlags {sc {} c -DFIR_MAC_VERSION}
 set DirectiveFile {}
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C

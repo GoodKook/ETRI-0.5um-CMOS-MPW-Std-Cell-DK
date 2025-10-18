@@ -35,6 +35,7 @@ all:
 	@echo
 	@echo '    make generate_gds'
 	@echo
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 
 copy_pad_frame: $(CHIP_NAME)_Top.mag
 
