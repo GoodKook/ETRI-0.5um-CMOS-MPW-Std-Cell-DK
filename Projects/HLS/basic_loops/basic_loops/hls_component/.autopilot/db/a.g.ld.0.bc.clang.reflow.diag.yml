@@ -1,0 +1,21 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_basic_loops_ir
+Args:            
+  - Callee:          'basic_loops(ap_int<8>*)'
+    DebugLoc:        { File: c_untimed/basic_loops.cpp, Line: 21, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_basic_loops_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        LOOP_1
+  - String:          '> at '
+  - LoopLoc:         'c_untimed/basic_loops.cpp:27:5'
+  - String:          ' '
+...

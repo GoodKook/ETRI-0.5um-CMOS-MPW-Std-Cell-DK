@@ -1,0 +1,403 @@
+<profile>
+    <ReportVersion>
+        <Version>2025.1</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>aartix7</ProductFamily>
+        <Part>xa7a100t-csg324-2I</Part>
+        <TopModelName>fxp_sqrt_top</TopModelName>
+        <TargetClockPeriod>1000.00</TargetClockPeriod>
+        <ClockUncertainty>270.00</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>9.081</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>33</Best-caseLatency>
+            <Average-caseLatency>33</Average-caseLatency>
+            <Worst-caseLatency>33</Worst-caseLatency>
+            <Best-caseRealTimeLatency>33.000 us</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>33.000 us</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>33.000 us</Worst-caseRealTimeLatency>
+            <Interval-min>34</Interval-min>
+            <Interval-max>34</Interval-max>
+            <PerformancePragma>-</PerformancePragma>
+        </SummaryOfOverallLatency>
+        <SummaryOfViolations>
+            <IssueType>-</IssueType>
+            <ViolationType>-</ViolationType>
+            <SourceLocation>c_untimed/fxp_sqrt_top.cpp:20</SourceLocation>
+        </SummaryOfViolations>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <FF>212</FF>
+            <LUT>541</LUT>
+            <BRAM_18K>0</BRAM_18K>
+            <DSP>0</DSP>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>270</BRAM_18K>
+            <DSP>240</DSP>
+            <FF>126800</FF>
+            <LUT>63400</LUT>
+            <URAM>0</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>fxp_sqrt_top</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst</name>
+            <Object>fxp_sqrt_top</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_start</name>
+            <Object>fxp_sqrt_top</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_done</name>
+            <Object>fxp_sqrt_top</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_idle</name>
+            <Object>fxp_sqrt_top</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_ready</name>
+            <Object>fxp_sqrt_top</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_return</name>
+            <Object>fxp_sqrt_top</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>28</Bits>
+            <Attribute>data</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>in_val</name>
+            <Object>in_val</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>24</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="3">
+            <ModuleName>fxp_sqrt_top</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1_fu_58</InstName>
+                    <ModuleName>fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>58</ID>
+                    <BindInstances>sub_ln106_fu_153_p2 shl_ln106_fu_171_p2 s_1_fu_177_p2 shl_ln110_fu_191_p2 s_2_fu_197_p2 s_fu_203_p3 empty_8_fu_220_p3 i_fu_246_p2 icmp_ln104_fu_252_p2</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>icmp_ln117_fu_84_p2 add_ln118_fu_90_p2 ap_return</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1</Name>
+            <Loops>
+                <VITIS_LOOP_104_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>1000.00</TargetClockPeriod>
+                    <ClockUncertainty>270.00</ClockUncertainty>
+                    <EstimatedClockPeriod>9.081</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>31</Best-caseLatency>
+                    <Average-caseLatency>31</Average-caseLatency>
+                    <Worst-caseLatency>31</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>31.000 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>31.000 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>31.000 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>30</PipelineInitiationInterval>
+                    <PipelineType>loop auto-rewind stp (delay=0 clock cycles(s))</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_104_1>
+                        <Name>VITIS_LOOP_104_1</Name>
+                        <Slack>730.00</Slack>
+                        <TripCount>30</TripCount>
+                        <isPerfectNested>0</isPerfectNested>
+                        <Latency>29</Latency>
+                        <AbsoluteTimeLatency>29.000 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <PerformancePragma>-</PerformancePragma>
+                        <InstanceList/>
+                    </VITIS_LOOP_104_1>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>c_untimed/fxp_sqrt.h:104~c_untimed/fxp_sqrt_top.cpp:22</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <VITIS_LOOP_104_1>
+                            <Name>VITIS_LOOP_104_1</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>c_untimed/fxp_sqrt.h:104~c_untimed/fxp_sqrt_top.cpp:22</SourceLocation>
+                        </VITIS_LOOP_104_1>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>96</FF>
+                    <AVAIL_FF>126800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>422</LUT>
+                    <AVAIL_LUT>63400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>270</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>240</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln106_fu_153_p2" SOURCE="c_untimed/fxp_sqrt.h:106" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln106" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln106_fu_171_p2" SOURCE="c_untimed/fxp_sqrt.h:106" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln106" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="sub" PRAGMA="" RTLNAME="s_1_fu_177_p2" SOURCE="c_untimed/fxp_sqrt.h:106" STORAGESUBTYPE="" URAM="0" VARIABLE="s_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln110_fu_191_p2" SOURCE="c_untimed/fxp_sqrt.h:110" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln110" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="add" PRAGMA="" RTLNAME="s_2_fu_197_p2" SOURCE="c_untimed/fxp_sqrt.h:110" STORAGESUBTYPE="" URAM="0" VARIABLE="s_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="select" PRAGMA="" RTLNAME="s_fu_203_p3" SOURCE="c_untimed/fxp_sqrt.h:105" STORAGESUBTYPE="" URAM="0" VARIABLE="s" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="select" PRAGMA="" RTLNAME="empty_8_fu_220_p3" SOURCE="c_untimed/fxp_sqrt.h:105" STORAGESUBTYPE="" URAM="0" VARIABLE="empty_8" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="add" PRAGMA="" RTLNAME="i_fu_246_p2" SOURCE="c_untimed/fxp_sqrt.h:104" STORAGESUBTYPE="" URAM="0" VARIABLE="i" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_104_1" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln104_fu_252_p2" SOURCE="c_untimed/fxp_sqrt.h:104" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln104" VISIBLE="false"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>fxp_sqrt_top</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>1000.00</TargetClockPeriod>
+                    <ClockUncertainty>270.00</ClockUncertainty>
+                    <EstimatedClockPeriod>9.081</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>33</Best-caseLatency>
+                    <Average-caseLatency>33</Average-caseLatency>
+                    <Worst-caseLatency>33</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>33.000 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>33.000 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>33.000 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>34</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                    <PerformancePragma>-</PerformancePragma>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>c_untimed/fxp_sqrt_top.cpp:20</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>212</FF>
+                    <AVAIL_FF>126800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>541</LUT>
+                    <AVAIL_LUT>63400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>270</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>240</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln117_fu_84_p2" SOURCE="c_untimed/fxp_sqrt.h:117" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln117" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln118_fu_90_p2" SOURCE="c_untimed/fxp_sqrt.h:118" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln118" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="ap_return" SOURCE="c_untimed/fxp_sqrt.h:117" STORAGESUBTYPE="" URAM="0" VARIABLE="result" VISIBLE="false"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="in_val" index="0" direction="in" srcType="ap_ufixed&lt;24, 8, AP_TRN, AP_WRAP, 0&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="in_val" name="in_val" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <ReturnValue ReturnValueName="srcType">ap_ufixed&lt;28, 4, AP_TRN, AP_WRAP, 0&gt;</ReturnValue>
+    <ReturnValue ReturnValueName="srcSize">32</ReturnValue>
+    <ReturnValue ReturnValueName="hwRefs" type="port" interface="ap_return" name="ap_return" usage="data" direction="out"/>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_ctrl" type="ap_ctrl" busTypeName="acc_handshake" mode="slave">
+            <portMaps>
+                <portMap portMapName="ap_start">start</portMap>
+                <portMap portMapName="ap_done">done</portMap>
+                <portMap portMapName="ap_idle">idle</portMap>
+                <portMap portMapName="ap_ready">ready</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_done</port>
+                <port>ap_idle</port>
+                <port>ap_ready</port>
+                <port>ap_start</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_return" type="data" busTypeName="data" protocol="ap_ctrl_hs" mode="master" dataWidth="28">
+            <portMaps>
+                <portMap portMapName="ap_return">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_return</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="in_val" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="24">
+            <portMaps>
+                <portMap portMapName="in_val">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>in_val</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="in_val"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="ap_return">, out, 28</column>
+                    <column name="in_val">ap_none, in, 24</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table>
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst">reset, ap_rst</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, ap_done ap_idle ap_ready ap_start</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table>
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="in_val">in, ap_ufixed&lt;24 8 AP_TRN AP_WRAP 0&gt;&amp;</column>
+                    <column name="return">out, ap_ufixed&lt;28 4 AP_TRN AP_WRAP 0&gt;</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table>
+                    <keys size="3">Argument, HW Interface, HW Type</keys>
+                    <column name="in_val">in_val, port</column>
+                    <column name="return">ap_return, port</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ResolutionUrl key="ZZZ">docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
+    <PragmaReport/>
+</profile>
+
