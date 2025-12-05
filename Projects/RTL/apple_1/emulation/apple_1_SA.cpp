@@ -151,11 +151,15 @@ int main(int argc, char* argv[])
                     continue;
                 }
 
+                unsigned int nDownload = 0;
                 while(fread(&tx, sizeof(unsigned char), 1, fp_bin)>=1)
                 {
                     while(write(fd, &tx, 1)<=0) usleep(1); // Sent a byte to Emulator
                     while(read(fd, &rx, 1)<=0)  usleep(1); // Wait for ACK
-                    if (tx != rx)    printf("Error\n");
+                    if (tx != rx)               printf("Error\n");
+                    else if (!(nDownload%32))  printf(".");
+                    fflush(stdout);
+                    nDownload++;
                     //printf("%02X ", tx);
                     //fflush(stdout);
                 }

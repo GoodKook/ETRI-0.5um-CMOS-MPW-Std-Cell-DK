@@ -1,12 +1,12 @@
 //=======================================================================
 // Co-Simulation of SystemC VPI+iVerilog
-// Filename: vpi_cpu_6502_tb_exports.h
+// Filename: vpi_apple_1_tb_exports.h
 // Author: GoodKook, goodkook@gmail.com
 // History: 2024, Aug. 31
 //
 
-#ifndef VPI_cpu_6502_TB_EXPORTS_H
-#define VPI_cpu_6502_TB_EXPORTS_H
+#ifndef VPI_apple_1_TB_EXPORTS_H
+#define VPI_apple_1_TB_EXPORTS_H
 
 #ifdef __cplusplus
 extern "C"

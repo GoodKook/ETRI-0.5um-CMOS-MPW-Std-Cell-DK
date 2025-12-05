@@ -12,6 +12,8 @@ endif
 
 ifeq ($(BOARD),)
 	BOARD = I
+else
+	BOARD := $(BOARD)
 endif
 
 all:
@@ -24,14 +26,12 @@ all:
 	fi
 	@if [ -e "$(PROJECT).tcl" ];  then \
 		rm -f $(PROJECT).tcl; \
-	fi
-	@if [ "$(BOARD)" = "I" ]; then \
-		ln -s $(PROJECT)_I.tcl $(PROJECT).tcl; \
+		ln -s $(PROJECT)_$(BOARD).tcl $(PROJECT).tcl; \
 	fi
 	@echo "Quartus Command Line for Emulation Transactor of $(PROJECT)"
 	@echo
-	@echo "    TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) BOARD=[I]|II make build"
-	@echo "    TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) make gen_rbf"
+	@echo "    TOP_MODULE=$(TOP_MODULE) BOARD=[I]|II make build"
+	@echo "    TOP_MODULE=$(TOP_MODULE) make gen_rbf"
 	@echo "    * Set MODE=TESTER for Chip-Test wrapper"
 	@echo "    make config"
 	@echo

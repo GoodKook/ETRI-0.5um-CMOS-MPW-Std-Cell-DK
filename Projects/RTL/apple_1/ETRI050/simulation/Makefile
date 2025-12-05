@@ -26,10 +26,19 @@ all :
 		echo "Symbolic Link Testbench Re-Use..."; \
 		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp sc_$(TOP_MODULE)_TB.cpp; \
 	fi
+	@if [ ! -f "sc_mem.cpp" ];  then \
+		echo "Symbolic Link Memory & IO Re-Use..."; \
+		ln -s ../../simulation/sc_mem.cpp sc_mem.cpp; \
+		ln -s ../../simulation/sc_mem.h sc_mem.h; \
+	fi
+	@if [ ! -e "Apple-1" ];  then \
+		echo "Symbolic Link Firmware & SDK..."; \
+		ln -s ../../simulation/Apple-1 Apple-1; \
+	fi
 	@echo
 	@echo 'Netlist timing simulation using iVerilog-VPI:$(TOP_MODULE)'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make build'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=YES|[NO] make build'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
@@ -40,12 +49,12 @@ all :
 # Build VPI -----------------------------------------------------
 VPI_TARGET 	= vpi_stub.vpi
 VPI_SRCS 	= \
-    ../../c_untimed/cnoise.cpp \
-    ../../c_untimed/$(DUT_MODULE).cpp \
     ./vpi_stub.cpp \
     ./vpi_$(DUT_MODULE)_tb.cpp \
+    ./sc_mem.cpp \
     ./sc_$(DUT_MODULE)_TB.cpp
 VPI_HDRS 	= \
+    ./sc_mem.h \
 	./sc_$(DUT_MODULE)_TB.h  \
 	./vpi_$(DUT_MODULE)_tb_exports.h  \
 	./vpi_$(DUT_MODULE)_tb_ports.h
@@ -60,12 +69,16 @@ VPI_LIB_PATH = \
     -L${SYSTEMC_LIBDIR}
 VPI_CFLAGS = \
 	-D$(HW_STYLE) \
+	-DIPC_SOCKET \
     -g -fPIC
+ifeq ($(VCD_TRACE), YES)
+VPI_CFLAGS += -DVCD_TRACE
+endif
+
 VPI_LFLAGS = \
 	-shared \
 	-latomic \
-    -lsystemc \
-	-lgsl
+    -lsystemc
 
 $(VPI_TARGET) : $(VPI_SRCS) $(VPI_HDRS)
 	$(CXX) $(CXXFLAGS) -DVPI_SIM \
@@ -81,10 +94,12 @@ IVL_SRCS   = $(IVL_TARGET).v \
 			~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
 			../synthesis/$(DUT_MODULE)_mapped.v
 
-#			~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
+ifeq ($(VCD_TRACE), YES)
+IVL_DEFINE = -DVCD_TRACE
+endif
 
 $(IVL_TARGET) : $(IVL_SRCS) $(VPI_TARGET) $(VLT_TARGET)
-	iverilog -g2005-sv -Tmin -gspecify -o $(IVL_TARGET) $(IVL_SRCS)
+	iverilog -g2005-sv -Tmin -gspecify -o $(IVL_TARGET) $(IVL_DEFINE) $(IVL_SRCS)
 
 # Cleaning ----------------------------------------------------------------
 clean :
@@ -98,6 +113,8 @@ clean :
 build : $(IVL_TARGET)
 
 run : $(IVL_TARGET) $(VPI_TARGET)
+	xterm -e "../../simulation/CPU_terminal" &
+	sleep 1
 	vvp -M. -mvpi_stub ${IVL_TARGET} -v
 
 wave :

@@ -68,7 +68,7 @@ void setup()
 
 void loop()
 {
-  psce.EMU_Blinker(0x40);   // Blinker speed
+  psce.EMU_Blinker(16);   // Blinker speed
   psce.RxPacket(N_RX, DUT_CLK_BYTE, DUT_CLK_BITMAP);  // CLK position
   psce.TxPacket(N_TX);
 

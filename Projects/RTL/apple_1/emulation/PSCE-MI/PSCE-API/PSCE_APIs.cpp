@@ -330,11 +330,17 @@ void PSCE::TxPacket(uint8_t nTX)
 }
 
 // Emulation LED Blink ------------------------------------------------
-void PSCE::EMU_Blinker(uint8_t Speed)
+void PSCE::EMU_Blinker(uint16_t Speed)
 {
-  static uint8_t counter;
+  static bool bOnOff = true;
+  static uint16_t counter = 0;
   counter += 1;
-  digitalWriteDirect(LED_BUILTIN, (counter & Speed)? HIGH:LOW);
+  if (counter==Speed)
+  {
+    counter = 0;
+    bOnOff = (bOnOff)? false:true;
+    digitalWriteDirect(LED_BUILTIN, bOnOff);
+  }
 }
 
 #ifdef OLED_DISPLAY

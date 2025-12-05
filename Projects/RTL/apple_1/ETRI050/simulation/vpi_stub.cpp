@@ -10,32 +10,35 @@
 #include <vpi_user.h>
 #include <veriuser.h>
 
-#include "vpi_cpu_6502_tb_ports.h"
-#include "vpi_cpu_6502_tb_exports.h"
+#include "vpi_apple_1_tb_ports.h"
+#include "vpi_apple_1_tb_exports.h"
 
 // RTL-SystemC communitation data
-typedef struct cpu_6502
+typedef struct apple_1
 {
     // Simulation control from SC-TB
     vpiHandle   sync_sc; // Trigger SystemC TB
     vpiHandle   end_of_sim;
     // from SystemC TB to DUT's input ports
     vpiHandle   clk;
-    vpiHandle   Rdy;
-    vpiHandle   Xin;
-    vpiHandle   Yin;
+    vpiHandle   reset;
+    vpiHandle   DI;
+    vpiHandle   IRQ;
+    vpiHandle   NMI;
+    vpiHandle   RDY;
+    vpiHandle   en_woz;
     // from DUT's output ports to SystemC TB
-    vpiHandle   Vld;
-    vpiHandle   Xout;
-    vpiHandle   Yout;
+    vpiHandle   AB;
+    vpiHandle   DO;
+    vpiHandle   WE;
 } t_if;
 
-int sc_cpu_6502_tb_tf(char *user_data);
+int sc_apple_1_tb_tf(char *user_data);
 int sc_sync_callback(p_cb_data cb_data);
 
 static void my_task(void);
 
-int sc_cpu_6502_tb_tf(char *user_data)
+int sc_apple_1_tb_tf(char *user_data)
 {
     vpiHandle   inst_h, args;
     s_vpi_value value_s;
@@ -58,13 +61,16 @@ int sc_cpu_6502_tb_tf(char *user_data)
     ip->end_of_sim  = vpi_scan(args);
     // from SystemC TB to DUT's input ports
     ip->clk     = vpi_scan(args);
-    ip->Rdy     = vpi_scan(args);
-    ip->Xin     = vpi_scan(args);
-    ip->Yin     = vpi_scan(args);
+    ip->reset   = vpi_scan(args);
+    ip->DI      = vpi_scan(args);
+    ip->IRQ     = vpi_scan(args);
+    ip->NMI     = vpi_scan(args);
+    ip->RDY     = vpi_scan(args);
+    ip->en_woz  = vpi_scan(args);
     // from DUT's output ports to SystemC TB
-    ip->Vld     = vpi_scan(args);
-    ip->Xout    = vpi_scan(args);
-    ip->Yout    = vpi_scan(args);
+    ip->AB      = vpi_scan(args);
+    ip->DO      = vpi_scan(args);
+    ip->WE      = vpi_scan(args);
 
     vpi_free_object(args);
   
@@ -107,14 +113,14 @@ int sc_sync_callback(p_cb_data cb_data)
     invector.sync_sc = value_s.value.integer;
     if (!invector.sync_sc)  return(0);  // if NOT pos-edge,
 
-    vpi_get_value(ip->Vld, &value_s);
-    invector.Vld = value_s.value.integer;
+    vpi_get_value(ip->AB, &value_s);
+    invector.AB = value_s.value.integer;
 
-    vpi_get_value(ip->Xout, &value_s);
-    invector.Xout = value_s.value.integer;
+    vpi_get_value(ip->DO, &value_s);
+    invector.DO = value_s.value.integer;
 
-    vpi_get_value(ip->Yout, &value_s);
-    invector.Yout = value_s.value.integer;
+    vpi_get_value(ip->WE, &value_s);
+    invector.WE = value_s.value.integer;
 
     //---------------------------------------------------------------
     // SystemC Execution
@@ -122,19 +128,28 @@ int sc_sync_callback(p_cb_data cb_data)
 
     //---------------------------------------------------------------
     // Write to Verilog TB(DUT's input ports)
-    value_s.value.integer = outvector.clk;   // cpu_6502 generator from SC
+    value_s.value.integer = outvector.clk;   // apple_1 generator from SC
     vpi_put_value(ip->clk, &value_s, NULL, vpiNoDelay); // NO-Delay!!!
 
     s_vpi_time delay = {vpiSimTime, 0, 10, 0.0}; // Now all inputs to DUT have delay
 
-    value_s.value.integer = outvector.Rdy;
-    vpi_put_value(ip->Rdy, &value_s, &delay, vpiTransportDelay);
+    value_s.value.integer = outvector.reset;
+    vpi_put_value(ip->reset, &value_s, &delay, vpiTransportDelay);
 
-    value_s.value.integer = outvector.Xin;
-    vpi_put_value(ip->Xin, &value_s, &delay, vpiTransportDelay);
+    value_s.value.integer = outvector.DI;
+    vpi_put_value(ip->DI, &value_s, &delay, vpiTransportDelay);
 
-    value_s.value.integer = outvector.Yin;
-    vpi_put_value(ip->Yin, &value_s, &delay, vpiTransportDelay);
+    value_s.value.integer = outvector.IRQ;
+    vpi_put_value(ip->IRQ, &value_s, &delay, vpiTransportDelay);
+
+    value_s.value.integer = outvector.NMI;
+    vpi_put_value(ip->NMI, &value_s, &delay, vpiTransportDelay);
+
+    value_s.value.integer = outvector.RDY;
+    vpi_put_value(ip->RDY, &value_s, &delay, vpiTransportDelay);
+
+    value_s.value.integer = outvector.en_woz;
+    vpi_put_value(ip->en_woz, &value_s, &delay, vpiTransportDelay);
 
     value_s.value.integer = outvector.end_of_sim;   // Ends Simulation
     vpi_put_value(ip->end_of_sim, &value_s, NULL, vpiNoDelay);
@@ -148,8 +163,8 @@ static void my_task()
       s_vpi_systf_data tf_data;
 
       tf_data.type      = vpiSysTask;
-      tf_data.tfname    = (PLI_BYTE8 *)"$sc_cpu_6502_tb";    // Verilog TB view
-      tf_data.calltf    = sc_cpu_6502_tb_tf;
+      tf_data.tfname    = (PLI_BYTE8 *)"$sc_apple_1_tb";    // Verilog TB view
+      tf_data.calltf    = sc_apple_1_tb_tf;
       tf_data.compiletf = 0;
       tf_data.sizetf    = 0;
       vpi_register_systf(&tf_data);

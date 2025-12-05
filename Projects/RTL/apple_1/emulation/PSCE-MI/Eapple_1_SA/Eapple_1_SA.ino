@@ -74,17 +74,22 @@ void Resetting()
   psce.DUT_SetInputs(N_RX);
 }
 
+//uint8_t *mem;  // RAM 64K bytes
+uint8_t mem[65536];  // RAM 64K bytes
+uint16_t Address;
+uint8_t  KBD_Buff = '\0', DSP_Buff = '\0';
+
 void setup()
 {
   psce.init();  // BPS=115200
-
+  //mem = (uint8_t*)malloc(sizeof(char)*65536);
   // Resetting 6502
   Resetting();
 }
 
 void loop()
 {
-  psce.EMU_Blinker(0x80);   // Blinker speed
+  psce.EMU_Blinker(1000);   // Blinker speed
   //psce.RxPacket(N_RX, DUT_CLK_BYTE, DUT_CLK_BITMAP);  // CLK position
   //psce.TxPacket(N_TX);
 
@@ -115,10 +120,6 @@ void loop()
 
 #define BIN_DOWN  0xD018
 
-uint8_t mem[65536];  // RAM 64K bytes
-uint16_t Address;
-uint8_t  KBD_Buff = '\0', DSP_Buff = '\0';
-
 void MEM_Pre_Process()
 {
   psce.DUT_GetOutputs(N_TX);
@@ -145,32 +146,37 @@ void MEM_Post_Process()
    // Memory Mapped I/O (Keyboard)--------------------------
 	if (Address == KBD_REG)         // PIA.A keyboard input
 	{
-     if (KBD_Buff=='\0')
-     {
-       mem[Address] = 0x00;
-       mem[KBD_CTL] = (mem[KBD_CTL] & 0x3F);	// Keyboard empty
-     }
-     else if (KBD_Buff=='\n'||KBD_Buff==0x0A)
-     {
-       mem[Address] = 0x8D;                  // Valid input: CR
-       mem[KBD_CTL] = (mem[KBD_CTL] & 0x3F);	// Keyboard empty
-       KBD_Buff = '\0';
-     }
-     else
-     {
-       mem[Address] = (KBD_Buff | 0x80);     // Valid input
-       mem[KBD_CTL] = (mem[KBD_CTL] & 0x3F);	// Keyboard empty
-       KBD_Buff = '\0';
-     }
-   }
+    if (KBD_Buff=='\0')
+    {
+      mem[Address] = 0x00;
+      mem[KBD_CTL] = (mem[KBD_CTL] & 0x3F);	// Keyboard empty
+    }
+    else if (KBD_Buff=='\n'||KBD_Buff==0x0A)
+    {
+      mem[Address] = 0x8D;                  // Valid input: CR
+      mem[KBD_CTL] = (mem[KBD_CTL] & 0x3F);	// Keyboard empty
+      KBD_Buff = '\0';
+    }
+    else
+    {
+      mem[Address] = (KBD_Buff | 0x80);     // Valid input
+      mem[KBD_CTL] = (mem[KBD_CTL] & 0x3F);	// Keyboard empty
+      KBD_Buff = '\0';
+    }
+  }
 	else if (Address == KBD_CTL)	// PIA.A keyboard Control Register
 	{
-     if (KBD_Buff=='\0')
-     {
-       while (Serial.available() < 1);
-       KBD_Buff = Serial.read();
-       mem[Address] = (mem[Address] | 0x80);	// Keyboard ready
-     }
+    if (KBD_Buff=='\0')
+    {
+//       while (Serial.available() < 1);
+//       KBD_Buff = Serial.read();
+//       mem[Address] = (mem[Address] | 0x80);	// Keyboard ready
+      if (Serial.available() > 0)
+      {
+        KBD_Buff = (uint8_t)Serial.read();
+        mem[Address] = (mem[Address] | 0x80);	// Keyboard ready
+      }
+    }
 	}
 	else if (Address == BIN_DOWN)	// CC65 Binary Download
   {

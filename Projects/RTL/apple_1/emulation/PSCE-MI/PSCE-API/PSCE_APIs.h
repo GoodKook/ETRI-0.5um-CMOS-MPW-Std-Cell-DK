@@ -71,7 +71,7 @@ public:
   void    TxPacket(uint8_t nTX);
   bool    TxPacket_nb(uint8_t nTX);
   
-  void    EMU_Blinker(uint8_t Speed);
+  void    EMU_Blinker(uint16_t Speed);
 
   uint rxByte[MAX_RX_BYTE];
   uint txByte[MAX_TX_BYTE];
