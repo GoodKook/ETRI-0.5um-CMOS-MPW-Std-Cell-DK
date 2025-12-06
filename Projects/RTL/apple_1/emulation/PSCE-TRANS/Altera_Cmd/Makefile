@@ -27,6 +27,8 @@ all:
 	@if [ -e "$(PROJECT).tcl" ];  then \
 		rm -f $(PROJECT).tcl; \
 		ln -s $(PROJECT)_$(BOARD).tcl $(PROJECT).tcl; \
+	else \
+		ln -s $(PROJECT)_$(BOARD).tcl $(PROJECT).tcl; \
 	fi
 	@echo "Quartus Command Line for Emulation Transactor of $(PROJECT)"
 	@echo

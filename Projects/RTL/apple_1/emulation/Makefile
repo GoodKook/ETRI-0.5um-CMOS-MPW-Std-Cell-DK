@@ -75,7 +75,7 @@ wave : sc_$(DUT_NAME)_TB.vcd E$(DUT_NAME).vcd
 #	shmidcat $(SC_TARGET).vcd | gtkwave -v -I $(SC_TARGET).sav
 
 run: $(SC_TARGET)
-	xterm -e "../simulation/CPU_terminal" &
+	xterm -geometry 84x24+10+10 -e "../simulation/CPU_terminal" &
 	sleep 1
 	./$(SC_TARGET)
 

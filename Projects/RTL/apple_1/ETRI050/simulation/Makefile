@@ -113,7 +113,7 @@ clean :
 build : $(IVL_TARGET)
 
 run : $(IVL_TARGET) $(VPI_TARGET)
-	xterm -e "../../simulation/CPU_terminal" &
+	xterm -geometry 84x24+10+10 -e "../../simulation/CPU_terminal" &
 	sleep 1
 	vvp -M. -mvpi_stub ${IVL_TARGET} -v
 
