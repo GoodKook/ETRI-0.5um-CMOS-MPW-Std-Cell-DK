@@ -21,5 +21,5 @@ make config-clang
 make -j`nproc`
 make -j`nproc` test
 sudo make install
-make clean
+#make clean
 
