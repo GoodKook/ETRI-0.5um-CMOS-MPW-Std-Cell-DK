@@ -179,7 +179,7 @@ clean-mi:
 #(2)------------------------------------------------------------
 build-trans:
 	@if [ ! -d "$(PSCE-TRANS_PATH)" ];  then \
-		echo "Create Co-Emulation MI directory......"; \
+		echo "Create Co-Emulation TRANS directory......"; \
 		mkdir $(PSCE-TRANS_PATH); \
 		mkdir $(PSCE-TRANS_PATH)/Altera_Cmd; \
 		echo "Copy Co-Emulation Transactor ......"; \
@@ -189,6 +189,7 @@ build-trans:
 			$(PSCE-TRANS_PATH)/Altera_Cmd/$(TOP_MODULE)_wrapper.tcl; \
 		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-TRANS/Altera_Cmd/Makefile $(PSCE-TRANS_PATH)/Altera_Cmd; \
 	fi
+	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd build
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd gen_rbf
 

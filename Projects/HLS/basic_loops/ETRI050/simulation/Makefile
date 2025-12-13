@@ -91,6 +91,7 @@ clean :
 	rm -f sc_$(DUT_MODULE)_tb.vcd
 	rm -f $(VPI_TARGET)
 	rm -f $(IVL_TARGET)
+	rm -f sc_$(DUT_MODULE)_TB.cpp
 
 # Build --------------------------------------------------------
 build : $(IVL_TARGET)

@@ -6,6 +6,10 @@ export LM_LICENSE_FILE :=/home/goodkook/.altera.quartus/quartus2_lic.dat
 #TOP_MODULE =
 PROJECT = $(TOP_MODULE)_wrapper
 
+#ifeq ($(BOARD),)
+#	BOARD=I
+#endif
+
 all:
 	@clear
 	@if [ ! -n "$(TOP_MODULE)" ];  then \
@@ -13,6 +17,24 @@ all:
 		echo "!!! TOP_MODULE not declared !!!"; \
 		echo "*********************************"; \
 		exit 1; \
+	fi
+	@if [ ! -n "$(BOARD)" ];  then \
+		echo "******************************************"; \
+		echo "!!! BOARD, fpga board type not defined !!!"; \
+		echo "******************************************"; \
+		exit 1; \
+	fi
+	@if [ "$(BOARD)" != "I" ] && [ "$(BOARD)" != "II" ];  then \
+		echo "*********************"; \
+		echo "!!! BOARD=I or II !!!"; \
+		echo "*********************"; \
+		exit 1; \
+	fi
+	@if [ ! -e $(PROJECT).tcl ]; then \
+		ln -s $(PROJECT)_$(BOARD).tcl $(PROJECT).tcl; \
+	else \
+		rm -f $(PROJECT).tcl; \
+		ln -s $(PROJECT)_$(BOARD).tcl $(PROJECT).tcl; \
 	fi
 	@echo
 	@echo "Quartus Command Line for $(PROJECT)"
@@ -43,5 +65,6 @@ clean:
 	rm -rf ./incremental_db
 	rm -f $(PROJECT).qpf
 	rm -f $(PROJECT).qsf
+	rm -f $(PROJECT).tcl
 
 
