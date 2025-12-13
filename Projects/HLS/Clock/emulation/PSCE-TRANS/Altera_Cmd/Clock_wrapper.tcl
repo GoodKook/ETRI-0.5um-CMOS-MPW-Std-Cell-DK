@@ -30,6 +30,12 @@ if {$make_assignments} {
 	set_global_assignment -name ORIGINAL_QUARTUS_VERSION 24.1STD.0
 	set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:09:03  APRIL 25, 2025"
 	set_global_assignment -name LAST_QUARTUS_VERSION "24.1std.0 Standard Edition"
+	set_global_assignment -name VERILOG_FILE ../../../Clock/hls_component/syn/verilog/Clock_Clock_Pipeline_MACC_LOOP.v
+	set_global_assignment -name VERILOG_FILE ../../../Clock/hls_component/syn/verilog/Clock_Clock_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+	set_global_assignment -name VERILOG_FILE ../../../Clock/hls_component/syn/verilog/Clock_Clock_Pipeline_SHIFTER_LOOP.v
+	set_global_assignment -name VERILOG_FILE ../../../Clock/hls_component/syn/verilog/Clock_flow_control_loop_pipe_sequential_init.v
+	set_global_assignment -name VERILOG_FILE ../../../Clock/hls_component/syn/verilog/Clock_mac_muladd_8ns_6ns_16ns_16_4_1.v
+	set_global_assignment -name VERILOG_FILE ../../../Clock/hls_component/syn/verilog/Clock_shift_reg_RAM_AUTO_1R1W.v
 	set_global_assignment -name VERILOG_FILE ../../../Clock/hls_component/syn/verilog/Clock.v
 	set_global_assignment -name VERILOG_FILE ../../Clock_wrapper.v
 	set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files

@@ -97,9 +97,11 @@ void sc_FIR8_TB::Test_Mon()
         if (y_ap_vld.read())
         {
             if (test_count>=F_SAMPLE)   break;
-#ifdef EMULATED_CO_SIM
+#if defined(EMULATED_CO_SIM) && defined(SA)
             __yRef.write(_yRef[test_count]);
             yRef.write(__yRef.read());
+#elif defined(EMULATED_CO_SIM) && defined(CA)
+            yRef.write(_yRef[test_count]);
 #else
             yRef.write(_yRef[test_count]);
 #endif

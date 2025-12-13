@@ -150,10 +150,11 @@ emulation_help:
 	@echo
 	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
 	@echo '  For Co-Emulation,'
-	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
+	@echo '  (1) Build and Upload Modeling-Interface'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make clean-mi'
+	@echo '        * Option: MODE=AL|CA|SA MI=PI_PICO|DUE_NORMAL'
 	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make build-trans'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make config-trans'

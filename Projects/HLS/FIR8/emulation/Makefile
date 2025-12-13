@@ -57,6 +57,7 @@ $(SC_TARGET): $(SC_SRCS) $(SC_HDRS)
 		-I$(C_UNTIMED_PATH) \
 		-D$(HW_STYLE)_SC \
 		-DEMULATED_CO_SIM \
+		-D$(MODE) \
 		-DVCD_TRACE_TEST_TB \
 		$(LIBS) \
 		-o$(SC_TARGET) $(SC_SRCS)

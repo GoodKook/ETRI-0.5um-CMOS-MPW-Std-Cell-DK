@@ -97,13 +97,14 @@ $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
 
-wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_tb.vcd
+wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
 	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
-	gtkwave sc_$(TOP_MODULE)_tb.vcd --save=sc_$(TOP_MODULE)_tb.gtkw &
+	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)
-	rm -f *.vcd
+	rm -f V$(TOP_MODULE).vcd
+	rm -f sc_$(TOP_MODULE)_TB.vcd
 	rm -f $(TOP_MODULE)
 
 debug : $(TARGET_DIR)/$(TARGET)

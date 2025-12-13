@@ -106,6 +106,7 @@ clean :
 	rm -rf $(TARGET_DIR)
 	rm -f V$(TOP_MODULE).vcd
 	rm -f sc_$(TOP_MODULE)_TB.vcd
+	rm -f *.dat
 	rm -f $(TOP_MODULE)
 
 debug : $(TARGET_DIR)/$(TARGET)

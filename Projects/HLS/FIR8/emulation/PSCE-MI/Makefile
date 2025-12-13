@@ -11,7 +11,8 @@ ifeq ($(MI), DUE_NORMAL)
 	export CPP_EXTRA="-DOLED_DISPLAY -DDUE_NORMAL -DUART_BPS=115200 -DCYCLONE_IV"
 else ifeq ($(MI), PI_PICO)
 	export FQBN=rp2040:rp2040:rpipico
-	export CPP_EXTRA="-DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+	export CPP_EXTRA="-DOLED_DISPLAY -DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+#	export CPP_EXTRA="-DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
 else
 	MI = NONE
 endif
@@ -80,8 +81,12 @@ build: ./$(SKETCH)/$(SKETCH).ino
 	fi
 	@if [ "$(MODE)" = "AL" ]; then \
 		echo "Linking Un-Timed model..."; \
-		ln -s ../../../c_untimed/$(TOP_MODULE).cpp E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).cpp; \
-		ln -s ../../../c_untimed/$(TOP_MODULE).h E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).h; \
+		if [ ! -e E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).cpp ]; then \
+			ln -s ../../../c_untimed/$(TOP_MODULE).cpp E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).cpp; \
+		fi; \
+		if [ ! -e E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).h ]; then \
+			ln -s ../../../c_untimed/$(TOP_MODULE).h E$(TOP_MODULE)_$(MODE)/$(TOP_MODULE).h; \
+		fi; \
 	fi
 	arduino-cli compile --clean --fqbn $(FQBN) $(SKETCH) \
 		--build-path ./$(SKETCH)/build \

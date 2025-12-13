@@ -25,7 +25,7 @@ all :
 	@echo '             config_m1f'
 	@echo '             config_m2f'
 	@echo '             clean_cell'
-	@echo
+	@echo ''
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 
 # -----------------------------------------------------
@@ -86,6 +86,8 @@ size: ./layout/$(TOP_MODULE).mag ./log/magic_db.log
 clean :
 	rm -f ./log/*
 	rm -f ./synthesis/*
+	rm -f source
+	rm -f ./simulation/sc_Clock_TB.cpp
 	touch project_vars.sh
 
 #--------------------------------------------------------------------------------

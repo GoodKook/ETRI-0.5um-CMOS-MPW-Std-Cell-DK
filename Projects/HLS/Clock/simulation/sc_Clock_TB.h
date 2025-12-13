@@ -71,7 +71,7 @@ SC_MODULE(sc_Clock_TB)
 
 #ifdef VCD_TRACE_TEST_TB
         // WAVE
-        fp = sc_create_vcd_trace_file("sc_Clock_tb");
+        fp = sc_create_vcd_trace_file("sc_Clock_TB");
         fp->set_time_unit(100, SC_PS);  // resolution (trace) ps
         sc_trace(fp, ap_clk,    "ap_clk");
         sc_trace(fp, ap_rst,    "ap_rst");
