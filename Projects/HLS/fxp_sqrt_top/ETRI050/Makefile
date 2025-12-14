@@ -86,6 +86,8 @@ size: ./layout/$(TOP_MODULE).mag ./log/magic_db.log
 clean :
 	rm -f ./log/*
 	rm -f ./synthesis/*
+	rm -f source
+	rm -f ./simulation/sc_$(TOP_MODULE)_TB.cpp
 	touch project_vars.sh
 
 #--------------------------------------------------------------------------------
