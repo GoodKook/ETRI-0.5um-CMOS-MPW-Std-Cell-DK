@@ -90,34 +90,34 @@ if {$make_assignments} {
 #           clk-->|14           15|<--reset
 #                 +---------------+
 #                      SOP28
-	set_location_assignment PIN_49 -to PNP_C
-	set_location_assignment PIN_50 -to PNP_B
-	set_location_assignment PIN_44 -to PNP_E
-	set_location_assignment PIN_46 -to xACC_o[0]
-	set_location_assignment PIN_42 -to xACC_o[1]
-	set_location_assignment PIN_43 -to xACC_o[2]
-	set_location_assignment PIN_38 -to xVDD_7
-	set_location_assignment PIN_39 -to xACC_o[7]
-	set_location_assignment PIN_33 -to xACC_o[6]
-	set_location_assignment PIN_34 -to xACC_o[5]
-	set_location_assignment PIN_31 -to xACC_o[4]
-	set_location_assignment PIN_32 -to xACC_o[3]
-	set_location_assignment PIN_28 -to xDone_o
-	set_location_assignment PIN_30 -to xclk
-	set_location_assignment PIN_68 -to xreset
-	set_location_assignment PIN_69 -to xABCmd_i[0]
-	set_location_assignment PIN_66 -to xABCmd_i[1]
-	set_location_assignment PIN_67 -to xABCmd_i[2]
-	set_location_assignment PIN_64 -to xLoadA_i
-	set_location_assignment PIN_65 -to xLoadB_i
-	set_location_assignment PIN_59 -to xGND
-	set_location_assignment PIN_60 -to xLoadCmd_i
-	set_location_assignment PIN_55 -to xABCmd_i[3]
-	set_location_assignment PIN_58 -to xABCmd_i[4]
-	set_location_assignment PIN_53 -to xABCmd_i[5]
-	set_location_assignment PIN_54 -to xABCmd_i[6]
-	set_location_assignment PIN_51 -to xABCmd_i[7]
-	set_location_assignment PIN_52 -to xVDD_28
+	set_location_assignment PIN_30 -to PNP_C
+	set_location_assignment PIN_28 -to PNP_B
+	set_location_assignment PIN_32 -to PNP_E
+	set_location_assignment PIN_31 -to xACC_o[0]
+	set_location_assignment PIN_34 -to xACC_o[1]
+	set_location_assignment PIN_33 -to xACC_o[2]
+	set_location_assignment PIN_39 -to xVDD_7
+	set_location_assignment PIN_38 -to xACC_o[7]
+	set_location_assignment PIN_43 -to xACC_o[6]
+	set_location_assignment PIN_42 -to xACC_o[5]
+	set_location_assignment PIN_46 -to xACC_o[4]
+	set_location_assignment PIN_44 -to xACC_o[3]
+	set_location_assignment PIN_50 -to xDone_o
+	set_location_assignment PIN_49 -to xclk
+	set_location_assignment PIN_52 -to xreset
+	set_location_assignment PIN_51 -to xABCmd_i[0]
+	set_location_assignment PIN_54 -to xABCmd_i[1]
+	set_location_assignment PIN_53 -to xABCmd_i[2]
+	set_location_assignment PIN_58 -to xLoadA_i
+	set_location_assignment PIN_55 -to xLoadB_i
+	set_location_assignment PIN_60 -to xGND
+	set_location_assignment PIN_59 -to xLoadCmd_i
+	set_location_assignment PIN_65 -to xABCmd_i[3]
+	set_location_assignment PIN_64 -to xABCmd_i[4]
+	set_location_assignment PIN_67 -to xABCmd_i[5]
+	set_location_assignment PIN_66 -to xABCmd_i[6]
+	set_location_assignment PIN_69 -to xABCmd_i[7]
+	set_location_assignment PIN_68 -to xVDD_28
 
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[6]

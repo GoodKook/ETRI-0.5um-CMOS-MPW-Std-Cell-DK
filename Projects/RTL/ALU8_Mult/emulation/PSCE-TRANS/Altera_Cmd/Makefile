@@ -32,9 +32,7 @@ build: ./output_files/$(PROJECT).sof
 ./output_files/$(PROJECT).sof: ../../$(PROJECT).v
 	quartus_sh -t $(PROJECT).tcl
 
-gen_rbf: output_file.rbf
-
-output_file.rbf: ./output_files/$(PROJECT).sof
+gen_rbf:
 	quartus_cpf -c ./output_files/$(PROJECT).sof output_file.rbf
 
 config: output_file.rbf

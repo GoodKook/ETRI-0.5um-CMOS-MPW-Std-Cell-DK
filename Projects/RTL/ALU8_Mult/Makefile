@@ -6,16 +6,9 @@ export PATH :=/opt/Xilinx/2025.1/Vivado/bin:/opt/Xilinx/2025.1/Vitis/bin:$(PATH)
 export TOP_MODULE := $(TOP_MODULE)
 #-------------------------------------------------------------------------------
 PRJ_CONFIG_PATH=~/ETRI050_DesignKit/scripts/RTL_Project
-C_UNTIMED_PATH = ./c_untimed
 RTL_PATH = ./$(TOP_MODULE)
 CO-SIM_PATH = ./simulation
 #-------------------------------------------------------------------------------
-export CPP_FILES  := $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp
-# Export environmental variable for C-Synth & Simulation
-#ifeq ($(HW_STYLE), )
-#	export HW_STYLE=BIT_ACCURATE
-#endif
-#---------------------------------------------------------------
 all:
 	@clear
 	@if [ ! -n "$(TOP_MODULE)" ];  then \
@@ -33,41 +26,14 @@ all:
 	@echo
 	@echo 'RTL Project: $(TOP_MODULE)'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make csim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make co-sim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
 	@echo
-	@echo '    make emulation'
+	@echo '    make emulation ; and Chip Tester'
 	@echo '    make ETRI050'
 	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 	@echo
-#---------------------------------------------------------------
-csim: $(C_UNTIMED_PATH)/$(TOP_MODULE)_TB
-
-$(C_UNTIMED_PATH)/$(TOP_MODULE)_TB : $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp
-	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C $(C_UNTIMED_PATH) build
-	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) run
-
-$(C_UNTIMED_PATH)/$(TOP_MODULE).cpp :
-	@if [ ! -d "$(C_UNTIMED_PATH)" ];  then \
-		echo "Create C-Untimed directory......"; \
-		mkdir $(C_UNTIMED_PATH); \
-		echo "Copy un-timed model template ......"; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.h > \
-			$(C_UNTIMED_PATH)/$(TOP_MODULE).h; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.cpp > \
-			$(C_UNTIMED_PATH)/$(TOP_MODULE).cpp; \
-		echo "Copy un-timed model testbench ......"; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE_TB.cpp > \
-			$(C_UNTIMED_PATH)/$(TOP_MODULE)_TB.cpp; \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/calcDFT.cpp $(C_UNTIMED_PATH); \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.h $(C_UNTIMED_PATH); \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.cpp $(C_UNTIMED_PATH); \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/plotDFT.py $(C_UNTIMED_PATH); \
-		echo "Copy un-timed model Makefile ......"; \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/Makefile $(C_UNTIMED_PATH); \
-	fi
 #---------------------------------------------------------------
 co-sim: $(RTL_PATH)/$(TOP_MODULE).v
 	@if [ ! -d "$(CO-SIM_PATH)" ];  then \
@@ -140,13 +106,16 @@ emulation_help:
 	fi
 	@echo
 	@echo 'RTL Project: $(TOP_MODULE)'
-	@echo '  For Co-Emulation,'
+	@echo '  For Co-Emulation and Test,'
 	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
-	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
+	@echo '  (2a) Build and Config Transactor FPGA(Altera Cyclone-IV)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make build-trans'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make config-trans'
+	@echo '  (2b) Build and Config Tester FPGA(Altera Cyclone-IV)'
+	@echo '        TOP_MODULE=$(TOP_MODULE) make build-tester'
+	@echo '        TOP_MODULE=$(TOP_MODULE) make config-tester'
 	@echo '  (3) Build and Run Co-Emulator'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make co-emu'
 	@echo
@@ -191,6 +160,14 @@ build-trans:
 
 config-trans:
 	TOP_MODULE=$(TOP_MODULE) make -C ./emulation/PSCE-TRANS/Altera_Cmd config
+
+build-tester:
+	TOP_MODULE=$(TOP_MODULE) MODE=TESTER make -C $(PSCE-TRANS_PATH)/Altera_Cmd build
+	TOP_MODULE=$(TOP_MODULE) MODE=TESTER make -C $(PSCE-TRANS_PATH)/Altera_Cmd gen_rbf
+
+config-tester:
+	TOP_MODULE=$(TOP_MODULE) MODE=TESTER make -C ./emulation/PSCE-TRANS/Altera_Cmd config
+
 #(3)------------------------------------------------------------
 co-emu:
 	make -C $(CO-EMU_PATH) clean
@@ -297,3 +274,15 @@ layout_ETRI050:
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/layout klayout
 
 #---------------------------------------------------------------
+_clean:
+	make -C ./simulation clean
+	make -C ./emulation clean
+	make -C ./emulation/PSCE-MI clean
+	make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
+	MODE=TESTER make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
+	make -C ./ETRI050 clean
+	make -C ./ETRI050/layout clean
+	make -C ./ETRI050/layout clean_all
+	make -C ./ETRI050/simulation clean
+
+

@@ -91,7 +91,7 @@ size: ./layout/$(TOP_MODULE).mag ./log/magic_db.log
 clean :
 	rm -f ./log/*
 	rm -f ./synthesis/*
-#	rm -f ./source/*
+	rm -f source
 	touch project_vars.sh
 
 #--------------------------------------------------------------------------------
