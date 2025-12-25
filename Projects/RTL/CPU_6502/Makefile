@@ -33,7 +33,6 @@ all:
 	@echo
 	@echo 'RTL Project: $(TOP_MODULE)'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make csim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make co-sim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
 	@echo
@@ -42,32 +41,6 @@ all:
 	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 	@echo
-#---------------------------------------------------------------
-csim: $(C_UNTIMED_PATH)/$(TOP_MODULE)_TB
-
-$(C_UNTIMED_PATH)/$(TOP_MODULE)_TB : $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp
-	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C $(C_UNTIMED_PATH) build
-	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) run
-
-$(C_UNTIMED_PATH)/$(TOP_MODULE).cpp :
-	@if [ ! -d "$(C_UNTIMED_PATH)" ];  then \
-		echo "Create C-Untimed directory......"; \
-		mkdir $(C_UNTIMED_PATH); \
-		echo "Copy un-timed model template ......"; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.h > \
-			$(C_UNTIMED_PATH)/$(TOP_MODULE).h; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE.cpp > \
-			$(C_UNTIMED_PATH)/$(TOP_MODULE).cpp; \
-		echo "Copy un-timed model testbench ......"; \
-		sed "s/TOP_MODULE/${TOP_MODULE}/g" $(PRJ_CONFIG_PATH)/c_untimed/TOP_MODULE_TB.cpp > \
-			$(C_UNTIMED_PATH)/$(TOP_MODULE)_TB.cpp; \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/calcDFT.cpp $(C_UNTIMED_PATH); \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.h $(C_UNTIMED_PATH); \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/cnoise.cpp $(C_UNTIMED_PATH); \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/plotDFT.py $(C_UNTIMED_PATH); \
-		echo "Copy un-timed model Makefile ......"; \
-		cp $(PRJ_CONFIG_PATH)/c_untimed/Makefile $(C_UNTIMED_PATH); \
-	fi
 #---------------------------------------------------------------
 co-sim: $(RTL_PATH)/$(TOP_MODULE).v
 	@if [ ! -d "$(CO-SIM_PATH)" ];  then \
@@ -282,6 +255,7 @@ synth_ETRI050:
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050 synthesize
 
 sim_ETRI050:
+	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/simulation
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/simulation run
 	
 wave_ETRI050:
@@ -297,3 +271,13 @@ layout_ETRI050:
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/layout klayout
 
 #---------------------------------------------------------------
+_clean:
+	make -C ./simulation clean
+	make -C ./emulation clean
+	make -C ./emulation/PSCE-MI clean
+	make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
+	make -C ./ETRI050 clean
+	make -C ./ETRI050/simulation clean
+	make -C ./ETRI050/layout clean
+	make -C ./ETRI050/layout clean_all
+

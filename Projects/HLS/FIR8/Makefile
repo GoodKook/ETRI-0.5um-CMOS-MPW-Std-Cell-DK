@@ -341,7 +341,9 @@ _clean:
 	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) clean
 	make -C ./simulation clean
 	make -C ./emulation clean
+	MODE=AL make -C ./emulation/PSCE-MI clean
 	MODE=CA make -C ./emulation/PSCE-MI clean
+	MODE=SA make -C ./emulation/PSCE-MI clean
 	make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
 	make -C ./ETRI050 clean
 	make -C ./ETRI050/simulation clean

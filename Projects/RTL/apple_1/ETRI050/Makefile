@@ -15,6 +15,14 @@ all :
 		echo "Symbolic link './source' to RTL..."; \
 		ln -s ../$(TOP_MODULE) ./source; \
 	fi
+	@if [ ! -e "./log" ]; then \
+		echo "Create log directory..."; \
+		mkdir log; \
+	fi
+	@if [ ! -e "./synthesis" ]; then \
+		echo "Create synthesis directory..."; \
+		mkdir synthesis; \
+	fi
 	@echo
 	@echo 'Makefile for "Verilog-RTL Ex.: $(TOP_MODULE)"'
 	@echo 'QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
@@ -91,7 +99,7 @@ size: ./layout/$(TOP_MODULE).mag ./log/magic_db.log
 clean :
 	rm -f ./log/*
 	rm -f ./synthesis/*
-#	rm -f ./source/*
+	rm -f ./source
 	touch project_vars.sh
 
 #--------------------------------------------------------------------------------

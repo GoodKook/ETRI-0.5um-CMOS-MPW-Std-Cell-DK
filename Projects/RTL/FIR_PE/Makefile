@@ -48,6 +48,7 @@ csim: $(C_UNTIMED_PATH)/$(TOP_MODULE)_TB
 $(C_UNTIMED_PATH)/$(TOP_MODULE)_TB : $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp
 	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C $(C_UNTIMED_PATH) build
 	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) run
+	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) plot
 
 $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp :
 	@if [ ! -d "$(C_UNTIMED_PATH)" ];  then \
@@ -86,6 +87,7 @@ co-sim: $(RTL_PATH)/$(TOP_MODULE).v
 	fi
 	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation build
 	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation run
+	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation plot
 
 $(RTL_PATH)/$(TOP_MODULE).v:
 	@if [ ! -d "$(RTL_PATH)" ];  then \
@@ -144,9 +146,12 @@ emulation_help:
 	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
-	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'
+	@echo '  (2a) Build and Config Transactor FPGA(Altera Cyclone-IV)'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make build-trans'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make config-trans'
+	@echo '  (2b) Build and Config Tester FPGA(Altera Cyclone-IV)'
+	@echo '        TOP_MODULE=$(TOP_MODULE) make build-tester'
+	@echo '        TOP_MODULE=$(TOP_MODULE) make config-tester'
 	@echo '  (3) Build and Run Co-Emulator'
 	@echo '        TOP_MODULE=$(TOP_MODULE) make co-emu'
 	@echo
@@ -188,6 +193,10 @@ build-trans:
 	fi
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd build
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd gen_rbf
+
+build-tester:
+	TOP_MODULE=$(TOP_MODULE) MODE=TESTER make -C $(PSCE-TRANS_PATH)/Altera_Cmd build
+	TOP_MODULE=$(TOP_MODULE) MODE=TESTER make -C $(PSCE-TRANS_PATH)/Altera_Cmd gen_rbf
 
 config-trans:
 	TOP_MODULE=$(TOP_MODULE) make -C ./emulation/PSCE-TRANS/Altera_Cmd config
@@ -282,6 +291,7 @@ synth_ETRI050:
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050 synthesize
 
 sim_ETRI050:
+	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/simulation
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/simulation run
 	
 wave_ETRI050:
@@ -297,3 +307,14 @@ layout_ETRI050:
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/layout klayout
 
 #---------------------------------------------------------------
+_clean:
+	make -C ./c_untimed clean
+	make -C ./simulation clean
+	make -C ./emulation clean
+	make -C ./emulation/PSCE-MI clean
+	make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
+	MODE=TESTER make -C ./emulation/PSCE-TRANS/Altera_Cmd clean
+	make -C ./ETRI050 clean
+	make -C ./ETRI050/simulation clean
+	make -C ./ETRI050/layout clean
+	make -C ./ETRI050/layout clean_all

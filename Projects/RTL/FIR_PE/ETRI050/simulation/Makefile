@@ -91,6 +91,7 @@ clean :
 	rm -rf $(VLT_DIR)
 	rm -f vpi_stub.vpi
 	rm -f sc_$(DUT_MODULE)_TB.txt
+	rm -f sc_$(DUT_MODULE)_TB.cpp
 	rm -f *.vcd
 	rm -f $(VPI_TARGET)
 	rm -f $(IVL_TARGET)

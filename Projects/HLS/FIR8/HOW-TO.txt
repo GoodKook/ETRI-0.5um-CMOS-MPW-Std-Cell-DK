@@ -1,0 +1,1014 @@
+HLS Project: FIR8
+
+1. Design Directory Structure
+2. Environment Set-up
+3. Untimed C-Simulation
+4. HLS
+5. Co-Simulation
+6. Co-Emulation
+    6-1. Algorithmic Level(MODE=AL)
+        6-1-1. Build Modeling Interface
+        6-1-2. Run Co-Emulator
+    6-2. Cycle Accurate(MODE=CA)
+        6-2-1. Build Modeling Interface
+        6-2-2. Build Transactor
+        6-2-3. Run emulator
+    6-3. System Accurate(MODE=SA)
+        6-3-1. Build Modeling Interface
+        6-3-2. Run emulator
+    6-4. Comparison of each modes(AL, CA, SA)
+        6-4-1. Timing
+        6-4-2. Modeling Interface
+7. ETRI050 Node (MyChip)
+    7-1. Synthesize
+    7-2. Timing simulation
+    7-3. Place and Route
+        What to do, if core size is matters?
+    7-4. Generate Layout
+
+CC-BY-NC
+by GoodKook, goodkook@gmail.com
+
+------------------------------------------------------------------------
+
+1. Design Directory Structure
+
+Repository Link,
+
+https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tree/main/Projects/HLS/FIR8
+
+$ tree .
+    .
+    ├── HOW-TO.txt
+    ├── Makefile
+    ├── env_settings
+    ├── Vitis-HLS.tcl
+    ├── /c_untimed
+    │   ├── Makefile
+    │   ├── calcDFT.cpp
+    │   ├── cnoise.cpp
+    │   ├── cnoise.h
+    │   ├── FIR8.cpp
+    │   ├── FIR8.h
+    │   ├── FIR8_TB.cpp
+    │   └── plotDFT.py
+    ├── /emulation
+    │   ├── Makefile
+    │   ├── EFIR8.h
+    │   ├── FIR8_wrapper.v
+    │   ├── /PSCE-MI
+    │   │   ├── Makefile
+    │   │   ├── EFIR8_AL
+    │   │   │   └── EFIR8_AL.ino
+    │   │   ├── EFIR8_CA
+    │   │   │   └── EFIR8_CA.ino
+    │   │   ├── EFIR8_SA
+    │   │   │   └── EFIR8_SA.ino
+    │   │   └── /PSCE_API
+    │   │       ├── PinMap_A7_100T.h
+    │   │       ├── PinMap_TANG_25K.h
+    │   │       ├── PSCE_APIs.cpp
+    │   │       ├── PSCE_APIs.h
+    │   │       ├── PSCE_Config.h
+    │   │       └── PSCE_Splash.h
+    │   └── /PSCE-TRANS
+    │       └── /Altera_Cmd
+    │           ├── FIR8_wrapper.tcl
+    │           └── Makefile
+    ├── /ETRI050
+    │   ├── Makefile
+    │   ├── project_vars.sh
+    │   ├── /chip_top
+    │   │   ├── ETRI050_CMOS.lyp
+    │   │   └── Makefile
+    │   ├── /layout
+    │   │   ├── Makefile
+    │   │   ├── ETRI050_CMOS.lyp
+    │   │   ├── FIR8.cel2
+    │   │   ├── FIR8.par
+    │   │   └── .magicrc
+    │   ├── /simulation
+    │   │   ├── FIR8_TB.v
+    │   │   ├── Makefile
+    │   │   ├── sc_FIR8_TB.h
+    │   │   ├── vpi_FIR8_tb.cpp
+    │   │   ├── vpi_FIR8_tb_exports.h
+    │   │   ├── vpi_FIR8_tb_ports.h
+    │   │   └── vpi_stub.cpp
+    │   └── /MyChip_MPW
+    │       └── ETRI050_MPW2025.tar.gz
+    └── /simulation
+        ├── Makefile
+        ├── sc_FIR8_TB.cpp
+        ├── sc_FIR8_TB.h
+        ├── sc_main.cpp
+        └── sc_plotDFT.py
+
+2. Environment Set-up
+
+$ source env_settings
+
+    #************************************************************************
+    #* Environment setting for HLS, Co-Simulmatio/Emulation & ETRI050
+    #************************************************************************
+    Setting Environment variables as follows;
+        PROJECT_DIR=/home/mychip/MyChip_Work/Projects/HLS/FIR8
+        TOP_MODULE=FIR8
+        HW_STYLE=FIR_MAC_VERSION
+        MODE=CA
+        MI=PI_PICO
+
+$ make
+
+    Vitis-HLS Project: FIR8
+
+        TOP_MODULE=FIR8 HW_STYLE=FIR_MAC_VERSION make csim
+        TOP_MODULE=FIR8 HW_STYLE=FIR_MAC_VERSION make csynth
+        TOP_MODULE=FIR8 make view_rpt
+        TOP_MODULE=FIR8 make co-sim
+        TOP_MODULE=FIR8 make wave
+
+        make emulation
+        make ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+3. Untimed C-Simulation
+
+$ make csim
+
+    TOP_MODULE=FIR8 HW_STYLE=FIR_MAC_VERSION make -C ./c_untimed build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/c_untimed'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -o FIR8_TB \
+            -DFIR_MAC_VERSION_SC \
+            ./calcDFT.cpp ./cnoise.cpp ./FIR8.cpp ./FIR8_TB.cpp \
+            -lsystemc -lgsl
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/c_untimed'
+
+    TOP_MODULE=FIR8 make -C ./c_untimed run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/c_untimed'
+    ./FIR8_TB | tee FIR8_TB.txt
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+    0 152 26.240 608 36.260
+    1 73 13.605 2116 24.193
+    2 148 13.711 5268 23.833
+    3 87 12.206 9117 21.330
+    ......
+    4797 95 12.206 16122 21.330
+    4798 85 13.711 16348 23.833
+    4799 57 13.605 15837 24.193
+
+$ make -C c_untimed plot
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/c_untimed'
+    python3 plotDFT.py FIR8_TB.txt input &
+    python3 plotDFT.py FIR8_TB.txt inputDFT &
+    python3 plotDFT.py FIR8_TB.txt output &
+    python3 plotDFT.py FIR8_TB.txt outputDFT &
+
+4. HLS
+
+$ make csynth
+
+    vitis-run --mode hls --tcl Vitis-HLS.tcl
+    ......
+
+$ ls -l FIR8/hls_component/syn/verilog
+
+    total 60
+    -rw-r--r-- 1 mychip mychip    24 Dec 23 10:05 FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat
+    -rw-r--r-- 1 mychip mychip   875 Dec 23 10:05 FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+    -rw-r--r-- 1 mychip mychip 10504 Dec 23 10:05 FIR8_FIR8_Pipeline_MACC_LOOP.v
+    -rw-r--r-- 1 mychip mychip  9110 Dec 23 10:05 FIR8_FIR8_Pipeline_SHIFTER_LOOP.v
+    -rw-r--r-- 1 mychip mychip  2770 Dec 23 10:05 FIR8_flow_control_loop_pipe_sequential_init.v
+    -rw-r--r-- 1 mychip mychip  1794 Dec 23 10:05 FIR8_mac_muladd_8ns_6ns_16ns_16_4_1.v
+    -rw-r--r-- 1 mychip mychip    16 Dec 23 10:05 FIR8_shift_reg_RAM_AUTO_1R1W.dat
+    -rw-r--r-- 1 mychip mychip  1311 Dec 23 10:05 FIR8_shift_reg_RAM_AUTO_1R1W.v
+    -rw-r--r-- 1 mychip mychip 10730 Dec 23 10:05 FIR8.v
+
+$ make view_rpt
+
+    less ./FIR8/hls_component/syn/report/FIR8_csynth.rpt
+
+    * Project:        FIR8
+    * Solution:       hls_component (Vivado IP Flow Target)
+    * Product family: aartix7
+    * Target device:  xa7a100t-csg324-2I
+
+    ================================================================
+    == Performance Estimates
+    ================================================================
+    + Timing:
+        * Summary:
+        +--------+---------+----------+------------+
+        |  Clock |  Target | Estimated| Uncertainty|
+        +--------+---------+----------+------------+
+        |ap_clk  |  1.00 us|  4.570 ns|     0.27 us|
+        +--------+---------+----------+------------+
+
+    + Latency:
+        * Summary:
+        +---------+---------+-----------+-----------+-----+-----+---------+
+        |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +---------+---------+-----------+-----------+-----+-----+---------+
+        |       27|       27|  27.000 us|  27.000 us|   28|   28|       no|
+        +---------+---------+-----------+-----------+-----+-----+---------+
+        + Detail:
+        * Instance:
+        +--------------------------------------+----------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+        |                                      |                            |  Latency (cycles) |   Latency (absolute)  |  Interval |                    Pipeline                    |
+        |               Instance               |           Module           |   min   |   max   |    min    |    max    | min | max |                      Type                      |
+        +--------------------------------------+----------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+        |grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51  |FIR8_Pipeline_SHIFTER_LOOP  |       10|       10|  10.000 us|  10.000 us|    9|    9|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |grp_FIR8_Pipeline_MACC_LOOP_fu_59     |FIR8_Pipeline_MACC_LOOP     |       13|       13|  13.000 us|  13.000 us|    9|    9|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        +--------------------------------------+----------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+    ......
+
+    ================================================================
+    == Utilization Estimates
+    ================================================================
+    + Detail:
+        * Instance:
+        +--------------------------------------+----------------------------+---------+----+-----+-----+-----+
+        |               Instance               |           Module           | BRAM_18K| DSP|  FF | LUT | URAM|
+        +--------------------------------------+----------------------------+---------+----+-----+-----+-----+
+        |grp_FIR8_Pipeline_MACC_LOOP_fu_59     |FIR8_Pipeline_MACC_LOOP     |        0|   1|  100|  115|    0|
+        |grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51  |FIR8_Pipeline_SHIFTER_LOOP  |        0|   0|   12|   90|    0|
+        +--------------------------------------+----------------------------+---------+----+-----+-----+-----+
+        |Total                                 |                            |        0|   1|  112|  205|    0|
+        +--------------------------------------+----------------------------+---------+----+-----+-----+-----+
+
+        * Memory:
+        +-------------+-------------------------+---------+----+----+-----+------+-----+------+-------------+
+        |    Memory   |          Module         | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+        +-------------+-------------------------+---------+----+----+-----+------+-----+------+-------------+
+        |shift_reg_U  |shift_reg_RAM_AUTO_1R1W  |        0|  16|   1|    0|     8|    8|     1|           64|
+        +-------------+-------------------------+---------+----+----+-----+------+-----+------+-------------+
+        |Total        |                         |        0|  16|   1|    0|     8|    8|     1|           64|
+        +-------------+-------------------------+---------+----+----+-----+------+-----+------+-------------+
+
+        * Multiplexer:
+        +--------------------+----+-----------+-----+-----------+
+        |        Name        | LUT| Input Size| Bits| Total Bits|
+        +--------------------+----+-----------+-----+-----------+
+        |ap_NS_fsm           |  25|          6|    1|          6|
+        |shift_reg_address0  |  13|          3|    3|          9|
+        |shift_reg_ce0       |  13|          3|    1|          3|
+        |shift_reg_ce1       |   9|          2|    1|          2|
+        |shift_reg_we0       |   9|          2|    1|          2|
+        |shift_reg_we1       |   9|          2|    1|          2|
+        +--------------------+----+-----------+-----+-----------+
+        |Total               |  78|         18|    8|         24|
+        +--------------------+----+-----------+-----+-----------+
+
+        * Register:
+        +---------------------------------------------------+---+----+-----+-----------+
+        |                        Name                       | FF| LUT| Bits| Const Bits|
+        +---------------------------------------------------+---+----+-----+-----------+
+        |ap_CS_fsm                                          |  5|   0|    5|          0|
+        |grp_FIR8_Pipeline_MACC_LOOP_fu_59_ap_start_reg     |  1|   0|    1|          0|
+        |grp_FIR8_Pipeline_SHIFTER_LOOP_fu_51_ap_start_reg  |  1|   0|    1|          0|
+        |x_read_reg_72                                      |  8|   0|    8|          0|
+        +---------------------------------------------------+---+----+-----+-----------+
+        |Total                                              | 15|   0|   15|          0|
+        +---------------------------------------------------+---+----+-----+-----------+
+
+    ================================================================
+    == Interface
+    ================================================================
+        * Summary:
+        +----------+-----+-----+------------+--------------+--------------+
+        | RTL Ports| Dir | Bits|  Protocol  | Source Object|    C Type    |
+        +----------+-----+-----+------------+--------------+--------------+
+        |ap_clk    |   in|    1|  ap_ctrl_hs|          FIR8|  return value|
+        |ap_rst    |   in|    1|  ap_ctrl_hs|          FIR8|  return value|
+        |ap_start  |   in|    1|  ap_ctrl_hs|          FIR8|  return value|
+        |ap_done   |  out|    1|  ap_ctrl_hs|          FIR8|  return value|
+        |ap_idle   |  out|    1|  ap_ctrl_hs|          FIR8|  return value|
+        |ap_ready  |  out|    1|  ap_ctrl_hs|          FIR8|  return value|
+        |y         |  out|   16|      ap_vld|             y|       pointer|
+        |y_ap_vld  |  out|    1|      ap_vld|             y|       pointer|
+        |x         |   in|    8|     ap_none|             x|        scalar|
+        +----------+-----+-----+------------+--------------+--------------+
+
+5. Co-Simulation
+
+$ make co-sim
+
+    TOP_MODULE=FIR8 HW_STYLE=FIR_MAC_VERSION make -C simulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/simulation'
+    verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+              --top-module FIR8  --exe --build \
+              -CFLAGS -g \
+              -CFLAGS -I../../c_untimed \
+              -CFLAGS -I/opt/systemc/include \
+              -CFLAGS -DVCD_TRACE_TEST_TB \
+              -CFLAGS -DVCD_TRACE_DUT_VERILOG \
+              -CFLAGS -DFIR_MAC_VERSION_SC \
+              -LDFLAGS -lm \
+              -LDFLAGS -lgsl \
+              ../FIR8/hls_component/syn/verilog/*.v \
+              ../c_untimed/cnoise.cpp \
+              ../c_untimed/FIR8.cpp \
+              ./sc_main.cpp ./sc_FIR8_TB.cpp
+
+    TOP_MODULE=FIR8 make -C simulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/simulation'
+    ./obj_dir/VFIR8
+
+        SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+        Copyright (c) 1996-2025 by all Contributors,
+        ALL RIGHTS RESERVED
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_FIR8_TB.vcd)
+
+    Warning: (W509) module construction not properly completed: ........
+
+    %Warning: ./FIR8_shift_reg_RAM_AUTO_1R1W.dat:0: $readmem file not found
+    %Warning: ./FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat:0: $readmem file not found
+    [   0] y=    0 Y=    0 OK
+    [   1] y=  496 Y=    0 ERROR
+    [   2] y= 1776 Y=    0 ERROR
+    [   3] y= 4444 Y=    0 ERROR
+    ......
+    [4797] y=13671 Y=    0 ERROR
+    [4798] y=14887 Y=    0 ERROR
+    [4799] y=15518 Y=    0 ERROR
+
+$ ll FIR8/hls_component/syn/verilog/*.dat
+
+    -rw-r--r-- 1 mychip mychip 24 Dec 23 10:05 FIR8/hls_component/syn/verilog/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat
+    -rw-r--r-- 1 mychip mychip 16 Dec 23 10:05 FIR8/hls_component/syn/verilog/FIR8_shift_reg_RAM_AUTO_1R1W.dat
+
+$ ln -s ../FIR8/hls_component/syn/verilog/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat \
+        ./simulation/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat
+
+$ ln -s ../FIR8/hls_component/syn/verilog/FIR8_shift_reg_RAM_AUTO_1R1W.dat \
+        ./simulation/FIR8_shift_reg_RAM_AUTO_1R1W.dat
+
+$ ll simulation
+
+    total 30012
+    drwxr-xr-x 3 mychip mychip     4096 Dec 23 10:25 .
+    drwxr-xr-x 8 mychip mychip     4096 Dec 23 10:05 ..
+    lrwxrwxrwx 1 mychip mychip       90 Dec 23 10:25 FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat -> ../FIR8/hls_component/syn/verilog/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat
+    lrwxrwxrwx 1 mychip mychip       66 Dec 23 10:25 FIR8_shift_reg_RAM_AUTO_1R1W.dat -> ../FIR8/hls_component/syn/verilog/FIR8_shift_reg_RAM_AUTO_1R1W.dat
+    -rw-r--r-- 1 mychip mychip     3342 Dec 16 10:16 Makefile
+    -rw-r--r-- 1 mychip mychip     2962 Dec 16 10:16 sc_FIR8_TB.cpp
+    -rw-r--r-- 1 mychip mychip     2896 Dec 16 10:16 sc_FIR8_TB.h
+    -rw-r--r-- 1 mychip mychip      426 Dec 16 10:16 sc_main.cpp
+    -rw-r--r-- 1 mychip mychip     2189 Dec 16 10:16 sc_plotDFT.py
+
+$ make co-sim
+
+    TOP_MODULE=FIR8 HW_STYLE=FIR_MAC_VERSION make -C simulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/simulation'
+    make[1]: Nothing to be done for 'build'.
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/simulation'
+    TOP_MODULE=FIR8 make -C simulation run
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/simulation'
+    ./obj_dir/VFIR8
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_FIR8_TB.vcd)
+
+    Warning: (W509) module construction not properly completed: ......
+
+    [   0] y=    0 Y=    0 OK
+    [   1] y=  508 Y=  508 OK
+    [   2] y= 1780 Y= 1780 OK
+    [   3] y= 4471 Y= 4471 OK
+    ......
+    [4797] y=13743 Y=13743 OK
+    [4798] y=15096 Y=15096 OK
+    [4799] y=15954 Y=15954 OK
+
+$ make wave
+
+    TOP_MODULE=FIR8 make -C ./simulation wave
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/simulation'
+    gtkwave VFIR8.vcd --save=VFIR8.gtkw &
+    gtkwave sc_FIR8_TB.vcd --save=sc_FIR8_TB.gtkw &
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/simulation'
+
+* Check followings in VCD waveform(Timed Simulation result);
+    - Boundary of DUT;
+
+        module FIR8 (
+            input         ap_clk,
+            input         ap_rst,
+            output        ap_idle,
+            input         ap_start,
+            output        ap_ready,
+            input   [7:0] x,
+            output        ap_done,
+            output        y_ap_vld,
+            output [15:0] y);
+
+    - Assert ap_start on ap_idle after ap_rst
+    - Input handshake: Put input(x[7:0]) on ap_ready
+    - Output handshake: Get output(y[15:0]) on y_ap_vld
+    - Count number of clocks(cycle latency) between Input & Output handshake
+
+6. Co-Emulation
+
+$ make emulation
+
+    Vitis-HLS Project: FIR8
+      For Co-Emulation,
+      (1) Build and Upload Modeling-Interface
+            TOP_MODULE=FIR8 MODE=CA MI=PI_PICO make build-mi
+            TOP_MODULE=FIR8 MODE=CA MI=PI_PICO make upload-mi
+            TOP_MODULE=FIR8 MODE=CA MI=PI_PICO make clean-mi
+            * Option: MODE=AL|CA|SA MI=PI_PICO|DUE_NORMAL
+      (2) Build and Config Transactor FPGA(Altera Cyclone-IV)
+            TOP_MODULE=FIR8 make build-trans
+            TOP_MODULE=FIR8 make config-trans
+            TOP_MODULE=FIR8 make clean-trans
+      (3) Build and Run Co-Emulator
+            TOP_MODULE=FIR8 make co-emu
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+6-1. Algorithmic Level
+
+6-1-1. Build Modeling Interface
+
+$ MODE=AL make build-mi
+
+    TOP_MODULE=FIR8 MODE=AL MI=PI_PICO make -C ./emulation/PSCE-MI build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-MI'
+    Linking Un-Timed model...
+    arduino-cli compile --clean --fqbn rp2040:rp2040:rpipico EFIR8_AL \
+        --build-path ./EFIR8_AL/build \
+        --build-property compiler.cpp.extra_flags="-DOLED_DISPLAY -DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"" -DFIR_MAC_VERSION"
+
+$ sudo mount -t drvfs F: /mnt/f     ; for WSL
+
+$ MODE=AL make upload-mi
+
+    MODE=AL MI=PI_PICO make -C ./emulation/PSCE-MI upload
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-MI'
+    arduino-cli upload -p /dev/ttyACM0 --fqbn rp2040:rp2040:rpipico EFIR8_AL \
+            --input-file ./EFIR8_AL/build/EFIR8_AL.ino.bin
+    Resetting /dev/ttyACM0
+    Converting to uf2, output size: 186880, start address: 0x2000
+    Scanning for RP2040 devices
+    Flashing /mnt/f (RPI-RP2)
+    Wrote 186880 bytes to /mnt/f/NEW.UF2
+    New upload port: /dev/ttyACM0 (serial)
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-MI'
+
+6-1-2. Run Co-Emulator
+
+$ make co-emu
+
+    make -C ./emulation clean
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+    rm -f sc_FIR8_TB
+    rm -f sc_FIR8_TB.vcd
+    rm -f EFIR8.vcd
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+
+    VCD_TRACE=YES HW_STYLE=FIR_MAC_VERSION make -C emulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -I../emulation \
+            -I../simulation \
+            -I../c_untimed \
+            -DFIR_MAC_VERSION_SC \
+            -DEMULATED_CO_SIM \
+            -DCA \
+            -DVCD_TRACE_TEST_TB \
+            -lsystemc -lgsl \
+            -osc_FIR8_TB \
+            ../c_untimed/cnoise.cpp \
+            ../c_untimed/FIR8.cpp \
+            ../simulation/sc_FIR8_TB.cpp \
+            ../simulation/sc_main.cpp
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+
+    VCD_TRACE=YES HW_STYLE=FIR_MAC_VERSION make -C emulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+    ./sc_FIR8_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+
+    Info: (I703) tracing timescale unit set: 100 ps (EFIR8.vcd)
+    Request emulator connection......
+    Connection established...
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_FIR8_TB.vcd)
+    [   0] y=    0 Y=    0 OK
+    [   1] y=  516 Y=  516 OK
+    [   2] y= 1884 Y= 1884 OK
+    [   3] y= 4877 Y= 4877 OK
+    ........
+    [4797] y=14465 Y=14465 OK
+    [4798] y=15068 Y=15068 OK
+    [4799] y=15511 Y=15511 OK    
+
+$ make -C emulation wave
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+
+    gtkwave sc_FIR8_TB.vcd --save=sc_FIR8_TB.gtkw &
+
+    make: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+
+$ mv ./emulation/sc_FIR8_TB.vcd ./emulation/sc_FIR8_TB_AL.vcd
+    * Save VCD to compare with different modes (AL, CA, SA)
+
+6-2. Cycle Accurate
+
+6-2-1. Build Modeling Interface
+
+$ MODE=CA make build-mi
+
+    TOP_MODULE=FIR8 MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-MI'
+
+    arduino-cli compile --clean --fqbn rp2040:rp2040:rpipico EFIR8_CA \
+        --build-path ./EFIR8_CA/build \
+        --build-property compiler.cpp.extra_flags="-DOLED_DISPLAY -DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"" -DFIR_MAC_VERSION"
+
+$ sudo mount -t drvfs F: /mnt/f       ; for WSL
+
+$ MODE=CA make upload-mi
+
+    MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI upload
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-MI'
+    arduino-cli upload -p /dev/ttyACM0 --fqbn rp2040:rp2040:rpipico EFIR8_CA \
+        --input-file ./EFIR8_CA/build/EFIR8_CA.ino.bin
+
+6-2-2. Build Transactor
+
+$ make build-trans
+
+    TOP_MODULE=FIR8 make -C ./emulation/PSCE-TRANS/Altera_Cmd build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_sh -t FIR8_wrapper.tcl
+    ........
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-TRANS/Altera_Cmd'
+
+    TOP_MODULE=FIR8 make -C ./emulation/PSCE-TRANS/Altera_Cmd gen_rbf
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_cpf -c ./output_files/FIR8_wrapper.sof output_file.rbf
+    ........
+
+$ make config-trans
+
+    ..................
+
+6-2-3. Run emulator
+
+$ make co-emu
+
+$ make -C emulation wave
+
+$ mv ./emulation/sc_FIR8_TB.vcd ./emulation/sc_FIR8_TB_CA.vcd
+
+6-3. System Accurate
+
+6-3-1. Build Modeling Interface
+
+$ MODE=SA make build-mi
+
+$ MODE=SA make upload-mi
+
+6-3-2. Run emulator
+
+$ MODE=SA make co-emu
+
+    make -C ./emulation clean
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+    rm -f sc_FIR8_TB
+    rm -f sc_FIR8_TB.vcd
+    rm -f EFIR8.vcd
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+
+    VCD_TRACE=YES HW_STYLE=FIR_MAC_VERSION make -C emulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -I../emulation \
+            -I../simulation \
+            -I../c_untimed \
+            -DFIR_MAC_VERSION_SC \
+            -DEMULATED_CO_SIM \
+            -DSA \
+            -DVCD_TRACE_TEST_TB \
+            -lsystemc -lgsl \
+            -osc_FIR8_TB ../c_untimed/cnoise.cpp ../c_untimed/FIR8.cpp ../simulation/sc_FIR8_TB.cpp ../simulation/sc_main.cpp
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+
+    VCD_TRACE=YES HW_STYLE=FIR_MAC_VERSION make -C emulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/emulation'
+    ./sc_FIR8_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+
+    Info: (I703) tracing timescale unit set: 100 ps (EFIR8.vcd)
+    Request emulator connection......
+    Connection established...
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_FIR8_TB.vcd)
+    [   0] y=    0 Y=13171 ERROR
+    [   1] y=    0 Y=11506 ERROR
+    [   2] y=  680 Y= 9741 ERROR
+    [   3] y= 2328 Y= 8157 ERROR
+    [   4] y= 5710 Y= 8801 ERROR
+    [   5] y= 9832 Y=10952 ERROR
+    [   6] y=13653 Y=13921 ERROR
+    [   7] y=16036 Y=16036 OK
+    [   8] y=16351 Y=16351 OK
+    [   9] y=15779 Y=15779 OK
+    [  10] y=14736 Y=14736 OK
+    ........
+    [4797] y=12705 Y=12705 OK
+    [4798] y=12912 Y=12912 OK
+    [4799] y=13856 Y=13856 OK
+
+* Errors on first 7 outputs. Why?
+
+$ make -C emulation wave
+
+$ mv ./emulation/sc_FIR8_TB.vcd ./emulation/sc_FIR8_TB_SA.vcd
+
+6-4. Comparison of each modes(AL, CA, SA)
+
+6-4-1. Timing
+
+$ gtkwave ./emulation/sc_FIR8_TB_AL.vcd &
+$ gtkwave ./emulation/sc_FIR8_TB_CA.vcd &
+$ gtkwave ./emulation/sc_FIR8_TB_SA.vcd &
+
+6-4-2. Modeling Interface
+
+$ gedit emulation/PSCE-MI/EFIR8_AL/EFIR8_AL.ino &
+$ gedit emulation/PSCE-MI/EFIR8_CA/EFIR8_CA.ino &
+$ gedit emulation/PSCE-MI/EFIR8_SA/EFIR8_SA.ino &
+
+7. ETRI050 Node (MyChip)
+
+$ make ETRI050
+    Link ETRI050/source directory......
+
+    Vitis-HLS Project: FIR8
+      Targetting ETRI050 node,
+      (1) Synthesize
+            TOP_MODULE=FIR8 make synth_ETRI050
+      (2) Netlist Simulation
+            TOP_MODULE=FIR8 make sim_ETRI050
+            TOP_MODULE=FIR8 make wave_ETRI050
+      (3) P&R, Generate layout
+            TOP_MODULE=FIR8 make pnr_ETRI050
+      (4) View GDS
+            TOP_MODULE=FIR8 make layout_ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+$ ll ./ETRI050
+
+    total 52
+    drwxr-xr-x 8 mychip mychip 4096 Dec 23 12:19 .
+    drwxr-xr-x 8 mychip mychip 4096 Dec 23 11:24 ..
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 10:16 chip_top
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 15:17 layout
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 15:17 log
+    drwxr-xr-x 2 mychip mychip 4096 Dec 22 16:35 MyChip_MPW
+    drwxr-xr-x 2 mychip mychip 4096 Dec 23 12:19 simulation
+    lrwxrwxrwx 1 mychip mychip   35 Dec 23 12:19 source -> .././FIR8/hls_component/syn/verilog
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 15:17 synthesis
+    -rw-r--r-- 1 mychip mychip 5074 Dec 16 10:16 Makefile
+    -rw-r--r-- 1 mychip mychip 1771 Dec 16 15:18 project_vars.sh
+
+7-1. Synthesize
+
+$ make synth_ETRI050
+
+    rm -f ./ETRI050/log/synth.log
+
+    TOP_MODULE=FIR8 make -C ETRI050 synthesize
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050'
+    qflow synthesize -T etri050 FIR8
+
+    --------------------------------
+    Qflow project setup
+    --------------------------------
+
+    Technology set to etri050
+    Regenerating files for existing project FIR8
+    Running yosys for verilog parsing and synthesis
+    yosys  -s FIR8.ys
+
+     /----------------------------------------------------------------------------\
+     |  yosys -- Yosys Open SYnthesis Suite                                       |
+     |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+     |  Distributed under an ISC-like license, type "license" to see terms        |
+     \----------------------------------------------------------------------------/
+     Yosys 0.60+39 (git sha1 4d61ce63d, clang++ 18.1.3 -fPIC -O3)
+
+    -- Executing script file `FIR8.ys' --
+
+    1. Executing Liberty frontend: /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+    Imported 39 cell types from liberty file.
+
+    2. Executing Verilog-2005 frontend: /home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050/source/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+    Parsing Verilog input from `/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050/source/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v' to AST representation.
+    verilog frontend filename /home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050/source/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+    Generating RTLIL representation for module `\FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R'.
+    Successfully finished Verilog frontend.
+
+    3. Executing SYNTH pass.
+
+    3.1. Executing HIERARCHY pass (managing design hierarchy).
+    ERROR: Module `FIR8' not found!
+    outputprep failure:  No file FIR8_mapped.v.
+    Premature exit.
+    make[1]: *** [Makefile:35: log/synth.log] Error 1
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050'
+    make: *** [Makefile:310: synth_ETRI050] Error 2
+
+* Edit Yosys script as follows;
+
+$ ll ETRI050/source/*
+    -rw-r--r-- 1 mychip mychip    24 Dec 23 10:05 ETRI050/source/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.dat
+    -rw-r--r-- 1 mychip mychip   875 Dec 23 10:05 ETRI050/source/FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+    -rw-r--r-- 1 mychip mychip 10504 Dec 23 10:05 ETRI050/source/FIR8_FIR8_Pipeline_MACC_LOOP.v
+    -rw-r--r-- 1 mychip mychip  9110 Dec 23 10:05 ETRI050/source/FIR8_FIR8_Pipeline_SHIFTER_LOOP.v
+    -rw-r--r-- 1 mychip mychip  2770 Dec 23 10:05 ETRI050/source/FIR8_flow_control_loop_pipe_sequential_init.v
+    -rw-r--r-- 1 mychip mychip  1794 Dec 23 10:05 ETRI050/source/FIR8_mac_muladd_8ns_6ns_16ns_16_4_1.v
+    -rw-r--r-- 1 mychip mychip    16 Dec 23 10:05 ETRI050/source/FIR8_shift_reg_RAM_AUTO_1R1W.dat
+    -rw-r--r-- 1 mychip mychip  1311 Dec 23 10:05 ETRI050/source/FIR8_shift_reg_RAM_AUTO_1R1W.v
+    -rw-r--r-- 1 mychip mychip 10730 Dec 23 10:05 ETRI050/source/FIR8.v
+    -rw-r--r-- 1 mychip mychip   805 Dec 23 12:20 ETRI050/source/FIR8.ys
+
+$ gedit ETRI050/source/FIR8.ys
+
+    read_verilog  ~/MyChip_Work/Projects/HLS/FIR8/ETRI050/source/FIR8.v
+    read_verilog FIR8_FIR8_Pipeline_MACC_LOOP_filter_taps_ROM_AUTO_1R.v
+    read_verilog FIR8_FIR8_Pipeline_MACC_LOOP.v
+    read_verilog FIR8_FIR8_Pipeline_SHIFTER_LOOP.v
+    read_verilog FIR8_flow_control_loop_pipe_sequential_init.v
+    read_verilog FIR8_mac_muladd_8ns_6ns_16ns_16_4_1.v
+    read_verilog FIR8_shift_reg_RAM_AUTO_1R1W.v
+    read_verilog FIR8.ys
+
+$ chmod -w ETRI050/source/FIR8.ys
+
+$ make synth_ETRI050
+
+    rm -f ./ETRI050/log/synth.log
+
+    TOP_MODULE=FIR8 make -C ETRI050 synthesize
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050'
+    qflow synthesize -T etri050 FIR8
+
+    --------------------------------
+    Qflow project setup
+    --------------------------------
+
+    Technology set to etri050
+    Regenerating files for existing project FIR8
+    FIR8.ys: Permission denied.
+    ........
+    FIR8.ys: Permission denied.
+    Running yosys for verilog parsing and synthesis
+    yosys  -s FIR8.ys
+    ........
+    18. Printing statistics.
+
+    === FIR8 ===
+
+            +----------Local Count, excluding submodules.
+            |
+         1482 wires
+         1687 wire bits
+         1482 public wires
+         1687 public wire bits
+            9 ports
+           31 port bits
+         1666 cells
+            8   $scopeinfo
+           40   AND2X2
+          111   AOI21X1
+           49   AOI22X1
+           20   BUFX2
+          185   DFFPOSX1
+          270   INVX1
+           50   MUX2X1
+          267   NAND2X1
+          129   NAND3X1
+          174   NOR2X1
+            4   NOR3X1
+          283   OAI21X1
+           62   OAI22X1
+           14   OR2X2
+
+7-2. Timing simulation
+
+$ make sim_ETRI050
+
+    rm -f ./ETRI050/simulation/FIR8_TB
+    rm -f ./ETRI050/simulation/vpi_stub.vpi
+
+    TOP_MODULE=FIR8 make -C ETRI050/simulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050/simulation'
+    g++  -DVM_SC=1 \
+         -I/usr/local/share/verilator/include \
+         -I/usr/local/share/verilator/include/vltstd \
+         -I/usr/local/include/iverilog \
+         -I/opt/systemc/include \
+         -I../../c_untimed \
+         -I.. -L/opt/systemc/lib \
+         -DFIR_MAC_VERSION_SC \
+         -g -fPIC \
+         ../../c_untimed/cnoise.cpp \
+         ../../c_untimed/FIR8.cpp \
+         ./vpi_stub.cpp \
+         ./vpi_FIR8_tb.cpp \
+         ./sc_FIR8_TB.cpp \
+         -o vpi_stub.vpi \
+         -shared -latomic -lsystemc -lgsl
+
+    iverilog -g2005-sv -Tmin -gspecify \
+             -o FIR8_TB \
+             FIR8_TB.v \
+             ~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
+             ../synthesis/FIR8_mapped.v
+
+    vvp -M. -mvpi_stub FIR8_TB -v
+    Icarus Verilog started
+    VCD info: dumpfile FIR8_TB.vcd opened for output.
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_FIR8_tb.vcd)
+    #0 s SystemC started
+    [   0] y=    0 Y=    0 OK
+    [   1] y=  656 Y=    0 ERROR
+    [   2] y= 2232 Y=    0 ERROR
+    [   3] y= 5380 Y=    0 ERROR
+    [   4] y= 8974 Y=    0 ERROR
+    [   5] y=12114 Y=    2 ERROR
+    [   6] y=13759 Y=12291 ERROR
+    [   7] y=13886 Y=13886 OK
+    [   8] y=13551 Y=13551 OK
+    ........
+    [4797] y=13396 Y=13396 OK
+    [4798] y=14401 Y=14401 OK
+    [4799] y=15185 Y=15185 OK
+
+* Errors on first 7 outputs. Why?
+
+$ ll ./ETRI050/simulation/
+
+    total 661072
+    drwxr-xr-x 2 mychip mychip      4096 Dec 23 12:30 .
+    drwxr-xr-x 8 mychip mychip      4096 Dec 23 12:19 ..
+    -rwxr-xr-x 1 mychip mychip   2800375 Dec 23 12:30 FIR8_TB
+    -rw-r--r-- 1 mychip mychip      1993 Dec 16 10:16 FIR8_TB.v
+    -rw-r--r-- 1 mychip mychip 667336704 Dec 23 12:31 FIR8_TB.vcd
+    -rw-r--r-- 1 mychip mychip      3113 Dec 16 10:16 Makefile
+    lrwxrwxrwx 1 mychip mychip        31 Dec 23 12:19 sc_FIR8_TB.cpp -> ../../simulation/sc_FIR8_TB.cpp
+    -rw-r--r-- 1 mychip mychip      1739 Dec 16 10:16 sc_FIR8_TB.h
+    -rw-r--r-- 1 mychip mychip   5799936 Dec 23 12:31 sc_FIR8_tb.vcd
+    -rw-r--r-- 1 mychip mychip      1794 Dec 16 10:16 vpi_FIR8_tb.cpp
+    -rw-r--r-- 1 mychip mychip       531 Dec 16 10:16 vpi_FIR8_tb_exports.h
+    -rw-r--r-- 1 mychip mychip       752 Dec 16 10:16 vpi_FIR8_tb_ports.h
+    -rw-r--r-- 1 mychip mychip      5059 Dec 16 10:16 vpi_stub.cpp
+    -rwxr-xr-x 1 mychip mychip    950928 Dec 23 12:30 vpi_stub.vpi
+
+* Know Re-used Testbench
+
+$ make -C ./ETRI050/simulation wave
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050/simulation'
+
+    gtkwave FIR8_TB.vcd --save=FIR8_TB.gtkw &
+    gtkwave sc_FIR8_tb.vcd --save=sc_FIR8_tb.gtkw &
+
+    make: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050/simulation'
+
+* There're unknown outputs of y[15:0].
+
+7-3. Place and Route
+
+$ make pnr_ETRI050
+
+$ make -C ETRI050 lvs
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/FIR8/ETRI050'
+    ~/ETRI050_DesignKit/scripts/fix_net_name.sh ./synthesis/FIR8.spc
+    ************************************************************************
+    * Replace back-slash with underscore on netname
+    ************************************************************************
+    qflow lvs -T etri050 FIR8
+    ........
+    Circuit 1 contains 1701 devices, Circuit 2 contains 1702 devices. *** MISMATCH ***
+    Circuit 1 contains 1846 nets,    Circuit 2 contains 1715 nets. *** MISMATCH ***
+
+
+    Final result:
+    Top level cell failed pin matching.
+
+* Find what kind of mismatches.
+
+$ less ETRI050/layout/comp.out
+
+* Well, was route process success ?
+
+$ cd ETRI050
+$ touch project_vars.sh
+$ make route
+
+    qflow place -T etri050 FIR8
+    ........
+    Nets remaining: 20
+    Nets remaining: 20
+    Nets remaining: 20
+    Progress: Stage 2 total routes completed: 14988
+    Failed net routes: 16
+    *** Writing DEF file FIR8_route.def
+    Final: Failed net routes: 16
+    ........
+
+* As routing process failed, decrease std-cell density.
+
+    set initial_density = 0.9
+
+$ make place
+$ make route
+    ........
+    Nets remaining: 7
+    Nets remaining: 4
+    Nets remaining: 1
+    Progress: Stage 3 total routes completed: 15376
+    No failed routes!
+    *** Writing DEF file FIR8_route.def
+    Final: No failed routes!
+
+$ make migrate
+$ make lvs
+    ........
+    Circuit 1 contains 1702 devices, Circuit 2 contains 1702 devices.
+    Circuit 1 contains 1715 nets,    Circuit 2 contains 1715 nets.
+
+    Final result:
+    Circuits match uniquely.
+
+    Logging to file "comp.out" disabled
+    LVS Done.
+
+$ make size
+
+    ~/ETRI050_DesignKit/scripts/size_core.sh FIR8
+
+    ************************************************************************
+    * Measure the size of the Core
+    ************************************************************************
+
+    Magic 8.3 revision 538 - Compiled on Sat Aug  9 00:37:19 KST 2025.
+    ........
+    Root cell box:
+               width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+    microns:  1065.900 x 1057.050  (-9.300, -3.600), ( 1056.600,  1053.450)  1126709.750
+    lambda:   3553.00 x 3523.50  (-31.00, -12.00), ( 3522.00,  3511.50)  12518996.00
+    internal:   7106 x 7047    (   -62, -24   ), (  7044,  7023 )  50075982
+
+* Oops! core-size of (1065.9x1057.05) NOT fit for MyChip's chip allocated area. What to do?
+
+
+7-4. Generate Layout
+
+.............

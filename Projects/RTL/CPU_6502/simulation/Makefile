@@ -93,7 +93,9 @@ $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
 				$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 run : $(TARGET_DIR)/$(TARGET) CPU_terminal
-	gnome-terminal -- /bin/bash -c "./CPU_terminal";./$(TARGET_DIR)/$(TARGET)
+	xterm -geometry 80x24 -fa "Monospace:size=12" -T "Apple-1" -e "./CPU_terminal" &
+	sleep 1
+	./$(TARGET_DIR)/$(TARGET)
 
 wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
 	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &

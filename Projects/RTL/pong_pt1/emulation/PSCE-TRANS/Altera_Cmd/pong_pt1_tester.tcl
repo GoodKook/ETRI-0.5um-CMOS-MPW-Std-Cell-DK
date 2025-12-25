@@ -71,36 +71,52 @@ if {$make_assignments} {
 	set_location_assignment PIN_111 -to Addr_emu[2]
 	set_location_assignment PIN_114 -to Addr_emu[1]
 	set_location_assignment PIN_115 -to Addr_emu[0]
-# Ext. Pins for Chip Test
-    set_location_assignment PIN_51 -to xclk_dut
-	set_location_assignment PIN_54 -to xenable
-	set_location_assignment PIN_53 -to xreset
-	set_location_assignment PIN_58 -to xdown
-	set_location_assignment PIN_55 -to xup
-
-    set_location_assignment PIN_28 -to xp_tick
-	set_location_assignment PIN_32 -to xhsync
-	set_location_assignment PIN_31 -to xvsync
-	set_location_assignment PIN_34 -to xrgb
-
-    set_location_assignment PIN_49 -to xNAND_INA
-    set_location_assignment PIN_50 -to xNAND_OUT1A
-	set_location_assignment PIN_44 -to xNAND_OUT8A
-	set_location_assignment PIN_42 -to xINV_INA
-	set_location_assignment PIN_43 -to xINV_OUT1A
-	set_location_assignment PIN_38 -to xINV_OUT8A
-	set_location_assignment PIN_68 -to xNAND_IN
-    set_location_assignment PIN_69 -to xNAND_OUT1
-	set_location_assignment PIN_66 -to xNAND_OUT8
-	set_location_assignment PIN_59 -to xINV_IN
-	set_location_assignment PIN_65 -to xINV_OUT1
-	set_location_assignment PIN_64 -to xINV_OUT8
-    set_location_assignment PIN_46 -to xGND_4
-	set_location_assignment PIN_30 -to xGND_14
-	set_location_assignment PIN_60 -to xGND_22
-    set_location_assignment PIN_39 -to xVDD_8
-	set_location_assignment PIN_67 -to xVDD_18
-	set_location_assignment PIN_52 -to xVDD_28
+# MyChip-Test I/F
+#                 +------\_/------+
+#      NAND_INA---|1            28|<--VDD_28
+#    NAND_OUT1A-->|2            27|<--clk
+#    NAND_OUT8A-->|3            26|<--enable
+#         GND_4-->|4            25|<--reset
+#       INV_INA-->|5            24|<--down
+#     INV_OUT1A-->|6  pong_pt1  23|<--up
+#     INV_OUT8A---|7            22|<--GND_22
+#         VDD_8<--|8            21|---INV_IN
+#         GND_9<--|9            20|-->INV_OUT1
+#           rgb<--|10           19|-->INV_OUT8
+#         vsync<--|11           18|-->VDD_18
+#         hsync-->|12           17|-->NAND_OUT8
+#        p_tick-->|13           16|-->NAND_OUT1
+#        GND_14-->|14           15|<--NAND_IN
+#                 +---------------+
+#                      SOP28
+    set_location_assignment PIN_30 -to xNAND_INA
+    set_location_assignment PIN_28 -to xNAND_OUT1A
+	set_location_assignment PIN_32 -to xNAND_OUT8A
+    set_location_assignment PIN_31 -to xGND_4
+	set_location_assignment PIN_34 -to xINV_INA
+	set_location_assignment PIN_33 -to xINV_OUT1A
+	set_location_assignment PIN_39 -to xINV_OUT8A
+    set_location_assignment PIN_38 -to xVDD_8
+    set_location_assignment PIN_43 -to xGND_9
+	set_location_assignment PIN_42 -to xrgb
+	set_location_assignment PIN_46 -to xvsync
+	set_location_assignment PIN_44 -to xhsync
+    set_location_assignment PIN_50 -to xp_tick
+	set_location_assignment PIN_49 -to xGND_14
+	set_location_assignment PIN_52 -to xNAND_IN
+    set_location_assignment PIN_51 -to xNAND_OUT1
+	set_location_assignment PIN_54 -to xNAND_OUT8
+	set_location_assignment PIN_53 -to xVDD_18
+	set_location_assignment PIN_58 -to xINV_OUT8
+	set_location_assignment PIN_55 -to xINV_OUT1
+	set_location_assignment PIN_60 -to xINV_IN
+	set_location_assignment PIN_59 -to xGND_22
+	set_location_assignment PIN_65 -to xup
+	set_location_assignment PIN_64 -to xdown
+	set_location_assignment PIN_67 -to xreset
+	set_location_assignment PIN_66 -to xenable
+    set_location_assignment PIN_69 -to xclk_dut
+	set_location_assignment PIN_68 -to xVDD_28
 
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to Dout_emu[6]
@@ -153,6 +169,7 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_OUT1
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xINV_OUT8
     set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND_4
+    set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND_9
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND_14
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xGND_22
     set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to xVDD_8

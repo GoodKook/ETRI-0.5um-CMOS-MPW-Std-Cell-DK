@@ -150,7 +150,7 @@ emulation_help:
 	@echo
 	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
 	@echo '  For Co-Emulation,MODE=AL|CA|SA'
-	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
+	@echo '  (1) Build and Upload Modeling-Interface'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make clean-mi'

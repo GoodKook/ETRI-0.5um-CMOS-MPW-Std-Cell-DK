@@ -93,4 +93,28 @@ upload:
 
 clean:
 	rm -rf ./$(SKETCH)/build
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/PinMap_A7_100T.h" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/PinMap_A7_100T.h; \
+	fi
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/PinMap_TANG_25K.h" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/PinMap_TANG_25K.h ; \
+	fi
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/PSCE_APIs.cpp" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/PSCE_APIs.cpp; \
+	fi
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/PSCE_APIs.h" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/PSCE_APIs.h; \
+	fi
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/PSCE_Splash.h" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/PSCE_Splash.h; \
+	fi
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/PSCE_Config.h" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/PSCE_Config.h; \
+	fi
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/TM1637Display.cpp" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/TM1637Display.cpp; \
+	fi
+	@if [ -e "E$(TOP_MODULE)_$(MODE)/TM1637Display.h" ];  then \
+		rm E$(TOP_MODULE)_$(MODE)/TM1637Display.h; \
+	fi
 

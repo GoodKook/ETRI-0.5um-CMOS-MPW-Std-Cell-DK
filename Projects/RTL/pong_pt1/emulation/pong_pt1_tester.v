@@ -11,7 +11,7 @@ module pong_pt1_tester(Din_emu, Dout_emu, Addr_emu, load_emu, get_emu, clk_emu, 
     // Chip interface to DUT's inputput
     xclk_dut, xreset, xenable, xup, xdown,
     xNAND_INA, xINV_INA, xNAND_IN, xINV_IN,
-    xGND_4, xGND_14, xGND_22,
+    xGND_4, xGND_9, xGND_14, xGND_22,
     xVDD_8, xVDD_18, xVDD_28);
     // Emulation Interfaces
     input  [7:0]    Din_emu;
@@ -26,7 +26,7 @@ module pong_pt1_tester(Din_emu, Dout_emu, Addr_emu, load_emu, get_emu, clk_emu, 
     // Chip interface to DUT's inputput
     output xclk_dut, xreset, xenable, xup, xdown;
     output xNAND_INA, xINV_INA, xNAND_IN, xINV_IN;
-    output xGND_4, xGND_14, xGND_22;
+    output xGND_4, xGND_9, xGND_14, xGND_22;
     output xVDD_8, xVDD_18, xVDD_28;
 
     // Std. Emulation wrapper: Stimulus & Output capture for DUT
@@ -135,6 +135,7 @@ module pong_pt1_tester(Din_emu, Dout_emu, Addr_emu, load_emu, get_emu, clk_emu, 
     assign xVDD_28 = 1'b1;
     // GND Pins
     assign xGND_4  = 1'b0;
+    assign xGND_9  = 1'b0;
     assign xGND_14 = 1'b0;
     assign xGND_22 = 1'b0;
 

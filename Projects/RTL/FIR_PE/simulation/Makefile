@@ -101,8 +101,12 @@ $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
 				--top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 				$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
+sc_$(TOP_MODULE)_TB.txt :
 run : $(TARGET_DIR)/$(TARGET)
 	./$(TARGET_DIR)/$(TARGET)
+
+plot : sc_$(TOP_MODULE)_TB.txt
+	python3 sc_plotDFT.py sc_$(TOP_MODULE)_TB.txt
 
 wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
 	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &

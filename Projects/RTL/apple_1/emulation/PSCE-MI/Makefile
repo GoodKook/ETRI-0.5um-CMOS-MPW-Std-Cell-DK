@@ -82,4 +82,9 @@ upload:
 
 clean:
 	rm -rf ./$(SKETCH)/build
+	rm -f  ./$(SKETCH)/PSCE_APIs.h
+	rm -f  ./$(SKETCH)/PSCE_APIs.cpp
+	rm -f  ./$(SKETCH)/PSCE_Config.h
+	rm -f  ./$(SKETCH)/PSCE_Splash.h
+	rm -f  ./$(SKETCH)//PinMap_A7_100T.h
 

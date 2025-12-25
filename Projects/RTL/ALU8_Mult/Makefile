@@ -259,6 +259,7 @@ synth_ETRI050:
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050 synthesize
 
 sim_ETRI050:
+	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/simulation
 	TOP_MODULE=$(TOP_MODULE) make -C ETRI050/simulation run
 	
 wave_ETRI050:

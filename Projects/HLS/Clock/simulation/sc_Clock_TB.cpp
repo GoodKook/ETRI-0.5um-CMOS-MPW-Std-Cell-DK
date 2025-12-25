@@ -18,7 +18,7 @@ void sc_Clock_TB::Test_Gen()
 {
     int test_count = 0;
 
-    ap_rst.write(0);
+    ap_rst.write(1);
 
     clear.write(1);
     start_r.write(1);
@@ -28,6 +28,7 @@ void sc_Clock_TB::Test_Gen()
     wait(ap_clk.posedge_event());
     wait(ap_clk.posedge_event());
 
+    ap_rst.write(0);
     clear.write(0);
 
     while(true)

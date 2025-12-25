@@ -108,12 +108,16 @@ clean :
 	rm -f sc_$(DUT_MODULE)_TB.vcd
 	rm -f $(VPI_TARGET)
 	rm -f $(IVL_TARGET)
+	rm -f Apple-1
+	rm -f sc_$(DUT_MODULE)_TB.cpp
+	rm -f sc_mem.cpp
+	rm -f sc_mem.h
 
 # Build --------------------------------------------------------
 build : $(IVL_TARGET)
 
 run : $(IVL_TARGET) $(VPI_TARGET)
-	xterm -geometry 84x24+10+10 -e "../../simulation/CPU_terminal" &
+	xterm -geometry 84x24 -fa "Monospace:size=12" -T "Apple-1(Netsim)" -e "../../simulation/CPU_terminal" &
 	sleep 1
 	vvp -M. -mvpi_stub ${IVL_TARGET} -v
 

@@ -1,0 +1,29 @@
+/home/goodkook/MyChip_Work/Projects/RTL/pong_pt1/emulation/PSCE-MI/Epong_pt1_CA/build/core/sdkoverride/newlib_interface.c.o: \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4/cores/rp2040/sdkoverride/newlib_interface.c \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/common/pico_time/include/pico/time.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/common/pico_base_headers/include/pico.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/common/pico_base_headers/include/pico/types.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/common/pico_base_headers/include/pico/assert.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//include/rp2040/pico_base/pico/version.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/common/pico_base_headers/include/pico/config.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//include/rp2040/pico_base/pico/config_autogen.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4/cores/rp2040/../../pico-sdk/src/boards/include/boards/pico_w.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4/cores/rp2040/../../pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2040/pico_platform/include/pico/platform.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/common/pico_base_headers/include/pico/types.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/common/pico_base_headers/include/pico/error.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_runtime_init/include/pico/runtime_init.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_runtime/include/pico/runtime.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h

@@ -25,17 +25,11 @@ all:
 		echo "*******************************"; \
 		exit 1; \
 	fi
-	@if [ ! -n "$(HW_STYLE)" ];  then \
-		echo "****************************"; \
-		echo "!!! HW_STYLE not defined !!!"; \
-		echo "****************************"; \
-		exit 1; \
-	fi
 	@echo
 	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make csim'
-	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make csynth'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make csim'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make csynth'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make view_rpt'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make co-sim'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
@@ -49,7 +43,7 @@ all:
 csim: $(C_UNTIMED_PATH)/$(TOP_MODULE)_TB
 
 $(C_UNTIMED_PATH)/$(TOP_MODULE)_TB : $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp
-	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C $(C_UNTIMED_PATH) build
+	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) build
 	TOP_MODULE=$(TOP_MODULE) make -C $(C_UNTIMED_PATH) run
 
 $(C_UNTIMED_PATH)/$(TOP_MODULE).cpp :
@@ -97,7 +91,7 @@ co-sim: $(HLS_CSYN_PATH)/$(TOP_MODULE).v
 		echo "Copy un-timed model Makefile ......"; \
 		cp $(PRJ_CONFIG_PATH)/simulation/Makefile $(CO-SIM_PATH); \
 	fi
-	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation build
+	TOP_MODULE=$(TOP_MODULE) make -C simulation build
 	TOP_MODULE=$(TOP_MODULE) make -C simulation run
 
 wave: $(HLS_CSYN_PATH)/$(TOP_MODULE).v
@@ -143,7 +137,7 @@ emulation_help:
 	@echo
 	@echo 'Vitis-HLS Project: $(TOP_MODULE)'
 	@echo '  For Co-Emulation,'
-	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
+	@echo '  (1) Build and Upload Modeling-Interface'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make clean-mi'
@@ -200,8 +194,8 @@ clean-trans:
 #(3)------------------------------------------------------------
 co-emu: $(HLS_CSYN_PATH)/$(TOP_MODULE).v
 	make -C $(CO-EMU_PATH) clean
-	VCD_TRACE=YES HW_STYLE=$(HW_STYLE) make -C emulation build
-	VCD_TRACE=YES HW_STYLE=$(HW_STYLE) make -C emulation run
+	VCD_TRACE=YES make -C emulation build
+	VCD_TRACE=YES make -C emulation run
 #---------------------------------------------------------------
 ETRI050_PATH = ./ETRI050
 ETRI050: ETRI050_help

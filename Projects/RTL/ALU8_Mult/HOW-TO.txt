@@ -1,0 +1,544 @@
+RTL Project: ALU8_Mult
+
+1. Design Directory Structure
+2. Environment Set-up
+3. Untimed C-Simulation
+4. HLS
+5. Co-Simulation
+6. Co-Emulation
+    6-1. Build Modeling Interface
+    6-2. Build Transactor
+    6-3. Run Co-Emulator
+7. ETRI050 Node (MyChip)
+    7-1. Synthesize
+    7-2. Timing simulation
+    7-3. Place and Route
+    7-4. Generate Layout
+8. Chip Tester
+    8-1. Build Chip Test FPGA Wrapper
+    8-2. Run Chip Tester
+    8-3. Comparison of Emulation & Test Wrapper
+
+CC-BY-NC
+by GoodKook, goodkook@gmail.com
+
+-------------------------------------------------
+
+1. Design Directory Structure
+
+Repository Link,
+
+https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tree/main/Projects/RTL/ALU8_Mult
+
+$ tree .
+.
+├── HOW-TO.txt
+├── Makefile
+├── env_settings
+├── /ALU8_Mult
+│   ├── ALU8.v
+│   └── ALU8_Mult.v
+├── /emulation
+│   ├── Makefile
+│   ├── ALU8_Mult_tester.v
+│   ├── ALU8_Mult_wrapper.v
+│   ├── EALU8_Mult.h
+│   ├── /PSCE-MI
+│   │   ├── Makefile
+│   │   └── /EALU8_Mult_CA
+│   │       ├── EALU8_Mult_CA.ino
+│   │       ├── PinMap_A7_100T.h
+│   │       ├── PinMap_TANG_25K.h
+│   │       ├── PSCE_APIs.cpp
+│   │       ├── PSCE_APIs.h
+│   │       ├── PSCE_Config.h
+│   │       └── PSCE_Splash.h
+│   └── /PSCE-TRANS
+│       └── /Altera_Cmd
+│           ├── ALU8_Mult_tester.tcl
+│           ├── ALU8_Mult_wrapper.tcl
+│           └── Makefile
+├── /ETRI050
+│   ├── Makefile
+│   ├── project_vars.sh
+│   ├── /chip_top
+│   │   ├── ETRI050_CMOS.lyp
+│   │   └── Makefile
+│   ├── /layout
+│   │   ├── ALU8_Mult.cel2
+│   │   ├── ALU8_Mult.par
+│   │   ├── ETRI050_CMOS.lyp
+│   │   └── Makefile
+│   ├── /MyChip_MPW
+│   │   └── ALU8_Rev_E_20240924.tar.gz
+│   └── /simulation
+│       ├── Makefile
+│       ├── ALU8_Mult_TB.v
+│       ├── sc_ALU8_Mult_TB.h
+│       ├── vpi_ALU8_Mult_tb.cpp
+│       ├── vpi_ALU8_Mult_tb_exports.h
+│       ├── vpi_ALU8_Mult_tb_ports.h
+│       └── vpi_stub.cpp
+└── /simulation
+    ├── Makefile
+    ├── def_commands.h
+    ├── sc_ALU8_Mult_TB.cpp
+    ├── sc_ALU8_Mult_TB.gtkw
+    ├── sc_ALU8_Mult_TB.h
+    └── sc_main.cpp
+
+2. Environment Set-up
+
+$ source env_settings
+
+    #************************************************************************
+    #* Environment setting for RTL, Co-Simulmatio/Emulation & ETRI050
+    #************************************************************************
+    Setting Environment variables as follows;
+        PROJECT_DIR=/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult
+        TOP_MODULE=ALU8_Mult
+        HW_STYLE=NONE
+        MODE=CA
+        MI=PI_PICO
+
+$ make
+
+    RTL Project: ALU8_Mult
+
+        TOP_MODULE=ALU8_Mult make co-sim
+        TOP_MODULE=ALU8_Mult make wave
+
+        make emulation ; and Chip Tester
+        make ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+3. Untimed C-Simulation
+
+    - N/A
+
+4. HLS
+
+    - N/A
+
+5. Co-Simulation
+   - Verilated RTL with SystemC TB (Timed Testbench in C++)
+
+$ make co-sim
+
+    TOP_MODULE=ALU8_Mult HW_STYLE=NONE make -C simulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/simulation'
+    verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+              --top-module ALU8_Mult  --exe --build \
+              -CFLAGS -g \
+              -CFLAGS -I/opt/systemc/include \
+              -CFLAGS -DVCD_TRACE_TEST_TB \
+              -CFLAGS -DVCD_TRACE_DUT_VERILOG \
+              ../ALU8_Mult/ALU8.v \
+              ../ALU8_Mult/ALU8_Mult.v \
+              ./sc_main.cpp ./sc_ALU8_Mult_TB.cpp
+    ........
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/simulation'
+
+    TOP_MODULE=ALU8_Mult HW_STYLE=NONE make -C simulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/simulation'
+    ./obj_dir/VALU8_Mult
+
+        SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+        Copyright (c) 1996-2025 by all Contributors,
+        ALL RIGHTS RESERVED
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_ALU8_Mult_TB.vcd)
+
+    Reg.A=0xAA
+    Reg.B=0x55
+      CMD=[0F]{--- --- --- --- nop} Acc=0xAA[0xAA] OK       Flag=0x02 {---N-}
+      CMD=[1C]{--- --- ---  CI OR } Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[0D]{--- --- --- --- AND} Acc=0x00[0x00] OK       Flag=0x0C {-VZ--}
+      CMD=[1E]{--- --- ---  CI XOR} Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[03]{--- --- --- --- ADD} Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[17]{--- --- ---  CI SUB} Acc=0x55[0x55] OK       Flag=0x19 {CV--H}
+      CMD=[80]{MUL --- --- --- nop} Acc=0x72[0x72] OK       Flag=0x38 {CV---}
+      CMD=[0F]{--- --- --- --- nop} Acc=0xAA[0xAA] OK       Flag=0x02 {---N-}
+    Reg.A=0xAD
+    Reg.B=0x5C
+    ........
+    Reg.A=0xD3
+    Reg.B=0x0A
+      CMD=[0F]{--- --- --- --- nop} Acc=0xD3[0xD3] OK       Flag=0x02 {---N-}
+      CMD=[1C]{--- --- ---  CI OR } Acc=0xDB[0xDB] OK       Flag=0x02 {---N-}
+      CMD=[0D]{--- --- --- --- AND} Acc=0x02[0x02] OK       Flag=0x08 {-V---}
+      CMD=[1E]{--- --- ---  CI XOR} Acc=0xD9[0xD9] OK       Flag=0x02 {---N-}
+      CMD=[03]{--- --- --- --- ADD} Acc=0xDD[0xDD] OK       Flag=0x02 {---N-}
+      CMD=[17]{--- --- ---  CI SUB} Acc=0xC9[0xC9] OK       Flag=0x12 {C--N-}
+      CMD=[80]{MUL --- --- --- nop} Acc=0x3E[0x3E] OK       Flag=0x08 {-V---}
+      CMD=[0F]{--- --- --- --- nop} Acc=0xD3[0xD3] OK       Flag=0x02 {---N-}
+
+$ make wave
+
+    TOP_MODULE=ALU8_Mult make -C ./simulation wave
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/simulation'
+
+    gtkwave ALU8_Mult.vcd --save=ALU8_Mult.gtkw &
+    gtkwave sc_ALU8_Mult_TB.vcd --save=sc_ALU8_Mult_TB.gtkw &
+
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/simulation'
+
+6. Co-Emulation
+
+$ make emulation
+
+    RTL Project: ALU8_Mult
+      For Co-Emulation and Test,
+      (1) Build and Upload Modeling-Interface(Arduino-DUE)
+            TOP_MODULE=ALU8_Mult MODE=CA MI=PI_PICO make build-mi
+            TOP_MODULE=ALU8_Mult MODE=CA MI=PI_PICO make upload-mi
+      (2a) Build and Config Transactor FPGA(Altera Cyclone-IV)
+            TOP_MODULE=ALU8_Mult make build-trans
+            TOP_MODULE=ALU8_Mult make config-trans
+      (2b) Build and Config Tester FPGA(Altera Cyclone-IV)
+            TOP_MODULE=ALU8_Mult make build-tester
+            TOP_MODULE=ALU8_Mult make config-tester
+      (3) Build and Run Co-Emulator
+            TOP_MODULE=ALU8_Mult make co-emu
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+    6-1. Build Modeling Interface
+
+6-1. Build Modeling Interface
+
+$ make build-mi
+
+    TOP_MODULE=ALU8_Mult MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-MI'
+    arduino-cli compile --clean --fqbn rp2040:rp2040:rpipico EALU8_Mult_CA \
+            --build-path ./EALU8_Mult_CA/build \
+            --build-property compiler.cpp.extra_flags="-DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+    Sketch uses 60116 bytes (2%) of program storage space. Maximum is 2093056 bytes.
+    Global variables use 9716 bytes (3%) of dynamic memory, leaving 252428 bytes for local variables. Maximum is 262144 bytes.
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-MI'
+
+$ sudo mount -t drvfs F: /mnt/f     ; for WSL
+$ make upload-mi
+
+    MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI upload
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-MI'
+    arduino-cli upload -p /dev/ttyACM0 --fqbn rp2040:rp2040:rpipico EALU8_Mult_CA \
+            --input-file ./EALU8_Mult_CA/build/EALU8_Mult_CA.ino.bin
+    Resetting /dev/ttyACM0
+    Converting to uf2, output size: 153600, start address: 0x2000
+    Scanning for RP2040 devices
+    Flashing /mnt/f (RPI-RP2)
+    Wrote 153600 bytes to /mnt/f/NEW.UF2
+    New upload port: /dev/ttyACM0 (serial)
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-MI'
+
+6-2. Build Transactor
+
+$ make build-trans
+
+    TOP_MODULE=ALU8_Mult make -C ./emulation/PSCE-TRANS/Altera_Cmd build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_sh -t ALU8_Mult_wrapper.tcl
+    ........
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-TRANS/Altera_Cmd'
+
+    TOP_MODULE=ALU8_Mult make -C ./emulation/PSCE-TRANS/Altera_Cmd gen_rbf
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_cpf -c ./output_files/ALU8_Mult_wrapper.sof output_file.rbf
+    ........
+
+$ make config-trans
+
+    TOP_MODULE=ALU8_Mult make -C ./emulation/PSCE-TRANS/Altera_Cmd config
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-TRANS/Altera_Cmd'
+    sudo openFPGALoader -c digilent_hs2 output_file.rbf
+    [sudo] password for mychip:
+    empty
+    Jtag frequency : requested 6.00MHz    -> real 6.00MHz
+    Load SRAM: [==================================================] 100.00%
+    Done
+
+6-3. Run Co-Emulator
+
+$ make co-emu
+
+    make -C ./emulation clean
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation'
+    rm -f sc_ALU8_Mult_TB
+    rm -f *.vcd
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation'
+
+    VCD_TRACE=YES HW_STYLE=NONE make -C emulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -I../emulation \
+            -I../simulation \
+            -DEMULATED_CO_SIM \
+            -DVCD_TRACE_TEST_TB \
+            -lsystemc -lSDL2 \
+            -osc_ALU8_Mult_TB ../simulation/sc_ALU8_Mult_TB.cpp ../simulation/sc_main.cpp
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation'
+
+    VCD_TRACE=YES HW_STYLE=NONE make -C emulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation'
+    ./sc_ALU8_Mult_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+
+    Info: (I703) tracing timescale unit set: 100 ps (EALU8_Mult.vcd)
+    Request emulator connection......
+    Connection established...
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_ALU8_Mult_TB.vcd)
+    Reg.A=0xAA
+    Reg.B=0x55
+      CMD=[0F]{--- --- --- --- nop} Acc=0xAA[0xAA] OK       Flag=0x02 {---N-}
+      CMD=[1C]{--- --- ---  CI OR } Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[0D]{--- --- --- --- AND} Acc=0x00[0x00] OK       Flag=0x0C {-VZ--}
+      CMD=[1E]{--- --- ---  CI XOR} Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[03]{--- --- --- --- ADD} Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[17]{--- --- ---  CI SUB} Acc=0x55[0x55] OK       Flag=0x19 {CV--H}
+      CMD=[80]{MUL --- --- --- nop} Acc=0x72[0x72] OK       Flag=0x38 {CV---}
+      CMD=[0F]{--- --- --- --- nop} Acc=0xAA[0xAA] OK       Flag=0x02 {---N-}
+    Reg.A=0xAD
+    Reg.B=0x5C
+    ........
+    Reg.A=0xD3
+    Reg.B=0x0A
+      CMD=[0F]{--- --- --- --- nop} Acc=0xD3[0xD3] OK       Flag=0x02 {---N-}
+      CMD=[1C]{--- --- ---  CI OR } Acc=0xDB[0xDB] OK       Flag=0x02 {---N-}
+      CMD=[0D]{--- --- --- --- AND} Acc=0x02[0x02] OK       Flag=0x08 {-V---}
+      CMD=[1E]{--- --- ---  CI XOR} Acc=0xD9[0xD9] OK       Flag=0x02 {---N-}
+      CMD=[03]{--- --- --- --- ADD} Acc=0xDD[0xDD] OK       Flag=0x02 {---N-}
+      CMD=[17]{--- --- ---  CI SUB} Acc=0xC9[0xC9] OK       Flag=0x12 {C--N-}
+      CMD=[80]{MUL --- --- --- nop} Acc=0x3E[0x3E] OK       Flag=0x08 {-V---}
+      CMD=[0F]{--- --- --- --- nop} Acc=0xD3[0xD3] OK       Flag=0x02 {---N-}
+
+$ make -C ./emulation wave
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation'
+
+    gtkwave sc_ALU8_Mult_TB.vcd --save=sc_ALU8_Mult_TB.gtkw &
+    gtkwave EALU8_Mult.vcd --save=EALU8_Mult.gtkw &
+
+    make: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation'
+
+7. ETRI050 Node (MyChip)
+
+$ make ETRI050
+
+    Create ETRI050/log directory......
+    Link ETRI050/source directory......
+    Create ETRI050/synthesis directory......
+
+    RTL Project: ALU8_Mult
+      Targetting ETRI050 node,
+      (1) Synthesize
+            TOP_MODULE=ALU8_Mult make synth_ETRI050
+      (2) Netlist Simulation
+            TOP_MODULE=ALU8_Mult make sim_ETRI050
+            TOP_MODULE=ALU8_Mult make wave_ETRI050
+      (3) P&R, Generate layout
+            TOP_MODULE=ALU8_Mult make pnr_ETRI050
+      (4) View GDS
+            TOP_MODULE=ALU8_Mult make layout_ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+$ ll ETRI050
+
+    total 52
+    drwxr-xr-x 8 mychip mychip 4096 Dec 23 14:20 .
+    drwxr-xr-x 6 mychip mychip 4096 Dec 23 13:24 ..
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 10:16 chip_top
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 10:16 layout
+    drwxr-xr-x 2 mychip mychip 4096 Dec 23 14:20 log
+    drwxr-xr-x 2 mychip mychip 4096 Dec 23 13:27 MyChip_MPW
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 10:16 simulation
+    lrwxrwxrwx 1 mychip mychip   14 Dec 23 14:20 source -> .././ALU8_Mult
+    drwxr-xr-x 2 mychip mychip 4096 Dec 23 14:20 synthesis
+    -rw-r--r-- 1 mychip mychip 5157 Dec 16 10:16 Makefile
+    -rw-r--r-- 1 mychip mychip 1773 Dec 23 13:27 project_vars.sh
+
+7-1. Synthesize
+
+$ make synth_ETRI050
+
+    TOP_MODULE=ALU8_Mult make -C ETRI050 synthesize
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/ETRI050'
+    qflow synthesize -T etri050 ALU8_Mult
+    ......
+    13. Printing statistics.
+
+    === ALU8_Mult ===
+
+            +----------Local Count, excluding submodules.
+            |
+          964 wires
+         1010 wire bits
+          964 public wires
+         1010 public wire bits
+            8 ports
+           22 port bits
+          993 cells
+            1   $scopeinfo
+           44   AND2X2
+           91   AOI21X1
+           37   AOI22X1
+            9   BUFX2
+           24   DFFPOSX1
+            5   DFFSR
+          146   INVX1
+            2   MUX2X1
+          194   NAND2X1
+          132   NAND3X1
+           63   NOR2X1
+            2   NOR3X1
+          220   OAI21X1
+            3   OAI22X1
+           20   OR2X2
+
+7-2. Timing simulation
+
+$ make sim_ETRI050
+
+    Symbolic Link Testbench Re-Use...
+
+    Netlist timing simulation using iVerilog-VPI:ALU8_Mult
+
+        TOP_MODULE=ALU8_Mult make build
+        TOP_MODULE=ALU8_Mult make run
+
+        TOP_MODULE=ALU8_Mult make wave
+
+        TOP_MODULE=ALU8_Mult make clean
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/ETRI050/simulation'
+    TOP_MODULE=ALU8_Mult make -C ETRI050/simulation run
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/ETRI050/simulation'
+    g++  -DVPI_SIM \
+                    -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -I/usr/local/include/iverilog -I/opt/systemc/include -I../../simulation -I.. -L/opt/systemc/lib \
+                    -g -fPIC \
+                    ./vpi_stub.cpp ./vpi_ALU8_Mult_tb.cpp ./sc_ALU8_Mult_TB.cpp \
+                    -o vpi_stub.vpi \
+                     -shared -latomic -lsystemc -lgsl
+    iverilog -g2005-sv -Tmin -gspecify -o ALU8_Mult_TB ALU8_Mult_TB.v ~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v ../synthesis/ALU8_Mult_mapped.v
+    vvp -M. -mvpi_stub ALU8_Mult_TB -v
+    Icarus Verilog started
+    VCD info: dumpfile ALU8_Mult_TB.vcd opened for output.
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_ALU8_Mult_TB.vcd)
+    #0 s SystemC started
+    Reg.A=0xAA
+    Reg.B=0x55
+      CMD=[0F]{--- --- --- --- nop} Acc=0xAA[0xAA] OK       Flag=0x02 {---N-}
+      CMD=[1C]{--- --- ---  CI OR } Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[0D]{--- --- --- --- AND} Acc=0x00[0x00] OK       Flag=0x0C {-VZ--}
+      CMD=[1E]{--- --- ---  CI XOR} Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[03]{--- --- --- --- ADD} Acc=0xFF[0xFF] OK       Flag=0x02 {---N-}
+      CMD=[17]{--- --- ---  CI SUB} Acc=0x55[0x55] OK       Flag=0x19 {CV--H}
+      CMD=[80]{MUL --- --- --- nop} Acc=0x72[0x72] OK       Flag=0x38 {CV---}
+      CMD=[0F]{--- --- --- --- nop} Acc=0xAA[0xAA] OK       Flag=0x02 {---N-}
+    Reg.A=0xAD
+    Reg.B=0x5C
+    ......
+
+$ ll ETRI050/simulation
+
+    total 5836
+    drwxr-xr-x 2 mychip mychip    4096 Dec 23 16:23 .
+    drwxr-xr-x 8 mychip mychip    4096 Dec 23 14:20 ..
+    -rwxr-xr-x 1 mychip mychip 1640272 Dec 23 16:23 ALU8_Mult_TB
+    -rw-r--r-- 1 mychip mychip    1957 Dec 16 10:16 ALU8_Mult_TB.v
+    -rw-r--r-- 1 mychip mychip 3002368 Dec 23 16:23 ALU8_Mult_TB.vcd
+    -rw-r--r-- 1 mychip mychip    2890 Dec 16 10:16 Makefile
+    lrwxrwxrwx 1 mychip mychip      36 Dec 23 16:23 sc_ALU8_Mult_TB.cpp -> ../../simulation/sc_ALU8_Mult_TB.cpp
+    -rw-r--r-- 1 mychip mychip    2523 Dec 16 10:16 sc_ALU8_Mult_TB.h
+    -rw-r--r-- 1 mychip mychip  290816 Dec 23 16:23 sc_ALU8_Mult_TB.vcd
+    -rw-r--r-- 1 mychip mychip    1863 Dec 16 10:16 vpi_ALU8_Mult_tb.cpp
+    -rw-r--r-- 1 mychip mychip     546 Dec 16 10:16 vpi_ALU8_Mult_tb_exports.h
+    -rw-r--r-- 1 mychip mychip     736 Dec 16 10:16 vpi_ALU8_Mult_tb_ports.h
+    -rw-r--r-- 1 mychip mychip    5019 Dec 16 10:16 vpi_stub.cpp
+    -rwxr-xr-x 1 mychip mychip  996136 Dec 23 16:23 vpi_stub.vpi
+
+* Testbench Re-Used!
+
+$ make -C ETRI050/simulation wave
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/ETRI050/simulation'
+
+    gtkwave ALU8_Mult_TB.vcd --save=ALU8_Mult_TB.gtkw &
+    gtkwave sc_ALU8_Mult_TB.vcd --save=sc_ALU8_Mult_TB.gtkw &
+
+    make: Leaving directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/ETRI050/simulation'
+
+* It's Post-Synthesis, Timing simulation
+
+7-3. Place and Route
+
+$ make pnr_ETRI050
+
+7-4. Generate Layout
+
+$ make layout_ETRI050
+
+8. Chip Tester
+
+$ make emulation
+
+    RTL Project: ALU8_Mult
+      For Co-Emulation and Test,
+      (1) Build and Upload Modeling-Interface(Arduino-DUE)
+            TOP_MODULE=ALU8_Mult MODE=CA MI=PI_PICO make build-mi
+            TOP_MODULE=ALU8_Mult MODE=CA MI=PI_PICO make upload-mi
+      (2a) Build and Config Transactor FPGA(Altera Cyclone-IV)
+            TOP_MODULE=ALU8_Mult make build-trans
+            TOP_MODULE=ALU8_Mult make config-trans
+      (2b) Build and Config Tester FPGA(Altera Cyclone-IV)
+            TOP_MODULE=ALU8_Mult make build-tester
+            TOP_MODULE=ALU8_Mult make config-tester
+      (3) Build and Run Co-Emulator
+            TOP_MODULE=ALU8_Mult make co-emu
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+8-1. Build Chip Test FPGA Wrapper
+
+$ make build-tester
+
+    TOP_MODULE=ALU8_Mult MODE=TESTER make -C ./emulation/PSCE-TRANS/Altera_Cmd build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/RTL/ALU8_Mult/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_sh -t ALU8_Mult_tester.tcl
+    ........
+
+$ make config-tester
+
+8-2. Run Chip Tester
+
+$ make co-emu
+
+* Reuse emulator for Chip test.
+
+8-3. Comparison of Emulation & Test Wrapper
+
+$ gedit ./emulation/ALU8_Mult_wrapper.v &
+$ gedit ./emulation/ALU8_Mult_tester.v &
+

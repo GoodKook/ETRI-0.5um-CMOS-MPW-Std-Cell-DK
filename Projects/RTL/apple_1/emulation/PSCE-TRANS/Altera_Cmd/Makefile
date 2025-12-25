@@ -56,6 +56,7 @@ clean:
 	rm -rf ./output_files
 	rm -rf ./db
 	rm -rf ./incremental_db
+	rm -f $(PROJECT).tcl
 	rm -f $(PROJECT).qpf
 	rm -f $(PROJECT).qsf
 	rm -f output_file.rbf

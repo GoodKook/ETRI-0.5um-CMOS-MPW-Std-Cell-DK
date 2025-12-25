@@ -1,0 +1,33 @@
+/home/goodkook/MyChip_Work/Projects/RTL/pong_pt1/emulation/PSCE-MI/Epong_pt1_CA/build/core/lwip/src/netif/ethernet.c.o: \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4/cores/rp2040/lwip/src/netif/ethernet.c \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4/cores/rp2040/lwip/src/netif/../../../../../pico-sdk/lib/lwip/src/netif/ethernet.c \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/opt.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/debug.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/arch.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/src/rp2_common/pico_lwip/include/arch/cc.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/netif/ethernet.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/pbuf.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/err.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/netif.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/ip_addr.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/def.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/ip4_addr.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/ip6_addr.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/def.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/stats.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/mem.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/memp.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/priv/memp_std.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/priv/memp_priv.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/priv/mem_priv.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/prot/ethernet.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/prot/ieee.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/etharp.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/ip4.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/prot/ip4.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/prot/etharp.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/ip.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/ip6.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/prot/ip.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/lwip/snmp.h \
+ /home/goodkook/.arduino15/packages/rp2040/hardware/rp2040/5.4.4//pico-sdk/lib/lwip/src/include/netif/ppp/ppp_opts.h

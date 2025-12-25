@@ -1,0 +1,430 @@
+HLS Project: basic_loops
+
+1. Design Directory Structure
+2. Environment Set-up
+3. Untimed C-Simulation
+4. HLS
+5. Co-Simulation
+6. Co-Emulation
+    6-1. Build Modeling Interface
+    6-2. Build Transactor
+    6-3. Run Co-Emulator
+7. ETRI050 Node (MyChip)
+    7-1. Synthesize
+    7-2. Timing simulation
+    7-3. Place and Route
+    7-4. Generate Layout
+
+CC-BY-NC
+by GoodKook, goodkook@gmail.com
+
+-------------------------------------------------------------
+
+1. Design Directory Structure
+
+Repository Link,
+
+https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tree/main/Projects/HLS/basic_loops
+
+$ tree .
+    .
+    ├── HOW-TO.txt
+    ├── Makefile
+    ├── env_settings
+    ├── Vitis-HLS.tcl
+    ├── /c_untimed
+    │   ├── Makefile
+    │   ├── basic_loops.cpp
+    │   ├── basic_loops.h
+    │   └── basic_loops_TB.cpp
+    ├── /emulation
+    │   ├── Makefile
+    │   ├── basic_loops_wrapper.v
+    │   ├── Ebasic_loops.h
+    │   ├── /PSCE-MI
+    │   │   ├── Makefile
+    │   │   └── /Ebasic_loops_CA
+    │   │       ├── Ebasic_loops_CA.ino
+    │   │       ├── PinMap_A7_100T.h
+    │   │       ├── PinMap_TANG_25K.h
+    │   │       ├── PSCE_APIs.cpp
+    │   │       ├── PSCE_APIs.h
+    │   │       ├── PSCE_Config.h
+    │   │       └── PSCE_Splash.h
+    │   └── /PSCE-TRANS
+    │       └── /Altera_Cmd
+    │           ├── Makefile
+    │           ├── basic_loops_wrapper_II.tcl
+    │           └── basic_loops_wrapper_I.tcl
+    ├── /ETRI050
+    │   ├── Makefile
+    │   ├── project_vars.sh
+    │   ├── /chip_top
+    │   │   ├── Makefile
+    │   │   ├── .magicrc
+    │   │   └── ETRI050_CMOS.lyp
+    │   ├── /layout
+    │   │   ├── Makefile
+    │   │   ├── .magicrc
+    │   │   ├── basic_loops.cel2
+    │   │   ├── basic_loops.par
+    │   │   └── ETRI050_CMOS.lyp
+    │   └── /simulation
+    │       ├── Makefile
+    │       ├── basic_loops_TB.v
+    │       ├── sc_basic_loops_TB.h
+    │       ├── vpi_basic_loops_tb.cpp
+    │       ├── vpi_basic_loops_tb_exports.h
+    │       ├── vpi_basic_loops_tb_ports.h
+    │       └── vpi_stub.cpp
+    └── /simulation
+        ├── Makefile
+        ├── sc_basic_loops_TB.cpp
+        ├── sc_basic_loops_TB.h
+        └── sc_main.cpp
+
+2. Environment Set-up
+
+$ source env_settings
+
+    #************************************************************************
+    #* Environment setting for HLS, Co-Simulmatio/Emulation & ETRI050
+    #************************************************************************
+    Setting Environment variables as follows;
+        PROJECT_DIR=/home/mychip/MyChip_Work/Projects/HLS/basic_loops
+        TOP_MODULE=basic_loops
+        HW_STYLE=HW_STYLE
+        MODE=CA
+        MI=PI_PICO
+$ make
+
+    Vitis-HLS Project: basic_loops
+
+        TOP_MODULE=basic_loops HW_STYLE=HW_STYLE make csim
+        TOP_MODULE=basic_loops HW_STYLE=HW_STYLE make csynth
+        TOP_MODULE=basic_loops make view_rpt
+        TOP_MODULE=basic_loops make co-sim
+        TOP_MODULE=basic_loops make wave
+
+        make emulation
+        make ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+3. Untimed C-Simulation
+
+$ make csim
+
+    TOP_MODULE=basic_loops HW_STYLE=HW_STYLE make -C ./c_untimed build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/c_untimed'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -o basic_loops_TB \
+            -DHW_STYLE_SC \
+            -DVM_SC=1 \
+            ./basic_loops.cpp ./basic_loops_TB.cpp \
+            -lsystemc
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/c_untimed'
+
+    TOP_MODULE=basic_loops make -C ./c_untimed run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/c_untimed'
+    ./basic_loops_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+    Sum=45
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/c_untimed'
+
+4. HLS
+    - High-Level Synthesis
+    - Generate RTL from Untimed C-Model(Vitis-HLS)
+
+$ make csynth
+    vitis-run --mode hls --tcl Vitis-HLS.tcl
+
+    ****** vitis-run v2025.1 (64-bit)
+      **** SW Build 6137779 on 2025-05-21-18:10:03
+      **** Start of session at: Mon Dec 22 14:05:14 2025
+        ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+        ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+      **** HLS Build v2025.1 6135595
+    Sourcing Tcl script '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/Vitis-HLS.tcl'
+    basic_loops
+    -DHW_STYLE
+    ./c_untimed/basic_loops.cpp
+    INFO: [HLS 200-1510] Running: open_project basic_loops
+    ......
+
+$ make view_rpt
+
+    - Performance Estimates (Latency in Cycle)
+    - Utilization Estimates (Expression, MUX, Registers)
+    - Interface (Hardware hand-shake, Clock Timed)
+
+5. Co-Simulation
+   - Verilated RTL with SystemC TB (Timed Testbench in C++)
+
+$ make co-sim
+
+    TOP_MODULE=basic_loops HW_STYLE=HW_STYLE make -C simulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/simulation'
+    verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+              --top-module basic_loops  --exe --build \
+              -CFLAGS -g -CFLAGS -I../../c_untimed \
+              -CFLAGS -I/opt/systemc/include \
+              -CFLAGS -DVCD_TRACE_TEST_TB \
+              -CFLAGS -DVCD_TRACE_DUT_VERILOG \
+              -CFLAGS -DHW_STYLE_SC \
+              -LDFLAGS -lm -LDFLAGS -lgsl \
+              ../basic_loops/hls_component/syn/verilog/*.v \
+              ../c_untimed/basic_loops.cpp \
+              ./sc_main.cpp \
+              ./sc_basic_loops_TB.cpp
+    ......
+
+$ make wave
+
+6. Co-Emulation
+
+$ make emulation
+
+    Vitis-HLS Project: basic_loops
+      For Co-Emulation,
+      (1) Build and Upload Modeling-Interface(Arduino-DUE)
+            TOP_MODULE=basic_loops MODE=CA MI=PI_PICO make build-mi
+            TOP_MODULE=basic_loops MODE=CA MI=PI_PICO make upload-mi
+            TOP_MODULE=basic_loops MODE=CA MI=PI_PICO make clean-mi
+      (2) Build and Config Transactor FPGA(Altera Cyclone-IV)
+            TOP_MODULE=basic_loops make build-trans
+            TOP_MODULE=basic_loops make config-trans
+            TOP_MODULE=basic_loops make clean-trans
+      (3) Build and Run Co-Emulator
+            TOP_MODULE=basic_loops make co-emu
+
+6-1. Build Modeling Interface
+
+$ make build-mi
+
+    TOP_MODULE=basic_loops MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation/PSCE-MI'
+    arduino-cli compile --clean --fqbn rp2040:rp2040:rpipico Ebasic_loops_CA \
+                        --build-path ./Ebasic_loops_CA/build \
+                        --build-property compiler.cpp.extra_flags="-DOLED_DISPLAY -DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+    ......
+
+* Set PI_PICO to "RPi Boot" as USB drive
+$ sudo mount -t drvfs F: /mnt/f     ; in WSL, manual mount
+    [sudo] password for mychip:
+
+$ make upload-mi
+
+    MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI upload
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation/PSCE-MI'
+    arduino-cli upload -p /dev/ttyACM0 --fqbn rp2040:rp2040:rpipico Ebasic_loops_CA \
+            --input-file ./Ebasic_loops_CA/build/Ebasic_loops_CA.ino.bin
+    Resetting /dev/ttyACM0
+    Converting to uf2, output size: 186880, start address: 0x2000
+    Scanning for RP2040 devices
+    Flashing /mnt/f (RPI-RP2)
+    Wrote 186880 bytes to /mnt/f/NEW.UF2
+    New upload port: /dev/ttyACM0 (serial)
+
+6-2. Build Transactor
+    - Implement DUT, Wrapped with emulation transactor, into FPGA
+
+$ BOARD=I make build-trans
+
+    Quartus Command Line for basic_loops_wrapper
+
+        TOP_MODULE=basic_loops make build
+        TOP_MODULE=basic_loops make gen_rbf
+        make config
+
+    CC BY-NC, GoodKook, goodkook@gmail.com
+
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation/PSCE-TRANS/Altera_Cmd'
+
+    TOP_MODULE=basic_loops make -C ./emulation/PSCE-TRANS/Altera_Cmd build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_sh -t basic_loops_wrapper.tcl
+    ......
+
+$ BOARD=I make config-trans
+
+    TOP_MODULE=basic_loops make -C ./emulation/PSCE-TRANS/Altera_Cmd config
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation/PSCE-TRANS/Altera_Cmd'
+    sudo openFPGALoader -c digilent_hs2 output_file.rbf
+    empty
+    Jtag frequency : requested 6.00MHz    -> real 6.00MHz
+    Load SRAM: [==================================================] 100.00%
+    Done
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation/PSCE-TRANS/Altera_Cmd'
+
+6-3. Run Co-Emulator
+
+$ make co-emu
+
+    make -C ./emulation clean
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation'
+    rm -f sc_basic_loops_TB
+    rm -f sc_basic_loops_TB.vcd
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation'
+    VCD_TRACE=YES HW_STYLE=HW_STYLE make -C emulation build
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -I../emulation \
+            -I../simulation \
+            -I../c_untimed \
+            -DHW_STYLE_SC \
+            -DVM_SC=1 \
+            -DEMULATED_CO_SIM \
+            -DVCD_TRACE_TEST_TB \
+            -lsystemc -osc_basic_loops_TB ../c_untimed/basic_loops.cpp ../simulation/sc_basic_loops_TB.cpp ../simulation/sc_main.cpp
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation'
+
+    VCD_TRACE=YES HW_STYLE=HW_STYLE make -C emulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/emulation'
+    ./sc_basic_loops_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+
+    Request emulator connection......
+    Connection established...
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_basic_loops_TB.vcd)
+    Pass [  0]:RefOut=  389 | DutOut=  389
+    Pass [  1]:RefOut=    5 | DutOut=    5
+    Pass [  2]:RefOut=  170 | DutOut=  170
+    Pass [  3]:RefOut=   69 | DutOut=   69
+    Pass [  4]:RefOut=  110 | DutOut=  110
+    ......
+    Pass [ 97]:RefOut= -221 | DutOut= -221
+    Pass [ 98]:RefOut=   51 | DutOut=   51
+    Pass [ 99]:RefOut=  -74 | DutOut=  -74
+    Pass [100]:RefOut= -115 | DutOut= -115
+
+7. ETRI050 Node
+
+$ make ETRI050
+
+    Link ETRI050/source directory......
+
+    Vitis-HLS Project: basic_loops
+      Targetting ETRI050 node,
+      (1) Synthesize
+            TOP_MODULE=basic_loops make synth_ETRI050
+      (2) Netlist Simulation
+            TOP_MODULE=basic_loops make sim_ETRI050
+            TOP_MODULE=basic_loops make wave_ETRI050
+      (3) P&R, Generate layout
+            TOP_MODULE=basic_loops make pnr_ETRI050
+      (4) View GDS
+            TOP_MODULE=basic_loops make layout_ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+7-1. Synthesize
+
+$ make synth_ETRI050
+
+    rm -f ./ETRI050/log/synth.log
+
+    TOP_MODULE=basic_loops make -C ETRI050 synthesize
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/ETRI050'
+    qflow synthesize -T etri050 basic_loops
+
+    --------------------------------
+    Qflow project setup
+    --------------------------------
+
+    Technology set to etri050
+    Regenerating files for existing project basic_loops
+    Running yosys for verilog parsing and synthesis
+    yosys  -s basic_loops.ys
+
+     /----------------------------------------------------------------------------\
+     |  yosys -- Yosys Open SYnthesis Suite                                       |
+     |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+     |  Distributed under an ISC-like license, type "license" to see terms        |
+     \----------------------------------------------------------------------------/
+     Yosys 0.60+39 (git sha1 4d61ce63d, clang++ 18.1.3 -fPIC -O3)
+
+    -- Executing script file `basic_loops.ys' --
+    ......
+
+* When error as follows,
+    3.1. Executing HIERARCHY pass (managing design hierarchy).
+    ERROR: Module `basic_loops' not found!
+    outputprep failure:  No file basic_loops_mapped.v.
+    Premature exit.
+
+Fix Yosys script: ./TRI050/source/basic_loops.ys
+After successful synthesis, Compare number of F/Fs with HLS Report(Utilization Estimates)
+
+7-2. Timing simulation
+    - Reuse SystemC testbench via VPI 
+
+$ make sim_ETRI050
+
+    rm -f ./ETRI050/simulation/basic_loops_TB
+    rm -f ./ETRI050/simulation/vpi_stub.vpi
+
+    TOP_MODULE=basic_loops make -C ETRI050/simulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/basic_loops/ETRI050/simulation'
+    g++  -DVM_SC=1 \
+         -I/usr/local/share/verilator/include \
+         -I/usr/local/share/verilator/include/vltstd \
+         -I/usr/local/include/iverilog \
+         -I/opt/systemc/include \
+         -I../../c_untimed -I.. \
+         -L/opt/systemc/lib \
+         -g -fPIC \
+         ../../c_untimed/basic_loops.cpp \
+         ./vpi_stub.cpp ./vpi_basic_loops_tb.cpp \
+         ./sc_basic_loops_TB.cpp \
+         -o vpi_stub.vpi \
+         -shared -latomic -lsystemc
+
+    iverilog -g2005-sv -Tmin -gspecify -o basic_loops_TB basic_loops_TB.v \
+             ~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
+             ../synthesis/basic_loops_mapped.v
+
+    vvp -M. -mvpi_stub basic_loops_TB -v
+    Icarus Verilog started
+    VCD info: dumpfile basic_loops_TB.vcd opened for output.
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_basic_loops_tb.vcd)
+    #0 s SystemC started
+    Pass [  0]:RefOut=  389 | DutOut=  389
+    Pass [  1]:RefOut=    5 | DutOut=    5
+    Pass [  2]:RefOut=  170 | DutOut=  170
+    Pass [  3]:RefOut=   69 | DutOut=   69
+    ......
+    Pass [ 98]:RefOut=   51 | DutOut=   51
+    Pass [ 99]:RefOut=  -74 | DutOut=  -74
+    Pass [100]:RefOut= -115 | DutOut= -115
+
+$ make -C ./ETRI050/simulation wave
+
+7-3. Place and Route
+
+$ make pnr_ETRI050
+
+7-4. Generate Layout
+
+$ make layout_ETRI050
+
+-------------

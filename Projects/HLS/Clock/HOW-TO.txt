@@ -1,0 +1,631 @@
+HLS Project: Clock
+
+1. Design Directory Structure
+2. Environment Set-up
+3. Untimed C-Simulation
+4. HLS
+5. Co-Simulation
+6. Co-Emulation
+    6-1. Build Modeling Interface
+    6-2. Build Transactor
+    6-3. Run Co-Emulator
+7. ETRI050 Node (MyChip)
+    7-1. Synthesize
+    7-2. Timing simulation
+    7-3. Place and Route
+    7-4. Generate Layout
+
+CC-BY-NC
+by GoodKook, goodkook@gmail.com
+
+--------------------------------------
+
+1. Design Directory Structure
+
+Repository Link,
+
+https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tree/main/Projects/HLS/Clock
+
+$ tree .
+    .
+    ├── HOW-TO.txt
+    ├── Makefile
+    ├── env_settings
+    ├── Vitis-HLS.tcl
+    ├── c_untimed
+    │   ├── Makefile
+    │   ├── Clock.cpp
+    │   └── Clock_TB.cpp
+    ├── emulation
+    │   ├── Makefile
+    │   ├── Clock_wrapper.v
+    │   ├── EClock.h
+    │   ├── PSCE-MI
+    │   │   ├── Makefile
+    │   │   ├── EClock_CA
+    │   │   │   └── EClock_CA.ino
+    │   │   └── PSCE_API
+    │   │       ├── PinMap_A7_100T.h
+    │   │       ├── PinMap_TANG_25K.h
+    │   │       ├── PSCE_APIs.cpp
+    │   │       ├── PSCE_APIs.h
+    │   │       ├── PSCE_Config.h
+    │   │       ├── PSCE_Splash.h
+    │   │       ├── TM1637Display.cpp
+    │   │       └── TM1637Display.h
+    │   └── PSCE-TRANS
+    │       └── Altera_Cmd
+    │           ├── Makefile
+    │           └── Clock_wrapper.tcl
+    ├── ETRI050
+    │   ├── Makefile
+    │   ├── project_vars.sh
+    │   ├── chip_top
+    │   │   ├── Makefile
+    │   │   ├── ETRI050_CMOS.lyp
+    │   │   └── .magicrc
+    │   ├── layout
+    │   │   ├── Makefile
+    │   │   ├── Clock.cel2
+    │   │   ├── Clock.par
+    │   │   ├── ETRI050_CMOS.lyp
+    │   │   └── .magicrc
+    │   ├── simulation
+    │   │   ├── Makefile
+    │   │   ├── Clock_TB.v
+    │   │   ├── sc_Clock_TB.h
+    │   │   ├── vpi_Clock_tb.cpp
+    │   │   ├── vpi_Clock_tb_exports.h
+    │   │   ├── vpi_Clock_tb_ports.h
+    │   │   └── vpi_stub.cpp
+    │   └── synthesis
+    └── simulation
+        ├── Makefile
+        ├── sc_Clock_TB.cpp
+        ├── sc_Clock_TB.h
+        └── sc_main.cpp
+
+2. Environment Set-up
+
+$ source env_settings
+
+    #************************************************************************
+    #* Environment setting for HLS, Co-Simulmatio/Emulation & ETRI050
+    #************************************************************************
+    Setting Environment variables as follows;
+        PROJECT_DIR=/home/mychip/MyChip_Work/Projects/HLS/Clock
+        TOP_MODULE=Clock
+        HW_STYLE=REGISTERED
+        MODE=CA
+        MI=PI_PICO
+
+$ make
+
+    Vitis-HLS Project: Clock
+
+        TOP_MODULE=Clock HW_STYLE=REGISTERED make csim
+        TOP_MODULE=Clock HW_STYLE=REGISTERED make csynth
+        TOP_MODULE=Clock make view_rpt
+        TOP_MODULE=Clock make co-sim
+        TOP_MODULE=Clock make wave
+
+        make emulation
+        make ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+3. Untimed C-Simulation
+
+$ make csim
+
+    TOP_MODULE=Clock HW_STYLE=REGISTERED make -C ./c_untimed build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/c_untimed'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -o Clock_TB \
+            -DREGISTERED_SC \
+            ./Clock.cpp ./Clock_TB.cpp \
+            -lsystemc
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/c_untimed'
+    TOP_MODULE=Clock make -C ./c_untimed run
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/c_untimed'
+    ./Clock_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+    [   99]: 00:01:40
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/c_untimed'
+
+4. HLS
+    - High-Level Synthesis
+    - Generate RTL from Untimed C-Model(Vitis-HLS)
+
+$ make csynth
+
+    vitis-run --mode hls --tcl Vitis-HLS.tcl
+
+    ****** vitis-run v2025.1 (64-bit)
+      **** SW Build 6137779 on 2025-05-21-18:10:03
+      **** Start of session at: Mon Dec 22 16:06:19 2025
+        ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+        ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+      **** HLS Build v2025.1 6135595
+    Sourcing Tcl script '/home/mychip/MyChip_Work/Projects/HLS/Clock/Vitis-HLS.tcl'
+    Clock
+    -DREGISTERED
+    ./c_untimed/Clock.cpp
+    INFO: [HLS 200-1510] Running: open_project Clock
+    ......
+
+$ make view_rpt
+
+    ================================================================
+    == Vitis HLS Report for 'Clock'
+    ================================================================
+
+    == Performance Estimates
+    ......
+    + Timing:
+        * Summary:
+        +--------+---------+----------+------------+
+        |  Clock |  Target | Estimated| Uncertainty|
+        +--------+---------+----------+------------+
+        |ap_clk  |  1.00 us|  4.144 ns|     0.27 us|
+        +--------+---------+----------+------------+
+
+    + Latency:
+        * Summary:
+        +---------+---------+----------+----------+-----+-----+---------+
+        |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +---------+---------+----------+----------+-----+-----+---------+
+        |        0|        0|      0 ns|      0 ns|    1|    1|       no|
+        +---------+---------+----------+----------+-----+-----+---------+
+
+    == Utilization Estimates
+    ......
+    * Register:
+        +-----------+---+----+-----+-----------+
+        |    Name   | FF| LUT| Bits| Const Bits|
+        +-----------+---+----+-----+-----------+
+        |ap_CS_fsm  |  1|   0|    1|          0|
+        |p_hh       |  8|   0|    8|          0|
+        |p_mm       |  8|   0|    8|          0|
+        |p_ss       |  8|   0|    8|          0|
+        +-----------+---+----+-----+-----------+
+        |Total      | 25|   0|   25|          0|
+        +-----------+---+----+-----+-----------+
+
+    == Interface
+    * Summary:
+    +----------+-----+-----+--------------+--------------+--------------+
+    | RTL Ports| Dir | Bits|   Protocol   | Source Object|    C Type    |
+    +----------+-----+-----+--------------+--------------+--------------+
+    |ap_clk    |   in|    1|  ap_ctrl_none|         Clock|  return value|
+    |ap_rst    |   in|    1|  ap_ctrl_none|         Clock|  return value|
+    |clear     |   in|    1|       ap_none|         clear|        scalar|
+    |start_r   |   in|    1|       ap_none|       start_r|        scalar|
+    |hh        |  out|    8|       ap_none|            hh|       pointer|
+    |mm        |  out|    8|       ap_none|            mm|       pointer|
+    |ss        |  out|    8|       ap_none|            ss|       pointer|
+    +----------+-----+-----+--------------+--------------+--------------+
+
+5. Co-Simulation
+   - Verilated RTL with SystemC TB (Timed Testbench in C++)
+
+$ make co-sim
+
+    verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+                   --top-module Clock  --exe --build \
+                   -CFLAGS -g \
+                   -CFLAGS -I../../c_untimed \
+                   -CFLAGS -I/opt/systemc/include \
+                   -CFLAGS -DVCD_TRACE_TEST_TB \
+                   -CFLAGS -DVCD_TRACE_DUT_VERILOG \
+                   -CFLAGS -DREGISTERED_SC \
+                   -LDFLAGS -lm \
+                   -LDFLAGS -lgsl \
+                   ../Clock/hls_component/syn/verilog/*.v \
+                   ../c_untimed/Clock.cpp \
+                   ./sc_main.cpp \
+                   ./sc_Clock_TB.cpp
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/simulation/obj_dir'
+    ......
+
+    ./obj_dir/VClock
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_Clock_TB.vcd)
+
+    Warning: (W509) module construction not properly completed: ......
+    In file: /home/mychip/ETRI050_DesignKit/Tools/systemc/src/sysc/kernel/sc_module.cpp:376
+    [    0] U00:00:00 T00:00:00 OK
+    [    1] U00:00:00 T00:00:00 OK
+    [    2] U00:00:00 T00:00:00 OK
+    ......
+    [ 9999] U02:44:57 T02:44:57 OK
+    [10000] U02:44:58 T02:44:58 OK
+    [10001] U02:44:59 T02:44:59 OK
+
+    Info: /OSCI/SystemC: Simulation stopped by user.
+
+$ make wave
+    - See digital waveform(VCD) resulted from zero-timed functional simulation
+
+6. Co-Emulation
+
+$ make emulation
+
+    Vitis-HLS Project: Clock
+      For Co-Emulation,MODE=AL|CA|SA
+      (1) Build and Upload Modeling-Interface
+            TOP_MODULE=Clock MODE=CA MI=PI_PICO make build-mi
+            TOP_MODULE=Clock MODE=CA MI=PI_PICO make upload-mi
+            TOP_MODULE=Clock MODE=CA MI=PI_PICO make clean-mi
+      (2) Build and Config Transactor FPGA(Altera Cyclone-IV)
+            TOP_MODULE=Clock make build-trans
+            TOP_MODULE=Clock make config-trans
+            TOP_MODULE=Clock make clean-trans
+      (3) Build and Run Co-Emulator
+            TOP_MODULE=Clock make co-emu
+
+6-1. Build Modeling Interface
+
+$ make build-mi
+
+    TOP_MODULE=Clock MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation/PSCE-MI'
+    aduino-cli compile --clean --fqbn rp2040:rp2040:rpipico EClock_CA \
+          --build-path ./EClock_CA/build \
+          --build-property compiler.cpp.extra_flags="-DOLED_DISPLAY -DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"" -DREGISTERED"
+    ......
+
+* Note define macro "OLED_DISPLAY" used.
+* Set PI_PICO to "RPi Boot" as USB drive
+
+$ sudo mount -t drvfs F: /mnt/f     ; in WSL, manual mount
+    [sudo] password for mychip:
+
+$ make upload-mi
+
+    MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI upload
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation/PSCE-MI'
+    arduino-cli upload -p /dev/ttyACM0 --fqbn rp2040:rp2040:rpipico EClock_CA \
+            --input-file ./EClock_CA/build/EClock_CA.ino.bin
+    Resetting /dev/ttyACM0
+    Converting to uf2, output size: 206336, start address: 0x2000
+    Scanning for RP2040 devices
+    Flashing /mnt/f (RPI-RP2)
+    Wrote 206336 bytes to /mnt/f/NEW.UF2
+    New upload port: /dev/ttyACM0 (serial)
+
+6-2. Build Transactor
+
+$ make build-trans
+
+    TOP_MODULE=Clock make -C ./emulation/PSCE-TRANS/Altera_Cmd build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_sh -t Clock_wrapper.tcl
+    ......
+
+$ make config-trans
+
+    TOP_MODULE=Clock make -C ./emulation/PSCE-TRANS/Altera_Cmd config
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation/PSCE-TRANS/Altera_Cmd'
+    sudo openFPGALoader -c digilent_hs2 output_file.rbf
+    [sudo] password for mychip:
+    empty
+    Jtag frequency : requested 6.00MHz    -> real 6.00MHz
+    Load SRAM: [==================================================] 100.00%
+    Done
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation/PSCE-TRANS/Altera_Cmd'
+
+6-3. Run Co-Emulator
+
+$ make co-emu
+
+    make -C ./emulation clean
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation'
+    rm -f sc_Clock_TB
+    rm -f sc_Clock_TB.vcd
+    rm -f EClock.vcd
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation'
+
+    VCD_TRACE=YES HW_STYLE=REGISTERED make -C emulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -I../emulation \
+            -I../simulation \
+            -I../c_untimed \
+            -DREGISTERED_SC \
+            -DEMULATED_CO_SIM \
+            -DVCD_TRACE_TEST_TB \
+            -lsystemc \
+            -osc_Clock_TB ../c_untimed/Clock.cpp ../simulation/sc_Clock_TB.cpp ../simulation/sc_main.cpp
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation'
+
+    VCD_TRACE=YES HW_STYLE=REGISTERED make -C emulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/emulation'
+    ./sc_Clock_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+    Request emulator connection......
+    Connection established...
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_Clock_TB.vcd)
+    [    0] U00:00:00 T00:00:00 OK
+    [    1] U00:00:00 T00:00:00 OK
+    [    2] U00:00:00 T00:00:00 OK
+    ......
+
+* See "#pragma HLS ..." in the C++ source code, Clock.cpp
+
+7. ETRI050 Node (MyChip)
+
+$ make ETRI050
+    Link ETRI050/source directory......
+
+    Vitis-HLS Project: Clock
+      Targetting ETRI050 node,
+      (1) Synthesize
+            TOP_MODULE=Clock make synth_ETRI050
+      (2) Netlist Simulation
+            TOP_MODULE=Clock make sim_ETRI050
+            TOP_MODULE=Clock make wave_ETRI050
+      (3) P&R, Generate layout
+            TOP_MODULE=Clock make pnr_ETRI050
+      (4) View GDS
+            TOP_MODULE=Clock make layout_ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+$ ls -l ETRI050
+
+    total 40
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 10:16 chip_top
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 14:50 layout
+    drwxr-xr-x 2 mychip mychip 4096 Dec 22 16:45 log
+    drwxr-xr-x 2 mychip mychip 4096 Dec 23 08:55 simulation
+    lrwxrwxrwx 1 mychip mychip   36 Dec 23 08:55 source -> .././Clock/hls_component/syn/verilog
+    drwxr-xr-x 2 mychip mychip 4096 Dec 22 16:45 synthesis
+    -rw-r--r-- 1 mychip mychip 5068 Dec 16 10:16 Makefile
+    -rw-r--r-- 1 mychip mychip 1771 Dec 22 16:52 project_vars.sh
+    -rwxr--r-- 1 mychip mychip 1462 Dec 22 16:39 qflow_exec.sh
+    -rw-r--r-- 1 mychip mychip  701 Dec 22 16:39 qflow_vars.sh
+
+* Note 'source' directory softly linked to HLS generated RTL
+
+7-1. Synthesize
+
+$ make synth_ETRI050
+    rm -f ./ETRI050/log/synth.log
+
+    TOP_MODULE=Clock make -C ETRI050 synthesize
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/ETRI050'
+    qflow synthesize -T etri050 Clock
+    ......
+    12. Printing statistics.
+
+    === Clock ===
+
+            +----------Local Count, excluding submodules.
+            |
+          195 wires
+          258 wire bits
+          195 public wires
+          258 public wire bits
+            7 ports
+           28 port bits
+          254 cells
+           12   AND2X2
+           28   AOI21X1
+           24   BUFX2
+           24   DFFPOSX1
+           33   INVX1
+           16   NAND2X1
+           26   NAND3X1
+           18   NOR2X1
+            1   NOR3X1
+           68   OAI21X1
+            4   OR2X2
+
+7-2. Timing simulation
+
+$ make sim_ETRI050
+
+    rm -f ./ETRI050/simulation/Clock_TB
+    rm -f ./ETRI050/simulation/vpi_stub.vpi
+
+    TOP_MODULE=Clock make -C ETRI050/simulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/ETRI050/simulation'
+    g++  -DVM_SC=1 \
+    		-I/usr/local/share/verilator/include \
+            -I/usr/local/share/verilator/include/vltstd \
+            -I/usr/local/include/iverilog \
+            -I/opt/systemc/include \
+            -I../../c_untimed \
+            -I.. -L/opt/systemc/lib \
+    		-DREGISTERED_SC -g -fPIC \
+    		../../c_untimed/Clock.cpp ./vpi_stub.cpp ./vpi_Clock_tb.cpp ./sc_Clock_TB.cpp \
+        	-o vpi_stub.vpi \
+    		-shared -latomic -lsystemc -lgsl
+
+    iverilog -g2005-sv -Tmin -gspecify -o Clock_TB Clock_TB.v \
+            ~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
+            ../synthesis/Clock_mapped.v
+
+    vvp -M. -mvpi_stub Clock_TB -v
+    Icarus Verilog started
+    VCD info: dumpfile Clock_TB.vcd opened for output.
+
+    Warning: (W509) module construction not properly completed: ......
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_Clock_tb.vcd)
+
+    Warning: (W571) no activity or clock movement for sc_start() invocation
+    In file: /home/mychip/ETRI050_DesignKit/Tools/systemc/src/sysc/kernel/sc_simcontext.cpp:1750
+    #0 s SystemC started
+    [    0] U00:00:00 T00:00:00 OK
+    [    1] U00:00:00 T00:00:00 OK
+    [    2] U00:00:00 T00:00:00 OK
+    ......
+    [ 9999] U02:44:57 T02:44:57 OK
+    [10000] U02:44:58 T02:44:58 OK
+    [10001] U02:44:59 T02:44:59 OK
+
+$ make -C ETRI050/simulation wave
+
+    * See VCD result of delayed netlist simulation.
+
+7-3. Place and Route
+
+$ make pnr_ETRI050
+
+$ make -C ETRI050 size
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/Clock/ETRI050'
+
+    ~/ETRI050_DesignKit/scripts/size_core.sh Clock
+
+    ************************************************************************
+    * Measure the size of the Core
+    ************************************************************************
+
+    Magic 8.3 revision 538 - Compiled on Sat Aug  9 00:37:19 KST 2025.
+    ......
+    Root cell box:
+               width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+    microns:  435.600 x 373.050  (-9.300, -3.600), ( 426.300,  369.450)  162500.594
+    lambda:   1452.00 x 1243.50  (-31.00, -12.00), ( 1421.00,  1231.50)  1805562.00
+    internal:   2904 x 2487    (   -62, -24   ), (  2842,  2463 )  7222248
+
+$ make -C ETRI050 lvs
+
+    Qflow LVS logfile created on Tue Dec 23 09:08:06 AM KST 2025
+
+    netgen -batch lvs \
+        "~/MyChip_Work/Projects/HLS/Clock/ETRI050/layout/Clock.spice Clock" \
+        "~/MyChip_Work/Projects/HLS/Clock/ETRI050/synthesis/Clock.spc Clock" \
+        /usr/local/share/qflow/tech/etri050/etri050_setup.tcl \
+        comp.out -json -blackbox
+
+    Netgen 1.5.295 compiled on Sat Aug  9 00:37:50 KST 2025
+
+    Treating empty subcircuits as black-box cells
+    Reading netlist file ~/MyChip_Work/Projects/HLS/Clock/ETRI050/layout/Clock.spice
+    Reading netlist file ~/MyChip_Work/Projects/HLS/Clock/ETRI050/synthesis/Clock.spc
+
+    Call to undefined subcircuit FILL
+    Creating placeholder cell definition.
+
+    Reading setup file /usr/local/share/qflow/tech/etri050/etri050_setup.tcl
+    ............
+    Contents of circuit 1:  Circuit: 'BUFX2'
+    Circuit BUFX2 contains 0 device instances.
+    Circuit contains 0 nets.
+    Contents of circuit 2:  Circuit: 'BUFX2'
+    Circuit BUFX2 contains 4 device instances.
+      Class: pfet                  instances:   2
+      Class: nfet                  instances:   2
+    Circuit contains 5 nets.
+    ......
+    Contents of circuit 1:  Circuit: 'Clock'
+    Circuit Clock contains 258 device instances.
+      Class: NOR3X1                instances:   1
+      Class: OR2X2                 instances:   4
+      Class: NOR2X1                instances:  18
+      Class: NAND3X1               instances:  26
+      Class: DFFPOSX1              instances:  24
+      Class: AOI21X1               instances:  28
+      Class: NAND2X1               instances:  16
+      Class: OAI21X1               instances:  68
+      Class: BUFX2                 instances:  24
+      Class: AND2X2                instances:  12
+      Class: CLKBUF1               instances:   4
+      Class: INVX1                 instances:  24
+      Class: INVX2                 instances:   8
+      Class: INVX4                 instances:   1
+    Circuit contains 264 nets.
+    Contents of circuit 2:  Circuit: 'Clock'
+    Circuit Clock contains 258 device instances.
+      Class: NOR3X1                instances:   1
+      Class: OR2X2                 instances:   4
+      Class: NOR2X1                instances:  18
+      Class: NAND3X1               instances:  26
+      Class: DFFPOSX1              instances:  24
+      Class: AOI21X1               instances:  28
+      Class: NAND2X1               instances:  16
+      Class: OAI21X1               instances:  68
+      Class: BUFX2                 instances:  24
+      Class: AND2X2                instances:  12
+      Class: CLKBUF1               instances:   4
+      Class: INVX1                 instances:  24
+      Class: INVX2                 instances:   8
+      Class: INVX4                 instances:   1
+    Circuit contains 264 nets, and 2 disconnected pins.
+
+    Circuit 1 contains 258 devices, Circuit 2 contains 258 devices.
+    Circuit 1 contains 264 nets,    Circuit 2 contains 264 nets.
+
+    Final result: 
+    Top level cell failed pin matching.
+
+    Logging to file "comp.out" disabled
+
+    LVS Done.
+    /usr/local/share/qflow/scripts/count_lvs.py
+    LVS reports:
+        net count difference = 0
+        device count difference = 0
+        unmatched nets = 0
+        unmatched devices = 0
+        unmatched pins = 2
+        property failures = 0
+
+    Total errors = 2
+    Design fails LVS with 2 errors.
+    See lvs.log and comp.out for error details.
+    Synthesis flow stopped due to error condition.
+
+!OopS! Pin mismatching error! See LVS LOG,
+
+$ more ./ETRI050/layout/comp.out
+
+    Subcircuit pins:
+    Circuit 1: Clock                           |Circuit 2: Clock                           
+    -------------------------------------------|-------------------------------------------
+    ap_rst                                     |ap_rst                                     
+    start_r[0]                                 |(no pin, node is start_r[0])               
+    clear[0]                                   |(no pin, node is clear[0])                 
+    ap_clk                                     |ap_clk                                     
+    vdd                                        |vdd                                        
+    gnd                                        |gnd                                        
+    mm[0]                                      |mm[0]                                      
+    ss[0]                                      |ss[0]                                      
+    hh[1]                                      |hh[1]                                      
+    ........                                   ........
+    ss[1]                                      |ss[1]                                      
+    ss[6]                                      |ss[6]                                      
+    (no matching pin)                          |clear                                      
+    (no matching pin)                          |start_r                                    
+    ---------------------------------------------------------------------------------------
+    Cell pin lists for Clock and Clock altered to match.
+    Device classes Clock and Clock are equivalent.
+
+7-4. Generate Layout
+
+$ make layout_ETRI050
+
+----------------------------------------------------

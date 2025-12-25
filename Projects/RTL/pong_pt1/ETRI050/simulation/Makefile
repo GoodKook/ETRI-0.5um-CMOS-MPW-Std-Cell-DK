@@ -6,7 +6,7 @@ export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 
 DUT_MODULE = $(TOP_MODULE)
-HW_STYLE = $(MODE)
+MODE = CA
 
 # Build Rules --------------------------------------------------
 all :
@@ -23,7 +23,7 @@ all :
 	@echo
 	@echo 'Netlist timing simulation using iVerilog-VPI:$(TOP_MODULE)'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make build'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make build'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
@@ -48,7 +48,7 @@ VPI_INC_PATH = \
 VPI_LIB_PATH = \
     -L${SYSTEMC_LIBDIR}
 VPI_CFLAGS = \
-	-D$(HW_STYLE) \
+	-D$(MODE) \
     -g -fPIC
 VPI_LFLAGS = \
 	-shared \
@@ -81,6 +81,7 @@ clean :
 	rm -rf $(VLT_DIR)
 	rm -f vpi_stub.vpi
 	rm -f sc_$(DUT_MODULE)_TB.txt
+	rm -f sc_$(DUT_MODULE)_TB.cpp
 	rm -f *.vcd
 	rm -f $(VPI_TARGET)
 	rm -f $(IVL_TARGET)

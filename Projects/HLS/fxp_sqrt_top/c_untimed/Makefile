@@ -58,7 +58,7 @@ run : $(TOP_MODULE_TB)
 	./$(TOP_MODULE_TB)
 
 clean :
-	rm -rf $(TOP_MODULE_TB)
+	rm -f $(TOP_MODULE_TB)
 
 debug : $(TOP_MODULE_TB)
 	ddd $(TOP_MODULE_TB)

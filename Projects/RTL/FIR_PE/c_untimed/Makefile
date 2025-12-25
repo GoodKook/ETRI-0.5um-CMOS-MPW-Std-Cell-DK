@@ -39,6 +39,7 @@ all :
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make build'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make plot'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
 	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
@@ -53,10 +54,18 @@ $(TOP_MODULE_TB) : $(SRCS) $(HDRS)
 		-lsystemc -lgsl -lm
 
 run : $(TOP_MODULE_TB)
-	./$(TOP_MODULE_TB)
+$(TOP_MODULE_TB).txt : $(TOP_MODULE_TB)
+	./$(TOP_MODULE_TB) | tee $(TOP_MODULE_TB).txt
+
+plot : $(TOP_MODULE_TB).txt
+	python3 plotDFT.py $(TOP_MODULE_TB).txt input &
+	python3 plotDFT.py $(TOP_MODULE_TB).txt inputDFT &
+	python3 plotDFT.py $(TOP_MODULE_TB).txt output &
+	python3 plotDFT.py $(TOP_MODULE_TB).txt outputDFT &
 
 clean :
-	rm -rf $(TOP_MODULE_TB)
+	rm -f $(TOP_MODULE_TB)
+	rm -f $(TOP_MODULE_TB).txt
 
 debug : $(TOP_MODULE_TB)
 	ddd $(TOP_MODULE_TB)

@@ -102,7 +102,7 @@ $(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) ../$(TOP_MODULE)/$(TOP_MODULE).v $(SC_
 				$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
 run : $(TARGET_DIR)/$(TARGET) CPU_terminal
-	xterm -geometry 84x24+10+10 -e "./CPU_terminal" &
+	xterm -geometry 80x24 -fa "Monospace:size=12" -T "Apple-1" -e "./CPU_terminal" &
 	sleep 1
 	./$(TARGET_DIR)/$(TARGET)
 

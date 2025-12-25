@@ -1,0 +1,801 @@
+HLS Project: fxp_sqrt_top
+
+1. Design Directory Structure
+2. Environment Set-up
+3. Untimed C-Simulation
+4. HLS
+5. Co-Simulation
+6. Co-Emulation
+    6-1. Build Modeling Interface
+    6-2. Build Transactor
+    6-3. Run emulator
+7. ETRI050 Node (MyChip)
+    7-1. Synthesize
+    7-2. Timing simulation
+    7-3. Place and Route
+        What to do, if core size is matters?
+    7-4. Generate Layout
+
+CC-BY-NC
+by GoodKook, goodkook@gmail.com
+
+------------------------------------------------------------------------
+
+HLS Project: FIR8
+
+1. Design Directory Structure
+
+Repository Link,
+
+https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tree/main/Projects/HLS/fxp_sqrt_top
+
+$ tree
+    .
+    ├── HOW-TO.txt
+    ├── Makefile
+    ├── env_settings
+    ├── Vitis-HLS.tcl
+    ├── /c_untimed
+    │   ├── Makefile
+    │   ├── fxp_sqrt.h
+    │   ├── fxp_sqrt_top.cpp
+    │   ├── fxp_sqrt_top.h
+    │   └── fxp_sqrt_top_TB.cpp
+    ├── /emulation
+    │   ├── Makefile
+    │   ├── Efxp_sqrt_top.h
+    │   ├── fxp_sqrt_top_wrapper.v
+    │   ├── /PSCE-MI
+    │   │   ├── Makefile
+    │   │   └── /Efxp_sqrt_top_CA
+    │   │       ├── Efxp_sqrt_top_CA.ino
+    │   │       ├── PinMap_A7_100T.h
+    │   │       ├── PinMap_TANG_25K.h
+    │   │       ├── PSCE_APIs.cpp
+    │   │       ├── PSCE_APIs.h
+    │   │       ├── PSCE_Config.h
+    │   │       └── PSCE_Splash.h
+    │   └── /PSCE-TRANS
+    │       └── /Altera_Cmd
+    │           ├── Makefile
+    │           └── fxp_sqrt_top_wrapper.tcl
+    ├── /ETRI050
+    │   ├── Makefile
+    │   ├── project_vars.sh
+    │   ├── /chip_top
+    │   │   ├── Makefile
+    │   │   ├── ETRI050_CMOS.lyp
+    │   │   └── .magicrc
+    │   ├── /layout
+    │   │   ├── Makefile
+    │   │   ├── ETRI050_CMOS.lyp
+    │   │   ├── fxp_sqrt_top.cel2
+    │   │   ├── fxp_sqrt_top.par
+    │   │   └── .magicrc
+    │   └── /simulation
+    │       ├── Makefile
+    │       ├── fxp_sqrt_top_TB.v
+    │       ├── sc_fxp_sqrt_top_TB.h
+    │       ├── vpi_fxp_sqrt_top_tb.cpp
+    │       ├── vpi_fxp_sqrt_top_tb_exports.h
+    │       ├── vpi_fxp_sqrt_top_tb_ports.h
+    │       └── vpi_stub.cpp
+    └── /simulation
+        ├── Makefile
+        ├── sc_fxp_sqrt_top_TB.cpp
+        ├── sc_fxp_sqrt_top_TB.h
+        └── sc_main.cpp
+
+2. Environment Set-up
+
+$ source env_settings
+    #************************************************************************
+    #* Environment setting for HLS, Co-Simulmatio/Emulation & ETRI050
+    #************************************************************************
+    Setting Environment variables as follows;
+        PROJECT_DIR=/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top
+        TOP_MODULE=fxp_sqrt_top
+        HW_STYLE=HW_STYLE
+        MODE=CA
+        MI=PI_PICO
+
+$ make
+
+    Vitis-HLS Project: fxp_sqrt_top
+
+        TOP_MODULE=fxp_sqrt_top make csim
+        TOP_MODULE=fxp_sqrt_top make csynth
+        TOP_MODULE=fxp_sqrt_top make view_rpt
+        TOP_MODULE=fxp_sqrt_top make co-sim
+        TOP_MODULE=fxp_sqrt_top make wave
+
+        make emulation
+        make ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+3. Untimed C-Simulation
+
+$ make csim
+
+    TOP_MODULE=fxp_sqrt_top make -C ./c_untimed build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/c_untimed'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -o fxp_sqrt_top_TB \
+            -DHW_STYLE_SC \
+            -DSC_INCLUDE_FX \
+            ./fxp_sqrt_top.cpp ./fxp_sqrt_top_TB.cpp \
+            -lsystemc
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/c_untimed'
+
+    TOP_MODULE=fxp_sqrt_top make -C ./c_untimed run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/c_untimed'
+    ./fxp_sqrt_top_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+    SQRT(103.0) =  10.14889 [ 10.14889], diff= 0.000000000
+    SQRT(198.0) =  14.07125 [ 14.07125], diff= 0.000000000
+    SQRT(105.0) =  10.24695 [ 10.24695], diff= 0.000000000
+    SQRT(115.0) =  10.72381 [ 10.72381], diff= 0.000000000
+    ........
+    SQRT( 26.0) =   5.09902 [  5.09902], diff= 0.000000000
+    SQRT(254.0) =  15.93738 [ 15.93738], diff= 0.000000954
+    SQRT( 67.0) =   8.18535 [  8.18535], diff= 0.000000000
+                  --------- -----------  ------
+                   Fixed Pt    math.h
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/c_untimed'
+
+4. HLS
+
+$ make csynth
+
+    vitis-run --mode hls --tcl Vitis-HLS.tcl
+
+    ****** vitis-run v2025.1 (64-bit)
+      **** SW Build 6137779 on 2025-05-21-18:10:03
+      **** Start of session at: Wed Dec 24 11:01:54 2025
+        ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+        ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+      **** HLS Build v2025.1 6135595
+    Sourcing Tcl script '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/Vitis-HLS.tcl'
+    fxp_sqrt_top
+    -DHW_STYLE
+    ./c_untimed/fxp_sqrt_top.cpp
+    INFO: [HLS 200-1510] Running: open_project fxp_sqrt_top
+    ......
+
+$ make view_rpt
+
+    ================================================================
+    == Vitis HLS Report for 'fxp_sqrt_top'
+    ================================================================
+    * Date:           Wed Dec 24 11:02:51 2025
+
+    * Version:        2025.1 (Build 6135595 on May 21 2025)
+    * Project:        fxp_sqrt_top
+    * Solution:       hls_component (Vivado IP Flow Target)
+    * Product family: aartix7
+    * Target device:  xa7a100t-csg324-2I
+
+    ================================================================
+    == Performance Estimates
+    ================================================================
+    + Latency:
+        + Detail:
+            * Instance:
+            +--------------------------------------------------+----------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+            |                                                  |                                        |  Latency (cycles) |   Latency (absolute)  |  Interval |                    Pipeline                    |
+            |                     Instance                     |                 Module                 |   min   |   max   |    min    |    max    | min | max |                      Type                      |
+            +--------------------------------------------------+----------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+            |grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1_fu_58  |fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1  |       31|       31|  31.000 us|  31.000 us|   30|   30|  loop auto-rewind stp (delay=0 clock cycles(s))|
+            +--------------------------------------------------+----------------------------------------+---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+    ================================================================
+    == Utilization Estimates
+    ================================================================
+    + Detail:
+        * Instance:
+        +--------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+        |                     Instance                     |                 Module                 | BRAM_18K| DSP| FF | LUT | URAM|
+        +--------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+        |grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1_fu_58  |fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1  |        0|   0|  96|  422|    0|
+        +--------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+        |Total                                             |                                        |        0|   0|  96|  422|    0|
+        +--------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
+        * Expression:
+        +---------------------+----------+----+---+----+------------+------------+
+        |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+        +---------------------+----------+----+---+----+------------+------------+
+        |add_ln118_fu_90_p2   |         +|   0|  0|  36|          29|           1|
+        |icmp_ln117_fu_84_p2  |      icmp|   0|  0|  38|          31|           1|
+        |ap_return            |    select|   0|  0|  28|           1|          28|
+        +---------------------+----------+----+---+----+------------+------------+
+        |Total                |          |   0|  0| 102|          61|          30|
+        +---------------------+----------+----+---+----+------------+------------+
+        * Multiplexer:
+        +-----------+----+-----------+-----+-----------+
+        |    Name   | LUT| Input Size| Bits| Total Bits|
+        +-----------+----+-----------+-----+-----------+
+        |ap_NS_fsm  |  17|          4|    1|          4|
+        +-----------+----+-----------+-----+-----------+
+        |Total      |  17|          4|    1|          4|
+        +-----------+----+-----------+-----+-----------+
+        * Register:
+        +---------------------------------------------------------------+----+----+-----+-----------+
+        |                              Name                             | FF | LUT| Bits| Const Bits|
+        +---------------------------------------------------------------+----+----+-----+-----------+
+        |ap_CS_fsm                                                      |   3|   0|    3|          0|
+        |grp_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1_fu_58_ap_start_reg  |   1|   0|    1|          0|
+        |p_v_loc_fu_44                                                  |  28|   0|   28|          0|
+        |q_1_loc_fu_40                                                  |  29|   0|   29|          0|
+        |s_1_reg_132                                                    |  24|   0|   28|          4|
+        |s_5_loc_fu_48                                                  |  31|   0|   31|          0|
+        +---------------------------------------------------------------+----+----+-----+-----------+
+        |Total                                                          | 116|   0|  120|          4|
+        +---------------------------------------------------------------+----+----+-----+-----------+
+    ================================================================
+    == Interface
+    ================================================================
+    * Summary:
+    +-----------+-----+-----+------------+--------------+--------------+
+    | RTL Ports | Dir | Bits|  Protocol  | Source Object|    C Type    |
+    +-----------+-----+-----+------------+--------------+--------------+
+    |ap_clk     |   in|    1|  ap_ctrl_hs|  fxp_sqrt_top|  return value|
+    |ap_rst     |   in|    1|  ap_ctrl_hs|  fxp_sqrt_top|  return value|
+    |ap_start   |   in|    1|  ap_ctrl_hs|  fxp_sqrt_top|  return value|
+    |ap_done    |  out|    1|  ap_ctrl_hs|  fxp_sqrt_top|  return value|
+    |ap_idle    |  out|    1|  ap_ctrl_hs|  fxp_sqrt_top|  return value|
+    |ap_ready   |  out|    1|  ap_ctrl_hs|  fxp_sqrt_top|  return value|
+    |ap_return  |  out|   28|  ap_ctrl_hs|  fxp_sqrt_top|  return value|
+    |in_val     |   in|   24|     ap_none|        in_val|       pointer|
+    +-----------+-----+-----+------------+--------------+--------------+
+
+$ ll fxp_sqrt_top/hls_component/syn/verilog
+
+    total 32
+    drwxr-xr-x 2 mychip mychip  4096 Dec 24 11:02 .
+    drwxr-xr-x 5 mychip mychip  4096 Dec 24 11:02 ..
+    -rw-r--r-- 1 mychip mychip  2778 Dec 24 11:02 fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v
+    -rw-r--r-- 1 mychip mychip 10484 Dec 24 11:02 fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1.v
+    -rw-r--r-- 1 mychip mychip  7353 Dec 24 11:02 fxp_sqrt_top.v
+
+5. Co-Simulation
+
+$ make co-sim
+
+    TOP_MODULE=fxp_sqrt_top make -C simulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/simulation'
+    verilator --sc -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --pins-sc-uint \
+              --top-module fxp_sqrt_top  --exe --build \
+              -CFLAGS -g \
+              -CFLAGS -I../../c_untimed \
+              -CFLAGS -I/opt/systemc/include \
+              -CFLAGS -DVCD_TRACE_TEST_TB \
+              -CFLAGS -DVCD_TRACE_DUT_VERILOG \
+              -CFLAGS -DSC_INCLUDE_FX \
+              -CFLAGS -DHW_STYLE_SC \
+              -LDFLAGS -lm \
+              -LDFLAGS -lgsl \
+              ../fxp_sqrt_top/hls_component/syn/verilog/*.v \
+              ../c_untimed/fxp_sqrt_top.cpp \
+              ./sc_main.cpp \
+              ./sc_fxp_sqrt_top_TB.cpp
+    make[2]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/simulation/obj_dir'
+    ........
+    make[2]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/simulation/obj_dir'
+    - V e r i l a t i o n   R e p o r t: Verilator 5.043 devel rev v5.042-180-g7e67f7384
+    - Verilator: Built from 0.104 MB sources in 4 modules, into 0.133 MB in 9 C++ files needing 0.000 MB
+    - Verilator: Walltime 5.759 s (elab=0.034, cvt=0.089, bld=5.511); cpu 0.033 s on 1 threads; alloced 31.121 MB
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/simulation'
+
+    TOP_MODULE=fxp_sqrt_top make -C simulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/simulation'
+    ./obj_dir/Vfxp_sqrt_top
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_fxp_sqrt_top_TB.vcd)
+
+    Warning: (W509) module construction not properly completed: .......
+
+    [ N ]sqrt(Val)= C-Math   vs. SystemC Fixed Point          vs. Hardware
+     --- ---------  -------  vs. -------------------          vs. -------------------
+    [  0]sqrt(  0)= 0        vs. 0                            vs. 0                      Diff=          0
+    [  1]sqrt(106)= 10.2956  vs. 10.295630156993865966796875  vs. 10.295623779296875     Diff= 6.3777e-06
+    [  2]sqrt( 52)= 7.2111   vs. 7.211102545261383056640625   vs. 7.2111053466796875     Diff= 2.80142e-06
+    [  3]sqrt(148)= 12.1655  vs. 12.16552507877349853515625   vs. 12.16552734375         Diff= 2.26498e-06
+    [  4]sqrt(185)= 13.6015  vs. 13.601470530033111572265625  vs. 13.601470947265625     Diff= 4.17233e-07
+    ........
+    [ 97]sqrt( 78)= 8.83176  vs. 8.831760883331298828125      vs. 8.831756591796875      Diff= 4.29153e-06
+    [ 98]sqrt( 28)= 5.2915   vs. 5.29150259494781494140625    vs. 5.29150390625          Diff= 1.3113e-06
+    [ 99]sqrt( 22)= 4.69042  vs. 4.69041574001312255859375    vs. 4.6904144287109375     Diff= 1.3113e-06
+    [100]sqrt(251)= 15.843   vs. 15.842979490756988525390625  vs. 15.842987060546875     Diff= 7.56979e-06
+     --- ---------  -------  vs. -------------------          vs. -------------------
+    [ N ]sqrt(Val)= C-Math   vs. SystemC Fixed Point          vs. Hardware
+    Max Err = 7.51019e-06
+
+    Info: /OSCI/SystemC: Simulation stopped by user.
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/simulation'
+
+6. Co-Emulation
+
+$ make emulation
+
+    Vitis-HLS Project: fxp_sqrt_top
+      For Co-Emulation,
+      (1) Build and Upload Modeling-Interface(Arduino-DUE)
+            TOP_MODULE=fxp_sqrt_top MODE=CA MI=PI_PICO make build-mi
+            TOP_MODULE=fxp_sqrt_top MODE=CA MI=PI_PICO make upload-mi
+            TOP_MODULE=fxp_sqrt_top MODE=CA MI=PI_PICO make clean-mi
+      (2) Build and Config Transactor FPGA(Altera Cyclone-IV)
+            TOP_MODULE=fxp_sqrt_top make build-trans
+            TOP_MODULE=fxp_sqrt_top make config-trans
+            TOP_MODULE=fxp_sqrt_top make clean-trans
+      (3) Build and Run Co-Emulator
+            TOP_MODULE=fxp_sqrt_top make co-emu
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+6-1. Build Modeling Interface
+
+$ make build-mi
+
+    TOP_MODULE=fxp_sqrt_top MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-MI'
+    arduino-cli compile --clean --fqbn rp2040:rp2040:rpipico Efxp_sqrt_top_CA \
+            --build-path ./Efxp_sqrt_top_CA/build \
+            --build-property compiler.cpp.extra_flags="-DOLED_DISPLAY -DPI_PICO -DUART_BPS=115200 -DCYCLONE_IV"
+    Sketch uses 76956 bytes (3%) of program storage space. Maximum is 2093056 bytes.
+    Global variables use 11376 bytes (4%) of dynamic memory, leaving 250768 bytes for local variables. Maximum is 262144 bytes.
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-MI'
+
+$ sudo mount -t drvfs F: /mnt/f     ; WSL only
+
+$ make upload-mi
+
+    MODE=CA MI=PI_PICO make -C ./emulation/PSCE-MI upload
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-MI'
+    arduino-cli upload -p /dev/ttyACM0 --fqbn rp2040:rp2040:rpipico Efxp_sqrt_top_CA \
+            --input-file ./Efxp_sqrt_top_CA/build/Efxp_sqrt_top_CA.ino.bin
+    Resetting /dev/ttyACM0
+    Converting to uf2, output size: 187904, start address: 0x2000
+    Scanning for RP2040 devices
+    Flashing /mnt/f (RPI-RP2)
+    Wrote 187904 bytes to /mnt/f/NEW.UF2
+    New upload port: /dev/ttyACM0 (serial)
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-MI'
+
+6-2. Build Transactor
+
+$ make build-trans
+
+    TOP_MODULE=fxp_sqrt_top make -C ./emulation/PSCE-TRANS/Altera_Cmd build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_sh -t fxp_sqrt_top_wrapper.tcl
+    ........
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-TRANS/Altera_Cmd'
+
+    TOP_MODULE=fxp_sqrt_top make -C ./emulation/PSCE-TRANS/Altera_Cmd gen_rbf
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-TRANS/Altera_Cmd'
+    quartus_cpf -c ./output_files/fxp_sqrt_top_wrapper.sof output_file.rbf
+    ........
+
+$ make config-trans
+
+    TOP_MODULE=fxp_sqrt_top make -C ./emulation/PSCE-TRANS/Altera_Cmd config
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-TRANS/Altera_Cmd'
+    sudo openFPGALoader -c digilent_hs2 output_file.rbf
+    [sudo] password for mychip:
+    empty
+    Jtag frequency : requested 6.00MHz    -> real 6.00MHz
+    Load SRAM: [==================================================] 100.00%
+    Done
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation/PSCE-TRANS/Altera_Cmd'
+
+6-3. Run emulator
+
+$ make co-emu
+
+    make -C ./emulation clean
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+    rm -f sc_fxp_sqrt_top_TB
+    rm -f sc_fxp_sqrt_top_TB.vcd
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+
+    VCD_TRACE=YES make -C emulation build
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+    clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+            -I../emulation \
+            -I../simulation \
+            -I../c_untimed \
+            -DHW_STYLE_SC \
+            -DEMULATED_CO_SIM \
+            -DVCD_TRACE_TEST_TB \
+            -DSC_INCLUDE_FX \
+            -lsystemc \
+            -osc_fxp_sqrt_top_TB \
+            ../c_untimed/fxp_sqrt_top.cpp \
+            ../simulation/sc_fxp_sqrt_top_TB.cpp \
+            ../simulation/sc_main.cpp
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+
+    VCD_TRACE=YES make -C emulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+    ./sc_fxp_sqrt_top_TB
+
+            SystemC 3.0.2-Accellera --- Dec 16 2025 10:21:36
+            Copyright (c) 1996-2025 by all Contributors,
+            ALL RIGHTS RESERVED
+    Request emulator connection......
+    Connection established...
+
+    Info: (I703) tracing timescale unit set: 100 ps (sc_fxp_sqrt_top_TB.vcd)
+    [ N ]sqrt(Val)= C-Math   vs. SystemC Fixed Point          vs. Hardware
+     --- ---------  -------  vs. -------------------          vs. -------------------
+    [  0]sqrt(  0)= 0        vs. 0                            vs. 0                      Diff=          0
+    [  1]sqrt(213)= 14.5945  vs. 14.59451949596405029296875   vs. 14.594512939453125     Diff= 6.55651e-06
+    [  2]sqrt(187)= 13.6748  vs. 13.67479431629180908203125   vs. 13.6747894287109375    Diff= 4.88758e-06
+    [  3]sqrt( 53)= 7.28011  vs. 7.280109882354736328125      vs. 7.2801055908203125     Diff= 4.29153e-06
+    ........
+    [ 97]sqrt(192)= 13.8564  vs. 13.8564064502716064453125    vs. 13.8563995361328125    Diff= 6.91414e-06
+    [ 98]sqrt( 38)= 6.16441  vs. 6.164413988590240478515625   vs. 6.1644134521484375     Diff= 5.36442e-07
+    [ 99]sqrt( 59)= 7.68115  vs. 7.681145727634429931640625   vs. 7.68115234375          Diff= 6.61612e-06
+    [100]sqrt(  6)= 2.44949  vs. 2.449489772319793701171875   vs. 2.449493408203125      Diff= 3.63588e-06
+     --- ---------  -------  vs. -------------------          vs. -------------------
+    [ N ]sqrt(Val)= C-Math   vs. SystemC Fixed Point          vs. Hardware
+    Max Err = 7.56979e-06
+
+    Info: /OSCI/SystemC: Simulation stopped by user.
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+
+$ make -C emulation wave
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+
+    gtkwave sc_fxp_sqrt_top_TB.vcd --save=sc_fxp_sqrt_top_TB.gtkw &
+
+    make: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/emulation'
+
+* Very slow emulation. Why? Any idea for speed-up ?
+    - Latency cycle: 31
+    - Transaction Input/Output
+    // Emulation Transactor --------------------------------------------------------
+    // DUT's input bitmap                       DUT's output bitmap
+    //      +-------+-+-+-+-+                       +---------------+
+    //  [0] |       |3|2|1|0|                   [0] |7 6 5 4 3 2 1 0|
+    //      +-------+-+-+-+-+                       +-------+-------+
+    //               |   | |                                |
+    //               |   | +---ap_rst                       +----------ap_return[7:0]
+    //               |   +-----ap_start             +---------------+
+    //               |                          [1] |7 6 5 4 3 2 1 0|
+    //               +---------(ap_clk)             +-------+-------+
+    //      +---------------+                               |
+    //  [1] |7 6 5 4 3 2 1 0|                               +----------ap_return[15:8]
+    //      +-------+-------+                       +---------------+
+    //              |                           [2] |7 6 5 4 3 2 1 0|
+    //              +---------in_val[7:0]           +-------+-------+
+    //      +---------------+                               |
+    //  [2] |7 6 5 4 3 2 1 0|                               +----------ap_return[23:16]
+    //      +-------+-------+                       +-+-+-+-+-------+
+    //              |                           [3] | |6|5|4|3 2 1 0|
+    //              +---------in_val[15:8]          +-+-+-+-+---+---+
+    //      +---------------+                          | | |    |
+    //  [3] |7 6 5 4 3 2 1 0|                          | | |    +------ap_return[27:24]
+    //      +-------+-------+                          | | +-----------ap_done
+    //              |                                  | +-------------ap_idle
+    //              +---------in_val[23:16]            +---------------ap_ready
+
+7. ETRI050 Node (MyChip)
+
+$ make ETRI050
+
+    Create ETRI050/log directory......
+    Link ETRI050/source directory......
+    Create ETRI050/synthesis directory......
+
+    Vitis-HLS Project: fxp_sqrt_top
+      Targetting ETRI050 node,
+      (1) Synthesize
+            TOP_MODULE=fxp_sqrt_top make synth_ETRI050
+      (2) Netlist Simulation
+            TOP_MODULE=fxp_sqrt_top make sim_ETRI050
+            TOP_MODULE=fxp_sqrt_top make wave_ETRI050
+      (3) P&R, Generate layout
+            TOP_MODULE=fxp_sqrt_top make pnr_ETRI050
+      (4) View GDS
+            TOP_MODULE=fxp_sqrt_top make layout_ETRI050
+
+    CC BY-NC, by GoodKook, goodkook@gmail.com
+
+$ ll ETRI050
+
+    total 48
+    drwxr-xr-x 7 mychip mychip 4096 Dec 24 12:23 .
+    drwxr-xr-x 8 mychip mychip 4096 Dec 24 11:02 ..
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 10:16 chip_top
+    drwxr-xr-x 2 mychip mychip 4096 Dec 16 10:16 layout
+    drwxr-xr-x 2 mychip mychip 4096 Dec 24 12:23 log
+    drwxr-xr-x 2 mychip mychip 4096 Dec 24 12:23 simulation
+    lrwxrwxrwx 1 mychip mychip   43 Dec 24 12:23 source -> .././fxp_sqrt_top/hls_component/syn/verilog
+    drwxr-xr-x 2 mychip mychip 4096 Dec 24 12:23 synthesis
+    -rw-r--r-- 1 mychip mychip 5076 Dec 16 10:16 Makefile
+    -rw-r--r-- 1 mychip mychip 1773 Dec 24 10:46 project_vars.sh
+    -rw-r--r-- 1 mychip mychip 1858 Dec 16 10:16 qflow_exec.sh
+    -rw-r--r-- 1 mychip mychip  815 Dec 16 10:16 qflow_vars.sh
+
+    7-1. Synthesize
+
+$ make synth_ETRI050
+
+    rm -f ./ETRI050/log/synth.log
+
+    TOP_MODULE=fxp_sqrt_top make -C ETRI050 synthesize
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+    qflow synthesize -T etri050 fxp_sqrt_top
+
+    --------------------------------
+    Qflow project setup
+    --------------------------------
+
+    Technology set to etri050
+    Regenerating files for existing project fxp_sqrt_top
+    Technology .magicrc file has been updated.  Old .magicrc file moved to .magicrc.orig
+    Technology .par file has been updated.  Old .par file moved to .par.orig
+    Running yosys for verilog parsing and synthesis
+    yosys  -s fxp_sqrt_top.ys
+
+     /----------------------------------------------------------------------------\
+     |  yosys -- Yosys Open SYnthesis Suite                                       |
+     |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+     |  Distributed under an ISC-like license, type "license" to see terms        |
+     \----------------------------------------------------------------------------/
+     Yosys 0.60+39 (git sha1 4d61ce63d, clang++ 18.1.3 -fPIC -O3)
+
+    -- Executing script file `fxp_sqrt_top.ys' --
+
+    1. Executing Liberty frontend: /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+    Imported 39 cell types from liberty file.
+
+    2. Executing Verilog-2005 frontend: /home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050/source/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v
+    Parsing Verilog input from `/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050/source/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v' to AST representation.
+    verilog frontend filename /home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050/source/fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v
+    Generating RTLIL representation for module `\fxp_sqrt_top_flow_control_loop_pipe_sequential_init'.
+    Successfully finished Verilog frontend.
+
+    3. Executing SYNTH pass.
+
+    3.1. Executing HIERARCHY pass (managing design hierarchy).
+    ERROR: Module `fxp_sqrt_top' not found!
+    outputprep failure:  No file fxp_sqrt_top_mapped.v.
+    Premature exit.
+    make[1]: *** [Makefile:35: log/synth.log] Error 1
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+    make: *** [Makefile:286: synth_ETRI050] Error 2
+
+* Modify Yosys script, ./ETRI050/source/fxp_sqrt_top.ys
+
+    read_verilog  ~/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050/source/fxp_sqrt_top.v
+    read_verilog  fxp_sqrt_top_flow_control_loop_pipe_sequential_init.v
+    read_verilog  fxp_sqrt_top_fxp_sqrt_top_Pipeline_VITIS_LOOP_104_1.v
+
+$ chmod -w ./ETRI050/source/fxp_sqrt_top.ys
+
+$ make synth_ETRI050
+
+    rm -f ./ETRI050/log/synth.log
+
+    TOP_MODULE=fxp_sqrt_top make -C ETRI050 synthesize
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+    qflow synthesize -T etri050 fxp_sqrt_top
+
+    --------------------------------
+    Qflow project setup
+    --------------------------------
+
+    Technology set to etri050
+    Regenerating files for existing project fxp_sqrt_top
+    fxp_sqrt_top.ys: Permission denied.
+    fxp_sqrt_top.ys: Permission denied.
+    ........
+    fxp_sqrt_top.ys: Permission denied.
+    Running yosys for verilog parsing and synthesis
+    yosys  -s fxp_sqrt_top.ys
+    ........
+    14. Printing statistics.
+
+    === fxp_sqrt_top ===
+
+            +----------Local Count, excluding submodules.
+            |
+         1822 wires
+         2160 wire bits
+         1822 public wires
+         2160 public wire bits
+            8 ports
+           58 port bits
+         2099 cells
+            2   $scopeinfo
+           57   AND2X2
+          132   AOI21X1
+           19   AOI22X1
+           58   BUFX2
+          185   DFFPOSX1
+          264   INVX1
+           21   MUX2X1
+          454   NAND2X1
+          258   NAND3X1
+          131   NOR2X1
+            8   NOR3X1
+          430   OAI21X1
+           62   OAI22X1
+           18   OR2X2
+    ........
+
+7-2. Timing simulation
+
+$ make sim_ETRI050
+
+    rm -f ./ETRI050/simulation/fxp_sqrt_top_TB
+    rm -f ./ETRI050/simulation/vpi_stub.vpi
+
+    TOP_MODULE=fxp_sqrt_top make -C ETRI050/simulation run
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050/simulation'
+    g++  -DVM_SC=1 \
+                    -I/usr/local/share/verilator/include \
+                    -I/usr/local/share/verilator/include/vltstd \
+                    -I/usr/local/include/iverilog \
+                    -I/opt/systemc/include \
+                    -I../../c_untimed \
+                    -I.. \
+                    -L/opt/systemc/lib \
+                    -DSC_INCLUDE_FX \
+                    -DHW_STYLE_SC \
+                    -g -fPIC \
+                    ../../c_untimed/fxp_sqrt_top.cpp \
+                    ./vpi_stub.cpp \
+                    ./vpi_fxp_sqrt_top_tb.cpp \
+                    ./sc_fxp_sqrt_top_TB.cpp \
+                    -o vpi_stub.vpi \
+                    -shared -latomic -lsystemc -lgsl
+
+    iverilog -g2005-sv -Tmin -gspecify -o fxp_sqrt_top_TB \
+            fxp_sqrt_top_TB.v \
+            ~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
+            ../synthesis/fxp_sqrt_top_mapped.v
+
+    vvp -M. -mvpi_stub fxp_sqrt_top_TB -v
+    Icarus Verilog started
+    VCD info: dumpfile fxp_sqrt_top_TB.vcd opened for output.
+
+    Warning: (W509) module construction not properly completed: .......
+
+    [ N ]sqrt(Val)= C-Math   vs. SystemC Fixed Point          vs. Hardware
+     --- ---------  -------  vs. -------------------          vs. -------------------
+    [  0]sqrt(  0)= 0        vs. 0                            vs. 0                      Diff=          0
+    [  1]sqrt(161)= 12.6886  vs. 12.68857753276824951171875   vs. 12.6885833740234375    Diff= 5.84126e-06
+    [  2]sqrt(220)= 14.8324  vs. 14.832396984100341796875     vs. 14.8323974609375       Diff= 4.76837e-07
+    [  3]sqrt(157)= 12.53    vs. 12.52996408939361572265625   vs. 12.52996826171875      Diff= 4.17233e-06
+    [  4]sqrt(100)= 10       vs. 10                           vs. 10                     Diff=          0
+    ........
+    [ 98]sqrt( 10)= 3.16228  vs. 3.162277638912200927734375   vs. 3.1622772216796875     Diff= 4.17233e-07
+    [ 99]sqrt(220)= 14.8324  vs. 14.832396984100341796875     vs. 14.8323974609375       Diff= 4.76837e-07
+    [100]sqrt( 33)= 5.74456  vs. 5.744562625885009765625      vs. 5.74456787109375       Diff= 5.24521e-06
+     --- ---------  -------  vs. -------------------          vs. -------------------
+    [ N ]sqrt(Val)= C-Math   vs. SystemC Fixed Point          vs. Hardware
+    Max Err = 7.56979e-06
+
+$ ll ./ETRI050/simulation/
+
+    total 38720
+    drwxr-xr-x 2 mychip mychip     4096 Dec 24 12:37 .
+    drwxr-xr-x 7 mychip mychip     4096 Dec 24 12:23 ..
+    -rwxr-xr-x 1 mychip mychip  3491969 Dec 24 12:37 fxp_sqrt_top_TB
+    -rw-r--r-- 1 mychip mychip     2091 Dec 16 10:16 fxp_sqrt_top_TB.v
+    -rw-r--r-- 1 mychip mychip 34148352 Dec 24 12:38 fxp_sqrt_top_TB.vcd
+    -rw-r--r-- 1 mychip mychip     3102 Dec 16 10:16 Makefile
+    lrwxrwxrwx 1 mychip mychip       39 Dec 24 12:23 sc_fxp_sqrt_top_TB.cpp -> ../../simulation/sc_fxp_sqrt_top_TB.cpp
+    -rw-r--r-- 1 mychip mychip     1854 Dec 16 10:16 sc_fxp_sqrt_top_TB.h
+    -rw-r--r-- 1 mychip mychip   118784 Dec 24 12:38 sc_fxp_sqrt_top_TB.vcd
+    -rw-r--r-- 1 mychip mychip     1920 Dec 16 10:16 vpi_fxp_sqrt_top_tb.cpp
+    -rw-r--r-- 1 mychip mychip      555 Dec 16 10:16 vpi_fxp_sqrt_top_tb_exports.h
+    -rw-r--r-- 1 mychip mychip      756 Dec 16 10:16 vpi_fxp_sqrt_top_tb_ports.h
+    -rw-r--r-- 1 mychip mychip     5007 Dec 16 10:16 vpi_stub.cpp
+    -rwxr-xr-x 1 mychip mychip  1845832 Dec 24 12:37 vpi_stub.vpi
+
+* Testbench Re-used
+
+7-3. Place and Route
+
+$ make pnr_ETRI050
+
+    TOP_MODULE=fxp_sqrt_top make -C ETRI050 place
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+    qflow place -T etri050 fxp_sqrt_top
+    ........
+    make[1]: Leaving directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+
+    TOP_MODULE=fxp_sqrt_top make -C ETRI050 route
+
+    make[1]: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+    qflow route -T etri050 fxp_sqrt_top
+    ........
+    Nets remaining: 2
+    Nets remaining: 1
+    Progress: Stage 3 total routes completed: 15219
+    No failed routes!
+    *** Writing DEF file fxp_sqrt_top_route.def
+    Final: No failed routes!
+    *** Writing RC file fxp_sqrt_top_route.rc
+
+$ make -C ETRI050 lvs
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+
+    ~/ETRI050_DesignKit/scripts/fix_net_name.sh ./synthesis/fxp_sqrt_top.spc
+
+    ************************************************************************
+    * Replace back-slash with underscore on netname
+    ************************************************************************
+    qflow lvs -T etri050 fxp_sqrt_top
+    ........
+    Running netgen
+    netgen -batch lvs "fxp_sqrt_top.spice fxp_sqrt_top" \
+                      ".../ETRI050/synthesis/fxp_sqrt_top.spc fxp_sqrt_top" \
+                      /usr/local/share/qflow/tech/etri050/etri050_setup.tcl \
+                      comp.out -json -blackbox
+    Netgen 1.5.295 compiled on Sat Aug  9 00:37:50 KST 2025
+    Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+    Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+    Generating JSON file result
+    Treating empty subcircuits as black-box cells
+    Reading netlist file fxp_sqrt_top.spice
+    Reading netlist file /home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050/synthesis/fxp_sqrt_top.spc
+    ........
+    Circuit 1 contains 2243 devices, Circuit 2 contains 2243 devices.
+    Circuit 1 contains 2272 nets,    Circuit 2 contains 2272 nets.
+
+    Final result:
+    Circuits match uniquely.
+
+$ make -C ETRI050 size
+
+    make: Entering directory '/home/mychip/MyChip_Work/Projects/HLS/fxp_sqrt_top/ETRI050'
+    ~/ETRI050_DesignKit/scripts/size_core.sh fxp_sqrt_top
+    ************************************************************************
+    * Measure the size of the Core
+    ************************************************************************
+
+    Magic 8.3 revision 538 - Compiled on Sat Aug  9 00:37:19 KST 2025.
+    Starting magic under Tcl interpreter
+    Using the terminal as the console
+    ........
+    Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+    microns:  1353.600 x 1345.050  (-9.300, -3.600), ( 1344.300,  1341.450)  1820659.875
+    lambda:   4512.00 x 4483.50  (-31.00, -12.00), ( 4481.00,  4471.50)  20229552.00
+    internal:   9024 x 8967    (   -62, -24   ), (  8962,  8943 )  80918208
+
+* What to do, if core size is matter and number of IO pins are exceed My Chip std package ?
+
+7-4. Generate Layout
+
+------------------------------------------------------------------------
