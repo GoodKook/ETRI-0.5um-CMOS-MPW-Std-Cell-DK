@@ -110,7 +110,7 @@ SC_MODULE(Ecpu_6502)
 //        sensitive << clk;
 
         SC_METHOD(cpu_6502_method);
-        sensitive << clk;   // << reset << RDY << NMI << IRQ << DI;
+        sensitive << clk; //<< reset << RDY << NMI << IRQ << DI;
 
 #ifdef VCD_TRACE_TEST_TB
         // WAVE ----------------------------------------------------------

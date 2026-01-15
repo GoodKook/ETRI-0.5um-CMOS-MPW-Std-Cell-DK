@@ -57,6 +57,7 @@ co-sim: $(RTL_PATH)/$(TOP_MODULE).v
 		echo "Copy un-timed model Makefile ......"; \
 		cp $(PRJ_CONFIG_PATH)/simulation/Makefile $(CO-SIM_PATH); \
 	fi
+	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation
 	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation build
 	TOP_MODULE=$(TOP_MODULE) HW_STYLE=$(HW_STYLE) make -C simulation run
 
@@ -114,7 +115,7 @@ emulation_help:
 	@echo
 	@echo 'RTL Project: $(TOP_MODULE)'
 	@echo '  For Co-Emulation,'
-	@echo '  (1) Build and Upload Modeling-Interface(Arduino-DUE)'
+	@echo '  (1) Build and Upload Modeling-Interface'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make build-mi'
 	@echo '        TOP_MODULE=$(TOP_MODULE) MODE=$(MODE) MI=$(MI) make upload-mi'
 	@echo '  (2) Build and Config Transactor FPGA(Altera Cyclone-IV)'

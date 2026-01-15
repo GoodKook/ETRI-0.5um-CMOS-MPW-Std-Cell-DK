@@ -56,6 +56,7 @@ $(SC_TARGET): $(SC_SRCS) $(SC_HDRS)
 		-I$(SC_SIM_PATH) \
 		-I$(C_UNTIMED_PATH) \
 		-DEMULATED_CO_SIM \
+		-DIPC_SOCKET \
 		$(VCD_TRACE) \
 		-lsystemc -lSDL2 \
 		-o$(SC_TARGET) $(SC_SRCS)
@@ -70,7 +71,12 @@ wave : sc_$(DUT_NAME)_TB.vcd E$(DUT_NAME).vcd
 #	shmidcat $(SC_TARGET).vcd | gtkwave -v -I $(SC_TARGET).sav
 
 run: $(SC_TARGET)
-	gnome-terminal -- /bin/bash -c "../simulation/CPU_terminal";./$(SC_TARGET)
+	@if [ ! -e "./Apple-1" ]; then \
+		ln -s ../simulation/Apple-1; \
+	fi
+	xterm -geometry 80x24 -fa "Monospace:size=12" -T "Apple-1" -e "../simulation/CPU_terminal" &
+	sleep 1
+	./$(SC_TARGET)
 
 clean :
 	rm -f $(SC_TARGET)
@@ -79,4 +85,5 @@ clean :
 	rm -f sc_$(TOP_MODULE)_TB.txt
 	rm -f std_input.fifo
 	rm -f std_output.fifo
+	rm -f Apple-1
 

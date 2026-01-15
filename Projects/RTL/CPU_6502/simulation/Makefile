@@ -66,6 +66,9 @@ all :
 		sed -i "s/TOP_MODULE/${TOP_MODULE}/g" ./sc_TOP_MODULE_TB.h; \
 		mv -f sc_TOP_MODULE_TB.h sc_$(TOP_MODULE)_TB.h; \
 	fi
+	@if [ ! -e ./Apple-1 ];  then \
+		tar xvf Apple-1.tar.gz; \
+	fi
 	@echo
 	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE)'
 	@echo
@@ -109,6 +112,7 @@ clean :
 	rm -f CPU_terminal
 	rm -f std_output.fifo
 	rm -f std_input.fifo
+	rm -rf Apple-1
 
 debug : $(TARGET_DIR)/$(TARGET)
 	ddd $(TARGET_DIR)/$(TARGET)
