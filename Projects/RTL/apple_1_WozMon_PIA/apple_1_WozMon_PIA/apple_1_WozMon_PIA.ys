@@ -1,0 +1,29 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+read_verilog  /home/mychip/MyChip_Work/Projects/RTL/apple_1_WozMon_PIA/ETRI050/source/apple_1_WozMon_PIA.v
+read_verilog  wozmon.v
+read_verilog  pia_dsp.v
+read_verilog  pia_kbd.v
+read_verilog  cpu_6502.v
+read_verilog  ALU8.v
+
+# High-level synthesis
+synth -top apple_1_WozMon_PIA
+# Map register flops
+dfflibmap -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+opt
+
+# Map combinatorial cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+
+clean -purge
+# Output buffering
+iopadmap -outpad BUFX2 A:Y -bits
+# Cleanup
+opt
+clean
+rename -enumerate
+write_verilog  apple_1_WozMon_PIA_mapped.v
+stat
