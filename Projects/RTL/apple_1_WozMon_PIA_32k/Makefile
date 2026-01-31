@@ -162,6 +162,7 @@ build-trans:
 			$(PSCE-TRANS_PATH)/Altera_Cmd/$(TOP_MODULE)_tester.tcl; \
 		cp $(PRJ_CONFIG_PATH)/emulation/PSCE-TRANS/Altera_Cmd/Makefile $(PSCE-TRANS_PATH)/Altera_Cmd; \
 	fi
+	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd clean
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd build
 	TOP_MODULE=$(TOP_MODULE) make -C $(PSCE-TRANS_PATH)/Altera_Cmd gen_rbf
@@ -171,9 +172,9 @@ config-trans:
 #(3)------------------------------------------------------------
 co-emu:
 	make -C $(CO-EMU_PATH) clean
-	VCD_TRACE=YES HW_STYLE=$(HW_STYLE) make -C emulation
-	VCD_TRACE=YES HW_STYLE=$(HW_STYLE) make -C emulation build
-	VCD_TRACE=YES HW_STYLE=$(HW_STYLE) make -C emulation run
+	HW_STYLE=$(HW_STYLE) make -C emulation
+	HW_STYLE=$(HW_STYLE) make -C emulation build
+	HW_STYLE=$(HW_STYLE) make -C emulation run
 run_sa:
 	make -C $(CO-EMU_PATH) run_sa
 

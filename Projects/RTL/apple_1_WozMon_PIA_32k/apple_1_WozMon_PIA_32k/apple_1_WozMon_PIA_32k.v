@@ -3,7 +3,7 @@
 //
 `include "PIA_ADDR.vh"
 
-module apple_1_WozMon_PIA_32k(clk, reset, AB, DI, DO, WE, IRQ, NMI, RDY,                // CPU 6502
+module apple_1_WozMon_PIA_32k(clk, reset, AB, DI, DO, WE, IRQ, NMI, RDY,            // CPU 6502
                             kbd_rdy, kbd_ack, kbd_data, dsp_rdy, dsp_ack, dsp_data, // PIA
                             emu_en, emu_clk, emu_addr, emu_we, emu_di, emu_do);     // RAM emulation
 input           clk;    // CPU clock 
@@ -68,7 +68,7 @@ output [7:0]    emu_do;
         if(_Addr_Bus[15:8]==8'hFF)
             Data_In = DO_woz;
         else if(_Addr_Bus==`PIA_KBD_REG && !Write_Enable)
-            Data_In = DO_kbd;
+            Data_In = { 1'b1, DO_kbd[6:0]}; // B7 always '1'
         else if(_Addr_Bus==`PIA_KBD_CTL && !Write_Enable)
             Data_In = DO_kbd;
         else if(_Addr_Bus==`PIA_DSP_REG && !Write_Enable)
@@ -105,7 +105,8 @@ output [7:0]    emu_do;
     (
         .clk(clk),
         .reset(reset),
-        .Address_Bus(_Addr_Bus),
+        //.Address_Bus(Addr_Bus),
+        .Address_Bus(_Addr_Bus),    // Input Peripheral use latched address
         .WE(Write_Enable),
         .Data_Out(DO_kbd),
         .kbd_rdy(kbd_rdy),

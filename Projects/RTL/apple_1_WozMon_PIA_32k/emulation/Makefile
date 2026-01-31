@@ -77,19 +77,15 @@ wave : sc_$(DUT_NAME)_TB.vcd E$(DUT_NAME).vcd
 #	shmidcat $(SC_TARGET).vcd | gtkwave -v -I $(SC_TARGET).sav
 
 run: $(SC_TARGET)
-	xterm -geometry 80x24 -fa "Monospace:size=12" -T "Apple-1" -e "../simulation/CPU_terminal" &
-	sleep 1
 	./$(SC_TARGET)
 
-apple_1_WozMon_PIA_SA: apple_1_WozMon_PIA_SA.cpp
-	g++ -o apple_1_WozMon_PIA_SA apple_1_WozMon_PIA_SA.cpp
+apple_1_WozMon_PIA_32k_SA: apple_1_WozMon_PIA_32k_SA.cpp
+	g++ -o apple_1_WozMon_PIA_32k_SA apple_1_WozMon_PIA_32k_SA.cpp
 
-run_sa: apple_1_WozMon_PIA_SA
-	./apple_1_WozMon_PIA_SA
+run_sa: apple_1_WozMon_PIA_32k_SA
+	./apple_1_WozMon_PIA_32k_SA
 
 debug: $(SC_TARGET)
-	xterm -e "../simulation/CPU_terminal" &
-	sleep 1
 	ddd ./$(SC_TARGET)
 
 clean :

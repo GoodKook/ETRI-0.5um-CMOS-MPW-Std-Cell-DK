@@ -58,7 +58,7 @@ output [6:0]    dsp_data;   // ASCII
         if(_Addr_Bus[15:8]==8'hFF)
             Data_In = DO_woz;
         else if(_Addr_Bus==`PIA_KBD_REG && !Write_Enable)
-            Data_In = DO_kbd;
+            Data_In = {1'b1, DO_kbd[6:0]};  // B7 always '1'
         else if(_Addr_Bus==`PIA_KBD_CTL && !Write_Enable)
             Data_In = DO_kbd;
         else if(_Addr_Bus==`PIA_DSP_REG && !Write_Enable)
@@ -72,7 +72,8 @@ output [6:0]    dsp_data;   // ASCII
     (
         .clk(clk),
         .reset(reset),
-        .Address_Bus(_Addr_Bus),
+        //.Address_Bus(Addr_Bus),
+        .Address_Bus(_Addr_Bus),    // Input Peripheral use latched address
         .WE(Write_Enable),
         .Data_Out(DO_kbd),
         .kbd_rdy(kbd_rdy),

@@ -49,7 +49,7 @@ module apple_1_WozMon_PIA_32k_wrapper(Din_emu, Dout_emu, Addr_emu, load_emu, get
 //  [0] | |6|5|4|3|2|1|0|                   [0] |         |2|1|0|
 //      +-+-+-+-+-+-+-+-+                       +---------+-+-+-+
 //         | | | | | | |                                   | | |
-//         | | | | | | +---clk                             | | +---WE
+//         | | | | | | +---clk(Un-Used)                    | | +---WE
 //         | | | | | +---reset                             | +---kbd_ack
 //         | | | | +---IRQ                                 +---dsp_rdy
 //         | | | +---NMI                        +---------------+

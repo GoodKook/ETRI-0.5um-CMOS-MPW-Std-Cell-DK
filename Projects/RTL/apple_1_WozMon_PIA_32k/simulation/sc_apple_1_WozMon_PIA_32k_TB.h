@@ -67,7 +67,8 @@ SC_MODULE(sc_apple_1_WozMon_PIA_32k_TB)
 
     // Test utilities
     // Environment: Reset/RDY/IRQ/MNI
-    void reset_generator(void);
+    void Keyboard_Thread(void);
+    void Display_Thread(void);
 
     SC_CTOR(sc_apple_1_WozMon_PIA_32k_TB) :   // Constructor
         clk("clk", 100, SC_NS, 0.5, 0.0, SC_NS, false),
@@ -127,8 +128,11 @@ SC_MODULE(sc_apple_1_WozMon_PIA_32k_TB)
         kbd = &(u_mem->kbd);
 
         // Environments: Reset/RDY/IRQ/NMI
-        SC_THREAD(reset_generator);
-        sensitive << clk;
+        SC_THREAD(Keyboard_Thread);
+        sensitive << clk << kbd_ack;
+
+        SC_THREAD(Display_Thread);
+        sensitive << clk << dsp_rdy;
 
 #ifdef VCD_TRACE_TEST_TB
         // VCD Trace

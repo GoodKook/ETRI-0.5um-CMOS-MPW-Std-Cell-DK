@@ -89,6 +89,7 @@ all :
 	@if [ ! -e ./Apple-1 ];  then \
 		tar xvf ../../cpu_6502/simulation/Apple-1.tar.gz; \
 	fi
+	rm -rf obj_dir
 	@echo
 	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE)'
 	@echo
@@ -107,7 +108,7 @@ lint :
 
 build : $(TARGET_DIR)/$(TARGET)
 
-$(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) ../$(TOP_MODULE)/$(TOP_MODULE).v $(SC_SRCS) $(SC_HDRS)
+$(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
 	$(VERILATOR) --sc $(VL_WARNING) --trace --timing --pins-sc-uint \
 				--top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
 				$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS) -I$(RTL_PATH)

@@ -94,6 +94,7 @@ all :
 	@if [ ! -e ./Apple-1 ];  then \
 		tar xvf ../../cpu_6502/simulation/Apple-1.tar.gz; \
 	fi
+	rm -rf obj_dir
 	@echo
 	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE)'
 	@echo

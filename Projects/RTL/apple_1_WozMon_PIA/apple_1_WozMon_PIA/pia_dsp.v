@@ -15,12 +15,14 @@ module pia_dsp(clk, reset, Address_Bus, WE, Data_In, Data_Out, dsp_rdy, dsp_ack,
     output [6:0]    dsp_data;   // ASCII
 
     // FSM for Load-Exec-Out Control //////////////////////////////////////////
-    parameter sWait   = 3'b001;
-    parameter sAck_0  = 3'b010;
-    parameter sAck_1  = 3'b100;
+    parameter sWait  = 4'b0001;
+    parameter sAck_0 = 4'b0010;
+    parameter sAck_1 = 4'b0100;
+    parameter sAck_2 = 4'b1000;
 
-    reg [2:0] state;
+    reg [3:0] state;
     reg [7:0] Dsp_Reg;
+    reg       dsp_rdy;
 
     always@(posedge clk or posedge reset)
     begin : FSM_STATE
@@ -36,27 +38,28 @@ module pia_dsp(clk, reset, Address_Bus, WE, Data_In, Data_Out, dsp_rdy, dsp_ack,
                         Dsp_Reg <= {1'b1, Data_In[6:0]};
                         state <= sAck_0;
                     end
-                    else
-                        state <= sWait;
                 sAck_0:
-                    if (dsp_ack)
+                    begin
+                        dsp_rdy <= 1'b1;
                         state <= sAck_1;
-                    else
-                        state <= sAck_0;
+                    end
                 sAck_1:
+                    if (dsp_ack)
+                    begin
+                        dsp_rdy <= 1'b0;
+                        state <= sAck_2;
+                    end
+                sAck_2:
                     if (!dsp_ack)
                     begin
                         Dsp_Reg[7] <= 1'b0;
                         state <= sWait;
                     end
-                    else
-                        state <= sAck_1;
                 default:
                     state <= sWait;
             endcase
         end
     end
-    assign dsp_rdy  = Dsp_Reg[7];
     assign dsp_data = Dsp_Reg[6:0];
     assign Data_Out = Dsp_Reg;
 
