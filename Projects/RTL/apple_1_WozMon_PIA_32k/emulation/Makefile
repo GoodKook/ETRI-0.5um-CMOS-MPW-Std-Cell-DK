@@ -95,6 +95,6 @@ clean :
 	rm -f sc_$(TOP_MODULE)_TB.txt
 	rm -f std_input.fifo
 	rm -f std_output.fifo
-	rm -f apple_1_WozMon_PIA_SA
+	rm -f apple_1_WozMon_PIA_32k_SA
 	rm -f Apple-1
 

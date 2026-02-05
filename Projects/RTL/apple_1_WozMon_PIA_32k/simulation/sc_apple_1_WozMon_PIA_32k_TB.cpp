@@ -28,30 +28,33 @@ void print_help()
     printf("\t    PRBYTE:  location FFDC, Print one byte(HEX) in ACC register\n");
     printf("\t    PRHEX:   location FFE5, Print least 4-bit(HEX) in ACC register\n");
     printf("\t    ENTRY:   location FF00, Monitor Entry\n");
-    printf("\t- Load user programs:\n");
-    printf("\t    D016 : Load HEX file at ./Apple-1/program.hex\n");
-    printf("\t    D018 : Load BIN file at ./Apple-1/program.bin\n");
+    printf("\n");
     printf("\t    * Op-code: JSR=$20 / LDA=$A9\n");
     printf("\t               JSR $<PCH><PCL>\t; User code\n");
     printf("\t\t             JSR $FF00\t; Monitor Entry\n");
+    printf("\t \'b\' - Load BIN file\n");
+    printf("\t \'x\' - Load HEX file\n");
     printf("\t \'h\' - help\n");
     printf("\t\'^C\' - quit\n");
 }
 
 //
-// Environment: Reset/RDY/IRQ/MNI
+// Environment: Reset/IRQ/MNI, Keyboard, Display
 //
 void sc_apple_1_WozMon_PIA_32k_TB::Keyboard_Thread(void)
 {
+    print_help();
+    
+    emu_load_bin.write(false);
+    emu_load_hex.write(false);
+
     kbd_rdy.write(0);
 
     IRQ.write(0);
     NMI.write(0);
-    RDY.write(0);
     reset.write(1);
     wait(clk.posedge_event());
     wait(clk.posedge_event());
-    RDY.write(1);
     wait(clk.posedge_event());
     wait(clk.posedge_event());
     wait(clk.posedge_event());
@@ -66,6 +69,12 @@ void sc_apple_1_WozMon_PIA_32k_TB::Keyboard_Thread(void)
     {
         wait(clk.posedge_event());
 
+        if (!emu_en.read())
+        {
+            emu_load_bin.write(false);
+            emu_load_hex.write(false);
+        }
+        
         if (kbd->_kbhit())
         {
             int ch = kbd->_getch();
@@ -74,6 +83,16 @@ void sc_apple_1_WozMon_PIA_32k_TB::Keyboard_Thread(void)
             else if (ch=='h')
             {
                 print_help();
+                continue;
+            }
+            else if (ch=='b')
+            {
+                emu_load_bin.write(true);
+                continue;
+            }
+            else if (ch=='x')
+            {
+                emu_load_hex.write(true);
                 continue;
             }
 

@@ -3,18 +3,13 @@
 //
 `include "PIA_ADDR.vh"
 
-module apple_1_WozMon_PIA_32k(clk, reset, AB, DI, DO, WE, IRQ, NMI, RDY,            // CPU 6502
+module apple_1_WozMon_PIA_32k(clk, reset, IRQ, NMI, // CPU 6502
                             kbd_rdy, kbd_ack, kbd_data, dsp_rdy, dsp_ack, dsp_data, // PIA
                             emu_en, emu_clk, emu_addr, emu_we, emu_di, emu_do);     // RAM emulation
 input           clk;    // CPU clock 
 input           reset;  // reset signal
-output [15:0]   AB;     // address bus
-input  [7:0]    DI;     // data in, read bus
-output [7:0]    DO;     // data out, write bus
-output          WE;     // write enable
 input           IRQ;    // interrupt request
 input           NMI;    // non-maskable interrupt request
-input           RDY;    // Ready signal. Pauses CPU when RDY=0
 // Keyboard Input
 input           kbd_rdy;
 output          kbd_ack;
@@ -53,11 +48,8 @@ output [7:0]    emu_do;
         .WE(Write_Enable),
         .IRQ(IRQ),
         .NMI(NMI),
-        .RDY(RDY)
+        .RDY(1'b1)
     );
-    assign AB = Addr_Bus;
-    assign WE = Write_Enable;
-    assign DO = Data_Out;
 
     // Address Decoder ----------------------------------------
     always @(posedge clk)
@@ -73,10 +65,8 @@ output [7:0]    emu_do;
             Data_In = DO_kbd;
         else if(_Addr_Bus==`PIA_DSP_REG && !Write_Enable)
             Data_In = DO_dsp;
-        else if(!_Addr_Bus[15] && !Write_Enable)
-            Data_In = DO_RAM;
         else
-            Data_In = DI;
+            Data_In = DO_RAM;
     end
 
     // Memory Emulation

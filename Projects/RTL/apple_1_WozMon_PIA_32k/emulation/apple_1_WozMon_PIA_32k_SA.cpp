@@ -19,6 +19,22 @@
 
 #include <dirent.h>
 
+// CPU Control byte
+//      +-+-+-+-+-+-+-+-+
+//  [0] | | |5| | |2|1|0|
+//      +-+-+-+-+-+-+-+-+
+//           |     | | |
+//           |     | | +---reset
+//           |     | +---IRQ
+//           |     +---NMI
+//           +---emu_en
+#define _CPU_RUN_   0x00
+#define _CPU_RESET_ 0x01
+#define _CPU_IRQ_   0x02
+#define _CPU_NMI_   0x04
+#define _EMU_EN_    0x20
+
+//------------------------------------------------------------------------
 int kbhit(void)
 {
     static bool initflag = false;
@@ -41,6 +57,7 @@ int kbhit(void)
     return nbbytes;
 }
 
+//------------------------------------------------------------------------
 void PrintHelp()
 {
     printf("CPU_6502 Stand-Alone\n");
@@ -58,13 +75,71 @@ void PrintHelp()
     printf("\t    PRHEX:   location FFE5, Print least 4-bit(HEX) in ACC register\n");
     printf("\t    ENTRY:   location FF00, Monitor Entry\n");
     printf("\t    * Op-code: JSR=$20 / LDA=$A9\n\n");
+    printf("\t- Type 'r' for RESET CPU\n");
     printf("\t- Type 'l' for list CC65 binary files available\n");
-    printf("\t- Download cc65 binary:\n");
-    printf("\t      Enter D018, then enter binary file when prompting \"D018: \"\n");
+    printf("\t- Type 'b' for Download cc65 binary\n");
     printf("\t- Type 'h' for Help\n");
     printf("\t- Type '^C' for Exit\n");
 }
 
+//------------------------------------------------------------------------
+void DownloadBIN(int fd)
+{
+    FILE            *fp_bin;   // CC65 binary file
+    char            szBinFile[128];
+    unsigned char   rx, tx;
+    int nErr = 0;
+ 
+    //----------------------------------------------------------------------------------
+    // Download CC65 binary
+    printf("CC65 Binary File:");
+    for ( int byte=getchar(), i=0; (byte!='\n') && (i<126); byte=getchar(), i++ )
+    {
+        putchar( byte );
+        szBinFile[i] = (char)byte;
+        szBinFile[i+1] = '\0';
+    }
+
+    printf("\nDownloading CC65 binary: %s\n", szBinFile);
+    if((fp_bin = fopen(szBinFile, "rb"))==0)
+    {
+        printf("\nFail to open cc65 binary file:%s\n", szBinFile);
+    }
+    else
+    {
+        unsigned int nDownload = 0;
+        while(fread(&tx, sizeof(unsigned char), 1, fp_bin)>=1)
+        {
+            while(write(fd, &tx, 1)<=0) usleep(1); // Sent a byte to Emulator
+            while(read(fd, &rx, 1)<=0)  usleep(1); // Wait for ACK
+            if (tx != rx)               printf("[%d]Error: %02X %02X\n", nErr++, tx, rx);
+            else
+            {
+                switch(nDownload%4)
+                {
+                    case 0: putc('-', stdout);  putc(0x0D, stdout); break;
+                    case 1: putc('\\', stdout); putc(0x0D, stdout); break;
+                    case 2: putc('|', stdout);  putc(0x0D, stdout); break;
+                    case 3: putc('/', stdout);  putc(0x0D, stdout); break;
+                }
+            }
+            fflush(stdout);
+            nDownload++;
+
+            //printf("%02X ", tx);
+            //fflush(stdout);
+        }
+        printf("\nDone.\n");
+        fflush(stdout);
+        fclose(fp_bin);
+        //close(fd);
+    }
+    return;
+}
+
+//------------------------------------------------------------------------
+// MAIN
+//------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
     // Arduino Serial IF
@@ -106,114 +181,69 @@ int main(int argc, char* argv[])
 
     // -------------------------------------------------------------
     // Command-Line Loop
-    FILE            *fp_bin;   // CC65 binary file
-    unsigned char   szInBuff[80];
-    char            szBinFile[128];
-    int             nInBuff = 0;
-
     int len = 0;
-    unsigned char rx, tx;
+    unsigned char rx, tx, cpu_ctl, kbd_data;
     
     PrintHelp();
     
     len = 0;
     while(true)
     {
-        // Keyboard input
-        while (!kbhit())
+        len = read(fd, &rx, 1); // Something to read?
+        if (len)
         {
-            //----------------------------------------------------------------------------------
-            if (!strcmp((const char*)szInBuff, "D018: "))  // Download CC65 binary
+            //printf("\n%d-Byte from DUT[%02X]", len, rx);
+            if (rx==0x0D)   // CR ?
+                rx = '\n';
+            putchar(rx);
+        }
+        else if (kbhit()) // Keyboard input?
+        {
+            tx = getchar();
+
+            if (tx==0x0A)
+                tx = 0x0D;       // CR
+            else if (tx=='h')    // Help
             {
-                printf("CC65 Binary File:");
-                for ( int byte=getchar(), i=0; (byte!='\n') && (i<126); byte=getchar(), i++ )
-                {
-                    putchar( byte );
-                    szBinFile[i] = (char)byte;
-                    szBinFile[i+1] = '\0';
-                }
-
-                printf("\nDownloading CC65 binary: %s\n", szBinFile);
-                if((fp_bin = fopen(szBinFile, "rb"))==0)
-                {
-                    printf("\nFail to open cc65 binary file:%s\n", szBinFile);
-                    tx = 0x00;
-                    while(write(fd, &tx, 1)<=0) usleep(1);
-                    while(read(fd, &rx, 1)<=0)  usleep(1);
-                    while(write(fd, &tx, 1)<=0) usleep(1);
-                    while(read(fd, &rx, 1)<=0)  usleep(1);
-                    while(write(fd, &tx, 1)<=0) usleep(1);
-                    while(read(fd, &rx, 1)<=0)  usleep(1);
-                    while(write(fd, &tx, 1)<=0) usleep(1);
-                    while(read(fd, &rx, 1)<=0)  usleep(1);
-
-                    szInBuff[0] = '\0';
-                    continue;
-                }
-
-                unsigned int nDownload = 0;
-                while(fread(&tx, sizeof(unsigned char), 1, fp_bin)>=1)
-                {
-                    while(write(fd, &tx, 1)<=0) usleep(1); // Sent a byte to Emulator
-                    while(read(fd, &rx, 1)<=0)  usleep(1); // Wait for ACK
-                    if (tx != rx)               printf("Error\n");
-                    else if (!(nDownload%32))  printf(".");
-                    fflush(stdout);
-                    nDownload++;
-                    //printf("%02X ", tx);
-                    //fflush(stdout);
-                }
-                printf("\nDone.\n");
-                fflush(stdout);
-                fclose(fp_bin);
-
-                szInBuff[0] = '\0';
+                PrintHelp();
                 continue;
             }
-            //----------------------------------------------------------------------------------
-            // Reading from emulator
-            len = read(fd, &rx, 1); // Something to read?
-            if (len)
+            else if (tx=='l')    // List binary file(s)
             {
-                //printf("\n%d-Byte from DUT[%02X]", len, rx);
-                if (rx==0x0D)   // CR ?
-                {
-                    rx = '\n';
-                    nInBuff = 0;
-                }
-                else
-                {
-                    szInBuff[nInBuff++] = rx;
-                    szInBuff[nInBuff]   = '\0'; // NULL terminate
-                }
-                putchar(rx);
-                fflush(stdout);
+                system("ls ./Apple-1/*.bin");
+                continue;
             }
-            fflush(stdout);
-            usleep(500);
-        }
-        tx = getchar();
+            else if (tx=='b')    // Download CC65 Binary
+            {
+                cpu_ctl  = _CPU_RESET_ | _EMU_EN_;
+                kbd_data = 0x00;
+                while(write(fd, &cpu_ctl, 1)<=0)  usleep(1); // Send _CPU_CTL_ to Emulator
+                while(write(fd, &kbd_data, 1)<=0) usleep(1); // Send _KBD_DATA_ to Emulator
 
-        if (tx==0x0A)
-            tx = 0x0D;       // CR
-        else if (tx=='h')    // Help
-        {
-            PrintHelp();
-            continue;
-        }
-        else if (tx=='l')    // List binary file(s)
-        {
-            //List_Bin();
-            system("ls ./Apple-1/*.bin");
-            continue;
-        }
-        else if (islower((int)tx))
-            continue;
+                DownloadBIN(fd);
 
-        while(write(fd, &tx, 1)<=0)  usleep(1); // Send to Emulator
+                continue;
+            }
+            else if (tx=='r')    // Reset
+            {
+                cpu_ctl  = _CPU_RESET_;
+                kbd_data = 0x00;
+                while(write(fd, &cpu_ctl, 1)<=0)  usleep(1); // Send _CPU_CTL_ to Emulator
+                while(write(fd, &kbd_data, 1)<=0) usleep(1); // Send _KBD_DATA_ to Emulator
+                printf("\nCPU Resetting......\n");
+            }
+            else if (islower((int)tx))
+                continue;
+
+            cpu_ctl  = _CPU_RUN_;
+            kbd_data = tx;
+            while(write(fd, &cpu_ctl, 1)<=0)  usleep(1); // Send _CPU_CTL_ to Emulator
+            while(write(fd, &kbd_data, 1)<=0) usleep(1); // Send _KBD_DATA_ to Emulator
+        }
+
         fflush(stdout);
+        usleep(500);
     }
-    
-    close(fd);
+
     return 0;
 }

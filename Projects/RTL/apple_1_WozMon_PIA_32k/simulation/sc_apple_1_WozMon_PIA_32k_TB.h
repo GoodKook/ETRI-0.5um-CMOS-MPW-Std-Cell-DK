@@ -26,19 +26,18 @@ SC_MODULE(sc_apple_1_WozMon_PIA_32k_TB)
 
     sc_clock                clk;
     sc_signal<bool>         reset;
-    sc_signal<sc_uint<8> >  DI;     // Data-in
-    sc_signal<sc_uint<8> >  DO;     // Data-out
-    sc_signal<bool>         WE;     // Write Enable
     sc_signal<bool>         IRQ;    // Interrupt Request
     sc_signal<bool>         NMI;    // Non-Maskable Interrupt
-    sc_signal<bool>         RDY;    // Ready
-    sc_signal<sc_uint<16> > AB;     // Address Bus
+
     sc_signal<bool>         kbd_rdy;
     sc_signal<bool>         kbd_ack;
     sc_signal<sc_uint<7> >  kbd_data;
     sc_signal<bool>         dsp_rdy;
     sc_signal<bool>         dsp_ack;
     sc_signal<sc_uint<7> >  dsp_data;
+
+    sc_signal<bool>         emu_load_bin;
+    sc_signal<bool>         emu_load_hex;
 
     sc_signal<bool>         emu_en;
     sc_signal<bool>         emu_clk;
@@ -73,13 +72,8 @@ SC_MODULE(sc_apple_1_WozMon_PIA_32k_TB)
     SC_CTOR(sc_apple_1_WozMon_PIA_32k_TB) :   // Constructor
         clk("clk", 100, SC_NS, 0.5, 0.0, SC_NS, false),
         reset("reset"),
-        DI("DI"),
-        DO("DO"),
-        WE("WE"),
         IRQ("IRQ"),
-        NMI("NMI"),
-        RDY("RDY"),
-        AB("AB")
+        NMI("NMI")
     {
         // DUT Instantiation
 #ifdef EMULATED_CO_SIM
@@ -90,13 +84,8 @@ SC_MODULE(sc_apple_1_WozMon_PIA_32k_TB)
         // Binding
         u_apple_1_WozMon_PIA_32k->clk(clk);
         u_apple_1_WozMon_PIA_32k->reset(reset);
-        u_apple_1_WozMon_PIA_32k->DI(DI);
-        u_apple_1_WozMon_PIA_32k->DO(DO);
-        u_apple_1_WozMon_PIA_32k->WE(WE);
         u_apple_1_WozMon_PIA_32k->IRQ(IRQ);
         u_apple_1_WozMon_PIA_32k->NMI(NMI);
-        u_apple_1_WozMon_PIA_32k->RDY(RDY);
-        u_apple_1_WozMon_PIA_32k->AB(AB);
         u_apple_1_WozMon_PIA_32k->kbd_rdy(kbd_rdy);
         u_apple_1_WozMon_PIA_32k->kbd_ack(kbd_ack);
         u_apple_1_WozMon_PIA_32k->kbd_data(kbd_data);
@@ -114,10 +103,8 @@ SC_MODULE(sc_apple_1_WozMon_PIA_32k_TB)
         u_mem = new sc_mem("u_mem");
         // Binding
         u_mem->clk(clk);
-        u_mem->DI(DO);
-        u_mem->DO(DI);
-        u_mem->WE(WE);
-        u_mem->AB(AB);
+        u_mem->emu_load_bin(emu_load_bin);
+        u_mem->emu_load_hex(emu_load_hex);
         u_mem->emu_en(emu_en);
         u_mem->emu_clk(emu_clk);
         u_mem->emu_we(emu_we);

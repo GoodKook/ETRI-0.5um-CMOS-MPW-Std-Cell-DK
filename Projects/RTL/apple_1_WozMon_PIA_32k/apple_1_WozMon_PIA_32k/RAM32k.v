@@ -10,8 +10,8 @@ input  [7:0]    din;
 output [7:0]    dout;
 
     reg [7:0]   dout;
-    //reg [7:0]   Memory[28672];  // 28Kbytes, EP4CE6 has 30 of M9k RAM block 
-    reg [7:0]   Memory[32768];
+    reg [7:0]   Memory[28672];  // 28Kbytes, EP4CE6 has 30 of M9k RAM block 
+    //reg [7:0]   Memory[32768];
 
     always @(posedge clk)
     begin
