@@ -34,6 +34,7 @@ lint: VERILOG_SRCS =  \
 	$(WOZMON_PATH)/wozmon.v \
 	$(PIA_PATH)/pia_kbd.v \
 	$(PIA_PATH)/pia_dsp.v \
+	$(RTL_PATH)/apple_1_WozMon_PIA.v \
 	$(RTL_PATH)/RAM32k.v \
 	$(RTL_PATH)/apple_1_WozMon_PIA_32k.v
 

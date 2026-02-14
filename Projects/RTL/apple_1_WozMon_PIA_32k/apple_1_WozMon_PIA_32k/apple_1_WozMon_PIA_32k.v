@@ -27,47 +27,27 @@ input  [7:0]    emu_di;
 output [7:0]    emu_do;     
 
     wire [15:0] Addr_Bus;
-    reg  [15:0] _Addr_Bus;
-    reg   [7:0] Data_In;
+    wire  [7:0] DO_RAM;     // Data_In
     wire  [7:0] Data_Out;
-
-    wire  [7:0] DO_kbd;
-    wire  [7:0] DO_dsp;
-    wire  [7:0] DO_RAM;
-    wire  [7:0] DO_woz;
-
     wire        Write_Enable;
 
-    cpu_6502 u_cpu
-    (
+    apple_1_WozMon_PIA u_apple_1_WozMon_PIA(
         .clk(clk),
         .reset(reset),
         .AB(Addr_Bus),
-        .DI(Data_In),
+        .DI(DO_RAM),    // Data_In: Data out from RAM
         .DO(Data_Out),
         .WE(Write_Enable),
         .IRQ(IRQ),
         .NMI(NMI),
-        .RDY(1'b1)
+        .RDY(1'b1),     // CPU always On
+        .kbd_rdy(kbd_rdy),
+        .kbd_ack(kbd_ack),
+        .kbd_data(kbd_data),
+        .dsp_rdy(dsp_rdy),
+        .dsp_ack(dsp_ack),
+        .dsp_data(dsp_data)
     );
-
-    // Address Decoder ----------------------------------------
-    always @(posedge clk)
-        _Addr_Bus <= Addr_Bus;
-
-    always @*
-    begin
-        if(_Addr_Bus[15:8]==8'hFF)
-            Data_In = DO_woz;
-        else if(_Addr_Bus==`PIA_KBD_REG && !Write_Enable)
-            Data_In = { 1'b1, DO_kbd[6:0]}; // B7 always '1'
-        else if(_Addr_Bus==`PIA_KBD_CTL && !Write_Enable)
-            Data_In = DO_kbd;
-        else if(_Addr_Bus==`PIA_DSP_REG && !Write_Enable)
-            Data_In = DO_dsp;
-        else
-            Data_In = DO_RAM;
-    end
 
     // Memory Emulation
     wire [14:0]     RAM_Addr;
@@ -90,38 +70,5 @@ output [7:0]    emu_do;
         .dout(DO_RAM)
     );
 
-    // Keyboard -------------------------------------------------
-    pia_kbd u_pia_kbd
-    (
-        .clk(clk),
-        .reset(reset),
-        //.Address_Bus(Addr_Bus),
-        .Address_Bus(_Addr_Bus),    // Input Peripheral use latched address
-        .WE(Write_Enable),
-        .Data_Out(DO_kbd),
-        .kbd_rdy(kbd_rdy),
-        .kbd_ack(kbd_ack),
-        .kbd_data(kbd_data)
-    );
-    // Display --------------------------------------------------
-    pia_dsp u_pia_dsp
-    (
-        .clk(clk),
-        .reset(reset),
-        .Address_Bus(Addr_Bus),
-        .WE(Write_Enable),
-        .Data_In(Data_Out),
-        .Data_Out(DO_dsp),
-        .dsp_rdy(dsp_rdy),
-        .dsp_ack(dsp_ack),
-        .dsp_data(dsp_data)
-    );
-    // WozMon ----------------------------------------------------
-    wozmon u_wozmon
-    (
-        .clk(clk),
-        .address(Addr_Bus[7:0]),
-        .dout(DO_woz)
-    );
 endmodule
 

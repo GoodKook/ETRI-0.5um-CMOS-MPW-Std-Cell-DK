@@ -36,6 +36,7 @@ if {$make_assignments} {
 	set_global_assignment -name SEARCH_PATH  ../../../../apple_1_WozMon_PIA/apple_1_WozMon_PIA
 	set_global_assignment -name VERILOG_FILE ../../../../apple_1_WozMon_PIA/apple_1_WozMon_PIA/pia_kbd.v
 	set_global_assignment -name VERILOG_FILE ../../../../apple_1_WozMon_PIA/apple_1_WozMon_PIA/pia_dsp.v
+	set_global_assignment -name VERILOG_FILE ../../../../apple_1_WozMon_PIA/apple_1_WozMon_PIA/apple_1_WozMon_PIA.v
 	set_global_assignment -name VERILOG_FILE ../../../apple_1_WozMon_PIA_32k/RAM32k.v
 	set_global_assignment -name VERILOG_FILE ../../../apple_1_WozMon_PIA_32k/apple_1_WozMon_PIA_32k.v
 	set_global_assignment -name VERILOG_FILE ../../apple_1_WozMon_PIA_32k_wrapper.v
