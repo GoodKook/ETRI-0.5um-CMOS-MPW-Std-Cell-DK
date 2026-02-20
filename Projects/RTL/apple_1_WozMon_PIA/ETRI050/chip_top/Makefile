@@ -12,8 +12,8 @@ LAYOUT_PATH = ../layout
 
 CHIP_NAME = $(TOP_MODULE)
 
-PAD_X = 97.5
-PAD_Y = 97.5
+PAD_X = 102.5
+PAD_Y = 102.5
 PIN_ROUTE_X =
 PIN_ROUTE_Y =
 CORE_X =
@@ -40,7 +40,7 @@ all:
 copy_pad_frame: $(CHIP_NAME)_Top.mag
 
 $(CHIP_NAME)_Top.mag:
-	cp $(PAD_PATH)/MPW_PAD_28Pin_IO.mag ./$(CHIP_NAME)_Top.mag
+	cp $(PAD_PATH)/MPW_PAD_84Pin_IO.mag ./$(CHIP_NAME)_Top.mag
 
 copy_core:  $(CHIP_NAME)_Core.mag
 
