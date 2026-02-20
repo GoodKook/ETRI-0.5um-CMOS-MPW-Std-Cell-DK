@@ -24,6 +24,10 @@ ifeq ($(DEBUG_MSG), YES)
 	DEBUG_MSG = -DDEBUG_MSG
 endif
 
+ifeq ($(VCD_TRACE), YES)
+	VCD_TRACE = -DVCD_TRACE
+endif
+
 # Build Rules --------------------------------------------------
 all :
 	@clear
@@ -36,7 +40,7 @@ all :
 	@echo
 	@echo 'Makefile for $(TOP_MODULE), SystemC model of "GLCD 128x64(KS0108)"'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) DEBUG_MSG=YES|[NO] make build'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=YES|[NO] DEBUG_MSG=YES|[NO] make build'
 	@echo '    make run'
 	@echo '    make wave'
 	@echo '    make clean'
@@ -50,7 +54,7 @@ $(TOP_MODULE)_TB : $(SC_SRCS) $(SC_HDRS)
 	$(CXX)  -I$(SYSTEMC_INCLUDE) \
 			-L$(SYSTEMC_LIBDIR) \
 			-o $(TOP_MODULE)_TB \
-			$(DEBUG_MSG) \
+			$(DEBUG_MSG) $(VCD_TRACE) \
 			$(SC_SRCS) \
 			$(LIBS)
 

@@ -82,7 +82,39 @@ void sc_glcd128x64_TB::Test_Gen(void)
                 SET_PIXEL( x, y, true)
 
         for(int y=0; y<128; y++)
+        {
+            int x = (int)(31*sin(y*2*M_PI/128)+32);
+            SET_PIXEL(x, y, false)
+        }
+        for(int y=0; y<128; y++)
+        {
+            int x = (int)(31*sin(y*2*M_PI/64)+32);
+            SET_PIXEL(x, y, false)
+        }
+        for(int y=0; y<128; y++)
+        {
+            int x = (int)(31*sin(y*2*M_PI/32)+32);
+            SET_PIXEL(x, y, false)
+        }
+
+        for(int y=0; y<128; y++)
             for(int x=0; x<64; x++)
                 SET_PIXEL( x, y, false)
+
+        for(int y=0; y<128; y++)
+        {
+            int x = (int)(31*sin(y*2*M_PI/128)+32);
+            SET_PIXEL(x, y, true)
+        }
+        for(int y=0; y<128; y++)
+        {
+            int x = (int)(31*sin(y*2*M_PI/64)+32);
+            SET_PIXEL(x, y, true)
+        }
+        for(int y=0; y<128; y++)
+        {
+            int x = (int)(31*sin(y*2*M_PI/32)+32);
+            SET_PIXEL(x, y, true)
+        }
     }
 }

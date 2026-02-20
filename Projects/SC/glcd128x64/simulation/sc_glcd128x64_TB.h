@@ -41,6 +41,7 @@ SC_MODULE(sc_glcd128x64_TB)
         u_sc_glcd128x64->CS2(CS2);  // Chip-Select #2
         u_sc_glcd128x64->RST(RST);  // Reset(L)
 
+#ifdef VCD_TRACE
         // VCD Trace
         fp = sc_create_vcd_trace_file("sc_glcd128x64_TB");
         fp->set_time_unit(100, SC_PS);
@@ -52,6 +53,7 @@ SC_MODULE(sc_glcd128x64_TB)
         sc_trace(fp, CS1, "CS1");
         sc_trace(fp, CS2, "CS2");
         sc_trace(fp, RST, "RST");
+#endif
     }
 };
 
