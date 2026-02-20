@@ -77,6 +77,10 @@ SC_MODULE(sc_glcd128x64)
         }
 
         SDL_SetWindowTitle(window, "GLCD 128x64");
+        SDL_SetWindowMinimumSize(window, 64, 128);
+        SDL_SetWindowMaximumSize(window, 64, 128);
+        SDL_SetWindowResizable(window, SDL_FALSE);
+        //SDL_SetWindowBordered(window, SDL_TRUE);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     }
 
