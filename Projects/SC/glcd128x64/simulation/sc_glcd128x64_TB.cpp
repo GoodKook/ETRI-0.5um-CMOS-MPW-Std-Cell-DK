@@ -1,5 +1,5 @@
 //
-//
+// Filename: sc_glcd128x64_TB.cpp
 //
 
 #include <unistd.h>
@@ -11,12 +11,12 @@
     RW.write(false);                    \
     CS1.write(_CS1_? false:true);       \
     CS2.write(_CS2_? false:true);       \
-    E.write(true);                      \
-    wait(100, SC_NS);                   \
-                                        \
     DBi.write(_INST_);                  \
+    wait(50, SC_NS);                    \
+    E.write(true);                      \
+    wait(50, SC_NS);                    \
     E.write(false);                     \
-    wait(100, SC_NS);                   \
+    wait(50, SC_NS);                    \
 }
 #define SET_DATA(_CS1_,_CS2_,_DATA_)    \
 {                                       \
@@ -24,12 +24,12 @@
     RW.write(false);                    \
     CS1.write(_CS1_? false:true);       \
     CS2.write(_CS2_? false:true);       \
-    E.write(true);                      \
-    wait(100, SC_NS);                   \
-                                        \
     DBi.write(_DATA_);                  \
+    wait(50, SC_NS);                    \
+    E.write(true);                      \
+    wait(50, SC_NS);                    \
     E.write(false);                     \
-    wait(100, SC_NS);                   \
+    wait(50, SC_NS);                    \
 }
 #define GET_DATA(_CS1_,_CS2_,_DATA_)    \
 {                                       \
@@ -37,11 +37,11 @@
     RW.write(true);                     \
     CS1.write(_CS1_? false:true);       \
     CS2.write(_CS2_? false:true);       \
+    wait(50, SC_NS);                    \
     E.write(true);                      \
-    wait(100, SC_NS);                   \
-                                        \
+    wait(50, SC_NS);                    \
     E.write(false);                     \
-    wait(100, SC_NS);                   \
+    wait(50, SC_NS);                    \
     _DATA_ = DBo.read();                \
 }
 #define SET_PIXEL(_X_,_Y_,_01_)         \
@@ -55,14 +55,15 @@
     else      _GD_DATA_ &= ~(0x01<<(x%8)); \
     SET_INST((_Y_<64? true:false), (_Y_>63? true:false), INST_SET_Y_ADDRESS|(_Y_%64)) \
     SET_DATA((_Y_<64? true:false), (_Y_>63? true:false), _GD_DATA_) \
-    SET_INST(true, true, INST_DISPLAY|0x01) \
 }
+
+//    SET_INST(true, true, INST_DISPLAY|0x01) \
 
 void sc_glcd128x64_TB::Test_Gen(void)
 {
     RS.write(false);    // Register Mode Select: Instruction(L), Data(H)
     RW.write(true);     // Read(H), Write(L)
-    E.write(true);      // Enable @ Posedge
+    E.write(false);     // Enable @ Posedge
     DBi.write(0x00);    // Data Bus
     CS1.write(true);    // Chip-Select #1
     CS2.write(true);    // Chip-Select #2
@@ -72,15 +73,20 @@ void sc_glcd128x64_TB::Test_Gen(void)
     RST.write(false);   // Reset(L)
     wait(100, SC_NS);
 
+    usleep(2000);
+
     RST.write(true);
     wait(100, SC_NS);
 
+    usleep(1000);
+
+    SET_INST(true, true, INST_DISPLAY|0x01) // DISPLAY ON
+    
     while(true)
     {
         for(int x=0; x<64; x++)
             for(int y=0; y<128; y++)
                 SET_PIXEL( x, y, true)
-
         for(int y=0; y<128; y++)
         {
             int x = (int)(31*sin(y*2*M_PI/128)+32);
@@ -96,11 +102,14 @@ void sc_glcd128x64_TB::Test_Gen(void)
             int x = (int)(31*sin(y*2*M_PI/32)+32);
             SET_PIXEL(x, y, false)
         }
-
+        sleep(1);
+        SET_INST(true, true, INST_DISPLAY)  // Display OFF
+        sleep(1);
+        SET_INST(true, true, INST_DISPLAY|0x01) // Display ON
+        sleep(1);
         for(int y=0; y<128; y++)
             for(int x=0; x<64; x++)
                 SET_PIXEL( x, y, false)
-
         for(int y=0; y<128; y++)
         {
             int x = (int)(31*sin(y*2*M_PI/128)+32);
@@ -116,5 +125,10 @@ void sc_glcd128x64_TB::Test_Gen(void)
             int x = (int)(31*sin(y*2*M_PI/32)+32);
             SET_PIXEL(x, y, true)
         }
+        sleep(1);
+        SET_INST(true, true, INST_DISPLAY)  // Display OFF
+        sleep(1);
+        SET_INST(true, true, INST_DISPLAY|0x01) // Display ON
+        sleep(1);
     }
 }

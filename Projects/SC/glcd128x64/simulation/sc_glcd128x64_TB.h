@@ -1,12 +1,16 @@
 //
-//
+// Filename: sc_glcd128x64_TB.h
 //
 
 #ifndef _SC_GLCD128x64_TB_H_
 #define _SC_GLCD128x64_TB_H_
 
 #include <systemc.h>
+#ifdef EMULATED_CO_SIM
+#include "Eglcd128x64.h"
+#else
 #include "sc_glcd128x64.h"      // SDL2
+#endif
 #include "glcd128x64_defs.h"
 
 SC_MODULE(sc_glcd128x64_TB)
@@ -20,7 +24,11 @@ SC_MODULE(sc_glcd128x64_TB)
     sc_signal<bool>         CS2;    // Chip-Select #2
     sc_signal<bool>         RST;    // Reset(L)
 
+#ifdef EMULATED_CO_SIM
+    Eglcd128x64*    u_sc_glcd128x64;
+#else
     sc_glcd128x64*  u_sc_glcd128x64;
+#endif
 
     void Test_Gen(void);
 
@@ -31,7 +39,11 @@ SC_MODULE(sc_glcd128x64_TB)
         SC_THREAD(Test_Gen);
 
         // DUT
+#ifdef EMULATED_CO_SIM
+        u_sc_glcd128x64 = new Eglcd128x64("u_Eglcd128x64");
+#else
         u_sc_glcd128x64 = new sc_glcd128x64("u_sc_glcd128x64");
+#endif
         u_sc_glcd128x64->RS(RS);    // Register Mode Select: Instruction(L), Data(H)
         u_sc_glcd128x64->RW(RW);    // Read(H), Write(L)
         u_sc_glcd128x64->E(E);      // Enable @ Posedge

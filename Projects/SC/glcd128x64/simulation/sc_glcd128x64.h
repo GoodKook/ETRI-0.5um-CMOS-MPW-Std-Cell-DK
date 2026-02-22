@@ -19,8 +19,19 @@ SC_MODULE(sc_glcd128x64)
     sc_in<bool>     CS2;    // Chip-Select #2
     sc_in<bool>     RST;    // Reset(L)
 
-    // GLCD
-    void Renderer_Thread(void);
+    // GLCD Call-Back --------------------------------------------
+    void Renderer_Method(void);
+    void Renderer(void);
+    // Local Variables -------------------------------------------
+    sc_uint<8>  DataBus;
+    sc_uint<6>  x0_address, y0_address, z0_address;
+    sc_uint<6>  x1_address, y1_address, z1_address;
+
+    bool    opWrite;
+    bool    opInst;
+    bool    opCS1, opCS2;
+    bool    bDisplay;
+
     uint8_t gMemory[2][8][64];    // [CS#][Page#][Line#]
     // GD RAM(8-pixel per Page)
     // |<----------------------- X Address[0:63] ---------------->|
@@ -49,11 +60,12 @@ SC_MODULE(sc_glcd128x64)
     // SDL2--------------------------
     SDL_Window* window;
     SDL_Renderer* renderer;
+    SDL_Event event;
 
     SC_CTOR(sc_glcd128x64)
     {
-        SC_THREAD(Renderer_Thread);
-        sensitive << E;
+        SC_METHOD(Renderer_Method);
+        sensitive << E << RST; //<< RS << RW << E << DBi << CS1 << CS2 << RST;
 
         // SDL2--------------------------
         window = NULL;
@@ -67,7 +79,11 @@ SC_MODULE(sc_glcd128x64)
         window = SDL_CreateWindow("SDL2 Window",
                               SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED,
+                            #ifdef ROTATE_SCREEN
+                              128, 64,
+                            #else
                               64, 128,
+                            #endif
                               SDL_WINDOW_SHOWN);
         if (!window)
         {
@@ -77,8 +93,8 @@ SC_MODULE(sc_glcd128x64)
         }
 
         SDL_SetWindowTitle(window, "GLCD 128x64");
-        SDL_SetWindowMinimumSize(window, 64, 128);
-        SDL_SetWindowMaximumSize(window, 64, 128);
+        //SDL_SetWindowMinimumSize(window, 64, 128);
+        //SDL_SetWindowMaximumSize(window, 64, 128);
         SDL_SetWindowResizable(window, SDL_FALSE);
         //SDL_SetWindowBordered(window, SDL_TRUE);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);

@@ -28,6 +28,10 @@ ifeq ($(VCD_TRACE), YES)
 	VCD_TRACE = -DVCD_TRACE
 endif
 
+ifeq ($(ROTATE_SCREEN), YES)
+	ROTATE_SCREEN = -DROTATE_SCREEN
+endif
+
 # Build Rules --------------------------------------------------
 all :
 	@clear
@@ -40,7 +44,7 @@ all :
 	@echo
 	@echo 'Makefile for $(TOP_MODULE), SystemC model of "GLCD 128x64(KS0108)"'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=YES|[NO] DEBUG_MSG=YES|[NO] make build'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=YES|[NO] DEBUG_MSG=YES|[NO] ROTATE_SCREEN=YES|[NO] make build'
 	@echo '    make run'
 	@echo '    make wave'
 	@echo '    make clean'
@@ -54,7 +58,7 @@ $(TOP_MODULE)_TB : $(SC_SRCS) $(SC_HDRS)
 	$(CXX)  -I$(SYSTEMC_INCLUDE) \
 			-L$(SYSTEMC_LIBDIR) \
 			-o $(TOP_MODULE)_TB \
-			$(DEBUG_MSG) $(VCD_TRACE) \
+			$(DEBUG_MSG) $(VCD_TRACE) $(ROTATE_SCREEN) \
 			$(SC_SRCS) \
 			$(LIBS)
 
