@@ -1,0 +1,105 @@
+# SystemC Environments -----------------------------------------
+export SYSTEMC			= /opt/systemc
+export SYSTEMC_HOME		= $(SYSTEMC)
+export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
+export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
+export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
+export CXX				= clang++
+
+#---------------------------------------------------------------
+TOP_MODULE = pong_SbS
+
+# SystemC testbench Reuse --------------------------------------
+SC_SRCS =  \
+	./sc_main.cpp \
+	./sc_glcd128x64.cpp \
+	./sc_glcd128x64_TB.cpp \
+	./sc_$(TOP_MODULE)_TB.cpp
+SC_HDRS = \
+	./sc_$(TOP_MODULE)_TB.h
+
+# Verilator vars -----------------------------------------------
+RTL_PATH = \
+	../$(TOP_MODULE)
+
+lint: VERILOG_SRCS =  \
+	$(RTL_PATH)/pong_SbS.v
+
+build: VERILOG_SRCS =  \
+	$(RTL_PATH)/pong_SbS.v
+
+run: VERILOG_SRCS =  \
+	$(RTL_PATH)/pong_SbS.v
+
+#-------------------------------------------------------------------------------
+VERILATOR    = verilator
+VL_WARNING   = -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
+VCFLAGS		+= -CFLAGS -g
+VCFLAGS		+= -CFLAGS -I../../c_untimed
+VCFLAGS		+= -CFLAGS -I$(SYSTEMC_INCLUDE)
+ifeq ($(VCD_TRACE),)
+VCFLAGS		+= -CFLAGS -DVCD_TRACE_TEST_TB
+VCFLAGS		+= -CFLAGS -DVCD_TRACE_DUT_VERILOG
+endif
+ifeq ($(ROTATE_SCREEN), YES)
+VCFLAGS		+= -CFLAGS -DROTATE_SCREEN
+endif
+#VCFLAGS		+= -CFLAGS -D$(MODE)
+VCFLAGS		+= -LDFLAGS -lm
+VCFLAGS		+= -LDFLAGS -lgsl
+VCFLAGS		+= -LDFLAGS -lSDL2
+#VCFLAGS		+= -CFLAGS -fPIC
+#VCFLAGS		+= -LDFLAGS -shared
+
+# Targets ------------------------------------------------------
+#TOP_MODULE   = $(TOP_MODULE)
+TARGET       = V$(TOP_MODULE)
+TARGET_DIR   = obj_dir
+
+# Build Rules --------------------------------------------------
+all :
+	@clear
+	@if [ ! -n "$(TOP_MODULE)" ];  then \
+		echo "*********************************"; \
+		echo "!!! TOP_MODULE not declared !!!"; \
+		echo "*********************************"; \
+		exit 1; \
+	fi
+	@echo
+	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE) in MODE=$(MODE)'
+	@echo
+	@echo '    TOP_MODULE=$(TOP_MODULE) make lint'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=[YES]|NO ROTATE_SCREEN=YES|[NO] make build'
+	@echo '    make run'
+	@echo '    make wave'
+	@echo '    make clean'
+	@echo
+	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
+	@echo
+
+lint :
+	$(VERILATOR) --sc --timing $(VL_WARNING) --pins-sc-uint \
+				--top-module $(TOP_MODULE) $(VERILOG_SRCS)
+
+build : $(TARGET_DIR)/$(TARGET)
+
+$(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
+	$(VERILATOR) --sc $(VL_WARNING) --trace --timing --pins-sc-uint \
+				--top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
+				$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
+
+run : $(TARGET_DIR)/$(TARGET)
+	./$(TARGET_DIR)/$(TARGET)
+
+wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
+	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
+	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
+
+clean :
+	rm -rf $(TARGET_DIR)
+	rm -f *.vcd
+	rm -f $(TOP_MODULE)
+	rm -f sc_$(TOP_MODULE)_TB.txt
+
+debug : $(TARGET_DIR)/$(TARGET)
+	ddd $(TARGET_DIR)/$(TARGET)
