@@ -53,7 +53,7 @@ SC_MODULE(sc_pong_SbS_TB)
         u_pong_SbS->busy(busy);
         // Instantiate Display Device model ---------------
         u_sc_glcd128x64_TB = new sc_glcd128x64_TB("u_sc_glcd128x64_TB");
-        u_sc_glcd128x64_TB->clk(clk);
+        //u_sc_glcd128x64_TB->clk(clk);
         u_sc_glcd128x64_TB->reset(reset);
         u_sc_glcd128x64_TB->x_pos(x_pos);
         u_sc_glcd128x64_TB->y_pos(y_pos);
@@ -72,6 +72,16 @@ SC_MODULE(sc_pong_SbS_TB)
         sc_trace(fp, pixel, "pixel");
         sc_trace(fp, p_tick,"p_tick");
         sc_trace(fp, busy,  "busy");
+
+        sc_trace(fp, u_sc_glcd128x64_TB->clk, "GLCD.clk");
+        sc_trace(fp, u_sc_glcd128x64_TB->RS,  "GLCD.RS");
+        sc_trace(fp, u_sc_glcd128x64_TB->RW,  "GLCD.RW");
+        sc_trace(fp, u_sc_glcd128x64_TB->E,   "GLCD.E");
+        sc_trace(fp, u_sc_glcd128x64_TB->DBi, "GLCD.DBi");
+        sc_trace(fp, u_sc_glcd128x64_TB->DBo, "GLCD.DBo");
+        sc_trace(fp, u_sc_glcd128x64_TB->CS1, "GLCD.CS1");
+        sc_trace(fp, u_sc_glcd128x64_TB->CS2, "GLCD.CS2");
+        sc_trace(fp, u_sc_glcd128x64_TB->RST, "GLCD.RST");
 #endif
 
 #ifdef VCD_TRACE_DUT_VERILOG

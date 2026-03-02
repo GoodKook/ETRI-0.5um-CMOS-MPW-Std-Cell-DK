@@ -49,14 +49,15 @@ input           busy;
                 end
             sPixel:
                 begin
-                    p_tick <= 1'b0;
-                    State <= sCheck;
+                    if (busy)
+                    begin
+                        p_tick <= 1'b0;
+                        //State <= sCheck;
+                        State <= sWait;
+                    end
                 end
             sCheck:
-                begin
-                    if (busy)
-                        State <= sWait;
-                end
+                State <= sWait;
             default:
                 State <= sWait;
             endcase

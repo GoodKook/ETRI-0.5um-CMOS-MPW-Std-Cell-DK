@@ -11,13 +11,14 @@
 
 SC_MODULE(sc_glcd128x64_TB)
 {
-    sc_in<bool>             clk;
     sc_in<bool>             reset;
     sc_in<sc_uint<7> >      x_pos;
     sc_in<sc_uint<6> >      y_pos;
     sc_in<bool>             pixel;
     sc_in<bool>             p_tick;
     sc_out<bool>            busy;
+
+    sc_clock                clk;
 
     sc_signal<bool>         RS; // Register Mode Select: Instruction(L), Data(H)
     sc_signal<bool>         RW; // Read(H), Write(L)
@@ -34,8 +35,7 @@ SC_MODULE(sc_glcd128x64_TB)
 
     sc_trace_file* fp;  // VCD file
 
-    SC_CTOR(sc_glcd128x64_TB): clk("clk")
-
+    SC_CTOR(sc_glcd128x64_TB): clk("clk", 305, SC_NS, 0.5, 0.0, SC_NS, false)
     {
         SC_THREAD(Test_Gen);
         sensitive << clk;
@@ -51,7 +51,7 @@ SC_MODULE(sc_glcd128x64_TB)
         u_sc_glcd128x64->CS2(CS2);  // Chip-Select #2
         u_sc_glcd128x64->RST(RST);  // Reset(L)
 
-#ifdef VCD_TRACE
+#ifdef VCD_TRACE_GLCD
         // VCD Trace
         fp = sc_create_vcd_trace_file("sc_glcd128x64_TB");
         fp->set_time_unit(100, SC_PS);
