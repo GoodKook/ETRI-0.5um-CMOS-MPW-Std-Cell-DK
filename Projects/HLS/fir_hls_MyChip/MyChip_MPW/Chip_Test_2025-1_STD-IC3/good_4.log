@@ -1,0 +1,4849 @@
+make -C simulation clean
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+rm -f *.vcd
+rm -f *.dat
+rm -rf obj_dir
+rm -f fir
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+make -C simulation build_emu
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+verilator --sc --pins-sc-uint -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --top-module fir  --exe --build \
+	-CFLAGS -g -CFLAGS -I../../c_untimed -CFLAGS -I../../emulation -CFLAGS -DVCD_TRACE_TEST_TB -CFLAGS -DVCD_TRACE_DUT_VERILOG -CFLAGS -DSC_INCLUDE_FX -LDFLAGS -lm -LDFLAGS -lgsl -CFLAGS -DFIR_MAC_VERSION -CFLAGS -DEMULATED_CO_SIM ../fir/hls_component/syn/verilog/*.v ./sc_fir_TB.cpp ./sc_main.cpp ../c_untimed/fir8.cpp ../c_untimed/cnoise.cpp
+make[2]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation/obj_dir'
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o cnoise.o ../../c_untimed/cnoise.cpp
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o fir8.o ../../c_untimed/fir8.cpp
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o sc_fir_TB.o ../sc_fir_TB.cpp
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o sc_main.o ../sc_main.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated_timing.o /usr/local/share/verilator/include/verilated_timing.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vfir.cpp Vfir___024root__0.cpp Vfir__Trace__0.cpp Vfir__ConstPool__0__Slow.cpp Vfir___024root__Slow.cpp Vfir___024root__0__Slow.cpp Vfir__Syms__Slow.cpp Vfir__Trace__0__Slow.cpp Vfir__TraceDecls__0__Slow.cpp > Vfir__ALL.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o Vfir__ALL.o Vfir__ALL.cpp
+g++     -L/opt/systemc/lib cnoise.o fir8.o sc_fir_TB.o sc_main.o verilated.o verilated_vcd_c.o verilated_timing.o verilated_threads.o Vfir__ALL.a   -lm -lgsl  -pthread -lpthread -latomic  -lsystemc -o Vfir
+rm Vfir__ALL.verilator_deplist.tmp
+make[2]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation/obj_dir'
+- V e r i l a t i o n   R e p o r t: Verilator 5.045 devel rev v5.044-137-g4aa0ea3f2
+- Verilator: Built from 0.346 MB sources in 9 modules, into 0.213 MB in 9 C++ files needing 0.000 MB
+- Verilator: Walltime 0.502 s (elab=0.005, cvt=0.024, bld=0.462); cpu 0.037 s on 1 threads; allocated 33.355 MB
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+make -C simulation run_emu
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+python3 ./sc_plotDFT.py &
+./obj_dir/Vfir
+
+Info: (I703) tracing timescale unit set: 100 ps (Efir.vcd)
+
+Info: (I703) tracing timescale unit set: 100 ps (sc_fir_tb.vcd)
+
+Warning: (W509) module construction not properly completed: did you forget to add a sc_module_name parameter to your module constructor?: module 'u_sc_fir_TB'
+In file: /home/mychip/ETRI050_DesignKit/Tools/systemc/src/sysc/kernel/sc_module.cpp:376
+[   0] y=    0:Y=   22 ERROR
+[   1] y=  171:Y=    3 ERROR
+[   2] y=  171:Y=  171 OK
+[   3] y=  171:Y=    7 ERROR
+[   4] y=  171:Y=   34 ERROR
+[   5] y=   47:Y=   64 ERROR
+[   6] y=   88:Y=   92 ERROR
+[   7] y=  113:Y=  113 OK
+[   8] y=  136:Y=  136 OK
+[   9] y=  143:Y=  143 OK
+[  10] y=  137:Y=  137 OK
+[  11] y=  110:Y=  110 OK
+[  12] y=   77:Y=   77 OK
+[  13] y=   50:Y=   50 OK
+[  14] y=   40:Y=   40 OK
+[  15] y=   46:Y=   46 OK
+[  16] y=   69:Y=   69 OK
+[  17] y=   92:Y=   92 OK
+[  18] y=  102:Y=  102 OK
+[  19] y=   91:Y=   91 OK
+[  20] y=   64:Y=   64 OK
+[  21] y=   50:Y=   50 OK
+[  22] y=   54:Y=   54 OK
+[  23] y=   77:Y=   77 OK
+[  24] y=   97:Y=   97 OK
+[  25] y=  100:Y=  100 OK
+[  26] y=   91:Y=   91 OK
+[  27] y=   71:Y=   71 OK
+[  28] y=   64:Y=   64 OK
+[  29] y=   59:Y=   59 OK
+[  30] y=   56:Y=   56 OK
+[  31] y=   50:Y=   50 OK
+[  32] y=   43:Y=   43 OK
+[  33] y=   50:Y=   50 OK
+[  34] y=   64:Y=   64 OK
+[  35] y=   82:Y=   82 OK
+[  36] y=   96:Y=   96 OK
+[  37] y=  108:Y=  108 OK
+[  38] y=  118:Y=  118 OK
+[  39] y=  128:Y=  128 OK
+[  40] y=  132:Y=  132 OK
+[  41] y=  138:Y=  138 OK
+[  42] y=  139:Y=  139 OK
+[  43] y=  138:Y=  138 OK
+[  44] y=  130:Y=  130 OK
+[  45] y=  121:Y=  121 OK
+[  46] y=  119:Y=  119 OK
+[  47] y=  123:Y=  123 OK
+[  48] y=  129:Y=  129 OK
+[  49] y=  130:Y=  130 OK
+[  50] y=  130:Y=  130 OK
+[  51] y=  132:Y=  132 OK
+[  52] y=  134:Y=  134 OK
+[  53] y=  127:Y=  127 OK
+[  54] y=  114:Y=  114 OK
+[  55] y=   98:Y=   98 OK
+[  56] y=   88:Y=   88 OK
+[  57] y=   85:Y=   85 OK
+[  58] y=   86:Y=   86 OK
+[  59] y=   90:Y=   90 OK
+[  60] y=   95:Y=   95 OK
+[  61] y=  104:Y=  104 OK
+[  62] y=  115:Y=  115 OK
+[  63] y=  130:Y=  130 OK
+[  64] y=  137:Y=  137 OK
+[  65] y=  132:Y=  132 OK
+[  66] y=  115:Y=  115 OK
+[  67] y=  103:Y=  103 OK
+[  68] y=  105:Y=  105 OK
+[  69] y=  119:Y=  119 OK
+[  70] y=  125:Y=  125 OK
+[  71] y=  120:Y=  120 OK
+[  72] y=  116:Y=  116 OK
+[  73] y=  121:Y=  121 OK
+[  74] y=  140:Y=  140 OK
+[  75] y=  152:Y=  152 OK
+[  76] y=  159:Y=  159 OK
+[  77] y=  159:Y=  159 OK
+[  78] y=  166:Y=  166 OK
+[  79] y=  180:Y=  180 OK
+[  80] y=  187:Y=  187 OK
+[  81] y=  183:Y=  183 OK
+[  82] y=  161:Y=  161 OK
+[  83] y=  137:Y=  137 OK
+[  84] y=  121:Y=  121 OK
+[  85] y=  116:Y=  116 OK
+[  86] y=  120:Y=  120 OK
+[  87] y=  125:Y=  125 OK
+[  88] y=  134:Y=  134 OK
+[  89] y=  153:Y=  153 OK
+[  90] y=  174:Y=  174 OK
+[  91] y=  190:Y=  190 OK
+[  92] y=  190:Y=  190 OK
+[  93] y=  169:Y=  169 OK
+[  94] y=  146:Y=  146 OK
+[  95] y=  125:Y=  125 OK
+[  96] y=  126:Y=  126 OK
+[  97] y=  141:Y=  141 OK
+[  98] y=  162:Y=  162 OK
+[  99] y=  184:Y=  184 OK
+[ 100] y=  190:Y=  190 OK
+[ 101] y=  187:Y=  187 OK
+[ 102] y=  173:Y=  173 OK
+[ 103] y=  154:Y=  154 OK
+[ 104] y=  137:Y=  137 OK
+[ 105] y=  118:Y=  118 OK
+[ 106] y=  105:Y=  105 OK
+[ 107] y=   96:Y=   96 OK
+[ 108] y=  105:Y=  105 OK
+[ 109] y=  129:Y=  129 OK
+[ 110] y=  157:Y=  157 OK
+[ 111] y=  171:Y=  171 OK
+[ 112] y=  155:Y=  155 OK
+[ 113] y=  124:Y=  124 OK
+[ 114] y=   91:Y=   91 OK
+[ 115] y=   75:Y=   75 OK
+[ 116] y=   73:Y=   73 OK
+[ 117] y=   82:Y=   82 OK
+[ 118] y=   96:Y=   96 OK
+[ 119] y=  114:Y=  114 OK
+[ 120] y=  128:Y=  128 OK
+[ 121] y=  131:Y=  131 OK
+[ 122] y=  122:Y=  122 OK
+[ 123] y=  101:Y=  101 OK
+[ 124] y=   80:Y=   80 OK
+[ 125] y=   68:Y=   68 OK
+[ 126] y=   74:Y=   74 OK
+[ 127] y=   89:Y=   89 OK
+[ 128] y=   96:Y=   96 OK
+[ 129] y=   90:Y=   90 OK
+[ 130] y=   78:Y=   78 OK
+[ 131] y=   85:Y=   85 OK
+[ 132] y=  110:Y=  110 OK
+[ 133] y=  135:Y=  135 OK
+[ 134] y=  140:Y=  140 OK
+[ 135] y=  120:Y=  120 OK
+[ 136] y=   92:Y=   92 OK
+[ 137] y=   76:Y=   76 OK
+[ 138] y=   80:Y=   80 OK
+[ 139] y=   97:Y=   97 OK
+[ 140] y=  113:Y=  113 OK
+[ 141] y=  112:Y=  112 OK
+[ 142] y=  106:Y=  106 OK
+[ 143] y=   92:Y=   92 OK
+[ 144] y=   88:Y=   88 OK
+[ 145] y=   94:Y=   94 OK
+[ 146] y=  109:Y=  109 OK
+[ 147] y=  132:Y=  132 OK
+[ 148] y=  141:Y=  141 OK
+[ 149] y=  141:Y=  141 OK
+[ 150] y=  125:Y=  125 OK
+[ 151] y=  112:Y=  112 OK
+[ 152] y=  107:Y=  107 OK
+[ 153] y=  109:Y=  109 OK
+[ 154] y=  113:Y=  113 OK
+[ 155] y=  109:Y=  109 OK
+[ 156] y=  101:Y=  101 OK
+[ 157] y=   92:Y=   92 OK
+[ 158] y=   92:Y=   92 OK
+[ 159] y=   98:Y=   98 OK
+[ 160] y=  112:Y=  112 OK
+[ 161] y=  123:Y=  123 OK
+[ 162] y=  127:Y=  127 OK
+[ 163] y=  126:Y=  126 OK
+[ 164] y=  120:Y=  120 OK
+[ 165] y=  120:Y=  120 OK
+[ 166] y=  116:Y=  116 OK
+[ 167] y=  112:Y=  112 OK
+[ 168] y=  104:Y=  104 OK
+[ 169] y=   95:Y=   95 OK
+[ 170] y=   88:Y=   88 OK
+[ 171] y=   75:Y=   75 OK
+[ 172] y=   66:Y=   66 OK
+[ 173] y=   59:Y=   59 OK
+[ 174] y=   70:Y=   70 OK
+[ 175] y=   91:Y=   91 OK
+[ 176] y=  108:Y=  108 OK
+[ 177] y=  119:Y=  119 OK
+[ 178] y=  115:Y=  115 OK
+[ 179] y=  111:Y=  111 OK
+[ 180] y=  107:Y=  107 OK
+[ 181] y=  101:Y=  101 OK
+[ 182] y=   89:Y=   89 OK
+[ 183] y=   67:Y=   67 OK
+[ 184] y=   51:Y=   51 OK
+[ 185] y=   47:Y=   47 OK
+[ 186] y=   65:Y=   65 OK
+[ 187] y=   89:Y=   89 OK
+[ 188] y=  112:Y=  112 OK
+[ 189] y=  118:Y=  118 OK
+[ 190] y=  117:Y=  117 OK
+[ 191] y=  119:Y=  119 OK
+[ 192] y=  130:Y=  130 OK
+[ 193] y=  149:Y=  149 OK
+[ 194] y=  155:Y=  155 OK
+[ 195] y=  150:Y=  150 OK
+[ 196] y=  129:Y=  129 OK
+[ 197] y=  112:Y=  112 OK
+[ 198] y=  102:Y=  102 OK
+[ 199] y=  103:Y=  103 OK
+[ 200] y=  115:Y=  115 OK
+[ 201] y=  133:Y=  133 OK
+[ 202] y=  159:Y=  159 OK
+[ 203] y=  176:Y=  176 OK
+[ 204] y=  177:Y=  177 OK
+[ 205] y=  155:Y=  155 OK
+[ 206] y=  122:Y=  122 OK
+[ 207] y=   93:Y=   93 OK
+[ 208] y=   82:Y=   82 OK
+[ 209] y=   89:Y=   89 OK
+[ 210] y=  103:Y=  103 OK
+[ 211] y=  116:Y=  116 OK
+[ 212] y=  124:Y=  124 OK
+[ 213] y=  138:Y=  138 OK
+[ 214] y=  151:Y=  151 OK
+[ 215] y=  167:Y=  167 OK
+[ 216] y=  169:Y=  169 OK
+[ 217] y=  153:Y=  153 OK
+[ 218] y=  122:Y=  122 OK
+[ 219] y=   92:Y=   92 OK
+[ 220] y=   79:Y=   79 OK
+[ 221] y=   83:Y=   83 OK
+[ 222] y=   90:Y=   90 OK
+[ 223] y=   91:Y=   91 OK
+[ 224] y=   85:Y=   85 OK
+[ 225] y=   82:Y=   82 OK
+[ 226] y=   80:Y=   80 OK
+[ 227] y=   77:Y=   77 OK
+[ 228] y=   72:Y=   72 OK
+[ 229] y=   66:Y=   66 OK
+[ 230] y=   70:Y=   70 OK
+[ 231] y=   76:Y=   76 OK
+[ 232] y=   84:Y=   84 OK
+[ 233] y=   85:Y=   85 OK
+[ 234] y=   88:Y=   88 OK
+[ 235] y=   89:Y=   89 OK
+[ 236] y=   88:Y=   88 OK
+[ 237] y=   76:Y=   76 OK
+[ 238] y=   60:Y=   60 OK
+[ 239] y=   57:Y=   57 OK
+[ 240] y=   73:Y=   73 OK
+[ 241] y=  111:Y=  111 OK
+[ 242] y=  146:Y=  146 OK
+[ 243] y=  163:Y=  163 OK
+[ 244] y=  157:Y=  157 OK
+[ 245] y=  141:Y=  141 OK
+[ 246] y=  132:Y=  132 OK
+[ 247] y=  138:Y=  138 OK
+[ 248] y=  151:Y=  151 OK
+[ 249] y=  162:Y=  162 OK
+[ 250] y=  160:Y=  160 OK
+[ 251] y=  146:Y=  146 OK
+[ 252] y=  128:Y=  128 OK
+[ 253] y=  118:Y=  118 OK
+[ 254] y=  116:Y=  116 OK
+[ 255] y=  116:Y=  116 OK
+[ 256] y=  105:Y=  105 OK
+[ 257] y=   83:Y=   83 OK
+[ 258] y=   57:Y=   57 OK
+[ 259] y=   44:Y=   44 OK
+[ 260] y=   54:Y=   54 OK
+[ 261] y=   86:Y=   86 OK
+[ 262] y=  123:Y=  123 OK
+[ 263] y=  149:Y=  149 OK
+[ 264] y=  154:Y=  154 OK
+[ 265] y=  138:Y=  138 OK
+[ 266] y=  118:Y=  118 OK
+[ 267] y=   98:Y=   98 OK
+[ 268] y=   99:Y=   99 OK
+[ 269] y=  122:Y=  122 OK
+[ 270] y=  160:Y=  160 OK
+[ 271] y=  201:Y=  201 OK
+[ 272] y=  216:Y=  216 OK
+[ 273] y=  205:Y=  205 OK
+[ 274] y=  172:Y=  172 OK
+[ 275] y=  140:Y=  140 OK
+[ 276] y=  122:Y=  122 OK
+[ 277] y=  113:Y=  113 OK
+[ 278] y=  106:Y=  106 OK
+[ 279] y=   96:Y=   96 OK
+[ 280] y=   89:Y=   89 OK
+[ 281] y=   95:Y=   95 OK
+[ 282] y=  111:Y=  111 OK
+[ 283] y=  124:Y=  124 OK
+[ 284] y=  122:Y=  122 OK
+[ 285] y=  102:Y=  102 OK
+[ 286] y=   78:Y=   78 OK
+[ 287] y=   60:Y=   60 OK
+[ 288] y=   59:Y=   59 OK
+[ 289] y=   66:Y=   66 OK
+[ 290] y=   73:Y=   73 OK
+[ 291] y=   72:Y=   72 OK
+[ 292] y=   60:Y=   60 OK
+[ 293] y=   53:Y=   53 OK
+[ 294] y=   55:Y=   55 OK
+[ 295] y=   71:Y=   71 OK
+[ 296] y=   94:Y=   94 OK
+[ 297] y=  109:Y=  109 OK
+[ 298] y=  115:Y=  115 OK
+[ 299] y=  104:Y=  104 OK
+[ 300] y=   85:Y=   85 OK
+[ 301] y=   61:Y=   61 OK
+[ 302] y=   41:Y=   41 OK
+[ 303] y=   31:Y=   31 OK
+[ 304] y=   37:Y=   37 OK
+[ 305] y=   53:Y=   53 OK
+[ 306] y=   73:Y=   73 OK
+[ 307] y=   90:Y=   90 OK
+[ 308] y=  102:Y=  102 OK
+[ 309] y=  119:Y=  119 OK
+[ 310] y=  134:Y=  134 OK
+[ 311] y=  145:Y=  145 OK
+[ 312] y=  139:Y=  139 OK
+[ 313] y=  116:Y=  116 OK
+[ 314] y=   88:Y=   88 OK
+[ 315] y=   65:Y=   65 OK
+[ 316] y=   65:Y=   65 OK
+[ 317] y=   77:Y=   77 OK
+[ 318] y=   97:Y=   97 OK
+[ 319] y=  107:Y=  107 OK
+[ 320] y=  102:Y=  102 OK
+[ 321] y=   88:Y=   88 OK
+[ 322] y=   68:Y=   68 OK
+[ 323] y=   64:Y=   64 OK
+[ 324] y=   75:Y=   75 OK
+[ 325] y=  101:Y=  101 OK
+[ 326] y=  123:Y=  123 OK
+[ 327] y=  122:Y=  122 OK
+[ 328] y=  100:Y=  100 OK
+[ 329] y=   70:Y=   70 OK
+[ 330] y=   52:Y=   52 OK
+[ 331] y=   51:Y=   51 OK
+[ 332] y=   60:Y=   60 OK
+[ 333] y=   63:Y=   63 OK
+[ 334] y=   62:Y=   62 OK
+[ 335] y=   59:Y=   59 OK
+[ 336] y=   70:Y=   70 OK
+[ 337] y=   95:Y=   95 OK
+[ 338] y=  119:Y=  119 OK
+[ 339] y=  131:Y=  131 OK
+[ 340] y=  116:Y=  116 OK
+[ 341] y=   91:Y=   91 OK
+[ 342] y=   68:Y=   68 OK
+[ 343] y=   61:Y=   61 OK
+[ 344] y=   68:Y=   68 OK
+[ 345] y=   81:Y=   81 OK
+[ 346] y=  100:Y=  100 OK
+[ 347] y=  116:Y=  116 OK
+[ 348] y=  134:Y=  134 OK
+[ 349] y=  141:Y=  141 OK
+[ 350] y=  143:Y=  143 OK
+[ 351] y=  140:Y=  140 OK
+[ 352] y=  144:Y=  144 OK
+[ 353] y=  155:Y=  155 OK
+[ 354] y=  164:Y=  164 OK
+[ 355] y=  166:Y=  166 OK
+[ 356] y=  155:Y=  155 OK
+[ 357] y=  148:Y=  148 OK
+[ 358] y=  142:Y=  142 OK
+[ 359] y=  143:Y=  143 OK
+[ 360] y=  143:Y=  143 OK
+[ 361] y=  145:Y=  145 OK
+[ 362] y=  151:Y=  151 OK
+[ 363] y=  150:Y=  150 OK
+[ 364] y=  147:Y=  147 OK
+[ 365] y=  134:Y=  134 OK
+[ 366] y=  132:Y=  132 OK
+[ 367] y=  137:Y=  137 OK
+[ 368] y=  147:Y=  147 OK
+[ 369] y=  151:Y=  151 OK
+[ 370] y=  141:Y=  141 OK
+[ 371] y=  131:Y=  131 OK
+[ 372] y=  119:Y=  119 OK
+[ 373] y=  121:Y=  121 OK
+[ 374] y=  121:Y=  121 OK
+[ 375] y=  122:Y=  122 OK
+[ 376] y=  118:Y=  118 OK
+[ 377] y=  119:Y=  119 OK
+[ 378] y=  131:Y=  131 OK
+[ 379] y=  150:Y=  150 OK
+[ 380] y=  172:Y=  172 OK
+[ 381] y=  180:Y=  180 OK
+[ 382] y=  179:Y=  179 OK
+[ 383] y=  167:Y=  167 OK
+[ 384] y=  156:Y=  156 OK
+[ 385] y=  158:Y=  158 OK
+[ 386] y=  170:Y=  170 OK
+[ 387] y=  190:Y=  190 OK
+[ 388] y=  191:Y=  191 OK
+[ 389] y=  165:Y=  165 OK
+[ 390] y=  123:Y=  123 OK
+[ 391] y=   80:Y=   80 OK
+[ 392] y=   67:Y=   67 OK
+[ 393] y=   73:Y=   73 OK
+[ 394] y=   96:Y=   96 OK
+[ 395] y=  112:Y=  112 OK
+[ 396] y=  115:Y=  115 OK
+[ 397] y=  112:Y=  112 OK
+[ 398] y=  104:Y=  104 OK
+[ 399] y=  100:Y=  100 OK
+[ 400] y=   95:Y=   95 OK
+[ 401] y=   88:Y=   88 OK
+[ 402] y=   83:Y=   83 OK
+[ 403] y=   85:Y=   85 OK
+[ 404] y=   99:Y=   99 OK
+[ 405] y=  132:Y=  132 OK
+[ 406] y=  164:Y=  164 OK
+[ 407] y=  186:Y=  186 OK
+[ 408] y=  180:Y=  180 OK
+[ 409] y=  150:Y=  150 OK
+[ 410] y=  117:Y=  117 OK
+[ 411] y=   89:Y=   89 OK
+[ 412] y=   80:Y=   80 OK
+[ 413] y=   81:Y=   81 OK
+[ 414] y=   85:Y=   85 OK
+[ 415] y=   96:Y=   96 OK
+[ 416] y=  103:Y=  103 OK
+[ 417] y=  109:Y=  109 OK
+[ 418] y=  108:Y=  108 OK
+[ 419] y=  104:Y=  104 OK
+[ 420] y=  106:Y=  106 OK
+[ 421] y=  116:Y=  116 OK
+[ 422] y=  126:Y=  126 OK
+[ 423] y=  123:Y=  123 OK
+[ 424] y=  106:Y=  106 OK
+[ 425] y=   84:Y=   84 OK
+[ 426] y=   78:Y=   78 OK
+[ 427] y=   81:Y=   81 OK
+[ 428] y=   95:Y=   95 OK
+[ 429] y=   96:Y=   96 OK
+[ 430] y=   91:Y=   91 OK
+[ 431] y=   80:Y=   80 OK
+[ 432] y=   73:Y=   73 OK
+[ 433] y=   72:Y=   72 OK
+[ 434] y=   68:Y=   68 OK
+[ 435] y=   64:Y=   64 OK
+[ 436] y=   49:Y=   49 OK
+[ 437] y=   34:Y=   34 OK
+[ 438] y=   20:Y=   20 OK
+[ 439] y=   22:Y=   22 OK
+[ 440] y=   47:Y=   47 OK
+[ 441] y=   88:Y=   88 OK
+[ 442] y=  137:Y=  137 OK
+[ 443] y=  174:Y=  174 OK
+[ 444] y=  194:Y=  194 OK
+[ 445] y=  190:Y=  190 OK
+[ 446] y=  171:Y=  171 OK
+[ 447] y=  148:Y=  148 OK
+[ 448] y=  133:Y=  133 OK
+[ 449] y=  132:Y=  132 OK
+[ 450] y=  139:Y=  139 OK
+[ 451] y=  149:Y=  149 OK
+[ 452] y=  151:Y=  151 OK
+[ 453] y=  152:Y=  152 OK
+[ 454] y=  153:Y=  153 OK
+[ 455] y=  156:Y=  156 OK
+[ 456] y=  154:Y=  154 OK
+[ 457] y=  135:Y=  135 OK
+[ 458] y=  109:Y=  109 OK
+[ 459] y=   82:Y=   82 OK
+[ 460] y=   81:Y=   81 OK
+[ 461] y=   99:Y=   99 OK
+[ 462] y=  128:Y=  128 OK
+[ 463] y=  144:Y=  144 OK
+[ 464] y=  140:Y=  140 OK
+[ 465] y=  128:Y=  128 OK
+[ 466] y=  111:Y=  111 OK
+[ 467] y=  108:Y=  108 OK
+[ 468] y=  106:Y=  106 OK
+[ 469] y=  109:Y=  109 OK
+[ 470] y=  110:Y=  110 OK
+[ 471] y=  108:Y=  108 OK
+[ 472] y=  114:Y=  114 OK
+[ 473] y=  120:Y=  120 OK
+[ 474] y=  133:Y=  133 OK
+[ 475] y=  134:Y=  134 OK
+[ 476] y=  123:Y=  123 OK
+[ 477] y=   96:Y=   96 OK
+[ 478] y=   65:Y=   65 OK
+[ 479] y=   44:Y=   44 OK
+[ 480] y=   40:Y=   40 OK
+[ 481] y=   63:Y=   63 OK
+[ 482] y=  105:Y=  105 OK
+[ 483] y=  154:Y=  154 OK
+[ 484] y=  186:Y=  186 OK
+[ 485] y=  189:Y=  189 OK
+[ 486] y=  166:Y=  166 OK
+[ 487] y=  135:Y=  135 OK
+[ 488] y=  120:Y=  120 OK
+[ 489] y=  120:Y=  120 OK
+[ 490] y=  128:Y=  128 OK
+[ 491] y=  127:Y=  127 OK
+[ 492] y=  113:Y=  113 OK
+[ 493] y=   93:Y=   93 OK
+[ 494] y=   71:Y=   71 OK
+[ 495] y=   62:Y=   62 OK
+[ 496] y=   61:Y=   61 OK
+[ 497] y=   71:Y=   71 OK
+[ 498] y=   78:Y=   78 OK
+[ 499] y=   82:Y=   82 OK
+[ 500] y=   84:Y=   84 OK
+[ 501] y=   95:Y=   95 OK
+[ 502] y=  113:Y=  113 OK
+[ 503] y=  130:Y=  130 OK
+[ 504] y=  134:Y=  134 OK
+[ 505] y=  124:Y=  124 OK
+[ 506] y=  120:Y=  120 OK
+[ 507] y=  123:Y=  123 OK
+[ 508] y=  136:Y=  136 OK
+[ 509] y=  138:Y=  138 OK
+[ 510] y=  127:Y=  127 OK
+[ 511] y=  112:Y=  112 OK
+[ 512] y=  111:Y=  111 OK
+[ 513] y=  134:Y=  134 OK
+[ 514] y=  160:Y=  160 OK
+[ 515] y=  176:Y=  176 OK
+[ 516] y=  163:Y=  163 OK
+[ 517] y=  137:Y=  137 OK
+[ 518] y=  114:Y=  114 OK
+[ 519] y=  100:Y=  100 OK
+[ 520] y=   96:Y=   96 OK
+[ 521] y=   94:Y=   94 OK
+[ 522] y=  104:Y=  104 OK
+[ 523] y=  115:Y=  115 OK
+[ 524] y=  121:Y=  121 OK
+[ 525] y=  105:Y=  105 OK
+[ 526] y=   80:Y=   80 OK
+[ 527] y=   65:Y=   65 OK
+[ 528] y=   68:Y=   68 OK
+[ 529] y=   85:Y=   85 OK
+[ 530] y=   95:Y=   95 OK
+[ 531] y=  103:Y=  103 OK
+[ 532] y=  104:Y=  104 OK
+[ 533] y=  110:Y=  110 OK
+[ 534] y=  112:Y=  112 OK
+[ 535] y=  110:Y=  110 OK
+[ 536] y=  112:Y=  112 OK
+[ 537] y=  113:Y=  113 OK
+[ 538] y=  121:Y=  121 OK
+[ 539] y=  119:Y=  119 OK
+[ 540] y=  114:Y=  114 OK
+[ 541] y=  104:Y=  104 OK
+[ 542] y=   97:Y=   97 OK
+[ 543] y=   92:Y=   92 OK
+[ 544] y=   86:Y=   86 OK
+[ 545] y=   80:Y=   80 OK
+[ 546] y=   77:Y=   77 OK
+[ 547] y=   87:Y=   87 OK
+[ 548] y=  108:Y=  108 OK
+[ 549] y=  138:Y=  138 OK
+[ 550] y=  163:Y=  163 OK
+[ 551] y=  183:Y=  183 OK
+[ 552] y=  192:Y=  192 OK
+[ 553] y=  183:Y=  183 OK
+[ 554] y=  164:Y=  164 OK
+[ 555] y=  135:Y=  135 OK
+[ 556] y=  117:Y=  117 OK
+[ 557] y=  109:Y=  109 OK
+[ 558] y=  103:Y=  103 OK
+[ 559] y=   94:Y=   94 OK
+[ 560] y=   82:Y=   82 OK
+[ 561] y=   79:Y=   79 OK
+[ 562] y=   93:Y=   93 OK
+[ 563] y=  116:Y=  116 OK
+[ 564] y=  135:Y=  135 OK
+[ 565] y=  134:Y=  134 OK
+[ 566] y=  112:Y=  112 OK
+[ 567] y=   83:Y=   83 OK
+[ 568] y=   62:Y=   62 OK
+[ 569] y=   61:Y=   61 OK
+[ 570] y=   72:Y=   72 OK
+[ 571] y=   87:Y=   87 OK
+[ 572] y=  100:Y=  100 OK
+[ 573] y=  109:Y=  109 OK
+[ 574] y=  125:Y=  125 OK
+[ 575] y=  139:Y=  139 OK
+[ 576] y=  148:Y=  148 OK
+[ 577] y=  141:Y=  141 OK
+[ 578] y=  126:Y=  126 OK
+[ 579] y=  118:Y=  118 OK
+[ 580] y=  116:Y=  116 OK
+[ 581] y=  123:Y=  123 OK
+[ 582] y=  124:Y=  124 OK
+[ 583] y=  126:Y=  126 OK
+[ 584] y=  134:Y=  134 OK
+[ 585] y=  141:Y=  141 OK
+[ 586] y=  141:Y=  141 OK
+[ 587] y=  123:Y=  123 OK
+[ 588] y=  100:Y=  100 OK
+[ 589] y=   81:Y=   81 OK
+[ 590] y=   73:Y=   73 OK
+[ 591] y=   74:Y=   74 OK
+[ 592] y=   73:Y=   73 OK
+[ 593] y=   73:Y=   73 OK
+[ 594] y=   73:Y=   73 OK
+[ 595] y=   85:Y=   85 OK
+[ 596] y=   97:Y=   97 OK
+[ 597] y=  105:Y=  105 OK
+[ 598] y=   99:Y=   99 OK
+[ 599] y=   83:Y=   83 OK
+[ 600] y=   62:Y=   62 OK
+[ 601] y=   39:Y=   39 OK
+[ 602] y=   26:Y=   26 OK
+[ 603] y=   24:Y=   24 OK
+[ 604] y=   52:Y=   52 OK
+[ 605] y=   94:Y=   94 OK
+[ 606] y=  143:Y=  143 OK
+[ 607] y=  179:Y=  179 OK
+[ 608] y=  193:Y=  193 OK
+[ 609] y=  192:Y=  192 OK
+[ 610] y=  169:Y=  169 OK
+[ 611] y=  143:Y=  143 OK
+[ 612] y=  116:Y=  116 OK
+[ 613] y=   97:Y=   97 OK
+[ 614] y=   95:Y=   95 OK
+[ 615] y=  103:Y=  103 OK
+[ 616] y=  126:Y=  126 OK
+[ 617] y=  147:Y=  147 OK
+[ 618] y=  155:Y=  155 OK
+[ 619] y=  144:Y=  144 OK
+[ 620] y=  124:Y=  124 OK
+[ 621] y=  114:Y=  114 OK
+[ 622] y=  118:Y=  118 OK
+[ 623] y=  119:Y=  119 OK
+[ 624] y=  108:Y=  108 OK
+[ 625] y=   88:Y=   88 OK
+[ 626] y=   77:Y=   77 OK
+[ 627] y=   89:Y=   89 OK
+[ 628] y=  106:Y=  106 OK
+[ 629] y=  119:Y=  119 OK
+[ 630] y=  118:Y=  118 OK
+[ 631] y=  114:Y=  114 OK
+[ 632] y=  122:Y=  122 OK
+[ 633] y=  135:Y=  135 OK
+[ 634] y=  153:Y=  153 OK
+[ 635] y=  161:Y=  161 OK
+[ 636] y=  158:Y=  158 OK
+[ 637] y=  147:Y=  147 OK
+[ 638] y=  129:Y=  129 OK
+[ 639] y=  114:Y=  114 OK
+[ 640] y=  103:Y=  103 OK
+[ 641] y=  100:Y=  100 OK
+[ 642] y=  105:Y=  105 OK
+[ 643] y=  116:Y=  116 OK
+[ 644] y=  123:Y=  123 OK
+[ 645] y=  121:Y=  121 OK
+[ 646] y=  113:Y=  113 OK
+[ 647] y=  115:Y=  115 OK
+[ 648] y=  138:Y=  138 OK
+[ 649] y=  164:Y=  164 OK
+[ 650] y=  179:Y=  179 OK
+[ 651] y=  170:Y=  170 OK
+[ 652] y=  156:Y=  156 OK
+[ 653] y=  146:Y=  146 OK
+[ 654] y=  145:Y=  145 OK
+[ 655] y=  149:Y=  149 OK
+[ 656] y=  145:Y=  145 OK
+[ 657] y=  142:Y=  142 OK
+[ 658] y=  125:Y=  125 OK
+[ 659] y=  106:Y=  106 OK
+[ 660] y=   88:Y=   88 OK
+[ 661] y=   84:Y=   84 OK
+[ 662] y=   91:Y=   91 OK
+[ 663] y=   93:Y=   93 OK
+[ 664] y=   90:Y=   90 OK
+[ 665] y=   86:Y=   86 OK
+[ 666] y=   98:Y=   98 OK
+[ 667] y=  121:Y=  121 OK
+[ 668] y=  138:Y=  138 OK
+[ 669] y=  129:Y=  129 OK
+[ 670] y=   98:Y=   98 OK
+[ 671] y=   66:Y=   66 OK
+[ 672] y=   52:Y=   52 OK
+[ 673] y=   58:Y=   58 OK
+[ 674] y=   66:Y=   66 OK
+[ 675] y=   71:Y=   71 OK
+[ 676] y=   67:Y=   67 OK
+[ 677] y=   65:Y=   65 OK
+[ 678] y=   71:Y=   71 OK
+[ 679] y=   83:Y=   83 OK
+[ 680] y=  104:Y=  104 OK
+[ 681] y=  123:Y=  123 OK
+[ 682] y=  136:Y=  136 OK
+[ 683] y=  132:Y=  132 OK
+[ 684] y=  112:Y=  112 OK
+[ 685] y=   90:Y=   90 OK
+[ 686] y=   74:Y=   74 OK
+[ 687] y=   77:Y=   77 OK
+[ 688] y=   87:Y=   87 OK
+[ 689] y=   97:Y=   97 OK
+[ 690] y=  100:Y=  100 OK
+[ 691] y=   95:Y=   95 OK
+[ 692] y=   85:Y=   85 OK
+[ 693] y=   74:Y=   74 OK
+[ 694] y=   72:Y=   72 OK
+[ 695] y=   78:Y=   78 OK
+[ 696] y=   84:Y=   84 OK
+[ 697] y=   76:Y=   76 OK
+[ 698] y=   57:Y=   57 OK
+[ 699] y=   32:Y=   32 OK
+[ 700] y=   22:Y=   22 OK
+[ 701] y=   31:Y=   31 OK
+[ 702] y=   57:Y=   57 OK
+[ 703] y=   92:Y=   92 OK
+[ 704] y=  120:Y=  120 OK
+[ 705] y=  135:Y=  135 OK
+[ 706] y=  132:Y=  132 OK
+[ 707] y=  119:Y=  119 OK
+[ 708] y=  106:Y=  106 OK
+[ 709] y=  100:Y=  100 OK
+[ 710] y=  103:Y=  103 OK
+[ 711] y=  111:Y=  111 OK
+[ 712] y=  114:Y=  114 OK
+[ 713] y=  111:Y=  111 OK
+[ 714] y=  103:Y=  103 OK
+[ 715] y=  102:Y=  102 OK
+[ 716] y=  110:Y=  110 OK
+[ 717] y=  122:Y=  122 OK
+[ 718] y=  128:Y=  128 OK
+[ 719] y=  121:Y=  121 OK
+[ 720] y=  112:Y=  112 OK
+[ 721] y=  110:Y=  110 OK
+[ 722] y=  123:Y=  123 OK
+[ 723] y=  143:Y=  143 OK
+[ 724] y=  150:Y=  150 OK
+[ 725] y=  135:Y=  135 OK
+[ 726] y=   99:Y=   99 OK
+[ 727] y=   64:Y=   64 OK
+[ 728] y=   49:Y=   49 OK
+[ 729] y=   59:Y=   59 OK
+[ 730] y=   88:Y=   88 OK
+[ 731] y=  122:Y=  122 OK
+[ 732] y=  149:Y=  149 OK
+[ 733] y=  164:Y=  164 OK
+[ 734] y=  170:Y=  170 OK
+[ 735] y=  170:Y=  170 OK
+[ 736] y=  174:Y=  174 OK
+[ 737] y=  178:Y=  178 OK
+[ 738] y=  173:Y=  173 OK
+[ 739] y=  155:Y=  155 OK
+[ 740] y=  120:Y=  120 OK
+[ 741] y=   92:Y=   92 OK
+[ 742] y=   78:Y=   78 OK
+[ 743] y=   88:Y=   88 OK
+[ 744] y=  107:Y=  107 OK
+[ 745] y=  120:Y=  120 OK
+[ 746] y=  124:Y=  124 OK
+[ 747] y=  120:Y=  120 OK
+[ 748] y=  123:Y=  123 OK
+[ 749] y=  133:Y=  133 OK
+[ 750] y=  143:Y=  143 OK
+[ 751] y=  154:Y=  154 OK
+[ 752] y=  158:Y=  158 OK
+[ 753] y=  164:Y=  164 OK
+[ 754] y=  164:Y=  164 OK
+[ 755] y=  161:Y=  161 OK
+[ 756] y=  157:Y=  157 OK
+[ 757] y=  156:Y=  156 OK
+[ 758] y=  162:Y=  162 OK
+[ 759] y=  168:Y=  168 OK
+[ 760] y=  171:Y=  171 OK
+[ 761] y=  163:Y=  163 OK
+[ 762] y=  150:Y=  150 OK
+[ 763] y=  129:Y=  129 OK
+[ 764] y=  109:Y=  109 OK
+[ 765] y=   86:Y=   86 OK
+[ 766] y=   79:Y=   79 OK
+[ 767] y=   78:Y=   78 OK
+[ 768] y=   90:Y=   90 OK
+[ 769] y=  110:Y=  110 OK
+[ 770] y=  130:Y=  130 OK
+[ 771] y=  148:Y=  148 OK
+[ 772] y=  144:Y=  144 OK
+[ 773] y=  129:Y=  129 OK
+[ 774] y=  106:Y=  106 OK
+[ 775] y=   92:Y=   92 OK
+[ 776] y=   90:Y=   90 OK
+[ 777] y=   90:Y=   90 OK
+[ 778] y=   89:Y=   89 OK
+[ 779] y=   87:Y=   87 OK
+[ 780] y=   86:Y=   86 OK
+[ 781] y=   87:Y=   87 OK
+[ 782] y=   86:Y=   86 OK
+[ 783] y=   82:Y=   82 OK
+[ 784] y=   73:Y=   73 OK
+[ 785] y=   57:Y=   57 OK
+[ 786] y=   38:Y=   38 OK
+[ 787] y=   30:Y=   30 OK
+[ 788] y=   37:Y=   37 OK
+[ 789] y=   69:Y=   69 OK
+[ 790] y=  112:Y=  112 OK
+[ 791] y=  146:Y=  146 OK
+[ 792] y=  159:Y=  159 OK
+[ 793] y=  142:Y=  142 OK
+[ 794] y=  115:Y=  115 OK
+[ 795] y=   83:Y=   83 OK
+[ 796] y=   65:Y=   65 OK
+[ 797] y=   56:Y=   56 OK
+[ 798] y=   58:Y=   58 OK
+[ 799] y=   64:Y=   64 OK
+[ 800] y=   67:Y=   67 OK
+[ 801] y=   74:Y=   74 OK
+[ 802] y=   84:Y=   84 OK
+[ 803] y=   98:Y=   98 OK
+[ 804] y=  112:Y=  112 OK
+[ 805] y=  121:Y=  121 OK
+[ 806] y=  125:Y=  125 OK
+[ 807] y=  119:Y=  119 OK
+[ 808] y=  102:Y=  102 OK
+[ 809] y=   80:Y=   80 OK
+[ 810] y=   60:Y=   60 OK
+[ 811] y=   59:Y=   59 OK
+[ 812] y=   74:Y=   74 OK
+[ 813] y=  103:Y=  103 OK
+[ 814] y=  129:Y=  129 OK
+[ 815] y=  144:Y=  144 OK
+[ 816] y=  151:Y=  151 OK
+[ 817] y=  160:Y=  160 OK
+[ 818] y=  174:Y=  174 OK
+[ 819] y=  191:Y=  191 OK
+[ 820] y=  194:Y=  194 OK
+[ 821] y=  180:Y=  180 OK
+[ 822] y=  148:Y=  148 OK
+[ 823] y=  105:Y=  105 OK
+[ 824] y=   70:Y=   70 OK
+[ 825] y=   49:Y=   49 OK
+[ 826] y=   54:Y=   54 OK
+[ 827] y=   69:Y=   69 OK
+[ 828] y=   83:Y=   83 OK
+[ 829] y=   86:Y=   86 OK
+[ 830] y=   85:Y=   85 OK
+[ 831] y=   89:Y=   89 OK
+[ 832] y=  100:Y=  100 OK
+[ 833] y=  112:Y=  112 OK
+[ 834] y=  121:Y=  121 OK
+[ 835] y=  126:Y=  126 OK
+[ 836] y=  132:Y=  132 OK
+[ 837] y=  140:Y=  140 OK
+[ 838] y=  146:Y=  146 OK
+[ 839] y=  152:Y=  152 OK
+[ 840] y=  156:Y=  156 OK
+[ 841] y=  157:Y=  157 OK
+[ 842] y=  156:Y=  156 OK
+[ 843] y=  147:Y=  147 OK
+[ 844] y=  142:Y=  142 OK
+[ 845] y=  141:Y=  141 OK
+[ 846] y=  146:Y=  146 OK
+[ 847] y=  149:Y=  149 OK
+[ 848] y=  143:Y=  143 OK
+[ 849] y=  144:Y=  144 OK
+[ 850] y=  150:Y=  150 OK
+[ 851] y=  163:Y=  163 OK
+[ 852] y=  161:Y=  161 OK
+[ 853] y=  141:Y=  141 OK
+[ 854] y=  109:Y=  109 OK
+[ 855] y=   86:Y=   86 OK
+[ 856] y=   83:Y=   83 OK
+[ 857] y=  101:Y=  101 OK
+[ 858] y=  133:Y=  133 OK
+[ 859] y=  157:Y=  157 OK
+[ 860] y=  173:Y=  173 OK
+[ 861] y=  167:Y=  167 OK
+[ 862] y=  157:Y=  157 OK
+[ 863] y=  145:Y=  145 OK
+[ 864] y=  142:Y=  142 OK
+[ 865] y=  149:Y=  149 OK
+[ 866] y=  153:Y=  153 OK
+[ 867] y=  153:Y=  153 OK
+[ 868] y=  135:Y=  135 OK
+[ 869] y=  117:Y=  117 OK
+[ 870] y=  102:Y=  102 OK
+[ 871] y=  100:Y=  100 OK
+[ 872] y=  101:Y=  101 OK
+[ 873] y=   92:Y=   92 OK
+[ 874] y=   78:Y=   78 OK
+[ 875] y=   67:Y=   67 OK
+[ 876] y=   75:Y=   75 OK
+[ 877] y=  101:Y=  101 OK
+[ 878] y=  130:Y=  130 OK
+[ 879] y=  147:Y=  147 OK
+[ 880] y=  147:Y=  147 OK
+[ 881] y=  132:Y=  132 OK
+[ 882] y=  110:Y=  110 OK
+[ 883] y=   90:Y=   90 OK
+[ 884] y=   73:Y=   73 OK
+[ 885] y=   68:Y=   68 OK
+[ 886] y=   70:Y=   70 OK
+[ 887] y=   83:Y=   83 OK
+[ 888] y=   94:Y=   94 OK
+[ 889] y=   93:Y=   93 OK
+[ 890] y=   81:Y=   81 OK
+[ 891] y=   59:Y=   59 OK
+[ 892] y=   54:Y=   54 OK
+[ 893] y=   61:Y=   61 OK
+[ 894] y=   83:Y=   83 OK
+[ 895] y=  106:Y=  106 OK
+[ 896] y=  121:Y=  121 OK
+[ 897] y=  134:Y=  134 OK
+[ 898] y=  135:Y=  135 OK
+[ 899] y=  131:Y=  131 OK
+[ 900] y=  115:Y=  115 OK
+[ 901] y=   91:Y=   91 OK
+[ 902] y=   66:Y=   66 OK
+[ 903] y=   46:Y=   46 OK
+[ 904] y=   38:Y=   38 OK
+[ 905] y=   45:Y=   45 OK
+[ 906] y=   62:Y=   62 OK
+[ 907] y=   88:Y=   88 OK
+[ 908] y=  112:Y=  112 OK
+[ 909] y=  125:Y=  125 OK
+[ 910] y=  122:Y=  122 OK
+[ 911] y=  103:Y=  103 OK
+[ 912] y=   87:Y=   87 OK
+[ 913] y=   82:Y=   82 OK
+[ 914] y=   92:Y=   92 OK
+[ 915] y=  108:Y=  108 OK
+[ 916] y=  123:Y=  123 OK
+[ 917] y=  137:Y=  137 OK
+[ 918] y=  151:Y=  151 OK
+[ 919] y=  157:Y=  157 OK
+[ 920] y=  158:Y=  158 OK
+[ 921] y=  150:Y=  150 OK
+[ 922] y=  144:Y=  144 OK
+[ 923] y=  139:Y=  139 OK
+[ 924] y=  134:Y=  134 OK
+[ 925] y=  137:Y=  137 OK
+[ 926] y=  143:Y=  143 OK
+[ 927] y=  157:Y=  157 OK
+[ 928] y=  162:Y=  162 OK
+[ 929] y=  153:Y=  153 OK
+[ 930] y=  129:Y=  129 OK
+[ 931] y=   98:Y=   98 OK
+[ 932] y=   70:Y=   70 OK
+[ 933] y=   52:Y=   52 OK
+[ 934] y=   47:Y=   47 OK
+[ 935] y=   60:Y=   60 OK
+[ 936] y=   87:Y=   87 OK
+[ 937] y=  114:Y=  114 OK
+[ 938] y=  135:Y=  135 OK
+[ 939] y=  139:Y=  139 OK
+[ 940] y=  143:Y=  143 OK
+[ 941] y=  155:Y=  155 OK
+[ 942] y=  183:Y=  183 OK
+[ 943] y=  218:Y=  218 OK
+[ 944] y=  243:Y=  243 OK
+[ 945] y=  250:Y=  250 OK
+[ 946] y=  236:Y=  236 OK
+[ 947] y=  214:Y=  214 OK
+[ 948] y=  192:Y=  192 OK
+[ 949] y=  180:Y=  180 OK
+[ 950] y=  180:Y=  180 OK
+[ 951] y=  186:Y=  186 OK
+[ 952] y=  188:Y=  188 OK
+[ 953] y=  177:Y=  177 OK
+[ 954] y=  149:Y=  149 OK
+[ 955] y=  112:Y=  112 OK
+[ 956] y=   79:Y=   79 OK
+[ 957] y=   63:Y=   63 OK
+[ 958] y=   65:Y=   65 OK
+[ 959] y=   82:Y=   82 OK
+[ 960] y=  112:Y=  112 OK
+[ 961] y=  149:Y=  149 OK
+[ 962] y=  187:Y=  187 OK
+[ 963] y=  217:Y=  217 OK
+[ 964] y=  225:Y=  225 OK
+[ 965] y=  214:Y=  214 OK
+[ 966] y=  181:Y=  181 OK
+[ 967] y=  146:Y=  146 OK
+[ 968] y=  122:Y=  122 OK
+[ 969] y=  114:Y=  114 OK
+[ 970] y=  120:Y=  120 OK
+[ 971] y=  124:Y=  124 OK
+[ 972] y=  126:Y=  126 OK
+[ 973] y=  120:Y=  120 OK
+[ 974] y=  111:Y=  111 OK
+[ 975] y=   99:Y=   99 OK
+[ 976] y=   90:Y=   90 OK
+[ 977] y=   84:Y=   84 OK
+[ 978] y=   82:Y=   82 OK
+[ 979] y=   77:Y=   77 OK
+[ 980] y=   72:Y=   72 OK
+[ 981] y=   72:Y=   72 OK
+[ 982] y=   83:Y=   83 OK
+[ 983] y=   98:Y=   98 OK
+[ 984] y=  103:Y=  103 OK
+[ 985] y=   92:Y=   92 OK
+[ 986] y=   78:Y=   78 OK
+[ 987] y=   77:Y=   77 OK
+[ 988] y=   95:Y=   95 OK
+[ 989] y=  123:Y=  123 OK
+[ 990] y=  143:Y=  143 OK
+[ 991] y=  147:Y=  147 OK
+[ 992] y=  130:Y=  130 OK
+[ 993] y=  104:Y=  104 OK
+[ 994] y=   72:Y=   72 OK
+[ 995] y=   48:Y=   48 OK
+[ 996] y=   35:Y=   35 OK
+[ 997] y=   37:Y=   37 OK
+[ 998] y=   47:Y=   47 OK
+[ 999] y=   60:Y=   60 OK
+[1000] y=   69:Y=   69 OK
+[1001] y=   76:Y=   76 OK
+[1002] y=   79:Y=   79 OK
+[1003] y=   80:Y=   80 OK
+[1004] y=   84:Y=   84 OK
+[1005] y=   89:Y=   89 OK
+[1006] y=  101:Y=  101 OK
+[1007] y=  107:Y=  107 OK
+[1008] y=  111:Y=  111 OK
+[1009] y=  115:Y=  115 OK
+[1010] y=  126:Y=  126 OK
+[1011] y=  145:Y=  145 OK
+[1012] y=  154:Y=  154 OK
+[1013] y=  147:Y=  147 OK
+[1014] y=  121:Y=  121 OK
+[1015] y=   93:Y=   93 OK
+[1016] y=   82:Y=   82 OK
+[1017] y=   91:Y=   91 OK
+[1018] y=  116:Y=  116 OK
+[1019] y=  142:Y=  142 OK
+[1020] y=  159:Y=  159 OK
+[1021] y=  167:Y=  167 OK
+[1022] y=  171:Y=  171 OK
+[1023] y=  177:Y=  177 OK
+[1024] y=  188:Y=  188 OK
+[1025] y=  189:Y=  189 OK
+[1026] y=  170:Y=  170 OK
+[1027] y=  131:Y=  131 OK
+[1028] y=   93:Y=   93 OK
+[1029] y=   78:Y=   78 OK
+[1030] y=   86:Y=   86 OK
+[1031] y=  104:Y=  104 OK
+[1032] y=  118:Y=  118 OK
+[1033] y=  123:Y=  123 OK
+[1034] y=  129:Y=  129 OK
+[1035] y=  132:Y=  132 OK
+[1036] y=  142:Y=  142 OK
+[1037] y=  145:Y=  145 OK
+[1038] y=  152:Y=  152 OK
+[1039] y=  161:Y=  161 OK
+[1040] y=  168:Y=  168 OK
+[1041] y=  177:Y=  177 OK
+[1042] y=  169:Y=  169 OK
+[1043] y=  154:Y=  154 OK
+[1044] y=  128:Y=  128 OK
+[1045] y=  103:Y=  103 OK
+[1046] y=   94:Y=   94 OK
+[1047] y=   90:Y=   90 OK
+[1048] y=   95:Y=   95 OK
+[1049] y=   90:Y=   90 OK
+[1050] y=   83:Y=   83 OK
+[1051] y=   78:Y=   78 OK
+[1052] y=   89:Y=   89 OK
+[1053] y=  116:Y=  116 OK
+[1054] y=  145:Y=  145 OK
+[1055] y=  162:Y=  162 OK
+[1056] y=  160:Y=  160 OK
+[1057] y=  148:Y=  148 OK
+[1058] y=  139:Y=  139 OK
+[1059] y=  143:Y=  143 OK
+[1060] y=  149:Y=  149 OK
+[1061] y=  149:Y=  149 OK
+[1062] y=  134:Y=  134 OK
+[1063] y=  106:Y=  106 OK
+[1064] y=   79:Y=   79 OK
+[1065] y=   58:Y=   58 OK
+[1066] y=   51:Y=   51 OK
+[1067] y=   49:Y=   49 OK
+[1068] y=   50:Y=   50 OK
+[1069] y=   51:Y=   51 OK
+[1070] y=   50:Y=   50 OK
+[1071] y=   53:Y=   53 OK
+[1072] y=   53:Y=   53 OK
+[1073] y=   55:Y=   55 OK
+[1074] y=   53:Y=   53 OK
+[1075] y=   50:Y=   50 OK
+[1076] y=   50:Y=   50 OK
+[1077] y=   49:Y=   49 OK
+[1078] y=   50:Y=   50 OK
+[1079] y=   55:Y=   55 OK
+[1080] y=   60:Y=   60 OK
+[1081] y=   72:Y=   72 OK
+[1082] y=   85:Y=   85 OK
+[1083] y=   96:Y=   96 OK
+[1084] y=  105:Y=  105 OK
+[1085] y=  107:Y=  107 OK
+[1086] y=  115:Y=  115 OK
+[1087] y=  128:Y=  128 OK
+[1088] y=  137:Y=  137 OK
+[1089] y=  135:Y=  135 OK
+[1090] y=  119:Y=  119 OK
+[1091] y=  100:Y=  100 OK
+[1092] y=   90:Y=   90 OK
+[1093] y=   84:Y=   84 OK
+[1094] y=   78:Y=   78 OK
+[1095] y=   72:Y=   72 OK
+[1096] y=   70:Y=   70 OK
+[1097] y=   84:Y=   84 OK
+[1098] y=  105:Y=  105 OK
+[1099] y=  131:Y=  131 OK
+[1100] y=  148:Y=  148 OK
+[1101] y=  151:Y=  151 OK
+[1102] y=  142:Y=  142 OK
+[1103] y=  126:Y=  126 OK
+[1104] y=  108:Y=  108 OK
+[1105] y=   99:Y=   99 OK
+[1106] y=   96:Y=   96 OK
+[1107] y=  105:Y=  105 OK
+[1108] y=  120:Y=  120 OK
+[1109] y=  137:Y=  137 OK
+[1110] y=  153:Y=  153 OK
+[1111] y=  153:Y=  153 OK
+[1112] y=  147:Y=  147 OK
+[1113] y=  134:Y=  134 OK
+[1114] y=  131:Y=  131 OK
+[1115] y=  136:Y=  136 OK
+[1116] y=  143:Y=  143 OK
+[1117] y=  146:Y=  146 OK
+[1118] y=  146:Y=  146 OK
+[1119] y=  147:Y=  147 OK
+[1120] y=  146:Y=  146 OK
+[1121] y=  136:Y=  136 OK
+[1122] y=  115:Y=  115 OK
+[1123] y=   97:Y=   97 OK
+[1124] y=   92:Y=   92 OK
+[1125] y=  106:Y=  106 OK
+[1126] y=  127:Y=  127 OK
+[1127] y=  140:Y=  140 OK
+[1128] y=  140:Y=  140 OK
+[1129] y=  124:Y=  124 OK
+[1130] y=  113:Y=  113 OK
+[1131] y=  111:Y=  111 OK
+[1132] y=  125:Y=  125 OK
+[1133] y=  150:Y=  150 OK
+[1134] y=  169:Y=  169 OK
+[1135] y=  181:Y=  181 OK
+[1136] y=  174:Y=  174 OK
+[1137] y=  156:Y=  156 OK
+[1138] y=  132:Y=  132 OK
+[1139] y=  112:Y=  112 OK
+[1140] y=  109:Y=  109 OK
+[1141] y=  117:Y=  117 OK
+[1142] y=  131:Y=  131 OK
+[1143] y=  134:Y=  134 OK
+[1144] y=  130:Y=  130 OK
+[1145] y=  126:Y=  126 OK
+[1146] y=  126:Y=  126 OK
+[1147] y=  129:Y=  129 OK
+[1148] y=  124:Y=  124 OK
+[1149] y=  108:Y=  108 OK
+[1150] y=   84:Y=   84 OK
+[1151] y=   66:Y=   66 OK
+[1152] y=   64:Y=   64 OK
+[1153] y=   84:Y=   84 OK
+[1154] y=  110:Y=  110 OK
+[1155] y=  133:Y=  133 OK
+[1156] y=  134:Y=  134 OK
+[1157] y=  125:Y=  125 OK
+[1158] y=  117:Y=  117 OK
+[1159] y=  119:Y=  119 OK
+[1160] y=  134:Y=  134 OK
+[1161] y=  147:Y=  147 OK
+[1162] y=  163:Y=  163 OK
+[1163] y=  165:Y=  165 OK
+[1164] y=  153:Y=  153 OK
+[1165] y=  125:Y=  125 OK
+[1166] y=   91:Y=   91 OK
+[1167] y=   63:Y=   63 OK
+[1168] y=   45:Y=   45 OK
+[1169] y=   35:Y=   35 OK
+[1170] y=   27:Y=   27 OK
+[1171] y=   30:Y=   30 OK
+[1172] y=   44:Y=   44 OK
+[1173] y=   72:Y=   72 OK
+[1174] y=  100:Y=  100 OK
+[1175] y=  118:Y=  118 OK
+[1176] y=  125:Y=  125 OK
+[1177] y=  115:Y=  115 OK
+[1178] y=  105:Y=  105 OK
+[1179] y=   87:Y=   87 OK
+[1180] y=   77:Y=   77 OK
+[1181] y=   69:Y=   69 OK
+[1182] y=   66:Y=   66 OK
+[1183] y=   75:Y=   75 OK
+[1184] y=   91:Y=   91 OK
+[1185] y=  124:Y=  124 OK
+[1186] y=  150:Y=  150 OK
+[1187] y=  169:Y=  169 OK
+[1188] y=  169:Y=  169 OK
+[1189] y=  155:Y=  155 OK
+[1190] y=  132:Y=  132 OK
+[1191] y=  105:Y=  105 OK
+[1192] y=   79:Y=   79 OK
+[1193] y=   59:Y=   59 OK
+[1194] y=   52:Y=   52 OK
+[1195] y=   60:Y=   60 OK
+[1196] y=   77:Y=   77 OK
+[1197] y=   95:Y=   95 OK
+[1198] y=  114:Y=  114 OK
+[1199] y=  120:Y=  120 OK
+[1200] y=  121:Y=  121 OK
+[1201] y=  111:Y=  111 OK
+[1202] y=  105:Y=  105 OK
+[1203] y=  115:Y=  115 OK
+[1204] y=  129:Y=  129 OK
+[1205] y=  144:Y=  144 OK
+[1206] y=  131:Y=  131 OK
+[1207] y=  107:Y=  107 OK
+[1208] y=   87:Y=   87 OK
+[1209] y=   90:Y=   90 OK
+[1210] y=  116:Y=  116 OK
+[1211] y=  141:Y=  141 OK
+[1212] y=  149:Y=  149 OK
+[1213] y=  141:Y=  141 OK
+[1214] y=  131:Y=  131 OK
+[1215] y=  127:Y=  127 OK
+[1216] y=  128:Y=  128 OK
+[1217] y=  128:Y=  128 OK
+[1218] y=  134:Y=  134 OK
+[1219] y=  144:Y=  144 OK
+[1220] y=  156:Y=  156 OK
+[1221] y=  154:Y=  154 OK
+[1222] y=  133:Y=  133 OK
+[1223] y=  104:Y=  104 OK
+[1224] y=   86:Y=   86 OK
+[1225] y=   85:Y=   85 OK
+[1226] y=   97:Y=   97 OK
+[1227] y=  109:Y=  109 OK
+[1228] y=  119:Y=  119 OK
+[1229] y=  133:Y=  133 OK
+[1230] y=  157:Y=  157 OK
+[1231] y=  186:Y=  186 OK
+[1232] y=  199:Y=  199 OK
+[1233] y=  189:Y=  189 OK
+[1234] y=  167:Y=  167 OK
+[1235] y=  154:Y=  154 OK
+[1236] y=  155:Y=  155 OK
+[1237] y=  158:Y=  158 OK
+[1238] y=  145:Y=  145 OK
+[1239] y=  119:Y=  119 OK
+[1240] y=  102:Y=  102 OK
+[1241] y=  111:Y=  111 OK
+[1242] y=  141:Y=  141 OK
+[1243] y=  164:Y=  164 OK
+[1244] y=  163:Y=  163 OK
+[1245] y=  138:Y=  138 OK
+[1246] y=  110:Y=  110 OK
+[1247] y=   94:Y=   94 OK
+[1248] y=   93:Y=   93 OK
+[1249] y=  106:Y=  106 OK
+[1250] y=  123:Y=  123 OK
+[1251] y=  144:Y=  144 OK
+[1252] y=  153:Y=  153 OK
+[1253] y=  145:Y=  145 OK
+[1254] y=  129:Y=  129 OK
+[1255] y=  116:Y=  116 OK
+[1256] y=  122:Y=  122 OK
+[1257] y=  140:Y=  140 OK
+[1258] y=  162:Y=  162 OK
+[1259] y=  172:Y=  172 OK
+[1260] y=  167:Y=  167 OK
+[1261] y=  151:Y=  151 OK
+[1262] y=  133:Y=  133 OK
+[1263] y=  128:Y=  128 OK
+[1264] y=  132:Y=  132 OK
+[1265] y=  143:Y=  143 OK
+[1266] y=  144:Y=  144 OK
+[1267] y=  138:Y=  138 OK
+[1268] y=  127:Y=  127 OK
+[1269] y=  120:Y=  120 OK
+[1270] y=  114:Y=  114 OK
+[1271] y=  105:Y=  105 OK
+[1272] y=   95:Y=   95 OK
+[1273] y=   87:Y=   87 OK
+[1274] y=   93:Y=   93 OK
+[1275] y=  102:Y=  102 OK
+[1276] y=  109:Y=  109 OK
+[1277] y=  108:Y=  108 OK
+[1278] y=  109:Y=  109 OK
+[1279] y=  117:Y=  117 OK
+[1280] y=  124:Y=  124 OK
+[1281] y=  123:Y=  123 OK
+[1282] y=  104:Y=  104 OK
+[1283] y=   80:Y=   80 OK
+[1284] y=   64:Y=   64 OK
+[1285] y=   70:Y=   70 OK
+[1286] y=   94:Y=   94 OK
+[1287] y=  126:Y=  126 OK
+[1288] y=  145:Y=  145 OK
+[1289] y=  146:Y=  146 OK
+[1290] y=  127:Y=  127 OK
+[1291] y=  101:Y=  101 OK
+[1292] y=   77:Y=   77 OK
+[1293] y=   65:Y=   65 OK
+[1294] y=   66:Y=   66 OK
+[1295] y=   79:Y=   79 OK
+[1296] y=   99:Y=   99 OK
+[1297] y=  117:Y=  117 OK
+[1298] y=  123:Y=  123 OK
+[1299] y=  118:Y=  118 OK
+[1300] y=  105:Y=  105 OK
+[1301] y=   97:Y=   97 OK
+[1302] y=   93:Y=   93 OK
+[1303] y=   86:Y=   86 OK
+[1304] y=   78:Y=   78 OK
+[1305] y=   68:Y=   68 OK
+[1306] y=   71:Y=   71 OK
+[1307] y=   86:Y=   86 OK
+[1308] y=  110:Y=  110 OK
+[1309] y=  127:Y=  127 OK
+[1310] y=  124:Y=  124 OK
+[1311] y=  106:Y=  106 OK
+[1312] y=   85:Y=   85 OK
+[1313] y=   74:Y=   74 OK
+[1314] y=   74:Y=   74 OK
+[1315] y=   74:Y=   74 OK
+[1316] y=   66:Y=   66 OK
+[1317] y=   56:Y=   56 OK
+[1318] y=   55:Y=   55 OK
+[1319] y=   71:Y=   71 OK
+[1320] y=  100:Y=  100 OK
+[1321] y=  125:Y=  125 OK
+[1322] y=  141:Y=  141 OK
+[1323] y=  142:Y=  142 OK
+[1324] y=  136:Y=  136 OK
+[1325] y=  127:Y=  127 OK
+[1326] y=  116:Y=  116 OK
+[1327] y=  103:Y=  103 OK
+[1328] y=   88:Y=   88 OK
+[1329] y=   78:Y=   78 OK
+[1330] y=   73:Y=   73 OK
+[1331] y=   74:Y=   74 OK
+[1332] y=   75:Y=   75 OK
+[1333] y=   75:Y=   75 OK
+[1334] y=   74:Y=   74 OK
+[1335] y=   74:Y=   74 OK
+[1336] y=   84:Y=   84 OK
+[1337] y=   97:Y=   97 OK
+[1338] y=  115:Y=  115 OK
+[1339] y=  122:Y=  122 OK
+[1340] y=  120:Y=  120 OK
+[1341] y=  111:Y=  111 OK
+[1342] y=  102:Y=  102 OK
+[1343] y=  100:Y=  100 OK
+[1344] y=   98:Y=   98 OK
+[1345] y=  101:Y=  101 OK
+[1346] y=  104:Y=  104 OK
+[1347] y=  105:Y=  105 OK
+[1348] y=  105:Y=  105 OK
+[1349] y=   99:Y=   99 OK
+[1350] y=   97:Y=   97 OK
+[1351] y=   93:Y=   93 OK
+[1352] y=   94:Y=   94 OK
+[1353] y=   97:Y=   97 OK
+[1354] y=  100:Y=  100 OK
+[1355] y=  104:Y=  104 OK
+[1356] y=  103:Y=  103 OK
+[1357] y=  102:Y=  102 OK
+[1358] y=   99:Y=   99 OK
+[1359] y=   89:Y=   89 OK
+[1360] y=   77:Y=   77 OK
+[1361] y=   60:Y=   60 OK
+[1362] y=   55:Y=   55 OK
+[1363] y=   65:Y=   65 OK
+[1364] y=   86:Y=   86 OK
+[1365] y=  113:Y=  113 OK
+[1366] y=  128:Y=  128 OK
+[1367] y=  136:Y=  136 OK
+[1368] y=  135:Y=  135 OK
+[1369] y=  138:Y=  138 OK
+[1370] y=  147:Y=  147 OK
+[1371] y=  150:Y=  150 OK
+[1372] y=  148:Y=  148 OK
+[1373] y=  132:Y=  132 OK
+[1374] y=  122:Y=  122 OK
+[1375] y=  126:Y=  126 OK
+[1376] y=  135:Y=  135 OK
+[1377] y=  139:Y=  139 OK
+[1378] y=  123:Y=  123 OK
+[1379] y=  107:Y=  107 OK
+[1380] y=  105:Y=  105 OK
+[1381] y=  125:Y=  125 OK
+[1382] y=  153:Y=  153 OK
+[1383] y=  163:Y=  163 OK
+[1384] y=  148:Y=  148 OK
+[1385] y=  114:Y=  114 OK
+[1386] y=   84:Y=   84 OK
+[1387] y=   70:Y=   70 OK
+[1388] y=   75:Y=   75 OK
+[1389] y=   86:Y=   86 OK
+[1390] y=   98:Y=   98 OK
+[1391] y=  107:Y=  107 OK
+[1392] y=  106:Y=  106 OK
+[1393] y=  107:Y=  107 OK
+[1394] y=  100:Y=  100 OK
+[1395] y=  104:Y=  104 OK
+[1396] y=  104:Y=  104 OK
+[1397] y=  103:Y=  103 OK
+[1398] y=   98:Y=   98 OK
+[1399] y=   87:Y=   87 OK
+[1400] y=   83:Y=   83 OK
+[1401] y=   80:Y=   80 OK
+[1402] y=   87:Y=   87 OK
+[1403] y=   94:Y=   94 OK
+[1404] y=  100:Y=  100 OK
+[1405] y=  100:Y=  100 OK
+[1406] y=  102:Y=  102 OK
+[1407] y=  115:Y=  115 OK
+[1408] y=  135:Y=  135 OK
+[1409] y=  149:Y=  149 OK
+[1410] y=  146:Y=  146 OK
+[1411] y=  132:Y=  132 OK
+[1412] y=  113:Y=  113 OK
+[1413] y=  102:Y=  102 OK
+[1414] y=   94:Y=   94 OK
+[1415] y=   95:Y=   95 OK
+[1416] y=  102:Y=  102 OK
+[1417] y=  106:Y=  106 OK
+[1418] y=  111:Y=  111 OK
+[1419] y=  103:Y=  103 OK
+[1420] y=   96:Y=   96 OK
+[1421] y=   89:Y=   89 OK
+[1422] y=   90:Y=   90 OK
+[1423] y=  100:Y=  100 OK
+[1424] y=  109:Y=  109 OK
+[1425] y=  114:Y=  114 OK
+[1426] y=  112:Y=  112 OK
+[1427] y=  108:Y=  108 OK
+[1428] y=  102:Y=  102 OK
+[1429] y=   91:Y=   91 OK
+[1430] y=   79:Y=   79 OK
+[1431] y=   72:Y=   72 OK
+[1432] y=   81:Y=   81 OK
+[1433] y=  109:Y=  109 OK
+[1434] y=  146:Y=  146 OK
+[1435] y=  176:Y=  176 OK
+[1436] y=  187:Y=  187 OK
+[1437] y=  173:Y=  173 OK
+[1438] y=  150:Y=  150 OK
+[1439] y=  124:Y=  124 OK
+[1440] y=  106:Y=  106 OK
+[1441] y=   99:Y=   99 OK
+[1442] y=   94:Y=   94 OK
+[1443] y=  101:Y=  101 OK
+[1444] y=  102:Y=  102 OK
+[1445] y=  100:Y=  100 OK
+[1446] y=   91:Y=   91 OK
+[1447] y=   82:Y=   82 OK
+[1448] y=   89:Y=   89 OK
+[1449] y=   96:Y=   96 OK
+[1450] y=  110:Y=  110 OK
+[1451] y=  116:Y=  116 OK
+[1452] y=  123:Y=  123 OK
+[1453] y=  133:Y=  133 OK
+[1454] y=  141:Y=  141 OK
+[1455] y=  148:Y=  148 OK
+[1456] y=  144:Y=  144 OK
+[1457] y=  128:Y=  128 OK
+[1458] y=  102:Y=  102 OK
+[1459] y=   71:Y=   71 OK
+[1460] y=   43:Y=   43 OK
+[1461] y=   31:Y=   31 OK
+[1462] y=   38:Y=   38 OK
+[1463] y=   67:Y=   67 OK
+[1464] y=   96:Y=   96 OK
+[1465] y=  110:Y=  110 OK
+[1466] y=  106:Y=  106 OK
+[1467] y=   96:Y=   96 OK
+[1468] y=   98:Y=   98 OK
+[1469] y=  117:Y=  117 OK
+[1470] y=  147:Y=  147 OK
+[1471] y=  181:Y=  181 OK
+[1472] y=  206:Y=  206 OK
+[1473] y=  214:Y=  214 OK
+[1474] y=  198:Y=  198 OK
+[1475] y=  157:Y=  157 OK
+[1476] y=  112:Y=  112 OK
+[1477] y=   76:Y=   76 OK
+[1478] y=   64:Y=   64 OK
+[1479] y=   65:Y=   65 OK
+[1480] y=   74:Y=   74 OK
+[1481] y=   82:Y=   82 OK
+[1482] y=   86:Y=   86 OK
+[1483] y=   84:Y=   84 OK
+[1484] y=   72:Y=   72 OK
+[1485] y=   55:Y=   55 OK
+[1486] y=   43:Y=   43 OK
+[1487] y=   48:Y=   48 OK
+[1488] y=   70:Y=   70 OK
+[1489] y=  104:Y=  104 OK
+[1490] y=  138:Y=  138 OK
+[1491] y=  159:Y=  159 OK
+[1492] y=  166:Y=  166 OK
+[1493] y=  159:Y=  159 OK
+[1494] y=  150:Y=  150 OK
+[1495] y=  149:Y=  149 OK
+[1496] y=  157:Y=  157 OK
+[1497] y=  172:Y=  172 OK
+[1498] y=  189:Y=  189 OK
+[1499] y=  201:Y=  201 OK
+[1500] y=  202:Y=  202 OK
+[1501] y=  189:Y=  189 OK
+[1502] y=  168:Y=  168 OK
+[1503] y=  146:Y=  146 OK
+[1504] y=  130:Y=  130 OK
+[1505] y=  123:Y=  123 OK
+[1506] y=  123:Y=  123 OK
+[1507] y=  130:Y=  130 OK
+[1508] y=  137:Y=  137 OK
+[1509] y=  141:Y=  141 OK
+[1510] y=  142:Y=  142 OK
+[1511] y=  138:Y=  138 OK
+[1512] y=  131:Y=  131 OK
+[1513] y=  119:Y=  119 OK
+[1514] y=  108:Y=  108 OK
+[1515] y=  101:Y=  101 OK
+[1516] y=  100:Y=  100 OK
+[1517] y=  105:Y=  105 OK
+[1518] y=  110:Y=  110 OK
+[1519] y=  112:Y=  112 OK
+[1520] y=  105:Y=  105 OK
+[1521] y=   93:Y=   93 OK
+[1522] y=   80:Y=   80 OK
+[1523] y=   72:Y=   72 OK
+[1524] y=   73:Y=   73 OK
+[1525] y=   86:Y=   86 OK
+[1526] y=  109:Y=  109 OK
+[1527] y=  136:Y=  136 OK
+[1528] y=  152:Y=  152 OK
+[1529] y=  152:Y=  152 OK
+[1530] y=  143:Y=  143 OK
+[1531] y=  131:Y=  131 OK
+[1532] y=  126:Y=  126 OK
+[1533] y=  118:Y=  118 OK
+[1534] y=  111:Y=  111 OK
+[1535] y=   97:Y=   97 OK
+[1536] y=   89:Y=   89 OK
+[1537] y=   90:Y=   90 OK
+[1538] y=   95:Y=   95 OK
+[1539] y=  108:Y=  108 OK
+[1540] y=  110:Y=  110 OK
+[1541] y=  109:Y=  109 OK
+[1542] y=   92:Y=   92 OK
+[1543] y=   69:Y=   69 OK
+[1544] y=   50:Y=   50 OK
+[1545] y=   46:Y=   46 OK
+[1546] y=   67:Y=   67 OK
+[1547] y=   99:Y=   99 OK
+[1548] y=  133:Y=  133 OK
+[1549] y=  157:Y=  157 OK
+[1550] y=  159:Y=  159 OK
+[1551] y=  147:Y=  147 OK
+[1552] y=  121:Y=  121 OK
+[1553] y=   98:Y=   98 OK
+[1554] y=   91:Y=   91 OK
+[1555] y=   99:Y=   99 OK
+[1556] y=  124:Y=  124 OK
+[1557] y=  151:Y=  151 OK
+[1558] y=  168:Y=  168 OK
+[1559] y=  168:Y=  168 OK
+[1560] y=  140:Y=  140 OK
+[1561] y=   93:Y=   93 OK
+[1562] y=   41:Y=   41 OK
+[1563] y=    1:Y=    1 OK
+[1564] y=  171:Y=  171 OK
+[1565] y=    0:Y=    0 OK
+[1566] y=   30:Y=   30 OK
+[1567] y=   68:Y=   68 OK
+[1568] y=   98:Y=   98 OK
+[1569] y=  112:Y=  112 OK
+[1570] y=  110:Y=  110 OK
+[1571] y=  105:Y=  105 OK
+[1572] y=  111:Y=  111 OK
+[1573] y=  124:Y=  124 OK
+[1574] y=  132:Y=  132 OK
+[1575] y=  121:Y=  121 OK
+[1576] y=   97:Y=   97 OK
+[1577] y=   83:Y=   83 OK
+[1578] y=   89:Y=   89 OK
+[1579] y=  119:Y=  119 OK
+[1580] y=  150:Y=  150 OK
+[1581] y=  170:Y=  170 OK
+[1582] y=  170:Y=  170 OK
+[1583] y=  154:Y=  154 OK
+[1584] y=  135:Y=  135 OK
+[1585] y=  124:Y=  124 OK
+[1586] y=  125:Y=  125 OK
+[1587] y=  131:Y=  131 OK
+[1588] y=  134:Y=  134 OK
+[1589] y=  134:Y=  134 OK
+[1590] y=  139:Y=  139 OK
+[1591] y=  153:Y=  153 OK
+[1592] y=  168:Y=  168 OK
+[1593] y=  176:Y=  176 OK
+[1594] y=  175:Y=  175 OK
+[1595] y=  171:Y=  171 OK
+[1596] y=  169:Y=  169 OK
+[1597] y=  163:Y=  163 OK
+[1598] y=  153:Y=  153 OK
+[1599] y=  133:Y=  133 OK
+[1600] y=  117:Y=  117 OK
+[1601] y=  105:Y=  105 OK
+[1602] y=  107:Y=  107 OK
+[1603] y=  117:Y=  117 OK
+[1604] y=  130:Y=  130 OK
+[1605] y=  145:Y=  145 OK
+[1606] y=  155:Y=  155 OK
+[1607] y=  170:Y=  170 OK
+[1608] y=  184:Y=  184 OK
+[1609] y=  194:Y=  194 OK
+[1610] y=  193:Y=  193 OK
+[1611] y=  173:Y=  173 OK
+[1612] y=  155:Y=  155 OK
+[1613] y=  138:Y=  138 OK
+[1614] y=  129:Y=  129 OK
+[1615] y=  124:Y=  124 OK
+[1616] y=  115:Y=  115 OK
+[1617] y=  110:Y=  110 OK
+[1618] y=   95:Y=   95 OK
+[1619] y=   74:Y=   74 OK
+[1620] y=   44:Y=   44 OK
+[1621] y=   20:Y=   20 OK
+[1622] y=   19:Y=   19 OK
+[1623] y=   38:Y=   38 OK
+[1624] y=   70:Y=   70 OK
+[1625] y=   98:Y=   98 OK
+[1626] y=  114:Y=  114 OK
+[1627] y=  123:Y=  123 OK
+[1628] y=  127:Y=  127 OK
+[1629] y=  133:Y=  133 OK
+[1630] y=  139:Y=  139 OK
+[1631] y=  145:Y=  145 OK
+[1632] y=  148:Y=  148 OK
+[1633] y=  144:Y=  144 OK
+[1634] y=  133:Y=  133 OK
+[1635] y=  125:Y=  125 OK
+[1636] y=  121:Y=  121 OK
+[1637] y=  124:Y=  124 OK
+[1638] y=  122:Y=  122 OK
+[1639] y=  112:Y=  112 OK
+[1640] y=  103:Y=  103 OK
+[1641] y=   94:Y=   94 OK
+[1642] y=   92:Y=   92 OK
+[1643] y=   88:Y=   88 OK
+[1644] y=   84:Y=   84 OK
+[1645] y=   87:Y=   87 OK
+[1646] y=   98:Y=   98 OK
+[1647] y=  116:Y=  116 OK
+[1648] y=  134:Y=  134 OK
+[1649] y=  147:Y=  147 OK
+[1650] y=  155:Y=  155 OK
+[1651] y=  161:Y=  161 OK
+[1652] y=  164:Y=  164 OK
+[1653] y=  168:Y=  168 OK
+[1654] y=  161:Y=  161 OK
+[1655] y=  150:Y=  150 OK
+[1656] y=  131:Y=  131 OK
+[1657] y=  110:Y=  110 OK
+[1658] y=   96:Y=   96 OK
+[1659] y=   82:Y=   82 OK
+[1660] y=   75:Y=   75 OK
+[1661] y=   69:Y=   69 OK
+[1662] y=   79:Y=   79 OK
+[1663] y=  104:Y=  104 OK
+[1664] y=  131:Y=  131 OK
+[1665] y=  149:Y=  149 OK
+[1666] y=  142:Y=  142 OK
+[1667] y=  125:Y=  125 OK
+[1668] y=  116:Y=  116 OK
+[1669] y=  126:Y=  126 OK
+[1670] y=  153:Y=  153 OK
+[1671] y=  175:Y=  175 OK
+[1672] y=  176:Y=  176 OK
+[1673] y=  155:Y=  155 OK
+[1674] y=  125:Y=  125 OK
+[1675] y=  102:Y=  102 OK
+[1676] y=  100:Y=  100 OK
+[1677] y=  109:Y=  109 OK
+[1678] y=  126:Y=  126 OK
+[1679] y=  133:Y=  133 OK
+[1680] y=  136:Y=  136 OK
+[1681] y=  140:Y=  140 OK
+[1682] y=  149:Y=  149 OK
+[1683] y=  156:Y=  156 OK
+[1684] y=  150:Y=  150 OK
+[1685] y=  136:Y=  136 OK
+[1686] y=  127:Y=  127 OK
+[1687] y=  131:Y=  131 OK
+[1688] y=  143:Y=  143 OK
+[1689] y=  153:Y=  153 OK
+[1690] y=  155:Y=  155 OK
+[1691] y=  150:Y=  150 OK
+[1692] y=  140:Y=  140 OK
+[1693] y=  128:Y=  128 OK
+[1694] y=  117:Y=  117 OK
+[1695] y=  116:Y=  116 OK
+[1696] y=  118:Y=  118 OK
+[1697] y=  123:Y=  123 OK
+[1698] y=  119:Y=  119 OK
+[1699] y=  111:Y=  111 OK
+[1700] y=  105:Y=  105 OK
+[1701] y=  101:Y=  101 OK
+[1702] y=  106:Y=  106 OK
+[1703] y=  117:Y=  117 OK
+[1704] y=  136:Y=  136 OK
+[1705] y=  148:Y=  148 OK
+[1706] y=  151:Y=  151 OK
+[1707] y=  139:Y=  139 OK
+[1708] y=  124:Y=  124 OK
+[1709] y=  110:Y=  110 OK
+[1710] y=  105:Y=  105 OK
+[1711] y=  103:Y=  103 OK
+[1712] y=  101:Y=  101 OK
+[1713] y=   98:Y=   98 OK
+[1714] y=   85:Y=   85 OK
+[1715] y=   81:Y=   81 OK
+[1716] y=   80:Y=   80 OK
+[1717] y=   97:Y=   97 OK
+[1718] y=  114:Y=  114 OK
+[1719] y=  129:Y=  129 OK
+[1720] y=  136:Y=  136 OK
+[1721] y=  140:Y=  140 OK
+[1722] y=  150:Y=  150 OK
+[1723] y=  161:Y=  161 OK
+[1724] y=  178:Y=  178 OK
+[1725] y=  188:Y=  188 OK
+[1726] y=  191:Y=  191 OK
+[1727] y=  179:Y=  179 OK
+[1728] y=  156:Y=  156 OK
+[1729] y=  131:Y=  131 OK
+[1730] y=  114:Y=  114 OK
+[1731] y=  109:Y=  109 OK
+[1732] y=  109:Y=  109 OK
+[1733] y=  105:Y=  105 OK
+[1734] y=   94:Y=   94 OK
+[1735] y=   78:Y=   78 OK
+[1736] y=   65:Y=   65 OK
+[1737] y=   59:Y=   59 OK
+[1738] y=   69:Y=   69 OK
+[1739] y=   87:Y=   87 OK
+[1740] y=   97:Y=   97 OK
+[1741] y=   86:Y=   86 OK
+[1742] y=   56:Y=   56 OK
+[1743] y=   28:Y=   28 OK
+[1744] y=   17:Y=   17 OK
+[1745] y=   27:Y=   27 OK
+[1746] y=   47:Y=   47 OK
+[1747] y=   68:Y=   68 OK
+[1748] y=   85:Y=   85 OK
+[1749] y=  103:Y=  103 OK
+[1750] y=  119:Y=  119 OK
+[1751] y=  130:Y=  130 OK
+[1752] y=  127:Y=  127 OK
+[1753] y=  102:Y=  102 OK
+[1754] y=   72:Y=   72 OK
+[1755] y=   39:Y=   39 OK
+[1756] y=   21:Y=   21 OK
+[1757] y=   18:Y=   18 OK
+[1758] y=   29:Y=   29 OK
+[1759] y=   53:Y=   53 OK
+[1760] y=   81:Y=   81 OK
+[1761] y=  115:Y=  115 OK
+[1762] y=  149:Y=  149 OK
+[1763] y=  181:Y=  181 OK
+[1764] y=  199:Y=  199 OK
+[1765] y=  201:Y=  201 OK
+[1766] y=  190:Y=  190 OK
+[1767] y=  181:Y=  181 OK
+[1768] y=  185:Y=  185 OK
+[1769] y=  193:Y=  193 OK
+[1770] y=  202:Y=  202 OK
+[1771] y=  197:Y=  197 OK
+[1772] y=  190:Y=  190 OK
+[1773] y=  178:Y=  178 OK
+[1774] y=  160:Y=  160 OK
+[1775] y=  137:Y=  137 OK
+[1776] y=  111:Y=  111 OK
+[1777] y=  100:Y=  100 OK
+[1778] y=   98:Y=   98 OK
+[1779] y=  108:Y=  108 OK
+[1780] y=  120:Y=  120 OK
+[1781] y=  127:Y=  127 OK
+[1782] y=  126:Y=  126 OK
+[1783] y=  104:Y=  104 OK
+[1784] y=   75:Y=   75 OK
+[1785] y=   46:Y=   46 OK
+[1786] y=   38:Y=   38 OK
+[1787] y=   45:Y=   45 OK
+[1788] y=   61:Y=   61 OK
+[1789] y=   80:Y=   80 OK
+[1790] y=  105:Y=  105 OK
+[1791] y=  137:Y=  137 OK
+[1792] y=  169:Y=  169 OK
+[1793] y=  192:Y=  192 OK
+[1794] y=  196:Y=  196 OK
+[1795] y=  182:Y=  182 OK
+[1796] y=  157:Y=  157 OK
+[1797] y=  131:Y=  131 OK
+[1798] y=  108:Y=  108 OK
+[1799] y=   94:Y=   94 OK
+[1800] y=   82:Y=   82 OK
+[1801] y=   68:Y=   68 OK
+[1802] y=   53:Y=   53 OK
+[1803] y=   39:Y=   39 OK
+[1804] y=   40:Y=   40 OK
+[1805] y=   56:Y=   56 OK
+[1806] y=   82:Y=   82 OK
+[1807] y=  107:Y=  107 OK
+[1808] y=  120:Y=  120 OK
+[1809] y=  121:Y=  121 OK
+[1810] y=  109:Y=  109 OK
+[1811] y=   92:Y=   92 OK
+[1812] y=   73:Y=   73 OK
+[1813] y=   58:Y=   58 OK
+[1814] y=   51:Y=   51 OK
+[1815] y=   50:Y=   50 OK
+[1816] y=   55:Y=   55 OK
+[1817] y=   58:Y=   58 OK
+[1818] y=   60:Y=   60 OK
+[1819] y=   62:Y=   62 OK
+[1820] y=   75:Y=   75 OK
+[1821] y=   98:Y=   98 OK
+[1822] y=  124:Y=  124 OK
+[1823] y=  139:Y=  139 OK
+[1824] y=  142:Y=  142 OK
+[1825] y=  150:Y=  150 OK
+[1826] y=  161:Y=  161 OK
+[1827] y=  176:Y=  176 OK
+[1828] y=  162:Y=  162 OK
+[1829] y=  126:Y=  126 OK
+[1830] y=   78:Y=   78 OK
+[1831] y=   45:Y=   45 OK
+[1832] y=   44:Y=   44 OK
+[1833] y=   55:Y=   55 OK
+[1834] y=   69:Y=   69 OK
+[1835] y=   67:Y=   67 OK
+[1836] y=   59:Y=   59 OK
+[1837] y=   60:Y=   60 OK
+[1838] y=   70:Y=   70 OK
+[1839] y=   82:Y=   82 OK
+[1840] y=   81:Y=   81 OK
+[1841] y=   69:Y=   69 OK
+[1842] y=   61:Y=   61 OK
+[1843] y=   58:Y=   58 OK
+[1844] y=   63:Y=   63 OK
+[1845] y=   66:Y=   66 OK
+[1846] y=   65:Y=   65 OK
+[1847] y=   70:Y=   70 OK
+[1848] y=   76:Y=   76 OK
+[1849] y=   81:Y=   81 OK
+[1850] y=   76:Y=   76 OK
+[1851] y=   59:Y=   59 OK
+[1852] y=   47:Y=   47 OK
+[1853] y=   41:Y=   41 OK
+[1854] y=   44:Y=   44 OK
+[1855] y=   52:Y=   52 OK
+[1856] y=   53:Y=   53 OK
+[1857] y=   60:Y=   60 OK
+[1858] y=   58:Y=   58 OK
+[1859] y=   54:Y=   54 OK
+[1860] y=   47:Y=   47 OK
+[1861] y=   49:Y=   49 OK
+[1862] y=   72:Y=   72 OK
+[1863] y=  107:Y=  107 OK
+[1864] y=  138:Y=  138 OK
+[1865] y=  152:Y=  152 OK
+[1866] y=  147:Y=  147 OK
+[1867] y=  137:Y=  137 OK
+[1868] y=  129:Y=  129 OK
+[1869] y=  121:Y=  121 OK
+[1870] y=  118:Y=  118 OK
+[1871] y=  110:Y=  110 OK
+[1872] y=  112:Y=  112 OK
+[1873] y=  119:Y=  119 OK
+[1874] y=  127:Y=  127 OK
+[1875] y=  136:Y=  136 OK
+[1876] y=  138:Y=  138 OK
+[1877] y=  147:Y=  147 OK
+[1878] y=  153:Y=  153 OK
+[1879] y=  162:Y=  162 OK
+[1880] y=  171:Y=  171 OK
+[1881] y=  181:Y=  181 OK
+[1882] y=  199:Y=  199 OK
+[1883] y=  214:Y=  214 OK
+[1884] y=  217:Y=  217 OK
+[1885] y=  196:Y=  196 OK
+[1886] y=  159:Y=  159 OK
+[1887] y=  124:Y=  124 OK
+[1888] y=   96:Y=   96 OK
+[1889] y=   79:Y=   79 OK
+[1890] y=   65:Y=   65 OK
+[1891] y=   58:Y=   58 OK
+[1892] y=   63:Y=   63 OK
+[1893] y=   84:Y=   84 OK
+[1894] y=  110:Y=  110 OK
+[1895] y=  136:Y=  136 OK
+[1896] y=  149:Y=  149 OK
+[1897] y=  146:Y=  146 OK
+[1898] y=  136:Y=  136 OK
+[1899] y=  121:Y=  121 OK
+[1900] y=  113:Y=  113 OK
+[1901] y=  113:Y=  113 OK
+[1902] y=  121:Y=  121 OK
+[1903] y=  134:Y=  134 OK
+[1904] y=  138:Y=  138 OK
+[1905] y=  136:Y=  136 OK
+[1906] y=  125:Y=  125 OK
+[1907] y=  116:Y=  116 OK
+[1908] y=  119:Y=  119 OK
+[1909] y=  131:Y=  131 OK
+[1910] y=  151:Y=  151 OK
+[1911] y=  165:Y=  165 OK
+[1912] y=  171:Y=  171 OK
+[1913] y=  168:Y=  168 OK
+[1914] y=  165:Y=  165 OK
+[1915] y=  160:Y=  160 OK
+[1916] y=  158:Y=  158 OK
+[1917] y=  146:Y=  146 OK
+[1918] y=  128:Y=  128 OK
+[1919] y=  103:Y=  103 OK
+[1920] y=   89:Y=   89 OK
+[1921] y=   91:Y=   91 OK
+[1922] y=   96:Y=   96 OK
+[1923] y=  101:Y=  101 OK
+[1924] y=   96:Y=   96 OK
+[1925] y=   99:Y=   99 OK
+[1926] y=  108:Y=  108 OK
+[1927] y=  118:Y=  118 OK
+[1928] y=  119:Y=  119 OK
+[1929] y=  106:Y=  106 OK
+[1930] y=   93:Y=   93 OK
+[1931] y=   85:Y=   85 OK
+[1932] y=   83:Y=   83 OK
+[1933] y=   84:Y=   84 OK
+[1934] y=   82:Y=   82 OK
+[1935] y=   81:Y=   81 OK
+[1936] y=   77:Y=   77 OK
+[1937] y=   75:Y=   75 OK
+[1938] y=   76:Y=   76 OK
+[1939] y=   86:Y=   86 OK
+[1940] y=  102:Y=  102 OK
+[1941] y=  119:Y=  119 OK
+[1942] y=  129:Y=  129 OK
+[1943] y=  122:Y=  122 OK
+[1944] y=  108:Y=  108 OK
+[1945] y=   89:Y=   89 OK
+[1946] y=   86:Y=   86 OK
+[1947] y=   87:Y=   87 OK
+[1948] y=   96:Y=   96 OK
+[1949] y=  103:Y=  103 OK
+[1950] y=  109:Y=  109 OK
+[1951] y=  123:Y=  123 OK
+[1952] y=  140:Y=  140 OK
+[1953] y=  158:Y=  158 OK
+[1954] y=  159:Y=  159 OK
+[1955] y=  144:Y=  144 OK
+[1956] y=  125:Y=  125 OK
+[1957] y=  112:Y=  112 OK
+[1958] y=  114:Y=  114 OK
+[1959] y=  124:Y=  124 OK
+[1960] y=  139:Y=  139 OK
+[1961] y=  161:Y=  161 OK
+[1962] y=  181:Y=  181 OK
+[1963] y=  192:Y=  192 OK
+[1964] y=  184:Y=  184 OK
+[1965] y=  156:Y=  156 OK
+[1966] y=  122:Y=  122 OK
+[1967] y=   91:Y=   91 OK
+[1968] y=   79:Y=   79 OK
+[1969] y=   88:Y=   88 OK
+[1970] y=  115:Y=  115 OK
+[1971] y=  146:Y=  146 OK
+[1972] y=  160:Y=  160 OK
+[1973] y=  159:Y=  159 OK
+[1974] y=  151:Y=  151 OK
+[1975] y=  148:Y=  148 OK
+[1976] y=  148:Y=  148 OK
+[1977] y=  140:Y=  140 OK
+[1978] y=  124:Y=  124 OK
+[1979] y=  105:Y=  105 OK
+[1980] y=  100:Y=  100 OK
+[1981] y=  109:Y=  109 OK
+[1982] y=  125:Y=  125 OK
+[1983] y=  135:Y=  135 OK
+[1984] y=  133:Y=  133 OK
+[1985] y=  131:Y=  131 OK
+[1986] y=  136:Y=  136 OK
+[1987] y=  154:Y=  154 OK
+[1988] y=  169:Y=  169 OK
+[1989] y=  170:Y=  170 OK
+[1990] y=  151:Y=  151 OK
+[1991] y=  123:Y=  123 OK
+[1992] y=   96:Y=   96 OK
+[1993] y=   71:Y=   71 OK
+[1994] y=   59:Y=   59 OK
+[1995] y=   56:Y=   56 OK
+[1996] y=   74:Y=   74 OK
+[1997] y=  103:Y=  103 OK
+[1998] y=  133:Y=  133 OK
+[1999] y=  150:Y=  150 OK
+[2000] y=  143:Y=  143 OK
+[2001] y=  127:Y=  127 OK
+[2002] y=  107:Y=  107 OK
+[2003] y=   97:Y=   97 OK
+[2004] y=   96:Y=   96 OK
+[2005] y=   89:Y=   89 OK
+[2006] y=   83:Y=   83 OK
+[2007] y=   74:Y=   74 OK
+[2008] y=   77:Y=   77 OK
+[2009] y=   89:Y=   89 OK
+[2010] y=  104:Y=  104 OK
+[2011] y=  122:Y=  122 OK
+[2012] y=  137:Y=  137 OK
+[2013] y=  144:Y=  144 OK
+[2014] y=  139:Y=  139 OK
+[2015] y=  121:Y=  121 OK
+[2016] y=  104:Y=  104 OK
+[2017] y=   96:Y=   96 OK
+[2018] y=   97:Y=   97 OK
+[2019] y=  107:Y=  107 OK
+[2020] y=  113:Y=  113 OK
+[2021] y=  115:Y=  115 OK
+[2022] y=  106:Y=  106 OK
+[2023] y=   85:Y=   85 OK
+[2024] y=   66:Y=   66 OK
+[2025] y=   56:Y=   56 OK
+[2026] y=   70:Y=   70 OK
+[2027] y=  103:Y=  103 OK
+[2028] y=  134:Y=  134 OK
+[2029] y=  148:Y=  148 OK
+[2030] y=  130:Y=  130 OK
+[2031] y=   95:Y=   95 OK
+[2032] y=   63:Y=   63 OK
+[2033] y=   58:Y=   58 OK
+[2034] y=   82:Y=   82 OK
+[2035] y=  119:Y=  119 OK
+[2036] y=  146:Y=  146 OK
+[2037] y=  150:Y=  150 OK
+[2038] y=  135:Y=  135 OK
+[2039] y=  121:Y=  121 OK
+[2040] y=  115:Y=  115 OK
+[2041] y=  113:Y=  113 OK
+[2042] y=  116:Y=  116 OK
+[2043] y=  114:Y=  114 OK
+[2044] y=  124:Y=  124 OK
+[2045] y=  137:Y=  137 OK
+[2046] y=  153:Y=  153 OK
+[2047] y=  168:Y=  168 OK
+[2048] y=  174:Y=  174 OK
+[2049] y=  176:Y=  176 OK
+[2050] y=  166:Y=  166 OK
+[2051] y=  158:Y=  158 OK
+[2052] y=  157:Y=  157 OK
+[2053] y=  159:Y=  159 OK
+[2054] y=  164:Y=  164 OK
+[2055] y=  159:Y=  159 OK
+[2056] y=  148:Y=  148 OK
+[2057] y=  135:Y=  135 OK
+[2058] y=  116:Y=  116 OK
+[2059] y=   99:Y=   99 OK
+[2060] y=   82:Y=   82 OK
+[2061] y=   73:Y=   73 OK
+[2062] y=   72:Y=   72 OK
+[2063] y=   67:Y=   67 OK
+[2064] y=   61:Y=   61 OK
+[2065] y=   59:Y=   59 OK
+[2066] y=   69:Y=   69 OK
+[2067] y=   95:Y=   95 OK
+[2068] y=  118:Y=  118 OK
+[2069] y=  127:Y=  127 OK
+[2070] y=  118:Y=  118 OK
+[2071] y=   97:Y=   97 OK
+[2072] y=   87:Y=   87 OK
+[2073] y=   84:Y=   84 OK
+[2074] y=   96:Y=   96 OK
+[2075] y=  107:Y=  107 OK
+[2076] y=  116:Y=  116 OK
+[2077] y=  123:Y=  123 OK
+[2078] y=  125:Y=  125 OK
+[2079] y=  123:Y=  123 OK
+[2080] y=  114:Y=  114 OK
+[2081] y=  105:Y=  105 OK
+[2082] y=  101:Y=  101 OK
+[2083] y=  108:Y=  108 OK
+[2084] y=  120:Y=  120 OK
+[2085] y=  140:Y=  140 OK
+[2086] y=  156:Y=  156 OK
+[2087] y=  173:Y=  173 OK
+[2088] y=  183:Y=  183 OK
+[2089] y=  185:Y=  185 OK
+[2090] y=  182:Y=  182 OK
+[2091] y=  165:Y=  165 OK
+[2092] y=  146:Y=  146 OK
+[2093] y=  125:Y=  125 OK
+[2094] y=  118:Y=  118 OK
+[2095] y=  116:Y=  116 OK
+[2096] y=  109:Y=  109 OK
+[2097] y=   95:Y=   95 OK
+[2098] y=   76:Y=   76 OK
+[2099] y=   77:Y=   77 OK
+[2100] y=   88:Y=   88 OK
+[2101] y=  104:Y=  104 OK
+[2102] y=  111:Y=  111 OK
+[2103] y=  113:Y=  113 OK
+[2104] y=  125:Y=  125 OK
+[2105] y=  141:Y=  141 OK
+[2106] y=  156:Y=  156 OK
+[2107] y=  152:Y=  152 OK
+[2108] y=  132:Y=  132 OK
+[2109] y=  106:Y=  106 OK
+[2110] y=   92:Y=   92 OK
+[2111] y=   90:Y=   90 OK
+[2112] y=  101:Y=  101 OK
+[2113] y=  114:Y=  114 OK
+[2114] y=  123:Y=  123 OK
+[2115] y=  122:Y=  122 OK
+[2116] y=  102:Y=  102 OK
+[2117] y=   76:Y=   76 OK
+[2118] y=   46:Y=   46 OK
+[2119] y=   24:Y=   24 OK
+[2120] y=   10:Y=   10 OK
+[2121] y=    1:Y=    1 OK
+[2122] y=    4:Y=    4 OK
+[2123] y=   12:Y=   12 OK
+[2124] y=   29:Y=   29 OK
+[2125] y=   47:Y=   47 OK
+[2126] y=   66:Y=   66 OK
+[2127] y=   89:Y=   89 OK
+[2128] y=  110:Y=  110 OK
+[2129] y=  128:Y=  128 OK
+[2130] y=  136:Y=  136 OK
+[2131] y=  137:Y=  137 OK
+[2132] y=  133:Y=  133 OK
+[2133] y=  128:Y=  128 OK
+[2134] y=  119:Y=  119 OK
+[2135] y=  117:Y=  117 OK
+[2136] y=  124:Y=  124 OK
+[2137] y=  140:Y=  140 OK
+[2138] y=  160:Y=  160 OK
+[2139] y=  167:Y=  167 OK
+[2140] y=  164:Y=  164 OK
+[2141] y=  146:Y=  146 OK
+[2142] y=  130:Y=  130 OK
+[2143] y=  119:Y=  119 OK
+[2144] y=  114:Y=  114 OK
+[2145] y=  115:Y=  115 OK
+[2146] y=  121:Y=  121 OK
+[2147] y=  137:Y=  137 OK
+[2148] y=  152:Y=  152 OK
+[2149] y=  163:Y=  163 OK
+[2150] y=  155:Y=  155 OK
+[2151] y=  134:Y=  134 OK
+[2152] y=  112:Y=  112 OK
+[2153] y=  101:Y=  101 OK
+[2154] y=  112:Y=  112 OK
+[2155] y=  127:Y=  127 OK
+[2156] y=  139:Y=  139 OK
+[2157] y=  132:Y=  132 OK
+[2158] y=  116:Y=  116 OK
+[2159] y=   99:Y=   99 OK
+[2160] y=   83:Y=   83 OK
+[2161] y=   78:Y=   78 OK
+[2162] y=   82:Y=   82 OK
+[2163] y=  102:Y=  102 OK
+[2164] y=  123:Y=  123 OK
+[2165] y=  131:Y=  131 OK
+[2166] y=  117:Y=  117 OK
+[2167] y=   87:Y=   87 OK
+[2168] y=   59:Y=   59 OK
+[2169] y=   43:Y=   43 OK
+[2170] y=   47:Y=   47 OK
+[2171] y=   66:Y=   66 OK
+[2172] y=   96:Y=   96 OK
+[2173] y=  130:Y=  130 OK
+[2174] y=  156:Y=  156 OK
+[2175] y=  169:Y=  169 OK
+[2176] y=  161:Y=  161 OK
+[2177] y=  142:Y=  142 OK
+[2178] y=  124:Y=  124 OK
+[2179] y=  118:Y=  118 OK
+[2180] y=  122:Y=  122 OK
+[2181] y=  129:Y=  129 OK
+[2182] y=  134:Y=  134 OK
+[2183] y=  136:Y=  136 OK
+[2184] y=  132:Y=  132 OK
+[2185] y=  113:Y=  113 OK
+[2186] y=   84:Y=   84 OK
+[2187] y=   54:Y=   54 OK
+[2188] y=   50:Y=   50 OK
+[2189] y=   70:Y=   70 OK
+[2190] y=  109:Y=  109 OK
+[2191] y=  141:Y=  141 OK
+[2192] y=  146:Y=  146 OK
+[2193] y=  126:Y=  126 OK
+[2194] y=   91:Y=   91 OK
+[2195] y=   65:Y=   65 OK
+[2196] y=   57:Y=   57 OK
+[2197] y=   67:Y=   67 OK
+[2198] y=   86:Y=   86 OK
+[2199] y=   96:Y=   96 OK
+[2200] y=  100:Y=  100 OK
+[2201] y=   99:Y=   99 OK
+[2202] y=  108:Y=  108 OK
+[2203] y=  129:Y=  129 OK
+[2204] y=  156:Y=  156 OK
+[2205] y=  174:Y=  174 OK
+[2206] y=  174:Y=  174 OK
+[2207] y=  165:Y=  165 OK
+[2208] y=  153:Y=  153 OK
+[2209] y=  150:Y=  150 OK
+[2210] y=  144:Y=  144 OK
+[2211] y=  135:Y=  135 OK
+[2212] y=  122:Y=  122 OK
+[2213] y=  119:Y=  119 OK
+[2214] y=  134:Y=  134 OK
+[2215] y=  157:Y=  157 OK
+[2216] y=  173:Y=  173 OK
+[2217] y=  161:Y=  161 OK
+[2218] y=  134:Y=  134 OK
+[2219] y=  109:Y=  109 OK
+[2220] y=  111:Y=  111 OK
+[2221] y=  135:Y=  135 OK
+[2222] y=  165:Y=  165 OK
+[2223] y=  177:Y=  177 OK
+[2224] y=  170:Y=  170 OK
+[2225] y=  146:Y=  146 OK
+[2226] y=  123:Y=  123 OK
+[2227] y=  109:Y=  109 OK
+[2228] y=  104:Y=  104 OK
+[2229] y=  111:Y=  111 OK
+[2230] y=  117:Y=  117 OK
+[2231] y=  122:Y=  122 OK
+[2232] y=  121:Y=  121 OK
+[2233] y=  120:Y=  120 OK
+[2234] y=  122:Y=  122 OK
+[2235] y=  120:Y=  120 OK
+[2236] y=  115:Y=  115 OK
+[2237] y=  112:Y=  112 OK
+[2238] y=  115:Y=  115 OK
+[2239] y=  133:Y=  133 OK
+[2240] y=  151:Y=  151 OK
+[2241] y=  171:Y=  171 OK
+[2242] y=  181:Y=  181 OK
+[2243] y=  188:Y=  188 OK
+[2244] y=  193:Y=  193 OK
+[2245] y=  195:Y=  195 OK
+[2246] y=  200:Y=  200 OK
+[2247] y=  198:Y=  198 OK
+[2248] y=  193:Y=  193 OK
+[2249] y=  181:Y=  181 OK
+[2250] y=  170:Y=  170 OK
+[2251] y=  161:Y=  161 OK
+[2252] y=  147:Y=  147 OK
+[2253] y=  135:Y=  135 OK
+[2254] y=  125:Y=  125 OK
+[2255] y=  125:Y=  125 OK
+[2256] y=  129:Y=  129 OK
+[2257] y=  126:Y=  126 OK
+[2258] y=  118:Y=  118 OK
+[2259] y=  111:Y=  111 OK
+[2260] y=  115:Y=  115 OK
+[2261] y=  130:Y=  130 OK
+[2262] y=  136:Y=  136 OK
+[2263] y=  130:Y=  130 OK
+[2264] y=  119:Y=  119 OK
+[2265] y=  111:Y=  111 OK
+[2266] y=  118:Y=  118 OK
+[2267] y=  119:Y=  119 OK
+[2268] y=  115:Y=  115 OK
+[2269] y=  108:Y=  108 OK
+[2270] y=  109:Y=  109 OK
+[2271] y=  121:Y=  121 OK
+[2272] y=  131:Y=  131 OK
+[2273] y=  138:Y=  138 OK
+[2274] y=  138:Y=  138 OK
+[2275] y=  141:Y=  141 OK
+[2276] y=  141:Y=  141 OK
+[2277] y=  137:Y=  137 OK
+[2278] y=  129:Y=  129 OK
+[2279] y=  119:Y=  119 OK
+[2280] y=  116:Y=  116 OK
+[2281] y=  115:Y=  115 OK
+[2282] y=  117:Y=  117 OK
+[2283] y=  109:Y=  109 OK
+[2284] y=   95:Y=   95 OK
+[2285] y=   80:Y=   80 OK
+[2286] y=   76:Y=   76 OK
+[2287] y=   94:Y=   94 OK
+[2288] y=  110:Y=  110 OK
+[2289] y=  123:Y=  123 OK
+[2290] y=  118:Y=  118 OK
+[2291] y=  114:Y=  114 OK
+[2292] y=  114:Y=  114 OK
+[2293] y=  119:Y=  119 OK
+[2294] y=  129:Y=  129 OK
+[2295] y=  140:Y=  140 OK
+[2296] y=  158:Y=  158 OK
+[2297] y=  176:Y=  176 OK
+[2298] y=  184:Y=  184 OK
+[2299] y=  173:Y=  173 OK
+[2300] y=  149:Y=  149 OK
+[2301] y=  116:Y=  116 OK
+[2302] y=   95:Y=   95 OK
+[2303] y=   82:Y=   82 OK
+[2304] y=   83:Y=   83 OK
+[2305] y=   83:Y=   83 OK
+[2306] y=   79:Y=   79 OK
+[2307] y=   79:Y=   79 OK
+[2308] y=   82:Y=   82 OK
+[2309] y=   93:Y=   93 OK
+[2310] y=   93:Y=   93 OK
+[2311] y=   76:Y=   76 OK
+[2312] y=   48:Y=   48 OK
+[2313] y=   21:Y=   21 OK
+[2314] y=    8:Y=    8 OK
+[2315] y=    7:Y=    7 OK
+[2316] y=   16:Y=   16 OK
+[2317] y=   32:Y=   32 OK
+[2318] y=   46:Y=   46 OK
+[2319] y=   59:Y=   59 OK
+[2320] y=   63:Y=   63 OK
+[2321] y=   58:Y=   58 OK
+[2322] y=   50:Y=   50 OK
+[2323] y=   43:Y=   43 OK
+[2324] y=   47:Y=   47 OK
+[2325] y=   60:Y=   60 OK
+[2326] y=   75:Y=   75 OK
+[2327] y=   90:Y=   90 OK
+[2328] y=   99:Y=   99 OK
+[2329] y=  105:Y=  105 OK
+[2330] y=  113:Y=  113 OK
+[2331] y=  119:Y=  119 OK
+[2332] y=  134:Y=  134 OK
+[2333] y=  147:Y=  147 OK
+[2334] y=  165:Y=  165 OK
+[2335] y=  178:Y=  178 OK
+[2336] y=  178:Y=  178 OK
+[2337] y=  167:Y=  167 OK
+[2338] y=  149:Y=  149 OK
+[2339] y=  139:Y=  139 OK
+[2340] y=  140:Y=  140 OK
+[2341] y=  149:Y=  149 OK
+[2342] y=  161:Y=  161 OK
+[2343] y=  174:Y=  174 OK
+[2344] y=  178:Y=  178 OK
+[2345] y=  177:Y=  177 OK
+[2346] y=  163:Y=  163 OK
+[2347] y=  146:Y=  146 OK
+[2348] y=  133:Y=  133 OK
+[2349] y=  116:Y=  116 OK
+[2350] y=  103:Y=  103 OK
+[2351] y=   90:Y=   90 OK
+[2352] y=   88:Y=   88 OK
+[2353] y=  102:Y=  102 OK
+[2354] y=  113:Y=  113 OK
+[2355] y=  121:Y=  121 OK
+[2356] y=  111:Y=  111 OK
+[2357] y=  100:Y=  100 OK
+[2358] y=   96:Y=   96 OK
+[2359] y=   98:Y=   98 OK
+[2360] y=  106:Y=  106 OK
+[2361] y=  119:Y=  119 OK
+[2362] y=  148:Y=  148 OK
+[2363] y=  184:Y=  184 OK
+[2364] y=  215:Y=  215 OK
+[2365] y=  224:Y=  224 OK
+[2366] y=  214:Y=  214 OK
+[2367] y=  196:Y=  196 OK
+[2368] y=  186:Y=  186 OK
+[2369] y=  184:Y=  184 OK
+[2370] y=  179:Y=  179 OK
+[2371] y=  167:Y=  167 OK
+[2372] y=  141:Y=  141 OK
+[2373] y=  122:Y=  122 OK
+[2374] y=  111:Y=  111 OK
+[2375] y=  114:Y=  114 OK
+[2376] y=  117:Y=  117 OK
+[2377] y=  103:Y=  103 OK
+[2378] y=   80:Y=   80 OK
+[2379] y=   55:Y=   55 OK
+[2380] y=   53:Y=   53 OK
+[2381] y=   74:Y=   74 OK
+[2382] y=  107:Y=  107 OK
+[2383] y=  136:Y=  136 OK
+[2384] y=  153:Y=  153 OK
+[2385] y=  155:Y=  155 OK
+[2386] y=  139:Y=  139 OK
+[2387] y=  107:Y=  107 OK
+[2388] y=   72:Y=   72 OK
+[2389] y=   47:Y=   47 OK
+[2390] y=   43:Y=   43 OK
+[2391] y=   56:Y=   56 OK
+[2392] y=   76:Y=   76 OK
+[2393] y=   90:Y=   90 OK
+[2394] y=   94:Y=   94 OK
+[2395] y=   92:Y=   92 OK
+[2396] y=   84:Y=   84 OK
+[2397] y=   81:Y=   81 OK
+[2398] y=   82:Y=   82 OK
+[2399] y=   93:Y=   93 OK
+[2400] y=  114:Y=  114 OK
+[2401] y=  141:Y=  141 OK
+[2402] y=  163:Y=  163 OK
+[2403] y=  174:Y=  174 OK
+[2404] y=  168:Y=  168 OK
+[2405] y=  150:Y=  150 OK
+[2406] y=  120:Y=  120 OK
+[2407] y=   84:Y=   84 OK
+[2408] y=   58:Y=   58 OK
+[2409] y=   45:Y=   45 OK
+[2410] y=   63:Y=   63 OK
+[2411] y=   92:Y=   92 OK
+[2412] y=  119:Y=  119 OK
+[2413] y=  126:Y=  126 OK
+[2414] y=  114:Y=  114 OK
+[2415] y=  107:Y=  107 OK
+[2416] y=  112:Y=  112 OK
+[2417] y=  135:Y=  135 OK
+[2418] y=  154:Y=  154 OK
+[2419] y=  160:Y=  160 OK
+[2420] y=  150:Y=  150 OK
+[2421] y=  136:Y=  136 OK
+[2422] y=  124:Y=  124 OK
+[2423] y=  113:Y=  113 OK
+[2424] y=  102:Y=  102 OK
+[2425] y=   90:Y=   90 OK
+[2426] y=   87:Y=   87 OK
+[2427] y=   89:Y=   89 OK
+[2428] y=   98:Y=   98 OK
+[2429] y=  104:Y=  104 OK
+[2430] y=  109:Y=  109 OK
+[2431] y=  113:Y=  113 OK
+[2432] y=  119:Y=  119 OK
+[2433] y=  130:Y=  130 OK
+[2434] y=  141:Y=  141 OK
+[2435] y=  150:Y=  150 OK
+[2436] y=  153:Y=  153 OK
+[2437] y=  158:Y=  158 OK
+[2438] y=  169:Y=  169 OK
+[2439] y=  182:Y=  182 OK
+[2440] y=  186:Y=  186 OK
+[2441] y=  179:Y=  179 OK
+[2442] y=  166:Y=  166 OK
+[2443] y=  157:Y=  157 OK
+[2444] y=  156:Y=  156 OK
+[2445] y=  154:Y=  154 OK
+[2446] y=  146:Y=  146 OK
+[2447] y=  129:Y=  129 OK
+[2448] y=  118:Y=  118 OK
+[2449] y=  124:Y=  124 OK
+[2450] y=  142:Y=  142 OK
+[2451] y=  163:Y=  163 OK
+[2452] y=  162:Y=  162 OK
+[2453] y=  145:Y=  145 OK
+[2454] y=  119:Y=  119 OK
+[2455] y=   95:Y=   95 OK
+[2456] y=   85:Y=   85 OK
+[2457] y=   85:Y=   85 OK
+[2458] y=   98:Y=   98 OK
+[2459] y=  113:Y=  113 OK
+[2460] y=  124:Y=  124 OK
+[2461] y=  133:Y=  133 OK
+[2462] y=  141:Y=  141 OK
+[2463] y=  151:Y=  151 OK
+[2464] y=  159:Y=  159 OK
+[2465] y=  154:Y=  154 OK
+[2466] y=  140:Y=  140 OK
+[2467] y=  119:Y=  119 OK
+[2468] y=  102:Y=  102 OK
+[2469] y=  103:Y=  103 OK
+[2470] y=  118:Y=  118 OK
+[2471] y=  141:Y=  141 OK
+[2472] y=  146:Y=  146 OK
+[2473] y=  130:Y=  130 OK
+[2474] y=  112:Y=  112 OK
+[2475] y=  101:Y=  101 OK
+[2476] y=  113:Y=  113 OK
+[2477] y=  124:Y=  124 OK
+[2478] y=  133:Y=  133 OK
+[2479] y=  134:Y=  134 OK
+[2480] y=  126:Y=  126 OK
+[2481] y=  120:Y=  120 OK
+[2482] y=  108:Y=  108 OK
+[2483] y=  111:Y=  111 OK
+[2484] y=  121:Y=  121 OK
+[2485] y=  133:Y=  133 OK
+[2486] y=  126:Y=  126 OK
+[2487] y=   99:Y=   99 OK
+[2488] y=   73:Y=   73 OK
+[2489] y=   65:Y=   65 OK
+[2490] y=   82:Y=   82 OK
+[2491] y=  100:Y=  100 OK
+[2492] y=  111:Y=  111 OK
+[2493] y=  114:Y=  114 OK
+[2494] y=  117:Y=  117 OK
+[2495] y=  121:Y=  121 OK
+[2496] y=  123:Y=  123 OK
+[2497] y=  126:Y=  126 OK
+[2498] y=  129:Y=  129 OK
+[2499] y=  138:Y=  138 OK
+[2500] y=  138:Y=  138 OK
+[2501] y=  130:Y=  130 OK
+[2502] y=  119:Y=  119 OK
+[2503] y=  116:Y=  116 OK
+[2504] y=  130:Y=  130 OK
+[2505] y=  151:Y=  151 OK
+[2506] y=  168:Y=  168 OK
+[2507] y=  171:Y=  171 OK
+[2508] y=  161:Y=  161 OK
+[2509] y=  152:Y=  152 OK
+[2510] y=  148:Y=  148 OK
+[2511] y=  150:Y=  150 OK
+[2512] y=  151:Y=  151 OK
+[2513] y=  142:Y=  142 OK
+[2514] y=  131:Y=  131 OK
+[2515] y=  116:Y=  116 OK
+[2516] y=  108:Y=  108 OK
+[2517] y=  111:Y=  111 OK
+[2518] y=  118:Y=  118 OK
+[2519] y=  124:Y=  124 OK
+[2520] y=  122:Y=  122 OK
+[2521] y=  113:Y=  113 OK
+[2522] y=  115:Y=  115 OK
+[2523] y=  124:Y=  124 OK
+[2524] y=  147:Y=  147 OK
+[2525] y=  161:Y=  161 OK
+[2526] y=  160:Y=  160 OK
+[2527] y=  145:Y=  145 OK
+[2528] y=  121:Y=  121 OK
+[2529] y=  109:Y=  109 OK
+[2530] y=  111:Y=  111 OK
+[2531] y=  135:Y=  135 OK
+[2532] y=  165:Y=  165 OK
+[2533] y=  192:Y=  192 OK
+[2534] y=  204:Y=  204 OK
+[2535] y=  206:Y=  206 OK
+[2536] y=  208:Y=  208 OK
+[2537] y=  204:Y=  204 OK
+[2538] y=  194:Y=  194 OK
+[2539] y=  174:Y=  174 OK
+[2540] y=  151:Y=  151 OK
+[2541] y=  129:Y=  129 OK
+[2542] y=  103:Y=  103 OK
+[2543] y=   77:Y=   77 OK
+[2544] y=   56:Y=   56 OK
+[2545] y=   60:Y=   60 OK
+[2546] y=   82:Y=   82 OK
+[2547] y=  114:Y=  114 OK
+[2548] y=  138:Y=  138 OK
+[2549] y=  147:Y=  147 OK
+[2550] y=  149:Y=  149 OK
+[2551] y=  140:Y=  140 OK
+[2552] y=  138:Y=  138 OK
+[2553] y=  139:Y=  139 OK
+[2554] y=  147:Y=  147 OK
+[2555] y=  150:Y=  150 OK
+[2556] y=  138:Y=  138 OK
+[2557] y=  120:Y=  120 OK
+[2558] y=  102:Y=  102 OK
+[2559] y=   96:Y=   96 OK
+[2560] y=   94:Y=   94 OK
+[2561] y=   87:Y=   87 OK
+[2562] y=   74:Y=   74 OK
+[2563] y=   57:Y=   57 OK
+[2564] y=   46:Y=   46 OK
+[2565] y=   52:Y=   52 OK
+[2566] y=   73:Y=   73 OK
+[2567] y=  103:Y=  103 OK
+[2568] y=  121:Y=  121 OK
+[2569] y=  121:Y=  121 OK
+[2570] y=  120:Y=  120 OK
+[2571] y=  128:Y=  128 OK
+[2572] y=  158:Y=  158 OK
+[2573] y=  193:Y=  193 OK
+[2574] y=  221:Y=  221 OK
+[2575] y=  233:Y=  233 OK
+[2576] y=  217:Y=  217 OK
+[2577] y=  180:Y=  180 OK
+[2578] y=  132:Y=  132 OK
+[2579] y=   95:Y=   95 OK
+[2580] y=   80:Y=   80 OK
+[2581] y=   80:Y=   80 OK
+[2582] y=   88:Y=   88 OK
+[2583] y=   94:Y=   94 OK
+[2584] y=   99:Y=   99 OK
+[2585] y=  102:Y=  102 OK
+[2586] y=  101:Y=  101 OK
+[2587] y=  106:Y=  106 OK
+[2588] y=  116:Y=  116 OK
+[2589] y=  128:Y=  128 OK
+[2590] y=  140:Y=  140 OK
+[2591] y=  145:Y=  145 OK
+[2592] y=  151:Y=  151 OK
+[2593] y=  150:Y=  150 OK
+[2594] y=  144:Y=  144 OK
+[2595] y=  130:Y=  130 OK
+[2596] y=  115:Y=  115 OK
+[2597] y=  110:Y=  110 OK
+[2598] y=  117:Y=  117 OK
+[2599] y=  135:Y=  135 OK
+[2600] y=  155:Y=  155 OK
+[2601] y=  173:Y=  173 OK
+[2602] y=  184:Y=  184 OK
+[2603] y=  189:Y=  189 OK
+[2604] y=  189:Y=  189 OK
+[2605] y=  186:Y=  186 OK
+[2606] y=  173:Y=  173 OK
+[2607] y=  156:Y=  156 OK
+[2608] y=  130:Y=  130 OK
+[2609] y=  113:Y=  113 OK
+[2610] y=  107:Y=  107 OK
+[2611] y=  121:Y=  121 OK
+[2612] y=  146:Y=  146 OK
+[2613] y=  169:Y=  169 OK
+[2614] y=  177:Y=  177 OK
+[2615] y=  168:Y=  168 OK
+[2616] y=  147:Y=  147 OK
+[2617] y=  124:Y=  124 OK
+[2618] y=  112:Y=  112 OK
+[2619] y=  104:Y=  104 OK
+[2620] y=  104:Y=  104 OK
+[2621] y=  100:Y=  100 OK
+[2622] y=  102:Y=  102 OK
+[2623] y=  105:Y=  105 OK
+[2624] y=  107:Y=  107 OK
+[2625] y=  106:Y=  106 OK
+[2626] y=   98:Y=   98 OK
+[2627] y=   94:Y=   94 OK
+[2628] y=   94:Y=   94 OK
+[2629] y=   97:Y=   97 OK
+[2630] y=   94:Y=   94 OK
+[2631] y=   83:Y=   83 OK
+[2632] y=   71:Y=   71 OK
+[2633] y=   71:Y=   71 OK
+[2634] y=   87:Y=   87 OK
+[2635] y=  110:Y=  110 OK
+[2636] y=  123:Y=  123 OK
+[2637] y=  116:Y=  116 OK
+[2638] y=   94:Y=   94 OK
+[2639] y=   71:Y=   71 OK
+[2640] y=   58:Y=   58 OK
+[2641] y=   66:Y=   66 OK
+[2642] y=   85:Y=   85 OK
+[2643] y=  116:Y=  116 OK
+[2644] y=  138:Y=  138 OK
+[2645] y=  147:Y=  147 OK
+[2646] y=  141:Y=  141 OK
+[2647] y=  120:Y=  120 OK
+[2648] y=   99:Y=   99 OK
+[2649] y=   76:Y=   76 OK
+[2650] y=   66:Y=   66 OK
+[2651] y=   67:Y=   67 OK
+[2652] y=   81:Y=   81 OK
+[2653] y=   98:Y=   98 OK
+[2654] y=  111:Y=  111 OK
+[2655] y=  118:Y=  118 OK
+[2656] y=  124:Y=  124 OK
+[2657] y=  129:Y=  129 OK
+[2658] y=  134:Y=  134 OK
+[2659] y=  132:Y=  132 OK
+[2660] y=  126:Y=  126 OK
+[2661] y=  122:Y=  122 OK
+[2662] y=  121:Y=  121 OK
+[2663] y=  134:Y=  134 OK
+[2664] y=  147:Y=  147 OK
+[2665] y=  164:Y=  164 OK
+[2666] y=  170:Y=  170 OK
+[2667] y=  157:Y=  157 OK
+[2668] y=  131:Y=  131 OK
+[2669] y=   93:Y=   93 OK
+[2670] y=   65:Y=   65 OK
+[2671] y=   53:Y=   53 OK
+[2672] y=   56:Y=   56 OK
+[2673] y=   61:Y=   61 OK
+[2674] y=   57:Y=   57 OK
+[2675] y=   53:Y=   53 OK
+[2676] y=   59:Y=   59 OK
+[2677] y=   84:Y=   84 OK
+[2678] y=  119:Y=  119 OK
+[2679] y=  149:Y=  149 OK
+[2680] y=  164:Y=  164 OK
+[2681] y=  163:Y=  163 OK
+[2682] y=  148:Y=  148 OK
+[2683] y=  130:Y=  130 OK
+[2684] y=  118:Y=  118 OK
+[2685] y=  119:Y=  119 OK
+[2686] y=  136:Y=  136 OK
+[2687] y=  153:Y=  153 OK
+[2688] y=  167:Y=  167 OK
+[2689] y=  176:Y=  176 OK
+[2690] y=  175:Y=  175 OK
+[2691] y=  165:Y=  165 OK
+[2692] y=  138:Y=  138 OK
+[2693] y=  104:Y=  104 OK
+[2694] y=   83:Y=   83 OK
+[2695] y=   83:Y=   83 OK
+[2696] y=  106:Y=  106 OK
+[2697] y=  122:Y=  122 OK
+[2698] y=  126:Y=  126 OK
+[2699] y=  114:Y=  114 OK
+[2700] y=  100:Y=  100 OK
+[2701] y=   96:Y=   96 OK
+[2702] y=   95:Y=   95 OK
+[2703] y=   99:Y=   99 OK
+[2704] y=  102:Y=  102 OK
+[2705] y=  107:Y=  107 OK
+[2706] y=  116:Y=  116 OK
+[2707] y=  128:Y=  128 OK
+[2708] y=  142:Y=  142 OK
+[2709] y=  155:Y=  155 OK
+[2710] y=  156:Y=  156 OK
+[2711] y=  155:Y=  155 OK
+[2712] y=  145:Y=  145 OK
+[2713] y=  133:Y=  133 OK
+[2714] y=  120:Y=  120 OK
+[2715] y=  104:Y=  104 OK
+[2716] y=   94:Y=   94 OK
+[2717] y=   92:Y=   92 OK
+[2718] y=  101:Y=  101 OK
+[2719] y=  125:Y=  125 OK
+[2720] y=  148:Y=  148 OK
+[2721] y=  171:Y=  171 OK
+[2722] y=  181:Y=  181 OK
+[2723] y=  178:Y=  178 OK
+[2724] y=  170:Y=  170 OK
+[2725] y=  153:Y=  153 OK
+[2726] y=  140:Y=  140 OK
+[2727] y=  136:Y=  136 OK
+[2728] y=  138:Y=  138 OK
+[2729] y=  139:Y=  139 OK
+[2730] y=  132:Y=  132 OK
+[2731] y=  122:Y=  122 OK
+[2732] y=  123:Y=  123 OK
+[2733] y=  129:Y=  129 OK
+[2734] y=  144:Y=  144 OK
+[2735] y=  153:Y=  153 OK
+[2736] y=  161:Y=  161 OK
+[2737] y=  176:Y=  176 OK
+[2738] y=  188:Y=  188 OK
+[2739] y=  193:Y=  193 OK
+[2740] y=  170:Y=  170 OK
+[2741] y=  132:Y=  132 OK
+[2742] y=   95:Y=   95 OK
+[2743] y=   80:Y=   80 OK
+[2744] y=   97:Y=   97 OK
+[2745] y=  134:Y=  134 OK
+[2746] y=  174:Y=  174 OK
+[2747] y=  199:Y=  199 OK
+[2748] y=  206:Y=  206 OK
+[2749] y=  202:Y=  202 OK
+[2750] y=  197:Y=  197 OK
+[2751] y=  193:Y=  193 OK
+[2752] y=  190:Y=  190 OK
+[2753] y=  184:Y=  184 OK
+[2754] y=  183:Y=  183 OK
+[2755] y=  188:Y=  188 OK
+[2756] y=  196:Y=  196 OK
+[2757] y=  207:Y=  207 OK
+[2758] y=  206:Y=  206 OK
+[2759] y=  196:Y=  196 OK
+[2760] y=  177:Y=  177 OK
+[2761] y=  156:Y=  156 OK
+[2762] y=  145:Y=  145 OK
+[2763] y=  140:Y=  140 OK
+[2764] y=  143:Y=  143 OK
+[2765] y=  141:Y=  141 OK
+[2766] y=  132:Y=  132 OK
+[2767] y=  117:Y=  117 OK
+[2768] y=   98:Y=   98 OK
+[2769] y=   89:Y=   89 OK
+[2770] y=   88:Y=   88 OK
+[2771] y=   96:Y=   96 OK
+[2772] y=   97:Y=   97 OK
+[2773] y=   84:Y=   84 OK
+[2774] y=   59:Y=   59 OK
+[2775] y=   30:Y=   30 OK
+[2776] y=   15:Y=   15 OK
+[2777] y=   17:Y=   17 OK
+[2778] y=   38:Y=   38 OK
+[2779] y=   63:Y=   63 OK
+[2780] y=   83:Y=   83 OK
+[2781] y=  100:Y=  100 OK
+[2782] y=  113:Y=  113 OK
+[2783] y=  131:Y=  131 OK
+[2784] y=  144:Y=  144 OK
+[2785] y=  154:Y=  154 OK
+[2786] y=  160:Y=  160 OK
+[2787] y=  161:Y=  161 OK
+[2788] y=  156:Y=  156 OK
+[2789] y=  142:Y=  142 OK
+[2790] y=  123:Y=  123 OK
+[2791] y=  103:Y=  103 OK
+[2792] y=   93:Y=   93 OK
+[2793] y=   95:Y=   95 OK
+[2794] y=  109:Y=  109 OK
+[2795] y=  123:Y=  123 OK
+[2796] y=  131:Y=  131 OK
+[2797] y=  140:Y=  140 OK
+[2798] y=  144:Y=  144 OK
+[2799] y=  147:Y=  147 OK
+[2800] y=  138:Y=  138 OK
+[2801] y=  123:Y=  123 OK
+[2802] y=  113:Y=  113 OK
+[2803] y=  113:Y=  113 OK
+[2804] y=  126:Y=  126 OK
+[2805] y=  145:Y=  145 OK
+[2806] y=  163:Y=  163 OK
+[2807] y=  178:Y=  178 OK
+[2808] y=  181:Y=  181 OK
+[2809] y=  171:Y=  171 OK
+[2810] y=  151:Y=  151 OK
+[2811] y=  124:Y=  124 OK
+[2812] y=  106:Y=  106 OK
+[2813] y=   98:Y=   98 OK
+[2814] y=  110:Y=  110 OK
+[2815] y=  134:Y=  134 OK
+[2816] y=  153:Y=  153 OK
+[2817] y=  157:Y=  157 OK
+[2818] y=  139:Y=  139 OK
+[2819] y=  124:Y=  124 OK
+[2820] y=  128:Y=  128 OK
+[2821] y=  148:Y=  148 OK
+[2822] y=  174:Y=  174 OK
+[2823] y=  185:Y=  185 OK
+[2824] y=  187:Y=  187 OK
+[2825] y=  183:Y=  183 OK
+[2826] y=  178:Y=  178 OK
+[2827] y=  166:Y=  166 OK
+[2828] y=  152:Y=  152 OK
+[2829] y=  140:Y=  140 OK
+[2830] y=  140:Y=  140 OK
+[2831] y=  149:Y=  149 OK
+[2832] y=  156:Y=  156 OK
+[2833] y=  156:Y=  156 OK
+[2834] y=  146:Y=  146 OK
+[2835] y=  145:Y=  145 OK
+[2836] y=  148:Y=  148 OK
+[2837] y=  159:Y=  159 OK
+[2838] y=  157:Y=  157 OK
+[2839] y=  140:Y=  140 OK
+[2840] y=  115:Y=  115 OK
+[2841] y=   96:Y=   96 OK
+[2842] y=   92:Y=   92 OK
+[2843] y=  101:Y=  101 OK
+[2844] y=  118:Y=  118 OK
+[2845] y=  131:Y=  131 OK
+[2846] y=  141:Y=  141 OK
+[2847] y=  143:Y=  143 OK
+[2848] y=  148:Y=  148 OK
+[2849] y=  157:Y=  157 OK
+[2850] y=  167:Y=  167 OK
+[2851] y=  174:Y=  174 OK
+[2852] y=  166:Y=  166 OK
+[2853] y=  151:Y=  151 OK
+[2854] y=  126:Y=  126 OK
+[2855] y=  108:Y=  108 OK
+[2856] y=   96:Y=   96 OK
+[2857] y=   89:Y=   89 OK
+[2858] y=   90:Y=   90 OK
+[2859] y=   91:Y=   91 OK
+[2860] y=  105:Y=  105 OK
+[2861] y=  125:Y=  125 OK
+[2862] y=  142:Y=  142 OK
+[2863] y=  147:Y=  147 OK
+[2864] y=  129:Y=  129 OK
+[2865] y=  110:Y=  110 OK
+[2866] y=   99:Y=   99 OK
+[2867] y=  106:Y=  106 OK
+[2868] y=  122:Y=  122 OK
+[2869] y=  135:Y=  135 OK
+[2870] y=  138:Y=  138 OK
+[2871] y=  131:Y=  131 OK
+[2872] y=  121:Y=  121 OK
+[2873] y=  105:Y=  105 OK
+[2874] y=   95:Y=   95 OK
+[2875] y=   82:Y=   82 OK
+[2876] y=   79:Y=   79 OK
+[2877] y=   75:Y=   75 OK
+[2878] y=   77:Y=   77 OK
+[2879] y=   84:Y=   84 OK
+[2880] y=   93:Y=   93 OK
+[2881] y=  112:Y=  112 OK
+[2882] y=  127:Y=  127 OK
+[2883] y=  145:Y=  145 OK
+[2884] y=  143:Y=  143 OK
+[2885] y=  132:Y=  132 OK
+[2886] y=  109:Y=  109 OK
+[2887] y=   89:Y=   89 OK
+[2888] y=   80:Y=   80 OK
+[2889] y=   75:Y=   75 OK
+[2890] y=   77:Y=   77 OK
+[2891] y=   73:Y=   73 OK
+[2892] y=   79:Y=   79 OK
+[2893] y=   92:Y=   92 OK
+[2894] y=  111:Y=  111 OK
+[2895] y=  125:Y=  125 OK
+[2896] y=  124:Y=  124 OK
+[2897] y=  113:Y=  113 OK
+[2898] y=   99:Y=   99 OK
+[2899] y=   99:Y=   99 OK
+[2900] y=  106:Y=  106 OK
+[2901] y=  123:Y=  123 OK
+[2902] y=  141:Y=  141 OK
+[2903] y=  164:Y=  164 OK
+[2904] y=  190:Y=  190 OK
+[2905] y=  207:Y=  207 OK
+[2906] y=  212:Y=  212 OK
+[2907] y=  192:Y=  192 OK
+[2908] y=  159:Y=  159 OK
+[2909] y=  126:Y=  126 OK
+[2910] y=  113:Y=  113 OK
+[2911] y=  125:Y=  125 OK
+[2912] y=  148:Y=  148 OK
+[2913] y=  171:Y=  171 OK
+[2914] y=  178:Y=  178 OK
+[2915] y=  178:Y=  178 OK
+[2916] y=  176:Y=  176 OK
+[2917] y=  177:Y=  177 OK
+[2918] y=  182:Y=  182 OK
+[2919] y=  176:Y=  176 OK
+[2920] y=  160:Y=  160 OK
+[2921] y=  134:Y=  134 OK
+[2922] y=  121:Y=  121 OK
+[2923] y=  124:Y=  124 OK
+[2924] y=  144:Y=  144 OK
+[2925] y=  158:Y=  158 OK
+[2926] y=  159:Y=  159 OK
+[2927] y=  145:Y=  145 OK
+[2928] y=  131:Y=  131 OK
+[2929] y=  139:Y=  139 OK
+[2930] y=  160:Y=  160 OK
+[2931] y=  184:Y=  184 OK
+[2932] y=  183:Y=  183 OK
+[2933] y=  156:Y=  156 OK
+[2934] y=  118:Y=  118 OK
+[2935] y=   83:Y=   83 OK
+[2936] y=   70:Y=   70 OK
+[2937] y=   71:Y=   71 OK
+[2938] y=   88:Y=   88 OK
+[2939] y=  104:Y=  104 OK
+[2940] y=  109:Y=  109 OK
+[2941] y=   97:Y=   97 OK
+[2942] y=   78:Y=   78 OK
+[2943] y=   72:Y=   72 OK
+[2944] y=   82:Y=   82 OK
+[2945] y=  105:Y=  105 OK
+[2946] y=  117:Y=  117 OK
+[2947] y=  111:Y=  111 OK
+[2948] y=   91:Y=   91 OK
+[2949] y=   73:Y=   73 OK
+[2950] y=   63:Y=   63 OK
+[2951] y=   70:Y=   70 OK
+[2952] y=   90:Y=   90 OK
+[2953] y=  114:Y=  114 OK
+[2954] y=  135:Y=  135 OK
+[2955] y=  139:Y=  139 OK
+[2956] y=  140:Y=  140 OK
+[2957] y=  141:Y=  141 OK
+[2958] y=  152:Y=  152 OK
+[2959] y=  168:Y=  168 OK
+[2960] y=  171:Y=  171 OK
+[2961] y=  160:Y=  160 OK
+[2962] y=  134:Y=  134 OK
+[2963] y=  111:Y=  111 OK
+[2964] y=  105:Y=  105 OK
+[2965] y=  111:Y=  111 OK
+[2966] y=  115:Y=  115 OK
+[2967] y=  101:Y=  101 OK
+[2968] y=   74:Y=   74 OK
+[2969] y=   54:Y=   54 OK
+[2970] y=   55:Y=   55 OK
+[2971] y=   75:Y=   75 OK
+[2972] y=   95:Y=   95 OK
+[2973] y=   99:Y=   99 OK
+[2974] y=   85:Y=   85 OK
+[2975] y=   63:Y=   63 OK
+[2976] y=   52:Y=   52 OK
+[2977] y=   54:Y=   54 OK
+[2978] y=   67:Y=   67 OK
+[2979] y=   80:Y=   80 OK
+[2980] y=   88:Y=   88 OK
+[2981] y=  100:Y=  100 OK
+[2982] y=  114:Y=  114 OK
+[2983] y=  131:Y=  131 OK
+[2984] y=  144:Y=  144 OK
+[2985] y=  144:Y=  144 OK
+[2986] y=  135:Y=  135 OK
+[2987] y=  120:Y=  120 OK
+[2988] y=  108:Y=  108 OK
+[2989] y=  107:Y=  107 OK
+[2990] y=  114:Y=  114 OK
+[2991] y=  128:Y=  128 OK
+[2992] y=  137:Y=  137 OK
+[2993] y=  133:Y=  133 OK
+[2994] y=  118:Y=  118 OK
+[2995] y=   96:Y=   96 OK
+[2996] y=   86:Y=   86 OK
+[2997] y=   92:Y=   92 OK
+[2998] y=  112:Y=  112 OK
+[2999] y=  138:Y=  138 OK
+[3000] y=  159:Y=  159 OK
+[3001] y=  171:Y=  171 OK
+[3002] y=  174:Y=  174 OK
+[3003] y=  161:Y=  161 OK
+[3004] y=  146:Y=  146 OK
+[3005] y=  125:Y=  125 OK
+[3006] y=  111:Y=  111 OK
+[3007] y=  101:Y=  101 OK
+[3008] y=   90:Y=   90 OK
+[3009] y=   85:Y=   85 OK
+[3010] y=   81:Y=   81 OK
+[3011] y=   98:Y=   98 OK
+[3012] y=  128:Y=  128 OK
+[3013] y=  163:Y=  163 OK
+[3014] y=  184:Y=  184 OK
+[3015] y=  175:Y=  175 OK
+[3016] y=  151:Y=  151 OK
+[3017] y=  122:Y=  122 OK
+[3018] y=  116:Y=  116 OK
+[3019] y=  134:Y=  134 OK
+[3020] y=  167:Y=  167 OK
+[3021] y=  190:Y=  190 OK
+[3022] y=  190:Y=  190 OK
+[3023] y=  170:Y=  170 OK
+[3024] y=  144:Y=  144 OK
+[3025] y=  129:Y=  129 OK
+[3026] y=  118:Y=  118 OK
+[3027] y=  113:Y=  113 OK
+[3028] y=  100:Y=  100 OK
+[3029] y=   90:Y=   90 OK
+[3030] y=   84:Y=   84 OK
+[3031] y=   82:Y=   82 OK
+[3032] y=   81:Y=   81 OK
+[3033] y=   75:Y=   75 OK
+[3034] y=   72:Y=   72 OK
+[3035] y=   76:Y=   76 OK
+[3036] y=   90:Y=   90 OK
+[3037] y=  110:Y=  110 OK
+[3038] y=  133:Y=  133 OK
+[3039] y=  146:Y=  146 OK
+[3040] y=  149:Y=  149 OK
+[3041] y=  135:Y=  135 OK
+[3042] y=  118:Y=  118 OK
+[3043] y=  106:Y=  106 OK
+[3044] y=  107:Y=  107 OK
+[3045] y=  119:Y=  119 OK
+[3046] y=  128:Y=  128 OK
+[3047] y=  130:Y=  130 OK
+[3048] y=  113:Y=  113 OK
+[3049] y=   85:Y=   85 OK
+[3050] y=   53:Y=   53 OK
+[3051] y=   31:Y=   31 OK
+[3052] y=   29:Y=   29 OK
+[3053] y=   53:Y=   53 OK
+[3054] y=   90:Y=   90 OK
+[3055] y=  126:Y=  126 OK
+[3056] y=  143:Y=  143 OK
+[3057] y=  133:Y=  133 OK
+[3058] y=  104:Y=  104 OK
+[3059] y=   72:Y=   72 OK
+[3060] y=   63:Y=   63 OK
+[3061] y=   72:Y=   72 OK
+[3062] y=   91:Y=   91 OK
+[3063] y=  103:Y=  103 OK
+[3064] y=  112:Y=  112 OK
+[3065] y=  129:Y=  129 OK
+[3066] y=  154:Y=  154 OK
+[3067] y=  181:Y=  181 OK
+[3068] y=  190:Y=  190 OK
+[3069] y=  178:Y=  178 OK
+[3070] y=  156:Y=  156 OK
+[3071] y=  129:Y=  129 OK
+[3072] y=  113:Y=  113 OK
+[3073] y=  108:Y=  108 OK
+[3074] y=  115:Y=  115 OK
+[3075] y=  129:Y=  129 OK
+[3076] y=  138:Y=  138 OK
+[3077] y=  138:Y=  138 OK
+[3078] y=  129:Y=  129 OK
+[3079] y=  113:Y=  113 OK
+[3080] y=   98:Y=   98 OK
+[3081] y=   86:Y=   86 OK
+[3082] y=   88:Y=   88 OK
+[3083] y=  109:Y=  109 OK
+[3084] y=  140:Y=  140 OK
+[3085] y=  171:Y=  171 OK
+[3086] y=  183:Y=  183 OK
+[3087] y=  180:Y=  180 OK
+[3088] y=  166:Y=  166 OK
+[3089] y=  159:Y=  159 OK
+[3090] y=  161:Y=  161 OK
+[3091] y=  172:Y=  172 OK
+[3092] y=  180:Y=  180 OK
+[3093] y=  187:Y=  187 OK
+[3094] y=  195:Y=  195 OK
+[3095] y=  206:Y=  206 OK
+[3096] y=  214:Y=  214 OK
+[3097] y=  205:Y=  205 OK
+[3098] y=  185:Y=  185 OK
+[3099] y=  151:Y=  151 OK
+[3100] y=  125:Y=  125 OK
+[3101] y=  105:Y=  105 OK
+[3102] y=  101:Y=  101 OK
+[3103] y=  111:Y=  111 OK
+[3104] y=  129:Y=  129 OK
+[3105] y=  153:Y=  153 OK
+[3106] y=  163:Y=  163 OK
+[3107] y=  158:Y=  158 OK
+[3108] y=  136:Y=  136 OK
+[3109] y=  119:Y=  119 OK
+[3110] y=  118:Y=  118 OK
+[3111] y=  134:Y=  134 OK
+[3112] y=  157:Y=  157 OK
+[3113] y=  174:Y=  174 OK
+[3114] y=  181:Y=  181 OK
+[3115] y=  173:Y=  173 OK
+[3116] y=  154:Y=  154 OK
+[3117] y=  126:Y=  126 OK
+[3118] y=   99:Y=   99 OK
+[3119] y=   78:Y=   78 OK
+[3120] y=   66:Y=   66 OK
+[3121] y=   67:Y=   67 OK
+[3122] y=   71:Y=   71 OK
+[3123] y=   77:Y=   77 OK
+[3124] y=   71:Y=   71 OK
+[3125] y=   60:Y=   60 OK
+[3126] y=   56:Y=   56 OK
+[3127] y=   65:Y=   65 OK
+[3128] y=   94:Y=   94 OK
+[3129] y=  118:Y=  118 OK
+[3130] y=  135:Y=  135 OK
+[3131] y=  138:Y=  138 OK
+[3132] y=  140:Y=  140 OK
+[3133] y=  146:Y=  146 OK
+[3134] y=  149:Y=  149 OK
+[3135] y=  149:Y=  149 OK
+[3136] y=  142:Y=  142 OK
+[3137] y=  136:Y=  136 OK
+[3138] y=  138:Y=  138 OK
+[3139] y=  146:Y=  146 OK
+[3140] y=  154:Y=  154 OK
+[3141] y=  156:Y=  156 OK
+[3142] y=  153:Y=  153 OK
+[3143] y=  152:Y=  152 OK
+[3144] y=  150:Y=  150 OK
+[3145] y=  138:Y=  138 OK
+[3146] y=  114:Y=  114 OK
+[3147] y=   85:Y=   85 OK
+[3148] y=   73:Y=   73 OK
+[3149] y=   86:Y=   86 OK
+[3150] y=  109:Y=  109 OK
+[3151] y=  131:Y=  131 OK
+[3152] y=  131:Y=  131 OK
+[3153] y=  119:Y=  119 OK
+[3154] y=   99:Y=   99 OK
+[3155] y=   84:Y=   84 OK
+[3156] y=   87:Y=   87 OK
+[3157] y=  102:Y=  102 OK
+[3158] y=  129:Y=  129 OK
+[3159] y=  150:Y=  150 OK
+[3160] y=  163:Y=  163 OK
+[3161] y=  166:Y=  166 OK
+[3162] y=  164:Y=  164 OK
+[3163] y=  157:Y=  157 OK
+[3164] y=  140:Y=  140 OK
+[3165] y=  109:Y=  109 OK
+[3166] y=   72:Y=   72 OK
+[3167] y=   45:Y=   45 OK
+[3168] y=   41:Y=   41 OK
+[3169] y=   64:Y=   64 OK
+[3170] y=   93:Y=   93 OK
+[3171] y=  125:Y=  125 OK
+[3172] y=  146:Y=  146 OK
+[3173] y=  159:Y=  159 OK
+[3174] y=  157:Y=  157 OK
+[3175] y=  142:Y=  142 OK
+[3176] y=  129:Y=  129 OK
+[3177] y=  122:Y=  122 OK
+[3178] y=  129:Y=  129 OK
+[3179] y=  130:Y=  130 OK
+[3180] y=  121:Y=  121 OK
+[3181] y=  101:Y=  101 OK
+[3182] y=   85:Y=   85 OK
+[3183] y=   86:Y=   86 OK
+[3184] y=   95:Y=   95 OK
+[3185] y=  102:Y=  102 OK
+[3186] y=   90:Y=   90 OK
+[3187] y=   70:Y=   70 OK
+[3188] y=   59:Y=   59 OK
+[3189] y=   73:Y=   73 OK
+[3190] y=  100:Y=  100 OK
+[3191] y=  117:Y=  117 OK
+[3192] y=  119:Y=  119 OK
+[3193] y=  110:Y=  110 OK
+[3194] y=  112:Y=  112 OK
+[3195] y=  127:Y=  127 OK
+[3196] y=  155:Y=  155 OK
+[3197] y=  182:Y=  182 OK
+[3198] y=  201:Y=  201 OK
+[3199] y=  209:Y=  209 OK
+[3200] y=  200:Y=  200 OK
+[3201] y=  185:Y=  185 OK
+[3202] y=  161:Y=  161 OK
+[3203] y=  145:Y=  145 OK
+[3204] y=  138:Y=  138 OK
+[3205] y=  135:Y=  135 OK
+[3206] y=  134:Y=  134 OK
+[3207] y=  125:Y=  125 OK
+[3208] y=  119:Y=  119 OK
+[3209] y=  113:Y=  113 OK
+[3210] y=  106:Y=  106 OK
+[3211] y=   97:Y=   97 OK
+[3212] y=   84:Y=   84 OK
+[3213] y=   77:Y=   77 OK
+[3214] y=   78:Y=   78 OK
+[3215] y=   90:Y=   90 OK
+[3216] y=  111:Y=  111 OK
+[3217] y=  134:Y=  134 OK
+[3218] y=  154:Y=  154 OK
+[3219] y=  168:Y=  168 OK
+[3220] y=  165:Y=  165 OK
+[3221] y=  154:Y=  154 OK
+[3222] y=  142:Y=  142 OK
+[3223] y=  138:Y=  138 OK
+[3224] y=  146:Y=  146 OK
+[3225] y=  152:Y=  152 OK
+[3226] y=  153:Y=  153 OK
+[3227] y=  150:Y=  150 OK
+[3228] y=  146:Y=  146 OK
+[3229] y=  145:Y=  145 OK
+[3230] y=  137:Y=  137 OK
+[3231] y=  122:Y=  122 OK
+[3232] y=  103:Y=  103 OK
+[3233] y=   81:Y=   81 OK
+[3234] y=   64:Y=   64 OK
+[3235] y=   56:Y=   56 OK
+[3236] y=   61:Y=   61 OK
+[3237] y=   82:Y=   82 OK
+[3238] y=  107:Y=  107 OK
+[3239] y=  124:Y=  124 OK
+[3240] y=  126:Y=  126 OK
+[3241] y=  115:Y=  115 OK
+[3242] y=  106:Y=  106 OK
+[3243] y=   99:Y=   99 OK
+[3244] y=   97:Y=   97 OK
+[3245] y=   91:Y=   91 OK
+[3246] y=   82:Y=   82 OK
+[3247] y=   76:Y=   76 OK
+[3248] y=   75:Y=   75 OK
+[3249] y=   86:Y=   86 OK
+[3250] y=  102:Y=  102 OK
+[3251] y=  126:Y=  126 OK
+[3252] y=  142:Y=  142 OK
+[3253] y=  152:Y=  152 OK
+[3254] y=  146:Y=  146 OK
+[3255] y=  134:Y=  134 OK
+[3256] y=  122:Y=  122 OK
+[3257] y=  112:Y=  112 OK
+[3258] y=  105:Y=  105 OK
+[3259] y=   94:Y=   94 OK
+[3260] y=   88:Y=   88 OK
+[3261] y=   82:Y=   82 OK
+[3262] y=   85:Y=   85 OK
+[3263] y=   88:Y=   88 OK
+[3264] y=   98:Y=   98 OK
+[3265] y=  121:Y=  121 OK
+[3266] y=  146:Y=  146 OK
+[3267] y=  175:Y=  175 OK
+[3268] y=  179:Y=  179 OK
+[3269] y=  167:Y=  167 OK
+[3270] y=  144:Y=  144 OK
+[3271] y=  125:Y=  125 OK
+[3272] y=  122:Y=  122 OK
+[3273] y=  117:Y=  117 OK
+[3274] y=  116:Y=  116 OK
+[3275] y=  111:Y=  111 OK
+[3276] y=  113:Y=  113 OK
+[3277] y=  126:Y=  126 OK
+[3278] y=  140:Y=  140 OK
+[3279] y=  151:Y=  151 OK
+[3280] y=  145:Y=  145 OK
+[3281] y=  128:Y=  128 OK
+[3282] y=  108:Y=  108 OK
+[3283] y=   92:Y=   92 OK
+[3284] y=   91:Y=   91 OK
+[3285] y=  103:Y=  103 OK
+[3286] y=  127:Y=  127 OK
+[3287] y=  147:Y=  147 OK
+[3288] y=  157:Y=  157 OK
+[3289] y=  146:Y=  146 OK
+[3290] y=  129:Y=  129 OK
+[3291] y=  107:Y=  107 OK
+[3292] y=   95:Y=   95 OK
+[3293] y=   92:Y=   92 OK
+[3294] y=   97:Y=   97 OK
+[3295] y=  108:Y=  108 OK
+[3296] y=  116:Y=  116 OK
+[3297] y=  125:Y=  125 OK
+[3298] y=  122:Y=  122 OK
+[3299] y=  120:Y=  120 OK
+[3300] y=  114:Y=  114 OK
+[3301] y=  119:Y=  119 OK
+[3302] y=  135:Y=  135 OK
+[3303] y=  160:Y=  160 OK
+[3304] y=  185:Y=  185 OK
+[3305] y=  192:Y=  192 OK
+[3306] y=  180:Y=  180 OK
+[3307] y=  152:Y=  152 OK
+[3308] y=  129:Y=  129 OK
+[3309] y=  109:Y=  109 OK
+[3310] y=   92:Y=   92 OK
+[3311] y=   68:Y=   68 OK
+[3312] y=   47:Y=   47 OK
+[3313] y=   46:Y=   46 OK
+[3314] y=   60:Y=   60 OK
+[3315] y=   80:Y=   80 OK
+[3316] y=   84:Y=   84 OK
+[3317] y=   71:Y=   71 OK
+[3318] y=   55:Y=   55 OK
+[3319] y=   45:Y=   45 OK
+[3320] y=   55:Y=   55 OK
+[3321] y=   72:Y=   72 OK
+[3322] y=   86:Y=   86 OK
+[3323] y=   85:Y=   85 OK
+[3324] y=   72:Y=   72 OK
+[3325] y=   67:Y=   67 OK
+[3326] y=   73:Y=   73 OK
+[3327] y=   89:Y=   89 OK
+[3328] y=  104:Y=  104 OK
+[3329] y=  108:Y=  108 OK
+[3330] y=  108:Y=  108 OK
+[3331] y=   96:Y=   96 OK
+[3332] y=   80:Y=   80 OK
+[3333] y=   60:Y=   60 OK
+[3334] y=   45:Y=   45 OK
+[3335] y=   40:Y=   40 OK
+[3336] y=   41:Y=   41 OK
+[3337] y=   41:Y=   41 OK
+[3338] y=   45:Y=   45 OK
+[3339] y=   48:Y=   48 OK
+[3340] y=   62:Y=   62 OK
+[3341] y=   84:Y=   84 OK
+[3342] y=  106:Y=  106 OK
+[3343] y=  124:Y=  124 OK
+[3344] y=  121:Y=  121 OK
+[3345] y=  110:Y=  110 OK
+[3346] y=   92:Y=   92 OK
+[3347] y=   83:Y=   83 OK
+[3348] y=   90:Y=   90 OK
+[3349] y=  110:Y=  110 OK
+[3350] y=  138:Y=  138 OK
+[3351] y=  161:Y=  161 OK
+[3352] y=  180:Y=  180 OK
+[3353] y=  194:Y=  194 OK
+[3354] y=  208:Y=  208 OK
+[3355] y=  210:Y=  210 OK
+[3356] y=  202:Y=  202 OK
+[3357] y=  179:Y=  179 OK
+[3358] y=  158:Y=  158 OK
+[3359] y=  147:Y=  147 OK
+[3360] y=  155:Y=  155 OK
+[3361] y=  170:Y=  170 OK
+[3362] y=  183:Y=  183 OK
+[3363] y=  191:Y=  191 OK
+[3364] y=  188:Y=  188 OK
+[3365] y=  181:Y=  181 OK
+[3366] y=  158:Y=  158 OK
+[3367] y=  122:Y=  122 OK
+[3368] y=   81:Y=   81 OK
+[3369] y=   45:Y=   45 OK
+[3370] y=   31:Y=   31 OK
+[3371] y=   34:Y=   34 OK
+[3372] y=   56:Y=   56 OK
+[3373] y=   90:Y=   90 OK
+[3374] y=  129:Y=  129 OK
+[3375] y=  165:Y=  165 OK
+[3376] y=  180:Y=  180 OK
+[3377] y=  173:Y=  173 OK
+[3378] y=  142:Y=  142 OK
+[3379] y=  111:Y=  111 OK
+[3380] y=   96:Y=   96 OK
+[3381] y=  108:Y=  108 OK
+[3382] y=  139:Y=  139 OK
+[3383] y=  169:Y=  169 OK
+[3384] y=  190:Y=  190 OK
+[3385] y=  198:Y=  198 OK
+[3386] y=  201:Y=  201 OK
+[3387] y=  193:Y=  193 OK
+[3388] y=  175:Y=  175 OK
+[3389] y=  153:Y=  153 OK
+[3390] y=  132:Y=  132 OK
+[3391] y=  115:Y=  115 OK
+[3392] y=   96:Y=   96 OK
+[3393] y=   85:Y=   85 OK
+[3394] y=   83:Y=   83 OK
+[3395] y=   95:Y=   95 OK
+[3396] y=  108:Y=  108 OK
+[3397] y=  113:Y=  113 OK
+[3398] y=  117:Y=  117 OK
+[3399] y=  113:Y=  113 OK
+[3400] y=  110:Y=  110 OK
+[3401] y=  104:Y=  104 OK
+[3402] y=  104:Y=  104 OK
+[3403] y=  114:Y=  114 OK
+[3404] y=  128:Y=  128 OK
+[3405] y=  138:Y=  138 OK
+[3406] y=  144:Y=  144 OK
+[3407] y=  148:Y=  148 OK
+[3408] y=  147:Y=  147 OK
+[3409] y=  131:Y=  131 OK
+[3410] y=   98:Y=   98 OK
+[3411] y=   68:Y=   68 OK
+[3412] y=   50:Y=   50 OK
+[3413] y=   62:Y=   62 OK
+[3414] y=   86:Y=   86 OK
+[3415] y=  112:Y=  112 OK
+[3416] y=  132:Y=  132 OK
+[3417] y=  131:Y=  131 OK
+[3418] y=  125:Y=  125 OK
+[3419] y=  111:Y=  111 OK
+[3420] y=  108:Y=  108 OK
+[3421] y=  118:Y=  118 OK
+[3422] y=  127:Y=  127 OK
+[3423] y=  137:Y=  137 OK
+[3424] y=  138:Y=  138 OK
+[3425] y=  142:Y=  142 OK
+[3426] y=  150:Y=  150 OK
+[3427] y=  157:Y=  157 OK
+[3428] y=  160:Y=  160 OK
+[3429] y=  151:Y=  151 OK
+[3430] y=  133:Y=  133 OK
+[3431] y=  112:Y=  112 OK
+[3432] y=  103:Y=  103 OK
+[3433] y=  103:Y=  103 OK
+[3434] y=  107:Y=  107 OK
+[3435] y=   96:Y=   96 OK
+[3436] y=   75:Y=   75 OK
+[3437] y=   61:Y=   61 OK
+[3438] y=   63:Y=   63 OK
+[3439] y=   84:Y=   84 OK
+[3440] y=  106:Y=  106 OK
+[3441] y=  121:Y=  121 OK
+[3442] y=  132:Y=  132 OK
+[3443] y=  144:Y=  144 OK
+[3444] y=  157:Y=  157 OK
+[3445] y=  164:Y=  164 OK
+[3446] y=  163:Y=  163 OK
+[3447] y=  158:Y=  158 OK
+[3448] y=  150:Y=  150 OK
+[3449] y=  143:Y=  143 OK
+[3450] y=  133:Y=  133 OK
+[3451] y=  119:Y=  119 OK
+[3452] y=  101:Y=  101 OK
+[3453] y=   78:Y=   78 OK
+[3454] y=   65:Y=   65 OK
+[3455] y=   68:Y=   68 OK
+[3456] y=   83:Y=   83 OK
+[3457] y=  102:Y=  102 OK
+[3458] y=  114:Y=  114 OK
+[3459] y=  126:Y=  126 OK
+[3460] y=  136:Y=  136 OK
+[3461] y=  147:Y=  147 OK
+[3462] y=  152:Y=  152 OK
+[3463] y=  155:Y=  155 OK
+[3464] y=  165:Y=  165 OK
+[3465] y=  178:Y=  178 OK
+[3466] y=  193:Y=  193 OK
+[3467] y=  200:Y=  200 OK
+[3468] y=  197:Y=  197 OK
+[3469] y=  185:Y=  185 OK
+[3470] y=  170:Y=  170 OK
+[3471] y=  155:Y=  155 OK
+[3472] y=  145:Y=  145 OK
+[3473] y=  137:Y=  137 OK
+[3474] y=  133:Y=  133 OK
+[3475] y=  138:Y=  138 OK
+[3476] y=  151:Y=  151 OK
+[3477] y=  172:Y=  172 OK
+[3478] y=  181:Y=  181 OK
+[3479] y=  172:Y=  172 OK
+[3480] y=  150:Y=  150 OK
+[3481] y=  127:Y=  127 OK
+[3482] y=  117:Y=  117 OK
+[3483] y=  116:Y=  116 OK
+[3484] y=  125:Y=  125 OK
+[3485] y=  132:Y=  132 OK
+[3486] y=  135:Y=  135 OK
+[3487] y=  136:Y=  136 OK
+[3488] y=  130:Y=  130 OK
+[3489] y=  123:Y=  123 OK
+[3490] y=  112:Y=  112 OK
+[3491] y=  103:Y=  103 OK
+[3492] y=  104:Y=  104 OK
+[3493] y=  114:Y=  114 OK
+[3494] y=  138:Y=  138 OK
+[3495] y=  161:Y=  161 OK
+[3496] y=  180:Y=  180 OK
+[3497] y=  186:Y=  186 OK
+[3498] y=  174:Y=  174 OK
+[3499] y=  149:Y=  149 OK
+[3500] y=  119:Y=  119 OK
+[3501] y=   93:Y=   93 OK
+[3502] y=   80:Y=   80 OK
+[3503] y=   83:Y=   83 OK
+[3504] y=   95:Y=   95 OK
+[3505] y=  113:Y=  113 OK
+[3506] y=  119:Y=  119 OK
+[3507] y=  125:Y=  125 OK
+[3508] y=  124:Y=  124 OK
+[3509] y=  132:Y=  132 OK
+[3510] y=  140:Y=  140 OK
+[3511] y=  146:Y=  146 OK
+[3512] y=  150:Y=  150 OK
+[3513] y=  153:Y=  153 OK
+[3514] y=  160:Y=  160 OK
+[3515] y=  158:Y=  158 OK
+[3516] y=  141:Y=  141 OK
+[3517] y=  109:Y=  109 OK
+[3518] y=   83:Y=   83 OK
+[3519] y=   78:Y=   78 OK
+[3520] y=   99:Y=   99 OK
+[3521] y=  129:Y=  129 OK
+[3522] y=  153:Y=  153 OK
+[3523] y=  167:Y=  167 OK
+[3524] y=  172:Y=  172 OK
+[3525] y=  172:Y=  172 OK
+[3526] y=  164:Y=  164 OK
+[3527] y=  149:Y=  149 OK
+[3528] y=  128:Y=  128 OK
+[3529] y=  105:Y=  105 OK
+[3530] y=   96:Y=   96 OK
+[3531] y=   94:Y=   94 OK
+[3532] y=   98:Y=   98 OK
+[3533] y=   94:Y=   94 OK
+[3534] y=   84:Y=   84 OK
+[3535] y=   77:Y=   77 OK
+[3536] y=   69:Y=   69 OK
+[3537] y=   68:Y=   68 OK
+[3538] y=   59:Y=   59 OK
+[3539] y=   58:Y=   58 OK
+[3540] y=   64:Y=   64 OK
+[3541] y=   82:Y=   82 OK
+[3542] y=  107:Y=  107 OK
+[3543] y=  122:Y=  122 OK
+[3544] y=  130:Y=  130 OK
+[3545] y=  119:Y=  119 OK
+[3546] y=  100:Y=  100 OK
+[3547] y=   77:Y=   77 OK
+[3548] y=   66:Y=   66 OK
+[3549] y=   75:Y=   75 OK
+[3550] y=  100:Y=  100 OK
+[3551] y=  130:Y=  130 OK
+[3552] y=  152:Y=  152 OK
+[3553] y=  161:Y=  161 OK
+[3554] y=  165:Y=  165 OK
+[3555] y=  168:Y=  168 OK
+[3556] y=  167:Y=  167 OK
+[3557] y=  153:Y=  153 OK
+[3558] y=  124:Y=  124 OK
+[3559] y=   96:Y=   96 OK
+[3560] y=   90:Y=   90 OK
+[3561] y=  109:Y=  109 OK
+[3562] y=  145:Y=  145 OK
+[3563] y=  164:Y=  164 OK
+[3564] y=  163:Y=  163 OK
+[3565] y=  143:Y=  143 OK
+[3566] y=  122:Y=  122 OK
+[3567] y=  114:Y=  114 OK
+[3568] y=  109:Y=  109 OK
+[3569] y=  111:Y=  111 OK
+[3570] y=  107:Y=  107 OK
+[3571] y=  108:Y=  108 OK
+[3572] y=  118:Y=  118 OK
+[3573] y=  141:Y=  141 OK
+[3574] y=  170:Y=  170 OK
+[3575] y=  187:Y=  187 OK
+[3576] y=  189:Y=  189 OK
+[3577] y=  166:Y=  166 OK
+[3578] y=  133:Y=  133 OK
+[3579] y=   91:Y=   91 OK
+[3580] y=   57:Y=   57 OK
+[3581] y=   41:Y=   41 OK
+[3582] y=   43:Y=   43 OK
+[3583] y=   68:Y=   68 OK
+[3584] y=   91:Y=   91 OK
+[3585] y=  107:Y=  107 OK
+[3586] y=  100:Y=  100 OK
+[3587] y=   79:Y=   79 OK
+[3588] y=   57:Y=   57 OK
+[3589] y=   46:Y=   46 OK
+[3590] y=   54:Y=   54 OK
+[3591] y=   68:Y=   68 OK
+[3592] y=   82:Y=   82 OK
+[3593] y=   96:Y=   96 OK
+[3594] y=  117:Y=  117 OK
+[3595] y=  140:Y=  140 OK
+[3596] y=  154:Y=  154 OK
+[3597] y=  146:Y=  146 OK
+[3598] y=  124:Y=  124 OK
+[3599] y=  100:Y=  100 OK
+[3600] y=   83:Y=   83 OK
+[3601] y=   80:Y=   80 OK
+[3602] y=   82:Y=   82 OK
+[3603] y=   88:Y=   88 OK
+[3604] y=   86:Y=   86 OK
+[3605] y=   69:Y=   69 OK
+[3606] y=   44:Y=   44 OK
+[3607] y=   19:Y=   19 OK
+[3608] y=   17:Y=   17 OK
+[3609] y=   32:Y=   32 OK
+[3610] y=   59:Y=   59 OK
+[3611] y=   78:Y=   78 OK
+[3612] y=   94:Y=   94 OK
+[3613] y=  103:Y=  103 OK
+[3614] y=  106:Y=  106 OK
+[3615] y=   96:Y=   96 OK
+[3616] y=   71:Y=   71 OK
+[3617] y=   42:Y=   42 OK
+[3618] y=   19:Y=   19 OK
+[3619] y=   17:Y=   17 OK
+[3620] y=   30:Y=   30 OK
+[3621] y=   60:Y=   60 OK
+[3622] y=   88:Y=   88 OK
+[3623] y=  106:Y=  106 OK
+[3624] y=   99:Y=   99 OK
+[3625] y=   77:Y=   77 OK
+[3626] y=   61:Y=   61 OK
+[3627] y=   62:Y=   62 OK
+[3628] y=   84:Y=   84 OK
+[3629] y=  113:Y=  113 OK
+[3630] y=  135:Y=  135 OK
+[3631] y=  144:Y=  144 OK
+[3632] y=  135:Y=  135 OK
+[3633] y=  119:Y=  119 OK
+[3634] y=  103:Y=  103 OK
+[3635] y=   95:Y=   95 OK
+[3636] y=  102:Y=  102 OK
+[3637] y=  112:Y=  112 OK
+[3638] y=  119:Y=  119 OK
+[3639] y=  113:Y=  113 OK
+[3640] y=  103:Y=  103 OK
+[3641] y=   99:Y=   99 OK
+[3642] y=   99:Y=   99 OK
+[3643] y=   95:Y=   95 OK
+[3644] y=   80:Y=   80 OK
+[3645] y=   58:Y=   58 OK
+[3646] y=   42:Y=   42 OK
+[3647] y=   37:Y=   37 OK
+[3648] y=   47:Y=   47 OK
+[3649] y=   71:Y=   71 OK
+[3650] y=   97:Y=   97 OK
+[3651] y=  119:Y=  119 OK
+[3652] y=  123:Y=  123 OK
+[3653] y=  116:Y=  116 OK
+[3654] y=  110:Y=  110 OK
+[3655] y=  108:Y=  108 OK
+[3656] y=  113:Y=  113 OK
+[3657] y=  109:Y=  109 OK
+[3658] y=  102:Y=  102 OK
+[3659] y=  101:Y=  101 OK
+[3660] y=  109:Y=  109 OK
+[3661] y=  125:Y=  125 OK
+[3662] y=  140:Y=  140 OK
+[3663] y=  153:Y=  153 OK
+[3664] y=  159:Y=  159 OK
+[3665] y=  154:Y=  154 OK
+[3666] y=  139:Y=  139 OK
+[3667] y=  129:Y=  129 OK
+[3668] y=  131:Y=  131 OK
+[3669] y=  149:Y=  149 OK
+[3670] y=  164:Y=  164 OK
+[3671] y=  162:Y=  162 OK
+[3672] y=  144:Y=  144 OK
+[3673] y=  116:Y=  116 OK
+[3674] y=   94:Y=   94 OK
+[3675] y=   83:Y=   83 OK
+[3676] y=   89:Y=   89 OK
+[3677] y=  103:Y=  103 OK
+[3678] y=  123:Y=  123 OK
+[3679] y=  140:Y=  140 OK
+[3680] y=  154:Y=  154 OK
+[3681] y=  168:Y=  168 OK
+[3682] y=  175:Y=  175 OK
+[3683] y=  177:Y=  177 OK
+[3684] y=  176:Y=  176 OK
+[3685] y=  179:Y=  179 OK
+[3686] y=  186:Y=  186 OK
+[3687] y=  192:Y=  192 OK
+[3688] y=  189:Y=  189 OK
+[3689] y=  180:Y=  180 OK
+[3690] y=  160:Y=  160 OK
+[3691] y=  136:Y=  136 OK
+[3692] y=  112:Y=  112 OK
+[3693] y=   92:Y=   92 OK
+[3694] y=   74:Y=   74 OK
+[3695] y=   53:Y=   53 OK
+[3696] y=   36:Y=   36 OK
+[3697] y=   39:Y=   39 OK
+[3698] y=   66:Y=   66 OK
+[3699] y=  104:Y=  104 OK
+[3700] y=  120:Y=  120 OK
+[3701] y=  110:Y=  110 OK
+[3702] y=   80:Y=   80 OK
+[3703] y=   55:Y=   55 OK
+[3704] y=   50:Y=   50 OK
+[3705] y=   51:Y=   51 OK
+[3706] y=   59:Y=   59 OK
+[3707] y=   63:Y=   63 OK
+[3708] y=   71:Y=   71 OK
+[3709] y=   83:Y=   83 OK
+[3710] y=   93:Y=   93 OK
+[3711] y=  104:Y=  104 OK
+[3712] y=  118:Y=  118 OK
+[3713] y=  138:Y=  138 OK
+[3714] y=  157:Y=  157 OK
+[3715] y=  165:Y=  165 OK
+[3716] y=  157:Y=  157 OK
+[3717] y=  147:Y=  147 OK
+[3718] y=  141:Y=  141 OK
+[3719] y=  149:Y=  149 OK
+[3720] y=  156:Y=  156 OK
+[3721] y=  154:Y=  154 OK
+[3722] y=  143:Y=  143 OK
+[3723] y=  122:Y=  122 OK
+[3724] y=  109:Y=  109 OK
+[3725] y=   94:Y=   94 OK
+[3726] y=   85:Y=   85 OK
+[3727] y=   83:Y=   83 OK
+[3728] y=   91:Y=   91 OK
+[3729] y=  107:Y=  107 OK
+[3730] y=  115:Y=  115 OK
+[3731] y=  112:Y=  112 OK
+[3732] y=   97:Y=   97 OK
+[3733] y=   84:Y=   84 OK
+[3734] y=   80:Y=   80 OK
+[3735] y=   88:Y=   88 OK
+[3736] y=  105:Y=  105 OK
+[3737] y=  118:Y=  118 OK
+[3738] y=  127:Y=  127 OK
+[3739] y=  126:Y=  126 OK
+[3740] y=  126:Y=  126 OK
+[3741] y=  126:Y=  126 OK
+[3742] y=  128:Y=  128 OK
+[3743] y=  127:Y=  127 OK
+[3744] y=  120:Y=  120 OK
+[3745] y=  117:Y=  117 OK
+[3746] y=  114:Y=  114 OK
+[3747] y=  122:Y=  122 OK
+[3748] y=  124:Y=  124 OK
+[3749] y=  128:Y=  128 OK
+[3750] y=  132:Y=  132 OK
+[3751] y=  138:Y=  138 OK
+[3752] y=  154:Y=  154 OK
+[3753] y=  163:Y=  163 OK
+[3754] y=  167:Y=  167 OK
+[3755] y=  153:Y=  153 OK
+[3756] y=  132:Y=  132 OK
+[3757] y=  118:Y=  118 OK
+[3758] y=  120:Y=  120 OK
+[3759] y=  133:Y=  133 OK
+[3760] y=  144:Y=  144 OK
+[3761] y=  147:Y=  147 OK
+[3762] y=  152:Y=  152 OK
+[3763] y=  159:Y=  159 OK
+[3764] y=  163:Y=  163 OK
+[3765] y=  158:Y=  158 OK
+[3766] y=  143:Y=  143 OK
+[3767] y=  136:Y=  136 OK
+[3768] y=  134:Y=  134 OK
+[3769] y=  137:Y=  137 OK
+[3770] y=  133:Y=  133 OK
+[3771] y=  127:Y=  127 OK
+[3772] y=  136:Y=  136 OK
+[3773] y=  155:Y=  155 OK
+[3774] y=  179:Y=  179 OK
+[3775] y=  188:Y=  188 OK
+[3776] y=  178:Y=  178 OK
+[3777] y=  160:Y=  160 OK
+[3778] y=  137:Y=  137 OK
+[3779] y=  126:Y=  126 OK
+[3780] y=  122:Y=  122 OK
+[3781] y=  129:Y=  129 OK
+[3782] y=  144:Y=  144 OK
+[3783] y=  153:Y=  153 OK
+[3784] y=  160:Y=  160 OK
+[3785] y=  148:Y=  148 OK
+[3786] y=  136:Y=  136 OK
+[3787] y=  120:Y=  120 OK
+[3788] y=  114:Y=  114 OK
+[3789] y=  111:Y=  111 OK
+[3790] y=  110:Y=  110 OK
+[3791] y=  107:Y=  107 OK
+[3792] y=  107:Y=  107 OK
+[3793] y=  120:Y=  120 OK
+[3794] y=  138:Y=  138 OK
+[3795] y=  157:Y=  157 OK
+[3796] y=  153:Y=  153 OK
+[3797] y=  134:Y=  134 OK
+[3798] y=  106:Y=  106 OK
+[3799] y=   88:Y=   88 OK
+[3800] y=   83:Y=   83 OK
+[3801] y=   92:Y=   92 OK
+[3802] y=  109:Y=  109 OK
+[3803] y=  126:Y=  126 OK
+[3804] y=  133:Y=  133 OK
+[3805] y=  124:Y=  124 OK
+[3806] y=  105:Y=  105 OK
+[3807] y=   89:Y=   89 OK
+[3808] y=   82:Y=   82 OK
+[3809] y=   81:Y=   81 OK
+[3810] y=   83:Y=   83 OK
+[3811] y=   81:Y=   81 OK
+[3812] y=   76:Y=   76 OK
+[3813] y=   66:Y=   66 OK
+[3814] y=   56:Y=   56 OK
+[3815] y=   48:Y=   48 OK
+[3816] y=   41:Y=   41 OK
+[3817] y=   35:Y=   35 OK
+[3818] y=   40:Y=   40 OK
+[3819] y=   58:Y=   58 OK
+[3820] y=   98:Y=   98 OK
+[3821] y=  142:Y=  142 OK
+[3822] y=  175:Y=  175 OK
+[3823] y=  189:Y=  189 OK
+[3824] y=  177:Y=  177 OK
+[3825] y=  159:Y=  159 OK
+[3826] y=  143:Y=  143 OK
+[3827] y=  139:Y=  139 OK
+[3828] y=  143:Y=  143 OK
+[3829] y=  144:Y=  144 OK
+[3830] y=  147:Y=  147 OK
+[3831] y=  148:Y=  148 OK
+[3832] y=  153:Y=  153 OK
+[3833] y=  150:Y=  150 OK
+[3834] y=  142:Y=  142 OK
+[3835] y=  132:Y=  132 OK
+[3836] y=  127:Y=  127 OK
+[3837] y=  129:Y=  129 OK
+[3838] y=  127:Y=  127 OK
+[3839] y=  125:Y=  125 OK
+[3840] y=  120:Y=  120 OK
+[3841] y=  126:Y=  126 OK
+[3842] y=  138:Y=  138 OK
+[3843] y=  156:Y=  156 OK
+[3844] y=  174:Y=  174 OK
+[3845] y=  189:Y=  189 OK
+[3846] y=  197:Y=  197 OK
+[3847] y=  195:Y=  195 OK
+[3848] y=  188:Y=  188 OK
+[3849] y=  177:Y=  177 OK
+[3850] y=  172:Y=  172 OK
+[3851] y=  162:Y=  162 OK
+[3852] y=  160:Y=  160 OK
+[3853] y=  156:Y=  156 OK
+[3854] y=  154:Y=  154 OK
+[3855] y=  144:Y=  144 OK
+[3856] y=  126:Y=  126 OK
+[3857] y=  118:Y=  118 OK
+[3858] y=  126:Y=  126 OK
+[3859] y=  154:Y=  154 OK
+[3860] y=  180:Y=  180 OK
+[3861] y=  194:Y=  194 OK
+[3862] y=  194:Y=  194 OK
+[3863] y=  185:Y=  185 OK
+[3864] y=  176:Y=  176 OK
+[3865] y=  159:Y=  159 OK
+[3866] y=  140:Y=  140 OK
+[3867] y=  117:Y=  117 OK
+[3868] y=  100:Y=  100 OK
+[3869] y=   93:Y=   93 OK
+[3870] y=   92:Y=   92 OK
+[3871] y=   98:Y=   98 OK
+[3872] y=  105:Y=  105 OK
+[3873] y=  117:Y=  117 OK
+[3874] y=  129:Y=  129 OK
+[3875] y=  136:Y=  136 OK
+[3876] y=  131:Y=  131 OK
+[3877] y=  119:Y=  119 OK
+[3878] y=  107:Y=  107 OK
+[3879] y=  104:Y=  104 OK
+[3880] y=  111:Y=  111 OK
+[3881] y=  126:Y=  126 OK
+[3882] y=  138:Y=  138 OK
+[3883] y=  138:Y=  138 OK
+[3884] y=  130:Y=  130 OK
+[3885] y=  116:Y=  116 OK
+[3886] y=  106:Y=  106 OK
+[3887] y=   97:Y=   97 OK
+[3888] y=   88:Y=   88 OK
+[3889] y=   77:Y=   77 OK
+[3890] y=   69:Y=   69 OK
+[3891] y=   65:Y=   65 OK
+[3892] y=   64:Y=   64 OK
+[3893] y=   64:Y=   64 OK
+[3894] y=   65:Y=   65 OK
+[3895] y=   64:Y=   64 OK
+[3896] y=   70:Y=   70 OK
+[3897] y=   79:Y=   79 OK
+[3898] y=  101:Y=  101 OK
+[3899] y=  123:Y=  123 OK
+[3900] y=  141:Y=  141 OK
+[3901] y=  144:Y=  144 OK
+[3902] y=  136:Y=  136 OK
+[3903] y=  130:Y=  130 OK
+[3904] y=  130:Y=  130 OK
+[3905] y=  138:Y=  138 OK
+[3906] y=  140:Y=  140 OK
+[3907] y=  143:Y=  143 OK
+[3908] y=  145:Y=  145 OK
+[3909] y=  152:Y=  152 OK
+[3910] y=  151:Y=  151 OK
+[3911] y=  142:Y=  142 OK
+[3912] y=  123:Y=  123 OK
+[3913] y=  105:Y=  105 OK
+[3914] y=   95:Y=   95 OK
+[3915] y=   95:Y=   95 OK
+[3916] y=  103:Y=  103 OK
+[3917] y=  114:Y=  114 OK
+[3918] y=  127:Y=  127 OK
+[3919] y=  142:Y=  142 OK
+[3920] y=  160:Y=  160 OK
+[3921] y=  174:Y=  174 OK
+[3922] y=  181:Y=  181 OK
+[3923] y=  175:Y=  175 OK
+[3924] y=  159:Y=  159 OK
+[3925] y=  134:Y=  134 OK
+[3926] y=  106:Y=  106 OK
+[3927] y=   78:Y=   78 OK
+[3928] y=   61:Y=   61 OK
+[3929] y=   59:Y=   59 OK
+[3930] y=   69:Y=   69 OK
+[3931] y=   83:Y=   83 OK
+[3932] y=   94:Y=   94 OK
+[3933] y=   98:Y=   98 OK
+[3934] y=  101:Y=  101 OK
+[3935] y=  104:Y=  104 OK
+[3936] y=  106:Y=  106 OK
+[3937] y=  108:Y=  108 OK
+[3938] y=   99:Y=   99 OK
+[3939] y=   95:Y=   95 OK
+[3940] y=   91:Y=   91 OK
+[3941] y=  102:Y=  102 OK
+[3942] y=  116:Y=  116 OK
+[3943] y=  132:Y=  132 OK
+[3944] y=  146:Y=  146 OK
+[3945] y=  156:Y=  156 OK
+[3946] y=  170:Y=  170 OK
+[3947] y=  171:Y=  171 OK
+[3948] y=  162:Y=  162 OK
+[3949] y=  134:Y=  134 OK
+[3950] y=  105:Y=  105 OK
+[3951] y=   87:Y=   87 OK
+[3952] y=   90:Y=   90 OK
+[3953] y=  104:Y=  104 OK
+[3954] y=  118:Y=  118 OK
+[3955] y=  124:Y=  124 OK
+[3956] y=  119:Y=  119 OK
+[3957] y=  116:Y=  116 OK
+[3958] y=  114:Y=  114 OK
+[3959] y=  127:Y=  127 OK
+[3960] y=  136:Y=  136 OK
+[3961] y=  140:Y=  140 OK
+[3962] y=  130:Y=  130 OK
+[3963] y=  115:Y=  115 OK
+[3964] y=  106:Y=  106 OK
+[3965] y=  105:Y=  105 OK
+[3966] y=  112:Y=  112 OK
+[3967] y=  116:Y=  116 OK
+[3968] y=  110:Y=  110 OK
+[3969] y=   94:Y=   94 OK
+[3970] y=   77:Y=   77 OK
+[3971] y=   74:Y=   74 OK
+[3972] y=   91:Y=   91 OK
+[3973] y=  119:Y=  119 OK
+[3974] y=  144:Y=  144 OK
+[3975] y=  155:Y=  155 OK
+[3976] y=  150:Y=  150 OK
+[3977] y=  131:Y=  131 OK
+[3978] y=  107:Y=  107 OK
+[3979] y=   81:Y=   81 OK
+[3980] y=   66:Y=   66 OK
+[3981] y=   58:Y=   58 OK
+[3982] y=   57:Y=   57 OK
+[3983] y=   56:Y=   56 OK
+[3984] y=   57:Y=   57 OK
+[3985] y=   70:Y=   70 OK
+[3986] y=   89:Y=   89 OK
+[3987] y=  114:Y=  114 OK
+[3988] y=  123:Y=  123 OK
+[3989] y=  116:Y=  116 OK
+[3990] y=   98:Y=   98 OK
+[3991] y=   83:Y=   83 OK
+[3992] y=   81:Y=   81 OK
+[3993] y=   86:Y=   86 OK
+[3994] y=   96:Y=   96 OK
+[3995] y=  100:Y=  100 OK
+[3996] y=  101:Y=  101 OK
+[3997] y=   91:Y=   91 OK
+[3998] y=   75:Y=   75 OK
+[3999] y=   55:Y=   55 OK
+[4000] y=   43:Y=   43 OK
+[4001] y=   51:Y=   51 OK
+[4002] y=   70:Y=   70 OK
+[4003] y=   94:Y=   94 OK
+[4004] y=  103:Y=  103 OK
+[4005] y=  104:Y=  104 OK
+[4006] y=  101:Y=  101 OK
+[4007] y=  109:Y=  109 OK
+[4008] y=  118:Y=  118 OK
+[4009] y=  112:Y=  112 OK
+[4010] y=   92:Y=   92 OK
+[4011] y=   61:Y=   61 OK
+[4012] y=   53:Y=   53 OK
+[4013] y=   61:Y=   61 OK
+[4014] y=   83:Y=   83 OK
+[4015] y=   99:Y=   99 OK
+[4016] y=  103:Y=  103 OK
+[4017] y=  109:Y=  109 OK
+[4018] y=  118:Y=  118 OK
+[4019] y=  138:Y=  138 OK
+[4020] y=  152:Y=  152 OK
+[4021] y=  159:Y=  159 OK
+[4022] y=  154:Y=  154 OK
+[4023] y=  148:Y=  148 OK
+[4024] y=  141:Y=  141 OK
+[4025] y=  133:Y=  133 OK
+[4026] y=  123:Y=  123 OK
+[4027] y=  110:Y=  110 OK
+[4028] y=  106:Y=  106 OK
+[4029] y=  106:Y=  106 OK
+[4030] y=  117:Y=  117 OK
+[4031] y=  128:Y=  128 OK
+[4032] y=  138:Y=  138 OK
+[4033] y=  142:Y=  142 OK
+[4034] y=  135:Y=  135 OK
+[4035] y=  127:Y=  127 OK
+[4036] y=  119:Y=  119 OK
+[4037] y=  114:Y=  114 OK
+[4038] y=  109:Y=  109 OK
+[4039] y=  103:Y=  103 OK
+[4040] y=  107:Y=  107 OK
+[4041] y=  118:Y=  118 OK
+[4042] y=  137:Y=  137 OK
+[4043] y=  146:Y=  146 OK
+[4044] y=  146:Y=  146 OK
+[4045] y=  134:Y=  134 OK
+[4046] y=  117:Y=  117 OK
+[4047] y=  104:Y=  104 OK
+[4048] y=   93:Y=   93 OK
+[4049] y=   94:Y=   94 OK
+[4050] y=   96:Y=   96 OK
+[4051] y=  108:Y=  108 OK
+[4052] y=  118:Y=  118 OK
+[4053] y=  128:Y=  128 OK
+[4054] y=  135:Y=  135 OK
+[4055] y=  140:Y=  140 OK
+[4056] y=  151:Y=  151 OK
+[4057] y=  157:Y=  157 OK
+[4058] y=  156:Y=  156 OK
+[4059] y=  137:Y=  137 OK
+[4060] y=  112:Y=  112 OK
+[4061] y=  101:Y=  101 OK
+[4062] y=  111:Y=  111 OK
+[4063] y=  139:Y=  139 OK
+[4064] y=  153:Y=  153 OK
+[4065] y=  153:Y=  153 OK
+[4066] y=  133:Y=  133 OK
+[4067] y=  114:Y=  114 OK
+[4068] y=   99:Y=   99 OK
+[4069] y=   93:Y=   93 OK
+[4070] y=  100:Y=  100 OK
+[4071] y=  109:Y=  109 OK
+[4072] y=  119:Y=  119 OK
+[4073] y=  111:Y=  111 OK
+[4074] y=   90:Y=   90 OK
+[4075] y=   67:Y=   67 OK
+[4076] y=   58:Y=   58 OK
+[4077] y=   67:Y=   67 OK
+[4078] y=   86:Y=   86 OK
+[4079] y=  102:Y=  102 OK
+[4080] y=  110:Y=  110 OK
+[4081] y=  118:Y=  118 OK
+[4082] y=  124:Y=  124 OK
+[4083] y=  135:Y=  135 OK
+[4084] y=  143:Y=  143 OK
+[4085] y=  149:Y=  149 OK
+[4086] y=  148:Y=  148 OK
+[4087] y=  136:Y=  136 OK
+[4088] y=  126:Y=  126 OK
+[4089] y=  115:Y=  115 OK
+[4090] y=  123:Y=  123 OK
+[4091] y=  139:Y=  139 OK
+[4092] y=  156:Y=  156 OK
+[4093] y=  166:Y=  166 OK
+[4094] y=  165:Y=  165 OK
+[4095] y=  162:Y=  162 OK
+[4096] y=  157:Y=  157 OK
+[4097] y=  155:Y=  155 OK
+[4098] y=  151:Y=  151 OK
+[4099] y=  139:Y=  139 OK
+[4100] y=  117:Y=  117 OK
+[4101] y=   95:Y=   95 OK
+[4102] y=   82:Y=   82 OK
+[4103] y=   88:Y=   88 OK
+[4104] y=   97:Y=   97 OK
+[4105] y=   98:Y=   98 OK
+[4106] y=   87:Y=   87 OK
+[4107] y=   72:Y=   72 OK
+[4108] y=   71:Y=   71 OK
+[4109] y=   81:Y=   81 OK
+[4110] y=  102:Y=  102 OK
+[4111] y=  122:Y=  122 OK
+[4112] y=  133:Y=  133 OK
+[4113] y=  132:Y=  132 OK
+[4114] y=  116:Y=  116 OK
+[4115] y=   98:Y=   98 OK
+[4116] y=   96:Y=   96 OK
+[4117] y=  111:Y=  111 OK
+[4118] y=  132:Y=  132 OK
+[4119] y=  137:Y=  137 OK
+[4120] y=  126:Y=  126 OK
+[4121] y=  119:Y=  119 OK
+[4122] y=  131:Y=  131 OK
+[4123] y=  159:Y=  159 OK
+[4124] y=  179:Y=  179 OK
+[4125] y=  181:Y=  181 OK
+[4126] y=  171:Y=  171 OK
+[4127] y=  158:Y=  158 OK
+[4128] y=  151:Y=  151 OK
+[4129] y=  149:Y=  149 OK
+[4130] y=  150:Y=  150 OK
+[4131] y=  162:Y=  162 OK
+[4132] y=  173:Y=  173 OK
+[4133] y=  182:Y=  182 OK
+[4134] y=  181:Y=  181 OK
+[4135] y=  171:Y=  171 OK
+[4136] y=  163:Y=  163 OK
+[4137] y=  156:Y=  156 OK
+[4138] y=  158:Y=  158 OK
+[4139] y=  161:Y=  161 OK
+[4140] y=  163:Y=  163 OK
+[4141] y=  156:Y=  156 OK
+[4142] y=  147:Y=  147 OK
+[4143] y=  132:Y=  132 OK
+[4144] y=  124:Y=  124 OK
+[4145] y=  113:Y=  113 OK
+[4146] y=  106:Y=  106 OK
+[4147] y=  104:Y=  104 OK
+[4148] y=  109:Y=  109 OK
+[4149] y=  118:Y=  118 OK
+[4150] y=  122:Y=  122 OK
+[4151] y=  124:Y=  124 OK
+[4152] y=  129:Y=  129 OK
+[4153] y=  143:Y=  143 OK
+[4154] y=  162:Y=  162 OK
+[4155] y=  176:Y=  176 OK
+[4156] y=  178:Y=  178 OK
+[4157] y=  168:Y=  168 OK
+[4158] y=  155:Y=  155 OK
+[4159] y=  149:Y=  149 OK
+[4160] y=  150:Y=  150 OK
+[4161] y=  157:Y=  157 OK
+[4162] y=  152:Y=  152 OK
+[4163] y=  142:Y=  142 OK
+[4164] y=  127:Y=  127 OK
+[4165] y=  124:Y=  124 OK
+[4166] y=  130:Y=  130 OK
+[4167] y=  143:Y=  143 OK
+[4168] y=  155:Y=  155 OK
+[4169] y=  165:Y=  165 OK
+[4170] y=  172:Y=  172 OK
+[4171] y=  169:Y=  169 OK
+[4172] y=  159:Y=  159 OK
+[4173] y=  137:Y=  137 OK
+[4174] y=  118:Y=  118 OK
+[4175] y=   98:Y=   98 OK
+[4176] y=   88:Y=   88 OK
+[4177] y=   85:Y=   85 OK
+[4178] y=   91:Y=   91 OK
+[4179] y=  102:Y=  102 OK
+[4180] y=  102:Y=  102 OK
+[4181] y=   99:Y=   99 OK
+[4182] y=   87:Y=   87 OK
+[4183] y=   84:Y=   84 OK
+[4184] y=   87:Y=   87 OK
+[4185] y=   96:Y=   96 OK
+[4186] y=  110:Y=  110 OK
+[4187] y=  118:Y=  118 OK
+[4188] y=  118:Y=  118 OK
+[4189] y=  105:Y=  105 OK
+[4190] y=   87:Y=   87 OK
+[4191] y=   72:Y=   72 OK
+[4192] y=   66:Y=   66 OK
+[4193] y=   75:Y=   75 OK
+[4194] y=   95:Y=   95 OK
+[4195] y=  116:Y=  116 OK
+[4196] y=  125:Y=  125 OK
+[4197] y=  126:Y=  126 OK
+[4198] y=  122:Y=  122 OK
+[4199] y=  121:Y=  121 OK
+[4200] y=  118:Y=  118 OK
+[4201] y=  105:Y=  105 OK
+[4202] y=   94:Y=   94 OK
+[4203] y=   89:Y=   89 OK
+[4204] y=  104:Y=  104 OK
+[4205] y=  123:Y=  123 OK
+[4206] y=  143:Y=  143 OK
+[4207] y=  152:Y=  152 OK
+[4208] y=  148:Y=  148 OK
+[4209] y=  146:Y=  146 OK
+[4210] y=  139:Y=  139 OK
+[4211] y=  141:Y=  141 OK
+[4212] y=  141:Y=  141 OK
+[4213] y=  147:Y=  147 OK
+[4214] y=  154:Y=  154 OK
+[4215] y=  155:Y=  155 OK
+[4216] y=  155:Y=  155 OK
+[4217] y=  152:Y=  152 OK
+[4218] y=  154:Y=  154 OK
+[4219] y=  151:Y=  151 OK
+[4220] y=  143:Y=  143 OK
+[4221] y=  125:Y=  125 OK
+[4222] y=  117:Y=  117 OK
+[4223] y=  121:Y=  121 OK
+[4224] y=  139:Y=  139 OK
+[4225] y=  155:Y=  155 OK
+[4226] y=  159:Y=  159 OK
+[4227] y=  153:Y=  153 OK
+[4228] y=  135:Y=  135 OK
+[4229] y=  118:Y=  118 OK
+[4230] y=  100:Y=  100 OK
+[4231] y=   96:Y=   96 OK
+[4232] y=  106:Y=  106 OK
+[4233] y=  123:Y=  123 OK
+[4234] y=  135:Y=  135 OK
+[4235] y=  127:Y=  127 OK
+[4236] y=  106:Y=  106 OK
+[4237] y=   86:Y=   86 OK
+[4238] y=   84:Y=   84 OK
+[4239] y=  109:Y=  109 OK
+[4240] y=  148:Y=  148 OK
+[4241] y=  182:Y=  182 OK
+[4242] y=  193:Y=  193 OK
+[4243] y=  180:Y=  180 OK
+[4244] y=  160:Y=  160 OK
+[4245] y=  145:Y=  145 OK
+[4246] y=  133:Y=  133 OK
+[4247] y=  127:Y=  127 OK
+[4248] y=  124:Y=  124 OK
+[4249] y=  132:Y=  132 OK
+[4250] y=  146:Y=  146 OK
+[4251] y=  150:Y=  150 OK
+[4252] y=  139:Y=  139 OK
+[4253] y=  120:Y=  120 OK
+[4254] y=  108:Y=  108 OK
+[4255] y=  113:Y=  113 OK
+[4256] y=  116:Y=  116 OK
+[4257] y=  114:Y=  114 OK
+[4258] y=  105:Y=  105 OK
+[4259] y=  101:Y=  101 OK
+[4260] y=  109:Y=  109 OK
+[4261] y=  112:Y=  112 OK
+[4262] y=  115:Y=  115 OK
+[4263] y=  112:Y=  112 OK
+[4264] y=  119:Y=  119 OK
+[4265] y=  131:Y=  131 OK
+[4266] y=  133:Y=  133 OK
+[4267] y=  119:Y=  119 OK
+[4268] y=   88:Y=   88 OK
+[4269] y=   64:Y=   64 OK
+[4270] y=   56:Y=   56 OK
+[4271] y=   70:Y=   70 OK
+[4272] y=   91:Y=   91 OK
+[4273] y=  109:Y=  109 OK
+[4274] y=  113:Y=  113 OK
+[4275] y=  103:Y=  103 OK
+[4276] y=   88:Y=   88 OK
+[4277] y=   75:Y=   75 OK
+[4278] y=   74:Y=   74 OK
+[4279] y=   86:Y=   86 OK
+[4280] y=  109:Y=  109 OK
+[4281] y=  133:Y=  133 OK
+[4282] y=  154:Y=  154 OK
+[4283] y=  159:Y=  159 OK
+[4284] y=  156:Y=  156 OK
+[4285] y=  149:Y=  149 OK
+[4286] y=  145:Y=  145 OK
+[4287] y=  144:Y=  144 OK
+[4288] y=  143:Y=  143 OK
+[4289] y=  137:Y=  137 OK
+[4290] y=  127:Y=  127 OK
+[4291] y=  119:Y=  119 OK
+[4292] y=  122:Y=  122 OK
+[4293] y=  139:Y=  139 OK
+[4294] y=  161:Y=  161 OK
+[4295] y=  173:Y=  173 OK
+[4296] y=  167:Y=  167 OK
+[4297] y=  146:Y=  146 OK
+[4298] y=  124:Y=  124 OK
+[4299] y=  105:Y=  105 OK
+[4300] y=   98:Y=   98 OK
+[4301] y=  101:Y=  101 OK
+[4302] y=  114:Y=  114 OK
+[4303] y=  133:Y=  133 OK
+[4304] y=  146:Y=  146 OK
+[4305] y=  158:Y=  158 OK
+[4306] y=  161:Y=  161 OK
+[4307] y=  166:Y=  166 OK
+[4308] y=  170:Y=  170 OK
+[4309] y=  173:Y=  173 OK
+[4310] y=  182:Y=  182 OK
+[4311] y=  186:Y=  186 OK
+[4312] y=  188:Y=  188 OK
+[4313] y=  174:Y=  174 OK
+[4314] y=  151:Y=  151 OK
+[4315] y=  128:Y=  128 OK
+[4316] y=  111:Y=  111 OK
+[4317] y=   98:Y=   98 OK
+[4318] y=   87:Y=   87 OK
+[4319] y=   77:Y=   77 OK
+[4320] y=   84:Y=   84 OK
+[4321] y=  105:Y=  105 OK
+[4322] y=  131:Y=  131 OK
+[4323] y=  150:Y=  150 OK
+[4324] y=  150:Y=  150 OK
+[4325] y=  151:Y=  151 OK
+[4326] y=  151:Y=  151 OK
+[4327] y=  152:Y=  152 OK
+[4328] y=  145:Y=  145 OK
+[4329] y=  125:Y=  125 OK
+[4330] y=  111:Y=  111 OK
+[4331] y=  104:Y=  104 OK
+[4332] y=  105:Y=  105 OK
+[4333] y=  105:Y=  105 OK
+[4334] y=   93:Y=   93 OK
+[4335] y=   86:Y=   86 OK
+[4336] y=   83:Y=   83 OK
+[4337] y=   90:Y=   90 OK
+[4338] y=  101:Y=  101 OK
+[4339] y=  107:Y=  107 OK
+[4340] y=  108:Y=  108 OK
+[4341] y=  102:Y=  102 OK
+[4342] y=   99:Y=   99 OK
+[4343] y=  100:Y=  100 OK
+[4344] y=  110:Y=  110 OK
+[4345] y=  117:Y=  117 OK
+[4346] y=  120:Y=  120 OK
+[4347] y=  115:Y=  115 OK
+[4348] y=  117:Y=  117 OK
+[4349] y=  128:Y=  128 OK
+[4350] y=  139:Y=  139 OK
+[4351] y=  142:Y=  142 OK
+[4352] y=  118:Y=  118 OK
+[4353] y=   85:Y=   85 OK
+[4354] y=   52:Y=   52 OK
+[4355] y=   46:Y=   46 OK
+[4356] y=   65:Y=   65 OK
+[4357] y=   92:Y=   92 OK
+[4358] y=  108:Y=  108 OK
+[4359] y=  105:Y=  105 OK
+[4360] y=  102:Y=  102 OK
+[4361] y=  107:Y=  107 OK
+[4362] y=  116:Y=  116 OK
+[4363] y=  114:Y=  114 OK
+[4364] y=   99:Y=   99 OK
+[4365] y=   84:Y=   84 OK
+[4366] y=   80:Y=   80 OK
+[4367] y=   83:Y=   83 OK
+[4368] y=   87:Y=   87 OK
+[4369] y=   95:Y=   95 OK
+[4370] y=  110:Y=  110 OK
+[4371] y=  140:Y=  140 OK
+[4372] y=  162:Y=  162 OK
+[4373] y=  170:Y=  170 OK
+[4374] y=  155:Y=  155 OK
+[4375] y=  139:Y=  139 OK
+[4376] y=  137:Y=  137 OK
+[4377] y=  145:Y=  145 OK
+[4378] y=  154:Y=  154 OK
+[4379] y=  154:Y=  154 OK
+[4380] y=  147:Y=  147 OK
+[4381] y=  139:Y=  139 OK
+[4382] y=  126:Y=  126 OK
+[4383] y=  107:Y=  107 OK
+[4384] y=   81:Y=   81 OK
+[4385] y=   51:Y=   51 OK
+[4386] y=   30:Y=   30 OK
+[4387] y=   21:Y=   21 OK
+[4388] y=   33:Y=   33 OK
+[4389] y=   57:Y=   57 OK
+[4390] y=   78:Y=   78 OK
+[4391] y=   94:Y=   94 OK
+[4392] y=  101:Y=  101 OK
+[4393] y=  106:Y=  106 OK
+[4394] y=  112:Y=  112 OK
+[4395] y=  111:Y=  111 OK
+[4396] y=  114:Y=  114 OK
+[4397] y=  119:Y=  119 OK
+[4398] y=  132:Y=  132 OK
+[4399] y=  142:Y=  142 OK
+[4400] y=  136:Y=  136 OK
+[4401] y=  124:Y=  124 OK
+[4402] y=  110:Y=  110 OK
+[4403] y=  112:Y=  112 OK
+[4404] y=  123:Y=  123 OK
+[4405] y=  140:Y=  140 OK
+[4406] y=  159:Y=  159 OK
+[4407] y=  172:Y=  172 OK
+[4408] y=  177:Y=  177 OK
+[4409] y=  161:Y=  161 OK
+[4410] y=  141:Y=  141 OK
+[4411] y=  122:Y=  122 OK
+[4412] y=  118:Y=  118 OK
+[4413] y=  112:Y=  112 OK
+[4414] y=   95:Y=   95 OK
+[4415] y=   68:Y=   68 OK
+[4416] y=   46:Y=   46 OK
+[4417] y=   45:Y=   45 OK
+[4418] y=   56:Y=   56 OK
+[4419] y=   76:Y=   76 OK
+[4420] y=   93:Y=   93 OK
+[4421] y=  104:Y=  104 OK
+[4422] y=  104:Y=  104 OK
+[4423] y=   91:Y=   91 OK
+[4424] y=   77:Y=   77 OK
+[4425] y=   72:Y=   72 OK
+[4426] y=   88:Y=   88 OK
+[4427] y=  115:Y=  115 OK
+[4428] y=  137:Y=  137 OK
+[4429] y=  146:Y=  146 OK
+[4430] y=  144:Y=  144 OK
+[4431] y=  145:Y=  145 OK
+[4432] y=  156:Y=  156 OK
+[4433] y=  174:Y=  174 OK
+[4434] y=  188:Y=  188 OK
+[4435] y=  194:Y=  194 OK
+[4436] y=  192:Y=  192 OK
+[4437] y=  186:Y=  186 OK
+[4438] y=  178:Y=  178 OK
+[4439] y=  171:Y=  171 OK
+[4440] y=  168:Y=  168 OK
+[4441] y=  167:Y=  167 OK
+[4442] y=  165:Y=  165 OK
+[4443] y=  154:Y=  154 OK
+[4444] y=  140:Y=  140 OK
+[4445] y=  133:Y=  133 OK
+[4446] y=  137:Y=  137 OK
+[4447] y=  140:Y=  140 OK
+[4448] y=  128:Y=  128 OK
+[4449] y=  105:Y=  105 OK
+[4450] y=   85:Y=   85 OK
+[4451] y=   82:Y=   82 OK
+[4452] y=   90:Y=   90 OK
+[4453] y=   99:Y=   99 OK
+[4454] y=  108:Y=  108 OK
+[4455] y=  115:Y=  115 OK
+[4456] y=  123:Y=  123 OK
+[4457] y=  129:Y=  129 OK
+[4458] y=  136:Y=  136 OK
+[4459] y=  148:Y=  148 OK
+[4460] y=  164:Y=  164 OK
+[4461] y=  175:Y=  175 OK
+[4462] y=  172:Y=  172 OK
+[4463] y=  158:Y=  158 OK
+[4464] y=  138:Y=  138 OK
+[4465] y=  120:Y=  120 OK
+[4466] y=  102:Y=  102 OK
+[4467] y=   81:Y=   81 OK
+[4468] y=   53:Y=   53 OK
+[4469] y=   23:Y=   23 OK
+[4470] y=    3:Y=    3 OK
+[4471] y=    3:Y=    3 OK
+[4472] y=   27:Y=   27 OK
+[4473] y=   64:Y=   64 OK
+[4474] y=  100:Y=  100 OK
+[4475] y=  122:Y=  122 OK
+[4476] y=  122:Y=  122 OK
+[4477] y=  107:Y=  107 OK
+[4478] y=   84:Y=   84 OK
+[4479] y=   62:Y=   62 OK
+[4480] y=   46:Y=   46 OK
+[4481] y=   35:Y=   35 OK
+[4482] y=   31:Y=   31 OK
+[4483] y=   35:Y=   35 OK
+[4484] y=   49:Y=   49 OK
+[4485] y=   66:Y=   66 OK
+[4486] y=   86:Y=   86 OK
+[4487] y=  100:Y=  100 OK
+[4488] y=  112:Y=  112 OK
+[4489] y=  117:Y=  117 OK
+[4490] y=  120:Y=  120 OK
+[4491] y=  114:Y=  114 OK
+[4492] y=  104:Y=  104 OK
+[4493] y=   97:Y=   97 OK
+[4494] y=   97:Y=   97 OK
+[4495] y=  115:Y=  115 OK
+[4496] y=  139:Y=  139 OK
+[4497] y=  168:Y=  168 OK
+[4498] y=  187:Y=  187 OK
+[4499] y=  194:Y=  194 OK
+[4500] y=  190:Y=  190 OK
+[4501] y=  176:Y=  176 OK
+[4502] y=  168:Y=  168 OK
+[4503] y=  172:Y=  172 OK
+[4504] y=  191:Y=  191 OK
+[4505] y=  213:Y=  213 OK
+[4506] y=  224:Y=  224 OK
+[4507] y=  216:Y=  216 OK
+[4508] y=  199:Y=  199 OK
+[4509] y=  171:Y=  171 OK
+[4510] y=  147:Y=  147 OK
+[4511] y=  120:Y=  120 OK
+[4512] y=  100:Y=  100 OK
+[4513] y=   97:Y=   97 OK
+[4514] y=  104:Y=  104 OK
+[4515] y=  132:Y=  132 OK
+[4516] y=  147:Y=  147 OK
+[4517] y=  150:Y=  150 OK
+[4518] y=  124:Y=  124 OK
+[4519] y=   90:Y=   90 OK
+[4520] y=   66:Y=   66 OK
+[4521] y=   57:Y=   57 OK
+[4522] y=   70:Y=   70 OK
+[4523] y=   85:Y=   85 OK
+[4524] y=  109:Y=  109 OK
+[4525] y=  131:Y=  131 OK
+[4526] y=  150:Y=  150 OK
+[4527] y=  158:Y=  158 OK
+[4528] y=  158:Y=  158 OK
+[4529] y=  158:Y=  158 OK
+[4530] y=  165:Y=  165 OK
+[4531] y=  177:Y=  177 OK
+[4532] y=  185:Y=  185 OK
+[4533] y=  191:Y=  191 OK
+[4534] y=  188:Y=  188 OK
+[4535] y=  183:Y=  183 OK
+[4536] y=  167:Y=  167 OK
+[4537] y=  139:Y=  139 OK
+[4538] y=  106:Y=  106 OK
+[4539] y=   81:Y=   81 OK
+[4540] y=   83:Y=   83 OK
+[4541] y=  109:Y=  109 OK
+[4542] y=  143:Y=  143 OK
+[4543] y=  168:Y=  168 OK
+[4544] y=  169:Y=  169 OK
+[4545] y=  160:Y=  160 OK
+[4546] y=  150:Y=  150 OK
+[4547] y=  146:Y=  146 OK
+[4548] y=  151:Y=  151 OK
+[4549] y=  159:Y=  159 OK
+[4550] y=  168:Y=  168 OK
+[4551] y=  171:Y=  171 OK
+[4552] y=  170:Y=  170 OK
+[4553] y=  167:Y=  167 OK
+[4554] y=  162:Y=  162 OK
+[4555] y=  153:Y=  153 OK
+[4556] y=  141:Y=  141 OK
+[4557] y=  123:Y=  123 OK
+[4558] y=  105:Y=  105 OK
+[4559] y=   85:Y=   85 OK
+[4560] y=   73:Y=   73 OK
+[4561] y=   74:Y=   74 OK
+[4562] y=   85:Y=   85 OK
+[4563] y=  106:Y=  106 OK
+[4564] y=  113:Y=  113 OK
+[4565] y=  117:Y=  117 OK
+[4566] y=  110:Y=  110 OK
+[4567] y=  101:Y=  101 OK
+[4568] y=   92:Y=   92 OK
+[4569] y=   81:Y=   81 OK
+[4570] y=   81:Y=   81 OK
+[4571] y=   87:Y=   87 OK
+[4572] y=  103:Y=  103 OK
+[4573] y=  118:Y=  118 OK
+[4574] y=  128:Y=  128 OK
+[4575] y=  129:Y=  129 OK
+[4576] y=  127:Y=  127 OK
+[4577] y=  123:Y=  123 OK
+[4578] y=  121:Y=  121 OK
+[4579] y=  120:Y=  120 OK
+[4580] y=  113:Y=  113 OK
+[4581] y=  112:Y=  112 OK
+[4582] y=  113:Y=  113 OK
+[4583] y=  121:Y=  121 OK
+[4584] y=  122:Y=  122 OK
+[4585] y=  112:Y=  112 OK
+[4586] y=   96:Y=   96 OK
+[4587] y=   83:Y=   83 OK
+[4588] y=   88:Y=   88 OK
+[4589] y=  108:Y=  108 OK
+[4590] y=  138:Y=  138 OK
+[4591] y=  160:Y=  160 OK
+[4592] y=  160:Y=  160 OK
+[4593] y=  140:Y=  140 OK
+[4594] y=  106:Y=  106 OK
+[4595] y=   81:Y=   81 OK
+[4596] y=   72:Y=   72 OK
+[4597] y=   75:Y=   75 OK
+[4598] y=   87:Y=   87 OK
+[4599] y=  100:Y=  100 OK
+[4600] y=  117:Y=  117 OK
+[4601] y=  136:Y=  136 OK
+[4602] y=  152:Y=  152 OK
+[4603] y=  165:Y=  165 OK
+[4604] y=  174:Y=  174 OK
+[4605] y=  173:Y=  173 OK
+[4606] y=  162:Y=  162 OK
+[4607] y=  135:Y=  135 OK
+[4608] y=  107:Y=  107 OK
+[4609] y=   84:Y=   84 OK
+[4610] y=   75:Y=   75 OK
+[4611] y=   82:Y=   82 OK
+[4612] y=   94:Y=   94 OK
+[4613] y=  107:Y=  107 OK
+[4614] y=  115:Y=  115 OK
+[4615] y=  121:Y=  121 OK
+[4616] y=  134:Y=  134 OK
+[4617] y=  146:Y=  146 OK
+[4618] y=  165:Y=  165 OK
+[4619] y=  180:Y=  180 OK
+[4620] y=  193:Y=  193 OK
+[4621] y=  194:Y=  194 OK
+[4622] y=  174:Y=  174 OK
+[4623] y=  139:Y=  139 OK
+[4624] y=  101:Y=  101 OK
+[4625] y=   81:Y=   81 OK
+[4626] y=   82:Y=   82 OK
+[4627] y=   95:Y=   95 OK
+[4628] y=  102:Y=  102 OK
+[4629] y=   95:Y=   95 OK
+[4630] y=   79:Y=   79 OK
+[4631] y=   69:Y=   69 OK
+[4632] y=   71:Y=   71 OK
+[4633] y=   76:Y=   76 OK
+[4634] y=   80:Y=   80 OK
+[4635] y=   82:Y=   82 OK
+[4636] y=   94:Y=   94 OK
+[4637] y=  106:Y=  106 OK
+[4638] y=  112:Y=  112 OK
+[4639] y=  106:Y=  106 OK
+[4640] y=   94:Y=   94 OK
+[4641] y=   87:Y=   87 OK
+[4642] y=   76:Y=   76 OK
+[4643] y=   64:Y=   64 OK
+[4644] y=   52:Y=   52 OK
+[4645] y=   59:Y=   59 OK
+[4646] y=   90:Y=   90 OK
+[4647] y=  135:Y=  135 OK
+[4648] y=  173:Y=  173 OK
+[4649] y=  188:Y=  188 OK
+[4650] y=  183:Y=  183 OK
+[4651] y=  170:Y=  170 OK
+[4652] y=  158:Y=  158 OK
+[4653] y=  149:Y=  149 OK
+[4654] y=  142:Y=  142 OK
+[4655] y=  130:Y=  130 OK
+[4656] y=  119:Y=  119 OK
+[4657] y=  117:Y=  117 OK
+[4658] y=  130:Y=  130 OK
+[4659] y=  159:Y=  159 OK
+[4660] y=  178:Y=  178 OK
+[4661] y=  179:Y=  179 OK
+[4662] y=  153:Y=  153 OK
+[4663] y=  111:Y=  111 OK
+[4664] y=   80:Y=   80 OK
+[4665] y=   62:Y=   62 OK
+[4666] y=   75:Y=   75 OK
+[4667] y=   89:Y=   89 OK
+[4668] y=  103:Y=  103 OK
+[4669] y=  100:Y=  100 OK
+[4670] y=   87:Y=   87 OK
+[4671] y=   82:Y=   82 OK
+[4672] y=   85:Y=   85 OK
+[4673] y=  102:Y=  102 OK
+[4674] y=  114:Y=  114 OK
+[4675] y=  119:Y=  119 OK
+[4676] y=  112:Y=  112 OK
+[4677] y=  106:Y=  106 OK
+[4678] y=  100:Y=  100 OK
+[4679] y=   92:Y=   92 OK
+[4680] y=   76:Y=   76 OK
+[4681] y=   51:Y=   51 OK
+[4682] y=   26:Y=   26 OK
+[4683] y=   14:Y=   14 OK
+[4684] y=   26:Y=   26 OK
+[4685] y=   59:Y=   59 OK
+[4686] y=  101:Y=  101 OK
+[4687] y=  135:Y=  135 OK
+[4688] y=  147:Y=  147 OK
+[4689] y=  145:Y=  145 OK
+[4690] y=  136:Y=  136 OK
+[4691] y=  137:Y=  137 OK
+[4692] y=  144:Y=  144 OK
+[4693] y=  152:Y=  152 OK
+[4694] y=  160:Y=  160 OK
+[4695] y=  163:Y=  163 OK
+[4696] y=  165:Y=  165 OK
+[4697] y=  157:Y=  157 OK
+[4698] y=  140:Y=  140 OK
+[4699] y=  122:Y=  122 OK
+[4700] y=  117:Y=  117 OK
+[4701] y=  118:Y=  118 OK
+[4702] y=  124:Y=  124 OK
+[4703] y=  116:Y=  116 OK
+[4704] y=  104:Y=  104 OK
+[4705] y=  100:Y=  100 OK
+[4706] y=  111:Y=  111 OK
+[4707] y=  136:Y=  136 OK
+[4708] y=  152:Y=  152 OK
+[4709] y=  157:Y=  157 OK
+[4710] y=  149:Y=  149 OK
+[4711] y=  144:Y=  144 OK
+[4712] y=  142:Y=  142 OK
+[4713] y=  140:Y=  140 OK
+[4714] y=  131:Y=  131 OK
+[4715] y=  123:Y=  123 OK
+[4716] y=  125:Y=  125 OK
+[4717] y=  135:Y=  135 OK
+[4718] y=  148:Y=  148 OK
+[4719] y=  151:Y=  151 OK
+[4720] y=  146:Y=  146 OK
+[4721] y=  137:Y=  137 OK
+[4722] y=  123:Y=  123 OK
+[4723] y=  105:Y=  105 OK
+[4724] y=   83:Y=   83 OK
+[4725] y=   67:Y=   67 OK
+[4726] y=   61:Y=   61 OK
+[4727] y=   61:Y=   61 OK
+[4728] y=   70:Y=   70 OK
+[4729] y=   82:Y=   82 OK
+[4730] y=  103:Y=  103 OK
+[4731] y=  122:Y=  122 OK
+[4732] y=  143:Y=  143 OK
+[4733] y=  160:Y=  160 OK
+[4734] y=  180:Y=  180 OK
+[4735] y=  201:Y=  201 OK
+[4736] y=  212:Y=  212 OK
+[4737] y=  209:Y=  209 OK
+[4738] y=  186:Y=  186 OK
+[4739] y=  161:Y=  161 OK
+[4740] y=  137:Y=  137 OK
+[4741] y=  124:Y=  124 OK
+[4742] y=  115:Y=  115 OK
+[4743] y=  114:Y=  114 OK
+[4744] y=  112:Y=  112 OK
+[4745] y=  106:Y=  106 OK
+[4746] y=   91:Y=   91 OK
+[4747] y=   71:Y=   71 OK
+[4748] y=   60:Y=   60 OK
+[4749] y=   63:Y=   63 OK
+[4750] y=   80:Y=   80 OK
+[4751] y=   99:Y=   99 OK
+[4752] y=  112:Y=  112 OK
+[4753] y=  112:Y=  112 OK
+[4754] y=  101:Y=  101 OK
+[4755] y=   87:Y=   87 OK
+[4756] y=   75:Y=   75 OK
+[4757] y=   67:Y=   67 OK
+[4758] y=   60:Y=   60 OK
+[4759] y=   56:Y=   56 OK
+[4760] y=   62:Y=   62 OK
+[4761] y=   78:Y=   78 OK
+[4762] y=   94:Y=   94 OK
+[4763] y=   97:Y=   97 OK
+[4764] y=   87:Y=   87 OK
+[4765] y=   70:Y=   70 OK
+[4766] y=   60:Y=   60 OK
+[4767] y=   56:Y=   56 OK
+[4768] y=   62:Y=   62 OK
+[4769] y=   71:Y=   71 OK
+[4770] y=   82:Y=   82 OK
+[4771] y=   98:Y=   98 OK
+[4772] y=  114:Y=  114 OK
+[4773] y=  133:Y=  133 OK
+[4774] y=  137:Y=  137 OK
+[4775] y=  127:Y=  127 OK
+[4776] y=  103:Y=  103 OK
+[4777] y=   80:Y=   80 OK
+[4778] y=   68:Y=   68 OK
+[4779] y=   66:Y=   66 OK
+[4780] y=   80:Y=   80 OK
+[4781] y=   95:Y=   95 OK
+[4782] y=  112:Y=  112 OK
+[4783] y=  123:Y=  123 OK
+[4784] y=  131:Y=  131 OK
+[4785] y=  139:Y=  139 OK
+[4786] y=  143:Y=  143 OK
+[4787] y=  152:Y=  152 OK
+[4788] y=  158:Y=  158 OK
+[4789] y=  158:Y=  158 OK
+[4790] y=  143:Y=  143 OK
+[4791] y=  121:Y=  121 OK
+[4792] y=   97:Y=   97 OK
+[4793] y=   80:Y=   80 OK
+[4794] y=   76:Y=   76 OK
+[4795] y=   80:Y=   80 OK
+[4796] y=   94:Y=   94 OK
+[4797] y=  102:Y=  102 OK
+[4798] y=  108:Y=  108 OK
+[4799] y=  106:Y=  106 OK
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+[3.52353837e+11 2.87123605e+07 1.61389004e+06 ... 1.70028320e+07
+ 1.61389004e+06 2.87123605e+07]
+[0. 0. 0. ... 0. 0. 0.]
+[3.17810680e+11 1.60763458e+08 6.36001421e+06 ... 9.53916783e+07
+ 6.36001421e+06 1.60763458e+08]
+[0. 0. 0. ... 0. 0. 0.]

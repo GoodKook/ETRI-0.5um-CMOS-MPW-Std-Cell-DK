@@ -20,7 +20,7 @@ SC_HDRS = \
 
 # Verilator vars -----------------------------------------------
 VITIS_SYN_PATH = \
-	../$(TOP_MODULE)/hls_component/syn/verilog
+	$(PROJECT_DIR)/$(TOP_MODULE)/hls_component/syn/verilog
 
 lint: VERILOG_SRCS =  \
 	$(VITIS_SYN_PATH)/*.v

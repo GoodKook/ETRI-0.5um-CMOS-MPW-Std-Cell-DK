@@ -1,0 +1,4849 @@
+make -C simulation clean
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+rm -f *.vcd
+rm -f *.dat
+rm -rf obj_dir
+rm -f fir
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+make -C simulation build_emu
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+verilator --sc --pins-sc-uint -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND --trace --timing --top-module fir  --exe --build \
+	-CFLAGS -g -CFLAGS -I../../c_untimed -CFLAGS -I../../emulation -CFLAGS -DVCD_TRACE_TEST_TB -CFLAGS -DVCD_TRACE_DUT_VERILOG -CFLAGS -DSC_INCLUDE_FX -LDFLAGS -lm -LDFLAGS -lgsl -CFLAGS -DFIR_MAC_VERSION -CFLAGS -DEMULATED_CO_SIM ../fir/hls_component/syn/verilog/*.v ./sc_fir_TB.cpp ./sc_main.cpp ../c_untimed/fir8.cpp ../c_untimed/cnoise.cpp
+make[2]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation/obj_dir'
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o cnoise.o ../../c_untimed/cnoise.cpp
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o fir8.o ../../c_untimed/fir8.cpp
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o sc_fir_TB.o ../sc_fir_TB.cpp
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -Os  -c -o sc_main.o ../sc_main.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated_timing.o /usr/local/share/verilator/include/verilated_timing.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vfir.cpp Vfir___024root__0.cpp Vfir__Trace__0.cpp Vfir__ConstPool__0__Slow.cpp Vfir___024root__Slow.cpp Vfir___024root__0__Slow.cpp Vfir__Syms__Slow.cpp Vfir__Trace__0__Slow.cpp Vfir__TraceDecls__0__Slow.cpp > Vfir__ALL.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=1 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -g -I../../c_untimed -I../../emulation -DVCD_TRACE_TEST_TB -DVCD_TRACE_DUT_VERILOG -DSC_INCLUDE_FX -DFIR_MAC_VERSION -DEMULATED_CO_SIM   -I/opt/systemc/include  -fcoroutines -c -o Vfir__ALL.o Vfir__ALL.cpp
+g++     -L/opt/systemc/lib cnoise.o fir8.o sc_fir_TB.o sc_main.o verilated.o verilated_vcd_c.o verilated_timing.o verilated_threads.o Vfir__ALL.a   -lm -lgsl  -pthread -lpthread -latomic  -lsystemc -o Vfir
+rm Vfir__ALL.verilator_deplist.tmp
+make[2]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation/obj_dir'
+- V e r i l a t i o n   R e p o r t: Verilator 5.045 devel rev v5.044-137-g4aa0ea3f2
+- Verilator: Built from 0.346 MB sources in 9 modules, into 0.213 MB in 9 C++ files needing 0.000 MB
+- Verilator: Walltime 0.865 s (elab=0.009, cvt=0.045, bld=0.786); cpu 0.043 s on 1 threads; allocated 33.355 MB
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+make -C simulation run_emu
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+python3 ./sc_plotDFT.py &
+./obj_dir/Vfir
+
+Info: (I703) tracing timescale unit set: 100 ps (Efir.vcd)
+
+Info: (I703) tracing timescale unit set: 100 ps (sc_fir_tb.vcd)
+
+Warning: (W509) module construction not properly completed: did you forget to add a sc_module_name parameter to your module constructor?: module 'u_sc_fir_TB'
+In file: /home/mychip/ETRI050_DesignKit/Tools/systemc/src/sysc/kernel/sc_module.cpp:376
+[   0] y=    0:Y=   66 ERROR
+[   1] y=  171:Y=   67 ERROR
+[   2] y=  171:Y=   50 ERROR
+[   3] y=  171:Y=   52 ERROR
+[   4] y=  171:Y=   61 ERROR
+[   5] y=   39:Y=   38 ERROR
+[   6] y=   69:Y=   27 ERROR
+[   7] y=   84:Y=   27 ERROR
+[   8] y=  103:Y=   28 ERROR
+[   9] y=  119:Y=   50 ERROR
+[  10] y=  131:Y=   66 ERROR
+[  11] y=  125:Y=   53 ERROR
+[  12] y=  116:Y=   53 ERROR
+[  13] y=  106:Y=   42 ERROR
+[  14] y=  101:Y=   45 ERROR
+[  15] y=   96:Y=   53 ERROR
+[  16] y=   87:Y=   78 ERROR
+[  17] y=   82:Y=   57 ERROR
+[  18] y=   77:Y=   66 ERROR
+[  19] y=   79:Y=   52 ERROR
+[  20] y=   77:Y=   50 ERROR
+[  21] y=   75:Y=   55 ERROR
+[  22] y=   71:Y=   72 ERROR
+[  23] y=   72:Y=   72 OK
+[  24] y=   77:Y=   78 ERROR
+[  25] y=   81:Y=  149 ERROR
+[  26] y=   87:Y=  107 ERROR
+[  27] y=   96:Y=   95 ERROR
+[  28] y=  118:Y=  119 ERROR
+[  29] y=  149:Y=  109 ERROR
+[  30] y=  179:Y=  105 ERROR
+[  31] y=  192:Y=   93 ERROR
+[  32] y=  174:Y=   93 ERROR
+[  33] y=  135:Y=   78 ERROR
+[  34] y=   84:Y=  119 ERROR
+[  35] y=   46:Y=  107 ERROR
+[  36] y=   34:Y=   78 ERROR
+[  37] y=   45:Y=  105 ERROR
+[  38] y=   74:Y=   74 OK
+[  39] y=   98:Y=   91 ERROR
+[  40] y=  112:Y=   72 ERROR
+[  41] y=  111:Y=   53 ERROR
+[  42] y=  101:Y=  126 ERROR
+[  43] y=   88:Y=   46 ERROR
+[  44] y=   73:Y=   39 ERROR
+[  45] y=   55:Y=   52 ERROR
+[  46] y=   36:Y=   74 ERROR
+[  47] y=   21:Y=   58 ERROR
+[  48] y=   22:Y=  150 ERROR
+[  49] y=   48:Y=   63 ERROR
+[  50] y=   85:Y=   97 ERROR
+[  51] y=  124:Y=   82 ERROR
+[  52] y=  144:Y=  105 ERROR
+[  53] y=  143:Y=   92 ERROR
+[  54] y=  130:Y=   67 ERROR
+[  55] y=  111:Y=   88 ERROR
+[  56] y=  103:Y=   57 ERROR
+[  57] y=  104:Y=  121 ERROR
+[  58] y=  121:Y=   32 ERROR
+[  59] y=  146:Y=   55 ERROR
+[  60] y=  167:Y=   74 ERROR
+[  61] y=  177:Y=   60 ERROR
+[  62] y=  161:Y=   86 ERROR
+[  63] y=  132:Y=   78 ERROR
+[  64] y=   96:Y=   81 ERROR
+[  65] y=   77:Y=   78 ERROR
+[  66] y=   71:Y=   49 ERROR
+[  67] y=   73:Y=   58 ERROR
+[  68] y=   73:Y=   56 ERROR
+[  69] y=   78:Y=   68 ERROR
+[  70] y=   96:Y=  150 ERROR
+[  71] y=  121:Y=  163 ERROR
+[  72] y=  143:Y=   76 ERROR
+[  73] y=  145:Y=   79 ERROR
+[  74] y=  135:Y=   74 ERROR
+[  75] y=  119:Y=   60 ERROR
+[  76] y=  116:Y=   49 ERROR
+[  77] y=  130:Y=   56 ERROR
+[  78] y=  150:Y=  114 ERROR
+[  79] y=  167:Y=   70 ERROR
+[  80] y=  165:Y=   59 ERROR
+[  81] y=  145:Y=   75 ERROR
+[  82] y=  113:Y=  123 ERROR
+[  83] y=   83:Y=   81 ERROR
+[  84] y=   68:Y=  192 ERROR
+[  85] y=   65:Y=   95 ERROR
+[  86] y=   72:Y=   87 ERROR
+[  87] y=   77:Y=   67 ERROR
+[  88] y=   83:Y=   82 ERROR
+[  89] y=   93:Y=   73 ERROR
+[  90] y=  114:Y=   53 ERROR
+[  91] y=  142:Y=   53 ERROR
+[  92] y=  168:Y=   88 ERROR
+[  93] y=  181:Y=   59 ERROR
+[  94] y=  180:Y=  121 ERROR
+[  95] y=  168:Y=   78 ERROR
+[  96] y=  147:Y=   65 ERROR
+[  97] y=  125:Y=   64 ERROR
+[  98] y=  105:Y=   78 ERROR
+[  99] y=   97:Y=   74 ERROR
+[ 100] y=   97:Y=   96 ERROR
+[ 101] y=  101:Y=   97 ERROR
+[ 102] y=  107:Y=   83 ERROR
+[ 103] y=  109:Y=   69 ERROR
+[ 104] y=  115:Y=   64 ERROR
+[ 105] y=  126:Y=   64 ERROR
+[ 106] y=  143:Y=   80 ERROR
+[ 107] y=  159:Y=   76 ERROR
+[ 108] y=  162:Y=   65 ERROR
+[ 109] y=  154:Y=   50 ERROR
+[ 110] y=  140:Y=   58 ERROR
+[ 111] y=  131:Y=   51 ERROR
+[ 112] y=  127:Y=  136 ERROR
+[ 113] y=  124:Y=   38 ERROR
+[ 114] y=  123:Y=   38 ERROR
+[ 115] y=  126:Y=   26 ERROR
+[ 116] y=  131:Y=   52 ERROR
+[ 117] y=  134:Y=   35 ERROR
+[ 118] y=  129:Y=   42 ERROR
+[ 119] y=  119:Y=   28 ERROR
+[ 120] y=  108:Y=   50 ERROR
+[ 121] y=  108:Y=   50 ERROR
+[ 122] y=  117:Y=   61 ERROR
+[ 123] y=  132:Y=   59 ERROR
+[ 124] y=  142:Y=   55 ERROR
+[ 125] y=  144:Y=   77 ERROR
+[ 126] y=  141:Y=  117 ERROR
+[ 127] y=  128:Y=  176 ERROR
+[ 128] y=  106:Y=  147 ERROR
+[ 129] y=   80:Y=   76 ERROR
+[ 130] y=   62:Y=   92 ERROR
+[ 131] y=   61:Y=  104 ERROR
+[ 132] y=   73:Y=   73 OK
+[ 133] y=   90:Y=  120 ERROR
+[ 134] y=  104:Y=   82 ERROR
+[ 135] y=  111:Y=   68 ERROR
+[ 136] y=  107:Y=  123 ERROR
+[ 137] y=   97:Y=   54 ERROR
+[ 138] y=   83:Y=   70 ERROR
+[ 139] y=   73:Y=   36 ERROR
+[ 140] y=   71:Y=  120 ERROR
+[ 141] y=   79:Y=  112 ERROR
+[ 142] y=  103:Y=  109 ERROR
+[ 143] y=  128:Y=  106 ERROR
+[ 144] y=  151:Y=   96 ERROR
+[ 145] y=  160:Y=  100 ERROR
+[ 146] y=  156:Y=   84 ERROR
+[ 147] y=  149:Y=   81 ERROR
+[ 148] y=  138:Y=   89 ERROR
+[ 149] y=  132:Y=   84 ERROR
+[ 150] y=  125:Y=   83 ERROR
+[ 151] y=  121:Y=   62 ERROR
+[ 152] y=  117:Y=   92 ERROR
+[ 153] y=  112:Y=   70 ERROR
+[ 154] y=  111:Y=   81 ERROR
+[ 155] y=  107:Y=  119 ERROR
+[ 156] y=  107:Y=   95 ERROR
+[ 157] y=  106:Y=   94 ERROR
+[ 158] y=  109:Y=  100 ERROR
+[ 159] y=  113:Y=   85 ERROR
+[ 160] y=  116:Y=  168 ERROR
+[ 161] y=  112:Y=   81 ERROR
+[ 162] y=  107:Y=   74 ERROR
+[ 163] y=  102:Y=   54 ERROR
+[ 164] y=  102:Y=   77 ERROR
+[ 165] y=  118:Y=  145 ERROR
+[ 166] y=  136:Y=   49 ERROR
+[ 167] y=  158:Y=  123 ERROR
+[ 168] y=  162:Y=   43 ERROR
+[ 169] y=  152:Y=  119 ERROR
+[ 170] y=  131:Y=   63 ERROR
+[ 171] y=  105:Y=   65 ERROR
+[ 172] y=   87:Y=   55 ERROR
+[ 173] y=   81:Y=   72 ERROR
+[ 174] y=   96:Y=  125 ERROR
+[ 175] y=  132:Y=   68 ERROR
+[ 176] y=  173:Y=   53 ERROR
+[ 177] y=  203:Y=   75 ERROR
+[ 178] y=  202:Y=   59 ERROR
+[ 179] y=  175:Y=   62 ERROR
+[ 180] y=  137:Y=   37 ERROR
+[ 181] y=  103:Y=  117 ERROR
+[ 182] y=   87:Y=  190 ERROR
+[ 183] y=   84:Y=  108 ERROR
+[ 184] y=   95:Y=  106 ERROR
+[ 185] y=  105:Y=   95 ERROR
+[ 186] y=  114:Y=   86 ERROR
+[ 187] y=  115:Y=  129 ERROR
+[ 188] y=  115:Y=  104 ERROR
+[ 189] y=  110:Y=   71 ERROR
+[ 190] y=  105:Y=   61 ERROR
+[ 191] y=  101:Y=   49 ERROR
+[ 192] y=   97:Y=   49 ERROR
+[ 193] y=  107:Y=  122 ERROR
+[ 194] y=  120:Y=   45 ERROR
+[ 195] y=  139:Y=   70 ERROR
+[ 196] y=  141:Y=   82 ERROR
+[ 197] y=  129:Y=  130 ERROR
+[ 198] y=  113:Y=  125 ERROR
+[ 199] y=  108:Y=   80 ERROR
+[ 200] y=  123:Y=  107 ERROR
+[ 201] y=  141:Y=   83 ERROR
+[ 202] y=  160:Y=  166 ERROR
+[ 203] y=  164:Y=   84 ERROR
+[ 204] y=  160:Y=   54 ERROR
+[ 205] y=  145:Y=  175 ERROR
+[ 206] y=  124:Y=  120 ERROR
+[ 207] y=  101:Y=   87 ERROR
+[ 208] y=   81:Y=   66 ERROR
+[ 209] y=   70:Y=   63 ERROR
+[ 210] y=   70:Y=   54 ERROR
+[ 211] y=   86:Y=   26 ERROR
+[ 212] y=  101:Y=  110 ERROR
+[ 213] y=  122:Y=   65 ERROR
+[ 214] y=  129:Y=   51 ERROR
+[ 215] y=  131:Y=   65 ERROR
+[ 216] y=  127:Y=   53 ERROR
+[ 217] y=  115:Y=   55 ERROR
+[ 218] y=  111:Y=   72 ERROR
+[ 219] y=   98:Y=   73 ERROR
+[ 220] y=   98:Y=   82 ERROR
+[ 221] y=  101:Y=  107 ERROR
+[ 222] y=  121:Y=   71 ERROR
+[ 223] y=  148:Y=   79 ERROR
+[ 224] y=  164:Y=   97 ERROR
+[ 225] y=  169:Y=   77 ERROR
+[ 226] y=  155:Y=   62 ERROR
+[ 227] y=  150:Y=   65 ERROR
+[ 228] y=  155:Y=   69 ERROR
+[ 229] y=  169:Y=   42 ERROR
+[ 230] y=  178:Y=  130 ERROR
+[ 231] y=  168:Y=   46 ERROR
+[ 232] y=  151:Y=   54 ERROR
+[ 233] y=  139:Y=   52 ERROR
+[ 234] y=  142:Y=   61 ERROR
+[ 235] y=  151:Y=   75 ERROR
+[ 236] y=  144:Y=   65 ERROR
+[ 237] y=  119:Y=   55 ERROR
+[ 238] y=   86:Y=   59 ERROR
+[ 239] y=   65:Y=  136 ERROR
+[ 240] y=   76:Y=   49 ERROR
+[ 241] y=  113:Y=   64 ERROR
+[ 242] y=  162:Y=   62 ERROR
+[ 243] y=  198:Y=  109 ERROR
+[ 244] y=  204:Y=  120 ERROR
+[ 245] y=  184:Y=   75 ERROR
+[ 246] y=  157:Y=   86 ERROR
+[ 247] y=  142:Y=   61 ERROR
+[ 248] y=  146:Y=  123 ERROR
+[ 249] y=  157:Y=   37 ERROR
+[ 250] y=  169:Y=   39 ERROR
+[ 251] y=  175:Y=  106 ERROR
+[ 252] y=  176:Y=   56 ERROR
+[ 253] y=  172:Y=   51 ERROR
+[ 254] y=  157:Y=   69 ERROR
+[ 255] y=  142:Y=   58 ERROR
+[ 256] y=  126:Y=  155 ERROR
+[ 257] y=  117:Y=   74 ERROR
+[ 258] y=  111:Y=   51 ERROR
+[ 259] y=  102:Y=   50 ERROR
+[ 260] y=   94:Y=   70 ERROR
+[ 261] y=   86:Y=   59 ERROR
+[ 262] y=   81:Y=   54 ERROR
+[ 263] y=   77:Y=   45 ERROR
+[ 264] y=   68:Y=   36 ERROR
+[ 265] y=   55:Y=  123 ERROR
+[ 266] y=   46:Y=   35 ERROR
+[ 267] y=   44:Y=   59 ERROR
+[ 268] y=   60:Y=   38 ERROR
+[ 269] y=   83:Y=   45 ERROR
+[ 270] y=  113:Y=   63 ERROR
+[ 271] y=  143:Y=   82 ERROR
+[ 272] y=  162:Y=   80 ERROR
+[ 273] y=  173:Y=   62 ERROR
+[ 274] y=  165:Y=   79 ERROR
+[ 275] y=  150:Y=   90 ERROR
+[ 276] y=  132:Y=  158 ERROR
+[ 277] y=  119:Y=   85 ERROR
+[ 278] y=  107:Y=   82 ERROR
+[ 279] y=   93:Y=   72 ERROR
+[ 280] y=   77:Y=   59 ERROR
+[ 281] y=   66:Y=   65 ERROR
+[ 282] y=   62:Y=  165 ERROR
+[ 283] y=   63:Y=   70 ERROR
+[ 284] y=   68:Y=   60 ERROR
+[ 285] y=   76:Y=   87 ERROR
+[ 286] y=   89:Y=   80 ERROR
+[ 287] y=   98:Y=   79 ERROR
+[ 288] y=   98:Y=   69 ERROR
+[ 289] y=   89:Y=   48 ERROR
+[ 290] y=   78:Y=   33 ERROR
+[ 291] y=   77:Y=  151 ERROR
+[ 292] y=   81:Y=  129 ERROR
+[ 293] y=   91:Y=  190 ERROR
+[ 294] y=  100:Y=   74 ERROR
+[ 295] y=  109:Y=   63 ERROR
+[ 296] y=  124:Y=   49 ERROR
+[ 297] y=  139:Y=  121 ERROR
+[ 298] y=  157:Y=  146 ERROR
+[ 299] y=  164:Y=   60 ERROR
+[ 300] y=  156:Y=   77 ERROR
+[ 301] y=  135:Y=   74 ERROR
+[ 302] y=  109:Y=   64 ERROR
+[ 303] y=   89:Y=   78 ERROR
+[ 304] y=   79:Y=   78 ERROR
+[ 305] y=   76:Y=   94 ERROR
+[ 306] y=   75:Y=   87 ERROR
+[ 307] y=   80:Y=   77 ERROR
+[ 308] y=   89:Y=  109 ERROR
+[ 309] y=  112:Y=   99 ERROR
+[ 310] y=  127:Y=   73 ERROR
+[ 311] y=  139:Y=  130 ERROR
+[ 312] y=  135:Y=   85 ERROR
+[ 313] y=  124:Y=   71 ERROR
+[ 314] y=  114:Y=   49 ERROR
+[ 315] y=   99:Y=   52 ERROR
+[ 316] y=   92:Y=   46 ERROR
+[ 317] y=   82:Y=   38 ERROR
+[ 318] y=   81:Y=   47 ERROR
+[ 319] y=   85:Y=   54 ERROR
+[ 320] y=   86:Y=   41 ERROR
+[ 321] y=   90:Y=   48 ERROR
+[ 322] y=   81:Y=   55 ERROR
+[ 323] y=   72:Y=   57 ERROR
+[ 324] y=   64:Y=   51 ERROR
+[ 325] y=   68:Y=   71 ERROR
+[ 326] y=   84:Y=   37 ERROR
+[ 327] y=   98:Y=   35 ERROR
+[ 328] y=  105:Y=   47 ERROR
+[ 329] y=   99:Y=   37 ERROR
+[ 330] y=   87:Y=   50 ERROR
+[ 331] y=   79:Y=   45 ERROR
+[ 332] y=   82:Y=   51 ERROR
+[ 333] y=   91:Y=   30 ERROR
+[ 334] y=  100:Y=  126 ERROR
+[ 335] y=  105:Y=  161 ERROR
+[ 336] y=  113:Y=   95 ERROR
+[ 337] y=  137:Y=   88 ERROR
+[ 338] y=  170:Y=   71 ERROR
+[ 339] y=  204:Y=   72 ERROR
+[ 340] y=  213:Y=   89 ERROR
+[ 341] y=  200:Y=  104 ERROR
+[ 342] y=  172:Y=   72 ERROR
+[ 343] y=  146:Y=  212 ERROR
+[ 344] y=  128:Y=  108 ERROR
+[ 345] y=  109:Y=   98 ERROR
+[ 346] y=   90:Y=  110 ERROR
+[ 347] y=   73:Y=   98 ERROR
+[ 348] y=   69:Y=  155 ERROR
+[ 349] y=   74:Y=  173 ERROR
+[ 350] y=   78:Y=   61 ERROR
+[ 351] y=   77:Y=   83 ERROR
+[ 352] y=   70:Y=   73 ERROR
+[ 353] y=   70:Y=   67 ERROR
+[ 354] y=   80:Y=  137 ERROR
+[ 355] y=  106:Y=   65 ERROR
+[ 356] y=  136:Y=   71 ERROR
+[ 357] y=  165:Y=  165 OK
+[ 358] y=  175:Y=   54 ERROR
+[ 359] y=  165:Y=   10 ERROR
+[ 360] y=  143:Y=   88 ERROR
+[ 361] y=  114:Y=   78 ERROR
+[ 362] y=  100:Y=   68 ERROR
+[ 363] y=   96:Y=  147 ERROR
+[ 364] y=  118:Y=  131 ERROR
+[ 365] y=  151:Y=   48 ERROR
+[ 366] y=  187:Y=   46 ERROR
+[ 367] y=  211:Y=   67 ERROR
+[ 368] y=  210:Y=  129 ERROR
+[ 369] y=  198:Y=   41 ERROR
+[ 370] y=  171:Y=   74 ERROR
+[ 371] y=  149:Y=   59 ERROR
+[ 372] y=  131:Y=   54 ERROR
+[ 373] y=  130:Y=   70 ERROR
+[ 374] y=  145:Y=   68 ERROR
+[ 375] y=  167:Y=   71 ERROR
+[ 376] y=  191:Y=   50 ERROR
+[ 377] y=  205:Y=   39 ERROR
+[ 378] y=  209:Y=   44 ERROR
+[ 379] y=  195:Y=   63 ERROR
+[ 380] y=  166:Y=   80 ERROR
+[ 381] y=  130:Y=   61 ERROR
+[ 382] y=  103:Y=   55 ERROR
+[ 383] y=   96:Y=   46 ERROR
+[ 384] y=  107:Y=   53 ERROR
+[ 385] y=  129:Y=  184 ERROR
+[ 386] y=  142:Y=   13 ERROR
+[ 387] y=  151:Y=   47 ERROR
+[ 388] y=  152:Y=   36 ERROR
+[ 389] y=  158:Y=   45 ERROR
+[ 390] y=  165:Y=   24 ERROR
+[ 391] y=  167:Y=   35 ERROR
+[ 392] y=  157:Y=   39 ERROR
+[ 393] y=  133:Y=   65 ERROR
+[ 394] y=  106:Y=   82 ERROR
+[ 395] y=   78:Y=   69 ERROR
+[ 396] y=   60:Y=  103 ERROR
+[ 397] y=   45:Y=   67 ERROR
+[ 398] y=   43:Y=   64 ERROR
+[ 399] y=   54:Y=   69 ERROR
+[ 400] y=   78:Y=  152 ERROR
+[ 401] y=  103:Y=   10 ERROR
+[ 402] y=  116:Y=   76 ERROR
+[ 403] y=  112:Y=   88 ERROR
+[ 404] y=   96:Y=   73 ERROR
+[ 405] y=   89:Y=   55 ERROR
+[ 406] y=   99:Y=   58 ERROR
+[ 407] y=  126:Y=   46 ERROR
+[ 408] y=  154:Y=   74 ERROR
+[ 409] y=  169:Y=   56 ERROR
+[ 410] y=  168:Y=   58 ERROR
+[ 411] y=  149:Y=   94 ERROR
+[ 412] y=  126:Y=   72 ERROR
+[ 413] y=  102:Y=   69 ERROR
+[ 414] y=   79:Y=   77 ERROR
+[ 415] y=   64:Y=   79 ERROR
+[ 416] y=   51:Y=  152 ERROR
+[ 417] y=   58:Y=   82 ERROR
+[ 418] y=   73:Y=   91 ERROR
+[ 419] y=   92:Y=  104 ERROR
+[ 420] y=  107:Y=  140 ERROR
+[ 421] y=  105:Y=   59 ERROR
+[ 422] y=   97:Y=  106 ERROR
+[ 423] y=   82:Y=   70 ERROR
+[ 424] y=   72:Y=  141 ERROR
+[ 425] y=   73:Y=   81 ERROR
+[ 426] y=   82:Y=  138 ERROR
+[ 427] y=  101:Y=   89 ERROR
+[ 428] y=  123:Y=   86 ERROR
+[ 429] y=  142:Y=   76 ERROR
+[ 430] y=  152:Y=   83 ERROR
+[ 431] y=  148:Y=   77 ERROR
+[ 432] y=  138:Y=   79 ERROR
+[ 433] y=  136:Y=   86 ERROR
+[ 434] y=  145:Y=   97 ERROR
+[ 435] y=  167:Y=   69 ERROR
+[ 436] y=  179:Y=   83 ERROR
+[ 437] y=  176:Y=   88 ERROR
+[ 438] y=  155:Y=   86 ERROR
+[ 439] y=  130:Y=   66 ERROR
+[ 440] y=  117:Y=   72 ERROR
+[ 441] y=  111:Y=   78 ERROR
+[ 442] y=  121:Y=   68 ERROR
+[ 443] y=  132:Y=   86 ERROR
+[ 444] y=  148:Y=   55 ERROR
+[ 445] y=  165:Y=   57 ERROR
+[ 446] y=  178:Y=  147 ERROR
+[ 447] y=  182:Y=   71 ERROR
+[ 448] y=  169:Y=   65 ERROR
+[ 449] y=  141:Y=   43 ERROR
+[ 450] y=  107:Y=   43 ERROR
+[ 451] y=   85:Y=   38 ERROR
+[ 452] y=   80:Y=   48 ERROR
+[ 453] y=   94:Y=   49 ERROR
+[ 454] y=  107:Y=   34 ERROR
+[ 455] y=  113:Y=   45 ERROR
+[ 456] y=  113:Y=   60 ERROR
+[ 457] y=  111:Y=   25 ERROR
+[ 458] y=  121:Y=   82 ERROR
+[ 459] y=  134:Y=   54 ERROR
+[ 460] y=  151:Y=   64 ERROR
+[ 461] y=  159:Y=   99 ERROR
+[ 462] y=  149:Y=   44 ERROR
+[ 463] y=  125:Y=   77 ERROR
+[ 464] y=   94:Y=   82 ERROR
+[ 465] y=   81:Y=   57 ERROR
+[ 466] y=   97:Y=   80 ERROR
+[ 467] y=  132:Y=   93 ERROR
+[ 468] y=  164:Y=   94 ERROR
+[ 469] y=  172:Y=   88 ERROR
+[ 470] y=  158:Y=  103 ERROR
+[ 471] y=  136:Y=   77 ERROR
+[ 472] y=  113:Y=   81 ERROR
+[ 473] y=   97:Y=   61 ERROR
+[ 474] y=   92:Y=   57 ERROR
+[ 475] y=  100:Y=   53 ERROR
+[ 476] y=  119:Y=   57 ERROR
+[ 477] y=  129:Y=  121 ERROR
+[ 478] y=  125:Y=   51 ERROR
+[ 479] y=  110:Y=   47 ERROR
+[ 480] y=  103:Y=   37 ERROR
+[ 481] y=  111:Y=   80 ERROR
+[ 482] y=  122:Y=   78 ERROR
+[ 483] y=  130:Y=   55 ERROR
+[ 484] y=  123:Y=   55 ERROR
+[ 485] y=  115:Y=   51 ERROR
+[ 486] y=  114:Y=   58 ERROR
+[ 487] y=  122:Y=  120 ERROR
+[ 488] y=  135:Y=   47 ERROR
+[ 489] y=  139:Y=   70 ERROR
+[ 490] y=  132:Y=  110 ERROR
+[ 491] y=  115:Y=   81 ERROR
+[ 492] y=  100:Y=   73 ERROR
+[ 493] y=   94:Y=   46 ERROR
+[ 494] y=   99:Y=   81 ERROR
+[ 495] y=  111:Y=   74 ERROR
+[ 496] y=  121:Y=   50 ERROR
+[ 497] y=  123:Y=   74 ERROR
+[ 498] y=  119:Y=   46 ERROR
+[ 499] y=  109:Y=   62 ERROR
+[ 500] y=  104:Y=   53 ERROR
+[ 501] y=  106:Y=   47 ERROR
+[ 502] y=  118:Y=   49 ERROR
+[ 503] y=  133:Y=   30 ERROR
+[ 504] y=  135:Y=   31 ERROR
+[ 505] y=  125:Y=   35 ERROR
+[ 506] y=  111:Y=   23 ERROR
+[ 507] y=  105:Y=   21 ERROR
+[ 508] y=  107:Y=   21 ERROR
+[ 509] y=   98:Y=   28 ERROR
+[ 510] y=   82:Y=   67 ERROR
+[ 511] y=   67:Y=   52 ERROR
+[ 512] y=   65:Y=   78 ERROR
+[ 513] y=   75:Y=   79 ERROR
+[ 514] y=   84:Y=   86 ERROR
+[ 515] y=   90:Y=   69 ERROR
+[ 516] y=  102:Y=   70 ERROR
+[ 517] y=  127:Y=   76 ERROR
+[ 518] y=  155:Y=   77 ERROR
+[ 519] y=  169:Y=   86 ERROR
+[ 520] y=  156:Y=   73 ERROR
+[ 521] y=  127:Y=   87 ERROR
+[ 522] y=  101:Y=   64 ERROR
+[ 523] y=   91:Y=   65 ERROR
+[ 524] y=   89:Y=   89 OK
+[ 525] y=   83:Y=    4 ERROR
+[ 526] y=   69:Y=  237 ERROR
+[ 527] y=   55:Y=   61 ERROR
+[ 528] y=   53:Y=   97 ERROR
+[ 529] y=   72:Y=   79 ERROR
+[ 530] y=  104:Y=  106 ERROR
+[ 531] y=  142:Y=  113 ERROR
+[ 532] y=  168:Y=   75 ERROR
+[ 533] y=  178:Y=   86 ERROR
+[ 534] y=  168:Y=   77 ERROR
+[ 535] y=  145:Y=   60 ERROR
+[ 536] y=  123:Y=  141 ERROR
+[ 537] y=  106:Y=   74 ERROR
+[ 538] y=  106:Y=   80 ERROR
+[ 539] y=  117:Y=  117 OK
+[ 540] y=  136:Y=   52 ERROR
+[ 541] y=  155:Y=   92 ERROR
+[ 542] y=  170:Y=   86 ERROR
+[ 543] y=  180:Y=   98 ERROR
+[ 544] y=  179:Y=   98 ERROR
+[ 545] y=  168:Y=  128 ERROR
+[ 546] y=  154:Y=  179 ERROR
+[ 547] y=  143:Y=   64 ERROR
+[ 548] y=  136:Y=  117 ERROR
+[ 549] y=  137:Y=  115 ERROR
+[ 550] y=  132:Y=   72 ERROR
+[ 551] y=  128:Y=    9 ERROR
+[ 552] y=  117:Y=  192 ERROR
+[ 553] y=  101:Y=  115 ERROR
+[ 554] y=   94:Y=  133 ERROR
+[ 555] y=   90:Y=   80 ERROR
+[ 556] y=  110:Y=   65 ERROR
+[ 557] y=  137:Y=   55 ERROR
+[ 558] y=  179:Y=   52 ERROR
+[ 559] y=  219:Y=   49 ERROR
+[ 560] y=  245:Y=   53 ERROR
+[ 561] y=  253:Y=   64 ERROR
+[ 562] y=  236:Y=  127 ERROR
+[ 563] y=  211:Y=   31 ERROR
+[ 564] y=  184:Y=   74 ERROR
+[ 565] y=  165:Y=   42 ERROR
+[ 566] y=  158:Y=   34 ERROR
+[ 567] y=  157:Y=   22 ERROR
+[ 568] y=  158:Y=   27 ERROR
+[ 569] y=  156:Y=   32 ERROR
+[ 570] y=  149:Y=   32 ERROR
+[ 571] y=  140:Y=   63 ERROR
+[ 572] y=  133:Y=   53 ERROR
+[ 573] y=  127:Y=   71 ERROR
+[ 574] y=  128:Y=   65 ERROR
+[ 575] y=  135:Y=   76 ERROR
+[ 576] y=  145:Y=   63 ERROR
+[ 577] y=  155:Y=   58 ERROR
+[ 578] y=  153:Y=   74 ERROR
+[ 579] y=  153:Y=   60 ERROR
+[ 580] y=  146:Y=  155 ERROR
+[ 581] y=  137:Y=   71 ERROR
+[ 582] y=  127:Y=  105 ERROR
+[ 583] y=  120:Y=   88 ERROR
+[ 584] y=  126:Y=   79 ERROR
+[ 585] y=  132:Y=   65 ERROR
+[ 586] y=  138:Y=   40 ERROR
+[ 587] y=  138:Y=  122 ERROR
+[ 588] y=  137:Y=   73 ERROR
+[ 589] y=  136:Y=   71 ERROR
+[ 590] y=  140:Y=  131 ERROR
+[ 591] y=  147:Y=   53 ERROR
+[ 592] y=  155:Y=   73 ERROR
+[ 593] y=  158:Y=   72 ERROR
+[ 594] y=  151:Y=   87 ERROR
+[ 595] y=  138:Y=  152 ERROR
+[ 596] y=  124:Y=  180 ERROR
+[ 597] y=  113:Y=  102 ERROR
+[ 598] y=  101:Y=  107 ERROR
+[ 599] y=   94:Y=   95 ERROR
+[ 600] y=   91:Y=  173 ERROR
+[ 601] y=   94:Y=   70 ERROR
+[ 602] y=  102:Y=   73 ERROR
+[ 603] y=  109:Y=   88 ERROR
+[ 604] y=  117:Y=   67 ERROR
+[ 605] y=  117:Y=   44 ERROR
+[ 606] y=  110:Y=   46 ERROR
+[ 607] y=   96:Y=   55 ERROR
+[ 608] y=   76:Y=   48 ERROR
+[ 609] y=   66:Y=   61 ERROR
+[ 610] y=   64:Y=   61 ERROR
+[ 611] y=   82:Y=   28 ERROR
+[ 612] y=  108:Y=   28 ERROR
+[ 613] y=  134:Y=   53 ERROR
+[ 614] y=  149:Y=   65 ERROR
+[ 615] y=  147:Y=   46 ERROR
+[ 616] y=  135:Y=   28 ERROR
+[ 617] y=  118:Y=  100 ERROR
+[ 618] y=  104:Y=   62 ERROR
+[ 619] y=   90:Y=   55 ERROR
+[ 620] y=   78:Y=   61 ERROR
+[ 621] y=   61:Y=   52 ERROR
+[ 622] y=   49:Y=  133 ERROR
+[ 623] y=   48:Y=   71 ERROR
+[ 624] y=   60:Y=   75 ERROR
+[ 625] y=   84:Y=   64 ERROR
+[ 626] y=  102:Y=   41 ERROR
+[ 627] y=  114:Y=  128 ERROR
+[ 628] y=  110:Y=   52 ERROR
+[ 629] y=   95:Y=   37 ERROR
+[ 630] y=   75:Y=  119 ERROR
+[ 631] y=   60:Y=   91 ERROR
+[ 632] y=   64:Y=   88 ERROR
+[ 633] y=   80:Y=   90 ERROR
+[ 634] y=  102:Y=   67 ERROR
+[ 635] y=  118:Y=   67 ERROR
+[ 636] y=  132:Y=   57 ERROR
+[ 637] y=  150:Y=   85 ERROR
+[ 638] y=  165:Y=  161 ERROR
+[ 639] y=  179:Y=  106 ERROR
+[ 640] y=  181:Y=  107 ERROR
+[ 641] y=  177:Y=   58 ERROR
+[ 642] y=  167:Y=  122 ERROR
+[ 643] y=  150:Y=   78 ERROR
+[ 644] y=  134:Y=   77 ERROR
+[ 645] y=  126:Y=   60 ERROR
+[ 646] y=  137:Y=   55 ERROR
+[ 647] y=  159:Y=   57 ERROR
+[ 648] y=  180:Y=   70 ERROR
+[ 649] y=  181:Y=   35 ERROR
+[ 650] y=  166:Y=   54 ERROR
+[ 651] y=  145:Y=  101 ERROR
+[ 652] y=  133:Y=  103 ERROR
+[ 653] y=  137:Y=   82 ERROR
+[ 654] y=  148:Y=   92 ERROR
+[ 655] y=  165:Y=   77 ERROR
+[ 656] y=  168:Y=  163 ERROR
+[ 657] y=  157:Y=  124 ERROR
+[ 658] y=  136:Y=  113 ERROR
+[ 659] y=  115:Y=   96 ERROR
+[ 660] y=  109:Y=  102 ERROR
+[ 661] y=  113:Y=   94 ERROR
+[ 662] y=  126:Y=  168 ERROR
+[ 663] y=  133:Y=   98 ERROR
+[ 664] y=  134:Y=   85 ERROR
+[ 665] y=  132:Y=   93 ERROR
+[ 666] y=  128:Y=   97 ERROR
+[ 667] y=  130:Y=   94 ERROR
+[ 668] y=  133:Y=  176 ERROR
+[ 669] y=  141:Y=   84 ERROR
+[ 670] y=  151:Y=  162 ERROR
+[ 671] y=  157:Y=   84 ERROR
+[ 672] y=  163:Y=  157 ERROR
+[ 673] y=  161:Y=   84 ERROR
+[ 674] y=  159:Y=   75 ERROR
+[ 675] y=  154:Y=   98 ERROR
+[ 676] y=  149:Y=   97 ERROR
+[ 677] y=  147:Y=   87 ERROR
+[ 678] y=  146:Y=   64 ERROR
+[ 679] y=  150:Y=   76 ERROR
+[ 680] y=  152:Y=   69 ERROR
+[ 681] y=  153:Y=   61 ERROR
+[ 682] y=  153:Y=   52 ERROR
+[ 683] y=  155:Y=   64 ERROR
+[ 684] y=  160:Y=   39 ERROR
+[ 685] y=  160:Y=   42 ERROR
+[ 686] y=  154:Y=   45 ERROR
+[ 687] y=  146:Y=   60 ERROR
+[ 688] y=  147:Y=   65 ERROR
+[ 689] y=  156:Y=   65 ERROR
+[ 690] y=  162:Y=   54 ERROR
+[ 691] y=  157:Y=   38 ERROR
+[ 692] y=  137:Y=   49 ERROR
+[ 693] y=  119:Y=   71 ERROR
+[ 694] y=  102:Y=   70 ERROR
+[ 695] y=   92:Y=   92 OK
+[ 696] y=   82:Y=   69 ERROR
+[ 697] y=   77:Y=   78 ERROR
+[ 698] y=   84:Y=  134 ERROR
+[ 699] y=   91:Y=   72 ERROR
+[ 700] y=  106:Y=   55 ERROR
+[ 701] y=  115:Y=   77 ERROR
+[ 702] y=  122:Y=   83 ERROR
+[ 703] y=  121:Y=  104 ERROR
+[ 704] y=  104:Y=   94 ERROR
+[ 705] y=   90:Y=   86 ERROR
+[ 706] y=   83:Y=   68 ERROR
+[ 707] y=   96:Y=   62 ERROR
+[ 708] y=  116:Y=  143 ERROR
+[ 709] y=  126:Y=   56 ERROR
+[ 710] y=  129:Y=   39 ERROR
+[ 711] y=  122:Y=   69 ERROR
+[ 712] y=  113:Y=   60 ERROR
+[ 713] y=  100:Y=   51 ERROR
+[ 714] y=   80:Y=   70 ERROR
+[ 715] y=   63:Y=   84 ERROR
+[ 716] y=   54:Y=  152 ERROR
+[ 717] y=   57:Y=   93 ERROR
+[ 718] y=   67:Y=   97 ERROR
+[ 719] y=   72:Y=   98 ERROR
+[ 720] y=   75:Y=   98 ERROR
+[ 721] y=   86:Y=   91 ERROR
+[ 722] y=  103:Y=   45 ERROR
+[ 723] y=  122:Y=  193 ERROR
+[ 724] y=  125:Y=   92 ERROR
+[ 725] y=  113:Y=   53 ERROR
+[ 726] y=  100:Y=   44 ERROR
+[ 727] y=   96:Y=   38 ERROR
+[ 728] y=  114:Y=   53 ERROR
+[ 729] y=  134:Y=  140 ERROR
+[ 730] y=  148:Y=   65 ERROR
+[ 731] y=  147:Y=  134 ERROR
+[ 732] y=  130:Y=   66 ERROR
+[ 733] y=  112:Y=   62 ERROR
+[ 734] y=  103:Y=   84 ERROR
+[ 735] y=  105:Y=   87 ERROR
+[ 736] y=  111:Y=   50 ERROR
+[ 737] y=  110:Y=   75 ERROR
+[ 738] y=  100:Y=   75 ERROR
+[ 739] y=   90:Y=   70 ERROR
+[ 740] y=   85:Y=   78 ERROR
+[ 741] y=   91:Y=   68 ERROR
+[ 742] y=  103:Y=  126 ERROR
+[ 743] y=  120:Y=   61 ERROR
+[ 744] y=  134:Y=   35 ERROR
+[ 745] y=  146:Y=   23 ERROR
+[ 746] y=  151:Y=   41 ERROR
+[ 747] y=  148:Y=  134 ERROR
+[ 748] y=  141:Y=   65 ERROR
+[ 749] y=  137:Y=   64 ERROR
+[ 750] y=  148:Y=   93 ERROR
+[ 751] y=  172:Y=   75 ERROR
+[ 752] y=  191:Y=   48 ERROR
+[ 753] y=  190:Y=  111 ERROR
+[ 754] y=  160:Y=   70 ERROR
+[ 755] y=  119:Y=   81 ERROR
+[ 756] y=   85:Y=   67 ERROR
+[ 757] y=   68:Y=   60 ERROR
+[ 758] y=   72:Y=  141 ERROR
+[ 759] y=   88:Y=   56 ERROR
+[ 760] y=  116:Y=  114 ERROR
+[ 761] y=  145:Y=   93 ERROR
+[ 762] y=  162:Y=   70 ERROR
+[ 763] y=  156:Y=   57 ERROR
+[ 764] y=  130:Y=   77 ERROR
+[ 765] y=  104:Y=   79 ERROR
+[ 766] y=   96:Y=   88 ERROR
+[ 767] y=  109:Y=   73 ERROR
+[ 768] y=  132:Y=   82 ERROR
+[ 769] y=  147:Y=    1 ERROR
+[ 770] y=  145:Y=   98 ERROR
+[ 771] y=  137:Y=   58 ERROR
+[ 772] y=  133:Y=   71 ERROR
+[ 773] y=  139:Y=   42 ERROR
+[ 774] y=  144:Y=  116 ERROR
+[ 775] y=  135:Y=   60 ERROR
+[ 776] y=  124:Y=   65 ERROR
+[ 777] y=  117:Y=  122 ERROR
+[ 778] y=  131:Y=   38 ERROR
+[ 779] y=  155:Y=  103 ERROR
+[ 780] y=  177:Y=   40 ERROR
+[ 781] y=  186:Y=   33 ERROR
+[ 782] y=  181:Y=   45 ERROR
+[ 783] y=  170:Y=   46 ERROR
+[ 784] y=  157:Y=  236 ERROR
+[ 785] y=  140:Y=  172 ERROR
+[ 786] y=  119:Y=   63 ERROR
+[ 787] y=   95:Y=   64 ERROR
+[ 788] y=   73:Y=   66 ERROR
+[ 789] y=   61:Y=   40 ERROR
+[ 790] y=   60:Y=   32 ERROR
+[ 791] y=   73:Y=   39 ERROR
+[ 792] y=   90:Y=   46 ERROR
+[ 793] y=   93:Y=   46 ERROR
+[ 794] y=   83:Y=   65 ERROR
+[ 795] y=   59:Y=   51 ERROR
+[ 796] y=   48:Y=   72 ERROR
+[ 797] y=   53:Y=   82 ERROR
+[ 798] y=   76:Y=   80 ERROR
+[ 799] y=  110:Y=   88 ERROR
+[ 800] y=  129:Y=   69 ERROR
+[ 801] y=  139:Y=   77 ERROR
+[ 802] y=  124:Y=   87 ERROR
+[ 803] y=  111:Y=   87 ERROR
+[ 804] y=  106:Y=   83 ERROR
+[ 805] y=  113:Y=   74 ERROR
+[ 806] y=  129:Y=   64 ERROR
+[ 807] y=  136:Y=   68 ERROR
+[ 808] y=  138:Y=   71 ERROR
+[ 809] y=  136:Y=  117 ERROR
+[ 810] y=  129:Y=   93 ERROR
+[ 811] y=  122:Y=   69 ERROR
+[ 812] y=  112:Y=  135 ERROR
+[ 813] y=  102:Y=   76 ERROR
+[ 814] y=   86:Y=   51 ERROR
+[ 815] y=   66:Y=   47 ERROR
+[ 816] y=   53:Y=   38 ERROR
+[ 817] y=   57:Y=   31 ERROR
+[ 818] y=   81:Y=   43 ERROR
+[ 819] y=  117:Y=   58 ERROR
+[ 820] y=  151:Y=  135 ERROR
+[ 821] y=  175:Y=   53 ERROR
+[ 822] y=  190:Y=   87 ERROR
+[ 823] y=  196:Y=   70 ERROR
+[ 824] y=  201:Y=   87 ERROR
+[ 825] y=  200:Y=  114 ERROR
+[ 826] y=  199:Y=   93 ERROR
+[ 827] y=  193:Y=   85 ERROR
+[ 828] y=  180:Y=   72 ERROR
+[ 829] y=  160:Y=   74 ERROR
+[ 830] y=  130:Y=   40 ERROR
+[ 831] y=  104:Y=   47 ERROR
+[ 832] y=   85:Y=   44 ERROR
+[ 833] y=   84:Y=   63 ERROR
+[ 834] y=  104:Y=  137 ERROR
+[ 835] y=  138:Y=   78 ERROR
+[ 836] y=  169:Y=  166 ERROR
+[ 837] y=  187:Y=   64 ERROR
+[ 838] y=  181:Y=   65 ERROR
+[ 839] y=  165:Y=  152 ERROR
+[ 840] y=  143:Y=   76 ERROR
+[ 841] y=  122:Y=   64 ERROR
+[ 842] y=  106:Y=   60 ERROR
+[ 843] y=   94:Y=   33 ERROR
+[ 844] y=  101:Y=  187 ERROR
+[ 845] y=  117:Y=   78 ERROR
+[ 846] y=  139:Y=   44 ERROR
+[ 847] y=  149:Y=  118 ERROR
+[ 848] y=  142:Y=   87 ERROR
+[ 849] y=  125:Y=   70 ERROR
+[ 850] y=  104:Y=   73 ERROR
+[ 851] y=   91:Y=   45 ERROR
+[ 852] y=   88:Y=  127 ERROR
+[ 853] y=   96:Y=   54 ERROR
+[ 854] y=  111:Y=   70 ERROR
+[ 855] y=  120:Y=   56 ERROR
+[ 856] y=  121:Y=   62 ERROR
+[ 857] y=  122:Y=   46 ERROR
+[ 858] y=  129:Y=   54 ERROR
+[ 859] y=  146:Y=   53 ERROR
+[ 860] y=  155:Y=   50 ERROR
+[ 861] y=  149:Y=   75 ERROR
+[ 862] y=  127:Y=   49 ERROR
+[ 863] y=  102:Y=   57 ERROR
+[ 864] y=   88:Y=   52 ERROR
+[ 865] y=   97:Y=   46 ERROR
+[ 866] y=  122:Y=   56 ERROR
+[ 867] y=  151:Y=  169 ERROR
+[ 868] y=  168:Y=   83 ERROR
+[ 869] y=  161:Y=  110 ERROR
+[ 870] y=  141:Y=   29 ERROR
+[ 871] y=  105:Y=  118 ERROR
+[ 872] y=   85:Y=   89 ERROR
+[ 873] y=   76:Y=   63 ERROR
+[ 874] y=   90:Y=   64 ERROR
+[ 875] y=  117:Y=  120 ERROR
+[ 876] y=  142:Y=   30 ERROR
+[ 877] y=  156:Y=   60 ERROR
+[ 878] y=  146:Y=   68 ERROR
+[ 879] y=  118:Y=   72 ERROR
+[ 880] y=   78:Y=   63 ERROR
+[ 881] y=   45:Y=   48 ERROR
+[ 882] y=   30:Y=   65 ERROR
+[ 883] y=   37:Y=   52 ERROR
+[ 884] y=   58:Y=   48 ERROR
+[ 885] y=   85:Y=   60 ERROR
+[ 886] y=  106:Y=   58 ERROR
+[ 887] y=  117:Y=   83 ERROR
+[ 888] y=  110:Y=   96 ERROR
+[ 889] y=   90:Y=   91 ERROR
+[ 890] y=   75:Y=   87 ERROR
+[ 891] y=   72:Y=   74 ERROR
+[ 892] y=   95:Y=   79 ERROR
+[ 893] y=  121:Y=  172 ERROR
+[ 894] y=  143:Y=   72 ERROR
+[ 895] y=  144:Y=   64 ERROR
+[ 896] y=  132:Y=  136 ERROR
+[ 897] y=  119:Y=   89 ERROR
+[ 898] y=  109:Y=   79 ERROR
+[ 899] y=  109:Y=   78 ERROR
+[ 900] y=  110:Y=   86 ERROR
+[ 901] y=  113:Y=  131 ERROR
+[ 902] y=  109:Y=  119 ERROR
+[ 903] y=  103:Y=   67 ERROR
+[ 904] y=   99:Y=   54 ERROR
+[ 905] y=  102:Y=   69 ERROR
+[ 906] y=  118:Y=   34 ERROR
+[ 907] y=  135:Y=   62 ERROR
+[ 908] y=  150:Y=   86 ERROR
+[ 909] y=  156:Y=   72 ERROR
+[ 910] y=  149:Y=   88 ERROR
+[ 911] y=  142:Y=   50 ERROR
+[ 912] y=  128:Y=  126 ERROR
+[ 913] y=  126:Y=  135 ERROR
+[ 914] y=  128:Y=   54 ERROR
+[ 915] y=  146:Y=   56 ERROR
+[ 916] y=  168:Y=   45 ERROR
+[ 917] y=  186:Y=   34 ERROR
+[ 918] y=  198:Y=   37 ERROR
+[ 919] y=  197:Y=  101 ERROR
+[ 920] y=  194:Y=   52 ERROR
+[ 921] y=  184:Y=   61 ERROR
+[ 922] y=  171:Y=   53 ERROR
+[ 923] y=  151:Y=   76 ERROR
+[ 924] y=  131:Y=  103 ERROR
+[ 925] y=  116:Y=   90 ERROR
+[ 926] y=  113:Y=   72 ERROR
+[ 927] y=  125:Y=   70 ERROR
+[ 928] y=  137:Y=   79 ERROR
+[ 929] y=  146:Y=  137 ERROR
+[ 930] y=  142:Y=   63 ERROR
+[ 931] y=  138:Y=   80 ERROR
+[ 932] y=  133:Y=   86 ERROR
+[ 933] y=  128:Y=   60 ERROR
+[ 934] y=  120:Y=   65 ERROR
+[ 935] y=  104:Y=   77 ERROR
+[ 936] y=   94:Y=   70 ERROR
+[ 937] y=   82:Y=   63 ERROR
+[ 938] y=   85:Y=   28 ERROR
+[ 939] y=   87:Y=  101 ERROR
+[ 940] y=   98:Y=   87 ERROR
+[ 941] y=  107:Y=   83 ERROR
+[ 942] y=  117:Y=    4 ERROR
+[ 943] y=  133:Y=   41 ERROR
+[ 944] y=  148:Y=   89 ERROR
+[ 945] y=  164:Y=   54 ERROR
+[ 946] y=  164:Y=   47 ERROR
+[ 947] y=  155:Y=   41 ERROR
+[ 948] y=  139:Y=   29 ERROR
+[ 949] y=  130:Y=   95 ERROR
+[ 950] y=  133:Y=   40 ERROR
+[ 951] y=  145:Y=  115 ERROR
+[ 952] y=  157:Y=   69 ERROR
+[ 953] y=  162:Y=   72 ERROR
+[ 954] y=  163:Y=   65 ERROR
+[ 955] y=  158:Y=   60 ERROR
+[ 956] y=  156:Y=   96 ERROR
+[ 957] y=  141:Y=   71 ERROR
+[ 958] y=  126:Y=   65 ERROR
+[ 959] y=  110:Y=   46 ERROR
+[ 960] y=  106:Y=   54 ERROR
+[ 961] y=  113:Y=   47 ERROR
+[ 962] y=  112:Y=   45 ERROR
+[ 963] y=  104:Y=   45 ERROR
+[ 964] y=   79:Y=   76 ERROR
+[ 965] y=   61:Y=  129 ERROR
+[ 966] y=   54:Y=   51 ERROR
+[ 967] y=   65:Y=   67 ERROR
+[ 968] y=   86:Y=   70 ERROR
+[ 969] y=  105:Y=   60 ERROR
+[ 970] y=  117:Y=   53 ERROR
+[ 971] y=  116:Y=   69 ERROR
+[ 972] y=  113:Y=   94 ERROR
+[ 973] y=  107:Y=   89 ERROR
+[ 974] y=  105:Y=   79 ERROR
+[ 975] y=  110:Y=   61 ERROR
+[ 976] y=  121:Y=   62 ERROR
+[ 977] y=  139:Y=  129 ERROR
+[ 978] y=  148:Y=  117 ERROR
+[ 979] y=  145:Y=   69 ERROR
+[ 980] y=  128:Y=  142 ERROR
+[ 981] y=  111:Y=   66 ERROR
+[ 982] y=  100:Y=   63 ERROR
+[ 983] y=  100:Y=   54 ERROR
+[ 984] y=  101:Y=   78 ERROR
+[ 985] y=  105:Y=   53 ERROR
+[ 986] y=  106:Y=   53 ERROR
+[ 987] y=  106:Y=   66 ERROR
+[ 988] y=  108:Y=   80 ERROR
+[ 989] y=  110:Y=   65 ERROR
+[ 990] y=  119:Y=   71 ERROR
+[ 991] y=  130:Y=  169 ERROR
+[ 992] y=  136:Y=  203 ERROR
+[ 993] y=  130:Y=  103 ERROR
+[ 994] y=  113:Y=   75 ERROR
+[ 995] y=  100:Y=   73 ERROR
+[ 996] y=  101:Y=  145 ERROR
+[ 997] y=  106:Y=   52 ERROR
+[ 998] y=  109:Y=  138 ERROR
+[ 999] y=   97:Y=   38 ERROR
+[1000] y=   84:Y=   40 ERROR
+[1001] y=   75:Y=   46 ERROR
+[1002] y=   78:Y=   30 ERROR
+[1003] y=   88:Y=   52 ERROR
+[1004] y=  106:Y=   59 ERROR
+[1005] y=  125:Y=   53 ERROR
+[1006] y=  143:Y=  125 ERROR
+[1007] y=  149:Y=   63 ERROR
+[1008] y=  140:Y=   51 ERROR
+[1009] y=  124:Y=   52 ERROR
+[1010] y=  100:Y=   84 ERROR
+[1011] y=   88:Y=  127 ERROR
+[1012] y=   84:Y=   56 ERROR
+[1013] y=   96:Y=   24 ERROR
+[1014] y=  114:Y=   20 ERROR
+[1015] y=  125:Y=   51 ERROR
+[1016] y=  130:Y=   56 ERROR
+[1017] y=  125:Y=   58 ERROR
+[1018] y=  130:Y=   61 ERROR
+[1019] y=  145:Y=   71 ERROR
+[1020] y=  167:Y=   68 ERROR
+[1021] y=  185:Y=   28 ERROR
+[1022] y=  184:Y=  115 ERROR
+[1023] y=  167:Y=   84 ERROR
+[1024] y=  139:Y=   77 ERROR
+[1025] y=  121:Y=   53 ERROR
+[1026] y=  117:Y=   49 ERROR
+[1027] y=  135:Y=   71 ERROR
+[1028] y=  161:Y=  146 ERROR
+[1029] y=  179:Y=  104 ERROR
+[1030] y=  173:Y=   56 ERROR
+[1031] y=  148:Y=   67 ERROR
+[1032] y=  117:Y=   74 ERROR
+[1033] y=   94:Y=   68 ERROR
+[1034] y=   84:Y=  116 ERROR
+[1035] y=   73:Y=   50 ERROR
+[1036] y=   71:Y=   92 ERROR
+[1037] y=   68:Y=   75 ERROR
+[1038] y=   77:Y=   77 OK
+[1039] y=   92:Y=   76 ERROR
+[1040] y=  102:Y=   66 ERROR
+[1041] y=  113:Y=   75 ERROR
+[1042] y=  113:Y=   68 ERROR
+[1043] y=  116:Y=   77 ERROR
+[1044] y=  111:Y=  134 ERROR
+[1045] y=  104:Y=   83 ERROR
+[1046] y=   99:Y=   68 ERROR
+[1047] y=  104:Y=   65 ERROR
+[1048] y=  120:Y=   53 ERROR
+[1049] y=  136:Y=   63 ERROR
+[1050] y=  144:Y=   69 ERROR
+[1051] y=  137:Y=   51 ERROR
+[1052] y=  117:Y=   59 ERROR
+[1053] y=   85:Y=   62 ERROR
+[1054] y=   60:Y=   65 ERROR
+[1055] y=   48:Y=   44 ERROR
+[1056] y=   60:Y=   64 ERROR
+[1057] y=   86:Y=  147 ERROR
+[1058] y=  107:Y=   80 ERROR
+[1059] y=  120:Y=   87 ERROR
+[1060] y=  117:Y=   82 ERROR
+[1061] y=  111:Y=   49 ERROR
+[1062] y=  113:Y=  103 ERROR
+[1063] y=  118:Y=   96 ERROR
+[1064] y=  134:Y=   96 ERROR
+[1065] y=  142:Y=   81 ERROR
+[1066] y=  143:Y=   81 ERROR
+[1067] y=  133:Y=   52 ERROR
+[1068] y=  115:Y=  130 ERROR
+[1069] y=  101:Y=   46 ERROR
+[1070] y=   87:Y=   49 ERROR
+[1071] y=   86:Y=   52 ERROR
+[1072] y=   87:Y=   46 ERROR
+[1073] y=   91:Y=   67 ERROR
+[1074] y=   88:Y=   90 ERROR
+[1075] y=   80:Y=   50 ERROR
+[1076] y=   66:Y=   48 ERROR
+[1077] y=   59:Y=  102 ERROR
+[1078] y=   60:Y=  100 ERROR
+[1079] y=   72:Y=   80 ERROR
+[1080] y=   85:Y=   80 ERROR
+[1081] y=   90:Y=   63 ERROR
+[1082] y=   90:Y=   54 ERROR
+[1083] y=   82:Y=   51 ERROR
+[1084] y=   88:Y=   63 ERROR
+[1085] y=   96:Y=  143 ERROR
+[1086] y=  116:Y=   77 ERROR
+[1087] y=  127:Y=   64 ERROR
+[1088] y=  125:Y=   60 ERROR
+[1089] y=  113:Y=   55 ERROR
+[1090] y=   94:Y=   75 ERROR
+[1091] y=   89:Y=   68 ERROR
+[1092] y=   88:Y=   76 ERROR
+[1093] y=   88:Y=   83 ERROR
+[1094] y=   83:Y=   74 ERROR
+[1095] y=   76:Y=   59 ERROR
+[1096] y=   77:Y=   71 ERROR
+[1097] y=   86:Y=   63 ERROR
+[1098] y=  106:Y=   65 ERROR
+[1099] y=  124:Y=   47 ERROR
+[1100] y=  141:Y=   43 ERROR
+[1101] y=  144:Y=   46 ERROR
+[1102] y=  137:Y=   39 ERROR
+[1103] y=  123:Y=   37 ERROR
+[1104] y=  112:Y=   62 ERROR
+[1105] y=  123:Y=   97 ERROR
+[1106] y=  142:Y=  166 ERROR
+[1107] y=  165:Y=   66 ERROR
+[1108] y=  165:Y=   65 ERROR
+[1109] y=  152:Y=  121 ERROR
+[1110] y=  132:Y=   32 ERROR
+[1111] y=  116:Y=   44 ERROR
+[1112] y=  111:Y=   56 ERROR
+[1113] y=  114:Y=   68 ERROR
+[1114] y=  122:Y=  151 ERROR
+[1115] y=  125:Y=   62 ERROR
+[1116] y=  118:Y=   75 ERROR
+[1117] y=  101:Y=  127 ERROR
+[1118] y=   87:Y=   54 ERROR
+[1119] y=   86:Y=   61 ERROR
+[1120] y=   98:Y=   69 ERROR
+[1121] y=  114:Y=   47 ERROR
+[1122] y=  129:Y=   68 ERROR
+[1123] y=  137:Y=   39 ERROR
+[1124] y=  140:Y=   48 ERROR
+[1125] y=  137:Y=   52 ERROR
+[1126] y=  131:Y=   65 ERROR
+[1127] y=  137:Y=   69 ERROR
+[1128] y=  150:Y=   96 ERROR
+[1129] y=  163:Y=  166 ERROR
+[1130] y=  161:Y=   75 ERROR
+[1131] y=  147:Y=   87 ERROR
+[1132] y=  141:Y=   88 ERROR
+[1133] y=  152:Y=  151 ERROR
+[1134] y=  181:Y=  158 ERROR
+[1135] y=  205:Y=   69 ERROR
+[1136] y=  209:Y=   73 ERROR
+[1137] y=  185:Y=  151 ERROR
+[1138] y=  151:Y=   83 ERROR
+[1139] y=  126:Y=   92 ERROR
+[1140] y=  127:Y=   76 ERROR
+[1141] y=  148:Y=   93 ERROR
+[1142] y=  169:Y=  130 ERROR
+[1143] y=  175:Y=  188 ERROR
+[1144] y=  164:Y=   67 ERROR
+[1145] y=  153:Y=   62 ERROR
+[1146] y=  144:Y=  122 ERROR
+[1147] y=  141:Y=  128 ERROR
+[1148] y=  139:Y=   66 ERROR
+[1149] y=  128:Y=   71 ERROR
+[1150] y=  107:Y=   63 ERROR
+[1151] y=   69:Y=   56 ERROR
+[1152] y=   36:Y=   91 ERROR
+[1153] y=   24:Y=   71 ERROR
+[1154] y=   41:Y=   50 ERROR
+[1155] y=   82:Y=  106 ERROR
+[1156] y=  116:Y=   73 ERROR
+[1157] y=  132:Y=   30 ERROR
+[1158] y=  125:Y=  100 ERROR
+[1159] y=  100:Y=   67 ERROR
+[1160] y=   80:Y=   90 ERROR
+[1161] y=   67:Y=  163 ERROR
+[1162] y=   73:Y=   53 ERROR
+[1163] y=   87:Y=  207 ERROR
+[1164] y=   96:Y=   78 ERROR
+[1165] y=  102:Y=   61 ERROR
+[1166] y=  105:Y=  129 ERROR
+[1167] y=  121:Y=   46 ERROR
+[1168] y=  140:Y=   36 ERROR
+[1169] y=  153:Y=   50 ERROR
+[1170] y=  150:Y=   86 ERROR
+[1171] y=  142:Y=   47 ERROR
+[1172] y=  134:Y=   43 ERROR
+[1173] y=  131:Y=   67 ERROR
+[1174] y=  123:Y=   82 ERROR
+[1175] y=  107:Y=   68 ERROR
+[1176] y=   88:Y=   74 ERROR
+[1177] y=   66:Y=   95 ERROR
+[1178] y=   53:Y=   13 ERROR
+[1179] y=   44:Y=  180 ERROR
+[1180] y=   55:Y=   64 ERROR
+[1181] y=   77:Y=   51 ERROR
+[1182] y=  105:Y=   48 ERROR
+[1183] y=  126:Y=  127 ERROR
+[1184] y=  130:Y=   54 ERROR
+[1185] y=  125:Y=   77 ERROR
+[1186] y=  120:Y=  166 ERROR
+[1187] y=  126:Y=   80 ERROR
+[1188] y=  141:Y=  178 ERROR
+[1189] y=  153:Y=   86 ERROR
+[1190] y=  154:Y=   75 ERROR
+[1191] y=  142:Y=   73 ERROR
+[1192] y=  126:Y=   74 ERROR
+[1193] y=  114:Y=   86 ERROR
+[1194] y=  101:Y=   99 ERROR
+[1195] y=   92:Y=   70 ERROR
+[1196] y=   84:Y=   82 ERROR
+[1197] y=   76:Y=   91 ERROR
+[1198] y=   73:Y=   94 ERROR
+[1199] y=   67:Y=   56 ERROR
+[1200] y=   74:Y=   59 ERROR
+[1201] y=   92:Y=   88 ERROR
+[1202] y=  119:Y=   77 ERROR
+[1203] y=  147:Y=   65 ERROR
+[1204] y=  158:Y=   45 ERROR
+[1205] y=  160:Y=   55 ERROR
+[1206] y=  149:Y=  153 ERROR
+[1207] y=  132:Y=   64 ERROR
+[1208] y=  117:Y=   46 ERROR
+[1209] y=  114:Y=   44 ERROR
+[1210] y=  130:Y=   54 ERROR
+[1211] y=  149:Y=   64 ERROR
+[1212] y=  156:Y=   65 ERROR
+[1213] y=  140:Y=   26 ERROR
+[1214] y=  113:Y=   52 ERROR
+[1215] y=   84:Y=   87 ERROR
+[1216] y=   62:Y=  135 ERROR
+[1217] y=   45:Y=  120 ERROR
+[1218] y=   31:Y=   61 ERROR
+[1219] y=   23:Y=   67 ERROR
+[1220] y=   23:Y=   51 ERROR
+[1221] y=   38:Y=   38 OK
+[1222] y=   65:Y=   36 ERROR
+[1223] y=  103:Y=   48 ERROR
+[1224] y=  133:Y=   55 ERROR
+[1225] y=  145:Y=   38 ERROR
+[1226] y=  143:Y=   63 ERROR
+[1227] y=  139:Y=   65 ERROR
+[1228] y=  153:Y=   79 ERROR
+[1229] y=  176:Y=   51 ERROR
+[1230] y=  196:Y=  113 ERROR
+[1231] y=  197:Y=   65 ERROR
+[1232] y=  178:Y=   53 ERROR
+[1233] y=  161:Y=   63 ERROR
+[1234] y=  151:Y=   84 ERROR
+[1235] y=  154:Y=   90 ERROR
+[1236] y=  153:Y=   75 ERROR
+[1237] y=  140:Y=   80 ERROR
+[1238] y=  114:Y=   60 ERROR
+[1239] y=   90:Y=  142 ERROR
+[1240] y=   80:Y=   52 ERROR
+[1241] y=   84:Y=   76 ERROR
+[1242] y=   99:Y=   78 ERROR
+[1243] y=  115:Y=  100 ERROR
+[1244] y=  135:Y=   70 ERROR
+[1245] y=  146:Y=   47 ERROR
+[1246] y=  149:Y=   74 ERROR
+[1247] y=  137:Y=   90 ERROR
+[1248] y=  126:Y=   74 ERROR
+[1249] y=  120:Y=   29 ERROR
+[1250] y=  114:Y=   94 ERROR
+[1251] y=  111:Y=   64 ERROR
+[1252] y=   98:Y=   58 ERROR
+[1253] y=   83:Y=   61 ERROR
+[1254] y=   66:Y=   62 ERROR
+[1255] y=   53:Y=   68 ERROR
+[1256] y=   54:Y=   78 ERROR
+[1257] y=   64:Y=   81 ERROR
+[1258] y=   78:Y=   73 ERROR
+[1259] y=   82:Y=   61 ERROR
+[1260] y=   78:Y=   69 ERROR
+[1261] y=   74:Y=   81 ERROR
+[1262] y=   83:Y=   76 ERROR
+[1263] y=  103:Y=   97 ERROR
+[1264] y=  125:Y=   40 ERROR
+[1265] y=  133:Y=  120 ERROR
+[1266] y=  126:Y=   93 ERROR
+[1267] y=  115:Y=   96 ERROR
+[1268] y=  112:Y=   75 ERROR
+[1269] y=  122:Y=   69 ERROR
+[1270] y=  129:Y=  145 ERROR
+[1271] y=  122:Y=   54 ERROR
+[1272] y=   95:Y=  142 ERROR
+[1273] y=   60:Y=   60 OK
+[1274] y=   31:Y=   69 ERROR
+[1275] y=   10:Y=  149 ERROR
+[1276] y=  171:Y=   69 ERROR
+[1277] y=  171:Y=   72 ERROR
+[1278] y=   15:Y=   80 ERROR
+[1279] y=   51:Y=  105 ERROR
+[1280] y=   82:Y=   95 ERROR
+[1281] y=   96:Y=   83 ERROR
+[1282] y=   83:Y=   71 ERROR
+[1283] y=   61:Y=   57 ERROR
+[1284] y=   48:Y=   57 ERROR
+[1285] y=   49:Y=   63 ERROR
+[1286] y=   63:Y=   87 ERROR
+[1287] y=   78:Y=  104 ERROR
+[1288] y=   99:Y=  108 ERROR
+[1289] y=  118:Y=   92 ERROR
+[1290] y=  131:Y=   90 ERROR
+[1291] y=  133:Y=   91 ERROR
+[1292] y=  129:Y=   84 ERROR
+[1293] y=  126:Y=  137 ERROR
+[1294] y=  124:Y=   66 ERROR
+[1295] y=  117:Y=   72 ERROR
+[1296] y=  102:Y=   67 ERROR
+[1297] y=   99:Y=   74 ERROR
+[1298] y=  114:Y=   67 ERROR
+[1299] y=  152:Y=   81 ERROR
+[1300] y=  188:Y=  160 ERROR
+[1301] y=  203:Y=  119 ERROR
+[1302] y=  194:Y=  212 ERROR
+[1303] y=  168:Y=  114 ERROR
+[1304] y=  146:Y=   83 ERROR
+[1305] y=  127:Y=  139 ERROR
+[1306] y=  112:Y=  161 ERROR
+[1307] y=   97:Y=   83 ERROR
+[1308] y=   89:Y=  151 ERROR
+[1309] y=   94:Y=   58 ERROR
+[1310] y=  110:Y=  112 ERROR
+[1311] y=  123:Y=   96 ERROR
+[1312] y=  124:Y=   81 ERROR
+[1313] y=  115:Y=   81 ERROR
+[1314] y=  106:Y=   70 ERROR
+[1315] y=  108:Y=   78 ERROR
+[1316] y=  114:Y=   67 ERROR
+[1317] y=  122:Y=   42 ERROR
+[1318] y=  128:Y=   50 ERROR
+[1319] y=  137:Y=   57 ERROR
+[1320] y=  146:Y=   86 ERROR
+[1321] y=  146:Y=  111 ERROR
+[1322] y=  139:Y=   85 ERROR
+[1323] y=  127:Y=   81 ERROR
+[1324] y=  120:Y=   68 ERROR
+[1325] y=  117:Y=   69 ERROR
+[1326] y=  114:Y=   76 ERROR
+[1327] y=  120:Y=   62 ERROR
+[1328] y=  127:Y=   64 ERROR
+[1329] y=  142:Y=   51 ERROR
+[1330] y=  148:Y=   41 ERROR
+[1331] y=  145:Y=  118 ERROR
+[1332] y=  136:Y=   34 ERROR
+[1333] y=  125:Y=   28 ERROR
+[1334] y=  115:Y=   42 ERROR
+[1335] y=  102:Y=   36 ERROR
+[1336] y=   86:Y=   59 ERROR
+[1337] y=   77:Y=   81 ERROR
+[1338] y=   82:Y=  143 ERROR
+[1339] y=   98:Y=   92 ERROR
+[1340] y=  112:Y=   68 ERROR
+[1341] y=  110:Y=   94 ERROR
+[1342] y=   97:Y=   62 ERROR
+[1343] y=   86:Y=   60 ERROR
+[1344] y=   89:Y=   33 ERROR
+[1345] y=  102:Y=   43 ERROR
+[1346] y=  112:Y=   64 ERROR
+[1347] y=  120:Y=   52 ERROR
+[1348] y=  128:Y=   35 ERROR
+[1349] y=  143:Y=   38 ERROR
+[1350] y=  152:Y=   70 ERROR
+[1351] y=  144:Y=  123 ERROR
+[1352] y=  121:Y=   50 ERROR
+[1353] y=   94:Y=   71 ERROR
+[1354] y=   84:Y=   49 ERROR
+[1355] y=   91:Y=  124 ERROR
+[1356] y=  109:Y=   45 ERROR
+[1357] y=  123:Y=   56 ERROR
+[1358] y=  130:Y=   88 ERROR
+[1359] y=  131:Y=   98 ERROR
+[1360] y=  131:Y=   82 ERROR
+[1361] y=  126:Y=   92 ERROR
+[1362] y=  115:Y=   83 ERROR
+[1363] y=   98:Y=   66 ERROR
+[1364] y=   85:Y=   72 ERROR
+[1365] y=   88:Y=   60 ERROR
+[1366] y=   99:Y=   48 ERROR
+[1367] y=  106:Y=   38 ERROR
+[1368] y=   92:Y=  109 ERROR
+[1369] y=   60:Y=   80 ERROR
+[1370] y=   34:Y=   75 ERROR
+[1371] y=   23:Y=   49 ERROR
+[1372] y=   36:Y=   43 ERROR
+[1373] y=   50:Y=   69 ERROR
+[1374] y=   63:Y=   34 ERROR
+[1375] y=   71:Y=  115 ERROR
+[1376] y=   81:Y=  165 ERROR
+[1377] y=   95:Y=   88 ERROR
+[1378] y=  104:Y=   99 ERROR
+[1379] y=  107:Y=   87 ERROR
+[1380] y=   99:Y=   78 ERROR
+[1381] y=   88:Y=  132 ERROR
+[1382] y=   79:Y=  118 ERROR
+[1383] y=   74:Y=   68 ERROR
+[1384] y=   78:Y=   75 ERROR
+[1385] y=   89:Y=   79 ERROR
+[1386] y=  108:Y=   91 ERROR
+[1387] y=  125:Y=   94 ERROR
+[1388] y=  128:Y=  160 ERROR
+[1389] y=  119:Y=  142 ERROR
+[1390] y=  106:Y=   99 ERROR
+[1391] y=  110:Y=   74 ERROR
+[1392] y=  129:Y=  150 ERROR
+[1393] y=  149:Y=   40 ERROR
+[1394] y=  151:Y=   48 ERROR
+[1395] y=  137:Y=   55 ERROR
+[1396] y=  121:Y=   55 ERROR
+[1397] y=  119:Y=  105 ERROR
+[1398] y=  130:Y=   76 ERROR
+[1399] y=  144:Y=   91 ERROR
+[1400] y=  155:Y=   90 ERROR
+[1401] y=  154:Y=  116 ERROR
+[1402] y=  147:Y=   93 ERROR
+[1403] y=  131:Y=   81 ERROR
+[1404] y=  119:Y=   86 ERROR
+[1405] y=  112:Y=   80 ERROR
+[1406] y=  113:Y=  146 ERROR
+[1407] y=  115:Y=   61 ERROR
+[1408] y=  111:Y=   56 ERROR
+[1409] y=  100:Y=   52 ERROR
+[1410] y=   86:Y=   47 ERROR
+[1411] y=   82:Y=  134 ERROR
+[1412] y=   92:Y=   62 ERROR
+[1413] y=  122:Y=   75 ERROR
+[1414] y=  153:Y=   59 ERROR
+[1415] y=  174:Y=   73 ERROR
+[1416] y=  170:Y=   40 ERROR
+[1417] y=  144:Y=  109 ERROR
+[1418] y=  112:Y=   84 ERROR
+[1419] y=   80:Y=   88 ERROR
+[1420] y=   62:Y=   77 ERROR
+[1421] y=   54:Y=   85 ERROR
+[1422] y=   63:Y=   71 ERROR
+[1423] y=   81:Y=   87 ERROR
+[1424] y=  102:Y=   79 ERROR
+[1425] y=  118:Y=   79 ERROR
+[1426] y=  122:Y=   78 ERROR
+[1427] y=  126:Y=   90 ERROR
+[1428] y=  135:Y=   82 ERROR
+[1429] y=  153:Y=  163 ERROR
+[1430] y=  162:Y=   86 ERROR
+[1431] y=  160:Y=   53 ERROR
+[1432] y=  142:Y=  191 ERROR
+[1433] y=  126:Y=   63 ERROR
+[1434] y=  117:Y=   62 ERROR
+[1435] y=  123:Y=   56 ERROR
+[1436] y=  139:Y=   74 ERROR
+[1437] y=  145:Y=   56 ERROR
+[1438] y=  134:Y=   52 ERROR
+[1439] y=  100:Y=   40 ERROR
+[1440] y=   69:Y=   43 ERROR
+[1441] y=   60:Y=   43 ERROR
+[1442] y=   77:Y=   35 ERROR
+[1443] y=  105:Y=   54 ERROR
+[1444] y=  117:Y=   69 ERROR
+[1445] y=  110:Y=   86 ERROR
+[1446] y=   86:Y=   68 ERROR
+[1447] y=   62:Y=   53 ERROR
+[1448] y=   43:Y=   45 ERROR
+[1449] y=   28:Y=   54 ERROR
+[1450] y=   24:Y=   59 ERROR
+[1451] y=   23:Y=   60 ERROR
+[1452] y=   34:Y=   45 ERROR
+[1453] y=   45:Y=   75 ERROR
+[1454] y=   57:Y=   70 ERROR
+[1455] y=   68:Y=  131 ERROR
+[1456] y=   82:Y=   63 ERROR
+[1457] y=  100:Y=   48 ERROR
+[1458] y=  118:Y=   61 ERROR
+[1459] y=  127:Y=   50 ERROR
+[1460] y=  119:Y=  131 ERROR
+[1461] y=  104:Y=  128 ERROR
+[1462] y=   93:Y=   55 ERROR
+[1463] y=   97:Y=   55 ERROR
+[1464] y=  110:Y=   50 ERROR
+[1465] y=  119:Y=   72 ERROR
+[1466] y=  117:Y=  141 ERROR
+[1467] y=  103:Y=   71 ERROR
+[1468] y=   91:Y=   54 ERROR
+[1469] y=   85:Y=   88 ERROR
+[1470] y=   87:Y=  107 ERROR
+[1471] y=  101:Y=  105 ERROR
+[1472] y=  122:Y=   98 ERROR
+[1473] y=  146:Y=  107 ERROR
+[1474] y=  156:Y=   85 ERROR
+[1475] y=  150:Y=   62 ERROR
+[1476] y=  136:Y=  112 ERROR
+[1477] y=  131:Y=   99 ERROR
+[1478] y=  143:Y=  102 ERROR
+[1479] y=  163:Y=   86 ERROR
+[1480] y=  185:Y=  101 ERROR
+[1481] y=  198:Y=   97 ERROR
+[1482] y=  198:Y=   72 ERROR
+[1483] y=  180:Y=  146 ERROR
+[1484] y=  149:Y=   70 ERROR
+[1485] y=  116:Y=   67 ERROR
+[1486] y=   96:Y=   74 ERROR
+[1487] y=   90:Y=   87 ERROR
+[1488] y=   97:Y=   85 ERROR
+[1489] y=  108:Y=   69 ERROR
+[1490] y=  120:Y=   68 ERROR
+[1491] y=  131:Y=  146 ERROR
+[1492] y=  139:Y=   62 ERROR
+[1493] y=  148:Y=   50 ERROR
+[1494] y=  151:Y=  137 ERROR
+[1495] y=  146:Y=  147 ERROR
+[1496] y=  127:Y=   85 ERROR
+[1497] y=  102:Y=   86 ERROR
+[1498] y=   87:Y=   89 ERROR
+[1499] y=   86:Y=  153 ERROR
+[1500] y=  100:Y=  141 ERROR
+[1501] y=  113:Y=   82 ERROR
+[1502] y=  127:Y=   78 ERROR
+[1503] y=  142:Y=   77 ERROR
+[1504] y=  155:Y=   68 ERROR
+[1505] y=  157:Y=   49 ERROR
+[1506] y=  135:Y=   56 ERROR
+[1507] y=  107:Y=   35 ERROR
+[1508] y=   89:Y=  116 ERROR
+[1509] y=  100:Y=   88 ERROR
+[1510] y=  129:Y=   76 ERROR
+[1511] y=  154:Y=   82 ERROR
+[1512] y=  166:Y=   36 ERROR
+[1513] y=  153:Y=  114 ERROR
+[1514] y=  127:Y=   95 ERROR
+[1515] y=   92:Y=  108 ERROR
+[1516] y=   67:Y=   94 ERROR
+[1517] y=   67:Y=   94 ERROR
+[1518] y=   95:Y=   91 ERROR
+[1519] y=  138:Y=   86 ERROR
+[1520] y=  172:Y=   60 ERROR
+[1521] y=  185:Y=   69 ERROR
+[1522] y=  174:Y=   80 ERROR
+[1523] y=  152:Y=   49 ERROR
+[1524] y=  130:Y=   69 ERROR
+[1525] y=  120:Y=   64 ERROR
+[1526] y=  125:Y=   61 ERROR
+[1527] y=  141:Y=   91 ERROR
+[1528] y=  165:Y=   71 ERROR
+[1529] y=  189:Y=   59 ERROR
+[1530] y=  209:Y=   53 ERROR
+[1531] y=  218:Y=   72 ERROR
+[1532] y=  213:Y=   62 ERROR
+[1533] y=  195:Y=   53 ERROR
+[1534] y=  174:Y=   87 ERROR
+[1535] y=  158:Y=   58 ERROR
+[1536] y=  149:Y=   67 ERROR
+[1537] y=  141:Y=   75 ERROR
+[1538] y=  123:Y=   64 ERROR
+[1539] y=  104:Y=  117 ERROR
+[1540] y=   87:Y=   65 ERROR
+[1541] y=   84:Y=   44 ERROR
+[1542] y=   84:Y=  112 ERROR
+[1543] y=   81:Y=   44 ERROR
+[1544] y=   79:Y=   53 ERROR
+[1545] y=   80:Y=   78 ERROR
+[1546] y=   90:Y=   65 ERROR
+[1547] y=   93:Y=   54 ERROR
+[1548] y=   82:Y=  143 ERROR
+[1549] y=   58:Y=   67 ERROR
+[1550] y=   33:Y=   52 ERROR
+[1551] y=   25:Y=   45 ERROR
+[1552] y=   39:Y=   54 ERROR
+[1553] y=   65:Y=   65 OK
+[1554] y=   84:Y=   71 ERROR
+[1555] y=   84:Y=   62 ERROR
+[1556] y=   69:Y=  136 ERROR
+[1557] y=   59:Y=   83 ERROR
+[1558] y=   58:Y=   94 ERROR
+[1559] y=   64:Y=  101 ERROR
+[1560] y=   67:Y=   67 OK
+[1561] y=   65:Y=   66 ERROR
+[1562] y=   64:Y=  143 ERROR
+[1563] y=   57:Y=   66 ERROR
+[1564] y=   46:Y=   69 ERROR
+[1565] y=   29:Y=   71 ERROR
+[1566] y=   17:Y=   72 ERROR
+[1567] y=   19:Y=   81 ERROR
+[1568] y=   30:Y=   62 ERROR
+[1569] y=   49:Y=   88 ERROR
+[1570] y=   63:Y=   86 ERROR
+[1571] y=   79:Y=  135 ERROR
+[1572] y=   88:Y=   73 ERROR
+[1573] y=   95:Y=   76 ERROR
+[1574] y=  101:Y=   56 ERROR
+[1575] y=  116:Y=  139 ERROR
+[1576] y=  141:Y=   52 ERROR
+[1577] y=  161:Y=   60 ERROR
+[1578] y=  160:Y=   68 ERROR
+[1579] y=  131:Y=   30 ERROR
+[1580] y=   89:Y=  103 ERROR
+[1581] y=   53:Y=   91 ERROR
+[1582] y=   45:Y=  105 ERROR
+[1583] y=   65:Y=   92 ERROR
+[1584] y=  107:Y=   95 ERROR
+[1585] y=  149:Y=  157 ERROR
+[1586] y=  170:Y=  151 ERROR
+[1587] y=  162:Y=   67 ERROR
+[1588] y=  128:Y=   69 ERROR
+[1589] y=   92:Y=  142 ERROR
+[1590] y=   70:Y=   42 ERROR
+[1591] y=   75:Y=   38 ERROR
+[1592] y=  107:Y=   41 ERROR
+[1593] y=  151:Y=   26 ERROR
+[1594] y=  187:Y=   16 ERROR
+[1595] y=  200:Y=   53 ERROR
+[1596] y=  183:Y=   81 ERROR
+[1597] y=  153:Y=   67 ERROR
+[1598] y=  127:Y=   35 ERROR
+[1599] y=  118:Y=    3 ERROR
+[1600] y=  127:Y=   47 ERROR
+[1601] y=  140:Y=   39 ERROR
+[1602] y=  156:Y=   15 ERROR
+[1603] y=  172:Y=   51 ERROR
+[1604] y=  190:Y=   73 ERROR
+[1605] y=  209:Y=   74 ERROR
+[1606] y=  219:Y=   80 ERROR
+[1607] y=  221:Y=   49 ERROR
+[1608] y=  218:Y=   42 ERROR
+[1609] y=  210:Y=   78 ERROR
+[1610] y=  206:Y=   48 ERROR
+[1611] y=  192:Y=  222 ERROR
+[1612] y=  178:Y=  117 ERROR
+[1613] y=  158:Y=   74 ERROR
+[1614] y=  140:Y=   65 ERROR
+[1615] y=  127:Y=   63 ERROR
+[1616] y=  110:Y=  117 ERROR
+[1617] y=   96:Y=  120 ERROR
+[1618] y=   80:Y=   87 ERROR
+[1619] y=   77:Y=   81 ERROR
+[1620] y=   89:Y=   81 ERROR
+[1621] y=  110:Y=   85 ERROR
+[1622] y=  132:Y=  144 ERROR
+[1623] y=  140:Y=   91 ERROR
+[1624] y=  135:Y=   74 ERROR
+[1625] y=  123:Y=   66 ERROR
+[1626] y=  111:Y=   76 ERROR
+[1627] y=  104:Y=   53 ERROR
+[1628] y=   92:Y=  141 ERROR
+[1629] y=   72:Y=   46 ERROR
+[1630] y=   49:Y=   44 ERROR
+[1631] y=   32:Y=   57 ERROR
+[1632] y=   33:Y=   46 ERROR
+[1633] y=   52:Y=   35 ERROR
+[1634] y=   75:Y=   36 ERROR
+[1635] y=   96:Y=   44 ERROR
+[1636] y=  103:Y=   48 ERROR
+[1637] y=  101:Y=   55 ERROR
+[1638] y=   88:Y=   65 ERROR
+[1639] y=   71:Y=   29 ERROR
+[1640] y=   64:Y=  118 ERROR
+[1641] y=   74:Y=   76 ERROR
+[1642] y=   98:Y=   80 ERROR
+[1643] y=  120:Y=   84 ERROR
+[1644] y=  128:Y=   61 ERROR
+[1645] y=  120:Y=  156 ERROR
+[1646] y=  101:Y=   77 ERROR
+[1647] y=   79:Y=   85 ERROR
+[1648] y=   65:Y=   53 ERROR
+[1649] y=   64:Y=  146 ERROR
+[1650] y=   84:Y=   76 ERROR
+[1651] y=  115:Y=   62 ERROR
+[1652] y=  145:Y=   59 ERROR
+[1653] y=  161:Y=   78 ERROR
+[1654] y=  152:Y=   60 ERROR
+[1655] y=  131:Y=   65 ERROR
+[1656] y=  111:Y=   89 ERROR
+[1657] y=  102:Y=   97 ERROR
+[1658] y=  109:Y=   80 ERROR
+[1659] y=  115:Y=   97 ERROR
+[1660] y=  123:Y=   76 ERROR
+[1661] y=  121:Y=   70 ERROR
+[1662] y=  121:Y=   54 ERROR
+[1663] y=  126:Y=   30 ERROR
+[1664] y=  134:Y=   34 ERROR
+[1665] y=  148:Y=   54 ERROR
+[1666] y=  148:Y=   84 ERROR
+[1667] y=  142:Y=   55 ERROR
+[1668] y=  131:Y=  191 ERROR
+[1669] y=  130:Y=   77 ERROR
+[1670] y=  143:Y=   79 ERROR
+[1671] y=  154:Y=   70 ERROR
+[1672] y=  154:Y=   74 ERROR
+[1673] y=  138:Y=  124 ERROR
+[1674] y=  115:Y=   56 ERROR
+[1675] y=  102:Y=  145 ERROR
+[1676] y=   93:Y=   66 ERROR
+[1677] y=   85:Y=   80 ERROR
+[1678] y=   77:Y=   53 ERROR
+[1679] y=   70:Y=   37 ERROR
+[1680] y=   82:Y=  106 ERROR
+[1681] y=  108:Y=   63 ERROR
+[1682] y=  141:Y=   79 ERROR
+[1683] y=  172:Y=   47 ERROR
+[1684] y=  177:Y=   61 ERROR
+[1685] y=  170:Y=   40 ERROR
+[1686] y=  144:Y=   45 ERROR
+[1687] y=  120:Y=   44 ERROR
+[1688] y=  101:Y=   33 ERROR
+[1689] y=   90:Y=   38 ERROR
+[1690] y=   95:Y=   22 ERROR
+[1691] y=  103:Y=   36 ERROR
+[1692] y=  109:Y=   38 ERROR
+[1693] y=  106:Y=   46 ERROR
+[1694] y=   96:Y=   65 ERROR
+[1695] y=   94:Y=  132 ERROR
+[1696] y=   99:Y=   26 ERROR
+[1697] y=  106:Y=   70 ERROR
+[1698] y=  105:Y=   19 ERROR
+[1699] y=   96:Y=   63 ERROR
+[1700] y=   82:Y=  142 ERROR
+[1701] y=   69:Y=   55 ERROR
+[1702] y=   66:Y=   70 ERROR
+[1703] y=   74:Y=   25 ERROR
+[1704] y=   90:Y=   36 ERROR
+[1705] y=  101:Y=   84 ERROR
+[1706] y=  108:Y=   68 ERROR
+[1707] y=  110:Y=   65 ERROR
+[1708] y=  117:Y=   54 ERROR
+[1709] y=  124:Y=   78 ERROR
+[1710] y=  127:Y=   50 ERROR
+[1711] y=  123:Y=    0 ERROR
+[1712] y=  111:Y=   23 ERROR
+[1713] y=   97:Y=   64 ERROR
+[1714] y=   78:Y=   57 ERROR
+[1715] y=   64:Y=   46 ERROR
+[1716] y=   55:Y=   74 ERROR
+[1717] y=   52:Y=   87 ERROR
+[1718] y=   53:Y=  116 ERROR
+[1719] y=   58:Y=  105 ERROR
+[1720] y=   70:Y=   85 ERROR
+[1721] y=   87:Y=   88 ERROR
+[1722] y=  100:Y=  138 ERROR
+[1723] y=   98:Y=  188 ERROR
+[1724] y=   83:Y=  138 ERROR
+[1725] y=   59:Y=  125 ERROR
+[1726] y=   47:Y=   87 ERROR
+[1727] y=   49:Y=   88 ERROR
+[1728] y=   75:Y=  147 ERROR
+[1729] y=  113:Y=   74 ERROR
+[1730] y=  144:Y=   50 ERROR
+[1731] y=  162:Y=   37 ERROR
+[1732] y=  150:Y=   50 ERROR
+[1733] y=  131:Y=  188 ERROR
+[1734] y=  107:Y=   43 ERROR
+[1735] y=   93:Y=   54 ERROR
+[1736] y=   93:Y=   31 ERROR
+[1737] y=   97:Y=   48 ERROR
+[1738] y=  110:Y=   96 ERROR
+[1739] y=  119:Y=   27 ERROR
+[1740] y=  121:Y=   91 ERROR
+[1741] y=  115:Y=   38 ERROR
+[1742] y=  108:Y=   28 ERROR
+[1743] y=  108:Y=   36 ERROR
+[1744] y=  116:Y=   35 ERROR
+[1745] y=  122:Y=   42 ERROR
+[1746] y=  128:Y=   48 ERROR
+[1747] y=  128:Y=   59 ERROR
+[1748] y=  122:Y=   48 ERROR
+[1749] y=  111:Y=   45 ERROR
+[1750] y=   94:Y=   46 ERROR
+[1751] y=   85:Y=   53 ERROR
+[1752] y=   77:Y=   56 ERROR
+[1753] y=   69:Y=   64 ERROR
+[1754] y=   60:Y=   61 ERROR
+[1755] y=   51:Y=  107 ERROR
+[1756] y=   63:Y=   46 ERROR
+[1757] y=   86:Y=   42 ERROR
+[1758] y=  111:Y=   41 ERROR
+[1759] y=  121:Y=   27 ERROR
+[1760] y=  115:Y=   42 ERROR
+[1761] y=  104:Y=  125 ERROR
+[1762] y=   97:Y=  143 ERROR
+[1763] y=   97:Y=   67 ERROR
+[1764] y=   92:Y=   91 ERROR
+[1765] y=   81:Y=  105 ERROR
+[1766] y=   74:Y=  105 ERROR
+[1767] y=   82:Y=   86 ERROR
+[1768] y=  106:Y=   99 ERROR
+[1769] y=  130:Y=   93 ERROR
+[1770] y=  137:Y=   96 ERROR
+[1771] y=  121:Y=   61 ERROR
+[1772] y=   95:Y=   63 ERROR
+[1773] y=   68:Y=   44 ERROR
+[1774] y=   54:Y=   42 ERROR
+[1775] y=   53:Y=   52 ERROR
+[1776] y=   74:Y=   61 ERROR
+[1777] y=  113:Y=   76 ERROR
+[1778] y=  151:Y=   66 ERROR
+[1779] y=  173:Y=   67 ERROR
+[1780] y=  163:Y=   80 ERROR
+[1781] y=  141:Y=   79 ERROR
+[1782] y=  119:Y=   75 ERROR
+[1783] y=  112:Y=   70 ERROR
+[1784] y=  125:Y=   68 ERROR
+[1785] y=  141:Y=   80 ERROR
+[1786] y=  156:Y=  127 ERROR
+[1787] y=  159:Y=   78 ERROR
+[1788] y=  156:Y=   62 ERROR
+[1789] y=  152:Y=   54 ERROR
+[1790] y=  140:Y=   82 ERROR
+[1791] y=  119:Y=   53 ERROR
+[1792] y=   90:Y=   36 ERROR
+[1793] y=   68:Y=   97 ERROR
+[1794] y=   64:Y=   80 ERROR
+[1795] y=   71:Y=   71 OK
+[1796] y=   81:Y=   60 ERROR
+[1797] y=   88:Y=   44 ERROR
+[1798] y=   89:Y=   34 ERROR
+[1799] y=   92:Y=   44 ERROR
+[1800] y=   89:Y=   50 ERROR
+[1801] y=   87:Y=  136 ERROR
+[1802] y=   90:Y=   51 ERROR
+[1803] y=   97:Y=   41 ERROR
+[1804] y=  118:Y=   80 ERROR
+[1805] y=  137:Y=  169 ERROR
+[1806] y=  153:Y=   88 ERROR
+[1807] y=  157:Y=  105 ERROR
+[1808] y=  146:Y=   77 ERROR
+[1809] y=  135:Y=  169 ERROR
+[1810] y=  122:Y=  142 ERROR
+[1811] y=  113:Y=   70 ERROR
+[1812] y=   95:Y=   66 ERROR
+[1813] y=   74:Y=   59 ERROR
+[1814] y=   60:Y=   46 ERROR
+[1815] y=   70:Y=   39 ERROR
+[1816] y=  100:Y=   66 ERROR
+[1817] y=  126:Y=   70 ERROR
+[1818] y=  133:Y=   70 ERROR
+[1819] y=  118:Y=   56 ERROR
+[1820] y=  102:Y=   46 ERROR
+[1821] y=   93:Y=   37 ERROR
+[1822] y=   90:Y=   38 ERROR
+[1823] y=   81:Y=  117 ERROR
+[1824] y=   64:Y=   54 ERROR
+[1825] y=   51:Y=   60 ERROR
+[1826] y=   51:Y=   63 ERROR
+[1827] y=   72:Y=   94 ERROR
+[1828] y=   99:Y=   80 ERROR
+[1829] y=  123:Y=   89 ERROR
+[1830] y=  133:Y=   81 ERROR
+[1831] y=  127:Y=   95 ERROR
+[1832] y=  115:Y=   81 ERROR
+[1833] y=  100:Y=  155 ERROR
+[1834] y=  102:Y=   85 ERROR
+[1835] y=  110:Y=   80 ERROR
+[1836] y=  125:Y=   69 ERROR
+[1837] y=  133:Y=  156 ERROR
+[1838] y=  134:Y=   69 ERROR
+[1839] y=  135:Y=   56 ERROR
+[1840] y=  132:Y=  146 ERROR
+[1841] y=  130:Y=   75 ERROR
+[1842] y=  121:Y=   72 ERROR
+[1843] y=  116:Y=   64 ERROR
+[1844] y=  113:Y=   63 ERROR
+[1845] y=  115:Y=   67 ERROR
+[1846] y=  122:Y=   68 ERROR
+[1847] y=  125:Y=   57 ERROR
+[1848] y=  124:Y=   72 ERROR
+[1849] y=  112:Y=   68 ERROR
+[1850] y=  100:Y=   82 ERROR
+[1851] y=   94:Y=   93 ERROR
+[1852] y=  109:Y=   77 ERROR
+[1853] y=  136:Y=   76 ERROR
+[1854] y=  155:Y=   58 ERROR
+[1855] y=  150:Y=   70 ERROR
+[1856] y=  115:Y=   83 ERROR
+[1857] y=   80:Y=   69 ERROR
+[1858] y=   57:Y=   63 ERROR
+[1859] y=   56:Y=   66 ERROR
+[1860] y=   66:Y=   86 ERROR
+[1861] y=   85:Y=   72 ERROR
+[1862] y=  106:Y=   64 ERROR
+[1863] y=  122:Y=   31 ERROR
+[1864] y=  129:Y=   38 ERROR
+[1865] y=  125:Y=   25 ERROR
+[1866] y=  125:Y=   21 ERROR
+[1867] y=  128:Y=   41 ERROR
+[1868] y=  142:Y=   34 ERROR
+[1869] y=  151:Y=   47 ERROR
+[1870] y=  154:Y=   51 ERROR
+[1871] y=  151:Y=   36 ERROR
+[1872] y=  142:Y=   34 ERROR
+[1873] y=  140:Y=   36 ERROR
+[1874] y=  138:Y=   44 ERROR
+[1875] y=  145:Y=   47 ERROR
+[1876] y=  156:Y=   62 ERROR
+[1877] y=  170:Y=   60 ERROR
+[1878] y=  178:Y=   70 ERROR
+[1879] y=  167:Y=   68 ERROR
+[1880] y=  146:Y=   50 ERROR
+[1881] y=  130:Y=   68 ERROR
+[1882] y=  135:Y=   68 ERROR
+[1883] y=  155:Y=   54 ERROR
+[1884] y=  175:Y=   52 ERROR
+[1885] y=  181:Y=   70 ERROR
+[1886] y=  180:Y=  188 ERROR
+[1887] y=  178:Y=  101 ERROR
+[1888] y=  180:Y=   64 ERROR
+[1889] y=  185:Y=  155 ERROR
+[1890] y=  187:Y=  147 ERROR
+[1891] y=  184:Y=   65 ERROR
+[1892] y=  171:Y=   69 ERROR
+[1893] y=  154:Y=   70 ERROR
+[1894] y=  137:Y=  142 ERROR
+[1895] y=  130:Y=   83 ERROR
+[1896] y=  134:Y=   76 ERROR
+[1897] y=  137:Y=   75 ERROR
+[1898] y=  135:Y=   95 ERROR
+[1899] y=  126:Y=   67 ERROR
+[1900] y=  118:Y=  218 ERROR
+[1901] y=  119:Y=  148 ERROR
+[1902] y=  124:Y=   63 ERROR
+[1903] y=  131:Y=   47 ERROR
+[1904] y=  124:Y=  110 ERROR
+[1905] y=  104:Y=   80 ERROR
+[1906] y=   75:Y=   88 ERROR
+[1907] y=   52:Y=   71 ERROR
+[1908] y=   52:Y=   63 ERROR
+[1909] y=   76:Y=   62 ERROR
+[1910] y=  112:Y=   41 ERROR
+[1911] y=  135:Y=   30 ERROR
+[1912] y=  136:Y=   37 ERROR
+[1913] y=  117:Y=   52 ERROR
+[1914] y=   96:Y=   53 ERROR
+[1915] y=   80:Y=   48 ERROR
+[1916] y=   80:Y=   75 ERROR
+[1917] y=   85:Y=   47 ERROR
+[1918] y=   99:Y=   57 ERROR
+[1919] y=  113:Y=   45 ERROR
+[1920] y=  127:Y=  144 ERROR
+[1921] y=  137:Y=   45 ERROR
+[1922] y=  129:Y=   24 ERROR
+[1923] y=  114:Y=   46 ERROR
+[1924] y=   90:Y=   27 ERROR
+[1925] y=   80:Y=   89 ERROR
+[1926] y=   76:Y=  128 ERROR
+[1927] y=   74:Y=  134 ERROR
+[1928] y=   79:Y=   41 ERROR
+[1929] y=   90:Y=   64 ERROR
+[1930] y=  118:Y=   42 ERROR
+[1931] y=  140:Y=   50 ERROR
+[1932] y=  145:Y=   35 ERROR
+[1933] y=  121:Y=   37 ERROR
+[1934] y=   84:Y=   57 ERROR
+[1935] y=   53:Y=   37 ERROR
+[1936] y=   38:Y=   41 ERROR
+[1937] y=   45:Y=   92 ERROR
+[1938] y=   59:Y=   84 ERROR
+[1939] y=   78:Y=   88 ERROR
+[1940] y=   86:Y=   64 ERROR
+[1941] y=   82:Y=   48 ERROR
+[1942] y=   68:Y=   48 ERROR
+[1943] y=   54:Y=   74 ERROR
+[1944] y=   49:Y=   40 ERROR
+[1945] y=   49:Y=   22 ERROR
+[1946] y=   54:Y=   59 ERROR
+[1947] y=   52:Y=   54 ERROR
+[1948] y=   56:Y=   23 ERROR
+[1949] y=   65:Y=   22 ERROR
+[1950] y=   78:Y=   58 ERROR
+[1951] y=   93:Y=   56 ERROR
+[1952] y=   98:Y=   22 ERROR
+[1953] y=  103:Y=   30 ERROR
+[1954] y=  102:Y=   60 ERROR
+[1955] y=  108:Y=   80 ERROR
+[1956] y=  120:Y=   30 ERROR
+[1957] y=  136:Y=  115 ERROR
+[1958] y=  156:Y=   64 ERROR
+[1959] y=  168:Y=   59 ERROR
+[1960] y=  169:Y=  140 ERROR
+[1961] y=  164:Y=   67 ERROR
+[1962] y=  161:Y=   65 ERROR
+[1963] y=  170:Y=   77 ERROR
+[1964] y=  190:Y=   68 ERROR
+[1965] y=  203:Y=   75 ERROR
+[1966] y=  203:Y=   95 ERROR
+[1967] y=  179:Y=   81 ERROR
+[1968] y=  151:Y=   84 ERROR
+[1969] y=  129:Y=   75 ERROR
+[1970] y=  121:Y=   89 ERROR
+[1971] y=  124:Y=  101 ERROR
+[1972] y=  121:Y=   54 ERROR
+[1973] y=  121:Y=  133 ERROR
+[1974] y=  113:Y=   78 ERROR
+[1975] y=  111:Y=   59 ERROR
+[1976] y=  112:Y=   50 ERROR
+[1977] y=  121:Y=   58 ERROR
+[1978] y=  147:Y=   39 ERROR
+[1979] y=  173:Y=   34 ERROR
+[1980] y=  192:Y=   44 ERROR
+[1981] y=  181:Y=   51 ERROR
+[1982] y=  145:Y=   35 ERROR
+[1983] y=  100:Y=   47 ERROR
+[1984] y=   66:Y=   42 ERROR
+[1985] y=   60:Y=   62 ERROR
+[1986] y=   78:Y=   77 ERROR
+[1987] y=  110:Y=   72 ERROR
+[1988] y=  141:Y=   92 ERROR
+[1989] y=  157:Y=   90 ERROR
+[1990] y=  160:Y=   95 ERROR
+[1991] y=  154:Y=  154 OK
+[1992] y=  145:Y=   81 ERROR
+[1993] y=  130:Y=   84 ERROR
+[1994] y=  110:Y=   74 ERROR
+[1995] y=   85:Y=   67 ERROR
+[1996] y=   68:Y=  160 ERROR
+[1997] y=   66:Y=  103 ERROR
+[1998] y=   80:Y=   93 ERROR
+[1999] y=  104:Y=  170 ERROR
+[2000] y=  123:Y=  111 ERROR
+[2001] y=  135:Y=  108 ERROR
+[2002] y=  135:Y=  165 ERROR
+[2003] y=  136:Y=   74 ERROR
+[2004] y=  136:Y=  157 ERROR
+[2005] y=  140:Y=   66 ERROR
+[2006] y=  140:Y=  105 ERROR
+[2007] y=  134:Y=   86 ERROR
+[2008] y=  120:Y=   55 ERROR
+[2009] y=  101:Y=   55 ERROR
+[2010] y=   79:Y=   66 ERROR
+[2011] y=   56:Y=   63 ERROR
+[2012] y=   35:Y=  158 ERROR
+[2013] y=   15:Y=   63 ERROR
+[2014] y=    8:Y=   89 ERROR
+[2015] y=    5:Y=  175 ERROR
+[2016] y=   16:Y=   73 ERROR
+[2017] y=   32:Y=   33 ERROR
+[2018] y=   54:Y=   94 ERROR
+[2019] y=   77:Y=   63 ERROR
+[2020] y=   88:Y=   96 ERROR
+[2021] y=   90:Y=   71 ERROR
+[2022] y=   84:Y=   59 ERROR
+[2023] y=   83:Y=  122 ERROR
+[2024] y=   97:Y=   66 ERROR
+[2025] y=  126:Y=   65 ERROR
+[2026] y=  156:Y=   40 ERROR
+[2027] y=  171:Y=   41 ERROR
+[2028] y=  157:Y=   68 ERROR
+[2029] y=  127:Y=   63 ERROR
+[2030] y=  101:Y=   67 ERROR
+[2031] y=   93:Y=   71 ERROR
+[2032] y=  100:Y=   77 ERROR
+[2033] y=  109:Y=   80 ERROR
+[2034] y=  111:Y=   41 ERROR
+[2035] y=  107:Y=   41 ERROR
+[2036] y=   93:Y=   64 ERROR
+[2037] y=   80:Y=   70 ERROR
+[2038] y=   72:Y=  130 ERROR
+[2039] y=   79:Y=  128 ERROR
+[2040] y=   96:Y=   86 ERROR
+[2041] y=  106:Y=   75 ERROR
+[2042] y=  102:Y=  112 ERROR
+[2043] y=   89:Y=   82 ERROR
+[2044] y=   89:Y=   74 ERROR
+[2045] y=  106:Y=   81 ERROR
+[2046] y=  135:Y=   83 ERROR
+[2047] y=  163:Y=   68 ERROR
+[2048] y=  178:Y=   68 ERROR
+[2049] y=  180:Y=   85 ERROR
+[2050] y=  166:Y=   21 ERROR
+[2051] y=  142:Y=   74 ERROR
+[2052] y=  114:Y=   71 ERROR
+[2053] y=   91:Y=  148 ERROR
+[2054] y=   78:Y=   62 ERROR
+[2055] y=   71:Y=   59 ERROR
+[2056] y=   70:Y=   56 ERROR
+[2057] y=   74:Y=  129 ERROR
+[2058] y=   91:Y=  105 ERROR
+[2059] y=  112:Y=  105 ERROR
+[2060] y=  130:Y=  106 ERROR
+[2061] y=  143:Y=   87 ERROR
+[2062] y=  151:Y=   82 ERROR
+[2063] y=  156:Y=   70 ERROR
+[2064] y=  150:Y=   68 ERROR
+[2065] y=  142:Y=   85 ERROR
+[2066] y=  134:Y=   78 ERROR
+[2067] y=  138:Y=   95 ERROR
+[2068] y=  144:Y=   70 ERROR
+[2069] y=  149:Y=  121 ERROR
+[2070] y=  151:Y=  107 ERROR
+[2071] y=  158:Y=   81 ERROR
+[2072] y=  176:Y=   66 ERROR
+[2073] y=  186:Y=  135 ERROR
+[2074] y=  185:Y=  110 ERROR
+[2075] y=  163:Y=   66 ERROR
+[2076] y=  136:Y=   58 ERROR
+[2077] y=  113:Y=   49 ERROR
+[2078] y=  107:Y=   45 ERROR
+[2079] y=  115:Y=   11 ERROR
+[2080] y=  127:Y=   52 ERROR
+[2081] y=  136:Y=   59 ERROR
+[2082] y=  128:Y=   64 ERROR
+[2083] y=  112:Y=   60 ERROR
+[2084] y=   90:Y=   65 ERROR
+[2085] y=   85:Y=   68 ERROR
+[2086] y=   91:Y=  150 ERROR
+[2087] y=  105:Y=   51 ERROR
+[2088] y=  116:Y=   55 ERROR
+[2089] y=  113:Y=  110 ERROR
+[2090] y=  109:Y=   92 ERROR
+[2091] y=   98:Y=   97 ERROR
+[2092] y=   98:Y=   87 ERROR
+[2093] y=  105:Y=  113 ERROR
+[2094] y=  115:Y=  135 ERROR
+[2095] y=  134:Y=   71 ERROR
+[2096] y=  146:Y=  137 ERROR
+[2097] y=  161:Y=   88 ERROR
+[2098] y=  166:Y=  166 OK
+[2099] y=  162:Y=  122 ERROR
+[2100] y=  151:Y=   50 ERROR
+[2101] y=  133:Y=  211 ERROR
+[2102] y=  123:Y=   53 ERROR
+[2103] y=  119:Y=   81 ERROR
+[2104] y=  124:Y=   61 ERROR
+[2105] y=  127:Y=   65 ERROR
+[2106] y=  124:Y=  146 ERROR
+[2107] y=  117:Y=   82 ERROR
+[2108] y=  109:Y=   86 ERROR
+[2109] y=  103:Y=    7 ERROR
+[2110] y=   94:Y=  114 ERROR
+[2111] y=   76:Y=  100 ERROR
+[2112] y=   53:Y=   46 ERROR
+[2113] y=   37:Y=   21 ERROR
+[2114] y=   36:Y=   44 ERROR
+[2115] y=   53:Y=   56 ERROR
+[2116] y=   76:Y=  118 ERROR
+[2117] y=   96:Y=   68 ERROR
+[2118] y=  103:Y=   82 ERROR
+[2119] y=  101:Y=   83 ERROR
+[2120] y=   99:Y=   93 ERROR
+[2121] y=   98:Y=   90 ERROR
+[2122] y=  108:Y=  173 ERROR
+[2123] y=  124:Y=   87 ERROR
+[2124] y=  142:Y=   80 ERROR
+[2125] y=  155:Y=  152 ERROR
+[2126] y=  152:Y=   87 ERROR
+[2127] y=  146:Y=   78 ERROR
+[2128] y=  138:Y=   86 ERROR
+[2129] y=  138:Y=   89 ERROR
+[2130] y=  132:Y=   78 ERROR
+[2131] y=  112:Y=   76 ERROR
+[2132] y=   82:Y=   57 ERROR
+[2133] y=   63:Y=   72 ERROR
+[2134] y=   71:Y=   71 OK
+[2135] y=  101:Y=   31 ERROR
+[2136] y=  124:Y=   28 ERROR
+[2137] y=  124:Y=   78 ERROR
+[2138] y=  104:Y=   77 ERROR
+[2139] y=   81:Y=   82 ERROR
+[2140] y=   79:Y=   83 ERROR
+[2141] y=   96:Y=   73 ERROR
+[2142] y=  123:Y=   59 ERROR
+[2143] y=  134:Y=  135 ERROR
+[2144] y=  120:Y=   63 ERROR
+[2145] y=   94:Y=   66 ERROR
+[2146] y=   79:Y=  148 ERROR
+[2147] y=   95:Y=   74 ERROR
+[2148] y=  130:Y=   70 ERROR
+[2149] y=  164:Y=   71 ERROR
+[2150] y=  176:Y=   49 ERROR
+[2151] y=  161:Y=   38 ERROR
+[2152] y=  134:Y=   34 ERROR
+[2153] y=  107:Y=   49 ERROR
+[2154] y=   93:Y=   67 ERROR
+[2155] y=   89:Y=   67 ERROR
+[2156] y=   95:Y=   68 ERROR
+[2157] y=  109:Y=   50 ERROR
+[2158] y=  134:Y=   57 ERROR
+[2159] y=  157:Y=   58 ERROR
+[2160] y=  176:Y=   62 ERROR
+[2161] y=  184:Y=   48 ERROR
+[2162] y=  191:Y=   40 ERROR
+[2163] y=  200:Y=   38 ERROR
+[2164] y=  203:Y=   59 ERROR
+[2165] y=  200:Y=   68 ERROR
+[2166] y=  185:Y=   70 ERROR
+[2167] y=  164:Y=   69 ERROR
+[2168] y=  139:Y=   69 ERROR
+[2169] y=  108:Y=   64 ERROR
+[2170] y=   83:Y=   35 ERROR
+[2171] y=   62:Y=   43 ERROR
+[2172] y=   53:Y=   69 ERROR
+[2173] y=   50:Y=   70 ERROR
+[2174] y=   51:Y=   40 ERROR
+[2175] y=   59:Y=   52 ERROR
+[2176] y=   69:Y=   71 ERROR
+[2177] y=   75:Y=   59 ERROR
+[2178] y=   71:Y=   54 ERROR
+[2179] y=   64:Y=   45 ERROR
+[2180] y=   61:Y=   60 ERROR
+[2181] y=   77:Y=   75 ERROR
+[2182] y=   98:Y=   82 ERROR
+[2183] y=  121:Y=   44 ERROR
+[2184] y=  131:Y=  110 ERROR
+[2185] y=  130:Y=   64 ERROR
+[2186] y=  131:Y=   39 ERROR
+[2187] y=  124:Y=   38 ERROR
+[2188] y=  121:Y=   37 ERROR
+[2189] y=  114:Y=   53 ERROR
+[2190] y=  112:Y=   69 ERROR
+[2191] y=  120:Y=   69 ERROR
+[2192] y=  133:Y=   61 ERROR
+[2193] y=  148:Y=   65 ERROR
+[2194] y=  147:Y=   55 ERROR
+[2195] y=  130:Y=   31 ERROR
+[2196] y=  102:Y=   35 ERROR
+[2197] y=   77:Y=   45 ERROR
+[2198] y=   64:Y=  140 ERROR
+[2199] y=   63:Y=   57 ERROR
+[2200] y=   73:Y=   51 ERROR
+[2201] y=   89:Y=   45 ERROR
+[2202] y=  110:Y=   29 ERROR
+[2203] y=  121:Y=   45 ERROR
+[2204] y=  125:Y=   45 ERROR
+[2205] y=  110:Y=   80 ERROR
+[2206] y=   93:Y=   75 ERROR
+[2207] y=   81:Y=   86 ERROR
+[2208] y=   83:Y=   94 ERROR
+[2209] y=   98:Y=   81 ERROR
+[2210] y=  107:Y=  231 ERROR
+[2211] y=  109:Y=   81 ERROR
+[2212] y=   92:Y=   82 ERROR
+[2213] y=   74:Y=   87 ERROR
+[2214] y=   54:Y=   80 ERROR
+[2215] y=   45:Y=   65 ERROR
+[2216] y=   55:Y=   67 ERROR
+[2217] y=   76:Y=   85 ERROR
+[2218] y=  103:Y=  102 ERROR
+[2219] y=  116:Y=  112 ERROR
+[2220] y=  118:Y=   78 ERROR
+[2221] y=  114:Y=   40 ERROR
+[2222] y=  115:Y=  105 ERROR
+[2223] y=  116:Y=   65 ERROR
+[2224] y=  112:Y=   65 ERROR
+[2225] y=   97:Y=   64 ERROR
+[2226] y=   77:Y=   71 ERROR
+[2227] y=   63:Y=   75 ERROR
+[2228] y=   62:Y=   70 ERROR
+[2229] y=   84:Y=   74 ERROR
+[2230] y=  112:Y=   64 ERROR
+[2231] y=  139:Y=   54 ERROR
+[2232] y=  148:Y=   84 ERROR
+[2233] y=  147:Y=   64 ERROR
+[2234] y=  143:Y=   50 ERROR
+[2235] y=  135:Y=   35 ERROR
+[2236] y=  122:Y=   49 ERROR
+[2237] y=  101:Y=  122 ERROR
+[2238] y=   91:Y=   74 ERROR
+[2239] y=  101:Y=   77 ERROR
+[2240] y=  123:Y=   39 ERROR
+[2241] y=  142:Y=  182 ERROR
+[2242] y=  143:Y=   72 ERROR
+[2243] y=  133:Y=   74 ERROR
+[2244] y=  119:Y=  155 ERROR
+[2245] y=  104:Y=   79 ERROR
+[2246] y=   93:Y=   35 ERROR
+[2247] y=   90:Y=   60 ERROR
+[2248] y=  101:Y=   92 ERROR
+[2249] y=  125:Y=   90 ERROR
+[2250] y=  153:Y=   90 ERROR
+[2251] y=  167:Y=   48 ERROR
+[2252] y=  168:Y=   42 ERROR
+[2253] y=  148:Y=   79 ERROR
+[2254] y=  128:Y=   90 ERROR
+[2255] y=  103:Y=   68 ERROR
+[2256] y=   86:Y=   63 ERROR
+[2257] y=   80:Y=   81 ERROR
+[2258] y=   84:Y=   89 ERROR
+[2259] y=  106:Y=   83 ERROR
+[2260] y=  127:Y=   90 ERROR
+[2261] y=  139:Y=   86 ERROR
+[2262] y=  133:Y=   80 ERROR
+[2263] y=  112:Y=  144 ERROR
+[2264] y=   89:Y=   38 ERROR
+[2265] y=   75:Y=   47 ERROR
+[2266] y=   72:Y=   40 ERROR
+[2267] y=   78:Y=   46 ERROR
+[2268] y=   84:Y=   60 ERROR
+[2269] y=   85:Y=   48 ERROR
+[2270] y=   84:Y=   44 ERROR
+[2271] y=   84:Y=   36 ERROR
+[2272] y=   97:Y=   48 ERROR
+[2273] y=  114:Y=   64 ERROR
+[2274] y=  131:Y=   40 ERROR
+[2275] y=  132:Y=   46 ERROR
+[2276] y=  122:Y=   59 ERROR
+[2277] y=  109:Y=   77 ERROR
+[2278] y=   99:Y=   63 ERROR
+[2279] y=   99:Y=   61 ERROR
+[2280] y=  100:Y=   71 ERROR
+[2281] y=  100:Y=   60 ERROR
+[2282] y=   94:Y=   80 ERROR
+[2283] y=   83:Y=   59 ERROR
+[2284] y=   74:Y=   35 ERROR
+[2285] y=   78:Y=   44 ERROR
+[2286] y=   94:Y=   44 ERROR
+[2287] y=  122:Y=   66 ERROR
+[2288] y=  149:Y=   78 ERROR
+[2289] y=  175:Y=  166 ERROR
+[2290] y=  184:Y=   71 ERROR
+[2291] y=  179:Y=   38 ERROR
+[2292] y=  159:Y=   43 ERROR
+[2293] y=  137:Y=   42 ERROR
+[2294] y=  118:Y=   41 ERROR
+[2295] y=  103:Y=  106 ERROR
+[2296] y=   93:Y=   41 ERROR
+[2297] y=   92:Y=   63 ERROR
+[2298] y=  101:Y=   54 ERROR
+[2299] y=  117:Y=   52 ERROR
+[2300] y=  126:Y=   66 ERROR
+[2301] y=  121:Y=  158 ERROR
+[2302] y=  109:Y=   91 ERROR
+[2303] y=   89:Y=   84 ERROR
+[2304] y=   73:Y=   76 ERROR
+[2305] y=   61:Y=  167 ERROR
+[2306] y=   57:Y=   46 ERROR
+[2307] y=   66:Y=  134 ERROR
+[2308] y=   77:Y=   79 ERROR
+[2309] y=   91:Y=   66 ERROR
+[2310] y=   93:Y=   79 ERROR
+[2311] y=   87:Y=   89 ERROR
+[2312] y=   83:Y=  104 ERROR
+[2313] y=   88:Y=   43 ERROR
+[2314] y=  108:Y=   40 ERROR
+[2315] y=  122:Y=   80 ERROR
+[2316] y=  129:Y=   73 ERROR
+[2317] y=  121:Y=  137 ERROR
+[2318] y=  113:Y=   51 ERROR
+[2319] y=  110:Y=   49 ERROR
+[2320] y=  104:Y=   76 ERROR
+[2321] y=   98:Y=   79 ERROR
+[2322] y=   86:Y=  152 ERROR
+[2323] y=   83:Y=   65 ERROR
+[2324] y=   88:Y=   58 ERROR
+[2325] y=  109:Y=   50 ERROR
+[2326] y=  139:Y=   53 ERROR
+[2327] y=  162:Y=  126 ERROR
+[2328] y=  169:Y=   64 ERROR
+[2329] y=  154:Y=   55 ERROR
+[2330] y=  130:Y=   66 ERROR
+[2331] y=  111:Y=   72 ERROR
+[2332] y=  109:Y=   61 ERROR
+[2333] y=  126:Y=  125 ERROR
+[2334] y=  153:Y=   60 ERROR
+[2335] y=  172:Y=   89 ERROR
+[2336] y=  172:Y=   84 ERROR
+[2337] y=  150:Y=  136 ERROR
+[2338] y=  117:Y=  159 ERROR
+[2339] y=   87:Y=  104 ERROR
+[2340] y=   70:Y=  109 ERROR
+[2341] y=   71:Y=   46 ERROR
+[2342] y=   86:Y=  176 ERROR
+[2343] y=  103:Y=   72 ERROR
+[2344] y=  114:Y=   62 ERROR
+[2345] y=  121:Y=  114 ERROR
+[2346] y=  126:Y=   54 ERROR
+[2347] y=  128:Y=   59 ERROR
+[2348] y=  118:Y=   71 ERROR
+[2349] y=   95:Y=   72 ERROR
+[2350] y=   74:Y=   68 ERROR
+[2351] y=   64:Y=   82 ERROR
+[2352] y=   80:Y=   65 ERROR
+[2353] y=  106:Y=   67 ERROR
+[2354] y=  130:Y=   94 ERROR
+[2355] y=  140:Y=   93 ERROR
+[2356] y=  132:Y=   60 ERROR
+[2357] y=  121:Y=  122 ERROR
+[2358] y=  113:Y=   65 ERROR
+[2359] y=  115:Y=   53 ERROR
+[2360] y=  126:Y=   44 ERROR
+[2361] y=  139:Y=   56 ERROR
+[2362] y=  149:Y=   62 ERROR
+[2363] y=  152:Y=   46 ERROR
+[2364] y=  144:Y=   60 ERROR
+[2365] y=  124:Y=   52 ERROR
+[2366] y=   98:Y=   66 ERROR
+[2367] y=   76:Y=   66 ERROR
+[2368] y=   66:Y=   67 ERROR
+[2369] y=   71:Y=   69 ERROR
+[2370] y=   77:Y=   49 ERROR
+[2371] y=   76:Y=   33 ERROR
+[2372] y=   63:Y=   70 ERROR
+[2373] y=   51:Y=  132 ERROR
+[2374] y=   53:Y=  129 ERROR
+[2375] y=   75:Y=   60 ERROR
+[2376] y=  107:Y=   36 ERROR
+[2377] y=  133:Y=   56 ERROR
+[2378] y=  139:Y=  135 ERROR
+[2379] y=  125:Y=   49 ERROR
+[2380] y=  108:Y=   70 ERROR
+[2381] y=  106:Y=   64 ERROR
+[2382] y=  123:Y=   76 ERROR
+[2383] y=  147:Y=   79 ERROR
+[2384] y=  158:Y=   76 ERROR
+[2385] y=  155:Y=  168 ERROR
+[2386] y=  143:Y=   76 ERROR
+[2387] y=  130:Y=  164 ERROR
+[2388] y=  117:Y=   91 ERROR
+[2389] y=   99:Y=  171 ERROR
+[2390] y=   83:Y=   56 ERROR
+[2391] y=   68:Y=  102 ERROR
+[2392] y=   58:Y=  100 ERROR
+[2393] y=   56:Y=  132 ERROR
+[2394] y=   63:Y=   96 ERROR
+[2395] y=   79:Y=   60 ERROR
+[2396] y=  101:Y=  124 ERROR
+[2397] y=  111:Y=   54 ERROR
+[2398] y=  109:Y=   55 ERROR
+[2399] y=   91:Y=   84 ERROR
+[2400] y=   74:Y=   57 ERROR
+[2401] y=   75:Y=   45 ERROR
+[2402] y=   90:Y=   66 ERROR
+[2403] y=  117:Y=   83 ERROR
+[2404] y=  139:Y=   65 ERROR
+[2405] y=  154:Y=   50 ERROR
+[2406] y=  161:Y=   52 ERROR
+[2407] y=  154:Y=   42 ERROR
+[2408] y=  139:Y=   64 ERROR
+[2409] y=  118:Y=   54 ERROR
+[2410] y=  106:Y=   49 ERROR
+[2411] y=  103:Y=   44 ERROR
+[2412] y=  111:Y=   62 ERROR
+[2413] y=  120:Y=   71 ERROR
+[2414] y=  128:Y=   76 ERROR
+[2415] y=  138:Y=  100 ERROR
+[2416] y=  146:Y=   70 ERROR
+[2417] y=  144:Y=  130 ERROR
+[2418] y=  127:Y=   77 ERROR
+[2419] y=  109:Y=   50 ERROR
+[2420] y=  104:Y=   46 ERROR
+[2421] y=  127:Y=   79 ERROR
+[2422] y=  157:Y=   72 ERROR
+[2423] y=  183:Y=   73 ERROR
+[2424] y=  188:Y=   74 ERROR
+[2425] y=  176:Y=   75 ERROR
+[2426] y=  154:Y=  154 OK
+[2427] y=  122:Y=   39 ERROR
+[2428] y=   95:Y=   61 ERROR
+[2429] y=   74:Y=   80 ERROR
+[2430] y=   69:Y=   80 ERROR
+[2431] y=   72:Y=  102 ERROR
+[2432] y=   70:Y=   83 ERROR
+[2433] y=   61:Y=   90 ERROR
+[2434] y=   50:Y=   73 ERROR
+[2435] y=   52:Y=  148 ERROR
+[2436] y=   71:Y=   79 ERROR
+[2437] y=   96:Y=   61 ERROR
+[2438] y=  116:Y=   71 ERROR
+[2439] y=  128:Y=   62 ERROR
+[2440] y=  131:Y=   95 ERROR
+[2441] y=  135:Y=  154 ERROR
+[2442] y=  128:Y=   47 ERROR
+[2443] y=  117:Y=   52 ERROR
+[2444] y=  101:Y=   60 ERROR
+[2445] y=   85:Y=  121 ERROR
+[2446] y=   80:Y=   53 ERROR
+[2447] y=   79:Y=   38 ERROR
+[2448] y=   92:Y=   45 ERROR
+[2449] y=  113:Y=   39 ERROR
+[2450] y=  133:Y=   49 ERROR
+[2451] y=  153:Y=   36 ERROR
+[2452] y=  160:Y=   52 ERROR
+[2453] y=  168:Y=   42 ERROR
+[2454] y=  171:Y=   41 ERROR
+[2455] y=  169:Y=  106 ERROR
+[2456] y=  162:Y=   50 ERROR
+[2457] y=  140:Y=   50 ERROR
+[2458] y=  122:Y=   57 ERROR
+[2459] y=  110:Y=   52 ERROR
+[2460] y=  116:Y=   77 ERROR
+[2461] y=  132:Y=   88 ERROR
+[2462] y=  144:Y=   64 ERROR
+[2463] y=  140:Y=   60 ERROR
+[2464] y=  116:Y=   29 ERROR
+[2465] y=   88:Y=   34 ERROR
+[2466] y=   73:Y=   36 ERROR
+[2467] y=   85:Y=  114 ERROR
+[2468] y=  111:Y=   48 ERROR
+[2469] y=  144:Y=   49 ERROR
+[2470] y=  167:Y=   51 ERROR
+[2471] y=  180:Y=   56 ERROR
+[2472] y=  180:Y=   52 ERROR
+[2473] y=  156:Y=   53 ERROR
+[2474] y=  119:Y=   72 ERROR
+[2475] y=   75:Y=   80 ERROR
+[2476] y=   55:Y=   89 ERROR
+[2477] y=   58:Y=   90 ERROR
+[2478] y=   78:Y=   81 ERROR
+[2479] y=  106:Y=   79 ERROR
+[2480] y=  123:Y=   80 ERROR
+[2481] y=  141:Y=   89 ERROR
+[2482] y=  146:Y=  253 ERROR
+[2483] y=  147:Y=  124 ERROR
+[2484] y=  143:Y=   61 ERROR
+[2485] y=  132:Y=   80 ERROR
+[2486] y=  120:Y=   90 ERROR
+[2487] y=  108:Y=   79 ERROR
+[2488] y=  101:Y=   82 ERROR
+[2489] y=  104:Y=  105 ERROR
+[2490] y=  109:Y=   94 ERROR
+[2491] y=  112:Y=   93 ERROR
+[2492] y=  113:Y=  147 ERROR
+[2493] y=  108:Y=  125 ERROR
+[2494] y=  108:Y=   76 ERROR
+[2495] y=  104:Y=   76 ERROR
+[2496] y=  100:Y=   78 ERROR
+[2497] y=   99:Y=  155 ERROR
+[2498] y=  100:Y=  138 ERROR
+[2499] y=  115:Y=   51 ERROR
+[2500] y=  126:Y=   57 ERROR
+[2501] y=  132:Y=  135 ERROR
+[2502] y=  124:Y=   57 ERROR
+[2503] y=  104:Y=  134 ERROR
+[2504] y=   88:Y=   56 ERROR
+[2505] y=   78:Y=   52 ERROR
+[2506] y=   85:Y=   45 ERROR
+[2507] y=   98:Y=   60 ERROR
+[2508] y=  119:Y=   50 ERROR
+[2509] y=  139:Y=  122 ERROR
+[2510] y=  155:Y=   62 ERROR
+[2511] y=  158:Y=   61 ERROR
+[2512] y=  150:Y=   70 ERROR
+[2513] y=  139:Y=   58 ERROR
+[2514] y=  135:Y=   43 ERROR
+[2515] y=  138:Y=   91 ERROR
+[2516] y=  145:Y=   75 ERROR
+[2517] y=  151:Y=   74 ERROR
+[2518] y=  151:Y=   81 ERROR
+[2519] y=  141:Y=   72 ERROR
+[2520] y=  119:Y=   43 ERROR
+[2521] y=   91:Y=   72 ERROR
+[2522] y=   70:Y=   59 ERROR
+[2523] y=   58:Y=   98 ERROR
+[2524] y=   62:Y=   45 ERROR
+[2525] y=   81:Y=  133 ERROR
+[2526] y=  111:Y=   98 ERROR
+[2527] y=  147:Y=   85 ERROR
+[2528] y=  166:Y=   80 ERROR
+[2529] y=  170:Y=   68 ERROR
+[2530] y=  157:Y=   85 ERROR
+[2531] y=  144:Y=  135 ERROR
+[2532] y=  136:Y=   85 ERROR
+[2533] y=  135:Y=   53 ERROR
+[2534] y=  139:Y=   61 ERROR
+[2535] y=  148:Y=   58 ERROR
+[2536] y=  152:Y=   66 ERROR
+[2537] y=  155:Y=   79 ERROR
+[2538] y=  151:Y=   60 ERROR
+[2539] y=  146:Y=   67 ERROR
+[2540] y=  140:Y=   47 ERROR
+[2541] y=  125:Y=   55 ERROR
+[2542] y=  115:Y=   61 ERROR
+[2543] y=  110:Y=   63 ERROR
+[2544] y=  119:Y=   93 ERROR
+[2545] y=  126:Y=   83 ERROR
+[2546] y=  126:Y=   91 ERROR
+[2547] y=  122:Y=   78 ERROR
+[2548] y=  118:Y=   78 ERROR
+[2549] y=  119:Y=   68 ERROR
+[2550] y=  119:Y=   59 ERROR
+[2551] y=  117:Y=   61 ERROR
+[2552] y=  110:Y=   61 ERROR
+[2553] y=   96:Y=  112 ERROR
+[2554] y=   82:Y=   35 ERROR
+[2555] y=   79:Y=   65 ERROR
+[2556] y=   97:Y=   81 ERROR
+[2557] y=  127:Y=   59 ERROR
+[2558] y=  156:Y=  121 ERROR
+[2559] y=  160:Y=   99 ERROR
+[2560] y=  148:Y=   65 ERROR
+[2561] y=  128:Y=   55 ERROR
+[2562] y=  116:Y=   67 ERROR
+[2563] y=  110:Y=   62 ERROR
+[2564] y=  105:Y=   37 ERROR
+[2565] y=  105:Y=   64 ERROR
+[2566] y=   98:Y=   46 ERROR
+[2567] y=   96:Y=   58 ERROR
+[2568] y=   90:Y=   50 ERROR
+[2569] y=   87:Y=   61 ERROR
+[2570] y=   90:Y=   59 ERROR
+[2571] y=   98:Y=   60 ERROR
+[2572] y=  116:Y=   31 ERROR
+[2573] y=  130:Y=  153 ERROR
+[2574] y=  134:Y=  188 ERROR
+[2575] y=  125:Y=   97 ERROR
+[2576] y=  106:Y=   79 ERROR
+[2577] y=  100:Y=   85 ERROR
+[2578] y=  109:Y=  130 ERROR
+[2579] y=  131:Y=   57 ERROR
+[2580] y=  151:Y=   92 ERROR
+[2581] y=  151:Y=   86 ERROR
+[2582] y=  138:Y=  101 ERROR
+[2583] y=  114:Y=   89 ERROR
+[2584] y=   97:Y=   88 ERROR
+[2585] y=   91:Y=   79 ERROR
+[2586] y=   92:Y=   87 ERROR
+[2587] y=   93:Y=  107 ERROR
+[2588] y=   90:Y=  151 ERROR
+[2589] y=   79:Y=  125 ERROR
+[2590] y=   70:Y=  151 ERROR
+[2591] y=   63:Y=   66 ERROR
+[2592] y=   65:Y=   50 ERROR
+[2593] y=   75:Y=   58 ERROR
+[2594] y=   86:Y=   50 ERROR
+[2595] y=  102:Y=   51 ERROR
+[2596] y=  107:Y=   68 ERROR
+[2597] y=  112:Y=   46 ERROR
+[2598] y=  111:Y=   56 ERROR
+[2599] y=  117:Y=   39 ERROR
+[2600] y=  135:Y=   32 ERROR
+[2601] y=  153:Y=  114 ERROR
+[2602] y=  167:Y=   52 ERROR
+[2603] y=  158:Y=   53 ERROR
+[2604] y=  138:Y=   69 ERROR
+[2605] y=  115:Y=   35 ERROR
+[2606] y=  100:Y=   50 ERROR
+[2607] y=  101:Y=   50 ERROR
+[2608] y=  109:Y=   77 ERROR
+[2609] y=  121:Y=   74 ERROR
+[2610] y=  130:Y=   61 ERROR
+[2611] y=  132:Y=   66 ERROR
+[2612] y=  133:Y=   33 ERROR
+[2613] y=  129:Y=  128 ERROR
+[2614] y=  120:Y=   47 ERROR
+[2615] y=  110:Y=   13 ERROR
+[2616] y=   97:Y=   83 ERROR
+[2617] y=   87:Y=   86 ERROR
+[2618] y=   84:Y=   91 ERROR
+[2619] y=   84:Y=  171 ERROR
+[2620] y=  102:Y=   84 ERROR
+[2621] y=  129:Y=   68 ERROR
+[2622] y=  162:Y=   69 ERROR
+[2623] y=  190:Y=   65 ERROR
+[2624] y=  201:Y=   61 ERROR
+[2625] y=  202:Y=   73 ERROR
+[2626] y=  184:Y=   63 ERROR
+[2627] y=  160:Y=   61 ERROR
+[2628] y=  135:Y=   61 ERROR
+[2629] y=  116:Y=   42 ERROR
+[2630] y=  108:Y=  187 ERROR
+[2631] y=  103:Y=   99 ERROR
+[2632] y=  106:Y=   91 ERROR
+[2633] y=  119:Y=   69 ERROR
+[2634] y=  147:Y=   91 ERROR
+[2635] y=  175:Y=   89 ERROR
+[2636] y=  195:Y=   79 ERROR
+[2637] y=  184:Y=   89 ERROR
+[2638] y=  161:Y=   73 ERROR
+[2639] y=  133:Y=   89 ERROR
+[2640] y=  122:Y=   84 ERROR
+[2641] y=  131:Y=   62 ERROR
+[2642] y=  146:Y=  185 ERROR
+[2643] y=  168:Y=   73 ERROR
+[2644] y=  173:Y=   64 ERROR
+[2645] y=  163:Y=   66 ERROR
+[2646] y=  136:Y=   48 ERROR
+[2647] y=  108:Y=   63 ERROR
+[2648] y=  102:Y=   60 ERROR
+[2649] y=  115:Y=   62 ERROR
+[2650] y=  138:Y=  124 ERROR
+[2651] y=  156:Y=   61 ERROR
+[2652] y=  161:Y=   58 ERROR
+[2653] y=  156:Y=   58 ERROR
+[2654] y=  145:Y=   91 ERROR
+[2655] y=  132:Y=   60 ERROR
+[2656] y=  126:Y=  107 ERROR
+[2657] y=  128:Y=  223 ERROR
+[2658] y=  130:Y=  109 ERROR
+[2659] y=  127:Y=   99 ERROR
+[2660] y=  117:Y=   88 ERROR
+[2661] y=  115:Y=   85 ERROR
+[2662] y=  121:Y=  180 ERROR
+[2663] y=  131:Y=   95 ERROR
+[2664] y=  134:Y=   79 ERROR
+[2665] y=  122:Y=   78 ERROR
+[2666] y=  106:Y=   89 ERROR
+[2667] y=   86:Y=   82 ERROR
+[2668] y=   77:Y=   76 ERROR
+[2669] y=   74:Y=   83 ERROR
+[2670] y=   80:Y=   71 ERROR
+[2671] y=   89:Y=  151 ERROR
+[2672] y=   96:Y=   67 ERROR
+[2673] y=  102:Y=   83 ERROR
+[2674] y=  100:Y=   58 ERROR
+[2675] y=  104:Y=   72 ERROR
+[2676] y=  113:Y=  146 ERROR
+[2677] y=  131:Y=   55 ERROR
+[2678] y=  148:Y=   61 ERROR
+[2679] y=  151:Y=   84 ERROR
+[2680] y=  135:Y=   83 ERROR
+[2681] y=  109:Y=   73 ERROR
+[2682] y=   91:Y=   76 ERROR
+[2683] y=   97:Y=   60 ERROR
+[2684] y=  127:Y=   54 ERROR
+[2685] y=  164:Y=   29 ERROR
+[2686] y=  192:Y=   47 ERROR
+[2687] y=  195:Y=   66 ERROR
+[2688] y=  185:Y=   85 ERROR
+[2689] y=  177:Y=   76 ERROR
+[2690] y=  175:Y=   96 ERROR
+[2691] y=  182:Y=  107 ERROR
+[2692] y=  175:Y=  102 ERROR
+[2693] y=  159:Y=   91 ERROR
+[2694] y=  132:Y=   77 ERROR
+[2695] y=  109:Y=  147 ERROR
+[2696] y=   97:Y=  145 ERROR
+[2697] y=   94:Y=   55 ERROR
+[2698] y=  104:Y=   52 ERROR
+[2699] y=  119:Y=   36 ERROR
+[2700] y=  138:Y=   42 ERROR
+[2701] y=  144:Y=   61 ERROR
+[2702] y=  136:Y=   41 ERROR
+[2703] y=  116:Y=   49 ERROR
+[2704] y=   95:Y=   46 ERROR
+[2705] y=   86:Y=  145 ERROR
+[2706] y=   87:Y=  157 ERROR
+[2707] y=  101:Y=   90 ERROR
+[2708] y=  119:Y=  104 ERROR
+[2709] y=  140:Y=   82 ERROR
+[2710] y=  153:Y=   58 ERROR
+[2711] y=  156:Y=  123 ERROR
+[2712] y=  149:Y=   64 ERROR
+[2713] y=  132:Y=   54 ERROR
+[2714] y=  121:Y=   31 ERROR
+[2715] y=  106:Y=   50 ERROR
+[2716] y=  108:Y=   55 ERROR
+[2717] y=  115:Y=   60 ERROR
+[2718] y=  137:Y=   84 ERROR
+[2719] y=  161:Y=   83 ERROR
+[2720] y=  176:Y=  154 ERROR
+[2721] y=  181:Y=   75 ERROR
+[2722] y=  165:Y=   80 ERROR
+[2723] y=  144:Y=   70 ERROR
+[2724] y=  126:Y=   98 ERROR
+[2725] y=  129:Y=  111 ERROR
+[2726] y=  147:Y=  148 ERROR
+[2727] y=  161:Y=  132 ERROR
+[2728] y=  157:Y=  104 ERROR
+[2729] y=  133:Y=   88 ERROR
+[2730] y=  109:Y=   69 ERROR
+[2731] y=   99:Y=  136 ERROR
+[2732] y=  108:Y=   57 ERROR
+[2733] y=  127:Y=   62 ERROR
+[2734] y=  142:Y=  146 ERROR
+[2735] y=  150:Y=   63 ERROR
+[2736] y=  149:Y=  149 OK
+[2737] y=  153:Y=   80 ERROR
+[2738] y=  158:Y=   75 ERROR
+[2739] y=  172:Y=   85 ERROR
+[2740] y=  179:Y=   76 ERROR
+[2741] y=  179:Y=   68 ERROR
+[2742] y=  172:Y=   64 ERROR
+[2743] y=  164:Y=   53 ERROR
+[2744] y=  169:Y=  135 ERROR
+[2745] y=  179:Y=   46 ERROR
+[2746] y=  193:Y=   53 ERROR
+[2747] y=  188:Y=   60 ERROR
+[2748] y=  172:Y=   73 ERROR
+[2749] y=  148:Y=  155 ERROR
+[2750] y=  136:Y=   51 ERROR
+[2751] y=  136:Y=   57 ERROR
+[2752] y=  141:Y=   81 ERROR
+[2753] y=  139:Y=   89 ERROR
+[2754] y=  125:Y=   76 ERROR
+[2755] y=  104:Y=   53 ERROR
+[2756] y=   84:Y=   62 ERROR
+[2757] y=   83:Y=   93 ERROR
+[2758] y=   96:Y=  108 ERROR
+[2759] y=  124:Y=   54 ERROR
+[2760] y=  143:Y=  118 ERROR
+[2761] y=  149:Y=   67 ERROR
+[2762] y=  140:Y=   55 ERROR
+[2763] y=  129:Y=   52 ERROR
+[2764] y=  130:Y=   54 ERROR
+[2765] y=  138:Y=  135 ERROR
+[2766] y=  155:Y=   63 ERROR
+[2767] y=  164:Y=  138 ERROR
+[2768] y=  165:Y=   79 ERROR
+[2769] y=  154:Y=   61 ERROR
+[2770] y=  139:Y=   52 ERROR
+[2771] y=  122:Y=   47 ERROR
+[2772] y=  102:Y=   59 ERROR
+[2773] y=   81:Y=  155 ERROR
+[2774] y=   58:Y=   73 ERROR
+[2775] y=   37:Y=   84 ERROR
+[2776] y=   22:Y=   46 ERROR
+[2777] y=   19:Y=  156 ERROR
+[2778] y=   31:Y=  135 ERROR
+[2779] y=   53:Y=   75 ERROR
+[2780] y=   79:Y=   56 ERROR
+[2781] y=   96:Y=   47 ERROR
+[2782] y=  104:Y=  120 ERROR
+[2783] y=  104:Y=   37 ERROR
+[2784] y=  105:Y=   30 ERROR
+[2785] y=  114:Y=   47 ERROR
+[2786] y=  128:Y=   45 ERROR
+[2787] y=  151:Y=  125 ERROR
+[2788] y=  161:Y=   70 ERROR
+[2789] y=  153:Y=   75 ERROR
+[2790] y=  125:Y=   80 ERROR
+[2791] y=   89:Y=   82 ERROR
+[2792] y=   66:Y=  156 ERROR
+[2793] y=   64:Y=  160 ERROR
+[2794] y=   82:Y=   80 ERROR
+[2795] y=  110:Y=   98 ERROR
+[2796] y=  142:Y=   83 ERROR
+[2797] y=  170:Y=  179 ERROR
+[2798] y=  190:Y=  177 ERROR
+[2799] y=  194:Y=   92 ERROR
+[2800] y=  180:Y=   87 ERROR
+[2801] y=  159:Y=   81 ERROR
+[2802] y=  134:Y=   71 ERROR
+[2803] y=  116:Y=   76 ERROR
+[2804] y=  104:Y=   61 ERROR
+[2805] y=  100:Y=   69 ERROR
+[2806] y=  105:Y=   73 ERROR
+[2807] y=  115:Y=   76 ERROR
+[2808] y=  129:Y=  142 ERROR
+[2809] y=  146:Y=   70 ERROR
+[2810] y=  167:Y=   89 ERROR
+[2811] y=  180:Y=   59 ERROR
+[2812] y=  184:Y=  164 ERROR
+[2813] y=  172:Y=   47 ERROR
+[2814] y=  149:Y=   47 ERROR
+[2815] y=  124:Y=   65 ERROR
+[2816] y=  107:Y=   55 ERROR
+[2817] y=  116:Y=  107 ERROR
+[2818] y=  141:Y=  170 ERROR
+[2819] y=  170:Y=   62 ERROR
+[2820] y=  184:Y=   72 ERROR
+[2821] y=  182:Y=   75 ERROR
+[2822] y=  177:Y=   92 ERROR
+[2823] y=  177:Y=   95 ERROR
+[2824] y=  188:Y=   71 ERROR
+[2825] y=  202:Y=   94 ERROR
+[2826] y=  214:Y=   70 ERROR
+[2827] y=  220:Y=  173 ERROR
+[2828] y=  215:Y=   88 ERROR
+[2829] y=  201:Y=   64 ERROR
+[2830] y=  186:Y=   55 ERROR
+[2831] y=  175:Y=   61 ERROR
+[2832] y=  170:Y=   96 ERROR
+[2833] y=  164:Y=  158 ERROR
+[2834] y=  154:Y=  106 ERROR
+[2835] y=  144:Y=   82 ERROR
+[2836] y=  140:Y=   81 ERROR
+[2837] y=  145:Y=   79 ERROR
+[2838] y=  148:Y=   79 ERROR
+[2839] y=  144:Y=   50 ERROR
+[2840] y=  136:Y=   66 ERROR
+[2841] y=  122:Y=   87 ERROR
+[2842] y=  109:Y=   94 ERROR
+[2843] y=   90:Y=   80 ERROR
+[2844] y=   70:Y=   67 ERROR
+[2845] y=   59:Y=   71 ERROR
+[2846] y=   56:Y=   53 ERROR
+[2847] y=   59:Y=   48 ERROR
+[2848] y=   60:Y=  106 ERROR
+[2849] y=   55:Y=   47 ERROR
+[2850] y=   52:Y=   63 ERROR
+[2851] y=   58:Y=   67 ERROR
+[2852] y=   70:Y=   62 ERROR
+[2853] y=   82:Y=   66 ERROR
+[2854] y=   87:Y=   59 ERROR
+[2855] y=   87:Y=   55 ERROR
+[2856] y=   94:Y=   70 ERROR
+[2857] y=  101:Y=  162 ERROR
+[2858] y=  116:Y=  109 ERROR
+[2859] y=  125:Y=  113 ERROR
+[2860] y=  135:Y=   95 ERROR
+[2861] y=  141:Y=  193 ERROR
+[2862] y=  145:Y=  113 ERROR
+[2863] y=  147:Y=  178 ERROR
+[2864] y=  141:Y=   91 ERROR
+[2865] y=  129:Y=   98 ERROR
+[2866] y=  114:Y=   84 ERROR
+[2867] y=  108:Y=   75 ERROR
+[2868] y=  116:Y=  138 ERROR
+[2869] y=  131:Y=   68 ERROR
+[2870] y=  147:Y=   56 ERROR
+[2871] y=  154:Y=  159 ERROR
+[2872] y=  153:Y=   44 ERROR
+[2873] y=  140:Y=   78 ERROR
+[2874] y=  121:Y=   37 ERROR
+[2875] y=  104:Y=   56 ERROR
+[2876] y=   96:Y=   32 ERROR
+[2877] y=   94:Y=   28 ERROR
+[2878] y=   83:Y=   25 ERROR
+[2879] y=   63:Y=   35 ERROR
+[2880] y=   42:Y=  116 ERROR
+[2881] y=   47:Y=   71 ERROR
+[2882] y=   78:Y=   66 ERROR
+[2883] y=  126:Y=   79 ERROR
+[2884] y=  157:Y=   60 ERROR
+[2885] y=  162:Y=   65 ERROR
+[2886] y=  139:Y=  134 ERROR
+[2887] y=  103:Y=   60 ERROR
+[2888] y=   69:Y=   66 ERROR
+[2889] y=   46:Y=  192 ERROR
+[2890] y=   47:Y=   42 ERROR
+[2891] y=   68:Y=   81 ERROR
+[2892] y=  103:Y=   81 ERROR
+[2893] y=  138:Y=   98 ERROR
+[2894] y=  167:Y=  166 ERROR
+[2895] y=  187:Y=   79 ERROR
+[2896] y=  195:Y=   70 ERROR
+[2897] y=  189:Y=   78 ERROR
+[2898] y=  170:Y=   75 ERROR
+[2899] y=  143:Y=  141 ERROR
+[2900] y=  116:Y=   55 ERROR
+[2901] y=   99:Y=   48 ERROR
+[2902] y=   96:Y=   70 ERROR
+[2903] y=  105:Y=  138 ERROR
+[2904] y=  117:Y=   51 ERROR
+[2905] y=  119:Y=   68 ERROR
+[2906] y=  121:Y=   62 ERROR
+[2907] y=  117:Y=  131 ERROR
+[2908] y=  119:Y=   57 ERROR
+[2909] y=  117:Y=   60 ERROR
+[2910] y=  119:Y=   51 ERROR
+[2911] y=  125:Y=   60 ERROR
+[2912] y=  134:Y=   64 ERROR
+[2913] y=  144:Y=   63 ERROR
+[2914] y=  147:Y=   62 ERROR
+[2915] y=  142:Y=   76 ERROR
+[2916] y=  129:Y=   84 ERROR
+[2917] y=  117:Y=   83 ERROR
+[2918] y=  111:Y=   73 ERROR
+[2919] y=  118:Y=   57 ERROR
+[2920] y=  127:Y=   56 ERROR
+[2921] y=  143:Y=   61 ERROR
+[2922] y=  155:Y=   44 ERROR
+[2923] y=  165:Y=   50 ERROR
+[2924] y=  169:Y=   42 ERROR
+[2925] y=  160:Y=  107 ERROR
+[2926] y=  149:Y=   44 ERROR
+[2927] y=  136:Y=   67 ERROR
+[2928] y=  136:Y=   66 ERROR
+[2929] y=  147:Y=   49 ERROR
+[2930] y=  164:Y=   59 ERROR
+[2931] y=  182:Y=   50 ERROR
+[2932] y=  179:Y=   69 ERROR
+[2933] y=  165:Y=   59 ERROR
+[2934] y=  141:Y=  150 ERROR
+[2935] y=  125:Y=  154 ERROR
+[2936] y=  122:Y=   64 ERROR
+[2937] y=  125:Y=   86 ERROR
+[2938] y=  134:Y=   74 ERROR
+[2939] y=  140:Y=   81 ERROR
+[2940] y=  148:Y=  155 ERROR
+[2941] y=  149:Y=   66 ERROR
+[2942] y=  149:Y=   75 ERROR
+[2943] y=  151:Y=   95 ERROR
+[2944] y=  159:Y=   85 ERROR
+[2945] y=  170:Y=   63 ERROR
+[2946] y=  174:Y=  192 ERROR
+[2947] y=  169:Y=   85 ERROR
+[2948] y=  153:Y=   80 ERROR
+[2949] y=  133:Y=   52 ERROR
+[2950] y=  111:Y=   66 ERROR
+[2951] y=   99:Y=   48 ERROR
+[2952] y=   98:Y=   69 ERROR
+[2953] y=  101:Y=   16 ERROR
+[2954] y=   93:Y=   88 ERROR
+[2955] y=   74:Y=   59 ERROR
+[2956] y=   59:Y=   83 ERROR
+[2957] y=   60:Y=   70 ERROR
+[2958] y=   74:Y=   81 ERROR
+[2959] y=   81:Y=   55 ERROR
+[2960] y=   65:Y=  193 ERROR
+[2961] y=   38:Y=   94 ERROR
+[2962] y=   17:Y=   93 ERROR
+[2963] y=   13:Y=  139 ERROR
+[2964] y=   27:Y=  137 ERROR
+[2965] y=   50:Y=   74 ERROR
+[2966] y=   83:Y=   79 ERROR
+[2967] y=  115:Y=   57 ERROR
+[2968] y=  141:Y=   57 ERROR
+[2969] y=  151:Y=   62 ERROR
+[2970] y=  147:Y=   63 ERROR
+[2971] y=  139:Y=   71 ERROR
+[2972] y=  129:Y=   67 ERROR
+[2973] y=  115:Y=   33 ERROR
+[2974] y=   93:Y=   36 ERROR
+[2975] y=   73:Y=   35 ERROR
+[2976] y=   69:Y=   44 ERROR
+[2977] y=   89:Y=   63 ERROR
+[2978] y=  124:Y=   81 ERROR
+[2979] y=  151:Y=   85 ERROR
+[2980] y=  155:Y=   48 ERROR
+[2981] y=  137:Y=  207 ERROR
+[2982] y=  110:Y=   85 ERROR
+[2983] y=   88:Y=   73 ERROR
+[2984] y=   78:Y=   58 ERROR
+[2985] y=   80:Y=   42 ERROR
+[2986] y=   90:Y=   93 ERROR
+[2987] y=  104:Y=   85 ERROR
+[2988] y=  118:Y=   76 ERROR
+[2989] y=  128:Y=  169 ERROR
+[2990] y=  137:Y=   85 ERROR
+[2991] y=  143:Y=   70 ERROR
+[2992] y=  152:Y=   65 ERROR
+[2993] y=  157:Y=   50 ERROR
+[2994] y=  160:Y=   49 ERROR
+[2995] y=  159:Y=   49 ERROR
+[2996] y=  154:Y=   49 ERROR
+[2997] y=  156:Y=   48 ERROR
+[2998] y=  159:Y=   52 ERROR
+[2999] y=  165:Y=   72 ERROR
+[3000] y=  163:Y=  156 ERROR
+[3001] y=  146:Y=   76 ERROR
+[3002] y=  119:Y=   73 ERROR
+[3003] y=   91:Y=   64 ERROR
+[3004] y=   83:Y=   67 ERROR
+[3005] y=   99:Y=   60 ERROR
+[3006] y=  128:Y=   51 ERROR
+[3007] y=  157:Y=   35 ERROR
+[3008] y=  168:Y=   43 ERROR
+[3009] y=  169:Y=   42 ERROR
+[3010] y=  161:Y=   41 ERROR
+[3011] y=  152:Y=   40 ERROR
+[3012] y=  140:Y=   25 ERROR
+[3013] y=  124:Y=   93 ERROR
+[3014] y=  110:Y=   29 ERROR
+[3015] y=  109:Y=   29 ERROR
+[3016] y=  120:Y=  133 ERROR
+[3017] y=  143:Y=   39 ERROR
+[3018] y=  161:Y=   62 ERROR
+[3019] y=  172:Y=   58 ERROR
+[3020] y=  175:Y=   42 ERROR
+[3021] y=  168:Y=  213 ERROR
+[3022] y=  155:Y=   34 ERROR
+[3023] y=  138:Y=   50 ERROR
+[3024] y=  137:Y=   59 ERROR
+[3025] y=  155:Y=   75 ERROR
+[3026] y=  182:Y=  188 ERROR
+[3027] y=  199:Y=   96 ERROR
+[3028] y=  186:Y=   79 ERROR
+[3029] y=  149:Y=  115 ERROR
+[3030] y=  101:Y=  104 ERROR
+[3031] y=   67:Y=  163 ERROR
+[3032] y=   57:Y=   95 ERROR
+[3033] y=   71:Y=  186 ERROR
+[3034] y=  100:Y=   96 ERROR
+[3035] y=  121:Y=   84 ERROR
+[3036] y=  124:Y=   81 ERROR
+[3037] y=  111:Y=   65 ERROR
+[3038] y=   98:Y=  127 ERROR
+[3039] y=   96:Y=   54 ERROR
+[3040] y=  103:Y=   55 ERROR
+[3041] y=  102:Y=   64 ERROR
+[3042] y=   86:Y=  118 ERROR
+[3043] y=   65:Y=   98 ERROR
+[3044] y=   49:Y=   78 ERROR
+[3045] y=   51:Y=   80 ERROR
+[3046] y=   58:Y=   72 ERROR
+[3047] y=   71:Y=   73 ERROR
+[3048] y=   78:Y=   64 ERROR
+[3049] y=   79:Y=   61 ERROR
+[3050] y=   82:Y=   61 ERROR
+[3051] y=   85:Y=   54 ERROR
+[3052] y=   92:Y=   45 ERROR
+[3053] y=  100:Y=   61 ERROR
+[3054] y=  111:Y=   60 ERROR
+[3055] y=  132:Y=   80 ERROR
+[3056] y=  153:Y=   68 ERROR
+[3057] y=  166:Y=   53 ERROR
+[3058] y=  157:Y=   52 ERROR
+[3059] y=  128:Y=   39 ERROR
+[3060] y=   97:Y=   55 ERROR
+[3061] y=   79:Y=   54 ERROR
+[3062] y=   88:Y=   62 ERROR
+[3063] y=  107:Y=   70 ERROR
+[3064] y=  126:Y=   35 ERROR
+[3065] y=  126:Y=  189 ERROR
+[3066] y=  112:Y=   87 ERROR
+[3067] y=   91:Y=  107 ERROR
+[3068] y=   80:Y=   63 ERROR
+[3069] y=   89:Y=  102 ERROR
+[3070] y=  117:Y=  129 ERROR
+[3071] y=  149:Y=   69 ERROR
+[3072] y=  165:Y=   53 ERROR
+[3073] y=  155:Y=   49 ERROR
+[3074] y=  124:Y=   44 ERROR
+[3075] y=   92:Y=   46 ERROR
+[3076] y=   75:Y=   59 ERROR
+[3077] y=   80:Y=   73 ERROR
+[3078] y=   97:Y=   79 ERROR
+[3079] y=  116:Y=   59 ERROR
+[3080] y=  129:Y=   49 ERROR
+[3081] y=  134:Y=   66 ERROR
+[3082] y=  136:Y=   56 ERROR
+[3083] y=  138:Y=   47 ERROR
+[3084] y=  139:Y=   71 ERROR
+[3085] y=  143:Y=   58 ERROR
+[3086] y=  149:Y=   64 ERROR
+[3087] y=  159:Y=   56 ERROR
+[3088] y=  163:Y=  117 ERROR
+[3089] y=  153:Y=  124 ERROR
+[3090] y=  136:Y=   47 ERROR
+[3091] y=  129:Y=   57 ERROR
+[3092] y=  138:Y=   57 ERROR
+[3093] y=  163:Y=   60 ERROR
+[3094] y=  178:Y=   53 ERROR
+[3095] y=  172:Y=   53 ERROR
+[3096] y=  145:Y=   51 ERROR
+[3097] y=  107:Y=   84 ERROR
+[3098] y=   87:Y=  106 ERROR
+[3099] y=   83:Y=   87 ERROR
+[3100] y=  104:Y=   85 ERROR
+[3101] y=  129:Y=   72 ERROR
+[3102] y=  148:Y=   67 ERROR
+[3103] y=  160:Y=  153 ERROR
+[3104] y=  160:Y=   36 ERROR
+[3105] y=  156:Y=  104 ERROR
+[3106] y=  148:Y=   71 ERROR
+[3107] y=  139:Y=   60 ERROR
+[3108] y=  138:Y=  118 ERROR
+[3109] y=  144:Y=   56 ERROR
+[3110] y=  158:Y=   76 ERROR
+[3111] y=  169:Y=   60 ERROR
+[3112] y=  168:Y=   63 ERROR
+[3113] y=  161:Y=   76 ERROR
+[3114] y=  155:Y=   77 ERROR
+[3115] y=  156:Y=  159 ERROR
+[3116] y=  161:Y=   81 ERROR
+[3117] y=  158:Y=   78 ERROR
+[3118] y=  146:Y=   74 ERROR
+[3119] y=  130:Y=   61 ERROR
+[3120] y=  121:Y=   51 ERROR
+[3121] y=  130:Y=   59 ERROR
+[3122] y=  145:Y=  120 ERROR
+[3123] y=  173:Y=   59 ERROR
+[3124] y=  190:Y=   67 ERROR
+[3125] y=  194:Y=   60 ERROR
+[3126] y=  176:Y=   63 ERROR
+[3127] y=  144:Y=   60 ERROR
+[3128] y=  128:Y=   29 ERROR
+[3129] y=  129:Y=  111 ERROR
+[3130] y=  154:Y=  145 ERROR
+[3131] y=  181:Y=   89 ERROR
+[3132] y=  202:Y=   71 ERROR
+[3133] y=  209:Y=   81 ERROR
+[3134] y=  197:Y=  132 ERROR
+[3135] y=  170:Y=  101 ERROR
+[3136] y=  134:Y=  146 ERROR
+[3137] y=  104:Y=   73 ERROR
+[3138] y=   83:Y=   47 ERROR
+[3139] y=   71:Y=   37 ERROR
+[3140] y=   63:Y=   56 ERROR
+[3141] y=   61:Y=   66 ERROR
+[3142] y=   69:Y=  148 ERROR
+[3143] y=   76:Y=   79 ERROR
+[3144] y=   82:Y=   94 ERROR
+[3145] y=   80:Y=  164 ERROR
+[3146] y=   81:Y=   84 ERROR
+[3147] y=   83:Y=  163 ERROR
+[3148] y=   84:Y=   74 ERROR
+[3149] y=   88:Y=  168 ERROR
+[3150] y=   88:Y=   87 ERROR
+[3151] y=   97:Y=   71 ERROR
+[3152] y=  104:Y=  159 ERROR
+[3153] y=  110:Y=   60 ERROR
+[3154] y=  108:Y=   53 ERROR
+[3155] y=  101:Y=   49 ERROR
+[3156] y=   98:Y=   48 ERROR
+[3157] y=  100:Y=   55 ERROR
+[3158] y=  106:Y=   39 ERROR
+[3159] y=  111:Y=  101 ERROR
+[3160] y=  115:Y=   80 ERROR
+[3161] y=  121:Y=   52 ERROR
+[3162] y=  130:Y=   57 ERROR
+[3163] y=  133:Y=  132 ERROR
+[3164] y=  134:Y=  132 ERROR
+[3165] y=  122:Y=   88 ERROR
+[3166] y=  113:Y=   61 ERROR
+[3167] y=  102:Y=   92 ERROR
+[3168] y=  100:Y=  177 ERROR
+[3169] y=  101:Y=   76 ERROR
+[3170] y=   97:Y=  141 ERROR
+[3171] y=   92:Y=  105 ERROR
+[3172] y=   73:Y=   57 ERROR
+[3173] y=   53:Y=  112 ERROR
+[3174] y=   27:Y=   86 ERROR
+[3175] y=   11:Y=   64 ERROR
+[3176] y=   18:Y=  123 ERROR
+[3177] y=   52:Y=   46 ERROR
+[3178] y=  101:Y=   62 ERROR
+[3179] y=  140:Y=   52 ERROR
+[3180] y=  154:Y=   71 ERROR
+[3181] y=  147:Y=  151 ERROR
+[3182] y=  130:Y=   68 ERROR
+[3183] y=  121:Y=   81 ERROR
+[3184] y=  123:Y=   63 ERROR
+[3185] y=  137:Y=   70 ERROR
+[3186] y=  159:Y=   59 ERROR
+[3187] y=  173:Y=   71 ERROR
+[3188] y=  173:Y=   71 ERROR
+[3189] y=  153:Y=   83 ERROR
+[3190] y=  129:Y=   63 ERROR
+[3191] y=  117:Y=   47 ERROR
+[3192] y=  117:Y=  196 ERROR
+[3193] y=  121:Y=   72 ERROR
+[3194] y=  116:Y=   86 ERROR
+[3195] y=  100:Y=   92 ERROR
+[3196] y=   92:Y=   64 ERROR
+[3197] y=   91:Y=   88 ERROR
+[3198] y=  101:Y=   82 ERROR
+[3199] y=  116:Y=  102 ERROR
+[3200] y=  129:Y=   79 ERROR
+[3201] y=  146:Y=   72 ERROR
+[3202] y=  158:Y=   81 ERROR
+[3203] y=  172:Y=   79 ERROR
+[3204] y=  183:Y=  145 ERROR
+[3205] y=  187:Y=   50 ERROR
+[3206] y=  186:Y=   64 ERROR
+[3207] y=  170:Y=   69 ERROR
+[3208] y=  153:Y=   92 ERROR
+[3209] y=  144:Y=   66 ERROR
+[3210] y=  146:Y=   70 ERROR
+[3211] y=  161:Y=   28 ERROR
+[3212] y=  169:Y=  140 ERROR
+[3213] y=  168:Y=  115 ERROR
+[3214] y=  159:Y=   73 ERROR
+[3215] y=  147:Y=   62 ERROR
+[3216] y=  140:Y=   32 ERROR
+[3217] y=  135:Y=   43 ERROR
+[3218] y=  128:Y=   44 ERROR
+[3219] y=  122:Y=   60 ERROR
+[3220] y=  108:Y=   41 ERROR
+[3221] y=   88:Y=   54 ERROR
+[3222] y=   64:Y=   76 ERROR
+[3223] y=   45:Y=   90 ERROR
+[3224] y=   47:Y=   51 ERROR
+[3225] y=   62:Y=   55 ERROR
+[3226] y=   87:Y=   54 ERROR
+[3227] y=  101:Y=   22 ERROR
+[3228] y=  101:Y=   33 ERROR
+[3229] y=   96:Y=   27 ERROR
+[3230] y=   90:Y=   52 ERROR
+[3231] y=   90:Y=   10 ERROR
+[3232] y=   85:Y=   86 ERROR
+[3233] y=   76:Y=   42 ERROR
+[3234] y=   65:Y=   54 ERROR
+[3235] y=   69:Y=   42 ERROR
+[3236] y=   92:Y=   46 ERROR
+[3237] y=  131:Y=  218 ERROR
+[3238] y=  160:Y=   58 ERROR
+[3239] y=  165:Y=  162 ERROR
+[3240] y=  144:Y=   83 ERROR
+[3241] y=  108:Y=   78 ERROR
+[3242] y=   85:Y=  177 ERROR
+[3243] y=   83:Y=   91 ERROR
+[3244] y=  106:Y=  108 ERROR
+[3245] y=  137:Y=   85 ERROR
+[3246] y=  156:Y=   77 ERROR
+[3247] y=  157:Y=   64 ERROR
+[3248] y=  144:Y=   45 ERROR
+[3249] y=  136:Y=   19 ERROR
+[3250] y=  141:Y=   28 ERROR
+[3251] y=  158:Y=   35 ERROR
+[3252] y=  176:Y=  118 ERROR
+[3253] y=  183:Y=  134 ERROR
+[3254] y=  170:Y=   36 ERROR
+[3255] y=  140:Y=  123 ERROR
+[3256] y=  106:Y=   60 ERROR
+[3257] y=   80:Y=   70 ERROR
+[3258] y=   77:Y=   42 ERROR
+[3259] y=   86:Y=   48 ERROR
+[3260] y=  105:Y=   54 ERROR
+[3261] y=  114:Y=   56 ERROR
+[3262] y=  116:Y=   68 ERROR
+[3263] y=  115:Y=   91 ERROR
+[3264] y=  121:Y=   91 ERROR
+[3265] y=  142:Y=   86 ERROR
+[3266] y=  167:Y=   70 ERROR
+[3267] y=  189:Y=   89 ERROR
+[3268] y=  193:Y=   79 ERROR
+[3269] y=  184:Y=  152 ERROR
+[3270] y=  168:Y=  112 ERROR
+[3271] y=  149:Y=  105 ERROR
+[3272] y=  132:Y=   72 ERROR
+[3273] y=  114:Y=   69 ERROR
+[3274] y=   98:Y=   38 ERROR
+[3275] y=   90:Y=  122 ERROR
+[3276] y=   90:Y=   42 ERROR
+[3277] y=  104:Y=   47 ERROR
+[3278] y=  123:Y=   56 ERROR
+[3279] y=  144:Y=   87 ERROR
+[3280] y=  155:Y=  142 ERROR
+[3281] y=  155:Y=   67 ERROR
+[3282] y=  148:Y=  126 ERROR
+[3283] y=  139:Y=  104 ERROR
+[3284] y=  139:Y=  104 ERROR
+[3285] y=  145:Y=   73 ERROR
+[3286] y=  155:Y=   80 ERROR
+[3287] y=  158:Y=   66 ERROR
+[3288] y=  153:Y=   73 ERROR
+[3289] y=  140:Y=   68 ERROR
+[3290] y=  122:Y=   79 ERROR
+[3291] y=   98:Y=   60 ERROR
+[3292] y=   76:Y=  101 ERROR
+[3293] y=   64:Y=   97 ERROR
+[3294] y=   68:Y=   73 ERROR
+[3295] y=   86:Y=  153 ERROR
+[3296] y=   95:Y=   87 ERROR
+[3297] y=   90:Y=   90 OK
+[3298] y=   71:Y=   64 ERROR
+[3299] y=   53:Y=   88 ERROR
+[3300] y=   50:Y=   73 ERROR
+[3301] y=   55:Y=   71 ERROR
+[3302] y=   67:Y=   58 ERROR
+[3303] y=   77:Y=   67 ERROR
+[3304] y=   90:Y=   76 ERROR
+[3305] y=  111:Y=   80 ERROR
+[3306] y=  132:Y=   68 ERROR
+[3307] y=  148:Y=   77 ERROR
+[3308] y=  145:Y=   51 ERROR
+[3309] y=  128:Y=   52 ERROR
+[3310] y=  105:Y=   58 ERROR
+[3311] y=   89:Y=   51 ERROR
+[3312] y=   88:Y=   74 ERROR
+[3313] y=  100:Y=   70 ERROR
+[3314] y=  115:Y=   65 ERROR
+[3315] y=  122:Y=   67 ERROR
+[3316] y=  113:Y=   59 ERROR
+[3317] y=   99:Y=  106 ERROR
+[3318] y=   85:Y=    1 ERROR
+[3319] y=   83:Y=   52 ERROR
+[3320] y=   87:Y=   58 ERROR
+[3321] y=   90:Y=   58 ERROR
+[3322] y=   93:Y=   53 ERROR
+[3323] y=   92:Y=   63 ERROR
+[3324] y=  103:Y=   55 ERROR
+[3325] y=  116:Y=  117 ERROR
+[3326] y=  133:Y=   99 ERROR
+[3327] y=  135:Y=   92 ERROR
+[3328] y=  124:Y=  195 ERROR
+[3329] y=  102:Y=   31 ERROR
+[3330] y=   74:Y=   67 ERROR
+[3331] y=   58:Y=   55 ERROR
+[3332] y=   51:Y=   50 ERROR
+[3333] y=   67:Y=   46 ERROR
+[3334] y=   91:Y=   52 ERROR
+[3335] y=  121:Y=  128 ERROR
+[3336] y=  139:Y=   75 ERROR
+[3337] y=  145:Y=   35 ERROR
+[3338] y=  140:Y=   40 ERROR
+[3339] y=  126:Y=   69 ERROR
+[3340] y=  117:Y=  151 ERROR
+[3341] y=  111:Y=   66 ERROR
+[3342] y=  114:Y=   58 ERROR
+[3343] y=  115:Y=   74 ERROR
+[3344] y=  101:Y=   87 ERROR
+[3345] y=   75:Y=   65 ERROR
+[3346] y=   44:Y=  101 ERROR
+[3347] y=   28:Y=   71 ERROR
+[3348] y=   40:Y=   57 ERROR
+[3349] y=   72:Y=   81 ERROR
+[3350] y=  111:Y=   38 ERROR
+[3351] y=  132:Y=  106 ERROR
+[3352] y=  130:Y=   59 ERROR
+[3353] y=  111:Y=   60 ERROR
+[3354] y=   96:Y=   50 ERROR
+[3355] y=   98:Y=   42 ERROR
+[3356] y=  113:Y=   89 ERROR
+[3357] y=  128:Y=    0 ERROR
+[3358] y=  126:Y=   25 ERROR
+[3359] y=  111:Y=   37 ERROR
+[3360] y=   93:Y=   43 ERROR
+[3361] y=   92:Y=   90 ERROR
+[3362] y=  103:Y=   63 ERROR
+[3363] y=  119:Y=   43 ERROR
+[3364] y=  119:Y=   72 ERROR
+[3365] y=  103:Y=   10 ERROR
+[3366] y=   88:Y=   33 ERROR
+[3367] y=   91:Y=   79 ERROR
+[3368] y=  121:Y=   74 ERROR
+[3369] y=  155:Y=  134 ERROR
+[3370] y=  177:Y=   75 ERROR
+[3371] y=  170:Y=   71 ERROR
+[3372] y=  141:Y=   99 ERROR
+[3373] y=  103:Y=   81 ERROR
+[3374] y=   71:Y=  101 ERROR
+[3375] y=   53:Y=   46 ERROR
+[3376] y=   50:Y=  146 ERROR
+[3377] y=   52:Y=  106 ERROR
+[3378] y=   57:Y=   62 ERROR
+[3379] y=   60:Y=   98 ERROR
+[3380] y=   71:Y=  100 ERROR
+[3381] y=   93:Y=   75 ERROR
+[3382] y=  122:Y=   53 ERROR
+[3383] y=  154:Y=   58 ERROR
+[3384] y=  175:Y=   29 ERROR
+[3385] y=  183:Y=   83 ERROR
+[3386] y=  179:Y=  131 ERROR
+[3387] y=  160:Y=   61 ERROR
+[3388] y=  144:Y=   58 ERROR
+[3389] y=  132:Y=   75 ERROR
+[3390] y=  138:Y=   59 ERROR
+[3391] y=  157:Y=   14 ERROR
+[3392] y=  171:Y=  129 ERROR
+[3393] y=  178:Y=   83 ERROR
+[3394] y=  165:Y=   55 ERROR
+[3395] y=  157:Y=   45 ERROR
+[3396] y=  154:Y=   76 ERROR
+[3397] y=  160:Y=   78 ERROR
+[3398] y=  165:Y=   75 ERROR
+[3399] y=  159:Y=   73 ERROR
+[3400] y=  149:Y=   48 ERROR
+[3401] y=  139:Y=   60 ERROR
+[3402] y=  139:Y=   43 ERROR
+[3403] y=  148:Y=  196 ERROR
+[3404] y=  153:Y=  165 ERROR
+[3405] y=  149:Y=   89 ERROR
+[3406] y=  136:Y=   72 ERROR
+[3407] y=  126:Y=   73 ERROR
+[3408] y=  130:Y=   54 ERROR
+[3409] y=  142:Y=  139 ERROR
+[3410] y=  149:Y=   48 ERROR
+[3411] y=  144:Y=   56 ERROR
+[3412] y=  127:Y=   25 ERROR
+[3413] y=  114:Y=    6 ERROR
+[3414] y=  113:Y=  108 ERROR
+[3415] y=  123:Y=   76 ERROR
+[3416] y=  132:Y=   82 ERROR
+[3417] y=  127:Y=   21 ERROR
+[3418] y=  115:Y=   36 ERROR
+[3419] y=   99:Y=  117 ERROR
+[3420] y=   94:Y=   77 ERROR
+[3421] y=   96:Y=   68 ERROR
+[3422] y=  102:Y=   57 ERROR
+[3423] y=  109:Y=   53 ERROR
+[3424] y=  116:Y=   38 ERROR
+[3425] y=  123:Y=   60 ERROR
+[3426] y=  121:Y=   59 ERROR
+[3427] y=  106:Y=   74 ERROR
+[3428] y=   87:Y=   52 ERROR
+[3429] y=   74:Y=   50 ERROR
+[3430] y=   68:Y=   54 ERROR
+[3431] y=   74:Y=   46 ERROR
+[3432] y=   81:Y=   29 ERROR
+[3433] y=   92:Y=   39 ERROR
+[3434] y=  102:Y=   27 ERROR
+[3435] y=  109:Y=   45 ERROR
+[3436] y=  115:Y=   42 ERROR
+[3437] y=  115:Y=   35 ERROR
+[3438] y=  115:Y=   34 ERROR
+[3439] y=  105:Y=   52 ERROR
+[3440] y=   89:Y=   69 ERROR
+[3441] y=   74:Y=   79 ERROR
+[3442] y=   61:Y=   59 ERROR
+[3443] y=   64:Y=   46 ERROR
+[3444] y=   74:Y=   47 ERROR
+[3445] y=   94:Y=   64 ERROR
+[3446] y=  114:Y=   42 ERROR
+[3447] y=  125:Y=  127 ERROR
+[3448] y=  134:Y=  100 ERROR
+[3449] y=  136:Y=  122 ERROR
+[3450] y=  141:Y=  121 ERROR
+[3451] y=  133:Y=   84 ERROR
+[3452] y=  118:Y=   80 ERROR
+[3453] y=   99:Y=  168 ERROR
+[3454] y=   99:Y=   86 ERROR
+[3455] y=  118:Y=  157 ERROR
+[3456] y=  140:Y=   87 ERROR
+[3457] y=  150:Y=   76 ERROR
+[3458] y=  136:Y=  101 ERROR
+[3459] y=  121:Y=   83 ERROR
+[3460] y=  112:Y=   69 ERROR
+[3461] y=  120:Y=   57 ERROR
+[3462] y=  134:Y=   40 ERROR
+[3463] y=  148:Y=   49 ERROR
+[3464] y=  161:Y=  128 ERROR
+[3465] y=  174:Y=   77 ERROR
+[3466] y=  190:Y=   64 ERROR
+[3467] y=  199:Y=   70 ERROR
+[3468] y=  192:Y=   65 ERROR
+[3469] y=  170:Y=   55 ERROR
+[3470] y=  144:Y=   62 ERROR
+[3471] y=  132:Y=   42 ERROR
+[3472] y=  137:Y=   83 ERROR
+[3473] y=  150:Y=   89 ERROR
+[3474] y=  156:Y=   93 ERROR
+[3475] y=  151:Y=  219 ERROR
+[3476] y=  136:Y=   62 ERROR
+[3477] y=  124:Y=  162 ERROR
+[3478] y=  122:Y=   85 ERROR
+[3479] y=  132:Y=   57 ERROR
+[3480] y=  152:Y=  179 ERROR
+[3481] y=  166:Y=   69 ERROR
+[3482] y=  177:Y=   63 ERROR
+[3483] y=  180:Y=   46 ERROR
+[3484] y=  187:Y=   44 ERROR
+[3485] y=  196:Y=   69 ERROR
+[3486] y=  199:Y=   32 ERROR
+[3487] y=  196:Y=   37 ERROR
+[3488] y=  174:Y=  130 ERROR
+[3489] y=  148:Y=   42 ERROR
+[3490] y=  117:Y=   66 ERROR
+[3491] y=  100:Y=   49 ERROR
+[3492] y=   95:Y=   73 ERROR
+[3493] y=  105:Y=  135 ERROR
+[3494] y=  125:Y=   62 ERROR
+[3495] y=  140:Y=   41 ERROR
+[3496] y=  150:Y=   44 ERROR
+[3497] y=  144:Y=  137 ERROR
+[3498] y=  135:Y=   24 ERROR
+[3499] y=  123:Y=   49 ERROR
+[3500] y=  116:Y=   91 ERROR
+[3501] y=  109:Y=   82 ERROR
+[3502] y=  101:Y=  106 ERROR
+[3503] y=   96:Y=   69 ERROR
+[3504] y=  102:Y=   87 ERROR
+[3505] y=  126:Y=   68 ERROR
+[3506] y=  156:Y=   52 ERROR
+[3507] y=  182:Y=   52 ERROR
+[3508] y=  184:Y=   33 ERROR
+[3509] y=  164:Y=   43 ERROR
+[3510] y=  133:Y=   59 ERROR
+[3511] y=  106:Y=   56 ERROR
+[3512] y=   97:Y=   58 ERROR
+[3513] y=   94:Y=   70 ERROR
+[3514] y=   90:Y=   93 ERROR
+[3515] y=   82:Y=   88 ERROR
+[3516] y=   80:Y=   60 ERROR
+[3517] y=   95:Y=   85 ERROR
+[3518] y=  120:Y=   64 ERROR
+[3519] y=  144:Y=   57 ERROR
+[3520] y=  155:Y=   61 ERROR
+[3521] y=  156:Y=   82 ERROR
+[3522] y=  149:Y=   68 ERROR
+[3523] y=  147:Y=   82 ERROR
+[3524] y=  148:Y=   70 ERROR
+[3525] y=  153:Y=   54 ERROR
+[3526] y=  149:Y=   62 ERROR
+[3527] y=  129:Y=   76 ERROR
+[3528] y=   98:Y=   67 ERROR
+[3529] y=   66:Y=   81 ERROR
+[3530] y=   54:Y=   70 ERROR
+[3531] y=   62:Y=   55 ERROR
+[3532] y=   87:Y=   51 ERROR
+[3533] y=  107:Y=   74 ERROR
+[3534] y=  114:Y=   61 ERROR
+[3535] y=  111:Y=   44 ERROR
+[3536] y=  102:Y=   62 ERROR
+[3537] y=   98:Y=   69 ERROR
+[3538] y=   85:Y=   55 ERROR
+[3539] y=   70:Y=  120 ERROR
+[3540] y=   54:Y=   99 ERROR
+[3541] y=   53:Y=   59 ERROR
+[3542] y=   69:Y=   59 ERROR
+[3543] y=   92:Y=   67 ERROR
+[3544] y=  116:Y=   37 ERROR
+[3545] y=  135:Y=  107 ERROR
+[3546] y=  156:Y=   78 ERROR
+[3547] y=  172:Y=  109 ERROR
+[3548] y=  186:Y=   93 ERROR
+[3549] y=  187:Y=   73 ERROR
+[3550] y=  186:Y=  132 ERROR
+[3551] y=  177:Y=   88 ERROR
+[3552] y=  163:Y=   90 ERROR
+[3553] y=  149:Y=   66 ERROR
+[3554] y=  141:Y=  148 ERROR
+[3555] y=  143:Y=  147 ERROR
+[3556] y=  147:Y=   63 ERROR
+[3557] y=  143:Y=  124 ERROR
+[3558] y=  124:Y=   44 ERROR
+[3559] y=   96:Y=  138 ERROR
+[3560] y=   75:Y=   98 ERROR
+[3561] y=   75:Y=  175 ERROR
+[3562] y=  101:Y=  145 ERROR
+[3563] y=  141:Y=   84 ERROR
+[3564] y=  170:Y=   47 ERROR
+[3565] y=  171:Y=  158 ERROR
+[3566] y=  143:Y=  115 ERROR
+[3567] y=  105:Y=   63 ERROR
+[3568] y=   75:Y=   49 ERROR
+[3569] y=   66:Y=   32 ERROR
+[3570] y=   73:Y=   54 ERROR
+[3571] y=   88:Y=   70 ERROR
+[3572] y=  101:Y=   77 ERROR
+[3573] y=  111:Y=   77 ERROR
+[3574] y=  116:Y=  113 ERROR
+[3575] y=  126:Y=   53 ERROR
+[3576] y=  137:Y=  124 ERROR
+[3577] y=  141:Y=   59 ERROR
+[3578] y=  139:Y=   82 ERROR
+[3579] y=  134:Y=   56 ERROR
+[3580] y=  142:Y=   72 ERROR
+[3581] y=  154:Y=   46 ERROR
+[3582] y=  166:Y=   37 ERROR
+[3583] y=  174:Y=   59 ERROR
+[3584] y=  172:Y=   74 ERROR
+[3585] y=  171:Y=   67 ERROR
+[3586] y=  153:Y=   80 ERROR
+[3587] y=  131:Y=   62 ERROR
+[3588] y=  111:Y=   60 ERROR
+[3589] y=  105:Y=   46 ERROR
+[3590] y=  111:Y=   39 ERROR
+[3591] y=  113:Y=  122 ERROR
+[3592] y=  112:Y=   28 ERROR
+[3593] y=  106:Y=   43 ERROR
+[3594] y=  115:Y=   32 ERROR
+[3595] y=  131:Y=   42 ERROR
+[3596] y=  152:Y=   58 ERROR
+[3597] y=  162:Y=   49 ERROR
+[3598] y=  152:Y=   51 ERROR
+[3599] y=  128:Y=   55 ERROR
+[3600] y=  101:Y=   55 ERROR
+[3601] y=   99:Y=   36 ERROR
+[3602] y=  123:Y=   59 ERROR
+[3603] y=  163:Y=   29 ERROR
+[3604] y=  192:Y=   36 ERROR
+[3605] y=  199:Y=   28 ERROR
+[3606] y=  191:Y=   10 ERROR
+[3607] y=  173:Y=   22 ERROR
+[3608] y=  160:Y=   72 ERROR
+[3609] y=  144:Y=   69 ERROR
+[3610] y=  135:Y=   96 ERROR
+[3611] y=  127:Y=  114 ERROR
+[3612] y=  119:Y=   96 ERROR
+[3613] y=  110:Y=   46 ERROR
+[3614] y=   99:Y=   34 ERROR
+[3615] y=   98:Y=   27 ERROR
+[3616] y=   98:Y=   72 ERROR
+[3617] y=  100:Y=   31 ERROR
+[3618] y=   96:Y=   86 ERROR
+[3619] y=   91:Y=   82 ERROR
+[3620] y=   95:Y=   39 ERROR
+[3621] y=  106:Y=   44 ERROR
+[3622] y=  116:Y=   67 ERROR
+[3623] y=  110:Y=   72 ERROR
+[3624] y=   89:Y=   64 ERROR
+[3625] y=   61:Y=   30 ERROR
+[3626] y=   38:Y=   33 ERROR
+[3627] y=   24:Y=  145 ERROR
+[3628] y=   26:Y=   77 ERROR
+[3629] y=   39:Y=  137 ERROR
+[3630] y=   61:Y=   43 ERROR
+[3631] y=   77:Y=   55 ERROR
+[3632] y=   82:Y=   28 ERROR
+[3633] y=   80:Y=   65 ERROR
+[3634] y=   76:Y=  106 ERROR
+[3635] y=   75:Y=   12 ERROR
+[3636] y=   76:Y=   63 ERROR
+[3637] y=   83:Y=   24 ERROR
+[3638] y=   98:Y=   48 ERROR
+[3639] y=  113:Y=  114 ERROR
+[3640] y=  128:Y=   22 ERROR
+[3641] y=  136:Y=    6 ERROR
+[3642] y=  143:Y=   42 ERROR
+[3643] y=  145:Y=   71 ERROR
+[3644] y=  138:Y=   27 ERROR
+[3645] y=  126:Y=   30 ERROR
+[3646] y=  110:Y=   47 ERROR
+[3647] y=  102:Y=   29 ERROR
+[3648] y=  102:Y=    3 ERROR
+[3649] y=  113:Y=   45 ERROR
+[3650] y=  126:Y=   57 ERROR
+[3651] y=  140:Y=   57 ERROR
+[3652] y=  146:Y=   49 ERROR
+[3653] y=  146:Y=   18 ERROR
+[3654] y=  139:Y=  171 ERROR
+[3655] y=  126:Y=   40 ERROR
+[3656] y=  121:Y=   79 ERROR
+[3657] y=  123:Y=   50 ERROR
+[3658] y=  136:Y=  171 ERROR
+[3659] y=  142:Y=    2 ERROR
+[3660] y=  130:Y=  124 ERROR
+[3661] y=  103:Y=   81 ERROR
+[3662] y=   73:Y=   69 ERROR
+[3663] y=   64:Y=   37 ERROR
+[3664] y=   79:Y=   21 ERROR
+[3665] y=  112:Y=   31 ERROR
+[3666] y=  144:Y=   38 ERROR
+[3667] y=  159:Y=  110 ERROR
+[3668] y=  161:Y=   29 ERROR
+[3669] y=  157:Y=   20 ERROR
+[3670] y=  150:Y=   56 ERROR
+[3671] y=  140:Y=   42 ERROR
+[3672] y=  124:Y=    3 ERROR
+[3673] y=  107:Y=   18 ERROR
+[3674] y=  102:Y=   65 ERROR
+[3675] y=  113:Y=   67 ERROR
+[3676] y=  139:Y=   37 ERROR
+[3677] y=  160:Y=    6 ERROR
+[3678] y=  164:Y=   19 ERROR
+[3679] y=  155:Y=   70 ERROR
+[3680] y=  138:Y=   81 ERROR
+[3681] y=  129:Y=   49 ERROR
+[3682] y=  121:Y=   30 ERROR
+[3683] y=  115:Y=   64 ERROR
+[3684] y=  111:Y=   63 ERROR
+[3685] y=  112:Y=   40 ERROR
+[3686] y=  116:Y=  137 ERROR
+[3687] y=  118:Y=   97 ERROR
+[3688] y=  115:Y=   98 ERROR
+[3689] y=  113:Y=   82 ERROR
+[3690] y=  115:Y=   35 ERROR
+[3691] y=  118:Y=   29 ERROR
+[3692] y=  124:Y=   27 ERROR
+[3693] y=  123:Y=   64 ERROR
+[3694] y=  120:Y=   56 ERROR
+[3695] y=  107:Y=   20 ERROR
+[3696] y=   92:Y=   33 ERROR
+[3697] y=   84:Y=   42 ERROR
+[3698] y=   84:Y=   38 ERROR
+[3699] y=   91:Y=  111 ERROR
+[3700] y=   93:Y=    1 ERROR
+[3701] y=   91:Y=    5 ERROR
+[3702] y=   87:Y=   51 ERROR
+[3703] y=   88:Y=   70 ERROR
+[3704] y=   91:Y=   65 ERROR
+[3705] y=   91:Y=   72 ERROR
+[3706] y=   84:Y=   84 OK
+[3707] y=   75:Y=   44 ERROR
+[3708] y=   69:Y=   33 ERROR
+[3709] y=   75:Y=   79 ERROR
+[3710] y=   95:Y=   34 ERROR
+[3711] y=  121:Y=   39 ERROR
+[3712] y=  139:Y=  128 ERROR
+[3713] y=  133:Y=   73 ERROR
+[3714] y=  108:Y=   84 ERROR
+[3715] y=   86:Y=   49 ERROR
+[3716] y=   87:Y=    3 ERROR
+[3717] y=  117:Y=   37 ERROR
+[3718] y=  155:Y=   65 ERROR
+[3719] y=  182:Y=   69 ERROR
+[3720] y=  179:Y=   58 ERROR
+[3721] y=  147:Y=   57 ERROR
+[3722] y=  104:Y=   61 ERROR
+[3723] y=   70:Y=   66 ERROR
+[3724] y=   72:Y=  205 ERROR
+[3725] y=   95:Y=   91 ERROR
+[3726] y=  127:Y=   70 ERROR
+[3727] y=  145:Y=  110 ERROR
+[3728] y=  141:Y=  119 ERROR
+[3729] y=  126:Y=   85 ERROR
+[3730] y=  104:Y=   62 ERROR
+[3731] y=   89:Y=   86 ERROR
+[3732] y=   78:Y=   76 ERROR
+[3733] y=   68:Y=  145 ERROR
+[3734] y=   52:Y=   49 ERROR
+[3735] y=   37:Y=   57 ERROR
+[3736] y=   33:Y=   30 ERROR
+[3737] y=   46:Y=  108 ERROR
+[3738] y=   72:Y=   49 ERROR
+[3739] y=   99:Y=   52 ERROR
+[3740] y=  115:Y=   75 ERROR
+[3741] y=  116:Y=   68 ERROR
+[3742] y=  111:Y=   72 ERROR
+[3743] y=  106:Y=   91 ERROR
+[3744] y=  107:Y=   72 ERROR
+[3745] y=  114:Y=   94 ERROR
+[3746] y=  120:Y=   73 ERROR
+[3747] y=  128:Y=   67 ERROR
+[3748] y=  135:Y=   55 ERROR
+[3749] y=  135:Y=   39 ERROR
+[3750] y=  128:Y=   36 ERROR
+[3751] y=  113:Y=   32 ERROR
+[3752] y=  108:Y=   59 ERROR
+[3753] y=  114:Y=   53 ERROR
+[3754] y=  124:Y=  140 ERROR
+[3755] y=  126:Y=   60 ERROR
+[3756] y=  116:Y=   58 ERROR
+[3757] y=   99:Y=   55 ERROR
+[3758] y=   89:Y=  157 ERROR
+[3759] y=   84:Y=   93 ERROR
+[3760] y=   85:Y=   70 ERROR
+[3761] y=   83:Y=   78 ERROR
+[3762] y=   77:Y=   62 ERROR
+[3763] y=   72:Y=   75 ERROR
+[3764] y=   66:Y=   66 OK
+[3765] y=   74:Y=   78 ERROR
+[3766] y=   88:Y=   78 ERROR
+[3767] y=  111:Y=   66 ERROR
+[3768] y=  130:Y=   56 ERROR
+[3769] y=  135:Y=   61 ERROR
+[3770] y=  134:Y=   62 ERROR
+[3771] y=  120:Y=   38 ERROR
+[3772] y=  112:Y=   96 ERROR
+[3773] y=  107:Y=   60 ERROR
+[3774] y=  110:Y=   62 ERROR
+[3775] y=  123:Y=   70 ERROR
+[3776] y=  128:Y=   70 ERROR
+[3777] y=  131:Y=   94 ERROR
+[3778] y=  118:Y=  104 ERROR
+[3779] y=  111:Y=   94 ERROR
+[3780] y=  113:Y=   87 ERROR
+[3781] y=  123:Y=  101 ERROR
+[3782] y=  133:Y=   93 ERROR
+[3783] y=  125:Y=  149 ERROR
+[3784] y=  107:Y=   57 ERROR
+[3785] y=   90:Y=   62 ERROR
+[3786] y=   86:Y=   72 ERROR
+[3787] y=   95:Y=   48 ERROR
+[3788] y=  104:Y=  143 ERROR
+[3789] y=  108:Y=    4 ERROR
+[3790] y=  111:Y=   11 ERROR
+[3791] y=  122:Y=   33 ERROR
+[3792] y=  146:Y=   56 ERROR
+[3793] y=  179:Y=   41 ERROR
+[3794] y=  205:Y=   61 ERROR
+[3795] y=  216:Y=  144 ERROR
+[3796] y=  197:Y=   70 ERROR
+[3797] y=  156:Y=  169 ERROR
+[3798] y=  105:Y=   37 ERROR
+[3799] y=   60:Y=   22 ERROR
+[3800] y=   38:Y=   28 ERROR
+[3801] y=   37:Y=  115 ERROR
+[3802] y=   56:Y=  136 ERROR
+[3803] y=   79:Y=   52 ERROR
+[3804] y=   93:Y=   49 ERROR
+[3805] y=   93:Y=   55 ERROR
+[3806] y=   87:Y=   51 ERROR
+[3807] y=   89:Y=   44 ERROR
+[3808] y=   99:Y=   55 ERROR
+[3809] y=  106:Y=   61 ERROR
+[3810] y=  104:Y=   33 ERROR
+[3811] y=  103:Y=   10 ERROR
+[3812] y=  110:Y=   64 ERROR
+[3813] y=  123:Y=   34 ERROR
+[3814] y=  128:Y=   34 ERROR
+[3815] y=  124:Y=   68 ERROR
+[3816] y=  124:Y=   75 ERROR
+[3817] y=  128:Y=   70 ERROR
+[3818] y=  133:Y=   58 ERROR
+[3819] y=  117:Y=   67 ERROR
+[3820] y=   86:Y=   69 ERROR
+[3821] y=   58:Y=   50 ERROR
+[3822] y=   47:Y=   51 ERROR
+[3823] y=   63:Y=   60 ERROR
+[3824] y=   88:Y=  113 ERROR
+[3825] y=  120:Y=  118 ERROR
+[3826] y=  141:Y=   53 ERROR
+[3827] y=  151:Y=   53 ERROR
+[3828] y=  154:Y=  117 ERROR
+[3829] y=  155:Y=   49 ERROR
+[3830] y=  158:Y=   37 ERROR
+[3831] y=  152:Y=  170 ERROR
+[3832] y=  136:Y=   59 ERROR
+[3833] y=  110:Y=   71 ERROR
+[3834] y=   91:Y=   61 ERROR
+[3835] y=   85:Y=   76 ERROR
+[3836] y=   91:Y=   43 ERROR
+[3837] y=   96:Y=  134 ERROR
+[3838] y=   94:Y=   65 ERROR
+[3839] y=   84:Y=   32 ERROR
+[3840] y=   80:Y=  104 ERROR
+[3841] y=   87:Y=   70 ERROR
+[3842] y=  104:Y=   76 ERROR
+[3843] y=  123:Y=   41 ERROR
+[3844] y=  128:Y=   36 ERROR
+[3845] y=  132:Y=  171 ERROR
+[3846] y=  137:Y=  136 ERROR
+[3847] y=  148:Y=   25 ERROR
+[3848] y=  156:Y=  104 ERROR
+[3849] y=  151:Y=   55 ERROR
+[3850] y=  145:Y=   55 ERROR
+[3851] y=  141:Y=   87 ERROR
+[3852] y=  147:Y=  123 ERROR
+[3853] y=  147:Y=   59 ERROR
+[3854] y=  133:Y=   16 ERROR
+[3855] y=  104:Y=   21 ERROR
+[3856] y=   77:Y=  130 ERROR
+[3857] y=   66:Y=   43 ERROR
+[3858] y=   72:Y=   22 ERROR
+[3859] y=   88:Y=    8 ERROR
+[3860] y=   95:Y=   19 ERROR
+[3861] y=   98:Y=   67 ERROR
+[3862] y=   96:Y=   50 ERROR
+[3863] y=  104:Y=   61 ERROR
+[3864] y=  124:Y=   72 ERROR
+[3865] y=  141:Y=   47 ERROR
+[3866] y=  150:Y=   49 ERROR
+[3867] y=  138:Y=   65 ERROR
+[3868] y=  126:Y=  102 ERROR
+[3869] y=  124:Y=   86 ERROR
+[3870] y=  132:Y=   55 ERROR
+[3871] y=  142:Y=   55 ERROR
+[3872] y=  130:Y=  111 ERROR
+[3873] y=  105:Y=   36 ERROR
+[3874] y=   78:Y=   24 ERROR
+[3875] y=   69:Y=  111 ERROR
+[3876] y=   84:Y=   42 ERROR
+[3877] y=  110:Y=   38 ERROR
+[3878] y=  134:Y=   72 ERROR
+[3879] y=  146:Y=   55 ERROR
+[3880] y=  152:Y=   40 ERROR
+[3881] y=  155:Y=   90 ERROR
+[3882] y=  155:Y=   58 ERROR
+[3883] y=  147:Y=   38 ERROR
+[3884] y=  135:Y=   22 ERROR
+[3885] y=  118:Y=   55 ERROR
+[3886] y=  105:Y=   68 ERROR
+[3887] y=  100:Y=   50 ERROR
+[3888] y=   97:Y=   63 ERROR
+[3889] y=   99:Y=   58 ERROR
+[3890] y=   92:Y=   28 ERROR
+[3891] y=   86:Y=   90 ERROR
+[3892] y=   76:Y=   63 ERROR
+[3893] y=   67:Y=   48 ERROR
+[3894] y=   64:Y=   51 ERROR
+[3895] y=   61:Y=   39 ERROR
+[3896] y=   69:Y=   54 ERROR
+[3897] y=   74:Y=   47 ERROR
+[3898] y=   77:Y=  124 ERROR
+[3899] y=   75:Y=   19 ERROR
+[3900] y=   66:Y=   23 ERROR
+[3901] y=   59:Y=   37 ERROR
+[3902] y=   52:Y=  126 ERROR
+[3903] y=   53:Y=   36 ERROR
+[3904] y=   62:Y=   55 ERROR
+[3905] y=   74:Y=   57 ERROR
+[3906] y=   91:Y=   72 ERROR
+[3907] y=  103:Y=  182 ERROR
+[3908] y=  107:Y=  139 ERROR
+[3909] y=  103:Y=  186 ERROR
+[3910] y=   92:Y=   79 ERROR
+[3911] y=   90:Y=   76 ERROR
+[3912] y=   93:Y=   22 ERROR
+[3913] y=   95:Y=   11 ERROR
+[3914] y=   87:Y=    9 ERROR
+[3915] y=   71:Y=   43 ERROR
+[3916] y=   73:Y=   33 ERROR
+[3917] y=   98:Y=    8 ERROR
+[3918] y=  143:Y=   96 ERROR
+[3919] y=  185:Y=  146 ERROR
+[3920] y=  200:Y=   44 ERROR
+[3921] y=  194:Y=   21 ERROR
+[3922] y=  166:Y=   26 ERROR
+[3923] y=  142:Y=   28 ERROR
+[3924] y=  124:Y=   39 ERROR
+[3925] y=  119:Y=   41 ERROR
+[3926] y=  121:Y=   22 ERROR
+[3927] y=  124:Y=  161 ERROR
+[3928] y=  124:Y=   61 ERROR
+[3929] y=  113:Y=   69 ERROR
+[3930] y=   99:Y=   40 ERROR
+[3931] y=   82:Y=   58 ERROR
+[3932] y=   73:Y=  140 ERROR
+[3933] y=   70:Y=   60 ERROR
+[3934] y=   82:Y=   65 ERROR
+[3935] y=   99:Y=   45 ERROR
+[3936] y=  115:Y=  183 ERROR
+[3937] y=  121:Y=   68 ERROR
+[3938] y=  114:Y=   82 ERROR
+[3939] y=  106:Y=   11 ERROR
+[3940] y=  100:Y=   27 ERROR
+[3941] y=  107:Y=   50 ERROR
+[3942] y=  120:Y=   76 ERROR
+[3943] y=  129:Y=  153 ERROR
+[3944] y=  131:Y=   76 ERROR
+[3945] y=  118:Y=   67 ERROR
+[3946] y=  114:Y=   39 ERROR
+[3947] y=  116:Y=   46 ERROR
+[3948] y=  129:Y=  128 ERROR
+[3949] y=  137:Y=    3 ERROR
+[3950] y=  128:Y=   11 ERROR
+[3951] y=  115:Y=   34 ERROR
+[3952] y=  101:Y=   42 ERROR
+[3953] y=   98:Y=   30 ERROR
+[3954] y=   97:Y=   44 ERROR
+[3955] y=   97:Y=   45 ERROR
+[3956] y=   96:Y=   50 ERROR
+[3957] y=  102:Y=   28 ERROR
+[3958] y=  117:Y=   74 ERROR
+[3959] y=  139:Y=   61 ERROR
+[3960] y=  161:Y=  132 ERROR
+[3961] y=  173:Y=   82 ERROR
+[3962] y=  173:Y=   58 ERROR
+[3963] y=  159:Y=   51 ERROR
+[3964] y=  139:Y=   18 ERROR
+[3965] y=  122:Y=   26 ERROR
+[3966] y=  117:Y=   49 ERROR
+[3967] y=  118:Y=   32 ERROR
+[3968] y=  117:Y=   19 ERROR
+[3969] y=  110:Y=   30 ERROR
+[3970] y=  104:Y=   54 ERROR
+[3971] y=  109:Y=  123 ERROR
+[3972] y=  130:Y=   51 ERROR
+[3973] y=  154:Y=   91 ERROR
+[3974] y=  173:Y=   73 ERROR
+[3975] y=  178:Y=  158 ERROR
+[3976] y=  171:Y=   55 ERROR
+[3977] y=  161:Y=   89 ERROR
+[3978] y=  147:Y=   83 ERROR
+[3979] y=  134:Y=   71 ERROR
+[3980] y=  122:Y=   67 ERROR
+[3981] y=  118:Y=   72 ERROR
+[3982] y=  121:Y=  134 ERROR
+[3983] y=  121:Y=   73 ERROR
+[3984] y=  111:Y=   77 ERROR
+[3985] y=   92:Y=   64 ERROR
+[3986] y=   76:Y=  126 ERROR
+[3987] y=   71:Y=    3 ERROR
+[3988] y=   74:Y=   20 ERROR
+[3989] y=   73:Y=   43 ERROR
+[3990] y=   72:Y=   66 ERROR
+[3991] y=   71:Y=   47 ERROR
+[3992] y=   86:Y=   51 ERROR
+[3993] y=  112:Y=   81 ERROR
+[3994] y=  145:Y=  114 ERROR
+[3995] y=  172:Y=  118 ERROR
+[3996] y=  180:Y=   56 ERROR
+[3997] y=  176:Y=   44 ERROR
+[3998] y=  162:Y=   47 ERROR
+[3999] y=  156:Y=   86 ERROR
+[4000] y=  153:Y=   19 ERROR
+[4001] y=  147:Y=   68 ERROR
+[4002] y=  129:Y=   44 ERROR
+[4003] y=  104:Y=   20 ERROR
+[4004] y=   83:Y=  135 ERROR
+[4005] y=   82:Y=   42 ERROR
+[4006] y=  106:Y=   35 ERROR
+[4007] y=  143:Y=   35 ERROR
+[4008] y=  174:Y=   46 ERROR
+[4009] y=  172:Y=   76 ERROR
+[4010] y=  148:Y=   59 ERROR
+[4011] y=  113:Y=   62 ERROR
+[4012] y=   94:Y=   31 ERROR
+[4013] y=   96:Y=   27 ERROR
+[4014] y=  107:Y=   84 ERROR
+[4015] y=  125:Y=   96 ERROR
+[4016] y=  133:Y=  173 ERROR
+[4017] y=  140:Y=   88 ERROR
+[4018] y=  139:Y=   73 ERROR
+[4019] y=  138:Y=  139 ERROR
+[4020] y=  141:Y=  155 ERROR
+[4021] y=  143:Y=  133 ERROR
+[4022] y=  150:Y=  142 ERROR
+[4023] y=  156:Y=   84 ERROR
+[4024] y=  165:Y=   47 ERROR
+[4025] y=  173:Y=   76 ERROR
+[4026] y=  173:Y=  176 ERROR
+[4027] y=  163:Y=  105 ERROR
+[4028] y=  142:Y=   68 ERROR
+[4029] y=  113:Y=   74 ERROR
+[4030] y=   89:Y=  206 ERROR
+[4031] y=   75:Y=  132 ERROR
+[4032] y=   83:Y=   59 ERROR
+[4033] y=  112:Y=   60 ERROR
+[4034] y=  149:Y=   63 ERROR
+[4035] y=  188:Y=  125 ERROR
+[4036] y=  210:Y=   66 ERROR
+[4037] y=  219:Y=   62 ERROR
+[4038] y=  210:Y=   33 ERROR
+[4039] y=  191:Y=   90 ERROR
+[4040] y=  161:Y=   62 ERROR
+[4041] y=  122:Y=   79 ERROR
+[4042] y=   90:Y=   80 ERROR
+[4043] y=   67:Y=   52 ERROR
+[4044] y=   70:Y=   17 ERROR
+[4045] y=   84:Y=   37 ERROR
+[4046] y=  107:Y=   93 ERROR
+[4047] y=  123:Y=   67 ERROR
+[4048] y=  126:Y=  120 ERROR
+[4049] y=  117:Y=   91 ERROR
+[4050] y=   95:Y=  100 ERROR
+[4051] y=   86:Y=   63 ERROR
+[4052] y=   84:Y=  151 ERROR
+[4053] y=  100:Y=   84 ERROR
+[4054] y=  114:Y=   54 ERROR
+[4055] y=  121:Y=  165 ERROR
+[4056] y=  126:Y=   65 ERROR
+[4057] y=  125:Y=   60 ERROR
+[4058] y=  129:Y=  136 ERROR
+[4059] y=  126:Y=   69 ERROR
+[4060] y=  131:Y=   63 ERROR
+[4061] y=  142:Y=  153 ERROR
+[4062] y=  155:Y=   70 ERROR
+[4063] y=  157:Y=   76 ERROR
+[4064] y=  144:Y=   81 ERROR
+[4065] y=  128:Y=   93 ERROR
+[4066] y=  117:Y=  152 ERROR
+[4067] y=  113:Y=   63 ERROR
+[4068] y=  107:Y=   70 ERROR
+[4069] y=   97:Y=   86 ERROR
+[4070] y=   86:Y=   59 ERROR
+[4071] y=   80:Y=   61 ERROR
+[4072] y=   80:Y=   65 ERROR
+[4073] y=   88:Y=   34 ERROR
+[4074] y=  104:Y=  135 ERROR
+[4075] y=  124:Y=   71 ERROR
+[4076] y=  140:Y=   73 ERROR
+[4077] y=  136:Y=  100 ERROR
+[4078] y=  116:Y=    4 ERROR
+[4079] y=   87:Y=  115 ERROR
+[4080] y=   75:Y=   67 ERROR
+[4081] y=   80:Y=   65 ERROR
+[4082] y=   93:Y=   56 ERROR
+[4083] y=  103:Y=  114 ERROR
+[4084] y=   97:Y=   24 ERROR
+[4085] y=   95:Y=   63 ERROR
+[4086] y=   93:Y=   84 ERROR
+[4087] y=   98:Y=   54 ERROR
+[4088] y=   98:Y=  144 ERROR
+[4089] y=   88:Y=   67 ERROR
+[4090] y=   78:Y=   77 ERROR
+[4091] y=   76:Y=   19 ERROR
+[4092] y=   87:Y=   12 ERROR
+[4093] y=  107:Y=   38 ERROR
+[4094] y=  127:Y=   45 ERROR
+[4095] y=  140:Y=   37 ERROR
+[4096] y=  138:Y=   28 ERROR
+[4097] y=  121:Y=   51 ERROR
+[4098] y=   94:Y=   78 ERROR
+[4099] y=   69:Y=   36 ERROR
+[4100] y=   50:Y=  171 ERROR
+[4101] y=   41:Y=  101 ERROR
+[4102] y=   43:Y=   86 ERROR
+[4103] y=   56:Y=   34 ERROR
+[4104] y=   78:Y=   47 ERROR
+[4105] y=   99:Y=   90 ERROR
+[4106] y=  117:Y=   84 ERROR
+[4107] y=  126:Y=   41 ERROR
+[4108] y=  131:Y=   36 ERROR
+[4109] y=  126:Y=   57 ERROR
+[4110] y=  119:Y=   77 ERROR
+[4111] y=  116:Y=   73 ERROR
+[4112] y=  123:Y=   43 ERROR
+[4113] y=  142:Y=  118 ERROR
+[4114] y=  159:Y=   58 ERROR
+[4115] y=  167:Y=   30 ERROR
+[4116] y=  161:Y=   33 ERROR
+[4117] y=  146:Y=   29 ERROR
+[4118] y=  137:Y=   59 ERROR
+[4119] y=  127:Y=   34 ERROR
+[4120] y=  118:Y=    2 ERROR
+[4121] y=  104:Y=   35 ERROR
+[4122] y=   94:Y=   58 ERROR
+[4123] y=   96:Y=  128 ERROR
+[4124] y=  109:Y=  101 ERROR
+[4125] y=  122:Y=   16 ERROR
+[4126] y=  130:Y=  106 ERROR
+[4127] y=  140:Y=  145 ERROR
+[4128] y=  157:Y=   66 ERROR
+[4129] y=  182:Y=   63 ERROR
+[4130] y=  198:Y=   47 ERROR
+[4131] y=  211:Y=   49 ERROR
+[4132] y=  210:Y=   37 ERROR
+[4133] y=  201:Y=   36 ERROR
+[4134] y=  176:Y=   53 ERROR
+[4135] y=  146:Y=   79 ERROR
+[4136] y=  125:Y=   79 ERROR
+[4137] y=  123:Y=   69 ERROR
+[4138] y=  139:Y=   89 ERROR
+[4139] y=  154:Y=   89 ERROR
+[4140] y=  157:Y=  168 ERROR
+[4141] y=  141:Y=   50 ERROR
+[4142] y=  121:Y=   33 ERROR
+[4143] y=  103:Y=   74 ERROR
+[4144] y=   99:Y=   72 ERROR
+[4145] y=   94:Y=   57 ERROR
+[4146] y=   84:Y=   35 ERROR
+[4147] y=   67:Y=   21 ERROR
+[4148] y=   54:Y=   20 ERROR
+[4149] y=   55:Y=   23 ERROR
+[4150] y=   60:Y=   33 ERROR
+[4151] y=   68:Y=   45 ERROR
+[4152] y=   73:Y=  130 ERROR
+[4153] y=   83:Y=   67 ERROR
+[4154] y=  102:Y=   52 ERROR
+[4155] y=  124:Y=   21 ERROR
+[4156] y=  144:Y=   20 ERROR
+[4157] y=  151:Y=  132 ERROR
+[4158] y=  149:Y=   67 ERROR
+[4159] y=  138:Y=   33 ERROR
+[4160] y=  115:Y=   59 ERROR
+[4161] y=   94:Y=   46 ERROR
+[4162] y=   83:Y=   56 ERROR
+[4163] y=   98:Y=   70 ERROR
+[4164] y=  128:Y=   75 ERROR
+[4165] y=  151:Y=  154 ERROR
+[4166] y=  153:Y=   67 ERROR
+[4167] y=  133:Y=  157 ERROR
+[4168] y=  111:Y=   62 ERROR
+[4169] y=   94:Y=   60 ERROR
+[4170] y=   88:Y=   52 ERROR
+[4171] y=   85:Y=   11 ERROR
+[4172] y=   88:Y=   85 ERROR
+[4173] y=   92:Y=   52 ERROR
+[4174] y=   95:Y=   34 ERROR
+[4175] y=   98:Y=   10 ERROR
+[4176] y=  104:Y=   47 ERROR
+[4177] y=  125:Y=   46 ERROR
+[4178] y=  154:Y=   54 ERROR
+[4179] y=  183:Y=   74 ERROR
+[4180] y=  187:Y=   76 ERROR
+[4181] y=  165:Y=   87 ERROR
+[4182] y=  127:Y=   61 ERROR
+[4183] y=   94:Y=    3 ERROR
+[4184] y=   85:Y=  118 ERROR
+[4185] y=   86:Y=   70 ERROR
+[4186] y=   96:Y=   61 ERROR
+[4187] y=   99:Y=   79 ERROR
+[4188] y=  103:Y=   82 ERROR
+[4189] y=  109:Y=   59 ERROR
+[4190] y=  118:Y=  110 ERROR
+[4191] y=  129:Y=   88 ERROR
+[4192] y=  133:Y=   64 ERROR
+[4193] y=  125:Y=   63 ERROR
+[4194] y=  111:Y=   36 ERROR
+[4195] y=  105:Y=   12 ERROR
+[4196] y=  115:Y=   19 ERROR
+[4197] y=  142:Y=   54 ERROR
+[4198] y=  164:Y=   79 ERROR
+[4199] y=  172:Y=   38 ERROR
+[4200] y=  162:Y=  134 ERROR
+[4201] y=  144:Y=   23 ERROR
+[4202] y=  126:Y=   50 ERROR
+[4203] y=  103:Y=  120 ERROR
+[4204] y=   83:Y=   80 ERROR
+[4205] y=   64:Y=  133 ERROR
+[4206] y=   63:Y=   55 ERROR
+[4207] y=   77:Y=   76 ERROR
+[4208] y=   96:Y=   65 ERROR
+[4209] y=  106:Y=  166 ERROR
+[4210] y=  101:Y=   61 ERROR
+[4211] y=   94:Y=   72 ERROR
+[4212] y=  101:Y=  157 ERROR
+[4213] y=  124:Y=   61 ERROR
+[4214] y=  157:Y=  145 ERROR
+[4215] y=  183:Y=   30 ERROR
+[4216] y=  189:Y=   33 ERROR
+[4217] y=  174:Y=   37 ERROR
+[4218] y=  146:Y=   40 ERROR
+[4219] y=  118:Y=   53 ERROR
+[4220] y=  106:Y=  174 ERROR
+[4221] y=  104:Y=   61 ERROR
+[4222] y=  112:Y=  137 ERROR
+[4223] y=  114:Y=   92 ERROR
+[4224] y=  113:Y=   78 ERROR
+[4225] y=  116:Y=  148 ERROR
+[4226] y=  119:Y=   42 ERROR
+[4227] y=  127:Y=  115 ERROR
+[4228] y=  125:Y=   64 ERROR
+[4229] y=  116:Y=   61 ERROR
+[4230] y=  108:Y=   56 ERROR
+[4231] y=  103:Y=   58 ERROR
+[4232] y=  113:Y=   73 ERROR
+[4233] y=  132:Y=   60 ERROR
+[4234] y=  155:Y=   53 ERROR
+[4235] y=  173:Y=   63 ERROR
+[4236] y=  171:Y=  162 ERROR
+[4237] y=  151:Y=   64 ERROR
+[4238] y=  121:Y=   48 ERROR
+[4239] y=  102:Y=   85 ERROR
+[4240] y=  101:Y=   88 ERROR
+[4241] y=  113:Y=   92 ERROR
+[4242] y=  122:Y=   27 ERROR
+[4243] y=  118:Y=   24 ERROR
+[4244] y=  108:Y=   48 ERROR
+[4245] y=  104:Y=   56 ERROR
+[4246] y=  115:Y=   63 ERROR
+[4247] y=  135:Y=   31 ERROR
+[4248] y=  158:Y=   36 ERROR
+[4249] y=  173:Y=   59 ERROR
+[4250] y=  179:Y=   56 ERROR
+[4251] y=  176:Y=  129 ERROR
+[4252] y=  175:Y=   60 ERROR
+[4253] y=  173:Y=   62 ERROR
+[4254] y=  170:Y=   52 ERROR
+[4255] y=  158:Y=  128 ERROR
+[4256] y=  132:Y=   41 ERROR
+[4257] y=  109:Y=   55 ERROR
+[4258] y=   93:Y=   35 ERROR
+[4259] y=   95:Y=   32 ERROR
+[4260] y=  104:Y=   32 ERROR
+[4261] y=  113:Y=   51 ERROR
+[4262] y=  123:Y=   72 ERROR
+[4263] y=  128:Y=   30 ERROR
+[4264] y=  132:Y=   48 ERROR
+[4265] y=  137:Y=   46 ERROR
+[4266] y=  141:Y=    6 ERROR
+[4267] y=  153:Y=  171 ERROR
+[4268] y=  161:Y=   95 ERROR
+[4269] y=  154:Y=   77 ERROR
+[4270] y=  131:Y=   87 ERROR
+[4271] y=   98:Y=  122 ERROR
+[4272] y=   80:Y=   42 ERROR
+[4273] y=   80:Y=   50 ERROR
+[4274] y=   95:Y=   49 ERROR
+[4275] y=  109:Y=   51 ERROR
+[4276] y=  113:Y=  126 ERROR
+[4277] y=  110:Y=   47 ERROR
+[4278] y=  100:Y=   51 ERROR
+[4279] y=   86:Y=   45 ERROR
+[4280] y=   77:Y=   56 ERROR
+[4281] y=   72:Y=   51 ERROR
+[4282] y=   76:Y=   42 ERROR
+[4283] y=   80:Y=   18 ERROR
+[4284] y=   79:Y=   17 ERROR
+[4285] y=   74:Y=   48 ERROR
+[4286] y=   67:Y=   57 ERROR
+[4287] y=   65:Y=   58 ERROR
+[4288] y=   63:Y=   36 ERROR
+[4289] y=   68:Y=  108 ERROR
+[4290] y=   77:Y=  178 ERROR
+[4291] y=  100:Y=   92 ERROR
+[4292] y=  131:Y=  112 ERROR
+[4293] y=  161:Y=   63 ERROR
+[4294] y=  175:Y=   24 ERROR
+[4295] y=  169:Y=   31 ERROR
+[4296] y=  154:Y=   97 ERROR
+[4297] y=  136:Y=   69 ERROR
+[4298] y=  126:Y=   73 ERROR
+[4299] y=  116:Y=  101 ERROR
+[4300] y=  117:Y=   54 ERROR
+[4301] y=  123:Y=   70 ERROR
+[4302] y=  141:Y=   69 ERROR
+[4303] y=  158:Y=   48 ERROR
+[4304] y=  167:Y=   48 ERROR
+[4305] y=  166:Y=   55 ERROR
+[4306] y=  158:Y=   35 ERROR
+[4307] y=  149:Y=  101 ERROR
+[4308] y=  142:Y=   58 ERROR
+[4309] y=  145:Y=   55 ERROR
+[4310] y=  149:Y=   71 ERROR
+[4311] y=  154:Y=   50 ERROR
+[4312] y=  143:Y=   57 ERROR
+[4313] y=  122:Y=   75 ERROR
+[4314] y=   99:Y=   26 ERROR
+[4315] y=   87:Y=  104 ERROR
+[4316] y=   98:Y=  140 ERROR
+[4317] y=  110:Y=   73 ERROR
+[4318] y=  118:Y=   73 ERROR
+[4319] y=  110:Y=   68 ERROR
+[4320] y=  100:Y=   76 ERROR
+[4321] y=  106:Y=   89 ERROR
+[4322] y=  124:Y=   86 ERROR
+[4323] y=  145:Y=  105 ERROR
+[4324] y=  149:Y=   69 ERROR
+[4325] y=  138:Y=  117 ERROR
+[4326] y=  118:Y=  106 ERROR
+[4327] y=   99:Y=   54 ERROR
+[4328] y=   86:Y=   25 ERROR
+[4329] y=   85:Y=   64 ERROR
+[4330] y=  102:Y=   50 ERROR
+[4331] y=  132:Y=   56 ERROR
+[4332] y=  158:Y=   73 ERROR
+[4333] y=  166:Y=   59 ERROR
+[4334] y=  154:Y=  129 ERROR
+[4335] y=  136:Y=   79 ERROR
+[4336] y=  118:Y=   70 ERROR
+[4337] y=   98:Y=   66 ERROR
+[4338] y=   68:Y=   76 ERROR
+[4339] y=   38:Y=   62 ERROR
+[4340] y=   24:Y=   71 ERROR
+[4341] y=   39:Y=   64 ERROR
+[4342] y=   78:Y=   63 ERROR
+[4343] y=  116:Y=   72 ERROR
+[4344] y=  134:Y=   46 ERROR
+[4345] y=  125:Y=  130 ERROR
+[4346] y=  108:Y=   74 ERROR
+[4347] y=  100:Y=  153 ERROR
+[4348] y=  112:Y=   71 ERROR
+[4349] y=  133:Y=  126 ERROR
+[4350] y=  153:Y=  106 ERROR
+[4351] y=  164:Y=   89 ERROR
+[4352] y=  168:Y=   82 ERROR
+[4353] y=  171:Y=   62 ERROR
+[4354] y=  167:Y=   64 ERROR
+[4355] y=  162:Y=  148 ERROR
+[4356] y=  151:Y=   62 ERROR
+[4357] y=  148:Y=   71 ERROR
+[4358] y=  144:Y=   45 ERROR
+[4359] y=  146:Y=  133 ERROR
+[4360] y=  146:Y=   62 ERROR
+[4361] y=  146:Y=   66 ERROR
+[4362] y=  148:Y=   64 ERROR
+[4363] y=  143:Y=   47 ERROR
+[4364] y=  132:Y=   75 ERROR
+[4365] y=  103:Y=   52 ERROR
+[4366] y=   71:Y=   43 ERROR
+[4367] y=   41:Y=   64 ERROR
+[4368] y=   26:Y=   45 ERROR
+[4369] y=   30:Y=   40 ERROR
+[4370] y=   44:Y=   39 ERROR
+[4371] y=   68:Y=   70 ERROR
+[4372] y=   86:Y=   71 ERROR
+[4373] y=   98:Y=  114 ERROR
+[4374] y=   98:Y=  111 ERROR
+[4375] y=   93:Y=  103 ERROR
+[4376] y=   98:Y=   87 ERROR
+[4377] y=  114:Y=   78 ERROR
+[4378] y=  139:Y=   67 ERROR
+[4379] y=  152:Y=   62 ERROR
+[4380] y=  149:Y=   45 ERROR
+[4381] y=  137:Y=   53 ERROR
+[4382] y=  124:Y=   61 ERROR
+[4383] y=  118:Y=   61 ERROR
+[4384] y=  112:Y=   67 ERROR
+[4385] y=  105:Y=   35 ERROR
+[4386] y=   97:Y=   55 ERROR
+[4387] y=   92:Y=   70 ERROR
+[4388] y=   93:Y=   59 ERROR
+[4389] y=  106:Y=   63 ERROR
+[4390] y=  123:Y=   67 ERROR
+[4391] y=  145:Y=   50 ERROR
+[4392] y=  157:Y=   59 ERROR
+[4393] y=  156:Y=   52 ERROR
+[4394] y=  139:Y=   47 ERROR
+[4395] y=  106:Y=   20 ERROR
+[4396] y=   81:Y=   40 ERROR
+[4397] y=   69:Y=   48 ERROR
+[4398] y=   82:Y=   40 ERROR
+[4399] y=  100:Y=   55 ERROR
+[4400] y=  108:Y=   25 ERROR
+[4401] y=  101:Y=   44 ERROR
+[4402] y=   85:Y=   31 ERROR
+[4403] y=   84:Y=   34 ERROR
+[4404] y=   94:Y=   63 ERROR
+[4405] y=  106:Y=   75 ERROR
+[4406] y=  106:Y=   75 ERROR
+[4407] y=   89:Y=   94 ERROR
+[4408] y=   73:Y=   86 ERROR
+[4409] y=   68:Y=  151 ERROR
+[4410] y=   87:Y=   88 ERROR
+[4411] y=  117:Y=   97 ERROR
+[4412] y=  150:Y=   92 ERROR
+[4413] y=  165:Y=   65 ERROR
+[4414] y=  170:Y=   63 ERROR
+[4415] y=  161:Y=   47 ERROR
+[4416] y=  156:Y=   33 ERROR
+[4417] y=  157:Y=   46 ERROR
+[4418] y=  153:Y=   56 ERROR
+[4419] y=  152:Y=   68 ERROR
+[4420] y=  139:Y=   69 ERROR
+[4421] y=  134:Y=   85 ERROR
+[4422] y=  130:Y=   68 ERROR
+[4423] y=  134:Y=   50 ERROR
+[4424] y=  143:Y=   62 ERROR
+[4425] y=  146:Y=   54 ERROR
+[4426] y=  150:Y=   61 ERROR
+[4427] y=  145:Y=   49 ERROR
+[4428] y=  141:Y=   69 ERROR
+[4429] y=  126:Y=  131 ERROR
+[4430] y=  105:Y=   52 ERROR
+[4431] y=   82:Y=   56 ERROR
+[4432] y=   62:Y=   81 ERROR
+[4433] y=   54:Y=  125 ERROR
+[4434] y=   55:Y=   53 ERROR
+[4435] y=   69:Y=   58 ERROR
+[4436] y=   92:Y=   56 ERROR
+[4437] y=  117:Y=   64 ERROR
+[4438] y=  131:Y=   67 ERROR
+[4439] y=  129:Y=   70 ERROR
+[4440] y=  117:Y=   82 ERROR
+[4441] y=  102:Y=   75 ERROR
+[4442] y=   95:Y=   76 ERROR
+[4443] y=   94:Y=   58 ERROR
+[4444] y=  101:Y=   68 ERROR
+[4445] y=  115:Y=   63 ERROR
+[4446] y=  127:Y=  151 ERROR
+[4447] y=  128:Y=   64 ERROR
+[4448] y=  111:Y=   64 ERROR
+[4449] y=   88:Y=   52 ERROR
+[4450] y=   72:Y=   60 ERROR
+[4451] y=   72:Y=   63 ERROR
+[4452] y=   77:Y=   68 ERROR
+[4453] y=   74:Y=   62 ERROR
+[4454] y=   62:Y=   70 ERROR
+[4455] y=   51:Y=   59 ERROR
+[4456] y=   56:Y=   68 ERROR
+[4457] y=   79:Y=   62 ERROR
+[4458] y=  109:Y=  146 ERROR
+[4459] y=  135:Y=   78 ERROR
+[4460] y=  150:Y=   53 ERROR
+[4461] y=  157:Y=   60 ERROR
+[4462] y=  164:Y=   86 ERROR
+[4463] y=  165:Y=   87 ERROR
+[4464] y=  160:Y=   75 ERROR
+[4465] y=  144:Y=   99 ERROR
+[4466] y=  121:Y=   74 ERROR
+[4467] y=  102:Y=   88 ERROR
+[4468] y=   85:Y=   73 ERROR
+[4469] y=   76:Y=   76 OK
+[4470] y=   69:Y=   58 ERROR
+[4471] y=   70:Y=   48 ERROR
+[4472] y=   76:Y=   39 ERROR
+[4473] y=   83:Y=   20 ERROR
+[4474] y=   89:Y=   24 ERROR
+[4475] y=   94:Y=   49 ERROR
+[4476] y=  105:Y=  123 ERROR
+[4477] y=  122:Y=   91 ERROR
+[4478] y=  137:Y=   69 ERROR
+[4479] y=  139:Y=   50 ERROR
+[4480] y=  123:Y=   86 ERROR
+[4481] y=   97:Y=   77 ERROR
+[4482] y=   73:Y=   64 ERROR
+[4483] y=   65:Y=   75 ERROR
+[4484] y=   73:Y=   69 ERROR
+[4485] y=   87:Y=  139 ERROR
+[4486] y=   96:Y=   84 ERROR
+[4487] y=   91:Y=   73 ERROR
+[4488] y=   70:Y=  105 ERROR
+[4489] y=   41:Y=   90 ERROR
+[4490] y=   25:Y=   83 ERROR
+[4491] y=   34:Y=   68 ERROR
+[4492] y=   72:Y=   90 ERROR
+[4493] y=  119:Y=   67 ERROR
+[4494] y=  150:Y=   52 ERROR
+[4495] y=  158:Y=   66 ERROR
+[4496] y=  140:Y=   78 ERROR
+[4497] y=  118:Y=  124 ERROR
+[4498] y=  102:Y=   84 ERROR
+[4499] y=   94:Y=   76 ERROR
+[4500] y=   95:Y=   80 ERROR
+[4501] y=   94:Y=   79 ERROR
+[4502] y=  100:Y=   44 ERROR
+[4503] y=  112:Y=  136 ERROR
+[4504] y=  130:Y=   58 ERROR
+[4505] y=  143:Y=   54 ERROR
+[4506] y=  142:Y=   77 ERROR
+[4507] y=  128:Y=   54 ERROR
+[4508] y=  120:Y=  134 ERROR
+[4509] y=  123:Y=   63 ERROR
+[4510] y=  138:Y=   31 ERROR
+[4511] y=  147:Y=   46 ERROR
+[4512] y=  144:Y=   84 ERROR
+[4513] y=  141:Y=   81 ERROR
+[4514] y=  137:Y=   15 ERROR
+[4515] y=  143:Y=   62 ERROR
+[4516] y=  141:Y=   68 ERROR
+[4517] y=  131:Y=   67 ERROR
+[4518] y=  107:Y=  121 ERROR
+[4519] y=   73:Y=  171 ERROR
+[4520] y=   52:Y=   17 ERROR
+[4521] y=   48:Y=   49 ERROR
+[4522] y=   74:Y=   48 ERROR
+[4523] y=  105:Y=  104 ERROR
+[4524] y=  125:Y=   21 ERROR
+[4525] y=  119:Y=   27 ERROR
+[4526] y=  102:Y=   53 ERROR
+[4527] y=   93:Y=   62 ERROR
+[4528] y=  103:Y=  117 ERROR
+[4529] y=  124:Y=   38 ERROR
+[4530] y=  143:Y=  103 ERROR
+[4531] y=  156:Y=  109 ERROR
+[4532] y=  161:Y=   79 ERROR
+[4533] y=  169:Y=   29 ERROR
+[4534] y=  170:Y=   44 ERROR
+[4535] y=  165:Y=   68 ERROR
+[4536] y=  152:Y=   28 ERROR
+[4537] y=  132:Y=    1 ERROR
+[4538] y=  114:Y=   34 ERROR
+[4539] y=   90:Y=   46 ERROR
+[4540] y=   77:Y=   30 ERROR
+[4541] y=   73:Y=   55 ERROR
+[4542] y=   85:Y=   33 ERROR
+[4543] y=   97:Y=   46 ERROR
+[4544] y=   97:Y=   51 ERROR
+[4545] y=   90:Y=   68 ERROR
+[4546] y=   79:Y=   81 ERROR
+[4547] y=   71:Y=  103 ERROR
+[4548] y=   59:Y=   87 ERROR
+[4549] y=   44:Y=   84 ERROR
+[4550] y=   28:Y=   90 ERROR
+[4551] y=   21:Y=   91 ERROR
+[4552] y=   17:Y=   90 ERROR
+[4553] y=   17:Y=   69 ERROR
+[4554] y=   18:Y=   81 ERROR
+[4555] y=   25:Y=   74 ERROR
+[4556] y=   38:Y=   82 ERROR
+[4557] y=   47:Y=  197 ERROR
+[4558] y=   51:Y=  133 ERROR
+[4559] y=   50:Y=   77 ERROR
+[4560] y=   59:Y=   69 ERROR
+[4561] y=   84:Y=  128 ERROR
+[4562] y=  117:Y=   61 ERROR
+[4563] y=  147:Y=   65 ERROR
+[4564] y=  155:Y=   63 ERROR
+[4565] y=  145:Y=   57 ERROR
+[4566] y=  115:Y=   58 ERROR
+[4567] y=   80:Y=   78 ERROR
+[4568] y=   57:Y=   84 ERROR
+[4569] y=   54:Y=   15 ERROR
+[4570] y=   71:Y=    3 ERROR
+[4571] y=   85:Y=   51 ERROR
+[4572] y=   89:Y=   62 ERROR
+[4573] y=   81:Y=   48 ERROR
+[4574] y=   76:Y=   62 ERROR
+[4575] y=   78:Y=   15 ERROR
+[4576] y=   87:Y=   12 ERROR
+[4577] y=   97:Y=   52 ERROR
+[4578] y=  105:Y=   84 ERROR
+[4579] y=  119:Y=   83 ERROR
+[4580] y=  130:Y=  134 ERROR
+[4581] y=  142:Y=   77 ERROR
+[4582] y=  138:Y=   87 ERROR
+[4583] y=  123:Y=   73 ERROR
+[4584] y=  101:Y=   68 ERROR
+[4585] y=   77:Y=   89 ERROR
+[4586] y=   73:Y=   54 ERROR
+[4587] y=   84:Y=   48 ERROR
+[4588] y=  119:Y=   76 ERROR
+[4589] y=  156:Y=   52 ERROR
+[4590] y=  186:Y=   38 ERROR
+[4591] y=  197:Y=  122 ERROR
+[4592] y=  182:Y=  114 ERROR
+[4593] y=  154:Y=   73 ERROR
+[4594] y=  113:Y=   31 ERROR
+[4595] y=   80:Y=   20 ERROR
+[4596] y=   59:Y=   52 ERROR
+[4597] y=   55:Y=   63 ERROR
+[4598] y=   71:Y=   57 ERROR
+[4599] y=   91:Y=   69 ERROR
+[4600] y=  116:Y=   61 ERROR
+[4601] y=  135:Y=   57 ERROR
+[4602] y=  153:Y=  114 ERROR
+[4603] y=  174:Y=   75 ERROR
+[4604] y=  192:Y=   54 ERROR
+[4605] y=  201:Y=   32 ERROR
+[4606] y=  187:Y=   65 ERROR
+[4607] y=  160:Y=   83 ERROR
+[4608] y=  134:Y=   55 ERROR
+[4609] y=  128:Y=   38 ERROR
+[4610] y=  140:Y=  171 ERROR
+[4611] y=  163:Y=   35 ERROR
+[4612] y=  175:Y=   76 ERROR
+[4613] y=  173:Y=   84 ERROR
+[4614] y=  150:Y=   48 ERROR
+[4615] y=  121:Y=   44 ERROR
+[4616] y=  105:Y=   92 ERROR
+[4617] y=  114:Y=  111 ERROR
+[4618] y=  154:Y=   57 ERROR
+[4619] y=  196:Y=  134 ERROR
+[4620] y=  224:Y=   81 ERROR
+[4621] y=  219:Y=   87 ERROR
+[4622] y=  194:Y=   74 ERROR
+[4623] y=  166:Y=   90 ERROR
+[4624] y=  147:Y=  140 ERROR
+[4625] y=  128:Y=  120 ERROR
+[4626] y=  104:Y=   77 ERROR
+[4627] y=   80:Y=   38 ERROR
+[4628] y=   68:Y=   18 ERROR
+[4629] y=   79:Y=   62 ERROR
+[4630] y=   96:Y=   53 ERROR
+[4631] y=  109:Y=   48 ERROR
+[4632] y=  107:Y=   70 ERROR
+[4633] y=   94:Y=   77 ERROR
+[4634] y=   81:Y=   55 ERROR
+[4635] y=   67:Y=   19 ERROR
+[4636] y=   68:Y=   13 ERROR
+[4637] y=   82:Y=   46 ERROR
+[4638] y=  118:Y=   63 ERROR
+[4639] y=  162:Y=   43 ERROR
+[4640] y=  191:Y=   47 ERROR
+[4641] y=  197:Y=   62 ERROR
+[4642] y=  173:Y=  137 ERROR
+[4643] y=  141:Y=  128 ERROR
+[4644] y=  118:Y=   38 ERROR
+[4645] y=  115:Y=   68 ERROR
+[4646] y=  129:Y=   77 ERROR
+[4647] y=  145:Y=   59 ERROR
+[4648] y=  154:Y=  161 ERROR
+[4649] y=  156:Y=   73 ERROR
+[4650] y=  151:Y=   80 ERROR
+[4651] y=  143:Y=   80 ERROR
+[4652] y=  128:Y=   74 ERROR
+[4653] y=  109:Y=  155 ERROR
+[4654] y=   83:Y=   66 ERROR
+[4655] y=   54:Y=   69 ERROR
+[4656] y=   30:Y=   72 ERROR
+[4657] y=   20:Y=   45 ERROR
+[4658] y=   25:Y=  155 ERROR
+[4659] y=   44:Y=   80 ERROR
+[4660] y=   59:Y=   70 ERROR
+[4661] y=   70:Y=   63 ERROR
+[4662] y=   75:Y=   50 ERROR
+[4663] y=   70:Y=   44 ERROR
+[4664] y=   65:Y=   96 ERROR
+[4665] y=   57:Y=   28 ERROR
+[4666] y=   64:Y=   24 ERROR
+[4667] y=   83:Y=   33 ERROR
+[4668] y=  107:Y=   17 ERROR
+[4669] y=  122:Y=   28 ERROR
+[4670] y=  126:Y=   46 ERROR
+[4671] y=  129:Y=   67 ERROR
+[4672] y=  137:Y=   28 ERROR
+[4673] y=  143:Y=   50 ERROR
+[4674] y=  140:Y=   62 ERROR
+[4675] y=  124:Y=   69 ERROR
+[4676] y=  103:Y=  141 ERROR
+[4677] y=   99:Y=   77 ERROR
+[4678] y=  110:Y=   55 ERROR
+[4679] y=  134:Y=   25 ERROR
+[4680] y=  142:Y=   38 ERROR
+[4681] y=  128:Y=   45 ERROR
+[4682] y=  109:Y=  171 ERROR
+[4683] y=   98:Y=  103 ERROR
+[4684] y=  117:Y=   73 ERROR
+[4685] y=  150:Y=   72 ERROR
+[4686] y=  180:Y=   65 ERROR
+[4687] y=  192:Y=   78 ERROR
+[4688] y=  174:Y=  142 ERROR
+[4689] y=  140:Y=   89 ERROR
+[4690] y=  102:Y=   91 ERROR
+[4691] y=   78:Y=  119 ERROR
+[4692] y=   76:Y=   34 ERROR
+[4693] y=   81:Y=   48 ERROR
+[4694] y=   88:Y=   43 ERROR
+[4695] y=   89:Y=   79 ERROR
+[4696] y=   95:Y=   69 ERROR
+[4697] y=  110:Y=  129 ERROR
+[4698] y=  132:Y=   59 ERROR
+[4699] y=  150:Y=   46 ERROR
+[4700] y=  160:Y=   79 ERROR
+[4701] y=  162:Y=   46 ERROR
+[4702] y=  164:Y=   59 ERROR
+[4703] y=  168:Y=   80 ERROR
+[4704] y=  175:Y=   32 ERROR
+[4705] y=  192:Y=   27 ERROR
+[4706] y=  207:Y=   36 ERROR
+[4707] y=  222:Y=   19 ERROR
+[4708] y=  219:Y=  101 ERROR
+[4709] y=  205:Y=   44 ERROR
+[4710] y=  187:Y=   95 ERROR
+[4711] y=  174:Y=   79 ERROR
+[4712] y=  167:Y=   54 ERROR
+[4713] y=  157:Y=   51 ERROR
+[4714] y=  144:Y=   46 ERROR
+[4715] y=  126:Y=   55 ERROR
+[4716] y=  106:Y=   49 ERROR
+[4717] y=   87:Y=  118 ERROR
+[4718] y=   72:Y=   34 ERROR
+[4719] y=   67:Y=    0 ERROR
+[4720] y=   73:Y=   46 ERROR
+[4721] y=   85:Y=   69 ERROR
+[4722] y=   98:Y=   73 ERROR
+[4723] y=  109:Y=   79 ERROR
+[4724] y=  119:Y=   97 ERROR
+[4725] y=  129:Y=   37 ERROR
+[4726] y=  130:Y=   27 ERROR
+[4727] y=  118:Y=   35 ERROR
+[4728] y=   97:Y=   55 ERROR
+[4729] y=   79:Y=  113 ERROR
+[4730] y=   81:Y=   34 ERROR
+[4731] y=   98:Y=   94 ERROR
+[4732] y=  127:Y=   49 ERROR
+[4733] y=  146:Y=   62 ERROR
+[4734] y=  150:Y=   72 ERROR
+[4735] y=  141:Y=  168 ERROR
+[4736] y=  121:Y=   93 ERROR
+[4737] y=  105:Y=   87 ERROR
+[4738] y=   94:Y=   60 ERROR
+[4739] y=  105:Y=  111 ERROR
+[4740] y=  130:Y=   72 ERROR
+[4741] y=  161:Y=   84 ERROR
+[4742] y=  178:Y=   65 ERROR
+[4743] y=  175:Y=  242 ERROR
+[4744] y=  159:Y=  111 ERROR
+[4745] y=  141:Y=  109 ERROR
+[4746] y=  132:Y=   76 ERROR
+[4747] y=  133:Y=   83 ERROR
+[4748] y=  146:Y=   74 ERROR
+[4749] y=  152:Y=   76 ERROR
+[4750] y=  152:Y=  202 ERROR
+[4751] y=  130:Y=   65 ERROR
+[4752] y=  101:Y=   62 ERROR
+[4753] y=   79:Y=   63 ERROR
+[4754] y=   71:Y=   32 ERROR
+[4755] y=   85:Y=   94 ERROR
+[4756] y=  106:Y=   82 ERROR
+[4757] y=  133:Y=   98 ERROR
+[4758] y=  153:Y=   97 ERROR
+[4759] y=  166:Y=   92 ERROR
+[4760] y=  175:Y=   71 ERROR
+[4761] y=  174:Y=  155 ERROR
+[4762] y=  168:Y=   42 ERROR
+[4763] y=  149:Y=   52 ERROR
+[4764] y=  118:Y=   59 ERROR
+[4765] y=   86:Y=   36 ERROR
+[4766] y=   60:Y=  152 ERROR
+[4767] y=   56:Y=   75 ERROR
+[4768] y=   69:Y=   55 ERROR
+[4769] y=   87:Y=   74 ERROR
+[4770] y=   96:Y=   58 ERROR
+[4771] y=   99:Y=   86 ERROR
+[4772] y=  101:Y=   43 ERROR
+[4773] y=  113:Y=   64 ERROR
+[4774] y=  127:Y=  157 ERROR
+[4775] y=  143:Y=   69 ERROR
+[4776] y=  151:Y=   56 ERROR
+[4777] y=  145:Y=   61 ERROR
+[4778] y=  130:Y=   43 ERROR
+[4779] y=  111:Y=  197 ERROR
+[4780] y=  104:Y=   63 ERROR
+[4781] y=  112:Y=   68 ERROR
+[4782] y=  132:Y=   54 ERROR
+[4783] y=  156:Y=   51 ERROR
+[4784] y=  172:Y=    6 ERROR
+[4785] y=  175:Y=   41 ERROR
+[4786] y=  162:Y=   68 ERROR
+[4787] y=  138:Y=   63 ERROR
+[4788] y=  115:Y=   90 ERROR
+[4789] y=   96:Y=   79 ERROR
+[4790] y=   88:Y=   87 ERROR
+[4791] y=   92:Y=   86 ERROR
+[4792] y=  106:Y=   92 ERROR
+[4793] y=  130:Y=  110 ERROR
+[4794] y=  146:Y=   85 ERROR
+[4795] y=  149:Y=   71 ERROR
+[4796] y=  136:Y=  137 ERROR
+[4797] y=  112:Y=   97 ERROR
+[4798] y=   96:Y=   87 ERROR
+[4799] y=   93:Y=   80 ERROR
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/HLS/fir_hls_MyChip/simulation'
+[3.52171034e+11 4.04710156e+06 3.29588708e+07 ... 2.22928508e+06
+ 3.29588708e+07 4.04710156e+06]
+[0. 0. 0. ... 0. 0. 0.]
+[1.28664255e+11 6.94296954e+07 9.18637949e+07 ... 2.90192490e+07
+ 9.18637949e+07 6.94296954e+07]
+[0. 0. 0. ... 0. 0. 0.]
