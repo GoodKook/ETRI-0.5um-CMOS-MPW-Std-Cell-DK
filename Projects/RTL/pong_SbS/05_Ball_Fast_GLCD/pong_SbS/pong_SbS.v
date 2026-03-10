@@ -130,11 +130,11 @@ input           busy;
     wire [2:0]  rom_bit;
     assign rom_bit = x_pos - x_ball;
 
-    assign pixel = rom_data[rom_bit];
-//    always @*
-//        if ((x_ball<=x_pos) && ((x_ball+7)>=x_pos) &&
-//            (y_ball<=y_pos) && ((y_ball+7)>=y_pos))
-//            pixel = rom_data[rom_bit];
-//        else
-//            pixel = 0;
+//    assign pixel = rom_data[rom_bit];
+    always @*
+        if ((x_ball<=x_pos) && ((x_ball+7)>=x_pos) &&
+            (y_ball<=y_pos) && ((y_ball+7)>=y_pos))
+            pixel = rom_data[rom_bit];
+        else
+            pixel = 0;
 endmodule

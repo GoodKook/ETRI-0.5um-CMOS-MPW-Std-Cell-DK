@@ -12,8 +12,7 @@ TOP_MODULE = pong_SbS
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS =  \
 	./sc_main.cpp \
-	./sc_glcd128x64.cpp \
-	./sc_glcd128x64_TB.cpp \
+	./sc_glcd128x64_TLM.cpp \
 	./sc_$(TOP_MODULE)_TB.cpp
 SC_HDRS = \
 	./sc_$(TOP_MODULE)_TB.h
@@ -42,9 +41,6 @@ VCFLAGS		+= -CFLAGS -DVCD_TRACE_TEST_TB
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_DUT_VERILOG
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_GLCD
 endif
-ifeq ($(ROTATE_SCREEN), YES)
-VCFLAGS		+= -CFLAGS -DROTATE_SCREEN
-endif
 VCFLAGS		+= -LDFLAGS -lm
 VCFLAGS		+= -LDFLAGS -lgsl
 VCFLAGS		+= -LDFLAGS -lSDL2
@@ -69,7 +65,7 @@ all :
 	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE)'
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make lint'
-	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=[YES]|NO ROTATE_SCREEN=YES|[NO] make build'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=[YES]|NO make build'
 	@echo '    make run'
 	@echo '    make wave'
 	@echo '    make clean'

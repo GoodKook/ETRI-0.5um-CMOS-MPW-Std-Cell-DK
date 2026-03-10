@@ -11,7 +11,7 @@
 #endif
 
 #include "Vpong_SbS.h"
-#include "sc_glcd128x64_TB.h"
+#include "sc_glcd128x64_TLM.h"
 
 SC_MODULE(sc_pong_SbS_TB)
 {
@@ -24,8 +24,8 @@ SC_MODULE(sc_pong_SbS_TB)
     sc_signal<bool>         p_tick;
     sc_signal<bool>         busy;
 
-    Vpong_SbS*              u_Vpong_SbS;
-    sc_glcd128x64_TB*       u_sc_glcd128x64_TB;
+    Vpong_SbS*              u_pong_SbS;
+    sc_glcd128x64_TLM*      u_sc_glcd128x64_TLM;
 
 #ifdef  VCD_TRACE_TEST_TB
     sc_trace_file* fp;  // VCD file
@@ -43,23 +43,22 @@ SC_MODULE(sc_pong_SbS_TB)
         sensitive << clk;
 
         // Instantiate DUT --------------------------------
-        u_Vpong_SbS = new Vpong_SbS("u_pong_SbS");
-        u_Vpong_SbS->clk(clk);
-        u_Vpong_SbS->reset(reset);
-        u_Vpong_SbS->x_pos(x_pos);
-        u_Vpong_SbS->y_pos(y_pos);
-        u_Vpong_SbS->pixel(pixel);
-        u_Vpong_SbS->p_tick(p_tick);
-        u_Vpong_SbS->busy(busy);
+        u_pong_SbS = new Vpong_SbS("u_pong_SbS");
+        u_pong_SbS->clk(clk);
+        u_pong_SbS->reset(reset);
+        u_pong_SbS->x_pos(x_pos);
+        u_pong_SbS->y_pos(y_pos);
+        u_pong_SbS->pixel(pixel);
+        u_pong_SbS->p_tick(p_tick);
+        u_pong_SbS->busy(busy);
         // Instantiate Display Device model ---------------
-        u_sc_glcd128x64_TB = new sc_glcd128x64_TB("u_sc_glcd128x64_TB");
-        u_sc_glcd128x64_TB->clk(clk);
-        u_sc_glcd128x64_TB->reset(reset);
-        u_sc_glcd128x64_TB->x_pos(x_pos);
-        u_sc_glcd128x64_TB->y_pos(y_pos);
-        u_sc_glcd128x64_TB->pixel(pixel);
-        u_sc_glcd128x64_TB->p_tick(p_tick);
-        u_sc_glcd128x64_TB->busy(busy);
+        u_sc_glcd128x64_TLM = new sc_glcd128x64_TLM("u_sc_glcd128x64_TLM");
+        u_sc_glcd128x64_TLM->reset(reset);
+        u_sc_glcd128x64_TLM->x_pos(x_pos);
+        u_sc_glcd128x64_TLM->y_pos(y_pos);
+        u_sc_glcd128x64_TLM->pixel(pixel);
+        u_sc_glcd128x64_TLM->p_tick(p_tick);
+        u_sc_glcd128x64_TLM->busy(busy);
 
 #ifdef VCD_TRACE_TEST_TB
         // VCD Trace
@@ -80,7 +79,7 @@ SC_MODULE(sc_pong_SbS_TB)
 
         tfp = new VerilatedVcdSc;
         sc_start(SC_ZERO_TIME);
-        u_Vpong_SbS->trace(tfp, 99);  // Trace levels of hierarchy
+        u_pong_SbS->trace(tfp, 99);  // Trace levels of hierarchy
         tfp->open("Vpong_SbS.vcd");
 #endif
     }

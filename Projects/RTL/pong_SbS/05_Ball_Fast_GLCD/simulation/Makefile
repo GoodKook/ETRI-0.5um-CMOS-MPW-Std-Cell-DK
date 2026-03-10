@@ -12,8 +12,7 @@ TOP_MODULE = pong_SbS
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS =  \
 	./sc_main.cpp \
-	./sc_glcd128x64.cpp \
-	./sc_glcd128x64_TB.cpp \
+	./sc_glcd128x64_TLM.cpp \
 	./sc_$(TOP_MODULE)_TB.cpp
 SC_HDRS = \
 	./sc_$(TOP_MODULE)_TB.h
@@ -37,14 +36,11 @@ VL_WARNING   = -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
 VCFLAGS		+= -CFLAGS -g
 VCFLAGS		+= -CFLAGS -I../../c_untimed
 VCFLAGS		+= -CFLAGS -I$(SYSTEMC_INCLUDE)
-ifeq ($(VCD_TRACE),YES)
+ifeq ($(VCD_TRACE),)
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_TEST_TB
 VCFLAGS		+= -CFLAGS -DVCD_TRACE_DUT_VERILOG
+VCFLAGS		+= -CFLAGS -DVCD_TRACE_GLCD
 endif
-ifeq ($(ROTATE_SCREEN), YES)
-VCFLAGS		+= -CFLAGS -DROTATE_SCREEN
-endif
-#VCFLAGS		+= -CFLAGS -D$(MODE)
 VCFLAGS		+= -LDFLAGS -lm
 VCFLAGS		+= -LDFLAGS -lgsl
 VCFLAGS		+= -LDFLAGS -lSDL2
@@ -66,10 +62,10 @@ all :
 		exit 1; \
 	fi
 	@echo
-	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE) in MODE=$(MODE)'
+	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE)'
 	@echo
 	@echo '    TOP_MODULE=$(TOP_MODULE) make lint'
-	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=YES|[NO] ROTATE_SCREEN=YES|[NO] make build'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=[YES]|NO make build'
 	@echo '    make run'
 	@echo '    make wave'
 	@echo '    make clean'
