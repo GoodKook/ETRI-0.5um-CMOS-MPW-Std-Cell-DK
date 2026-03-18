@@ -3,9 +3,6 @@
 // Purpose: Draw Table
 //
 
-`define TABLE_WIDTH     128
-`define TABLE_HEIGHT    64
-
 module pong_SbS(clk, reset, x_pos, y_pos, pixel);
 input           clk;
 input           reset;
