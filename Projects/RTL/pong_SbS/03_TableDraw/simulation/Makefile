@@ -94,12 +94,12 @@ run : $(TARGET_DIR)/$(TARGET)
 wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
 	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
 	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
+	gtkwave sc_glcd128x64_TB.vcd --save=sc_glcd128x64_TB.gtkw &
 
 clean :
 	rm -rf $(TARGET_DIR)
 	rm -f *.vcd
 	rm -f $(TOP_MODULE)
-	rm -f sc_$(TOP_MODULE)_TB.txt
 
 debug : $(TARGET_DIR)/$(TARGET)
 	ddd $(TARGET_DIR)/$(TARGET)

@@ -13,6 +13,7 @@ all :
 		echo "Create synthesis folder..."; \
 		mkdir ./synthesis; \
 	fi
+	touch project_vars.sh
 	@echo
 	@echo 'Makefile for "Verilog-RTL Ex.: $(TOP_MODULE)"'
 	@echo 'QFlow RTL-to-Layout using ETRI 0.5um CMOS Technology'
@@ -34,7 +35,7 @@ all :
 # -----------------------------------------------------
 synthesize : ./log/synth.log
 
-./log/synth.log : $(VERILOG_SRCS)
+./log/synth.log : $(VERILOG_SRCS) project_vars.sh
 	qflow synthesize -T etri050 $(TOP_MODULE)
 
 # -----------------------------------------------------
