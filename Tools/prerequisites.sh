@@ -19,9 +19,12 @@ sudo apt install -y \
     libfl2 libfl-dev dbus dbus-x11 \
     libreadline-dev tcl-dev tk-dev libffi-dev \
     graphviz xdot pkg-config \
-    python3 python3-dev python3-numpy python3-pip \
-    python3-matplotlib python3-tk python3-orderedmultidict \
-    python3-clang yapf3 bear jq \
+    python3 python3-pip python3-dev python3-clang \
+    python3-scipy python3-numpy python3-matplotlib \
+    python3-tk python3-orderedmultidict \
+    python3-pil python3-sphinx python3-breathe \
+    python3-ipython python3-ipykernel python3-sphinx python3-breathe \
+    yapf3 bear jq \
     libgsl-dev zlib1g zlib1g-dev libxt-dev \
     m4 tcsh csh libcairo2-dev libeigen3-dev \
     mesa-common-dev libglu1-mesa-dev libncurses-dev \
