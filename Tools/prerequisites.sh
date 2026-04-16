@@ -41,6 +41,7 @@ sudo apt install -y \
     desktop-file-utils libbz2-dev libjudy-dev \
     google-perftools libgoogle-perftools-dev \
     ant default-jre libfl-dev \
+    libglew-dev glew-utils libglfw3-dev \
     uuid uuid-dev libsecret-1-dev \
     ddd xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted
 
