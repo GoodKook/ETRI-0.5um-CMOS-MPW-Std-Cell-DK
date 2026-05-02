@@ -14,7 +14,7 @@
 #include <SDL2/SDL.h>
 
 #define SIZE_OF_BOX     10
-#define IMAGE_THRESHOLD 96
+#define IMAGE_THRESHOLD 100
 
 class neuralNetwork_mnist: public neuralNetwork
 {
@@ -101,9 +101,9 @@ public:
         SDL_Rect    myBox = {0, 0, 0, 0};
         bool        bPenDown = false;
 
-        uint32_t    sample[280][280];
-        for (int i=0; i<280; i++)
-            for (int j=0; j<280; j++)
+        uint32_t    sample[28][28];
+        for (int i=0; i<28; i++)
+            for (int j=0; j<28; j++)
                 sample[i][j] = 0;
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
@@ -123,7 +123,7 @@ public:
                         if (event.button.button == SDL_BUTTON_LEFT) bPenDown = true;
                         break;
                     case SDL_MOUSEBUTTONUP:
-                        if (event.button.button == SDL_BUTTON_LEFT)       bPenDown = false;
+                        if (event.button.button == SDL_BUTTON_LEFT) bPenDown = false;
                         else if (event.button.button == SDL_BUTTON_RIGHT)
                         {
                             image[0] = 0xFF;
@@ -131,13 +131,7 @@ public:
                             {
                                 for (int x=0; x<28; x++)
                                 {
-                                    unsigned int sum = 0;
-                                    for (int i=0; i<SIZE_OF_BOX; i++)
-                                    {
-                                        for (int j=0; j<SIZE_OF_BOX; j++)
-                                            sum += sample[y*SIZE_OF_BOX+i][x*SIZE_OF_BOX+j];
-                                    }
-                                    image[k++] = ((sum/100)>IMAGE_THRESHOLD)? 255:(sum/100);
+                                    image[k++] = sample[y][x];
                                 }
                             }
                             fflush(stdout);
@@ -147,12 +141,26 @@ public:
                     case SDL_MOUSEMOTION:
                         if (bPenDown)
                         {
-                            int x, y;
-                            SDL_GetMouseState( &x, &y );
+                            int x = event.motion.x;
+                            int y = event.motion.y;
 
-                            for (int i=0; i<SIZE_OF_BOX; i++)
-                                for (int j=0; j<SIZE_OF_BOX; j++)
-                                    sample[y+i][x+j] = 255;
+                            sample[y/SIZE_OF_BOX][x/SIZE_OF_BOX] = 255;
+                            if (!sample[y/SIZE_OF_BOX-1][x/SIZE_OF_BOX-1])
+                                sample[y/SIZE_OF_BOX-1][x/SIZE_OF_BOX-1] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
+                            if (!sample[y/SIZE_OF_BOX-1][x/SIZE_OF_BOX-0])
+                                sample[y/SIZE_OF_BOX-1][x/SIZE_OF_BOX+0] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
+                            if (!sample[y/SIZE_OF_BOX-1][x/SIZE_OF_BOX+1])
+                                sample[y/SIZE_OF_BOX-1][x/SIZE_OF_BOX+1] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
+                            if (!sample[y/SIZE_OF_BOX-0][x/SIZE_OF_BOX-1])
+                                sample[y/SIZE_OF_BOX-0][x/SIZE_OF_BOX-1] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
+                            if (!sample[y/SIZE_OF_BOX-0][x/SIZE_OF_BOX+1])
+                                sample[y/SIZE_OF_BOX-0][x/SIZE_OF_BOX+1] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
+                            if (!sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX-1])
+                                sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX-1] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
+                            if (!sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX+0])
+                                sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX+0] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
+                            if (!sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX+1])
+                                sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX+1] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
 
                             SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
                             myBox = {x, y, SIZE_OF_BOX, SIZE_OF_BOX};  // x, y, width, height
