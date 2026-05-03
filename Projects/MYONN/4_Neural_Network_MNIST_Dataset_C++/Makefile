@@ -23,6 +23,7 @@ all:
 	@echo
 	@echo "    make build"
 	@echo "    make run"
+	@echo "    make online"
 	@echo "    make clean"
 	@echo
 	@echo "CC-BY-NC by goodkook@gmail.com"
@@ -32,6 +33,9 @@ build: $(PROJECT)
 
 run: $(PROJECT)
 	./$(PROJECT) mnist_dataset/mnist_train_110.csv 10 mnist_dataset/mnist_test_10.csv |tee log.txt
+
+online: $(PROJECT)
+	./$(PROJECT) mnist_dataset/mnist_train_100_online.csv 10
 
 $(PROJECT): $(CPP_FILES) $(HDR_FILES)
 	g++ -o $(PROJECT) \

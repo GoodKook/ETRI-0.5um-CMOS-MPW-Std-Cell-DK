@@ -21,6 +21,7 @@ class neuralNetwork_mnist: public neuralNetwork
     // SDL2-----------------------------------------------------------------
     SDL_Window*     window = NULL;
     SDL_Renderer*   renderer = NULL;
+    SDL_Surface*    surface = NULL;
     SDL_Event       event;
 public:
     // Constructor -----------------------------------------------------------
@@ -48,6 +49,13 @@ public:
 
         SDL_SetWindowResizable(window, SDL_FALSE);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+        surface = SDL_GetWindowSurface(window);
+        if (surface == NULL)
+        {
+            fprintf(stderr, "SDL_GetWindowSurface failed: %s\n", SDL_GetError());
+            exit(1);
+        }
     }
 
     // CSV to Image ------------------------------------------------------------
@@ -106,9 +114,9 @@ public:
             for (int j=0; j<28; j++)
                 sample[i][j] = 0;
 
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-        SDL_RenderClear(renderer);
-        SDL_RenderPresent(renderer);
+        // Initialize window to all black
+        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0, 0, 0));
+        SDL_UpdateWindowSurface(window);
 
         while ( true )
         {
@@ -162,10 +170,9 @@ public:
                             if (!sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX+1])
                                 sample[y/SIZE_OF_BOX+1][x/SIZE_OF_BOX+1] = rand()%IMAGE_THRESHOLD+IMAGE_THRESHOLD/2;
 
-                            SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
                             myBox = {x, y, SIZE_OF_BOX, SIZE_OF_BOX};  // x, y, width, height
-                            SDL_RenderFillRect(renderer, &myBox);
-                            SDL_RenderPresent(renderer);
+                            SDL_FillRect(surface, (const SDL_Rect *)&myBox, SDL_MapRGB(surface->format, 255, 255, 255));
+                            SDL_UpdateWindowSurface(window);
                         }
                         break;
                     default:
