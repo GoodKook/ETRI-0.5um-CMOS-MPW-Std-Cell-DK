@@ -10,9 +10,10 @@
 #include <stdlib.h>
 #include <math.h>
 #include "nnWeight.h"
-#include "nnLayer.h"
+//#include "nnLayer.h"
 
-class neuralNetwork: public Weight<float>, Layer<float>
+//class neuralNetwork: public Weight<float>, Layer<float>
+class neuralNetwork: public Weight<float>
 {
 public:
     // Network's parameters -----------------------------------------------
@@ -100,15 +101,15 @@ public:
 
         // Update Weight ------------------------------------------------------------------------
         // update the weights for the links between the hidden and output layers
-        Update_Weight( &who, final_errors, final_outputs, hidden_outputs);
-        
+        who.Update(lr, activation_function, final_errors, final_outputs, hidden_outputs);
+
         // update the weights for the links between the input and hidden layers
-        Update_Weight( &wih, hidden_errors, hidden_outputs, network_inputs);
+        wih.Update(lr, activation_function, hidden_errors, hidden_outputs, network_inputs);
     }
 
     //------------------------------------------------------------------------
     // activation function is the sigmoid function
-    void activation_function(Layer<float> *x, Layer<float> *y)
+    static void activation_function(Layer<float> *x, Layer<float> *y)
     {
         for (int n=0; n<(x->nNodes); n++)
             y->Nodes[n] = (1.0 / (1.0 + exp(-(x->Nodes[n]))));
@@ -137,28 +138,6 @@ public:
         s = sqrt(-2.0 * log(s) / s);
         spare = v * s;
         return mean + std_dev * (u * s);
-    }
-
-    // update the weights for the links between the input and output layers
-    void Update_Weight(Weight<float> *Wt, Layer<float> oErr, Layer<float> oLayer, Layer<float> iLayer)
-    {
-        Weight<float>   dW("Delta Weight", iLayer.nNodes, oLayer.nNodes);
-        Layer<float>    Sigmoid("Sigmoid", oLayer.nNodes);
-
-        activation_function(&oLayer, &Sigmoid);
-
-        for (int k=0; k<oLayer.nNodes; k++)
-            for (int j=0; j<iLayer.nNodes; j++)
-                dW.Wt[j][k] = lr*oErr.Nodes[k]*Sigmoid.Nodes[k]*(1.0-Sigmoid.Nodes[k])*iLayer.Nodes[j];
-
-        //dW.print();
-
-        for (int k=0; k<oLayer.nNodes; k++)
-            for (int j=0; j<iLayer.nNodes; j++)
-                Wt->Wt[j][k] += dW.Wt[j][k];
-
-        dW._free();
-        Sigmoid._free();
     }
 
     void _free()

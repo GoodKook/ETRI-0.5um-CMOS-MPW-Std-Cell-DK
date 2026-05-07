@@ -10,8 +10,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "nnLayer.h"
+
 template <typename T>
-class Weight
+class Weight : public Layer<T>
 {
 public:
     char    *szWt;
@@ -70,6 +72,27 @@ public:
             for (int j=0; j<nTo; j++)
                 oVector[i] += (Wt[i][j] * iVector[j]);
         }
+    }
+
+    void Update(T lr, void (*activation_function)(Layer<T>*, Layer<T>*), Layer<T> oErr, Layer<T> oLayer, Layer<T> iLayer)
+    {
+        Weight<T>   dW("Delta Weight", iLayer.nNodes, oLayer.nNodes);
+        Layer<T>    Sigmoid("Sigmoid", oLayer.nNodes);
+
+        activation_function(&oLayer, &Sigmoid);
+
+        for (int k=0; k<oLayer.nNodes; k++)
+            for (int j=0; j<iLayer.nNodes; j++)
+                dW.Wt[j][k] = lr*oErr.Nodes[k]*Sigmoid.Nodes[k]*(1.0-Sigmoid.Nodes[k])*iLayer.Nodes[j];
+
+        //dW.print();
+
+        for (int k=0; k<oLayer.nNodes; k++)
+            for (int j=0; j<iLayer.nNodes; j++)
+                Wt[j][k] += dW.Wt[j][k];
+
+        dW._free();
+        Sigmoid._free();
     }
 
     void _free()
