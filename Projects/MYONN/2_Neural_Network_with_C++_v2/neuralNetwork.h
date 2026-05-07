@@ -96,9 +96,7 @@ public:
             final_errors.Nodes[i] = targets[i] - final_outputs.Nodes[i];
 
         // hidden layer error is the output_errors, split by weights, recombined at hidden nodes
-        who.transpose();
-        who.dot_product(final_errors.Nodes, hidden_errors.Nodes);   // Back-Propage Error
-        who.transpose();
+        who.dot_product_T(final_errors.Nodes, hidden_errors.Nodes);   // Back-Propage Error
 
         // Update Weight ------------------------------------------------------------------------
         // update the weights for the links between the hidden and output layers
@@ -142,8 +140,6 @@ public:
     }
 
     // update the weights for the links between the input and output layers
-    //  nCol equals number of inputs' node
-    //  nRow equals number of outputs' node
     void Update_Weight(Weight<float> *Wt, Layer<float> oErr, Layer<float> oLayer, Layer<float> iLayer)
     {
         Weight<float>   dW("Delta Weight", iLayer.nNodes, oLayer.nNodes);
@@ -154,6 +150,8 @@ public:
         for (int k=0; k<oLayer.nNodes; k++)
             for (int j=0; j<iLayer.nNodes; j++)
                 dW.Wt[j][k] = lr*oErr.Nodes[k]*Sigmoid.Nodes[k]*(1.0-Sigmoid.Nodes[k])*iLayer.Nodes[j];
+
+        //dW.print();
 
         for (int k=0; k<oLayer.nNodes; k++)
             for (int j=0; j<iLayer.nNodes; j++)

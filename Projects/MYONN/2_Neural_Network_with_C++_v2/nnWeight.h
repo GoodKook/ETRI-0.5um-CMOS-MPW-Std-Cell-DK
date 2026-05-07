@@ -62,6 +62,16 @@ public:
         }
     }
 
+    void dot_product_T(T* iVector, T* oVector)
+    {
+        for (int i=0; i<nFrom; i++)
+        {
+            oVector[i] = (T)0;
+            for (int j=0; j<nTo; j++)
+                oVector[i] += (Wt[i][j] * iVector[j]);
+        }
+    }
+
     void _free()
     {
         for (int i = 0; i < nFrom; i++) free(Wt[i]);

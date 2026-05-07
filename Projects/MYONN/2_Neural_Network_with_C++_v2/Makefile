@@ -7,9 +7,14 @@ CPP_HEADERS = \
 		nnWeight.h \
 		neuralNetwork.h
 
+ifeq ($(EPOCH),)
+	EPOCH=100
+endif
+
 all: 
 	@echo "C++ version/v.2 of 'part2_neural_network'"
-	@echo "    make build"
+	@echo
+	@echo "    EPOCH=$(EPOCH) make build"
 	@echo "    make run"
 	@echo "    make clean"
 	@echo
@@ -17,7 +22,7 @@ all:
 build: $(PROJECT)
 
 $(PROJECT): $(CPP_SOURCES) $(CPP_HEADERS)
-	g++ -o $(PROJECT) $(CPP_SOURCES) -lm
+	g++ -o $(PROJECT) -DTRAIN_EPOCH=$(EPOCH) $(CPP_SOURCES) -lm
 
 run: $(PROJECT)
 	./$(PROJECT) | tee $(PROJECT).log

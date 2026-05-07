@@ -10,7 +10,7 @@
 #define N_HIDDEN    3
 #define N_FINAL     7
 #define LEARN_RATE  0.3
-#define TRAIN_EPOCH 100
+//#define TRAIN_EPOCH 300
 
 int main()
 {
@@ -45,7 +45,7 @@ int main()
 
     fflush(stdout);
 
-    printf("Train NN:---------------------------------------------------\n");
+    printf("Train NN(Epoch=%d):------------------------------------------\n", TRAIN_EPOCH);
     for (int n=0; n<TRAIN_EPOCH; n++)
     {
         printf(".");
@@ -79,8 +79,6 @@ int main()
     for (int i=0; i<N_FINAL; i++)   printf("%6.2f", targets[i]);
     printf("\nOutput:");
     for (int i=0; i<N_FINAL; i++)   printf("%6.2f", nn.final_outputs.Nodes[i]);
-    printf("\nErrors:");
-    for (int i=0; i<N_FINAL; i++)   printf("%6.2f", nn.final_errors.Nodes[i]);
 
     printf("\nEnd:------------------------------------------------------\n");
 
