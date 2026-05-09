@@ -29,3 +29,5 @@ run: $(PROJECT)
 
 clean:
 	rm -f $(PROJECT)
+	rm -f $(PROJECT).log
+	

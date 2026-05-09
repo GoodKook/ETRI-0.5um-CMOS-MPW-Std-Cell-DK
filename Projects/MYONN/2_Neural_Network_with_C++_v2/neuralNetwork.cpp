@@ -4,12 +4,15 @@
 // Filename: neuralNetwork.cpp
 //
 
+#include <array>
+
 #include "neuralNetwork.h"
 
-#define N_INPUT     5
-#define N_HIDDEN    3
-#define N_FINAL     7
+#define N_INPUT     3
+#define N_HIDDEN    20
+#define N_FINAL     8
 #define LEARN_RATE  0.3
+
 //#define TRAIN_EPOCH 300
 
 int main()
@@ -21,7 +24,9 @@ int main()
     printf("Initial Who matrix:------------------------------------------\n");
     nn.who.print();
 
-    float inputs[N_INPUT], targets[N_FINAL];
+    std::array<float, N_INPUT> inputs;
+    std::array<float, N_FINAL> targets;
+
     for (int i=0; i<N_INPUT; i++)   inputs[i] = 0.0;
     inputs[0] = 0.99;
 
@@ -31,7 +36,7 @@ int main()
     fflush(stdout);
 
     printf("Query NN:---------------------------------------------------\n");
-    nn.query(inputs, targets);
+    nn.query((float*)&inputs, (float*)&targets);
 
     nn.network_inputs.print();
 
@@ -45,11 +50,42 @@ int main()
 
     fflush(stdout);
 
-    printf("Train NN(Epoch=%d):------------------------------------------\n", TRAIN_EPOCH);
+    printf("Train NN for 3-to-8 Decoder(Epoch=%d):-----------------------------\n", TRAIN_EPOCH);
     for (int n=0; n<TRAIN_EPOCH; n++)
     {
         printf(".");
-        nn.train(inputs, targets);
+
+        inputs  = {0.00,0.00,0.00};
+        targets = {0.99,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+        nn.train((float*)&inputs, (float*)&targets);
+
+        inputs  = {0.99,0.00,0.00};
+        targets = {0.00,0.99,0.00,0.00,0.00,0.00,0.00,0.00};
+        nn.train((float*)&inputs, (float*)&targets);
+
+        inputs  = {0.00,0.99,0.00};
+        targets = {0.00,0.00,0.99,0.00,0.00,0.00,0.00,0.00};
+        nn.train((float*)&inputs, (float*)&targets);
+
+        inputs  = {0.99,0.99,0.00};
+        targets = {0.00,0.00,0.00,0.99,0.00,0.00,0.00,0.00};
+        nn.train((float*)&inputs, (float*)&targets);
+
+        inputs  = {0.00,0.00,0.99};
+        targets = {0.00,0.00,0.00,0.00,0.99,0.00,0.00,0.00};
+        nn.train((float*)&inputs, (float*)&targets);
+
+        inputs  = {0.99,0.00,0.99};
+        targets = {0.00,0.00,0.00,0.00,0.00,0.99,0.00,0.00};
+        nn.train((float*)&inputs, (float*)&targets);
+
+        inputs  = {0.00,0.99,0.99};
+        targets = {0.00,0.00,0.00,0.00,0.00,0.00,0.99,0.00};
+        nn.train((float*)&inputs, (float*)&targets);
+
+        inputs  = {0.99,0.99,0.99};
+        targets = {0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.99};
+        nn.train((float*)&inputs, (float*)&targets);
     }
     printf("\n");
     nn.wih.print();
@@ -58,7 +94,8 @@ int main()
     fflush(stdout);
 
     printf("Query NN:---------------------------------------------------\n");
-    nn.query(inputs, targets);
+    inputs  = {0.99,0.99,0.00};
+    nn.query((float*)&inputs, (float*)&targets);
 
     nn.network_inputs.print();
 
@@ -72,14 +109,38 @@ int main()
 
     fflush(stdout);
 
-    printf("Result:-----------------------------------------------------");
-    printf("\nInput :");
-    for (int i=0; i<N_INPUT; i++)   printf("%6.2f", inputs[i]);
-    printf("\nTarget:");
-    for (int i=0; i<N_FINAL; i++)   printf("%6.2f", targets[i]);
-    printf("\nOutput:");
-    for (int i=0; i<N_FINAL; i++)   printf("%6.2f", nn.final_outputs.Nodes[i]);
+    printf("Test 3-to-8 Decoder:----------------------------------------------");
+    inputs  = {0.00,0.00,0.00};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
 
+    inputs  = {0.99,0.00,0.00};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
+
+    inputs  = {0.00,0.99,0.00};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
+
+    inputs  = {0.99,0.99,0.00};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
+
+    inputs  = {0.00,0.00,0.99};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
+
+    inputs  = {0.99,0.00,0.99};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
+
+    inputs  = {0.00,0.99,0.99};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
+
+    inputs  = {0.99,0.99,0.99};
+    nn.query((float*)&inputs, (float*)&targets);
+    nn.print();
     printf("\nEnd:------------------------------------------------------\n");
 
     nn._free();

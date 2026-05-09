@@ -153,6 +153,24 @@ public:
         final_errors._free();
     }
 
+    void print()
+    {
+        printf("\nInput :");
+        for (int i=0; i<network_inputs.nNodes; i++) printf(" %4.2f ", network_inputs.Nodes[i]);
+
+        printf("\nOutput:");
+        float max = 0.0;
+        int   n = -1;
+        for (int i=0; i<final_outputs.nNodes; i++)
+            max = (final_outputs.Nodes[i] >= max)? final_outputs.Nodes[i]: max;
+        for (int i=0; i<final_outputs.nNodes; i++)
+        {
+            if (final_outputs.Nodes[i]==max)
+                printf("[%4.2f]", final_outputs.Nodes[i]);
+            else
+                printf(" %4.2f ", final_outputs.Nodes[i]);
+        }
+    }
     // Destructor -------------------------------------------------------------
     ~neuralNetwork() {}
 };
