@@ -35,7 +35,7 @@ run: $(PROJECT)
 	./$(PROJECT) mnist_dataset/mnist_train_100.csv 20 mnist_dataset/mnist_test_10.csv |tee $(PROJECT).log
 
 online: $(PROJECT)
-	./$(PROJECT) mnist_dataset/mnist_train_100_online.csv 10
+	./$(PROJECT) mnist_dataset/mnist_train_100_online.csv $(EPOCH)
 
 $(PROJECT): $(CPP_FILES) $(HDR_FILES)
 	g++ -o $(PROJECT) \

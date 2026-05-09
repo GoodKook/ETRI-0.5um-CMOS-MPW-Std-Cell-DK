@@ -95,7 +95,7 @@ int main(int argc, char** argv)
     {
         while(n.Capture_Image(nImageBuff))
         {
-            printf("Query Test %2d ---------------------------------------------------------------\n", nImage++);
+            printf("\nQuery Test %2d ---------------------------------------------------------------", nImage++);
 
             n.Conv_Image_to_Float(nImageBuff, inputs, targets);
             n.query(inputs, targets);
