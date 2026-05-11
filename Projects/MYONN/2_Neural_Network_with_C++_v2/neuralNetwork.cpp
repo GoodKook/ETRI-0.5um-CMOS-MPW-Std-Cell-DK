@@ -55,7 +55,7 @@ int main()
     {
         printf(".");
 
-        inputs  = {0.00,0.00,0.00};
+        inputs  = {0.01,0.01,0.01};
         targets = {0.99,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
         nn.train((float*)&inputs, (float*)&targets);
 
@@ -110,7 +110,7 @@ int main()
     fflush(stdout);
 
     printf("Test 3-to-8 Decoder:----------------------------------------------");
-    inputs  = {0.00,0.00,0.00};
+    inputs  = {0.01,0.01,0.01};
     nn.query((float*)&inputs, (float*)&targets);
     nn.print();
 

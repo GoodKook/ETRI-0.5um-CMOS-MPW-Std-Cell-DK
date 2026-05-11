@@ -101,18 +101,48 @@ public:
 
         // Update Weight ------------------------------------------------------------------------
         // update the weights for the links between the hidden and output layers
-        who.Update(lr, activation_function, final_errors, final_outputs, hidden_outputs);
+        who.Update(lr, del_activation_function, final_errors, final_outputs, hidden_outputs);
 
         // update the weights for the links between the input and hidden layers
-        wih.Update(lr, activation_function, hidden_errors, hidden_outputs, network_inputs);
+        wih.Update(lr, del_activation_function, hidden_errors, hidden_outputs, network_inputs);
     }
 
     //------------------------------------------------------------------------
     // activation function is the sigmoid function
-    static void activation_function(Layer<float> *x, Layer<float> *y)
+#if defined(SIGMOID)
+    inline static float Sigmoid(float x) { return (1.0 / (1.0 + exp(-x))); }
+#endif
+
+    void activation_function(Layer<float> *x, Layer<float> *y)
     {
         for (int n=0; n<(x->nNodes); n++)
-            y->Nodes[n] = (1.0 / (1.0 + exp(-(x->Nodes[n]))));
+        {
+#if defined(RELU)
+            if (x->Nodes[n]>0.0)        y->Nodes[n] = 0.5*x->Nodes[n];
+            else if (x->Nodes[n]<0.0)   y->Nodes[n] = 0.0001*x->Nodes[n];
+            else                        y->Nodes[n] = 0.0;
+#elif defined(SIGMOID)
+            y->Nodes[n] = Sigmoid(x->Nodes[n]);
+#else
+#error "Activation Function NOT Defined!"
+#endif
+        }
+    }
+
+    static void del_activation_function(Layer<float> *x, Layer<float> *y)
+    {
+        for (int n=0; n<(x->nNodes); n++)
+        {
+#if defined(RELU)
+            if (x->Nodes[n]>0.0)        y->Nodes[n] = 0.5;
+            else if (x->Nodes[n]<0.0)   y->Nodes[n] = 0.0001;
+            else                        y->Nodes[n] = 0.0;
+#elif defined(SIGMOID)
+            y->Nodes[n] = Sigmoid(x->Nodes[n]) * (1-Sigmoid(x->Nodes[n]));
+#else
+#error "Del_Activation Function NOT Defined!"
+#endif
+        }
     }
 
     // Normal Distributed Random number
