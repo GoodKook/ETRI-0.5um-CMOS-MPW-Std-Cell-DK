@@ -17,11 +17,15 @@ ifeq ($(EPOCH),)
 	EPOCH = 20
 endif
 
+ifeq ($(ACTIVATION_FUNCTION),)
+	ACTIVATION_FUNCTION = SIGMOID
+endif
+
 all:
 	@echo "C++ version of Neural Network for MNIST dataset"
 	@echo "Original python version from 'Make Your Own Neural Network', Tariq Rashid"
 	@echo
-	@echo "    make build"
+	@echo "    ACTIVATION_FUNCTION=$(ACTIVATION_FUNCTION) EPOCH=$(EPOCH) make build"
 	@echo "    make run"
 	@echo "    make online"
 	@echo "    make clean"
@@ -40,6 +44,7 @@ online: $(PROJECT)
 $(PROJECT): $(CPP_FILES) $(HDR_FILES)
 	g++ -o $(PROJECT) \
 		-DTRAIN_EPOCH=$(EPOCH) \
+		-D$(ACTIVATION_FUNCTION) \
 		-I$(NEURAL_NETWORK_PATH) -I$(MNIST_DATASET_PATH) \
 		$(CPP_FILES) -lm -lSDL2
 
