@@ -10,10 +10,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include "nnWeight.h"
-//#include "nnLayer.h"
+#include "nnActivation_Func.h"
 
-//class neuralNetwork: public Weight<float>, Layer<float>
-class neuralNetwork: public Weight<float>
+class neuralNetwork: public Weight<float>, Activation_Func
 {
 public:
     // Network's parameters -----------------------------------------------
@@ -101,43 +100,10 @@ public:
 
         // Update Weight ------------------------------------------------------------------------
         // update the weights for the links between the hidden and output layers
-        who.Update(lr, activation_function, final_errors, final_outputs, hidden_outputs);
+        who.Update(lr, del_activation_function, final_errors, final_outputs, hidden_outputs);
 
         // update the weights for the links between the input and hidden layers
-        wih.Update(lr, activation_function, hidden_errors, hidden_outputs, network_inputs);
-    }
-
-    //------------------------------------------------------------------------
-    // activation function is the sigmoid function
-    static void activation_function(Layer<float> *x, Layer<float> *y)
-    {
-        for (int n=0; n<(x->nNodes); n++)
-            y->Nodes[n] = (1.0 / (1.0 + exp(-(x->Nodes[n]))));
-    }
-
-    // Normal Distributed Random number
-    double gen_gaussian(double mean, double std_dev)
-    {
-        static int have_spare = 0;
-        static double spare;
-
-        if (have_spare)
-        {
-            have_spare = 0;
-            return mean + std_dev * spare;
-        }
-
-        have_spare = 1;
-        double u, v, s;
-        do {
-            u = (rand() / ((double)RAND_MAX)) * 2.0 - 1.0;
-            v = (rand() / ((double)RAND_MAX)) * 2.0 - 1.0;
-            s = u * u + v * v;
-        } while (s >= 1.0 || s == 0.0);
-
-        s = sqrt(-2.0 * log(s) / s);
-        spare = v * s;
-        return mean + std_dev * (u * s);
+        wih.Update(lr, del_activation_function, hidden_errors, hidden_outputs, network_inputs);
     }
 
     void _free()
@@ -153,6 +119,24 @@ public:
         final_errors._free();
     }
 
+    void print()
+    {
+        printf("\nInput :");
+        for (int i=0; i<network_inputs.nNodes; i++) printf(" %4.2f ", network_inputs.Nodes[i]);
+
+        printf("\nOutput:");
+        float max = 0.0;
+        int   n = -1;
+        for (int i=0; i<final_outputs.nNodes; i++)
+            max = (final_outputs.Nodes[i] >= max)? final_outputs.Nodes[i]: max;
+        for (int i=0; i<final_outputs.nNodes; i++)
+        {
+            if (final_outputs.Nodes[i]==max)
+                printf("[%4.2f]", final_outputs.Nodes[i]);
+            else
+                printf(" %4.2f ", final_outputs.Nodes[i]);
+        }
+    }
     // Destructor -------------------------------------------------------------
     ~neuralNetwork() {}
 };

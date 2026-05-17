@@ -9,7 +9,8 @@
 #include "neuralNetwork.h"
 
 #define N_INPUT     3
-#define N_HIDDEN    20
+#define N_HIDDEN1   20
+#define N_HIDDEN2   20
 #define N_FINAL     8
 #define LEARN_RATE  0.3
 
@@ -17,12 +18,14 @@
 
 int main()
 {
-    neuralNetwork nn( N_INPUT, N_HIDDEN, N_FINAL, LEARN_RATE);
+    neuralNetwork nn( N_INPUT, N_HIDDEN1, N_HIDDEN2, N_FINAL, LEARN_RATE);
 
-    printf("Initial Wih matrix:------------------------------------------\n");
-    nn.wih.print();
-    printf("Initial Who matrix:------------------------------------------\n");
-    nn.who.print();
+    printf("Initial Wi_h1 matrix:------------------------------------------\n");
+    nn.wi_h1.print();
+    printf("Initial Wh1_h2 matrix:-----------------------------------------\n");
+    nn.wh1_h2.print();
+    printf("Initial Wh2_o matrix:------------------------------------------\n");
+    nn.wh2_o.print();
 
     std::array<float, N_INPUT> inputs;
     std::array<float, N_FINAL> targets;
@@ -40,9 +43,13 @@ int main()
 
     nn.network_inputs.print();
 
-    nn.hidden_inputs.print();
-    nn.hidden_outputs.print();
-    nn.hidden_errors.print();
+    nn.hidden1_inputs.print();
+    nn.hidden1_outputs.print();
+    nn.hidden1_errors.print();
+
+    nn.hidden2_inputs.print();
+    nn.hidden2_outputs.print();
+    nn.hidden2_errors.print();
 
     nn.final_inputs.print();
     nn.final_outputs.print();
@@ -88,8 +95,9 @@ int main()
         nn.train((float*)&inputs, (float*)&targets);
     }
     printf("\n");
-    nn.wih.print();
-    nn.who.print();
+    nn.wi_h1.print();
+    nn.wh1_h2.print();
+    nn.wh2_o.print();
 
     fflush(stdout);
 
@@ -99,9 +107,13 @@ int main()
 
     nn.network_inputs.print();
 
-    nn.hidden_inputs.print();
-    nn.hidden_outputs.print();
-    nn.hidden_errors.print();
+    nn.hidden1_inputs.print();
+    nn.hidden1_outputs.print();
+    nn.hidden1_errors.print();
+
+    nn.hidden2_inputs.print();
+    nn.hidden2_outputs.print();
+    nn.hidden2_errors.print();
 
     nn.final_inputs.print();
     nn.final_outputs.print();

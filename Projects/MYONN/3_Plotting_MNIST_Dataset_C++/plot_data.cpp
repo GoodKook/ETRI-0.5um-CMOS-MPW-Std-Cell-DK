@@ -97,6 +97,8 @@ int main()
     SDL_Renderer*   renderer = NULL;
     SDL_Event       event;
 
+    fprintf(stderr, "Plottig MNIST dataset. Use Arrow keys.....");
+    
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         fprintf(stderr, "SDL Initialization Fail: %s\n", SDL_GetError());

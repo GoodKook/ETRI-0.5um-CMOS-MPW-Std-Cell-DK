@@ -1,11 +1,12 @@
 
 PROJECT = neuralNetwork
+BASE_CLASS_PATH = ../2_Neural_Network_with_C++_v2
 CPP_SOURCES = \
 		neuralNetwork.cpp
 CPP_HEADERS = \
-		nnLayer.h \
-		nnWeight.h \
-		nnActivation_Func.h \
+		$(BASE_CLASS_PATH)/nnLayer.h \
+		$(BASE_CLASS_PATH)/nnWeight.h \
+		$(BASE_CLASS_PATH)/nnActivation_Func.h \
 		neuralNetwork.h
 
 ifeq ($(EPOCH),)
@@ -27,7 +28,7 @@ all:
 build: $(PROJECT)
 
 $(PROJECT): $(CPP_SOURCES) $(CPP_HEADERS)
-	g++ -o $(PROJECT) -D$(ACTIVATION_FUNCTION) -DTRAIN_EPOCH=$(EPOCH) $(CPP_SOURCES) -lm
+	g++ -o $(PROJECT) -I$(BASE_CLASS_PATH) -D$(ACTIVATION_FUNCTION) -DTRAIN_EPOCH=$(EPOCH) $(CPP_SOURCES) -lm
 
 run: $(PROJECT)
 	./$(PROJECT) | tee $(PROJECT).log

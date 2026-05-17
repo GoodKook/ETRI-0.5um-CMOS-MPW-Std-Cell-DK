@@ -29,7 +29,6 @@ class neuralNetwork:
         self.activation_function = lambda x: scipy.special.expit(x)
         
         pass
-
     
     # train the neural network
     def train(self, inputs_list, targets_list):
@@ -59,7 +58,6 @@ class neuralNetwork:
         self.wih += self.lr * numpy.dot((hidden_errors * hidden_outputs * (1.0 - hidden_outputs)), numpy.transpose(inputs))
         
         pass
-
     
     # query the neural network
     def query(self, inputs_list):
@@ -77,103 +75,4 @@ class neuralNetwork:
         final_outputs = self.activation_function(final_inputs)
         
         return final_outputs
-
-if __name__=="__main__":
-    # number of input, hidden and output nodes
-    input_nodes = 3
-    hidden_nodes = 3
-    output_nodes = 3
-
-    # learning rate
-    learning_rate = 0.3
-
-    #------------------------------------------------------------------------------
-    # create instance of neural network
-    n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)
-
-    print(n.wih)
-    print(n.who)
-
-    # simple random number generator
-    rand = lambda : abs(numpy.random.rand())
-
-    #------------------------------------------------------------------------------
-    # prepare target
-    target_list = numpy.zeros(output_nodes)
-    target_list[output_nodes-1] = 1.0
-    print(f'Training Target: {target_list}')
-
-    # prepare training input
-    input_list = numpy.zeros(input_nodes)
-
-    #------------------------------------------------------------------------------
-    print("Training...")
-    for k in range(100):
-        for j in range(input_nodes) :
-            if (j==0) : input_list[j] = 1.0
-            else      : input_list[j] = 0.0 #rand()/10.0
-            pass
-
-        n.train(input_list, target_list)    # Train !
-
-        print(F"Train #{k}: ", end="")
-        for j in range(input_nodes) :
-            print(F"{input_list[j]:.3f}", end=" ")
-
-        print(F"-> ", end="")
-        for j in range(output_nodes) :
-            print(F"{target_list[j]:.3f}", end=" ")
-        print("")
-
-        pass
-
-    #------------------------------------------------------------------------------
-    # test query
-    # prepare query input
-    query_list = numpy.zeros(input_nodes)
-
-    for k in range(10) :
-        for j in range(input_nodes) :
-            query_list[j] = rand()/5.0
-            pass
-        query_list[0] = 1.0
-
-        # Query
-        output_list = n.query(query_list)   # query !
-
-        print('Query Test: ', end="")
-        for i in range(input_nodes) :
-            print(F"{query_list[i]:.3f}", end=" ")
-            pass
-
-        print("-> ", end="")
-        for i in range(output_nodes) :
-            print(F"{output_list[i,0]:.3f}", end=" ")
-            pass
-
-        print("")
-    pass
-
-    for k in range(input_nodes) :
-        for j in range(input_nodes) :
-            if (j==k) : query_list[j] = 1.0
-            else      : query_list[j] = rand()/5.0
-            pass
-
-        # Query
-        output_list = n.query(query_list)   # query !
-
-        print('Query Test: ', end="")
-        for i in range(input_nodes) :
-            print(F"{query_list[i]:.3f}", end=" ")
-            pass
-
-        print("-> ", end="")
-        for i in range(output_nodes) :
-            print(F"{output_list[i,0]:.3f}", end=" ")
-            pass
-
-        print("")
-    pass
-
 

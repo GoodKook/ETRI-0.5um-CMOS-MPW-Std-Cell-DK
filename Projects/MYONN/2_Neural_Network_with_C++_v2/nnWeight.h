@@ -74,16 +74,16 @@ public:
         }
     }
 
-    void Update(T lr, void (*activation_function)(Layer<T>*, Layer<T>*), Layer<T> oErr, Layer<T> oLayer, Layer<T> iLayer)
+    void Update(T lr, void (*del_activation_function)(Layer<T>*, Layer<T>*), Layer<T> oErr, Layer<T> oLayer, Layer<T> iLayer)
     {
         Weight<T>   dW("Delta Weight", iLayer.nNodes, oLayer.nNodes);
-        Layer<T>    Sigmoid("Sigmoid", oLayer.nNodes);
+        Layer<T>    del_O("Sigmoid", oLayer.nNodes);
 
-        activation_function(&oLayer, &Sigmoid);
+        del_activation_function(&oLayer, &del_O);
 
         for (int k=0; k<oLayer.nNodes; k++)
             for (int j=0; j<iLayer.nNodes; j++)
-                dW.Wt[j][k] = lr*oErr.Nodes[k]*Sigmoid.Nodes[k]*(1.0-Sigmoid.Nodes[k])*iLayer.Nodes[j];
+                dW.Wt[j][k] = lr * oErr.Nodes[k] * del_O.Nodes[k] * iLayer.Nodes[j];
 
         //dW.print();
 
@@ -92,7 +92,7 @@ public:
                 Wt[j][k] += dW.Wt[j][k];
 
         dW._free();
-        Sigmoid._free();
+        del_O._free();
     }
 
     void _free()
