@@ -42,8 +42,8 @@ sudo apt install -y \
     google-perftools libgoogle-perftools-dev \
     ant default-jre libfl-dev \
     libglew-dev glew-utils libglfw3-dev \
-    uuid uuid-dev libsecret-1-dev \
-    ddd xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted
+    uuid uuid-dev libsecret-1-dev libyaml-dev \
+    ddd xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted gnuplot
 
 #sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 #
