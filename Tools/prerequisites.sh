@@ -43,7 +43,7 @@ sudo apt install -y \
     ant default-jre libfl-dev \
     libglew-dev glew-utils libglfw3-dev \
     uuid uuid-dev libsecret-1-dev libyaml-dev \
-    ddd xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted gnuplot
+    ddd xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted gnuplot ufw arp-scan openssh-server
 
 #sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 #
@@ -51,4 +51,8 @@ sudo apt install -y \
 #cpan install Pod::Perldoc
 
 sudo apt --fix-broken install
+
+#sudo systemctl enable ssh
+#sudo ufw allow ssh
+#sudo ufw enable
 
