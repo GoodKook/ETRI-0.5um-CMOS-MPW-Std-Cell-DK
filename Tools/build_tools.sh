@@ -11,11 +11,10 @@
 ./klayout_install.sh
 ./netgen_build.sh
 ./qrouter_build.sh
-./ngspice45.2_build.sh
+./ngspice46_build.sh
 ./xschem_build.sh
 ./gtkwave_install.sh
 ./yosys_build.sh
-#./yosys-f4pga-plugins.sh
 ./systemc_build.sh
 ./iverilog_build.sh
 ./verilator_build.sh
