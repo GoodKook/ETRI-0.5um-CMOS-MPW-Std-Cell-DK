@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-./z3_build.sh
+#./z3_build.sh
 ./sdl_install.sh
 ./sdl2_install.sh
 ./python_libs.sh
@@ -13,6 +13,7 @@
 ./qrouter_build.sh
 ./ngspice46_build.sh
 ./xschem_build.sh
+./opensta_build.sh
 ./gtkwave_install.sh
 ./yosys_build.sh
 ./systemc_build.sh
@@ -32,12 +33,13 @@ echo "irsim:     IRSim Switching Level Simulator"
 echo "magic:     VLSI Layout Tool"
 echo "klayout:   Layout Tool"
 echo "netgen:    NetGen Layout vs Schematic compare"
-echo "ngspice42: SPICE simulator"
+echo "ngspice:   SPICE simulator"
 echo "xschem:    XSchem Schematic entry tool"
 echo "systemc:   SystemC"
 echo "iverilog:  iVerilog HDL simulator"
 echo "Verilator: Verilog to C++/SystemC converter"
 echo "gtkwave:   gtkWave Digital waveform viewer"
 echo "yosys:     Yosys RTL Synthesizer"
+echo "OpenSTA:   OpenSTA:Static Timing Analysis"
 echo "QFlow:     qflow-1.4.100_etri050"
 

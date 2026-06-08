@@ -44,7 +44,7 @@ sudo apt install -y \
     libglew-dev glew-utils libglfw3-dev \
     uuid uuid-dev libsecret-1-dev libyaml-dev \
     net-tools \
-    ddd xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted gnuplot ufw arp-scan openssh-server
+    ddd mc xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted gnuplot ufw arp-scan openssh-server
 
 #sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 #
@@ -56,4 +56,7 @@ sudo apt --fix-broken install
 #sudo systemctl enable ssh
 #sudo ufw allow ssh
 #sudo ufw enable
+
+# autoconf: force & initialize
+#autoreconf -fi
 
