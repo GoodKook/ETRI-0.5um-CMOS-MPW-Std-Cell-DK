@@ -25,6 +25,7 @@
 Adafruit_NeoPixel pixels(NUMPIXELS*8, PIN, NEO_GRB + NEO_KHZ800);
 
 #define DELAYVAL 1 // Time (in milliseconds) to pause between pixels
+int SPEED = 10;
 
 void setup()
 {
@@ -37,9 +38,11 @@ void setup()
 void loop()
 {
   SplashRandom();
-
-  Splash(2);  // Yeah!
+  SplashWin();
+  Splash(2);
+  SplashScrollDown(2,1);
   Splash(1);
+  SplashScrollDown(1,0);
   Splash(0);
   while(!PongGame());
 }
@@ -87,6 +90,7 @@ const uint8_t _Splash_1[16][32] PROGMEM = {
 };
 
 const uint8_t _Splash_2[16][32] PROGMEM = {
+  // My Chip
   {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
   {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
   {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
@@ -133,6 +137,73 @@ void SplashRandom()
   //pixels.clear(); // Set all pixel colors to 'off'
 }
 
+void SplashWin()
+{
+  do
+  {
+    for (int y=0, x=0; x<32; x++)
+      SetPixel(x, y, random(32), random(32), random(32), false);
+    for (int y=15, x=0; x<32; x++)
+      SetPixel(x, y, random(32), random(32), random(32), false);
+    for (int x=0, y=1; y<15; y++)
+      SetPixel(x, y, random(32), random(32), random(32), false);
+    for (int x=31, y=1; y<15; y++)
+      SetPixel(x, y, random(32), random(32), random(32), false);
+    pixels.show();
+    delay(100);
+  } while(digitalRead(KEY_UP) && digitalRead(KEY_DOWN));
+  if(!digitalRead(KEY_UP))        SPEED = 5;
+  else if(!digitalRead(KEY_DOWN)) SPEED = 10;
+}
+
+void SplashScrollDown(int from, int to)
+{
+  uint8_t RGB, R, G, B;
+
+  for (int z=0; z<16; z++)
+  {
+    for (int y=0; y<(16-z); y++)
+    {
+      for (int x=0; x<32; x++)
+      {
+        if (from==0)
+          RGB = pgm_read_byte(&_Splash_0[y][x]);
+        else if (from==1)
+          RGB = pgm_read_byte(&_Splash_1[y][x]);
+        else if (from==2)
+          RGB = pgm_read_byte(&_Splash_2[y][x]);
+        else
+          return;
+        R = (RGB & 0x30)*4;
+        G = (RGB & 0x0C)*4;
+        B = (RGB & 0x03)*4;
+        SetPixel(x, y+z, R, G, B, false);
+      }
+    }
+
+    for (int y=15; y>=(15-z); y--)
+    {
+      for (int x=0; x<32; x++)
+      {
+        if (to==0)
+          RGB = pgm_read_byte(&_Splash_0[15-y][x]);
+        else if (to==1)
+          RGB = pgm_read_byte(&_Splash_1[15-y][x]);
+        else if (to==2)        
+          RGB = pgm_read_byte(&_Splash_2[15-y][x]);
+        else
+          return;
+        R = (RGB & 0x30)*4;
+        G = (RGB & 0x0C)*4;
+        B = (RGB & 0x03)*4;
+        SetPixel(x, (15-y), R, G, B, false);
+      }
+    }
+    pixels.show();
+    delay(10);
+  }
+}
+
 void Splash(int n)
 {
   while(!digitalRead(KEY_UP) || !digitalRead(KEY_DOWN)) delay(100); // Check Key State
@@ -153,27 +224,8 @@ void Splash(int n)
     }
   }
 
-  if (n==2)
-  {
-    do
-    {
-      for (int y=0, x=0; x<32; x++)
-        SetPixel(x, y, random(32), random(32), random(32), false);
-      for (int y=15, x=0; x<32; x++)
-        SetPixel(x, y, random(32), random(32), random(32), false);
-      for (int x=0, y=1; y<15; y++)
-        SetPixel(x, y, random(32), random(32), random(32), false);
-      for (int x=31, y=1; y<15; y++)
-        SetPixel(x, y, random(32), random(32), random(32), false);
-      pixels.show();
-      delay(100);
-    } while(digitalRead(KEY_UP) && digitalRead(KEY_DOWN));
-  }
-  else
-  {
-    pixels.show();
-    delay(1000);
-  }
+  pixels.show();
+  delay(1000);
 }
 
 bool ScoreBoard(bool bInit)
@@ -262,7 +314,8 @@ bool PongGame()
     {
       if (!ScoreBoard(false)) // Cleared?
       {
-        Splash(2);  // Yeah!
+        Splash(2);
+        SplashWin();  // Yeah!
         Splash(1);
         Splash(0);
         bInit = true;
@@ -275,15 +328,9 @@ bool PongGame()
 
       // Special effect!
       if ((ball_y+1)==paddle_y) // Ball smashed upper edge
-      {
         ball_y_dir = false;
-        disable_y = true;
-      }
       else if (ball_y==(paddle_y+3)) // Ball smashed lower edge
-      {
         ball_y_dir = true;
-        disable_y = true;
-      }
       else if (ball_y==(paddle_y+1))
         disable_y = true;
       else
@@ -300,7 +347,10 @@ bool PongGame()
       pixels.show();
       delay(200);
 
+      Splash(2);
+      SplashScrollDown(2,1);
       Splash(1);
+      SplashScrollDown(1,0);
       Splash(0);
       
       DrawWall(32, 0, 0);
@@ -312,7 +362,7 @@ bool PongGame()
   DrawBall(ball_x, ball_y, 0, 32, 0); // Draw Ball
 
   pixels.show();
-  delay(random(10)*10+10);
+  delay(random(SPEED)*SPEED+10);
 
   return false;
 }
