@@ -41,6 +41,9 @@ void setup()
 
 void loop()
 {
+  while(!digitalRead(L_KEY_UP) || !digitalRead(L_KEY_DOWN)) delay(100); // Check Key State
+  while(!digitalRead(R_KEY_UP) || !digitalRead(R_KEY_DOWN)) delay(100); // Check Key State
+
   SplashRandom();
   SplashWin();
   Splash(2);
@@ -48,6 +51,7 @@ void loop()
   Splash(1);
   SplashScrollDown(1,0);
   Splash(0);
+
   while(!PongGame());
 }
 
@@ -361,6 +365,12 @@ bool PongGame()
       ball_x = 2;
 
       ScoreBoard(true); // Init. Restart Game
+
+      if(!digitalRead(L_KEY_DOWN) && !digitalRead(R_KEY_DOWN))
+      {
+        bInit = true;
+        return true;  // End of Game
+      }
     }
   }
   else if (ball_x<2)  // Ball impact Left Paddle ------------------------------
@@ -411,6 +421,12 @@ bool PongGame()
       ball_x = 28;
 
       ScoreBoard(true); // Init. Restart Game
+
+      if(!digitalRead(L_KEY_DOWN) && !digitalRead(R_KEY_DOWN))
+      {
+        bInit = true;
+        return true;  // End of Game
+      }
     }
   }
 
