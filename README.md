@@ -8,7 +8,9 @@ https://fun-teaching-goodkook.blogspot.com/2024/07/mpw.html
 
 * Note: Blog page is written in Korean. You may read via machine translation.
 
-![Design Kit Flow](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/blob/main/OpenSource_DK_Flow.png)
+![Design Kit Flow](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/blob/main/OpenSource_DK_Flow.jpg)
+
+![MyChip MPW/내 칩 제작 서비스](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/blob/main/MyChip_MPW_Service.jpg)
 
 ![STD-CELL_DFFSR_Layout](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/assets/162967523/c59015a0-d943-4486-bb6c-dc7de91065b1)
 
