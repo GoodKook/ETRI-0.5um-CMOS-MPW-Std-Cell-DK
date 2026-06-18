@@ -117,10 +117,6 @@ The example includes synthesis, P&R, layout generation, LVS and RTL simulation a
 
         make migrate; make lvs
 
-Find example/reference design using ETRI 0.5um Std-Cell DK at following link,
-
-    https://github.com/GoodKook/ETRI-0.5u-CMOS-MPW-DK-Example--ALU8
-
 Have fun!
 
 Kook, goodkook(at)gmail.com
