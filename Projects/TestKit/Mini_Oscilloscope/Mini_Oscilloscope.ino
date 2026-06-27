@@ -16,6 +16,8 @@
 #define BTN_SELECT  8   // Select button
 #define BTN_HOLD    9   // Hold
 
+#define PIN_PWM     5
+
 #define BLINK_LED   13  // LED
 
 // Analog Read Channel
@@ -81,6 +83,11 @@ void setup() {
   pinMode(BTN_ATTN, INPUT);           // 1/10 attenuator(Off=High-Z, Enable=Output Low)
   pinMode(BLINK_LED, OUTPUT);         // LED
 
+  // Modify Timer 0 control register TCCR0B to set prescaler to 256
+  // This changes the frequency of Pins 5 and 6 to 1KHz
+  TCCR0B = TCCR0B & 0xF8 | 0x03;
+  analogWrite(PIN_PWM, 128);          // PWM write
+
   // Initialise the OLED
   oled.begin(SSD1309_SWITCHCAPVCC, SCREEN_ADDRESS);
 
@@ -93,6 +100,10 @@ void setup() {
 }
 
 void loop() {
+  //static uint8_t duty = 0;
+  //analogWrite(PIN_PWM, duty++);         // PWM write
+  //if(duty==255) duty=0;
+
   setConditions();                      // set measurment conditions
   digitalWrite(BLINK_LED, HIGH);        // flash LED
   readWave();                           // read wave form and store into buffer memory
