@@ -33,7 +33,7 @@
 #define REC_LENG 200                    // size of wave data buffer
 #define MIN_TRIG_SWING 5                // minimum trigger swing.(Display "Unsync" if swing smaller than this value
 
-// Declaration for an SSD1309 display connected to I2C (SDA, SCL pins)
+// Declaration for an SSD1309(2.4")/SSD1315(0.96")/SSD1306(0.96") display connected to I2C (SDA, SCL pins)
 DIYables_OLED_SSD1309 oled(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // Range name table (those are stored in flash memory)
