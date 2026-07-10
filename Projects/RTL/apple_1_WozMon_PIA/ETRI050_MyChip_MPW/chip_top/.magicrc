@@ -1,0 +1,30 @@
+#-----------------------------------------------------
+# .magicrc startup file for ETRI050 project under qflow
+#-----------------------------------------------------
+# Design Kit Environment Variables
+set DK_HOME ~/ETRI050_DesignKit
+set DK_STD_CELL $DK_HOME/digital_ETRI
+set DK_ANA_LIB $DK_HOME/analog_ETRI
+set DK_PAD_LIB $DK_HOME/pads_ETRI
+set DK_TECH $DK_HOME/tech
+set DK_SCRIPT $DK_HOME/scripts
+
+path sys +$DK_TECH
+#path sys +/usr/local/share/qflow/tech/etri050
+tech load SCN3ME_SUBM.30.ETRI -noprompt
+scalegrid 1 2
+set GND gnd
+set VDD vdd
+
+drc euclidean on
+drc off
+
+addpath $DK_STD_CELL
+addpath $DK_ANA_LIB
+addpath $DK_ANA_LIB/GDS_Magic
+addpath $DK_PAD_LIB
+addpath $DK_PAD_LIB/GDS_Magic
+
+macro Control_XK_Pointer_Button4 {zoom 0.5}
+macro Control_XK_Pointer_Button5 {zoom 2}
+

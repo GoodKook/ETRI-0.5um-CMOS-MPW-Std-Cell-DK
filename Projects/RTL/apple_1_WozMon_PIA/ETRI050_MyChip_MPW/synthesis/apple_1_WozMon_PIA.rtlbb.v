@@ -1,0 +1,60390 @@
+/* Verilog module written by vlog2Verilog (qflow) */
+/* With bit-blasted vectors */
+/* With power connections converted to binary 1, 0 */
+
+module apple_1_WozMon_PIA(
+    input clk,
+    input reset,
+    output [15:0] AB,
+    input [7:0] DI,
+    output [7:0] DO,
+    output WE,
+    input IRQ,
+    input NMI,
+    input RDY,
+    input kbd_rdy,
+    output kbd_ack,
+    input [6:0] kbd_data,
+    output dsp_rdy,
+    input dsp_ack,
+    output [6:0] dsp_data
+);
+
+wire _1677_ ;
+wire _1257_ ;
+wire _588_ ;
+wire _168_ ;
+wire _800_ ;
+wire _60_ ;
+wire _1486_ ;
+wire _1066_ ;
+wire _397_ ;
+wire _1295_ ;
+wire \u_cpu.adj_bcd  ;
+wire _2101_ ;
+wire _1315__bF$buf0 ;
+wire _1315__bF$buf1 ;
+wire _1315__bF$buf2 ;
+wire _1315__bF$buf3 ;
+wire _703_ ;
+wire _1389_ ;
+wire _2330_ ;
+wire _19_ ;
+wire _1601_ ;
+wire _932_ ;
+wire _512_ ;
+wire _1198_ ;
+wire _1830_ ;
+wire _1410_ ;
+wire _741_ ;
+wire _321_ ;
+wire _57_ ;
+wire _970_ ;
+wire _550_ ;
+wire _130_ ;
+wire _2004_ ;
+wire \u_cpu.CO  ;
+wire _606_ ;
+wire _2233_ ;
+wire _1924_ ;
+wire _1504_ ;
+wire _835_ ;
+wire _415_ ;
+wire _95_ ;
+wire _2042_ ;
+wire _1733_ ;
+wire _1313_ ;
+wire _644_ ;
+wire _224_ ;
+wire _2271_ ;
+wire _1962_ ;
+wire _1542_ ;
+wire _1122_ ;
+wire _873_ ;
+wire _453_ ;
+wire _2327_ ;
+wire _2080_ ;
+wire _929_ ;
+wire _509_ ;
+wire _1771_ ;
+wire _1351_ ;
+wire _682_ ;
+wire _262_ ;
+wire _2136_ ;
+wire \u_cpu.adc_sbc  ;
+wire _1827_ ;
+wire _1407_ ;
+wire _738_ ;
+wire _318_ ;
+wire _1580_ ;
+wire _1160_ ;
+wire _491_ ;
+wire _1636_ ;
+wire _1216_ ;
+wire _967_ ;
+wire _547_ ;
+wire _127_ ;
+wire _2174_ ;
+wire _1865_ ;
+wire _1445_ ;
+wire _1025_ ;
+wire _776_ ;
+wire _356_ ;
+wire _1674_ ;
+wire _1254_ ;
+wire _585_ ;
+wire _165_ ;
+wire _2039_ ;
+wire _1483_ ;
+wire _1063_ ;
+wire _394_ ;
+wire \u_cpu.I  ;
+wire _2268_ ;
+wire _1959_ ;
+wire _1539_ ;
+wire _1119_ ;
+wire _1292_ ;
+wire _2077_ ;
+wire _1768_ ;
+wire _1348_ ;
+wire [1:0] \u_cpu.dst_reg  ;
+wire _679_ ;
+wire _259_ ;
+wire [7:0] Data_In ;
+wire \u_cpu.HC  ;
+wire _1997_ ;
+wire _1577_ ;
+wire _1157_ ;
+wire _488_ ;
+wire _700_ ;
+wire _1386_ ;
+wire _297_ ;
+wire _16_ ;
+wire _1195_ ;
+wire _54_ ;
+wire _2001_ ;
+wire _603_ ;
+wire _1289_ ;
+wire _2230_ ;
+wire _1921_ ;
+wire _1501_ ;
+wire _832_ ;
+wire _412_ ;
+wire _92_ ;
+wire _1098_ ;
+wire _1730_ ;
+wire _1310_ ;
+wire _641_ ;
+wire _221_ ;
+wire _870_ ;
+wire _450_ ;
+wire _2324_ ;
+wire _926_ ;
+wire _506_ ;
+wire _2133_ ;
+wire _1824_ ;
+wire _1404_ ;
+wire _735_ ;
+wire _315_ ;
+wire _1633_ ;
+wire _1213_ ;
+wire _964_ ;
+wire _544_ ;
+wire _124_ ;
+wire _2171_ ;
+wire IRQ ;
+wire [6:0] \u_cpu.ADD  ;
+wire _1862_ ;
+wire _1442_ ;
+wire _1022_ ;
+wire _773_ ;
+wire _353_ ;
+wire _2227_ ;
+wire _1918_ ;
+wire _829_ ;
+wire _409_ ;
+wire _89_ ;
+wire _1671_ ;
+wire _1251_ ;
+wire _582_ ;
+wire _162_ ;
+wire _2036_ ;
+wire \u_cpu.res  ;
+wire _1727_ ;
+wire _1307_ ;
+wire _638_ ;
+wire _218_ ;
+wire _1480_ ;
+wire _1060_ ;
+wire _391_ ;
+wire _2265_ ;
+wire _1956_ ;
+wire _1536_ ;
+wire _1116_ ;
+wire \u_cpu.u_ALU8.BI7  ;
+wire _867_ ;
+wire _447_ ;
+wire _2074_ ;
+wire _1765_ ;
+wire _1345_ ;
+wire _676_ ;
+wire _256_ ;
+wire _1994_ ;
+wire _1574_ ;
+wire _1154_ ;
+wire _485_ ;
+wire WE ;
+wire _1383_ ;
+wire _294_ ;
+wire _2168_ ;
+wire \u_cpu.AZ  ;
+wire _13_ ;
+wire _1859_ ;
+wire _1439_ ;
+wire _1019_ ;
+wire _1192_ ;
+wire _1668_ ;
+wire _1248_ ;
+wire _999_ ;
+wire _579_ ;
+wire _159_ ;
+wire _51_ ;
+wire _1897_ ;
+wire _1477_ ;
+wire _1057_ ;
+wire _388_ ;
+wire \u_cpu.CI  ;
+wire _600_ ;
+wire _1286_ ;
+wire _197_ ;
+wire _1095_ ;
+wire _1325__bF$buf0 ;
+wire _1325__bF$buf1 ;
+wire _1325__bF$buf2 ;
+wire _1325__bF$buf3 ;
+wire _1325__bF$buf4 ;
+wire _2321_ ;
+wire _7_ ;
+wire RDY ;
+wire _923_ ;
+wire _503_ ;
+wire _1189_ ;
+wire _2130_ ;
+wire _1821_ ;
+wire _1401_ ;
+wire _732_ ;
+wire _312_ ;
+wire _48_ ;
+wire _1630_ ;
+wire _1210_ ;
+wire _1920__bF$buf0 ;
+wire _1920__bF$buf1 ;
+wire _1920__bF$buf2 ;
+wire _1920__bF$buf3 ;
+wire _1920__bF$buf4 ;
+wire _961_ ;
+wire _541_ ;
+wire _121_ ;
+wire _770_ ;
+wire _350_ ;
+wire _2224_ ;
+wire _1915_ ;
+wire _826_ ;
+wire _406_ ;
+wire _86_ ;
+wire _2033_ ;
+wire _1724_ ;
+wire _1304_ ;
+wire _635_ ;
+wire _215_ ;
+wire \u_cpu.C  ;
+wire _2262_ ;
+wire _1953_ ;
+wire _1533_ ;
+wire _1113_ ;
+wire _2354__4_bF$buf0 ;
+wire _2354__4_bF$buf1 ;
+wire _2354__4_bF$buf2 ;
+wire _2354__4_bF$buf3 ;
+wire _2354__4_bF$buf4 ;
+wire _2354__4_bF$buf5 ;
+wire _2354__4_bF$buf6 ;
+wire _864_ ;
+wire _444_ ;
+wire _2318_ ;
+wire _2071_ ;
+wire _1762_ ;
+wire _1342_ ;
+wire _673_ ;
+wire _253_ ;
+wire _2127_ ;
+wire _1818_ ;
+wire _729_ ;
+wire _309_ ;
+wire _1991_ ;
+wire _1571_ ;
+wire _1151_ ;
+wire _482_ ;
+wire _1627_ ;
+wire _1207_ ;
+wire _958_ ;
+wire _538_ ;
+wire _118_ ;
+wire _1380_ ;
+wire _291_ ;
+wire _2165_ ;
+wire _10_ ;
+wire _1856_ ;
+wire _1436_ ;
+wire _1016_ ;
+wire \u_cpu.u_ALU8.AI7  ;
+wire _767_ ;
+wire _347_ ;
+wire _1665_ ;
+wire _1245_ ;
+wire _996_ ;
+wire _576_ ;
+wire _156_ ;
+wire _1894_ ;
+wire _1474_ ;
+wire _1054_ ;
+wire _385_ ;
+wire _2259_ ;
+wire _1283_ ;
+wire _194_ ;
+wire _2068_ ;
+wire _1759_ ;
+wire _1339_ ;
+wire _1092_ ;
+wire [6:0] kbd_data ;
+wire _2297_ ;
+wire \u_cpu.NMI_edge  ;
+wire _1988_ ;
+wire _1568_ ;
+wire _1148_ ;
+wire _899_ ;
+wire _479_ ;
+wire [7:0] \u_cpu.AXYS[2]  ;
+wire _1797_ ;
+wire _1377_ ;
+wire _288_ ;
+wire _4_ ;
+wire _920_ ;
+wire _500_ ;
+wire _1186_ ;
+wire \u_cpu.u_ALU8.BCD  ;
+wire [7:0] \u_cpu.DIHOLD  ;
+wire _45_ ;
+wire _1328__bF$buf0 ;
+wire _1328__bF$buf1 ;
+wire _1328__bF$buf2 ;
+wire _1328__bF$buf3 ;
+wire _1328__bF$buf4 ;
+wire _1328__bF$buf5 ;
+wire _2221_ ;
+wire _1912_ ;
+wire _823_ ;
+wire _403_ ;
+wire _83_ ;
+wire _1089_ ;
+wire _2030_ ;
+wire _1721_ ;
+wire _1301_ ;
+wire _632_ ;
+wire _212_ ;
+wire _1923__bF$buf0 ;
+wire _1923__bF$buf1 ;
+wire _1923__bF$buf2 ;
+wire _1923__bF$buf3 ;
+wire _1950_ ;
+wire _1530_ ;
+wire _1110_ ;
+wire _861_ ;
+wire _441_ ;
+wire _2315_ ;
+wire _917_ ;
+wire _670_ ;
+wire _250_ ;
+wire _2124_ ;
+wire _1815_ ;
+wire _726_ ;
+wire _306_ ;
+wire \u_cpu.inc  ;
+wire [7:0] _2353_ ;
+wire _1624_ ;
+wire _1204_ ;
+wire _955_ ;
+wire _535_ ;
+wire _115_ ;
+wire _2162_ ;
+wire \u_cpu.shift  ;
+wire _1853_ ;
+wire _1433_ ;
+wire _1013_ ;
+wire _764_ ;
+wire _344_ ;
+wire _2218_ ;
+wire _1909_ ;
+wire _1662_ ;
+wire _1242_ ;
+wire _993_ ;
+wire _573_ ;
+wire _153_ ;
+wire _2027_ ;
+wire [3:0] \u_cpu.op  ;
+wire _1718_ ;
+wire _629_ ;
+wire _209_ ;
+wire _1891_ ;
+wire _1471_ ;
+wire _1051_ ;
+wire _382_ ;
+wire _2256_ ;
+wire _1947_ ;
+wire _1527_ ;
+wire _1107_ ;
+wire _858_ ;
+wire _438_ ;
+wire _1280_ ;
+wire _191_ ;
+wire _2065_ ;
+wire _1756_ ;
+wire _1336_ ;
+wire _667_ ;
+wire _247_ ;
+wire _2294_ ;
+wire _1985_ ;
+wire _1565_ ;
+wire _1145_ ;
+wire _896_ ;
+wire _476_ ;
+wire clk_bF$buf0 ;
+wire clk_bF$buf1 ;
+wire clk_bF$buf2 ;
+wire \u_cpu.bit_ins  ;
+wire clk_bF$buf3 ;
+wire clk_bF$buf4 ;
+wire clk_bF$buf5 ;
+wire clk_bF$buf6 ;
+wire clk_bF$buf7 ;
+wire clk_bF$buf8 ;
+wire clk_bF$buf9 ;
+wire _1794_ ;
+wire _1374_ ;
+wire \u_cpu.cli  ;
+wire _285_ ;
+wire _2159_ ;
+wire [7:0] \u_cpu.ABL  ;
+wire _1_ ;
+wire _1183_ ;
+wire _1659_ ;
+wire _1239_ ;
+wire _2197_ ;
+wire _42_ ;
+wire _1888_ ;
+wire _1468_ ;
+wire _1048_ ;
+wire _799_ ;
+wire _379_ ;
+wire _1697_ ;
+wire _1277_ ;
+wire _188_ ;
+wire _820_ ;
+wire _400_ ;
+wire _80_ ;
+wire _1086_ ;
+wire _2312_ ;
+wire _914_ ;
+wire _2121_ ;
+wire _1812_ ;
+wire _723_ ;
+wire _303_ ;
+wire _2350_ ;
+wire _39_ ;
+wire _1621_ ;
+wire _1201_ ;
+wire _952_ ;
+wire _532_ ;
+wire _112_ ;
+wire _1850_ ;
+wire _1430_ ;
+wire _1010_ ;
+wire _761_ ;
+wire _341_ ;
+wire _2215_ ;
+wire clk ;
+wire _1906_ ;
+wire _817_ ;
+wire _77_ ;
+wire _990_ ;
+wire _570_ ;
+wire _150_ ;
+wire _2024_ ;
+wire _1715_ ;
+wire _626_ ;
+wire _206_ ;
+wire _2253_ ;
+wire _1944_ ;
+wire _1524_ ;
+wire _1104_ ;
+wire _855_ ;
+wire _435_ ;
+wire _2309_ ;
+wire _2062_ ;
+wire _1753_ ;
+wire _1333_ ;
+wire _664_ ;
+wire _244_ ;
+wire _2118_ ;
+wire _2291_ ;
+wire _1809_ ;
+wire _1982_ ;
+wire _1562_ ;
+wire _1142_ ;
+wire _893_ ;
+wire _473_ ;
+wire _2347_ ;
+wire _1618_ ;
+wire _949_ ;
+wire _529_ ;
+wire _109_ ;
+wire _1791_ ;
+wire _1371_ ;
+wire _282_ ;
+wire _2156_ ;
+wire _1847_ ;
+wire _1427_ ;
+wire _1007_ ;
+wire _758_ ;
+wire _338_ ;
+wire _1180_ ;
+wire \u_cpu.sed  ;
+wire _1656_ ;
+wire _1236_ ;
+wire _987_ ;
+wire _567_ ;
+wire _147_ ;
+wire \u_cpu.Z  ;
+wire _1634__bF$buf0 ;
+wire _1634__bF$buf1 ;
+wire _1634__bF$buf2 ;
+wire _1634__bF$buf3 ;
+wire _1634__bF$buf4 ;
+wire _1634__bF$buf5 ;
+wire _2194_ ;
+wire \u_cpu.backwards  ;
+wire _1885_ ;
+wire _1465_ ;
+wire _1045_ ;
+wire _796_ ;
+wire _376_ ;
+wire _1694_ ;
+wire _1274_ ;
+wire _1417__bF$buf0 ;
+wire _1417__bF$buf1 ;
+wire _1417__bF$buf2 ;
+wire _1417__bF$buf3 ;
+wire _1417__bF$buf4 ;
+wire _1417__bF$buf5 ;
+wire _1417__bF$buf6 ;
+wire _1417__bF$buf7 ;
+wire _1417__bF$buf8 ;
+wire _1417__bF$buf9 ;
+wire _185_ ;
+wire _2059_ ;
+wire _1083_ ;
+wire _2288_ ;
+wire _1979_ ;
+wire _1559_ ;
+wire _1139_ ;
+wire _2097_ ;
+wire _1788_ ;
+wire _1368_ ;
+wire _699_ ;
+wire _279_ ;
+wire _911_ ;
+wire _1597_ ;
+wire _1177_ ;
+wire _720_ ;
+wire _300_ ;
+wire _36_ ;
+wire \u_cpu.AN  ;
+wire _2212_ ;
+wire _1903_ ;
+wire _814_ ;
+wire _1196__bF$buf0 ;
+wire _1196__bF$buf1 ;
+wire _1196__bF$buf2 ;
+wire _1196__bF$buf3 ;
+wire _1196__bF$buf4 ;
+wire _1196__bF$buf5 ;
+wire _1196__bF$buf6 ;
+wire _74_ ;
+wire _1196__bF$buf7 ;
+wire _1196__bF$buf8 ;
+wire _2021_ ;
+wire _1712_ ;
+wire _623_ ;
+wire _203_ ;
+wire _2250_ ;
+wire _1941_ ;
+wire _1521_ ;
+wire _1101_ ;
+wire _852_ ;
+wire _432_ ;
+wire _2306_ ;
+wire \u_cpu.index_y  ;
+wire _908_ ;
+wire _1750_ ;
+wire _1330_ ;
+wire _661_ ;
+wire _241_ ;
+wire _2115_ ;
+wire _1806_ ;
+wire _717_ ;
+wire _890_ ;
+wire _470_ ;
+wire _2344_ ;
+wire _1615_ ;
+wire _946_ ;
+wire _526_ ;
+wire _106_ ;
+wire \u_cpu.clc  ;
+wire _2153_ ;
+wire _1844_ ;
+wire _1424_ ;
+wire _1004_ ;
+wire [7:0] \u_cpu.DIMUX  ;
+wire _755_ ;
+wire _335_ ;
+wire _2209_ ;
+wire _1653_ ;
+wire _1233_ ;
+wire _984_ ;
+wire _564_ ;
+wire _144_ ;
+wire _2018_ ;
+wire _2191_ ;
+wire _1709_ ;
+wire _1882_ ;
+wire _1462_ ;
+wire _1042_ ;
+wire _793_ ;
+wire _373_ ;
+wire _2247_ ;
+wire _1938_ ;
+wire _1518_ ;
+wire _849_ ;
+wire _429_ ;
+wire _1691_ ;
+wire _1271_ ;
+wire _182_ ;
+wire _2056_ ;
+wire _1747_ ;
+wire _1327_ ;
+wire _658_ ;
+wire _238_ ;
+wire _1080_ ;
+wire _2285_ ;
+wire _1976_ ;
+wire _1556_ ;
+wire _1136_ ;
+wire _887_ ;
+wire _467_ ;
+wire _2094_ ;
+wire _1785_ ;
+wire _1365_ ;
+wire _696_ ;
+wire _276_ ;
+wire \u_cpu.plp  ;
+wire _1594_ ;
+wire _1174_ ;
+wire _2188_ ;
+wire _33_ ;
+wire _1879_ ;
+wire _1459_ ;
+wire _1039_ ;
+wire _1688_ ;
+wire _1268_ ;
+wire _599_ ;
+wire _179_ ;
+wire _1900_ ;
+wire _811_ ;
+wire _71_ ;
+wire _1497_ ;
+wire _1077_ ;
+wire _620_ ;
+wire _200_ ;
+wire _2303_ ;
+wire _905_ ;
+wire _2112_ ;
+wire _1345__bF$buf0 ;
+wire _1345__bF$buf1 ;
+wire _1345__bF$buf2 ;
+wire _1345__bF$buf3 ;
+wire [7:0] \u_cpu.IRHOLD  ;
+wire _1803_ ;
+wire _714_ ;
+wire _2341_ ;
+wire _1612_ ;
+wire _943_ ;
+wire _523_ ;
+wire _103_ ;
+wire _2150_ ;
+wire _1841_ ;
+wire _1421_ ;
+wire _1001_ ;
+wire _752_ ;
+wire _332_ ;
+wire _2206_ ;
+wire _808_ ;
+wire _68_ ;
+wire _1650_ ;
+wire _1230_ ;
+wire _981_ ;
+wire _561_ ;
+wire _141_ ;
+wire _2015_ ;
+wire _1706_ ;
+wire _617_ ;
+wire _790_ ;
+wire _370_ ;
+wire _2244_ ;
+wire _1935_ ;
+wire _1515_ ;
+wire _846_ ;
+wire _426_ ;
+wire _2053_ ;
+wire _1744_ ;
+wire _1324_ ;
+wire _655_ ;
+wire _235_ ;
+wire _2109_ ;
+wire _2282_ ;
+wire _1973_ ;
+wire _1553_ ;
+wire _1133_ ;
+wire _884_ ;
+wire _464_ ;
+wire _2338_ ;
+wire _2091_ ;
+wire _1609_ ;
+wire _1782_ ;
+wire _1362_ ;
+wire RDY_bF$buf0 ;
+wire RDY_bF$buf1 ;
+wire RDY_bF$buf2 ;
+wire RDY_bF$buf3 ;
+wire RDY_bF$buf4 ;
+wire RDY_bF$buf5 ;
+wire RDY_bF$buf6 ;
+wire RDY_bF$buf7 ;
+wire _693_ ;
+wire _273_ ;
+wire _2147_ ;
+wire _1838_ ;
+wire _1418_ ;
+wire _749_ ;
+wire _329_ ;
+wire _1591_ ;
+wire _1171_ ;
+wire _1647_ ;
+wire _1227_ ;
+wire _978_ ;
+wire _558_ ;
+wire _138_ ;
+wire _2185_ ;
+wire _30_ ;
+wire _1876_ ;
+wire _1456_ ;
+wire _1036_ ;
+wire _787_ ;
+wire _367_ ;
+wire _1685_ ;
+wire _1265_ ;
+wire _596_ ;
+wire _176_ ;
+wire _1494_ ;
+wire _1074_ ;
+wire _2279_ ;
+wire _2088_ ;
+wire _1779_ ;
+wire _1359_ ;
+wire _2300_ ;
+wire [2:0] \u_pia_kbd.state  ;
+wire _902_ ;
+wire _1588_ ;
+wire _1168_ ;
+wire _499_ ;
+wire _1800_ ;
+wire _711_ ;
+wire _1397_ ;
+wire _27_ ;
+wire _940_ ;
+wire _520_ ;
+wire _100_ ;
+wire _2354__6_bF$buf0 ;
+wire _2354__6_bF$buf1 ;
+wire _2354__6_bF$buf2 ;
+wire _2354__6_bF$buf3 ;
+wire _2354__6_bF$buf4 ;
+wire _2203_ ;
+wire _805_ ;
+wire _65_ ;
+wire _2012_ ;
+wire _1703_ ;
+wire _614_ ;
+wire _2241_ ;
+wire _1932_ ;
+wire _1512_ ;
+wire _843_ ;
+wire _423_ ;
+wire _2050_ ;
+wire _1741_ ;
+wire _1321_ ;
+wire _652_ ;
+wire _232_ ;
+wire _2106_ ;
+wire _708_ ;
+wire _1970_ ;
+wire _1550_ ;
+wire _1130_ ;
+wire _881_ ;
+wire _461_ ;
+wire _2335_ ;
+wire [7:0] DO_woz ;
+wire _1606_ ;
+wire _937_ ;
+wire _517_ ;
+wire _690_ ;
+wire _270_ ;
+wire _2144_ ;
+wire _1835_ ;
+wire _1415_ ;
+wire _746_ ;
+wire _326_ ;
+wire _1644_ ;
+wire _1224_ ;
+wire _975_ ;
+wire _555_ ;
+wire _135_ ;
+wire _2009_ ;
+wire _2182_ ;
+wire _1873_ ;
+wire _1453_ ;
+wire _1033_ ;
+wire _784_ ;
+wire _364_ ;
+wire _2238_ ;
+wire _1929_ ;
+wire _1509_ ;
+wire _1682_ ;
+wire _1262_ ;
+wire _593_ ;
+wire _173_ ;
+wire _2047_ ;
+wire _1738_ ;
+wire _1318_ ;
+wire _649_ ;
+wire _229_ ;
+wire _1491_ ;
+wire _1071_ ;
+wire _2276_ ;
+wire _1967_ ;
+wire _1547_ ;
+wire _1127_ ;
+wire _878_ ;
+wire _458_ ;
+wire _2085_ ;
+wire _1776_ ;
+wire _1356_ ;
+wire _687_ ;
+wire _267_ ;
+wire _1585_ ;
+wire _1165_ ;
+wire _496_ ;
+wire _1394_ ;
+wire _2179_ ;
+wire _24_ ;
+wire [5:0] \u_cpu.state  ;
+wire _1679_ ;
+wire _1259_ ;
+wire _2200_ ;
+wire _802_ ;
+wire _62_ ;
+wire _1488_ ;
+wire _1068_ ;
+wire _399_ ;
+wire \u_cpu.N  ;
+wire _1700_ ;
+wire _611_ ;
+wire _1297_ ;
+wire _840_ ;
+wire _420_ ;
+wire _2103_ ;
+wire _705_ ;
+wire _2332_ ;
+wire _1603_ ;
+wire _934_ ;
+wire _514_ ;
+wire _2141_ ;
+wire _1832_ ;
+wire _1412_ ;
+wire _743_ ;
+wire _323_ ;
+wire _59_ ;
+wire _1641_ ;
+wire _1221_ ;
+wire _972_ ;
+wire _552_ ;
+wire _132_ ;
+wire _2006_ ;
+wire _1635__bF$buf0 ;
+wire _1635__bF$buf1 ;
+wire _1635__bF$buf2 ;
+wire _1635__bF$buf3 ;
+wire _1635__bF$buf4 ;
+wire _608_ ;
+wire _1870_ ;
+wire _1450_ ;
+wire _1030_ ;
+wire _781_ ;
+wire _361_ ;
+wire _2235_ ;
+wire _1926_ ;
+wire _1506_ ;
+wire _2354__1_bF$buf0 ;
+wire _2354__1_bF$buf1 ;
+wire _2354__1_bF$buf2 ;
+wire _2354__1_bF$buf3 ;
+wire _2354__1_bF$buf4 ;
+wire _2354__1_bF$buf5 ;
+wire _837_ ;
+wire _417_ ;
+wire _97_ ;
+wire _590_ ;
+wire _170_ ;
+wire _2044_ ;
+wire _1735_ ;
+wire _1315_ ;
+wire _646_ ;
+wire _226_ ;
+wire _2273_ ;
+wire _1964_ ;
+wire _1544_ ;
+wire _1124_ ;
+wire _875_ ;
+wire _455_ ;
+wire _2329_ ;
+wire _2082_ ;
+wire _1773_ ;
+wire _1353_ ;
+wire _684_ ;
+wire _264_ ;
+wire _2138_ ;
+wire _1829_ ;
+wire _1409_ ;
+wire _1582_ ;
+wire _1162_ ;
+wire _493_ ;
+wire _1638_ ;
+wire _1218_ ;
+wire _969_ ;
+wire _549_ ;
+wire _129_ ;
+wire _1391_ ;
+wire _2176_ ;
+wire _21_ ;
+wire _1867_ ;
+wire _1447_ ;
+wire _1027_ ;
+wire _778_ ;
+wire _358_ ;
+wire _1676_ ;
+wire _1256_ ;
+wire _587_ ;
+wire _167_ ;
+wire _1485_ ;
+wire _1065_ ;
+wire _396_ ;
+wire _1294_ ;
+wire _2079_ ;
+wire [6:0] dsp_data ;
+wire _1999_ ;
+wire _1579_ ;
+wire _1159_ ;
+wire _2100_ ;
+wire _702_ ;
+wire _1388_ ;
+wire _299_ ;
+wire _18_ ;
+wire _1600_ ;
+wire _931_ ;
+wire _511_ ;
+wire _1197_ ;
+wire _740_ ;
+wire _320_ ;
+wire _56_ ;
+wire _2003_ ;
+wire _605_ ;
+wire _2232_ ;
+wire _1923_ ;
+wire _1503_ ;
+wire _834_ ;
+wire _414_ ;
+wire _94_ ;
+wire _2041_ ;
+wire _1732_ ;
+wire _1312_ ;
+wire _643_ ;
+wire _223_ ;
+wire _2270_ ;
+wire _1961_ ;
+wire _1541_ ;
+wire _1121_ ;
+wire _1638__bF$buf0 ;
+wire _1638__bF$buf1 ;
+wire _1638__bF$buf2 ;
+wire _1638__bF$buf3 ;
+wire _872_ ;
+wire _452_ ;
+wire _2326_ ;
+wire _928_ ;
+wire _508_ ;
+wire _1770_ ;
+wire _1350_ ;
+wire _681_ ;
+wire _261_ ;
+wire _2135_ ;
+wire _1826_ ;
+wire _1406_ ;
+wire _737_ ;
+wire _317_ ;
+wire _490_ ;
+wire _1635_ ;
+wire _1215_ ;
+wire _966_ ;
+wire _546_ ;
+wire _126_ ;
+wire _2173_ ;
+wire _1864_ ;
+wire _1444_ ;
+wire _1024_ ;
+wire _775_ ;
+wire _355_ ;
+wire _2229_ ;
+wire _1673_ ;
+wire _1253_ ;
+wire _584_ ;
+wire _164_ ;
+wire _2038_ ;
+wire _1729_ ;
+wire _1309_ ;
+wire _1482_ ;
+wire _1062_ ;
+wire _393_ ;
+wire _2267_ ;
+wire _1958_ ;
+wire _1538_ ;
+wire _1118_ ;
+wire _1070__bF$buf0 ;
+wire _1070__bF$buf1 ;
+wire _1070__bF$buf2 ;
+wire _1070__bF$buf3 ;
+wire _869_ ;
+wire _449_ ;
+wire _1291_ ;
+wire _2076_ ;
+wire kbd_rdy ;
+wire _1767_ ;
+wire _1347_ ;
+wire _678_ ;
+wire _258_ ;
+wire _1996_ ;
+wire _1576_ ;
+wire _1156_ ;
+wire _487_ ;
+wire _1385_ ;
+wire _296_ ;
+wire _15_ ;
+wire _1194_ ;
+wire _1129__bF$buf0 ;
+wire _1129__bF$buf1 ;
+wire _1129__bF$buf2 ;
+wire _1129__bF$buf3 ;
+wire _1129__bF$buf4 ;
+wire _1129__bF$buf5 ;
+wire _53_ ;
+wire _1899_ ;
+wire _1479_ ;
+wire _1059_ ;
+wire _2000_ ;
+wire _602_ ;
+wire _1288_ ;
+wire _199_ ;
+wire _1920_ ;
+wire _1500_ ;
+wire _831_ ;
+wire _411_ ;
+wire _91_ ;
+wire _1097_ ;
+wire _640_ ;
+wire _220_ ;
+wire _2323_ ;
+wire _9_ ;
+wire _925_ ;
+wire _505_ ;
+wire _2132_ ;
+wire _1823_ ;
+wire _1403_ ;
+wire _734_ ;
+wire _314_ ;
+wire [3:0] \u_cpu.alu_op  ;
+wire _1632_ ;
+wire _1212_ ;
+wire _963_ ;
+wire _543_ ;
+wire _123_ ;
+wire _2170_ ;
+wire _1861_ ;
+wire _1441_ ;
+wire _1021_ ;
+wire _772_ ;
+wire _352_ ;
+wire _2226_ ;
+wire _1917_ ;
+wire _828_ ;
+wire _408_ ;
+wire _88_ ;
+wire _1670_ ;
+wire _1250_ ;
+wire _581_ ;
+wire _161_ ;
+wire _2035_ ;
+wire _1726_ ;
+wire _1306_ ;
+wire _637_ ;
+wire _217_ ;
+wire _390_ ;
+wire _2264_ ;
+wire _1955_ ;
+wire _1535_ ;
+wire _1115_ ;
+wire _866_ ;
+wire _446_ ;
+wire _2073_ ;
+wire _1764_ ;
+wire _1344_ ;
+wire _675_ ;
+wire _255_ ;
+wire _2129_ ;
+wire _1993_ ;
+wire _1573_ ;
+wire _1153_ ;
+wire _484_ ;
+wire _1629_ ;
+wire _1209_ ;
+wire _1382_ ;
+wire _293_ ;
+wire _2167_ ;
+wire _12_ ;
+wire _1858_ ;
+wire _1438_ ;
+wire _1018_ ;
+wire _769_ ;
+wire _349_ ;
+wire _1191_ ;
+wire _1667_ ;
+wire _1247_ ;
+wire _998_ ;
+wire _578_ ;
+wire _158_ ;
+wire _50_ ;
+wire _1896_ ;
+wire _1476_ ;
+wire _1056_ ;
+wire _387_ ;
+wire _1285_ ;
+wire _196_ ;
+wire dsp_rdy ;
+wire _1094_ ;
+wire _2299_ ;
+wire _1799_ ;
+wire _1379_ ;
+wire _2320_ ;
+wire _6_ ;
+wire _922_ ;
+wire _502_ ;
+wire _1188_ ;
+wire \u_cpu.write_back  ;
+wire _1820_ ;
+wire _1400_ ;
+wire _731_ ;
+wire _311_ ;
+wire _47_ ;
+wire _960_ ;
+wire _540_ ;
+wire _120_ ;
+wire \u_cpu.compare  ;
+wire _2223_ ;
+wire _1914_ ;
+wire _825_ ;
+wire _405_ ;
+wire _85_ ;
+wire _2032_ ;
+wire _1723_ ;
+wire _1303_ ;
+wire _634_ ;
+wire _214_ ;
+wire _2261_ ;
+wire _1952_ ;
+wire _1532_ ;
+wire _1112_ ;
+wire _863_ ;
+wire _443_ ;
+wire _2317_ ;
+wire _2070_ ;
+wire _919_ ;
+wire _1761_ ;
+wire _1341_ ;
+wire _672_ ;
+wire _252_ ;
+wire _2126_ ;
+wire _1817_ ;
+wire _728_ ;
+wire _308_ ;
+wire _1990_ ;
+wire _1570_ ;
+wire _1150_ ;
+wire _481_ ;
+wire _2355_ ;
+wire _1626_ ;
+wire _1206_ ;
+wire _957_ ;
+wire _537_ ;
+wire _117_ ;
+wire _290_ ;
+wire _2164_ ;
+wire \u_cpu.AV  ;
+wire _1855_ ;
+wire _1435_ ;
+wire _1015_ ;
+wire _766_ ;
+wire _346_ ;
+wire _1664_ ;
+wire _1244_ ;
+wire _995_ ;
+wire _575_ ;
+wire _155_ ;
+wire _2029_ ;
+wire _1893_ ;
+wire _1473_ ;
+wire _1053_ ;
+wire _384_ ;
+wire _2258_ ;
+wire _1949_ ;
+wire _1529_ ;
+wire _1109_ ;
+wire _1282_ ;
+wire _193_ ;
+wire _2067_ ;
+wire _1758_ ;
+wire _1338_ ;
+wire _669_ ;
+wire _249_ ;
+wire _1091_ ;
+wire _2296_ ;
+wire _1987_ ;
+wire _1567_ ;
+wire _1147_ ;
+wire _898_ ;
+wire _478_ ;
+wire _1796_ ;
+wire _1376_ ;
+wire _287_ ;
+wire _3_ ;
+wire _1185_ ;
+wire \u_cpu.sei  ;
+wire _2199_ ;
+wire _44_ ;
+wire _1699_ ;
+wire _1279_ ;
+wire _2220_ ;
+wire _1911_ ;
+wire _822_ ;
+wire _402_ ;
+wire _82_ ;
+wire _1088_ ;
+wire _1720_ ;
+wire _1300_ ;
+wire _631_ ;
+wire _211_ ;
+wire _860_ ;
+wire _440_ ;
+wire _2314_ ;
+wire _916_ ;
+wire _2123_ ;
+wire _1814_ ;
+wire _725_ ;
+wire _305_ ;
+wire _2352_ ;
+wire _1623_ ;
+wire _1203_ ;
+wire _954_ ;
+wire _534_ ;
+wire _114_ ;
+wire _2161_ ;
+wire _1852_ ;
+wire _1432_ ;
+wire _1012_ ;
+wire _763_ ;
+wire _343_ ;
+wire _2217_ ;
+wire _1908_ ;
+wire _819_ ;
+wire _79_ ;
+wire _1661_ ;
+wire _1241_ ;
+wire _992_ ;
+wire _572_ ;
+wire _152_ ;
+wire _2026_ ;
+wire _1717_ ;
+wire _628_ ;
+wire _208_ ;
+wire _1890_ ;
+wire _1470_ ;
+wire _1050_ ;
+wire _381_ ;
+wire _2255_ ;
+wire _1946_ ;
+wire _1526_ ;
+wire _1106_ ;
+wire _857_ ;
+wire _437_ ;
+wire _190_ ;
+wire _2064_ ;
+wire _1755_ ;
+wire _1335_ ;
+wire _666_ ;
+wire _246_ ;
+wire _2293_ ;
+wire _1984_ ;
+wire _1564_ ;
+wire _1144_ ;
+wire _895_ ;
+wire _475_ ;
+wire _2349_ ;
+wire _1793_ ;
+wire _1373_ ;
+wire _284_ ;
+wire _2158_ ;
+wire _0_ ;
+wire _1849_ ;
+wire _1429_ ;
+wire _1009_ ;
+wire _1182_ ;
+wire _1658_ ;
+wire _1238_ ;
+wire _989_ ;
+wire _569_ ;
+wire _149_ ;
+wire _2196_ ;
+wire _41_ ;
+wire _1887_ ;
+wire _1467_ ;
+wire _1047_ ;
+wire _798_ ;
+wire _378_ ;
+wire [7:0] \u_cpu.BI  ;
+wire _1696_ ;
+wire _1276_ ;
+wire _187_ ;
+wire _1085_ ;
+wire _2099_ ;
+wire _2311_ ;
+wire _913_ ;
+wire _1599_ ;
+wire _1179_ ;
+wire _2120_ ;
+wire _2354__3_bF$buf0 ;
+wire _2354__3_bF$buf1 ;
+wire _2354__3_bF$buf2 ;
+wire _2354__3_bF$buf3 ;
+wire _2354__3_bF$buf4 ;
+wire _2354__3_bF$buf5 ;
+wire _2354__3_bF$buf6 ;
+wire _1811_ ;
+wire _722_ ;
+wire _302_ ;
+wire _38_ ;
+wire _1620_ ;
+wire _1200_ ;
+wire _951_ ;
+wire _531_ ;
+wire _111_ ;
+wire _760_ ;
+wire _340_ ;
+wire _2214_ ;
+wire _1905_ ;
+wire _816_ ;
+wire _76_ ;
+wire _2023_ ;
+wire \u_cpu.NMI_1  ;
+wire _1714_ ;
+wire _625_ ;
+wire _205_ ;
+wire _2252_ ;
+wire clk_bF$buf10 ;
+wire clk_bF$buf11 ;
+wire clk_bF$buf12 ;
+wire _1943_ ;
+wire _1523_ ;
+wire _1103_ ;
+wire _854_ ;
+wire _434_ ;
+wire _2308_ ;
+wire _2061_ ;
+wire _1752_ ;
+wire _1332_ ;
+wire _663_ ;
+wire _243_ ;
+wire _2117_ ;
+wire _2290_ ;
+wire _1808_ ;
+wire _719_ ;
+wire _1981_ ;
+wire _1561_ ;
+wire _1141_ ;
+wire _892_ ;
+wire _472_ ;
+wire [7:0] _2346_ ;
+wire _1617_ ;
+wire _948_ ;
+wire _528_ ;
+wire _108_ ;
+wire _1790_ ;
+wire _1370_ ;
+wire _281_ ;
+wire _2155_ ;
+wire [7:0] \u_cpu.ABH  ;
+wire _1846_ ;
+wire _1426_ ;
+wire _1006_ ;
+wire _757_ ;
+wire _337_ ;
+wire \u_cpu.sec  ;
+wire _1655_ ;
+wire _1235_ ;
+wire _986_ ;
+wire _566_ ;
+wire _146_ ;
+wire _2193_ ;
+wire _1884_ ;
+wire _1464_ ;
+wire _1044_ ;
+wire _795_ ;
+wire _375_ ;
+wire _2249_ ;
+wire _1693_ ;
+wire _1273_ ;
+wire _184_ ;
+wire _2058_ ;
+wire _1749_ ;
+wire _1329_ ;
+wire _1082_ ;
+wire _2287_ ;
+wire _1978_ ;
+wire _1558_ ;
+wire _1138_ ;
+wire _889_ ;
+wire _469_ ;
+wire _2096_ ;
+wire [7:0] \u_cpu.AXYS[1]  ;
+wire _1787_ ;
+wire _1367_ ;
+wire _698_ ;
+wire _278_ ;
+wire _1681__bF$buf0 ;
+wire _1681__bF$buf1 ;
+wire _1681__bF$buf2 ;
+wire _1681__bF$buf3 ;
+wire _910_ ;
+wire _1596_ ;
+wire _1176_ ;
+wire _35_ ;
+wire _2211_ ;
+wire _1902_ ;
+wire _813_ ;
+wire _73_ ;
+wire _1499_ ;
+wire _1079_ ;
+wire _2020_ ;
+wire _1711_ ;
+wire _622_ ;
+wire _202_ ;
+wire _1940_ ;
+wire _1520_ ;
+wire _1100_ ;
+wire _851_ ;
+wire _431_ ;
+wire _2305_ ;
+wire _907_ ;
+wire _660_ ;
+wire _240_ ;
+wire _2114_ ;
+wire _1805_ ;
+wire _716_ ;
+wire _2343_ ;
+wire _1614_ ;
+wire _945_ ;
+wire _525_ ;
+wire _105_ ;
+wire _2152_ ;
+wire _1843_ ;
+wire _1423_ ;
+wire _1003_ ;
+wire _754_ ;
+wire _334_ ;
+wire _2208_ ;
+wire _1652_ ;
+wire _1232_ ;
+wire _983_ ;
+wire _563_ ;
+wire _143_ ;
+wire _2017_ ;
+wire \u_cpu.V  ;
+wire _2190_ ;
+wire _1708_ ;
+wire _619_ ;
+wire _1881_ ;
+wire _1461_ ;
+wire _1041_ ;
+wire _792_ ;
+wire _372_ ;
+wire _2246_ ;
+wire _1937_ ;
+wire _1517_ ;
+wire _848_ ;
+wire _428_ ;
+wire _1690_ ;
+wire _1270_ ;
+wire _181_ ;
+wire _2055_ ;
+wire _1746_ ;
+wire _1326_ ;
+wire _657_ ;
+wire _237_ ;
+wire _2284_ ;
+wire _1975_ ;
+wire _1555_ ;
+wire _1135_ ;
+wire _886_ ;
+wire _466_ ;
+wire _2093_ ;
+wire _1784_ ;
+wire _1364_ ;
+wire _695_ ;
+wire _275_ ;
+wire _2149_ ;
+wire _1593_ ;
+wire _1173_ ;
+wire _1649_ ;
+wire _1229_ ;
+wire _2187_ ;
+wire _32_ ;
+wire _1878_ ;
+wire _1458_ ;
+wire _1038_ ;
+wire _789_ ;
+wire _369_ ;
+wire _1687_ ;
+wire _1267_ ;
+wire _598_ ;
+wire _178_ ;
+wire _810_ ;
+wire _70_ ;
+wire _1496_ ;
+wire _1076_ ;
+wire _2302_ ;
+wire [3:0] \u_pia_dsp.state  ;
+wire _904_ ;
+wire _2111_ ;
+wire _1802_ ;
+wire _713_ ;
+wire _1399_ ;
+wire _2340_ ;
+wire _29_ ;
+wire _1611_ ;
+wire _942_ ;
+wire _522_ ;
+wire _102_ ;
+wire _1037__bF$buf0 ;
+wire _1037__bF$buf1 ;
+wire _1037__bF$buf2 ;
+wire _1037__bF$buf3 ;
+wire _1840_ ;
+wire _1420_ ;
+wire _1000_ ;
+wire _751_ ;
+wire _331_ ;
+wire _2205_ ;
+wire _807_ ;
+wire _67_ ;
+wire _980_ ;
+wire _560_ ;
+wire _140_ ;
+wire _2014_ ;
+wire _1705_ ;
+wire _616_ ;
+wire _2243_ ;
+wire _1934_ ;
+wire _1514_ ;
+wire _845_ ;
+wire _425_ ;
+wire _2052_ ;
+wire _1743_ ;
+wire _1323_ ;
+wire _654_ ;
+wire _234_ ;
+wire _2108_ ;
+wire _2281_ ;
+wire \u_cpu.store  ;
+wire _1972_ ;
+wire _1552_ ;
+wire _1132_ ;
+wire _883_ ;
+wire _463_ ;
+wire _2337_ ;
+wire _2090_ ;
+wire _1608_ ;
+wire _939_ ;
+wire _519_ ;
+wire _1781_ ;
+wire _1361_ ;
+wire _692_ ;
+wire _272_ ;
+wire _2146_ ;
+wire _1837_ ;
+wire _1417_ ;
+wire _748_ ;
+wire _328_ ;
+wire _1590_ ;
+wire _1170_ ;
+wire _1646_ ;
+wire _1226_ ;
+wire _977_ ;
+wire _557_ ;
+wire _137_ ;
+wire _2184_ ;
+wire [7:0] DI ;
+wire [7:0] DO ;
+wire _1875_ ;
+wire _1455_ ;
+wire _1035_ ;
+wire _786_ ;
+wire _366_ ;
+wire _1684_ ;
+wire _1264_ ;
+wire _595_ ;
+wire _175_ ;
+wire _2049_ ;
+wire _1493_ ;
+wire _1073_ ;
+wire _2278_ ;
+wire _1969_ ;
+wire _1549_ ;
+wire _1129_ ;
+wire _2087_ ;
+wire _1778_ ;
+wire _1358_ ;
+wire _689_ ;
+wire _269_ ;
+wire _901_ ;
+wire _1587_ ;
+wire _1167_ ;
+wire _498_ ;
+wire _710_ ;
+wire _1396_ ;
+wire _26_ ;
+wire _2202_ ;
+wire _804_ ;
+wire _64_ ;
+wire _2011_ ;
+wire _1702_ ;
+wire _613_ ;
+wire _1299_ ;
+wire _2240_ ;
+wire _1931_ ;
+wire _1511_ ;
+wire _842_ ;
+wire _422_ ;
+wire _1740_ ;
+wire _1320_ ;
+wire _651_ ;
+wire _231_ ;
+wire _2105_ ;
+wire [2:0] \u_cpu.cond_code  ;
+wire _707_ ;
+wire _880_ ;
+wire _460_ ;
+wire _2334_ ;
+wire _1605_ ;
+wire _936_ ;
+wire _516_ ;
+wire _2143_ ;
+wire _1834_ ;
+wire _1414_ ;
+wire _745_ ;
+wire _325_ ;
+wire _1643_ ;
+wire _1223_ ;
+wire _974_ ;
+wire _554_ ;
+wire _134_ ;
+wire _2008_ ;
+wire _2181_ ;
+wire [15:0] AB ;
+wire _1872_ ;
+wire _1452_ ;
+wire _1032_ ;
+wire _783_ ;
+wire _363_ ;
+wire _2237_ ;
+wire _1928_ ;
+wire _1508_ ;
+wire _839_ ;
+wire _419_ ;
+wire _99_ ;
+wire _1681_ ;
+wire _1261_ ;
+wire _592_ ;
+wire _172_ ;
+wire _2046_ ;
+wire _1737_ ;
+wire _1317_ ;
+wire _648_ ;
+wire _228_ ;
+wire _1490_ ;
+wire _1070_ ;
+wire _2275_ ;
+wire _1966_ ;
+wire _1546_ ;
+wire _1126_ ;
+wire _877_ ;
+wire _457_ ;
+wire _2084_ ;
+wire _1775_ ;
+wire _1355_ ;
+wire _686_ ;
+wire _266_ ;
+wire _1584_ ;
+wire _1164_ ;
+wire _1417__bF$buf10 ;
+wire _495_ ;
+wire _1393_ ;
+wire _2178_ ;
+wire _23_ ;
+wire _1869_ ;
+wire _1449_ ;
+wire _1029_ ;
+wire _1678_ ;
+wire _1258_ ;
+wire _589_ ;
+wire _169_ ;
+wire _801_ ;
+wire _61_ ;
+wire _1487_ ;
+wire _1067_ ;
+wire _398_ ;
+wire _610_ ;
+wire _1296_ ;
+wire _2102_ ;
+wire _704_ ;
+wire _2331_ ;
+wire _1602_ ;
+wire _933_ ;
+wire _513_ ;
+wire _1199_ ;
+wire _2140_ ;
+wire _1831_ ;
+wire _1411_ ;
+wire _742_ ;
+wire _322_ ;
+wire _58_ ;
+wire _1640_ ;
+wire _1220_ ;
+wire _971_ ;
+wire _551_ ;
+wire _131_ ;
+wire _2005_ ;
+wire [15:0] \u_cpu.PC  ;
+wire _607_ ;
+wire _780_ ;
+wire _360_ ;
+wire _2234_ ;
+wire _1925_ ;
+wire _1505_ ;
+wire _836_ ;
+wire _416_ ;
+wire _96_ ;
+wire _2043_ ;
+wire NMI ;
+wire _1734_ ;
+wire _1314_ ;
+wire _645_ ;
+wire _225_ ;
+wire _2272_ ;
+wire _1963_ ;
+wire _1543_ ;
+wire _1123_ ;
+wire \u_cpu.clv  ;
+wire _874_ ;
+wire _454_ ;
+wire _2328_ ;
+wire _2081_ ;
+wire _1772_ ;
+wire _1352_ ;
+wire _683_ ;
+wire _263_ ;
+wire _2137_ ;
+wire _1828_ ;
+wire _1408_ ;
+wire _739_ ;
+wire _319_ ;
+wire _1581_ ;
+wire _1161_ ;
+wire _492_ ;
+wire _1637_ ;
+wire _1217_ ;
+wire _968_ ;
+wire _548_ ;
+wire _128_ ;
+wire _1390_ ;
+wire _2175_ ;
+wire _20_ ;
+wire _1866_ ;
+wire _1446_ ;
+wire _1026_ ;
+wire _777_ ;
+wire _357_ ;
+wire _1675_ ;
+wire _1255_ ;
+wire _586_ ;
+wire _166_ ;
+wire _2354__5_bF$buf0 ;
+wire _2354__5_bF$buf1 ;
+wire _2354__5_bF$buf2 ;
+wire _2354__5_bF$buf3 ;
+wire _2354__5_bF$buf4 ;
+wire _1484_ ;
+wire _1064_ ;
+wire _395_ ;
+wire _2269_ ;
+wire _1293_ ;
+wire _2078_ ;
+wire \u_cpu.rotate  ;
+wire _1769_ ;
+wire _1349_ ;
+wire _1998_ ;
+wire _1578_ ;
+wire _1158_ ;
+wire _489_ ;
+wire _701_ ;
+wire [7:0] \u_cpu.AXYS[3]  ;
+wire _1387_ ;
+wire _298_ ;
+wire _17_ ;
+wire _930_ ;
+wire _510_ ;
+wire _1196_ ;
+wire _55_ ;
+wire _2002_ ;
+wire _604_ ;
+wire _2231_ ;
+wire _1922_ ;
+wire _1502_ ;
+wire _833_ ;
+wire _413_ ;
+wire _93_ ;
+wire _1099_ ;
+wire _2040_ ;
+wire _1731_ ;
+wire _1311_ ;
+wire _642_ ;
+wire _222_ ;
+wire _1960_ ;
+wire _1540_ ;
+wire _1120_ ;
+wire _871_ ;
+wire _451_ ;
+wire _2325_ ;
+wire _927_ ;
+wire _507_ ;
+wire _680_ ;
+wire _260_ ;
+wire _2134_ ;
+wire _1825_ ;
+wire _1405_ ;
+wire _736_ ;
+wire _316_ ;
+wire _1634_ ;
+wire _1214_ ;
+wire _965_ ;
+wire _545_ ;
+wire _125_ ;
+wire _2172_ ;
+wire _1863_ ;
+wire _1443_ ;
+wire _1023_ ;
+wire _774_ ;
+wire _354_ ;
+wire _2228_ ;
+wire _1919_ ;
+wire _1672_ ;
+wire _1252_ ;
+wire _583_ ;
+wire _163_ ;
+wire _2037_ ;
+wire _1728_ ;
+wire _1308_ ;
+wire _639_ ;
+wire _219_ ;
+wire _1481_ ;
+wire _1061_ ;
+wire _392_ ;
+wire _2266_ ;
+wire _1957_ ;
+wire _1537_ ;
+wire _1117_ ;
+wire _868_ ;
+wire _448_ ;
+wire _1290_ ;
+wire _2075_ ;
+wire _1766_ ;
+wire _1346_ ;
+wire _677_ ;
+wire _257_ ;
+wire _1995_ ;
+wire _1575_ ;
+wire _1155_ ;
+wire _486_ ;
+wire _1384_ ;
+wire _295_ ;
+wire _2169_ ;
+wire _14_ ;
+wire _1193_ ;
+wire \u_cpu.load_reg  ;
+wire _1669_ ;
+wire _1249_ ;
+wire _52_ ;
+wire _1898_ ;
+wire _1478_ ;
+wire _1058_ ;
+wire _389_ ;
+wire _601_ ;
+wire _1287_ ;
+wire _198_ ;
+wire _830_ ;
+wire _410_ ;
+wire _90_ ;
+wire _1096_ ;
+wire _2354__0_bF$buf0 ;
+wire _2354__0_bF$buf1 ;
+wire _2354__0_bF$buf2 ;
+wire _2354__0_bF$buf3 ;
+wire _2354__0_bF$buf4 ;
+wire _2354__0_bF$buf5 ;
+wire _2322_ ;
+wire _8_ ;
+wire _924_ ;
+wire _504_ ;
+wire _2131_ ;
+wire _1822_ ;
+wire _1402_ ;
+wire _733_ ;
+wire _313_ ;
+wire _49_ ;
+wire _1631_ ;
+wire _1211_ ;
+wire _962_ ;
+wire _542_ ;
+wire _122_ ;
+wire _1860_ ;
+wire _1440_ ;
+wire _1020_ ;
+wire _771_ ;
+wire _351_ ;
+wire _2225_ ;
+wire _1916_ ;
+wire _827_ ;
+wire _407_ ;
+wire _87_ ;
+wire _580_ ;
+wire _160_ ;
+wire _2034_ ;
+wire _1725_ ;
+wire _1305_ ;
+wire _636_ ;
+wire _216_ ;
+wire \u_cpu.D  ;
+wire _2263_ ;
+wire _1954_ ;
+wire _1534_ ;
+wire _1114_ ;
+wire _865_ ;
+wire _445_ ;
+wire _2319_ ;
+wire _2072_ ;
+wire _1763_ ;
+wire _1343_ ;
+wire _674_ ;
+wire _254_ ;
+wire _2128_ ;
+wire _1819_ ;
+wire _1992_ ;
+wire _1572_ ;
+wire _1152_ ;
+wire _483_ ;
+wire _1628_ ;
+wire _1208_ ;
+wire _959_ ;
+wire _539_ ;
+wire _119_ ;
+wire _1381_ ;
+wire _292_ ;
+wire _2166_ ;
+wire _11_ ;
+wire _1857_ ;
+wire _1437_ ;
+wire _1017_ ;
+wire _768_ ;
+wire _348_ ;
+wire _1190_ ;
+wire _1666_ ;
+wire _1246_ ;
+wire _997_ ;
+wire _577_ ;
+wire _157_ ;
+wire _1895_ ;
+wire _1475_ ;
+wire _1055_ ;
+wire _386_ ;
+wire \u_cpu.shift_right  ;
+wire _1284_ ;
+wire _195_ ;
+wire _2069_ ;
+wire _1093_ ;
+wire _2298_ ;
+wire _1989_ ;
+wire _1569_ ;
+wire _1149_ ;
+wire _1798_ ;
+wire _1378_ ;
+wire _289_ ;
+wire _5_ ;
+wire _921_ ;
+wire _501_ ;
+wire _1636__bF$buf0 ;
+wire _1636__bF$buf1 ;
+wire _1636__bF$buf2 ;
+wire _1636__bF$buf3 ;
+wire _1636__bF$buf4 ;
+wire _1187_ ;
+wire _730_ ;
+wire _310_ ;
+wire _46_ ;
+wire _2222_ ;
+wire _1913_ ;
+wire _824_ ;
+wire _404_ ;
+wire _84_ ;
+wire _2031_ ;
+wire _1722_ ;
+wire _1302_ ;
+wire _633_ ;
+wire _213_ ;
+wire _2260_ ;
+wire _1951_ ;
+wire _1531_ ;
+wire _1111_ ;
+wire _862_ ;
+wire _442_ ;
+wire _2316_ ;
+wire _918_ ;
+wire _1760_ ;
+wire _1340_ ;
+wire _671_ ;
+wire _251_ ;
+wire _2125_ ;
+wire _1816_ ;
+wire _727_ ;
+wire _307_ ;
+wire _480_ ;
+wire [15:0] _2354_ ;
+wire _1625_ ;
+wire _1205_ ;
+wire _956_ ;
+wire _536_ ;
+wire _116_ ;
+wire _2163_ ;
+wire _1854_ ;
+wire _1434_ ;
+wire _1014_ ;
+wire _765_ ;
+wire _345_ ;
+wire _2219_ ;
+wire _1663_ ;
+wire _1243_ ;
+wire _994_ ;
+wire _574_ ;
+wire _154_ ;
+wire _2028_ ;
+wire _1719_ ;
+wire _1892_ ;
+wire _1472_ ;
+wire _1052_ ;
+wire _383_ ;
+wire _2257_ ;
+wire _1948_ ;
+wire _1528_ ;
+wire _1108_ ;
+wire _859_ ;
+wire _439_ ;
+wire _1281_ ;
+wire _192_ ;
+wire _2066_ ;
+wire _1757_ ;
+wire _1337_ ;
+wire _668_ ;
+wire _248_ ;
+wire _1090_ ;
+wire _2295_ ;
+wire _1986_ ;
+wire _1566_ ;
+wire _1146_ ;
+wire _897_ ;
+wire _477_ ;
+wire _1795_ ;
+wire _1375_ ;
+wire _286_ ;
+wire _2_ ;
+wire _1184_ ;
+wire _2198_ ;
+wire _43_ ;
+wire _1889_ ;
+wire _1469_ ;
+wire _1049_ ;
+wire [7:0] DO_kbd ;
+wire _1698_ ;
+wire _1278_ ;
+wire _189_ ;
+wire _1910_ ;
+wire _821_ ;
+wire _401_ ;
+wire _81_ ;
+wire _1087_ ;
+wire _1643__bF$buf0 ;
+wire _1643__bF$buf1 ;
+wire _1643__bF$buf2 ;
+wire _1643__bF$buf3 ;
+wire _1643__bF$buf4 ;
+wire _1643__bF$buf5 ;
+wire _630_ ;
+wire _210_ ;
+wire [15:0] _Addr_Bus ;
+wire _2313_ ;
+wire _915_ ;
+wire _2122_ ;
+wire _1813_ ;
+wire _724_ ;
+wire _304_ ;
+wire _2351_ ;
+wire _1622_ ;
+wire _1202_ ;
+wire _953_ ;
+wire _533_ ;
+wire _113_ ;
+wire _2160_ ;
+wire _1851_ ;
+wire _1431_ ;
+wire _1011_ ;
+wire _762_ ;
+wire _342_ ;
+wire _2216_ ;
+wire _1907_ ;
+wire _818_ ;
+wire _78_ ;
+wire _1660_ ;
+wire _1240_ ;
+wire _991_ ;
+wire _571_ ;
+wire _151_ ;
+wire _2025_ ;
+wire _1716_ ;
+wire _627_ ;
+wire _207_ ;
+wire _380_ ;
+wire _2254_ ;
+wire _1945_ ;
+wire _1525_ ;
+wire _1105_ ;
+wire _856_ ;
+wire _436_ ;
+wire _2063_ ;
+wire _1754_ ;
+wire _1334_ ;
+wire _665_ ;
+wire _245_ ;
+wire _2119_ ;
+wire _2292_ ;
+wire _1983_ ;
+wire _1563_ ;
+wire _1143_ ;
+wire _894_ ;
+wire _474_ ;
+wire _2348_ ;
+wire _1619_ ;
+wire _1792_ ;
+wire _1372_ ;
+wire _283_ ;
+wire _2157_ ;
+wire _1848_ ;
+wire _1428_ ;
+wire _1008_ ;
+wire _759_ ;
+wire _339_ ;
+wire _1181_ ;
+wire _1657_ ;
+wire _1237_ ;
+wire _988_ ;
+wire _568_ ;
+wire _148_ ;
+wire _2195_ ;
+wire _40_ ;
+wire _1886_ ;
+wire _1466_ ;
+wire _1046_ ;
+wire _797_ ;
+wire _377_ ;
+wire _1695_ ;
+wire _1275_ ;
+wire _186_ ;
+wire _1084_ ;
+wire _2289_ ;
+wire _2098_ ;
+wire _1789_ ;
+wire _1369_ ;
+wire _2310_ ;
+wire _912_ ;
+wire _1598_ ;
+wire _1178_ ;
+wire _1810_ ;
+wire _721_ ;
+wire _301_ ;
+wire _37_ ;
+wire _950_ ;
+wire _530_ ;
+wire _110_ ;
+wire _2213_ ;
+wire _1904_ ;
+wire _815_ ;
+wire _75_ ;
+wire _2022_ ;
+wire _1713_ ;
+wire _624_ ;
+wire _204_ ;
+wire _2251_ ;
+wire _1942_ ;
+wire _1522_ ;
+wire _1102_ ;
+wire \u_cpu.IRHOLD_valid  ;
+wire _853_ ;
+wire _433_ ;
+wire _2307_ ;
+wire _2060_ ;
+wire [1:0] \u_cpu.src_reg  ;
+wire _909_ ;
+wire _1751_ ;
+wire _1331_ ;
+wire _662_ ;
+wire _242_ ;
+wire _2116_ ;
+wire _1807_ ;
+wire _718_ ;
+wire _2354__7_bF$buf0 ;
+wire _2354__7_bF$buf1 ;
+wire _2354__7_bF$buf2 ;
+wire _2354__7_bF$buf3 ;
+wire _1980_ ;
+wire _1560_ ;
+wire _1140_ ;
+wire _891_ ;
+wire _471_ ;
+wire _2345_ ;
+wire _1616_ ;
+wire _947_ ;
+wire _527_ ;
+wire _107_ ;
+wire \u_cpu.cld  ;
+wire _280_ ;
+wire _2154_ ;
+wire _1845_ ;
+wire _1425_ ;
+wire _1005_ ;
+wire _756_ ;
+wire _336_ ;
+wire _1654_ ;
+wire _1234_ ;
+wire _985_ ;
+wire _565_ ;
+wire _145_ ;
+wire _2019_ ;
+wire _2192_ ;
+wire _1883_ ;
+wire _1463_ ;
+wire _1043_ ;
+wire _794_ ;
+wire _374_ ;
+wire _2248_ ;
+wire _1939_ ;
+wire _1519_ ;
+wire _1692_ ;
+wire _1272_ ;
+wire _183_ ;
+wire _2057_ ;
+wire _1748_ ;
+wire _1328_ ;
+wire _659_ ;
+wire _239_ ;
+wire _1081_ ;
+wire _2286_ ;
+wire kbd_ack ;
+wire _1977_ ;
+wire _1557_ ;
+wire _1137_ ;
+wire _888_ ;
+wire _468_ ;
+wire _2095_ ;
+wire _1786_ ;
+wire _1366_ ;
+wire _697_ ;
+wire _277_ ;
+wire _1595_ ;
+wire _1175_ ;
+wire \u_cpu.load_only  ;
+wire _2189_ ;
+wire \u_cpu.alu_shift_right  ;
+wire _34_ ;
+wire _1689_ ;
+wire _1269_ ;
+wire _2210_ ;
+wire _1901_ ;
+wire _812_ ;
+wire _72_ ;
+wire _1498_ ;
+wire _1078_ ;
+wire _1710_ ;
+wire _621_ ;
+wire _201_ ;
+wire _850_ ;
+wire _430_ ;
+wire _2304_ ;
+wire _906_ ;
+wire _2113_ ;
+wire _1804_ ;
+wire _715_ ;
+wire _2342_ ;
+wire _1613_ ;
+wire _944_ ;
+wire _524_ ;
+wire _104_ ;
+wire _2151_ ;
+wire _1842_ ;
+wire _1422_ ;
+wire _1002_ ;
+wire _753_ ;
+wire _333_ ;
+wire _2207_ ;
+wire _809_ ;
+wire _69_ ;
+wire _1651_ ;
+wire _1231_ ;
+wire _982_ ;
+wire _562_ ;
+wire _142_ ;
+wire _2016_ ;
+wire _1707_ ;
+wire _618_ ;
+wire _1880_ ;
+wire _1460_ ;
+wire _1040_ ;
+wire _791_ ;
+wire _371_ ;
+wire _2245_ ;
+wire _1936_ ;
+wire _1516_ ;
+wire _847_ ;
+wire _427_ ;
+wire _180_ ;
+wire _2054_ ;
+wire _1745_ ;
+wire _1325_ ;
+wire _656_ ;
+wire _236_ ;
+wire _2283_ ;
+wire [7:0] DO_dsp ;
+wire \u_cpu.php  ;
+wire _1974_ ;
+wire _1554_ ;
+wire _1134_ ;
+wire _885_ ;
+wire _465_ ;
+wire _2339_ ;
+wire _2092_ ;
+wire _1783_ ;
+wire _1363_ ;
+wire _694_ ;
+wire _274_ ;
+wire _2148_ ;
+wire _1839_ ;
+wire _1419_ ;
+wire _1592_ ;
+wire _1172_ ;
+wire _1648_ ;
+wire _1228_ ;
+wire _979_ ;
+wire _559_ ;
+wire _139_ ;
+wire _2186_ ;
+wire _2354__2_bF$buf0 ;
+wire _2354__2_bF$buf1 ;
+wire _2354__2_bF$buf2 ;
+wire _2354__2_bF$buf3 ;
+wire _2354__2_bF$buf4 ;
+wire _2354__2_bF$buf5 ;
+wire _31_ ;
+wire _1877_ ;
+wire _1457_ ;
+wire _1037_ ;
+wire _788_ ;
+wire _368_ ;
+wire [7:0] \u_cpu.AI  ;
+wire _1686_ ;
+wire _1266_ ;
+wire _597_ ;
+wire _177_ ;
+wire _1495_ ;
+wire _1075_ ;
+wire dsp_ack ;
+wire _2089_ ;
+wire _2301_ ;
+wire _1305__bF$buf0 ;
+wire _1305__bF$buf1 ;
+wire _1305__bF$buf2 ;
+wire _1305__bF$buf3 ;
+wire _903_ ;
+wire _1589_ ;
+wire _1169_ ;
+wire _2110_ ;
+wire \u_cpu.adc_bcd  ;
+wire _1801_ ;
+wire _712_ ;
+wire _1398_ ;
+wire _28_ ;
+wire _1610_ ;
+wire _941_ ;
+wire _521_ ;
+wire _101_ ;
+wire _750_ ;
+wire _330_ ;
+wire _2204_ ;
+wire _806_ ;
+wire _66_ ;
+wire _2013_ ;
+wire _1704_ ;
+wire _615_ ;
+wire _2242_ ;
+wire _1933_ ;
+wire _1513_ ;
+wire _844_ ;
+wire _424_ ;
+wire _2051_ ;
+wire _1742_ ;
+wire _1322_ ;
+wire _653_ ;
+wire _233_ ;
+wire _2107_ ;
+wire _2280_ ;
+wire _709_ ;
+wire _1971_ ;
+wire _1551_ ;
+wire _1131_ ;
+wire _882_ ;
+wire _462_ ;
+wire _2336_ ;
+wire _1607_ ;
+wire _938_ ;
+wire _518_ ;
+wire _1780_ ;
+wire _1360_ ;
+wire _691_ ;
+wire _271_ ;
+wire _2145_ ;
+wire _1836_ ;
+wire _1416_ ;
+wire _747_ ;
+wire _327_ ;
+wire _1645_ ;
+wire _1225_ ;
+wire _976_ ;
+wire _556_ ;
+wire _136_ ;
+wire _2183_ ;
+wire _1874_ ;
+wire _1454_ ;
+wire _1034_ ;
+wire _785_ ;
+wire _365_ ;
+wire _2239_ ;
+wire _1683_ ;
+wire _1263_ ;
+wire _594_ ;
+wire _174_ ;
+wire _2048_ ;
+wire _1739_ ;
+wire _1319_ ;
+wire _1492_ ;
+wire _1072_ ;
+wire _2277_ ;
+wire _1968_ ;
+wire _1548_ ;
+wire _1128_ ;
+wire _879_ ;
+wire _459_ ;
+wire _2086_ ;
+wire _800__bF$buf0 ;
+wire _800__bF$buf1 ;
+wire _800__bF$buf2 ;
+wire _800__bF$buf3 ;
+wire _800__bF$buf4 ;
+wire [7:0] \u_cpu.AXYS[0]  ;
+wire _1777_ ;
+wire _1357_ ;
+wire _688_ ;
+wire _268_ ;
+wire _900_ ;
+wire _1586_ ;
+wire _1166_ ;
+wire _497_ ;
+wire _1395_ ;
+wire _25_ ;
+wire _2201_ ;
+wire _803_ ;
+wire _63_ ;
+wire _1489_ ;
+wire _1069_ ;
+wire _2010_ ;
+wire _1701_ ;
+wire _612_ ;
+wire _1298_ ;
+wire reset ;
+wire _1930_ ;
+wire _1510_ ;
+wire _841_ ;
+wire _421_ ;
+wire _650_ ;
+wire _230_ ;
+wire _2104_ ;
+wire _706_ ;
+wire _2333_ ;
+wire _1604_ ;
+wire _935_ ;
+wire _515_ ;
+wire _2142_ ;
+wire _1833_ ;
+wire _1413_ ;
+wire _744_ ;
+wire _324_ ;
+wire _1642_ ;
+wire _1222_ ;
+wire _973_ ;
+wire _553_ ;
+wire _133_ ;
+wire _2007_ ;
+wire _2180_ ;
+wire _609_ ;
+wire _1871_ ;
+wire _1451_ ;
+wire _1031_ ;
+wire _782_ ;
+wire _362_ ;
+wire _2236_ ;
+wire _1927_ ;
+wire _1507_ ;
+wire _838_ ;
+wire _418_ ;
+wire _98_ ;
+wire _1680_ ;
+wire _1260_ ;
+wire _591_ ;
+wire _171_ ;
+wire _2045_ ;
+wire _1736_ ;
+wire _1316_ ;
+wire _647_ ;
+wire _227_ ;
+wire _2274_ ;
+wire _1965_ ;
+wire _1545_ ;
+wire _1125_ ;
+wire _876_ ;
+wire _456_ ;
+wire _2083_ ;
+wire _1774_ ;
+wire _1354_ ;
+wire _685_ ;
+wire _265_ ;
+wire _2139_ ;
+wire _1583_ ;
+wire _1163_ ;
+wire _494_ ;
+wire _1639_ ;
+wire _1219_ ;
+wire _1392_ ;
+wire _2177_ ;
+wire _22_ ;
+wire _1868_ ;
+wire _1448_ ;
+wire _1028_ ;
+wire _779_ ;
+wire _359_ ;
+
+FILL FILL_2__2620_ (
+);
+
+FILL FILL_4__2966_ (
+);
+
+FILL FILL_4__2546_ (
+);
+
+FILL FILL_0__2446_ (
+);
+
+AOI22X1 _4972_ (
+    .A(_2235_),
+    .B(_2195_),
+    .C(_2240_),
+    .D(_2241_),
+    .Y(Data_In[0])
+);
+
+OAI21X1 _4552_ (
+    .A(_1281_),
+    .B(_1297_),
+    .C(_1315__bF$buf1),
+    .Y(_1280_)
+);
+
+NOR2X1 _4132_ (
+    .A(_1328__bF$buf5),
+    .B(_1252_),
+    .Y(_898_)
+);
+
+FILL FILL_2__3825_ (
+);
+
+FILL FILL_2__3405_ (
+);
+
+FILL FILL_1__4294_ (
+);
+
+FILL FILL_1__2607_ (
+);
+
+FILL FILL_2__4783_ (
+);
+
+FILL FILL_2__4363_ (
+);
+
+FILL FILL_4__4289_ (
+);
+
+AOI21X1 _3823_ (
+    .A(\u_cpu.ADD [2]),
+    .B(_908_),
+    .C(_618_),
+    .Y(_617_)
+);
+
+OAI21X1 _3403_ (
+    .A(_1221_),
+    .B(_877_),
+    .C(_235_),
+    .Y(_234_)
+);
+
+FILL FILL_1__2780_ (
+);
+
+FILL FILL_1__2360_ (
+);
+
+FILL FILL_0__4189_ (
+);
+
+INVX1 _4608_ (
+    .A(\u_cpu.state [0]),
+    .Y(_1336_)
+);
+
+FILL FILL_1__3985_ (
+);
+
+FILL FILL_1__3565_ (
+);
+
+FILL FILL_3__4852_ (
+);
+
+FILL FILL_3__4432_ (
+);
+
+FILL FILL_3__4012_ (
+);
+
+FILL FILL274050x104550 (
+);
+
+FILL FILL_4__2775_ (
+);
+
+FILL FILL_0__2675_ (
+);
+
+NAND3X1 _4781_ (
+    .A(_1741_),
+    .B(_1798_),
+    .C(_1796_),
+    .Y(_1834_)
+);
+
+NOR2X1 _4361_ (
+    .A(_1111_),
+    .B(_1105_),
+    .Y(_1104_)
+);
+
+FILL FILL_2__3634_ (
+);
+
+FILL FILL_2__3214_ (
+);
+
+FILL FILL_4__4921_ (
+);
+
+FILL FILL_4__4501_ (
+);
+
+FILL FILL_0__4821_ (
+);
+
+FILL FILL_2__4839_ (
+);
+
+FILL FILL_0__4401_ (
+);
+
+FILL FILL_2__4419_ (
+);
+
+FILL FILL_1__2836_ (
+);
+
+FILL FILL_1__2416_ (
+);
+
+FILL FILL_3__3703_ (
+);
+
+FILL FILL_2__4592_ (
+);
+
+FILL FILL_2__4172_ (
+);
+
+FILL FILL_4__4098_ (
+);
+
+FILL FILL_3__4908_ (
+);
+
+NAND3X1 _3632_ (
+    .A(_436_),
+    .B(_438_),
+    .C(_450_),
+    .Y(_435_)
+);
+
+OAI22X1 _3212_ (
+    .A(_106_),
+    .B(_105_),
+    .C(\u_cpu.sei ),
+    .D(_107_),
+    .Y(_104_)
+);
+
+FILL FILL_2__2905_ (
+);
+
+NAND2X1 _4837_ (
+    .A(_1879_),
+    .B(_1877_),
+    .Y(_1880_)
+);
+
+INVX1 _4417_ (
+    .A(\u_cpu.PC [12]),
+    .Y(_1154_)
+);
+
+FILL FILL_1__3794_ (
+);
+
+FILL FILL_1__3374_ (
+);
+
+FILL FILL_3__4661_ (
+);
+
+FILL FILL_3__4241_ (
+);
+
+BUFX2 BUFX2_insert120 (
+    .A(_1070_),
+    .Y(_1070__bF$buf2)
+);
+
+BUFX2 BUFX2_insert121 (
+    .A(_1070_),
+    .Y(_1070__bF$buf1)
+);
+
+BUFX2 BUFX2_insert122 (
+    .A(_1070_),
+    .Y(_1070__bF$buf0)
+);
+
+BUFX2 BUFX2_insert123 (
+    .A(_1196_),
+    .Y(_1196__bF$buf8)
+);
+
+FILL FILL_1__4579_ (
+);
+
+BUFX2 BUFX2_insert124 (
+    .A(_1196_),
+    .Y(_1196__bF$buf7)
+);
+
+FILL FILL_1__4159_ (
+);
+
+BUFX2 BUFX2_insert125 (
+    .A(_1196_),
+    .Y(_1196__bF$buf6)
+);
+
+BUFX2 BUFX2_insert126 (
+    .A(_1196_),
+    .Y(_1196__bF$buf5)
+);
+
+BUFX2 BUFX2_insert127 (
+    .A(_1196_),
+    .Y(_1196__bF$buf4)
+);
+
+BUFX2 BUFX2_insert128 (
+    .A(_1196_),
+    .Y(_1196__bF$buf3)
+);
+
+FILL FILL_4__2584_ (
+);
+
+BUFX2 BUFX2_insert129 (
+    .A(_1196_),
+    .Y(_1196__bF$buf2)
+);
+
+FILL FILL273750x93750 (
+);
+
+FILL FILL_0__2484_ (
+);
+
+NOR2X1 _4590_ (
+    .A(_1324_),
+    .B(_1319_),
+    .Y(_1318_)
+);
+
+NAND2X1 _4170_ (
+    .A(\u_cpu.ADD [6]),
+    .B(_938_),
+    .Y(_930_)
+);
+
+FILL FILL_2__3863_ (
+);
+
+FILL FILL_2__3443_ (
+);
+
+FILL FILL_2__3023_ (
+);
+
+FILL FILL_4__3789_ (
+);
+
+FILL FILL_4__3369_ (
+);
+
+NAND2X1 _2903_ (
+    .A(\u_pia_dsp.state [1]),
+    .B(_1550_),
+    .Y(_1561_)
+);
+
+FILL FILL_4__4730_ (
+);
+
+FILL FILL_4__4310_ (
+);
+
+FILL FILL_0__3689_ (
+);
+
+FILL FILL_0__3269_ (
+);
+
+FILL FILL_2__4648_ (
+);
+
+FILL FILL_0__4630_ (
+);
+
+FILL FILL_2__4228_ (
+);
+
+FILL FILL_0__4210_ (
+);
+
+FILL FILL_1__2645_ (
+);
+
+FILL FILL_3__3932_ (
+);
+
+FILL FILL_3__3512_ (
+);
+
+FILL FILL_3__4717_ (
+);
+
+AOI22X1 _3861_ (
+    .A(\u_cpu.AXYS[1] [5]),
+    .B(_1050_),
+    .C(_790_),
+    .D(\u_cpu.AXYS[2] [5]),
+    .Y(_653_)
+);
+
+INVX1 _3441_ (
+    .A(_266_),
+    .Y(_2354_[13])
+);
+
+OAI21X1 _3021_ (
+    .A(_1504_),
+    .B(_1500_),
+    .C(_1505_),
+    .Y(_1436_)
+);
+
+FILL FILL_2__2714_ (
+);
+
+INVX2 _4646_ (
+    .A(\u_cpu.alu_op [2]),
+    .Y(_1699_)
+);
+
+AND2X2 _4226_ (
+    .A(_1065_),
+    .B(_1058_),
+    .Y(_979_)
+);
+
+FILL FILL_1__3183_ (
+);
+
+FILL FILL_0__3901_ (
+);
+
+FILL FILL_2__3919_ (
+);
+
+FILL FILL_3__4890_ (
+);
+
+FILL FILL_3__4470_ (
+);
+
+FILL FILL_3__4050_ (
+);
+
+FILL FILL_1__4388_ (
+);
+
+FILL FILL_4__2393_ (
+);
+
+FILL FILL_2__3672_ (
+);
+
+FILL FILL_2__3252_ (
+);
+
+FILL FILL_4__3598_ (
+);
+
+FILL FILL_4__3178_ (
+);
+
+AOI21X1 _2712_ (
+    .A(_2017_),
+    .B(_2022_),
+    .C(_2354__5_bF$buf4),
+    .Y(_2023_)
+);
+
+FILL FILL_0__3498_ (
+);
+
+FILL FILL_2__4457_ (
+);
+
+FILL FILL_2__4037_ (
+);
+
+OAI22X1 _3917_ (
+    .A(_703_),
+    .B(_1129__bF$buf0),
+    .C(_702_),
+    .D(_1116_),
+    .Y(_1444_)
+);
+
+FILL FILL_1__2454_ (
+);
+
+FILL FILL_3__3741_ (
+);
+
+FILL FILL_3__3321_ (
+);
+
+FILL FILL_1__3659_ (
+);
+
+FILL FILL_1__3239_ (
+);
+
+FILL FILL_1__4600_ (
+);
+
+FILL FILL_3__4946_ (
+);
+
+FILL FILL_3__4526_ (
+);
+
+FILL FILL_3__4106_ (
+);
+
+OAI21X1 _3670_ (
+    .A(_1328__bF$buf3),
+    .B(_906_),
+    .C(RDY_bF$buf6),
+    .Y(_473_)
+);
+
+INVX1 _3250_ (
+    .A(_131_),
+    .Y(_130_)
+);
+
+FILL FILL_2__2943_ (
+);
+
+FILL FILL_2__2523_ (
+);
+
+FILL FILL_4__2449_ (
+);
+
+FILL FILL_4__3810_ (
+);
+
+FILL FILL_0__2769_ (
+);
+
+DFFSR _4875_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1666_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.ADD [6])
+);
+
+INVX1 _4455_ (
+    .A(_1188_),
+    .Y(_1187_)
+);
+
+OR2X2 _4035_ (
+    .A(_803_),
+    .B(_913_),
+    .Y(_802_)
+);
+
+FILL FILL_0__3710_ (
+);
+
+FILL FILL_2__3728_ (
+);
+
+FILL FILL_2__3308_ (
+);
+
+FILL FILL_1__4197_ (
+);
+
+FILL FILL_0__4915_ (
+);
+
+FILL FILL_0_BUFX2_insert20 (
+);
+
+FILL FILL_0_BUFX2_insert21 (
+);
+
+FILL FILL_0_BUFX2_insert22 (
+);
+
+FILL FILL_2__3481_ (
+);
+
+FILL FILL_0_BUFX2_insert23 (
+);
+
+FILL FILL_0_BUFX2_insert24 (
+);
+
+FILL FILL_0_BUFX2_insert25 (
+);
+
+NAND3X1 _2941_ (
+    .A(_2354_[15]),
+    .B(_1528_),
+    .C(_1529_),
+    .Y(_1530_)
+);
+
+NOR2X1 _2521_ (
+    .A(_2354__4_bF$buf6),
+    .B(_2294_),
+    .Y(_2305_)
+);
+
+FILL FILL_2__4686_ (
+);
+
+FILL FILL_2__4266_ (
+);
+
+OAI21X1 _3726_ (
+    .A(_1196__bF$buf2),
+    .B(_1083_),
+    .C(_526_),
+    .Y(_525_)
+);
+
+OAI21X1 _3306_ (
+    .A(_1196__bF$buf0),
+    .B(_1345__bF$buf2),
+    .C(\u_cpu.compare ),
+    .Y(_159_)
+);
+
+FILL FILL_1__2683_ (
+);
+
+FILL FILL_3__3970_ (
+);
+
+FILL FILL_3__3550_ (
+);
+
+FILL FILL_1__3888_ (
+);
+
+FILL FILL_1__3468_ (
+);
+
+FILL FILL_3__4755_ (
+);
+
+FILL FILL_3__4335_ (
+);
+
+FILL FILL_2__2752_ (
+);
+
+FILL FILL_4__2678_ (
+);
+
+FILL FILL_0__2998_ (
+);
+
+FILL FILL_0__2578_ (
+);
+
+OAI21X1 _4684_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1729_),
+    .Y(_1737_)
+);
+
+NOR2X1 _4264_ (
+    .A(_1037__bF$buf1),
+    .B(_1027_),
+    .Y(_1014_)
+);
+
+FILL FILL_2__3957_ (
+);
+
+FILL FILL_2__3537_ (
+);
+
+FILL FILL_4__4824_ (
+);
+
+FILL FILL_4__4404_ (
+);
+
+FILL FILL_3__2821_ (
+);
+
+FILL FILL_0__4724_ (
+);
+
+FILL FILL_3__2401_ (
+);
+
+FILL FILL_0__4304_ (
+);
+
+FILL FILL_1__2739_ (
+);
+
+FILL FILL_2__3290_ (
+);
+
+FILL FILL_3__3606_ (
+);
+
+AOI21X1 _2750_ (
+    .A(_1967_),
+    .B(_2354__0_bF$buf4),
+    .C(_1634__bF$buf3),
+    .Y(_1985_)
+);
+
+FILL FILL_2__4495_ (
+);
+
+FILL FILL_2__4075_ (
+);
+
+OAI21X1 _3955_ (
+    .A(_1005_),
+    .B(_733_),
+    .C(_990_),
+    .Y(_732_)
+);
+
+OAI21X1 _3535_ (
+    .A(_360_),
+    .B(_346_),
+    .C(_343_),
+    .Y(\u_cpu.AI [2])
+);
+
+DFFSR _3115_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1447_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[2] [2])
+);
+
+FILL FILL_1__2492_ (
+);
+
+FILL FILL_2__2808_ (
+);
+
+FILL FILL_1__3697_ (
+);
+
+FILL FILL_1__3277_ (
+);
+
+FILL FILL_3__4984_ (
+);
+
+FILL FILL_3__4564_ (
+);
+
+FILL FILL_3__4144_ (
+);
+
+FILL FILL_2__2981_ (
+);
+
+FILL FILL_2__2561_ (
+);
+
+FILL FILL_4__2487_ (
+);
+
+FILL FILL_0__2387_ (
+);
+
+INVX1 _4493_ (
+    .A(\u_cpu.ADD [1]),
+    .Y(_1221_)
+);
+
+INVX1 _4073_ (
+    .A(_841_),
+    .Y(_840_)
+);
+
+FILL FILL_2__3766_ (
+);
+
+FILL FILL_2__3346_ (
+);
+
+OAI21X1 _2806_ (
+    .A(_2354__0_bF$buf5),
+    .B(_1928_),
+    .C(_1929_),
+    .Y(_1930_)
+);
+
+FILL FILL_4__4633_ (
+);
+
+FILL FILL_4__4213_ (
+);
+
+FILL FILL_0__4953_ (
+);
+
+FILL FILL_3__2630_ (
+);
+
+FILL FILL_0__4533_ (
+);
+
+FILL FILL_0__4113_ (
+);
+
+FILL FILL274050x43350 (
+);
+
+FILL FILL_1__2968_ (
+);
+
+FILL FILL_1__2548_ (
+);
+
+FILL FILL_3__3835_ (
+);
+
+FILL FILL_3__3415_ (
+);
+
+OAI22X1 _3764_ (
+    .A(RDY_bF$buf5),
+    .B(_804_),
+    .C(_582_),
+    .D(_564_),
+    .Y(_563_)
+);
+
+NOR2X1 _3344_ (
+    .A(_971_),
+    .B(_745_),
+    .Y(\u_cpu.u_ALU8.BCD )
+);
+
+FILL FILL_2__2617_ (
+);
+
+FILL FILL_4__3904_ (
+);
+
+NAND2X1 _4969_ (
+    .A(_2238_),
+    .B(_2186_),
+    .Y(_2239_)
+);
+
+AOI21X1 _4549_ (
+    .A(_1311_),
+    .B(\u_cpu.PC [5]),
+    .C(_1278_),
+    .Y(_1277_)
+);
+
+INVX1 _4129_ (
+    .A(_896_),
+    .Y(_895_)
+);
+
+FILL FILL_0__3804_ (
+);
+
+FILL FILL_3__4793_ (
+);
+
+FILL FILL_3__4373_ (
+);
+
+FILL FILL_2__2790_ (
+);
+
+FILL FILL_2__2370_ (
+);
+
+FILL FILL_2__3995_ (
+);
+
+FILL FILL_2__3575_ (
+);
+
+FILL FILL273750x25350 (
+);
+
+NAND2X1 _2615_ (
+    .A(_2354__2_bF$buf4),
+    .B(_1635__bF$buf3),
+    .Y(_2118_)
+);
+
+FILL FILL_4__4862_ (
+);
+
+FILL FILL_4__4442_ (
+);
+
+FILL FILL_4__4022_ (
+);
+
+FILL FILL_0__4762_ (
+);
+
+FILL FILL_0__4342_ (
+);
+
+FILL FILL_1__2777_ (
+);
+
+FILL FILL_1__2357_ (
+);
+
+BUFX2 BUFX2_insert39 (
+    .A(_2354_[4]),
+    .Y(_2354__4_bF$buf6)
+);
+
+FILL FILL_3__3644_ (
+);
+
+FILL FILL_3__3224_ (
+);
+
+FILL FILL_1__4923_ (
+);
+
+FILL FILL_1__4503_ (
+);
+
+FILL FILL_3__4849_ (
+);
+
+FILL FILL_3__4429_ (
+);
+
+FILL FILL_3__4009_ (
+);
+
+NOR2X1 _3993_ (
+    .A(_766_),
+    .B(_768_),
+    .Y(_765_)
+);
+
+AOI21X1 _3573_ (
+    .A(_1196__bF$buf2),
+    .B(_910_),
+    .C(_530_),
+    .Y(_377_)
+);
+
+DFFSR _3153_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1456_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.dst_reg [0])
+);
+
+FILL FILL_2__2846_ (
+);
+
+FILL FILL_2__2426_ (
+);
+
+FILL FILL_4__3713_ (
+);
+
+OAI21X1 _4778_ (
+    .A(_1728_),
+    .B(_1772_),
+    .C(_1785_),
+    .Y(_1831_)
+);
+
+OAI21X1 _4358_ (
+    .A(_1125_),
+    .B(\u_cpu.IRHOLD [0]),
+    .C(_1340_),
+    .Y(_1101_)
+);
+
+FILL FILL_0__3613_ (
+);
+
+FILL FILL_3__4182_ (
+);
+
+FILL FILL_4__4918_ (
+);
+
+FILL FILL_0__4818_ (
+);
+
+FILL FILL_3__2915_ (
+);
+
+FILL FILL_2__3384_ (
+);
+
+AND2X2 _2844_ (
+    .A(_2354__1_bF$buf0),
+    .B(_2354__0_bF$buf2),
+    .Y(_1651_)
+);
+
+AOI22X1 _2424_ (
+    .A(_2093_),
+    .B(_2054_),
+    .C(_49_),
+    .D(_2354__3_bF$buf1),
+    .Y(_50_)
+);
+
+FILL FILL_4__4671_ (
+);
+
+FILL FILL_4__4251_ (
+);
+
+FILL FILL_0__4571_ (
+);
+
+FILL FILL_2__4589_ (
+);
+
+FILL FILL_2__4169_ (
+);
+
+FILL FILL_0__4151_ (
+);
+
+INVX1 _3629_ (
+    .A(_433_),
+    .Y(_1428_)
+);
+
+OAI21X1 _3209_ (
+    .A(_1178_),
+    .B(_220_),
+    .C(_107_),
+    .Y(_101_)
+);
+
+FILL FILL_1__2586_ (
+);
+
+FILL FILL_3__3873_ (
+);
+
+FILL FILL_3__3453_ (
+);
+
+FILL FILL_1__4732_ (
+);
+
+FILL FILL_1__4312_ (
+);
+
+FILL FILL_3__4658_ (
+);
+
+FILL FILL_3__4238_ (
+);
+
+OAI21X1 _3382_ (
+    .A(_220_),
+    .B(_467_),
+    .C(_218_),
+    .Y(_217_)
+);
+
+FILL FILL_2__2655_ (
+);
+
+FILL FILL_4__3942_ (
+);
+
+FILL FILL_4__3522_ (
+);
+
+NAND3X1 _4587_ (
+    .A(_1350_),
+    .B(_1316_),
+    .C(_1322_),
+    .Y(_1315_)
+);
+
+NOR2X1 _4167_ (
+    .A(_928_),
+    .B(_937_),
+    .Y(_927_)
+);
+
+FILL FILL_0__3842_ (
+);
+
+FILL FILL_0__3422_ (
+);
+
+FILL FILL_0__3002_ (
+);
+
+FILL FILL_2__4801_ (
+);
+
+FILL FILL_4__4727_ (
+);
+
+FILL FILL_4__4307_ (
+);
+
+FILL FILL_3__2724_ (
+);
+
+FILL FILL_0__4627_ (
+);
+
+FILL FILL_0__4207_ (
+);
+
+FILL FILL_2__3193_ (
+);
+
+FILL FILL_3__3929_ (
+);
+
+FILL FILL_3__3509_ (
+);
+
+NOR2X1 _2653_ (
+    .A(_2354__2_bF$buf5),
+    .B(_1635__bF$buf0),
+    .Y(_2081_)
+);
+
+FILL FILL_4__4480_ (
+);
+
+FILL FILL_4__4060_ (
+);
+
+FILL FILL_0__4380_ (
+);
+
+FILL FILL_2__4398_ (
+);
+
+OAI21X1 _3858_ (
+    .A(_1073_),
+    .B(_873_),
+    .C(_651_),
+    .Y(_650_)
+);
+
+AND2X2 _3438_ (
+    .A(_265_),
+    .B(_264_),
+    .Y(_263_)
+);
+
+OAI21X1 _3018_ (
+    .A(_1506_),
+    .B(_1500_),
+    .C(_1511_),
+    .Y(_1437_)
+);
+
+FILL FILL_1__2395_ (
+);
+
+FILL FILL_3__3682_ (
+);
+
+FILL FILL_3__3262_ (
+);
+
+FILL FILL_1_BUFX2_insert90 (
+);
+
+FILL FILL_1_BUFX2_insert91 (
+);
+
+FILL FILL_1_BUFX2_insert92 (
+);
+
+FILL FILL_1_BUFX2_insert93 (
+);
+
+FILL FILL_1_BUFX2_insert94 (
+);
+
+FILL FILL_1_BUFX2_insert95 (
+);
+
+FILL FILL_1_BUFX2_insert96 (
+);
+
+FILL FILL_1_BUFX2_insert97 (
+);
+
+FILL FILL_1_BUFX2_insert98 (
+);
+
+FILL FILL_1_BUFX2_insert99 (
+);
+
+FILL FILL_1__4961_ (
+);
+
+FILL FILL_1__4541_ (
+);
+
+FILL FILL_1__4121_ (
+);
+
+FILL FILL_3__4887_ (
+);
+
+FILL FILL_3__4467_ (
+);
+
+FILL FILL_3__4047_ (
+);
+
+NAND2X1 _3191_ (
+    .A(_1106_),
+    .B(_1027_),
+    .Y(_90_)
+);
+
+FILL FILL_2__2884_ (
+);
+
+FILL FILL_2__2464_ (
+);
+
+FILL FILL_4__3751_ (
+);
+
+FILL FILL_4__3331_ (
+);
+
+AOI21X1 _4396_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [5]),
+    .C(_1137_),
+    .Y(_1136_)
+);
+
+FILL FILL_2__3669_ (
+);
+
+FILL FILL_0__3651_ (
+);
+
+FILL FILL_0__3231_ (
+);
+
+FILL FILL_2__3249_ (
+);
+
+FILL FILL_2__4610_ (
+);
+
+OAI21X1 _2709_ (
+    .A(_2354__0_bF$buf1),
+    .B(_1944_),
+    .C(_2354__3_bF$buf2),
+    .Y(_2026_)
+);
+
+FILL FILL_4__4956_ (
+);
+
+FILL FILL_4__4536_ (
+);
+
+FILL FILL_4__4116_ (
+);
+
+FILL FILL_0__4856_ (
+);
+
+FILL FILL_3__2533_ (
+);
+
+FILL FILL_0__4436_ (
+);
+
+FILL FILL_0__4016_ (
+);
+
+FILL FILL_1__3812_ (
+);
+
+FILL FILL_3__3738_ (
+);
+
+FILL FILL_3__3318_ (
+);
+
+NAND3X1 _2882_ (
+    .A(_1551_),
+    .B(\u_pia_dsp.state [0]),
+    .C(_1560_),
+    .Y(_1578_)
+);
+
+OAI21X1 _2462_ (
+    .A(_2354__0_bF$buf1),
+    .B(_2354__2_bF$buf5),
+    .C(_1643__bF$buf3),
+    .Y(_13_)
+);
+
+FILL FILL_4__2602_ (
+);
+
+AOI22X1 _3667_ (
+    .A(_1196__bF$buf7),
+    .B(_1270_),
+    .C(_1286_),
+    .D(_471_),
+    .Y(_470_)
+);
+
+OAI22X1 _3247_ (
+    .A(_1344_),
+    .B(_1108_),
+    .C(_1096_),
+    .D(_740_),
+    .Y(_127_)
+);
+
+FILL FILL_0__2922_ (
+);
+
+FILL FILL_0__2502_ (
+);
+
+FILL FILL_3__3491_ (
+);
+
+FILL FILL_0__3707_ (
+);
+
+FILL FILL_1__4770_ (
+);
+
+FILL FILL_1__4350_ (
+);
+
+FILL FILL_3__4696_ (
+);
+
+FILL FILL_3__4276_ (
+);
+
+FILL FILL_2__2693_ (
+);
+
+FILL FILL_4__3980_ (
+);
+
+FILL FILL_4__3560_ (
+);
+
+FILL FILL_2__3898_ (
+);
+
+FILL FILL_0__3880_ (
+);
+
+FILL FILL_0__3460_ (
+);
+
+FILL FILL_2__3478_ (
+);
+
+NAND3X1 _2938_ (
+    .A(_2354__1_bF$buf3),
+    .B(_1531_),
+    .C(_1532_),
+    .Y(_1533_)
+);
+
+NAND3X1 _2518_ (
+    .A(_2088_),
+    .B(_1929_),
+    .C(_1994_),
+    .Y(_2308_)
+);
+
+FILL FILL_4__4765_ (
+);
+
+FILL FILL_0__4665_ (
+);
+
+FILL FILL_3__2762_ (
+);
+
+FILL FILL_0__4245_ (
+);
+
+FILL FILL_1__3621_ (
+);
+
+FILL FILL_1__3201_ (
+);
+
+FILL FILL_3__3967_ (
+);
+
+FILL FILL_3__3547_ (
+);
+
+OAI21X1 _2691_ (
+    .A(_2043_),
+    .B(_1660_),
+    .C(_1634__bF$buf4),
+    .Y(_2044_)
+);
+
+FILL FILL_1__4826_ (
+);
+
+FILL FILL_1__4406_ (
+);
+
+FILL FILL_4__2831_ (
+);
+
+FILL FILL_4__2411_ (
+);
+
+INVX1 _3896_ (
+    .A(_685_),
+    .Y(_684_)
+);
+
+OAI21X1 _3476_ (
+    .A(_644_),
+    .B(_641_),
+    .C(_871_),
+    .Y(_290_)
+);
+
+DFFSR _3056_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1465_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[3] [0])
+);
+
+FILL FILL_2__2749_ (
+);
+
+FILL FILL_0__2731_ (
+);
+
+FILL FILL_4__3616_ (
+);
+
+FILL FILL_0__3936_ (
+);
+
+FILL FILL_0__3516_ (
+);
+
+FILL FILL_3__4085_ (
+);
+
+FILL FILL_3__2818_ (
+);
+
+FILL FILL_2__3287_ (
+);
+
+NAND3X1 _2747_ (
+    .A(_1634__bF$buf0),
+    .B(_1959_),
+    .C(_1987_),
+    .Y(_1988_)
+);
+
+FILL FILL_4__4574_ (
+);
+
+FILL FILL_4__4154_ (
+);
+
+FILL FILL_0__4894_ (
+);
+
+FILL FILL_3__2991_ (
+);
+
+FILL FILL_3__2571_ (
+);
+
+FILL FILL_0__4474_ (
+);
+
+FILL FILL_0__4054_ (
+);
+
+FILL FILL_1__2489_ (
+);
+
+FILL FILL_1__3850_ (
+);
+
+FILL FILL_1__3430_ (
+);
+
+FILL FILL_1__3010_ (
+);
+
+FILL FILL_3__3776_ (
+);
+
+FILL FILL_3__3356_ (
+);
+
+FILL FILL_1__4635_ (
+);
+
+FILL FILL_1__4215_ (
+);
+
+FILL FILL_4__2640_ (
+);
+
+OAI21X1 _3285_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [5]),
+    .Y(_149_)
+);
+
+FILL FILL_2__2978_ (
+);
+
+FILL FILL_2__2558_ (
+);
+
+FILL FILL_0__2540_ (
+);
+
+FILL FILL_0_BUFX2_insert110 (
+);
+
+FILL FILL_0_BUFX2_insert111 (
+);
+
+FILL FILL_0_BUFX2_insert112 (
+);
+
+FILL FILL_0_BUFX2_insert113 (
+);
+
+FILL FILL_0_BUFX2_insert114 (
+);
+
+FILL FILL_4__3845_ (
+);
+
+FILL FILL_0_BUFX2_insert115 (
+);
+
+FILL FILL_4__3425_ (
+);
+
+FILL FILL_0_BUFX2_insert116 (
+);
+
+FILL FILL_4__3005_ (
+);
+
+FILL FILL_0_BUFX2_insert117 (
+);
+
+FILL FILL_0_BUFX2_insert118 (
+);
+
+FILL FILL_0_BUFX2_insert119 (
+);
+
+FILL FILL_0__3745_ (
+);
+
+FILL FILL_0__3325_ (
+);
+
+FILL FILL_2__4704_ (
+);
+
+FILL FILL_1__2701_ (
+);
+
+FILL FILL_3__2627_ (
+);
+
+FILL FILL_1__3906_ (
+);
+
+NAND2X1 _2976_ (
+    .A(_2351_),
+    .B(_1620_),
+    .Y(_1621_)
+);
+
+OAI21X1 _2556_ (
+    .A(_2150_),
+    .B(_1648_),
+    .C(_1923__bF$buf1),
+    .Y(_2271_)
+);
+
+FILL FILL_4__4383_ (
+);
+
+FILL FILL_3__2380_ (
+);
+
+FILL FILL_0__4283_ (
+);
+
+NAND2X1 _4702_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(\u_cpu.alu_op [2]),
+    .Y(_1755_)
+);
+
+FILL FILL_3__3585_ (
+);
+
+FILL FILL_3__3165_ (
+);
+
+FILL FILL_1__4864_ (
+);
+
+FILL FILL_1__4444_ (
+);
+
+FILL FILL_1__4024_ (
+);
+
+DFFSR _3094_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1383_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.ABH [0])
+);
+
+FILL FILL_2__2787_ (
+);
+
+FILL FILL_2__2367_ (
+);
+
+FILL FILL_4__3654_ (
+);
+
+FILL FILL_4__3234_ (
+);
+
+NOR2X1 _4299_ (
+    .A(\u_cpu.plp ),
+    .B(_1345__bF$buf1),
+    .Y(_1044_)
+);
+
+FILL FILL_0__3974_ (
+);
+
+FILL FILL_0__3554_ (
+);
+
+FILL FILL_2__4933_ (
+);
+
+FILL FILL_2__4513_ (
+);
+
+FILL FILL_4__4859_ (
+);
+
+FILL FILL_4__4439_ (
+);
+
+FILL FILL_4__4019_ (
+);
+
+FILL FILL_1__2930_ (
+);
+
+FILL FILL_1__2510_ (
+);
+
+FILL FILL_0__4759_ (
+);
+
+FILL FILL_3__2856_ (
+);
+
+FILL FILL_3__2436_ (
+);
+
+FILL FILL_0__4339_ (
+);
+
+FILL FILL_1__3715_ (
+);
+
+OAI21X1 _2785_ (
+    .A(_2354__4_bF$buf3),
+    .B(_1950_),
+    .C(_1920__bF$buf4),
+    .Y(_1951_)
+);
+
+BUFX2 _2365_ (
+    .A(_2354__6_bF$buf2),
+    .Y(AB[6])
+);
+
+FILL FILL_4__4192_ (
+);
+
+FILL FILL272850x10950 (
+);
+
+FILL FILL_0__4092_ (
+);
+
+FILL FILL_4__2925_ (
+);
+
+FILL FILL_4__2505_ (
+);
+
+FILL FILL_0__2825_ (
+);
+
+FILL FILL_0__2405_ (
+);
+
+AOI21X1 _4931_ (
+    .A(_2198_),
+    .B(DO_kbd[5]),
+    .C(_2195_),
+    .Y(_2206_)
+);
+
+NAND2X1 _4511_ (
+    .A(_1327_),
+    .B(_1308_),
+    .Y(_1239_)
+);
+
+FILL FILL_3__3394_ (
+);
+
+FILL FILL_1__4673_ (
+);
+
+FILL FILL_1__4253_ (
+);
+
+FILL FILL_3__4599_ (
+);
+
+FILL FILL_3__4179_ (
+);
+
+FILL FILL_2__2596_ (
+);
+
+FILL FILL_4__3883_ (
+);
+
+FILL FILL_4__3463_ (
+);
+
+FILL FILL_0__3783_ (
+);
+
+FILL FILL_0__3363_ (
+);
+
+FILL FILL_2__4742_ (
+);
+
+FILL FILL_2_CLKBUF1_insert26 (
+);
+
+FILL FILL_2_CLKBUF1_insert27 (
+);
+
+FILL FILL_2__4322_ (
+);
+
+FILL FILL_2_CLKBUF1_insert28 (
+);
+
+FILL FILL_2_CLKBUF1_insert29 (
+);
+
+FILL FILL_4__4668_ (
+);
+
+FILL FILL_4__4248_ (
+);
+
+FILL FILL_3__2665_ (
+);
+
+FILL FILL_0__4568_ (
+);
+
+FILL FILL_0__4148_ (
+);
+
+FILL FILL_1__3944_ (
+);
+
+FILL FILL_1__3524_ (
+);
+
+OAI21X1 _2594_ (
+    .A(_1643__bF$buf1),
+    .B(_2130_),
+    .C(_1644_),
+    .Y(_2139_)
+);
+
+FILL FILL_3__4811_ (
+);
+
+FILL FILL_1__4729_ (
+);
+
+FILL FILL_1__4309_ (
+);
+
+FILL FILL_4__2734_ (
+);
+
+AOI22X1 _3799_ (
+    .A(\u_cpu.DIMUX [3]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [3]),
+    .Y(_596_)
+);
+
+NAND3X1 _3379_ (
+    .A(_1074_),
+    .B(_215_),
+    .C(_813_),
+    .Y(_214_)
+);
+
+FILL FILL_0__2634_ (
+);
+
+NOR2X1 _4740_ (
+    .A(_1791_),
+    .B(_1751_),
+    .Y(_1793_)
+);
+
+OAI21X1 _4320_ (
+    .A(_1305__bF$buf0),
+    .B(_1087_),
+    .C(_1066_),
+    .Y(_1065_)
+);
+
+FILL FILL_4__3939_ (
+);
+
+FILL FILL_4__3519_ (
+);
+
+FILL FILL_0__3839_ (
+);
+
+FILL FILL_0__3419_ (
+);
+
+FILL FILL_1__4482_ (
+);
+
+FILL FILL_1__4062_ (
+);
+
+FILL FILL_4__3692_ (
+);
+
+FILL FILL_4__3272_ (
+);
+
+FILL FILL_0__3592_ (
+);
+
+FILL FILL_0__3172_ (
+);
+
+FILL FILL_2__4971_ (
+);
+
+FILL FILL_2__4551_ (
+);
+
+FILL FILL_2__4131_ (
+);
+
+FILL FILL_4__4897_ (
+);
+
+FILL FILL_4__4477_ (
+);
+
+FILL FILL_4__4057_ (
+);
+
+FILL FILL_0__4797_ (
+);
+
+FILL FILL_3__2894_ (
+);
+
+FILL FILL_3__2474_ (
+);
+
+FILL FILL_0__4377_ (
+);
+
+FILL FILL_1__3753_ (
+);
+
+FILL FILL_1__3333_ (
+);
+
+FILL FILL_3__3679_ (
+);
+
+FILL FILL_3__3259_ (
+);
+
+FILL FILL_3__4620_ (
+);
+
+FILL FILL_3__4200_ (
+);
+
+FILL FILL_1__4958_ (
+);
+
+FILL FILL_1__4538_ (
+);
+
+FILL FILL_1__4118_ (
+);
+
+FILL FILL_4__2543_ (
+);
+
+NAND2X1 _3188_ (
+    .A(\u_cpu.PC [1]),
+    .B(_1196__bF$buf1),
+    .Y(_88_)
+);
+
+FILL FILL_0__2443_ (
+);
+
+FILL FILL_2__3822_ (
+);
+
+FILL FILL_2__3402_ (
+);
+
+FILL FILL_4__3748_ (
+);
+
+FILL FILL_4__3328_ (
+);
+
+FILL FILL_0__3648_ (
+);
+
+FILL FILL_0__3228_ (
+);
+
+FILL FILL_1__4291_ (
+);
+
+FILL FILL_2__4607_ (
+);
+
+FILL FILL_1__2604_ (
+);
+
+FILL FILL_1__3809_ (
+);
+
+FILL FILL_2__4780_ (
+);
+
+FILL FILL_2__4360_ (
+);
+
+OAI21X1 _2879_ (
+    .A(_1537_),
+    .B(_1540_),
+    .C(DO_dsp[0]),
+    .Y(_1580_)
+);
+
+AOI21X1 _2459_ (
+    .A(_15_),
+    .B(_12_),
+    .C(_2354__5_bF$buf0),
+    .Y(_16_)
+);
+
+FILL FILL_4__4286_ (
+);
+
+INVX1 _3820_ (
+    .A(\u_cpu.PC [5]),
+    .Y(_615_)
+);
+
+OAI21X1 _3400_ (
+    .A(_1319_),
+    .B(_887_),
+    .C(\u_cpu.DIMUX [4]),
+    .Y(_232_)
+);
+
+FILL FILL_0__4186_ (
+);
+
+FILL FILL_0__2919_ (
+);
+
+NAND2X1 _4605_ (
+    .A(_1350_),
+    .B(_1334_),
+    .Y(_1333_)
+);
+
+FILL FILL_1__3982_ (
+);
+
+FILL FILL_1__3562_ (
+);
+
+FILL FILL_3__3488_ (
+);
+
+FILL FILL_1__4767_ (
+);
+
+FILL FILL_1__4347_ (
+);
+
+FILL FILL_4__2772_ (
+);
+
+FILL FILL_0__2672_ (
+);
+
+FILL FILL_2__3631_ (
+);
+
+FILL FILL_2__3211_ (
+);
+
+FILL FILL_4__3977_ (
+);
+
+FILL FILL_4__3557_ (
+);
+
+FILL FILL_0__3877_ (
+);
+
+FILL FILL_0__3457_ (
+);
+
+FILL FILL_2__4836_ (
+);
+
+FILL FILL_2__4416_ (
+);
+
+FILL FILL_1__2833_ (
+);
+
+FILL FILL_1__2413_ (
+);
+
+FILL FILL_3__2759_ (
+);
+
+FILL FILL_3__3700_ (
+);
+
+FILL FILL_1__3618_ (
+);
+
+OAI21X1 _2688_ (
+    .A(_2046_),
+    .B(_2040_),
+    .C(_2354__7_bF$buf1),
+    .Y(_2047_)
+);
+
+FILL FILL_4__4095_ (
+);
+
+FILL FILL_3__4905_ (
+);
+
+FILL FILL_2__2902_ (
+);
+
+FILL FILL_4__2828_ (
+);
+
+FILL FILL_4__2408_ (
+);
+
+FILL FILL_0__2728_ (
+);
+
+AOI22X1 _4834_ (
+    .A(\u_cpu.alu_shift_right ),
+    .B(\u_cpu.CI ),
+    .C(_1876_),
+    .D(_1874_),
+    .Y(_1877_)
+);
+
+NAND2X1 _4414_ (
+    .A(RDY_bF$buf2),
+    .B(Data_In[4]),
+    .Y(_1151_)
+);
+
+FILL FILL_1__3791_ (
+);
+
+FILL FILL_1__3371_ (
+);
+
+FILL FILL_3__3297_ (
+);
+
+FILL FILL_1__4576_ (
+);
+
+FILL FILL_1__4156_ (
+);
+
+FILL FILL_4__2581_ (
+);
+
+FILL FILL_0__2481_ (
+);
+
+FILL FILL_2__2499_ (
+);
+
+FILL FILL_2__3860_ (
+);
+
+FILL FILL_2__3440_ (
+);
+
+FILL FILL_2__3020_ (
+);
+
+FILL FILL_4__3786_ (
+);
+
+FILL FILL_4__3366_ (
+);
+
+INVX1 _2900_ (
+    .A(_2353_[6]),
+    .Y(_1562_)
+);
+
+FILL FILL_0__3686_ (
+);
+
+FILL FILL_0__3266_ (
+);
+
+FILL FILL_2__4645_ (
+);
+
+FILL FILL_2__4225_ (
+);
+
+FILL FILL_1__2642_ (
+);
+
+FILL FILL_3__2988_ (
+);
+
+FILL FILL_3__2568_ (
+);
+
+FILL FILL_1__3847_ (
+);
+
+FILL FILL_1__3427_ (
+);
+
+FILL FILL_1__3007_ (
+);
+
+AOI21X1 _2497_ (
+    .A(_2328_),
+    .B(_2321_),
+    .C(_1973_),
+    .Y(_2329_)
+);
+
+FILL FILL_3__4714_ (
+);
+
+FILL FILL_2__2711_ (
+);
+
+FILL FILL_4__2637_ (
+);
+
+FILL FILL_0__2537_ (
+);
+
+INVX2 _4643_ (
+    .A(\u_cpu.alu_op [3]),
+    .Y(_1696_)
+);
+
+NAND2X1 _4223_ (
+    .A(_1205_),
+    .B(_1070__bF$buf2),
+    .Y(_976_)
+);
+
+FILL FILL_1__3180_ (
+);
+
+FILL FILL_2__3916_ (
+);
+
+FILL FILL_1__4385_ (
+);
+
+FILL FILL_4__3595_ (
+);
+
+FILL FILL_4__3175_ (
+);
+
+FILL FILL_0__3495_ (
+);
+
+FILL FILL_2__4454_ (
+);
+
+FILL FILL_2__4034_ (
+);
+
+OAI22X1 _3914_ (
+    .A(_701_),
+    .B(_1129__bF$buf4),
+    .C(_1126_),
+    .D(_700_),
+    .Y(_1443_)
+);
+
+FILL FILL_1__2451_ (
+);
+
+FILL FILL_3__2797_ (
+);
+
+FILL FILL_3__2377_ (
+);
+
+FILL FILL_1__3656_ (
+);
+
+FILL FILL_1__3236_ (
+);
+
+FILL FILL_3__4943_ (
+);
+
+FILL FILL_3__4523_ (
+);
+
+FILL FILL_3__4103_ (
+);
+
+FILL FILL_2__2940_ (
+);
+
+FILL FILL_2__2520_ (
+);
+
+FILL FILL_4__2446_ (
+);
+
+FILL FILL_0__2766_ (
+);
+
+DFFSR _4872_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1672_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.ADD [5])
+);
+
+OAI21X1 _4452_ (
+    .A(_1186_),
+    .B(_1185_),
+    .C(_1195_),
+    .Y(_1488_)
+);
+
+NOR2X1 _4032_ (
+    .A(\u_cpu.ABH [7]),
+    .B(_800__bF$buf0),
+    .Y(_799_)
+);
+
+FILL FILL_2__3725_ (
+);
+
+FILL FILL_2__3305_ (
+);
+
+FILL FILL_1_CLKBUF1_insert30 (
+);
+
+FILL FILL_1_CLKBUF1_insert31 (
+);
+
+FILL FILL_1_CLKBUF1_insert32 (
+);
+
+FILL FILL_1_CLKBUF1_insert33 (
+);
+
+FILL FILL_1_CLKBUF1_insert34 (
+);
+
+FILL FILL_1_CLKBUF1_insert35 (
+);
+
+FILL FILL_1_CLKBUF1_insert36 (
+);
+
+FILL FILL_1_CLKBUF1_insert37 (
+);
+
+FILL FILL_1_CLKBUF1_insert38 (
+);
+
+FILL FILL_1__4194_ (
+);
+
+FILL FILL_0__4912_ (
+);
+
+FILL FILL_1__2927_ (
+);
+
+FILL FILL_1__2507_ (
+);
+
+FILL FILL_2__4683_ (
+);
+
+FILL FILL_2__4263_ (
+);
+
+FILL FILL_4__4189_ (
+);
+
+NAND2X1 _3723_ (
+    .A(_523_),
+    .B(_525_),
+    .Y(_522_)
+);
+
+OAI21X1 _3303_ (
+    .A(_1196__bF$buf8),
+    .B(_1105_),
+    .C(_158_),
+    .Y(_1408_)
+);
+
+FILL FILL_1__2680_ (
+);
+
+FILL FILL_0__4089_ (
+);
+
+INVX1 _4928_ (
+    .A(DI[5]),
+    .Y(_2203_)
+);
+
+NOR2X1 _4508_ (
+    .A(_1335_),
+    .B(_1237_),
+    .Y(_1236_)
+);
+
+FILL FILL_1__3885_ (
+);
+
+FILL FILL_1__3465_ (
+);
+
+FILL FILL_3__4752_ (
+);
+
+FILL FILL_3__4332_ (
+);
+
+FILL FILL_4__2675_ (
+);
+
+FILL FILL_0__2995_ (
+);
+
+FILL FILL_0__2575_ (
+);
+
+OAI21X1 _4681_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1729_),
+    .C(_1731_),
+    .Y(_1734_)
+);
+
+AND2X2 _4261_ (
+    .A(_1013_),
+    .B(_1024_),
+    .Y(_1012_)
+);
+
+FILL FILL_2__3954_ (
+);
+
+FILL FILL_2__3534_ (
+);
+
+FILL FILL_4__4821_ (
+);
+
+FILL FILL_4__4401_ (
+);
+
+FILL FILL_2__4739_ (
+);
+
+FILL FILL_0__4721_ (
+);
+
+FILL FILL_0__4301_ (
+);
+
+FILL FILL_2__4319_ (
+);
+
+FILL FILL_1__2736_ (
+);
+
+FILL FILL_3__3603_ (
+);
+
+FILL FILL_2__4492_ (
+);
+
+FILL FILL_2__4072_ (
+);
+
+FILL FILL_3__4808_ (
+);
+
+OAI21X1 _3952_ (
+    .A(_768_),
+    .B(_763_),
+    .C(_730_),
+    .Y(_729_)
+);
+
+AOI21X1 _3532_ (
+    .A(_359_),
+    .B(\u_cpu.ADD [6]),
+    .C(_341_),
+    .Y(_340_)
+);
+
+DFFSR _3112_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1446_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.php )
+);
+
+FILL FILL_2__2805_ (
+);
+
+NAND2X1 _4737_ (
+    .A(_1789_),
+    .B(_1787_),
+    .Y(_1790_)
+);
+
+OAI21X1 _4317_ (
+    .A(_1305__bF$buf2),
+    .B(_1084_),
+    .C(_1063_),
+    .Y(_1062_)
+);
+
+FILL FILL_1__3694_ (
+);
+
+FILL FILL_1__3274_ (
+);
+
+FILL FILL_3__4981_ (
+);
+
+FILL FILL_3__4561_ (
+);
+
+FILL FILL_3__4141_ (
+);
+
+FILL FILL_1__4899_ (
+);
+
+FILL FILL_1__4479_ (
+);
+
+FILL FILL_1__4059_ (
+);
+
+FILL FILL_4__2484_ (
+);
+
+FILL FILL_0__2384_ (
+);
+
+AND2X2 _4490_ (
+    .A(_1230_),
+    .B(_1243_),
+    .Y(_1218_)
+);
+
+NAND2X1 _4070_ (
+    .A(_1307_),
+    .B(_838_),
+    .Y(_837_)
+);
+
+FILL FILL_2__3763_ (
+);
+
+FILL FILL_2__3343_ (
+);
+
+FILL FILL_4__3689_ (
+);
+
+AOI22X1 _2803_ (
+    .A(_1922_),
+    .B(_1932_),
+    .C(_1913_),
+    .D(_1657_),
+    .Y(_1933_)
+);
+
+FILL FILL_4__4630_ (
+);
+
+FILL FILL_4__4210_ (
+);
+
+FILL FILL_0__3589_ (
+);
+
+FILL FILL_0__3169_ (
+);
+
+FILL FILL_2__4968_ (
+);
+
+FILL FILL_0__4950_ (
+);
+
+FILL FILL_0__4530_ (
+);
+
+FILL FILL_2__4548_ (
+);
+
+FILL FILL_2__4128_ (
+);
+
+FILL FILL_0__4110_ (
+);
+
+FILL FILL_1__2965_ (
+);
+
+FILL FILL_1__2545_ (
+);
+
+FILL FILL_3__3832_ (
+);
+
+FILL FILL_3__3412_ (
+);
+
+FILL FILL_3__4617_ (
+);
+
+NAND2X1 _3761_ (
+    .A(_561_),
+    .B(_996_),
+    .Y(_560_)
+);
+
+OAI21X1 _3341_ (
+    .A(_784_),
+    .B(_788_),
+    .C(_334_),
+    .Y(_184_)
+);
+
+FILL FILL_2__2614_ (
+);
+
+FILL FILL_4__3901_ (
+);
+
+INVX1 _4966_ (
+    .A(DO_dsp[0]),
+    .Y(_2236_)
+);
+
+INVX2 _4546_ (
+    .A(_1315__bF$buf1),
+    .Y(_1274_)
+);
+
+NAND2X1 _4126_ (
+    .A(_1350_),
+    .B(_1064_),
+    .Y(_892_)
+);
+
+FILL FILL_0__3801_ (
+);
+
+FILL FILL_2__3819_ (
+);
+
+FILL FILL_3__4790_ (
+);
+
+FILL FILL_3__4370_ (
+);
+
+FILL FILL274050x64950 (
+);
+
+FILL FILL_1__4288_ (
+);
+
+FILL FILL_2__3992_ (
+);
+
+FILL FILL_2__3572_ (
+);
+
+FILL FILL_4__3498_ (
+);
+
+OAI21X1 _2612_ (
+    .A(_1643__bF$buf5),
+    .B(_2354__0_bF$buf0),
+    .C(_2081_),
+    .Y(_2121_)
+);
+
+FILL FILL_0__3398_ (
+);
+
+FILL FILL_2__4777_ (
+);
+
+FILL FILL_2__4357_ (
+);
+
+OAI21X1 _3817_ (
+    .A(\u_cpu.ADD [5]),
+    .B(_613_),
+    .C(_631_),
+    .Y(_612_)
+);
+
+FILL FILL_1__2774_ (
+);
+
+FILL FILL_3__3641_ (
+);
+
+FILL FILL_3__3221_ (
+);
+
+FILL FILL_1__3979_ (
+);
+
+FILL FILL_1__3559_ (
+);
+
+FILL FILL_1__4920_ (
+);
+
+FILL FILL_1__4500_ (
+);
+
+FILL FILL_3__4846_ (
+);
+
+FILL FILL_3__4426_ (
+);
+
+FILL FILL_3__4006_ (
+);
+
+OAI21X1 _3990_ (
+    .A(_988_),
+    .B(_763_),
+    .C(_764_),
+    .Y(_762_)
+);
+
+OAI21X1 _3570_ (
+    .A(_1328__bF$buf1),
+    .B(_881_),
+    .C(_1196__bF$buf6),
+    .Y(_374_)
+);
+
+DFFSR _3150_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1411_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [15])
+);
+
+FILL FILL_2__2843_ (
+);
+
+FILL FILL_2__2423_ (
+);
+
+FILL FILL_4__2769_ (
+);
+
+FILL FILL273750x46950 (
+);
+
+FILL FILL_4__3710_ (
+);
+
+FILL FILL_0__2669_ (
+);
+
+INVX1 _4775_ (
+    .A(_1827_),
+    .Y(_1828_)
+);
+
+NAND3X1 _4355_ (
+    .A(_1129__bF$buf3),
+    .B(_1099_),
+    .C(_1104_),
+    .Y(_1098_)
+);
+
+FILL FILL_2__3628_ (
+);
+
+FILL FILL_0__3610_ (
+);
+
+FILL FILL_2__3208_ (
+);
+
+FILL FILL_4__4915_ (
+);
+
+FILL FILL_1__4097_ (
+);
+
+FILL FILL_0__4815_ (
+);
+
+FILL FILL_3__2912_ (
+);
+
+FILL FILL_2__3381_ (
+);
+
+OAI21X1 _2841_ (
+    .A(_1643__bF$buf2),
+    .B(_2354__2_bF$buf3),
+    .C(_1653_),
+    .Y(_1654_)
+);
+
+OAI21X1 _2421_ (
+    .A(_2354__4_bF$buf3),
+    .B(_50_),
+    .C(_52_),
+    .Y(_53_)
+);
+
+FILL FILL_2__4586_ (
+);
+
+FILL FILL_2__4166_ (
+);
+
+NAND2X1 _3626_ (
+    .A(_431_),
+    .B(_552_),
+    .Y(_430_)
+);
+
+NAND2X1 _3206_ (
+    .A(\u_cpu.AXYS[1] [0]),
+    .B(_1041_),
+    .Y(_99_)
+);
+
+FILL FILL_1__2583_ (
+);
+
+FILL FILL_3__3870_ (
+);
+
+FILL FILL_3__3450_ (
+);
+
+FILL FILL_3__3030_ (
+);
+
+FILL FILL_1__3788_ (
+);
+
+FILL FILL_1__3368_ (
+);
+
+FILL FILL_3__4655_ (
+);
+
+FILL FILL_3__4235_ (
+);
+
+FILL FILL_2__2652_ (
+);
+
+FILL FILL_4__2998_ (
+);
+
+FILL FILL_4__2578_ (
+);
+
+FILL FILL_0__2898_ (
+);
+
+FILL FILL_0__2478_ (
+);
+
+NAND3X1 _4584_ (
+    .A(_1333_),
+    .B(_1313_),
+    .C(_1318_),
+    .Y(_1312_)
+);
+
+OAI21X1 _4164_ (
+    .A(\u_cpu.DIMUX [6]),
+    .B(_1070__bF$buf3),
+    .C(_925_),
+    .Y(_924_)
+);
+
+FILL FILL_2__3857_ (
+);
+
+FILL FILL_2__3437_ (
+);
+
+FILL FILL_2__3017_ (
+);
+
+FILL FILL_4__4724_ (
+);
+
+FILL FILL_4__4304_ (
+);
+
+FILL FILL_3__2721_ (
+);
+
+FILL FILL_0__4624_ (
+);
+
+FILL FILL_0__4204_ (
+);
+
+FILL FILL_1__2639_ (
+);
+
+FILL FILL_2__3190_ (
+);
+
+FILL FILL_3__3926_ (
+);
+
+FILL FILL_3__3506_ (
+);
+
+OAI21X1 _2650_ (
+    .A(_2354__0_bF$buf5),
+    .B(_1928_),
+    .C(_2354__4_bF$buf4),
+    .Y(_2084_)
+);
+
+FILL FILL_2__4395_ (
+);
+
+AOI21X1 _3855_ (
+    .A(_782_),
+    .B(\u_cpu.PC [5]),
+    .C(_648_),
+    .Y(_647_)
+);
+
+INVX1 _3435_ (
+    .A(_261_),
+    .Y(_2354_[14])
+);
+
+NOR2X1 _3015_ (
+    .A(_1499_),
+    .B(_1513_),
+    .Y(_1583_)
+);
+
+FILL FILL_2__2708_ (
+);
+
+FILL FILL_1_BUFX2_insert60 (
+);
+
+FILL FILL_1_BUFX2_insert61 (
+);
+
+FILL FILL_1_BUFX2_insert62 (
+);
+
+FILL FILL_1_BUFX2_insert63 (
+);
+
+FILL FILL_1_BUFX2_insert64 (
+);
+
+FILL FILL_1_BUFX2_insert65 (
+);
+
+FILL FILL_1_BUFX2_insert66 (
+);
+
+FILL FILL_1_BUFX2_insert67 (
+);
+
+FILL FILL_1_BUFX2_insert68 (
+);
+
+FILL FILL_1_BUFX2_insert69 (
+);
+
+FILL FILL_1__3597_ (
+);
+
+FILL FILL_1__3177_ (
+);
+
+FILL FILL_3__4884_ (
+);
+
+FILL FILL_3__4464_ (
+);
+
+FILL FILL_3__4044_ (
+);
+
+FILL FILL_2__2881_ (
+);
+
+FILL FILL_2__2461_ (
+);
+
+FILL FILL_4__2387_ (
+);
+
+INVX1 _4393_ (
+    .A(_1134_),
+    .Y(_1133_)
+);
+
+FILL FILL_2__3666_ (
+);
+
+FILL FILL_2__3246_ (
+);
+
+NAND2X1 _2706_ (
+    .A(_1929_),
+    .B(_2028_),
+    .Y(_2029_)
+);
+
+FILL FILL_4__4953_ (
+);
+
+FILL FILL_4__4533_ (
+);
+
+FILL FILL_4__4113_ (
+);
+
+FILL FILL_0__4853_ (
+);
+
+FILL FILL_3__2950_ (
+);
+
+FILL FILL_3__2530_ (
+);
+
+FILL FILL_0__4433_ (
+);
+
+FILL FILL_0__4013_ (
+);
+
+FILL FILL_1__2448_ (
+);
+
+FILL FILL_3__3735_ (
+);
+
+FILL FILL_3__3315_ (
+);
+
+NOR2X1 _3664_ (
+    .A(_1328__bF$buf4),
+    .B(_536_),
+    .Y(_467_)
+);
+
+NAND2X1 _3244_ (
+    .A(_2354_[9]),
+    .B(_800__bF$buf4),
+    .Y(_125_)
+);
+
+FILL FILL_2__2937_ (
+);
+
+FILL FILL_2__2517_ (
+);
+
+FILL FILL_4__3804_ (
+);
+
+NAND2X1 _4869_ (
+    .A(RDY_bF$buf7),
+    .B(\u_cpu.AI [7]),
+    .Y(_1908_)
+);
+
+NOR2X1 _4449_ (
+    .A(_1184_),
+    .B(_1183_),
+    .Y(_1182_)
+);
+
+NAND2X1 _4029_ (
+    .A(NMI),
+    .B(_798_),
+    .Y(_797_)
+);
+
+FILL FILL_0__3704_ (
+);
+
+FILL FILL_3__4693_ (
+);
+
+FILL FILL_3__4273_ (
+);
+
+FILL FILL_2__2690_ (
+);
+
+FILL FILL_0__4909_ (
+);
+
+FILL FILL_2__3895_ (
+);
+
+FILL FILL_2__3475_ (
+);
+
+INVX1 _2935_ (
+    .A(_1535_),
+    .Y(_1597_)
+);
+
+OAI21X1 _2515_ (
+    .A(_1635__bF$buf1),
+    .B(_1660_),
+    .C(_2034_),
+    .Y(_2311_)
+);
+
+FILL FILL_4__4762_ (
+);
+
+FILL FILL_4__4342_ (
+);
+
+FILL FILL_0__4662_ (
+);
+
+FILL FILL_0__4242_ (
+);
+
+FILL FILL_1__2677_ (
+);
+
+FILL FILL_3__3964_ (
+);
+
+FILL FILL_3__3544_ (
+);
+
+FILL FILL_1__4823_ (
+);
+
+FILL FILL_1__4403_ (
+);
+
+FILL FILL_3__4749_ (
+);
+
+FILL FILL_3__4329_ (
+);
+
+NOR2X1 _3893_ (
+    .A(_1001_),
+    .B(_771_),
+    .Y(_681_)
+);
+
+AOI21X1 _3473_ (
+    .A(_782_),
+    .B(\u_cpu.PC [6]),
+    .C(_288_),
+    .Y(_287_)
+);
+
+DFFSR _3053_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1366_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[1] [3])
+);
+
+FILL FILL_2__2746_ (
+);
+
+FILL FILL_4__3613_ (
+);
+
+INVX1 _4678_ (
+    .A(\u_cpu.AI [1]),
+    .Y(_1731_)
+);
+
+NAND2X1 _4258_ (
+    .A(_1011_),
+    .B(_1010_),
+    .Y(_1475_)
+);
+
+FILL FILL_0__3933_ (
+);
+
+FILL FILL_0__3513_ (
+);
+
+FILL FILL_3__4082_ (
+);
+
+FILL FILL_4__4818_ (
+);
+
+FILL FILL_0__4718_ (
+);
+
+FILL FILL_3__2815_ (
+);
+
+FILL FILL_2__3284_ (
+);
+
+NOR2X1 _2744_ (
+    .A(_2354__3_bF$buf5),
+    .B(_1924_),
+    .Y(_1991_)
+);
+
+FILL FILL_4__4571_ (
+);
+
+FILL FILL_4__4151_ (
+);
+
+FILL FILL273450x150 (
+);
+
+FILL FILL_0__4891_ (
+);
+
+FILL FILL_0__4471_ (
+);
+
+FILL FILL_2__4489_ (
+);
+
+FILL FILL_0__4051_ (
+);
+
+FILL FILL_2__4069_ (
+);
+
+NAND2X1 _3949_ (
+    .A(_1036_),
+    .B(_985_),
+    .Y(_726_)
+);
+
+OAI21X1 _3529_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [0]),
+    .Y(_338_)
+);
+
+DFFSR _3109_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1390_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABL [2])
+);
+
+FILL FILL_1__2486_ (
+);
+
+FILL FILL_3__3773_ (
+);
+
+FILL FILL_3__3353_ (
+);
+
+FILL FILL_1__4632_ (
+);
+
+FILL FILL_1__4212_ (
+);
+
+FILL FILL_3__4978_ (
+);
+
+FILL FILL_3__4558_ (
+);
+
+FILL FILL_3__4138_ (
+);
+
+OAI21X1 _3282_ (
+    .A(_1150_),
+    .B(_179_),
+    .C(_148_),
+    .Y(_1397_)
+);
+
+FILL FILL_2__2975_ (
+);
+
+FILL FILL_2__2555_ (
+);
+
+FILL FILL273450x7350 (
+);
+
+FILL FILL_4__3842_ (
+);
+
+FILL FILL_4__3422_ (
+);
+
+FILL FILL_4__3002_ (
+);
+
+NOR3X1 _4487_ (
+    .A(_1218_),
+    .B(_1219_),
+    .C(_1216_),
+    .Y(_1215_)
+);
+
+OAI21X1 _4067_ (
+    .A(_1305__bF$buf2),
+    .B(_1081_),
+    .C(_1061_),
+    .Y(_834_)
+);
+
+FILL FILL_0__3742_ (
+);
+
+FILL FILL_0__3322_ (
+);
+
+FILL FILL_2__4701_ (
+);
+
+FILL FILL_4__4627_ (
+);
+
+FILL FILL_4__4207_ (
+);
+
+FILL FILL_0__4947_ (
+);
+
+FILL FILL_3__2624_ (
+);
+
+FILL FILL_0__4527_ (
+);
+
+FILL FILL_0__4107_ (
+);
+
+FILL FILL_1__3903_ (
+);
+
+FILL FILL_3__3829_ (
+);
+
+FILL FILL_3__3409_ (
+);
+
+NAND2X1 _2973_ (
+    .A(kbd_data[4]),
+    .B(_1500_),
+    .Y(_1623_)
+);
+
+AOI21X1 _2553_ (
+    .A(_2273_),
+    .B(_2266_),
+    .C(_2354__5_bF$buf4),
+    .Y(_2274_)
+);
+
+FILL FILL_4__4380_ (
+);
+
+FILL FILL_0__4280_ (
+);
+
+FILL FILL_2__4298_ (
+);
+
+INVX1 _3758_ (
+    .A(_558_),
+    .Y(_557_)
+);
+
+OAI21X1 _3338_ (
+    .A(_1113_),
+    .B(_356_),
+    .C(_182_),
+    .Y(\u_cpu.AI [7])
+);
+
+FILL FILL_3__3582_ (
+);
+
+FILL FILL_1__4861_ (
+);
+
+FILL FILL_1__4441_ (
+);
+
+FILL FILL_1__4021_ (
+);
+
+FILL FILL_3__4787_ (
+);
+
+FILL FILL_3__4367_ (
+);
+
+DFFSR _3091_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1633_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.state [5])
+);
+
+FILL FILL_2__2784_ (
+);
+
+FILL FILL_2__2364_ (
+);
+
+FILL FILL_4__3651_ (
+);
+
+FILL FILL_4__3231_ (
+);
+
+NAND2X1 _4296_ (
+    .A(_1042_),
+    .B(_1050_),
+    .Y(_1041_)
+);
+
+FILL FILL_2__3989_ (
+);
+
+FILL FILL_0__3971_ (
+);
+
+FILL FILL_0__3551_ (
+);
+
+FILL FILL_2__3569_ (
+);
+
+FILL FILL_2__4930_ (
+);
+
+FILL FILL_2__4510_ (
+);
+
+AOI21X1 _2609_ (
+    .A(_2060_),
+    .B(_1653_),
+    .C(_1634__bF$buf0),
+    .Y(_2124_)
+);
+
+FILL FILL_4__4856_ (
+);
+
+FILL FILL_4__4436_ (
+);
+
+FILL FILL_4__4016_ (
+);
+
+FILL FILL_0__4756_ (
+);
+
+FILL FILL_3__2853_ (
+);
+
+FILL FILL_3__2433_ (
+);
+
+FILL FILL_0__4336_ (
+);
+
+FILL FILL_1__3712_ (
+);
+
+FILL FILL_3__3638_ (
+);
+
+FILL FILL_3__3218_ (
+);
+
+NOR2X1 _2782_ (
+    .A(_2354__4_bF$buf0),
+    .B(_1914_),
+    .Y(_1954_)
+);
+
+BUFX2 _2362_ (
+    .A(_2354_[9]),
+    .Y(AB[9])
+);
+
+FILL FILL_1__4917_ (
+);
+
+FILL FILL_4__2922_ (
+);
+
+FILL FILL_4__2502_ (
+);
+
+NAND2X1 _3987_ (
+    .A(_1042_),
+    .B(_790_),
+    .Y(_760_)
+);
+
+NOR2X1 _3567_ (
+    .A(_372_),
+    .B(_376_),
+    .Y(_371_)
+);
+
+DFFPOSX1 _3147_ (
+    .D(_1400_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.IRHOLD [6])
+);
+
+FILL FILL_0__2822_ (
+);
+
+FILL FILL_0__2402_ (
+);
+
+FILL FILL_3__3391_ (
+);
+
+FILL FILL_4__3707_ (
+);
+
+FILL FILL_0__3607_ (
+);
+
+FILL FILL_1__4670_ (
+);
+
+FILL FILL_1__4250_ (
+);
+
+FILL FILL_3__4596_ (
+);
+
+FILL FILL_3__4176_ (
+);
+
+FILL FILL_2__2593_ (
+);
+
+FILL FILL_3__2909_ (
+);
+
+FILL FILL_4__3880_ (
+);
+
+FILL FILL_4__3460_ (
+);
+
+FILL FILL_0__3780_ (
+);
+
+FILL FILL_2__3798_ (
+);
+
+FILL FILL_2__3378_ (
+);
+
+FILL FILL_0__3360_ (
+);
+
+NAND3X1 _2838_ (
+    .A(_2354__5_bF$buf0),
+    .B(_1656_),
+    .C(_1646_),
+    .Y(_1657_)
+);
+
+AOI22X1 _2418_ (
+    .A(_2098_),
+    .B(_2037_),
+    .C(_1643__bF$buf2),
+    .D(_55_),
+    .Y(_56_)
+);
+
+FILL FILL_4__4665_ (
+);
+
+FILL FILL_4__4245_ (
+);
+
+FILL FILL_0__4985_ (
+);
+
+FILL FILL_3__2662_ (
+);
+
+FILL FILL_0__4565_ (
+);
+
+FILL FILL_0__4145_ (
+);
+
+FILL FILL_1__3941_ (
+);
+
+FILL FILL_1__3521_ (
+);
+
+FILL FILL_3__3867_ (
+);
+
+FILL FILL_3__3447_ (
+);
+
+FILL FILL_3__3027_ (
+);
+
+AOI21X1 _2591_ (
+    .A(_2141_),
+    .B(_2135_),
+    .C(_1920__bF$buf3),
+    .Y(_2142_)
+);
+
+FILL FILL_1__4726_ (
+);
+
+FILL FILL_1__4306_ (
+);
+
+FILL FILL_4__2731_ (
+);
+
+INVX1 _3796_ (
+    .A(_594_),
+    .Y(_593_)
+);
+
+NAND3X1 _3376_ (
+    .A(\u_cpu.C ),
+    .B(_368_),
+    .C(_671_),
+    .Y(_211_)
+);
+
+FILL FILL_2__2649_ (
+);
+
+FILL FILL_0__2631_ (
+);
+
+FILL FILL_4__3936_ (
+);
+
+FILL FILL_4__3516_ (
+);
+
+FILL FILL_0__3836_ (
+);
+
+FILL FILL_0__3416_ (
+);
+
+FILL FILL_3__2718_ (
+);
+
+FILL FILL_2__3187_ (
+);
+
+OAI21X1 _2647_ (
+    .A(_2354__3_bF$buf3),
+    .B(_2086_),
+    .C(_1940_),
+    .Y(_2087_)
+);
+
+FILL FILL_4__4894_ (
+);
+
+FILL FILL_4__4474_ (
+);
+
+FILL FILL_4__4054_ (
+);
+
+FILL FILL_0__4794_ (
+);
+
+FILL FILL_3__2891_ (
+);
+
+FILL FILL_3__2471_ (
+);
+
+FILL FILL_0__4374_ (
+);
+
+FILL FILL_1__2389_ (
+);
+
+FILL FILL_1__3750_ (
+);
+
+FILL FILL_1__3330_ (
+);
+
+FILL FILL_3__3676_ (
+);
+
+FILL FILL_3__3256_ (
+);
+
+FILL FILL_1__4955_ (
+);
+
+FILL FILL_1__4535_ (
+);
+
+FILL FILL_1__4115_ (
+);
+
+FILL FILL_4__2540_ (
+);
+
+OAI21X1 _3185_ (
+    .A(_87_),
+    .B(_86_),
+    .C(_88_),
+    .Y(_1362_)
+);
+
+FILL FILL_0__2860_ (
+);
+
+FILL FILL_2__2878_ (
+);
+
+FILL FILL_0__2440_ (
+);
+
+FILL FILL_2__2458_ (
+);
+
+FILL FILL_4__3745_ (
+);
+
+FILL FILL_4__3325_ (
+);
+
+FILL FILL_0__3645_ (
+);
+
+FILL FILL_0__3225_ (
+);
+
+FILL FILL_2__4604_ (
+);
+
+FILL FILL_1__2601_ (
+);
+
+FILL FILL_3__2947_ (
+);
+
+FILL FILL_3__2527_ (
+);
+
+FILL FILL_1__3806_ (
+);
+
+OAI21X1 _2876_ (
+    .A(_1537_),
+    .B(_1540_),
+    .C(DO_dsp[1]),
+    .Y(_1582_)
+);
+
+OAI21X1 _2456_ (
+    .A(_1975_),
+    .B(_17_),
+    .C(_18_),
+    .Y(_19_)
+);
+
+FILL FILL_4__4283_ (
+);
+
+FILL FILL_0__4183_ (
+);
+
+FILL FILL_0__2916_ (
+);
+
+INVX1 _4602_ (
+    .A(\u_cpu.state [5]),
+    .Y(_1330_)
+);
+
+FILL FILL_3__3485_ (
+);
+
+FILL FILL_1__4764_ (
+);
+
+FILL FILL_1__4344_ (
+);
+
+FILL FILL_2__2687_ (
+);
+
+FILL FILL_4__3974_ (
+);
+
+FILL FILL_4__3554_ (
+);
+
+NOR2X1 _4199_ (
+    .A(_956_),
+    .B(_968_),
+    .Y(_955_)
+);
+
+FILL FILL_0__3874_ (
+);
+
+FILL FILL_0__3454_ (
+);
+
+FILL FILL_2__4833_ (
+);
+
+FILL FILL_2__4413_ (
+);
+
+FILL FILL_4__4759_ (
+);
+
+FILL FILL_4__4339_ (
+);
+
+FILL FILL_1__2830_ (
+);
+
+FILL FILL_1__2410_ (
+);
+
+FILL FILL_0__4659_ (
+);
+
+FILL FILL_3__2756_ (
+);
+
+FILL FILL_0__4239_ (
+);
+
+FILL FILL_1__3615_ (
+);
+
+INVX1 _2685_ (
+    .A(_2048_),
+    .Y(_2049_)
+);
+
+FILL FILL_4__4092_ (
+);
+
+FILL FILL_3__4902_ (
+);
+
+FILL FILL_4__2825_ (
+);
+
+FILL FILL_4__2405_ (
+);
+
+FILL FILL_0__2725_ (
+);
+
+OAI21X1 _4831_ (
+    .A(_1688_),
+    .B(_1872_),
+    .C(_1873_),
+    .Y(_1874_)
+);
+
+OAI21X1 _4411_ (
+    .A(_1275_),
+    .B(_1349_),
+    .C(_1315__bF$buf2),
+    .Y(_1149_)
+);
+
+FILL FILL_3__3294_ (
+);
+
+FILL FILL_1__4573_ (
+);
+
+FILL FILL_1__4153_ (
+);
+
+FILL FILL_3__4499_ (
+);
+
+FILL FILL_3__4079_ (
+);
+
+FILL FILL_2__2496_ (
+);
+
+FILL FILL_4__3783_ (
+);
+
+FILL FILL_4__3363_ (
+);
+
+FILL FILL_0__3683_ (
+);
+
+FILL FILL_0__3263_ (
+);
+
+FILL FILL_2__4642_ (
+);
+
+FILL FILL_2__4222_ (
+);
+
+FILL FILL_4__4568_ (
+);
+
+FILL FILL_4__4148_ (
+);
+
+FILL FILL_0__4888_ (
+);
+
+FILL FILL_3__2985_ (
+);
+
+FILL FILL_3__2565_ (
+);
+
+FILL FILL_0__4468_ (
+);
+
+FILL FILL_0__4048_ (
+);
+
+FILL FILL_1__3844_ (
+);
+
+FILL FILL_1__3424_ (
+);
+
+FILL FILL_1__3004_ (
+);
+
+OAI21X1 _2494_ (
+    .A(_1957_),
+    .B(_1958_),
+    .C(_2354__5_bF$buf2),
+    .Y(_2332_)
+);
+
+FILL FILL_3__4711_ (
+);
+
+FILL FILL_1__4629_ (
+);
+
+FILL FILL_1__4209_ (
+);
+
+FILL FILL_4__2634_ (
+);
+
+OAI21X1 _3699_ (
+    .A(_1009_),
+    .B(_502_),
+    .C(_500_),
+    .Y(\u_cpu.alu_op [2])
+);
+
+OAI21X1 _3279_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [2]),
+    .Y(_146_)
+);
+
+FILL FILL_0__2534_ (
+);
+
+OAI21X1 _4640_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1685_),
+    .C(_1690_),
+    .Y(_1693_)
+);
+
+OAI21X1 _4220_ (
+    .A(_977_),
+    .B(_975_),
+    .C(_974_),
+    .Y(_1473_)
+);
+
+FILL FILL272850x86550 (
+);
+
+FILL FILL_2__3913_ (
+);
+
+FILL FILL_4__3839_ (
+);
+
+FILL FILL_4__3419_ (
+);
+
+FILL FILL_0__3739_ (
+);
+
+FILL FILL_0__3319_ (
+);
+
+DFFSR _5005_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1356_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [6])
+);
+
+FILL FILL_1__4382_ (
+);
+
+FILL FILL_4__3592_ (
+);
+
+FILL FILL_4__3172_ (
+);
+
+FILL FILL_0__3492_ (
+);
+
+FILL FILL_2__4451_ (
+);
+
+FILL FILL_2__4031_ (
+);
+
+FILL FILL_4__4797_ (
+);
+
+FILL FILL_4__4377_ (
+);
+
+OAI21X1 _3911_ (
+    .A(_1328__bF$buf5),
+    .B(_1252_),
+    .C(_723_),
+    .Y(_697_)
+);
+
+FILL FILL_0__4697_ (
+);
+
+FILL FILL_3__2794_ (
+);
+
+FILL FILL_0__4277_ (
+);
+
+FILL FILL_3__2374_ (
+);
+
+FILL FILL_1__3653_ (
+);
+
+FILL FILL_1__3233_ (
+);
+
+FILL FILL_3__3999_ (
+);
+
+FILL FILL_3__3579_ (
+);
+
+FILL FILL_3__4940_ (
+);
+
+FILL FILL_3__4520_ (
+);
+
+FILL FILL_3__4100_ (
+);
+
+FILL FILL_1__4858_ (
+);
+
+FILL FILL_1__4438_ (
+);
+
+FILL FILL_1__4018_ (
+);
+
+FILL FILL_4__2443_ (
+);
+
+DFFSR _3088_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1470_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[0] [2])
+);
+
+FILL FILL_0__2763_ (
+);
+
+FILL FILL_2__3722_ (
+);
+
+FILL FILL_2__3302_ (
+);
+
+FILL FILL_4__3648_ (
+);
+
+FILL FILL_4__3228_ (
+);
+
+FILL FILL_0__3968_ (
+);
+
+FILL FILL_0__3548_ (
+);
+
+FILL FILL_1__4191_ (
+);
+
+FILL FILL_2__4927_ (
+);
+
+FILL FILL_2__4507_ (
+);
+
+FILL FILL_1__2924_ (
+);
+
+FILL FILL_1__2504_ (
+);
+
+FILL FILL_1__3709_ (
+);
+
+FILL FILL_2__4680_ (
+);
+
+FILL FILL_2__4260_ (
+);
+
+OAI21X1 _2779_ (
+    .A(_2354__0_bF$buf5),
+    .B(_1635__bF$buf3),
+    .C(_2354__3_bF$buf3),
+    .Y(_1957_)
+);
+
+BUFX2 _2359_ (
+    .A(_2354_[12]),
+    .Y(AB[12])
+);
+
+FILL FILL_4__4186_ (
+);
+
+OAI21X1 _3720_ (
+    .A(_1325__bF$buf1),
+    .B(_1331_),
+    .C(_1196__bF$buf7),
+    .Y(_519_)
+);
+
+NAND2X1 _3300_ (
+    .A(\u_cpu.AXYS[3] [6]),
+    .B(_921_),
+    .Y(_156_)
+);
+
+FILL FILL_0__4086_ (
+);
+
+FILL FILL_4__2919_ (
+);
+
+FILL FILL_0__2819_ (
+);
+
+INVX1 _4925_ (
+    .A(DO_woz[5]),
+    .Y(_2200_)
+);
+
+NOR2X1 _4505_ (
+    .A(_1234_),
+    .B(_1237_),
+    .Y(_1233_)
+);
+
+FILL FILL_1__3882_ (
+);
+
+FILL FILL_1__3462_ (
+);
+
+FILL FILL_3__3388_ (
+);
+
+FILL FILL_1__4667_ (
+);
+
+FILL FILL_1__4247_ (
+);
+
+FILL FILL_4__2672_ (
+);
+
+FILL FILL_0__2992_ (
+);
+
+FILL FILL_0__2572_ (
+);
+
+FILL FILL_2__3951_ (
+);
+
+FILL FILL_2__3531_ (
+);
+
+FILL FILL_4__3877_ (
+);
+
+FILL FILL_4__3457_ (
+);
+
+FILL FILL_0__3777_ (
+);
+
+FILL FILL_0__3357_ (
+);
+
+FILL FILL_2__4736_ (
+);
+
+FILL FILL_2__4316_ (
+);
+
+FILL FILL_1__2733_ (
+);
+
+FILL FILL_3__2659_ (
+);
+
+FILL FILL_3__3600_ (
+);
+
+FILL FILL_1__3938_ (
+);
+
+FILL FILL_1__3518_ (
+);
+
+OAI21X1 _2588_ (
+    .A(_2144_),
+    .B(_2143_),
+    .C(_1634__bF$buf0),
+    .Y(_2145_)
+);
+
+FILL FILL_3__4805_ (
+);
+
+FILL FILL_2__2802_ (
+);
+
+FILL FILL_0__2628_ (
+);
+
+OAI21X1 _4734_ (
+    .A(_1728_),
+    .B(_1772_),
+    .C(_1786_),
+    .Y(_1787_)
+);
+
+OR2X2 _4314_ (
+    .A(_1060_),
+    .B(_1062_),
+    .Y(_1059_)
+);
+
+FILL FILL_1__3691_ (
+);
+
+FILL FILL_1__3271_ (
+);
+
+FILL FILL_3__3197_ (
+);
+
+FILL FILL_1__4896_ (
+);
+
+FILL FILL_1__4476_ (
+);
+
+FILL FILL_1__4056_ (
+);
+
+FILL FILL_4__2481_ (
+);
+
+FILL FILL_2__2399_ (
+);
+
+FILL FILL_0__2381_ (
+);
+
+FILL FILL_2__3760_ (
+);
+
+FILL FILL_2__3340_ (
+);
+
+FILL FILL_4__3686_ (
+);
+
+FILL FILL_4__3266_ (
+);
+
+NAND2X1 _2800_ (
+    .A(_1643__bF$buf5),
+    .B(_1635__bF$buf2),
+    .Y(_1936_)
+);
+
+FILL FILL_0__3586_ (
+);
+
+FILL FILL_0__3166_ (
+);
+
+FILL FILL_2__4965_ (
+);
+
+FILL FILL_2__4545_ (
+);
+
+FILL FILL_2__4125_ (
+);
+
+FILL FILL_1__2542_ (
+);
+
+FILL FILL_3__2888_ (
+);
+
+FILL FILL_3__2468_ (
+);
+
+FILL FILL_1__3747_ (
+);
+
+FILL FILL_1__3327_ (
+);
+
+AOI22X1 _2397_ (
+    .A(_1660_),
+    .B(_2000_),
+    .C(_1654_),
+    .D(_2354__4_bF$buf6),
+    .Y(_1424_)
+);
+
+FILL FILL_3__4614_ (
+);
+
+FILL FILL_2__2611_ (
+);
+
+FILL FILL_4__2537_ (
+);
+
+FILL FILL_0__2857_ (
+);
+
+FILL FILL_0__2437_ (
+);
+
+AOI21X1 _4963_ (
+    .A(_2198_),
+    .B(DO_kbd[1]),
+    .C(_2195_),
+    .Y(_2234_)
+);
+
+AOI21X1 _4543_ (
+    .A(_1311_),
+    .B(\u_cpu.PC [4]),
+    .C(_1272_),
+    .Y(_1271_)
+);
+
+NOR2X1 _4123_ (
+    .A(_1309_),
+    .B(_1237_),
+    .Y(_889_)
+);
+
+FILL FILL_2__3816_ (
+);
+
+FILL FILL271950x21750 (
+);
+
+FILL FILL_1__4285_ (
+);
+
+FILL FILL274050x111750 (
+);
+
+FILL FILL273150x36150 (
+);
+
+FILL FILL_4__3495_ (
+);
+
+FILL FILL_0__3395_ (
+);
+
+FILL FILL_2__4774_ (
+);
+
+FILL FILL_2__4354_ (
+);
+
+OAI21X1 _3814_ (
+    .A(_1141_),
+    .B(_616_),
+    .C(_610_),
+    .Y(_2353_[5])
+);
+
+FILL FILL_1__2771_ (
+);
+
+FILL FILL_3__2697_ (
+);
+
+FILL FILL_1__3976_ (
+);
+
+FILL FILL_1__3556_ (
+);
+
+FILL FILL_3__4843_ (
+);
+
+FILL FILL_3__4423_ (
+);
+
+FILL FILL_3__4003_ (
+);
+
+FILL FILL_2__2840_ (
+);
+
+FILL FILL_2__2420_ (
+);
+
+FILL FILL_4__2766_ (
+);
+
+FILL FILL_0__2666_ (
+);
+
+INVX1 _4772_ (
+    .A(_1824_),
+    .Y(_1825_)
+);
+
+INVX1 _4352_ (
+    .A(\u_cpu.ADD [6]),
+    .Y(_1096_)
+);
+
+FILL FILL_2__3625_ (
+);
+
+FILL FILL_2__3205_ (
+);
+
+FILL FILL_4__4912_ (
+);
+
+FILL FILL_1__4094_ (
+);
+
+FILL FILL_0__4812_ (
+);
+
+FILL FILL_1__2827_ (
+);
+
+FILL FILL_1__2407_ (
+);
+
+FILL FILL_2__4583_ (
+);
+
+FILL FILL_2__4163_ (
+);
+
+FILL FILL_4__4089_ (
+);
+
+OAI21X1 _3623_ (
+    .A(_1328__bF$buf1),
+    .B(_1081_),
+    .C(_1196__bF$buf6),
+    .Y(_427_)
+);
+
+OAI21X1 _3203_ (
+    .A(_1041_),
+    .B(_963_),
+    .C(_98_),
+    .Y(_1368_)
+);
+
+FILL FILL_1__2580_ (
+);
+
+INVX1 _4828_ (
+    .A(\u_cpu.BI [7]),
+    .Y(_1871_)
+);
+
+NOR2X1 _4408_ (
+    .A(_1147_),
+    .B(_1153_),
+    .Y(_1146_)
+);
+
+FILL FILL_1__3785_ (
+);
+
+FILL FILL_1__3365_ (
+);
+
+FILL FILL_3__4652_ (
+);
+
+FILL FILL_3__4232_ (
+);
+
+FILL FILL_4__2995_ (
+);
+
+FILL FILL274050x3750 (
+);
+
+FILL FILL_0__2895_ (
+);
+
+FILL FILL_0__2475_ (
+);
+
+NAND2X1 _4581_ (
+    .A(\u_cpu.state [0]),
+    .B(_1317_),
+    .Y(_1309_)
+);
+
+NOR2X1 _4161_ (
+    .A(_1051_),
+    .B(_979_),
+    .Y(_922_)
+);
+
+FILL FILL_2__3854_ (
+);
+
+FILL FILL_2__3434_ (
+);
+
+FILL FILL_2__3014_ (
+);
+
+FILL FILL_4__4721_ (
+);
+
+FILL FILL_4__4301_ (
+);
+
+FILL FILL_2__4639_ (
+);
+
+FILL FILL_0__4621_ (
+);
+
+FILL FILL_2__4219_ (
+);
+
+FILL FILL_0__4201_ (
+);
+
+FILL FILL_1__2636_ (
+);
+
+FILL FILL_3__3923_ (
+);
+
+FILL FILL_3__3503_ (
+);
+
+FILL FILL_2__4392_ (
+);
+
+FILL FILL_3__4708_ (
+);
+
+NAND2X1 _3852_ (
+    .A(\u_cpu.AXYS[3] [6]),
+    .B(_922_),
+    .Y(_645_)
+);
+
+OAI21X1 _3432_ (
+    .A(_449_),
+    .B(_555_),
+    .C(\u_cpu.PC [11]),
+    .Y(_258_)
+);
+
+NOR2X1 _3012_ (
+    .A(_Addr_Bus[13]),
+    .B(_Addr_Bus[10]),
+    .Y(_1586_)
+);
+
+FILL FILL_2__2705_ (
+);
+
+FILL FILL_1_BUFX2_insert39 (
+);
+
+INVX1 _4637_ (
+    .A(\u_cpu.AI [5]),
+    .Y(_1690_)
+);
+
+INVX1 _4217_ (
+    .A(\u_cpu.adc_bcd ),
+    .Y(_971_)
+);
+
+FILL FILL_1__3594_ (
+);
+
+FILL FILL_1__3174_ (
+);
+
+FILL FILL_3__4461_ (
+);
+
+FILL FILL_3__4041_ (
+);
+
+FILL FILL_1__4799_ (
+);
+
+FILL FILL_1__4379_ (
+);
+
+FILL FILL_4__2384_ (
+);
+
+OAI22X1 _4390_ (
+    .A(RDY_bF$buf4),
+    .B(_1141_),
+    .C(_1132_),
+    .D(_1131_),
+    .Y(_1484_)
+);
+
+FILL FILL_2__3663_ (
+);
+
+FILL FILL_2__3243_ (
+);
+
+FILL FILL_4__3589_ (
+);
+
+FILL FILL_4__3169_ (
+);
+
+FILL FILL273450x79350 (
+);
+
+NOR3X1 _2703_ (
+    .A(_2354__6_bF$buf2),
+    .B(_2023_),
+    .C(_2031_),
+    .Y(_2032_)
+);
+
+FILL FILL_4__4950_ (
+);
+
+FILL FILL_4__4530_ (
+);
+
+FILL FILL_4__4110_ (
+);
+
+FILL FILL_0__3489_ (
+);
+
+FILL FILL_0__4850_ (
+);
+
+FILL FILL_2__4868_ (
+);
+
+FILL FILL_2__4448_ (
+);
+
+FILL FILL_0__4430_ (
+);
+
+FILL FILL_2__4028_ (
+);
+
+FILL FILL_0__4010_ (
+);
+
+OAI21X1 _3908_ (
+    .A(_1328__bF$buf0),
+    .B(_1084_),
+    .C(_697_),
+    .Y(_694_)
+);
+
+FILL FILL_1__2445_ (
+);
+
+FILL FILL_3__3732_ (
+);
+
+FILL FILL_3__3312_ (
+);
+
+FILL FILL_3__4937_ (
+);
+
+FILL FILL_3__4517_ (
+);
+
+INVX1 _3661_ (
+    .A(_892_),
+    .Y(_464_)
+);
+
+OAI21X1 _3241_ (
+    .A(_345_),
+    .B(_800__bF$buf1),
+    .C(_124_),
+    .Y(_1380_)
+);
+
+FILL FILL_2__2934_ (
+);
+
+FILL FILL_2__2514_ (
+);
+
+FILL FILL_4__3801_ (
+);
+
+AOI21X1 _4866_ (
+    .A(_1842_),
+    .B(_1855_),
+    .C(_1833_),
+    .Y(_1906_)
+);
+
+OAI21X1 _4446_ (
+    .A(RDY_bF$buf2),
+    .B(_1181_),
+    .C(_1180_),
+    .Y(\u_cpu.DIMUX [2])
+);
+
+OAI21X1 _4026_ (
+    .A(_1196__bF$buf0),
+    .B(_1345__bF$buf1),
+    .C(\u_cpu.sed ),
+    .Y(_795_)
+);
+
+FILL FILL_0__3701_ (
+);
+
+FILL FILL_2__3719_ (
+);
+
+FILL FILL_3__4690_ (
+);
+
+FILL FILL_3__4270_ (
+);
+
+FILL FILL_1__4188_ (
+);
+
+FILL FILL_0__4906_ (
+);
+
+FILL FILL_2__3892_ (
+);
+
+FILL FILL_2__3472_ (
+);
+
+FILL FILL_4__3398_ (
+);
+
+INVX1 _2932_ (
+    .A(_1527_),
+    .Y(_1538_)
+);
+
+OAI21X1 _2512_ (
+    .A(_2123_),
+    .B(_2065_),
+    .C(_2313_),
+    .Y(_2314_)
+);
+
+FILL FILL_0__3298_ (
+);
+
+FILL FILL_2__4677_ (
+);
+
+FILL FILL_2__4257_ (
+);
+
+NOR2X1 _3717_ (
+    .A(_522_),
+    .B(_517_),
+    .Y(_516_)
+);
+
+FILL FILL_1__2674_ (
+);
+
+FILL FILL_3__3961_ (
+);
+
+FILL FILL_3__3541_ (
+);
+
+FILL FILL_1__3879_ (
+);
+
+FILL FILL_1__3459_ (
+);
+
+FILL FILL_1__4820_ (
+);
+
+FILL FILL_1__4400_ (
+);
+
+FILL FILL_3__4746_ (
+);
+
+FILL FILL_3__4326_ (
+);
+
+OAI21X1 _3890_ (
+    .A(_988_),
+    .B(_679_),
+    .C(_680_),
+    .Y(_678_)
+);
+
+INVX1 _3470_ (
+    .A(\u_cpu.PC [3]),
+    .Y(_285_)
+);
+
+DFFPOSX1 _3050_ (
+    .D(_1393_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.IRHOLD [0])
+);
+
+FILL FILL_2__2743_ (
+);
+
+FILL FILL_4__2669_ (
+);
+
+FILL FILL_4__3610_ (
+);
+
+FILL FILL_0__2989_ (
+);
+
+FILL FILL_0__2569_ (
+);
+
+INVX1 _4675_ (
+    .A(_1727_),
+    .Y(_1728_)
+);
+
+NOR2X1 _4255_ (
+    .A(_1008_),
+    .B(_1105_),
+    .Y(_1007_)
+);
+
+FILL FILL_2__3948_ (
+);
+
+FILL FILL_0__3930_ (
+);
+
+FILL FILL_2__3528_ (
+);
+
+FILL FILL_0__3510_ (
+);
+
+FILL FILL_4__4815_ (
+);
+
+FILL FILL_0__4715_ (
+);
+
+FILL FILL_3__2812_ (
+);
+
+FILL FILL_2_BUFX2_insert80 (
+);
+
+FILL FILL_2_BUFX2_insert81 (
+);
+
+FILL FILL_2_BUFX2_insert82 (
+);
+
+FILL FILL_2_BUFX2_insert83 (
+);
+
+FILL FILL_2_BUFX2_insert84 (
+);
+
+FILL FILL_2_BUFX2_insert85 (
+);
+
+FILL FILL_2_BUFX2_insert86 (
+);
+
+FILL FILL_2_BUFX2_insert87 (
+);
+
+FILL FILL_2_BUFX2_insert88 (
+);
+
+FILL FILL_2_BUFX2_insert89 (
+);
+
+FILL FILL_2__3281_ (
+);
+
+AOI21X1 _2741_ (
+    .A(_1638__bF$buf1),
+    .B(_2354__1_bF$buf1),
+    .C(_2354__2_bF$buf1),
+    .Y(_1994_)
+);
+
+FILL FILL_2__4486_ (
+);
+
+FILL FILL_2__4066_ (
+);
+
+OAI21X1 _3946_ (
+    .A(_1086_),
+    .B(_1129__bF$buf4),
+    .C(_724_),
+    .Y(_1451_)
+);
+
+AOI21X1 _3526_ (
+    .A(\u_cpu.DIMUX [0]),
+    .B(_339_),
+    .C(_336_),
+    .Y(_335_)
+);
+
+DFFSR _3106_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1433_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.adj_bcd )
+);
+
+FILL FILL_1__2483_ (
+);
+
+FILL FILL_3__3770_ (
+);
+
+FILL FILL_3__3350_ (
+);
+
+FILL FILL274050x50550 (
+);
+
+FILL FILL_1__3688_ (
+);
+
+FILL FILL_1__3268_ (
+);
+
+FILL FILL_3__4975_ (
+);
+
+FILL FILL_3__4555_ (
+);
+
+FILL FILL_3__4135_ (
+);
+
+FILL FILL_2__2972_ (
+);
+
+FILL FILL_2__2552_ (
+);
+
+FILL FILL_4__2898_ (
+);
+
+FILL FILL_4__2478_ (
+);
+
+FILL FILL_0__2798_ (
+);
+
+FILL FILL_0__2378_ (
+);
+
+NAND3X1 _4484_ (
+    .A(_1294_),
+    .B(_1288_),
+    .C(_1213_),
+    .Y(_1212_)
+);
+
+OAI21X1 _4064_ (
+    .A(\u_cpu.state [5]),
+    .B(_881_),
+    .C(_832_),
+    .Y(_831_)
+);
+
+FILL FILL_2__3757_ (
+);
+
+FILL FILL_2__3337_ (
+);
+
+FILL FILL_4__4624_ (
+);
+
+FILL FILL_4__4204_ (
+);
+
+FILL FILL_0__4944_ (
+);
+
+FILL FILL_3__2621_ (
+);
+
+FILL FILL_0__4524_ (
+);
+
+FILL FILL_0__4104_ (
+);
+
+FILL FILL_1__2539_ (
+);
+
+FILL FILL_1__3900_ (
+);
+
+FILL FILL_3__3826_ (
+);
+
+FILL FILL_3__3406_ (
+);
+
+NAND3X1 _2970_ (
+    .A(_1613_),
+    .B(_1624_),
+    .C(_1612_),
+    .Y(_1625_)
+);
+
+AOI22X1 _2550_ (
+    .A(_1659_),
+    .B(_2049_),
+    .C(_2010_),
+    .D(_1929_),
+    .Y(_2277_)
+);
+
+FILL FILL_2__4295_ (
+);
+
+NAND2X1 _3755_ (
+    .A(_1099_),
+    .B(_757_),
+    .Y(_554_)
+);
+
+INVX2 _3335_ (
+    .A(_180_),
+    .Y(_179_)
+);
+
+FILL FILL_2__2608_ (
+);
+
+FILL FILL_1__3497_ (
+);
+
+FILL FILL_3__4784_ (
+);
+
+FILL FILL_3__4364_ (
+);
+
+FILL FILL_2__2781_ (
+);
+
+FILL FILL_2__2361_ (
+);
+
+NAND2X1 _4293_ (
+    .A(\u_cpu.AXYS[1] [4]),
+    .B(_1041_),
+    .Y(_1038_)
+);
+
+FILL FILL_2__3986_ (
+);
+
+FILL FILL_2__3566_ (
+);
+
+NAND2X1 _2606_ (
+    .A(_2126_),
+    .B(_2115_),
+    .Y(_2127_)
+);
+
+FILL FILL_4__4853_ (
+);
+
+FILL FILL_4__4433_ (
+);
+
+FILL FILL_4__4013_ (
+);
+
+FILL FILL_0__4753_ (
+);
+
+FILL FILL_3__2850_ (
+);
+
+FILL FILL_3__2430_ (
+);
+
+FILL FILL_0__4333_ (
+);
+
+FILL FILL_1__2768_ (
+);
+
+FILL FILL_3__3635_ (
+);
+
+FILL FILL_3__3215_ (
+);
+
+FILL FILL272250x21750 (
+);
+
+FILL FILL_1__4914_ (
+);
+
+INVX1 _3984_ (
+    .A(\u_cpu.index_y ),
+    .Y(_758_)
+);
+
+OAI21X1 _3564_ (
+    .A(_388_),
+    .B(_369_),
+    .C(_413_),
+    .Y(_1431_)
+);
+
+DFFSR _3144_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1408_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.cond_code [1])
+);
+
+FILL FILL_2__2837_ (
+);
+
+FILL FILL_2__2417_ (
+);
+
+FILL FILL_4__3704_ (
+);
+
+OAI21X1 _4769_ (
+    .A(_1684_),
+    .B(_1815_),
+    .C(_1821_),
+    .Y(_1822_)
+);
+
+OAI21X1 _4349_ (
+    .A(_1318_),
+    .B(_1108_),
+    .C(_1094_),
+    .Y(_1093_)
+);
+
+FILL FILL_0__3604_ (
+);
+
+FILL FILL_3__4593_ (
+);
+
+FILL FILL_3__4173_ (
+);
+
+FILL FILL_4__4909_ (
+);
+
+FILL FILL_2__2590_ (
+);
+
+FILL FILL_0__4809_ (
+);
+
+FILL FILL_3__2906_ (
+);
+
+FILL FILL_2__3795_ (
+);
+
+FILL FILL_2__3375_ (
+);
+
+NOR2X1 _2835_ (
+    .A(_2354__0_bF$buf4),
+    .B(_1636__bF$buf4),
+    .Y(_1660_)
+);
+
+OAI21X1 _2415_ (
+    .A(_1638__bF$buf1),
+    .B(_2354__2_bF$buf1),
+    .C(_2000_),
+    .Y(_59_)
+);
+
+FILL FILL_4__4662_ (
+);
+
+FILL FILL_4__4242_ (
+);
+
+FILL FILL_0__4982_ (
+);
+
+FILL FILL_0__4562_ (
+);
+
+FILL FILL_0__4142_ (
+);
+
+FILL FILL_1__2997_ (
+);
+
+FILL FILL_1__2577_ (
+);
+
+FILL FILL_3__3864_ (
+);
+
+FILL FILL_3__3444_ (
+);
+
+FILL FILL_3__3024_ (
+);
+
+FILL FILL_1__4723_ (
+);
+
+FILL FILL_1__4303_ (
+);
+
+FILL FILL_3__4649_ (
+);
+
+FILL FILL_3__4229_ (
+);
+
+NAND2X1 _3793_ (
+    .A(_1343_),
+    .B(_1342_),
+    .Y(_591_)
+);
+
+NAND3X1 _3373_ (
+    .A(_209_),
+    .B(_868_),
+    .C(_213_),
+    .Y(_208_)
+);
+
+FILL FILL_2__2646_ (
+);
+
+FILL FILL_4__3933_ (
+);
+
+FILL FILL_4__3513_ (
+);
+
+DFFPOSX1 _4998_ (
+    .D(_2354__6_bF$buf0),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[6])
+);
+
+NOR2X1 _4578_ (
+    .A(_1352_),
+    .B(_1337_),
+    .Y(_1306_)
+);
+
+OAI21X1 _4158_ (
+    .A(_975_),
+    .B(_921_),
+    .C(_920_),
+    .Y(_1465_)
+);
+
+FILL FILL_0__3833_ (
+);
+
+FILL FILL_0__3413_ (
+);
+
+FILL FILL_4__4718_ (
+);
+
+FILL FILL_3__2715_ (
+);
+
+FILL FILL_0__4618_ (
+);
+
+FILL FILL_2__3184_ (
+);
+
+OAI21X1 _2644_ (
+    .A(_2089_),
+    .B(_2060_),
+    .C(_1992_),
+    .Y(_2090_)
+);
+
+FILL FILL_4__4891_ (
+);
+
+FILL FILL_4__4471_ (
+);
+
+FILL FILL_4__4051_ (
+);
+
+FILL FILL_0__4791_ (
+);
+
+FILL FILL_2__4389_ (
+);
+
+FILL FILL_0__4371_ (
+);
+
+NAND2X1 _3849_ (
+    .A(\u_cpu.AXYS[2] [6]),
+    .B(_790_),
+    .Y(_642_)
+);
+
+NAND3X1 _3429_ (
+    .A(_259_),
+    .B(_256_),
+    .C(_260_),
+    .Y(_2353_[3])
+);
+
+INVX1 _3009_ (
+    .A(_1588_),
+    .Y(_1589_)
+);
+
+FILL FILL_1__2386_ (
+);
+
+FILL FILL_3__3673_ (
+);
+
+FILL FILL_3__3253_ (
+);
+
+FILL FILL_1__4952_ (
+);
+
+FILL FILL_1__4532_ (
+);
+
+FILL FILL_1__4112_ (
+);
+
+FILL FILL_3__4458_ (
+);
+
+FILL FILL_3__4038_ (
+);
+
+NAND2X1 _3182_ (
+    .A(\u_cpu.PC [2]),
+    .B(_1196__bF$buf7),
+    .Y(_84_)
+);
+
+FILL FILL_2__2875_ (
+);
+
+FILL FILL_2__2455_ (
+);
+
+FILL FILL_4__3742_ (
+);
+
+FILL FILL_4__3322_ (
+);
+
+FILL FILL_1_BUFX2_insert0 (
+);
+
+NAND2X1 _4387_ (
+    .A(\u_cpu.IRHOLD [5]),
+    .B(\u_cpu.IRHOLD_valid ),
+    .Y(_1128_)
+);
+
+FILL FILL_1_BUFX2_insert1 (
+);
+
+FILL FILL_1_BUFX2_insert2 (
+);
+
+FILL FILL_1_BUFX2_insert3 (
+);
+
+FILL FILL_1_BUFX2_insert4 (
+);
+
+FILL FILL_1_BUFX2_insert5 (
+);
+
+FILL FILL_1_BUFX2_insert6 (
+);
+
+FILL FILL_1_BUFX2_insert7 (
+);
+
+FILL FILL_1_BUFX2_insert8 (
+);
+
+FILL FILL_1_BUFX2_insert9 (
+);
+
+FILL FILL_0__3642_ (
+);
+
+FILL FILL_0__3222_ (
+);
+
+FILL FILL_2__4601_ (
+);
+
+FILL FILL_4__4947_ (
+);
+
+FILL FILL_4__4527_ (
+);
+
+FILL FILL_4__4107_ (
+);
+
+FILL FILL_0__4847_ (
+);
+
+FILL FILL_3__2944_ (
+);
+
+FILL FILL_3__2524_ (
+);
+
+FILL FILL_0__4427_ (
+);
+
+FILL FILL_0__4007_ (
+);
+
+FILL FILL_1__3803_ (
+);
+
+FILL FILL_3__3729_ (
+);
+
+FILL FILL_3__3309_ (
+);
+
+DFFSR _2873_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1595_),
+    .CLK(clk_bF$buf3),
+    .Q(\u_pia_dsp.state [1])
+);
+
+OAI21X1 _2453_ (
+    .A(_1958_),
+    .B(_2130_),
+    .C(_1652_),
+    .Y(_22_)
+);
+
+FILL FILL_4__4280_ (
+);
+
+FILL FILL272550x64950 (
+);
+
+FILL FILL_0__4180_ (
+);
+
+FILL FILL_2__4198_ (
+);
+
+NAND3X1 _3658_ (
+    .A(_525_),
+    .B(_462_),
+    .C(_534_),
+    .Y(_461_)
+);
+
+NAND2X1 _3238_ (
+    .A(_2354_[12]),
+    .B(_800__bF$buf1),
+    .Y(_122_)
+);
+
+FILL FILL_0__2913_ (
+);
+
+FILL FILL_3__3482_ (
+);
+
+FILL FILL_1__4761_ (
+);
+
+FILL FILL_1__4341_ (
+);
+
+FILL FILL_3__4687_ (
+);
+
+FILL FILL_3__4267_ (
+);
+
+FILL FILL_2__2684_ (
+);
+
+FILL FILL_4__3971_ (
+);
+
+FILL FILL_4__3551_ (
+);
+
+OAI21X1 _4196_ (
+    .A(\u_cpu.DIMUX [2]),
+    .B(_1070__bF$buf2),
+    .C(_953_),
+    .Y(_952_)
+);
+
+FILL FILL_2__3889_ (
+);
+
+FILL FILL_0__3871_ (
+);
+
+FILL FILL_2__3469_ (
+);
+
+FILL FILL_0__3451_ (
+);
+
+FILL FILL_0__3031_ (
+);
+
+FILL FILL_2__4830_ (
+);
+
+FILL FILL_2__4410_ (
+);
+
+OAI21X1 _2929_ (
+    .A(_1537_),
+    .B(_1540_),
+    .C(DO_dsp[2]),
+    .Y(_1541_)
+);
+
+NAND2X1 _2509_ (
+    .A(_1923__bF$buf0),
+    .B(_2316_),
+    .Y(_2317_)
+);
+
+FILL FILL_4__4756_ (
+);
+
+FILL FILL_4__4336_ (
+);
+
+FILL FILL_3__2753_ (
+);
+
+FILL FILL_0__4656_ (
+);
+
+FILL FILL_0__4236_ (
+);
+
+FILL FILL_1__3612_ (
+);
+
+FILL FILL_3__3958_ (
+);
+
+FILL FILL_3__3538_ (
+);
+
+OAI21X1 _2682_ (
+    .A(_1991_),
+    .B(_2051_),
+    .C(_1634__bF$buf2),
+    .Y(_2052_)
+);
+
+FILL FILL_1__4817_ (
+);
+
+FILL FILL_4__2822_ (
+);
+
+FILL FILL_4__2402_ (
+);
+
+NAND2X1 _3887_ (
+    .A(\u_cpu.AXYS[2] [3]),
+    .B(_760_),
+    .Y(_676_)
+);
+
+OAI21X1 _3467_ (
+    .A(_1049_),
+    .B(_1080_),
+    .C(_1350_),
+    .Y(_282_)
+);
+
+DFFSR _3047_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1363_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.adc_sbc )
+);
+
+FILL FILL_0__2722_ (
+);
+
+FILL FILL_3__3291_ (
+);
+
+FILL FILL_4__3607_ (
+);
+
+FILL FILL_0__3927_ (
+);
+
+FILL FILL_0__3507_ (
+);
+
+FILL FILL_1__4570_ (
+);
+
+FILL FILL_1__4150_ (
+);
+
+FILL FILL_3__4496_ (
+);
+
+FILL FILL_3__4076_ (
+);
+
+FILL FILL_2__2493_ (
+);
+
+FILL FILL_3__2809_ (
+);
+
+FILL FILL_4__3780_ (
+);
+
+FILL FILL_4__3360_ (
+);
+
+FILL FILL_2__3698_ (
+);
+
+FILL FILL_0__3680_ (
+);
+
+FILL FILL_2__3278_ (
+);
+
+FILL FILL_0__3260_ (
+);
+
+OAI21X1 _2738_ (
+    .A(_1663_),
+    .B(_1661_),
+    .C(_1658_),
+    .Y(_1997_)
+);
+
+FILL FILL_4__4985_ (
+);
+
+FILL FILL_4__4565_ (
+);
+
+FILL FILL_4__4145_ (
+);
+
+FILL FILL_0__4885_ (
+);
+
+FILL FILL_3__2982_ (
+);
+
+FILL FILL_3__2562_ (
+);
+
+FILL FILL_0__4465_ (
+);
+
+FILL FILL_0__4045_ (
+);
+
+FILL FILL_1__3841_ (
+);
+
+FILL FILL_1__3421_ (
+);
+
+FILL FILL_1__3001_ (
+);
+
+FILL FILL_3__3767_ (
+);
+
+FILL FILL_3__3347_ (
+);
+
+OAI21X1 _2491_ (
+    .A(_2053_),
+    .B(_1980_),
+    .C(_1920__bF$buf2),
+    .Y(_2335_)
+);
+
+FILL FILL_1__4626_ (
+);
+
+FILL FILL_1__4206_ (
+);
+
+FILL FILL_4__2631_ (
+);
+
+OAI21X1 _3696_ (
+    .A(_499_),
+    .B(_502_),
+    .C(_498_),
+    .Y(\u_cpu.alu_op [1])
+);
+
+OAI21X1 _3276_ (
+    .A(_1192_),
+    .B(_179_),
+    .C(_145_),
+    .Y(_1394_)
+);
+
+FILL FILL_0__2951_ (
+);
+
+FILL FILL_2__2969_ (
+);
+
+FILL FILL_2__2549_ (
+);
+
+FILL FILL_0__2531_ (
+);
+
+FILL FILL_2__3910_ (
+);
+
+FILL FILL_4__3836_ (
+);
+
+FILL FILL_4__3416_ (
+);
+
+FILL FILL_0__3736_ (
+);
+
+FILL FILL_0__3316_ (
+);
+
+DFFPOSX1 _5002_ (
+    .D(_2354_[13]),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[13])
+);
+
+FILL FILL_3__2618_ (
+);
+
+NAND2X1 _2967_ (
+    .A(_1627_),
+    .B(_1626_),
+    .Y(_1495_)
+);
+
+OR2X2 _2547_ (
+    .A(_2279_),
+    .B(_1635__bF$buf4),
+    .Y(_2280_)
+);
+
+FILL FILL_4__4794_ (
+);
+
+FILL FILL_4__4374_ (
+);
+
+FILL FILL_3__2791_ (
+);
+
+FILL FILL_0__4694_ (
+);
+
+FILL FILL_3__2371_ (
+);
+
+FILL FILL_0__4274_ (
+);
+
+FILL FILL_1__3650_ (
+);
+
+FILL FILL_1__3230_ (
+);
+
+FILL FILL_3__3996_ (
+);
+
+FILL FILL_3__3576_ (
+);
+
+FILL FILL_1__4855_ (
+);
+
+FILL FILL_1__4435_ (
+);
+
+FILL FILL_1__4015_ (
+);
+
+FILL FILL_4__2860_ (
+);
+
+FILL FILL_4__2440_ (
+);
+
+DFFSR _3085_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1379_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.ABH [3])
+);
+
+FILL FILL_0__2760_ (
+);
+
+FILL FILL_2__2778_ (
+);
+
+FILL FILL_2__2358_ (
+);
+
+FILL FILL_4__3645_ (
+);
+
+FILL FILL_4__3225_ (
+);
+
+FILL FILL_0__3965_ (
+);
+
+FILL FILL_0__3545_ (
+);
+
+FILL FILL_2__4924_ (
+);
+
+FILL FILL_3_BUFX2_insert0 (
+);
+
+FILL FILL_2__4504_ (
+);
+
+FILL FILL_3_BUFX2_insert1 (
+);
+
+FILL FILL_3_BUFX2_insert2 (
+);
+
+FILL FILL_3_BUFX2_insert3 (
+);
+
+FILL FILL_3_BUFX2_insert4 (
+);
+
+FILL FILL_3_BUFX2_insert5 (
+);
+
+FILL FILL_3_BUFX2_insert6 (
+);
+
+FILL FILL_3_BUFX2_insert7 (
+);
+
+FILL FILL_3_BUFX2_insert8 (
+);
+
+FILL FILL_3_BUFX2_insert9 (
+);
+
+FILL FILL_1__2921_ (
+);
+
+FILL FILL_1__2501_ (
+);
+
+FILL FILL_3__2847_ (
+);
+
+FILL FILL_3__2427_ (
+);
+
+FILL FILL_1__3706_ (
+);
+
+OAI21X1 _2776_ (
+    .A(_1957_),
+    .B(_1958_),
+    .C(_1959_),
+    .Y(_1960_)
+);
+
+BUFX2 _2356_ (
+    .A(_2354_[15]),
+    .Y(AB[15])
+);
+
+FILL FILL_4__4183_ (
+);
+
+FILL FILL_0__4083_ (
+);
+
+FILL FILL_4__2916_ (
+);
+
+FILL FILL_0__2816_ (
+);
+
+NAND2X1 _4922_ (
+    .A(_2196_),
+    .B(_2197_),
+    .Y(_2198_)
+);
+
+NOR2X1 _4502_ (
+    .A(_1240_),
+    .B(_1231_),
+    .Y(_1230_)
+);
+
+FILL FILL_3__3385_ (
+);
+
+FILL FILL_1__4664_ (
+);
+
+FILL FILL_1__4244_ (
+);
+
+FILL FILL_2__2587_ (
+);
+
+FILL FILL_4__3874_ (
+);
+
+FILL FILL_4__3454_ (
+);
+
+AND2X2 _4099_ (
+    .A(_874_),
+    .B(_866_),
+    .Y(_865_)
+);
+
+FILL FILL_0__3774_ (
+);
+
+FILL FILL_0__3354_ (
+);
+
+FILL FILL_2__4733_ (
+);
+
+FILL FILL_2__4313_ (
+);
+
+FILL FILL_4__4659_ (
+);
+
+FILL FILL_4__4239_ (
+);
+
+FILL FILL_1__2730_ (
+);
+
+FILL FILL_0__4979_ (
+);
+
+FILL FILL_3__2656_ (
+);
+
+FILL FILL_0__4559_ (
+);
+
+FILL FILL_0__4139_ (
+);
+
+FILL FILL_1__3935_ (
+);
+
+FILL FILL_1__3515_ (
+);
+
+AOI21X1 _2585_ (
+    .A(_2147_),
+    .B(_2145_),
+    .C(_2354__7_bF$buf0),
+    .Y(_2148_)
+);
+
+FILL FILL_3__4802_ (
+);
+
+FILL FILL_4__2725_ (
+);
+
+FILL FILL_0__2625_ (
+);
+
+NAND2X1 _4731_ (
+    .A(_1782_),
+    .B(_1779_),
+    .Y(_1784_)
+);
+
+OAI21X1 _4311_ (
+    .A(_1062_),
+    .B(_1060_),
+    .C(\u_cpu.index_y ),
+    .Y(_1056_)
+);
+
+FILL FILL_3__3194_ (
+);
+
+FILL FILL_1__4893_ (
+);
+
+FILL FILL_1__4473_ (
+);
+
+FILL FILL_1__4053_ (
+);
+
+FILL FILL_3__4399_ (
+);
+
+FILL FILL_2__2396_ (
+);
+
+FILL FILL_4__3683_ (
+);
+
+FILL FILL_4__3263_ (
+);
+
+FILL FILL_0__3583_ (
+);
+
+FILL FILL_2__4962_ (
+);
+
+FILL FILL_2__4542_ (
+);
+
+FILL FILL_2__4122_ (
+);
+
+FILL FILL_4__4888_ (
+);
+
+FILL FILL_4__4468_ (
+);
+
+FILL FILL_4__4048_ (
+);
+
+FILL FILL_0__4788_ (
+);
+
+FILL FILL_3__2885_ (
+);
+
+FILL FILL_3__2465_ (
+);
+
+FILL FILL_0__4368_ (
+);
+
+FILL FILL_1__3744_ (
+);
+
+FILL FILL_1__3324_ (
+);
+
+AOI21X1 _2394_ (
+    .A(_1426_),
+    .B(_1421_),
+    .C(_1973_),
+    .Y(_1427_)
+);
+
+FILL FILL_3__4611_ (
+);
+
+FILL FILL_1__4949_ (
+);
+
+FILL FILL_1__4529_ (
+);
+
+FILL FILL_1__4109_ (
+);
+
+FILL FILL_4__2534_ (
+);
+
+OR2X2 _3599_ (
+    .A(_404_),
+    .B(_410_),
+    .Y(_403_)
+);
+
+OAI21X1 _3179_ (
+    .A(_82_),
+    .B(_83_),
+    .C(_84_),
+    .Y(_1360_)
+);
+
+FILL FILL_0__2854_ (
+);
+
+INVX1 _4960_ (
+    .A(DI[1]),
+    .Y(_2231_)
+);
+
+FILL FILL_0__2434_ (
+);
+
+OAI21X1 _4540_ (
+    .A(_1270_),
+    .B(_1269_),
+    .C(\u_cpu.PC [3]),
+    .Y(_1268_)
+);
+
+NOR2X1 _4120_ (
+    .A(_1319_),
+    .B(_887_),
+    .Y(_886_)
+);
+
+FILL FILL_2__3813_ (
+);
+
+FILL FILL_4__3739_ (
+);
+
+FILL FILL_4__3319_ (
+);
+
+FILL FILL_0__3639_ (
+);
+
+FILL FILL_0__3219_ (
+);
+
+FILL FILL_1__4282_ (
+);
+
+FILL FILL_4__3492_ (
+);
+
+FILL FILL_0__3392_ (
+);
+
+FILL FILL_2__4771_ (
+);
+
+FILL FILL_2__4351_ (
+);
+
+FILL FILL_4__4697_ (
+);
+
+FILL FILL_4__4277_ (
+);
+
+NAND2X1 _3811_ (
+    .A(_608_),
+    .B(_609_),
+    .Y(_607_)
+);
+
+FILL FILL_3__2694_ (
+);
+
+FILL FILL_0__4597_ (
+);
+
+FILL FILL_0__4177_ (
+);
+
+FILL FILL_1__3973_ (
+);
+
+FILL FILL_1__3553_ (
+);
+
+FILL FILL_3__3899_ (
+);
+
+FILL FILL_3__3479_ (
+);
+
+FILL FILL_3__4840_ (
+);
+
+FILL FILL_3__4420_ (
+);
+
+FILL FILL_3__4000_ (
+);
+
+FILL FILL_1__4758_ (
+);
+
+FILL FILL_1__4338_ (
+);
+
+FILL FILL_4__2763_ (
+);
+
+FILL FILL_0__2663_ (
+);
+
+FILL FILL_2__3622_ (
+);
+
+FILL FILL_2__3202_ (
+);
+
+FILL FILL_4__3968_ (
+);
+
+FILL FILL_4__3548_ (
+);
+
+FILL FILL_0__3868_ (
+);
+
+FILL FILL_0__3448_ (
+);
+
+FILL FILL_0__3028_ (
+);
+
+FILL FILL_1__4091_ (
+);
+
+FILL FILL_2__4827_ (
+);
+
+FILL FILL_2__4407_ (
+);
+
+FILL FILL_1__2824_ (
+);
+
+FILL FILL_1__2404_ (
+);
+
+FILL FILL_1__3609_ (
+);
+
+FILL FILL_2__4580_ (
+);
+
+FILL FILL_2__4160_ (
+);
+
+AOI21X1 _2679_ (
+    .A(_2054_),
+    .B(_1909_),
+    .C(_1634__bF$buf1),
+    .Y(_2055_)
+);
+
+FILL FILL_4__4086_ (
+);
+
+OR2X2 _3620_ (
+    .A(_425_),
+    .B(_454_),
+    .Y(_424_)
+);
+
+NAND2X1 _3200_ (
+    .A(\u_cpu.AXYS[1] [3]),
+    .B(_1041_),
+    .Y(_96_)
+);
+
+FILL FILL272850x72150 (
+);
+
+FILL FILL_4__2819_ (
+);
+
+FILL FILL_0__2719_ (
+);
+
+NAND2X1 _4825_ (
+    .A(_1868_),
+    .B(_1863_),
+    .Y(_1870_)
+);
+
+INVX1 _4405_ (
+    .A(_1144_),
+    .Y(_1143_)
+);
+
+FILL FILL_1__3782_ (
+);
+
+FILL FILL_1__3362_ (
+);
+
+FILL FILL272850x39750 (
+);
+
+FILL FILL_3__3288_ (
+);
+
+FILL FILL_1__4567_ (
+);
+
+FILL FILL_1__4147_ (
+);
+
+FILL FILL_4__2992_ (
+);
+
+FILL FILL_4__2572_ (
+);
+
+FILL FILL_0__2892_ (
+);
+
+FILL FILL_0__2472_ (
+);
+
+FILL FILL_2__3851_ (
+);
+
+FILL FILL_2__3431_ (
+);
+
+FILL FILL_2__3011_ (
+);
+
+FILL FILL_4__3777_ (
+);
+
+FILL FILL_4__3357_ (
+);
+
+FILL FILL_0__3677_ (
+);
+
+FILL FILL_0__3257_ (
+);
+
+FILL FILL_2__4636_ (
+);
+
+FILL FILL_2__4216_ (
+);
+
+FILL FILL_1__2633_ (
+);
+
+FILL FILL_3__2979_ (
+);
+
+FILL FILL_3__2559_ (
+);
+
+FILL FILL_3__3920_ (
+);
+
+FILL FILL_3__3500_ (
+);
+
+FILL FILL_1__3838_ (
+);
+
+FILL FILL_1__3418_ (
+);
+
+AND2X2 _2488_ (
+    .A(_2295_),
+    .B(_1634__bF$buf3),
+    .Y(_2338_)
+);
+
+FILL FILL_3__4705_ (
+);
+
+FILL FILL_2__2702_ (
+);
+
+FILL FILL_4__2628_ (
+);
+
+FILL FILL_0__2948_ (
+);
+
+FILL FILL_0__2528_ (
+);
+
+INVX1 _4634_ (
+    .A(\u_cpu.alu_op [0]),
+    .Y(_1687_)
+);
+
+OAI21X1 _4214_ (
+    .A(_972_),
+    .B(_969_),
+    .C(\u_cpu.ADD [1]),
+    .Y(_968_)
+);
+
+FILL FILL_1__3591_ (
+);
+
+FILL FILL_1__3171_ (
+);
+
+FILL FILL_2__3907_ (
+);
+
+FILL FILL_1__4796_ (
+);
+
+FILL FILL_1__4376_ (
+);
+
+FILL FILL_4__2381_ (
+);
+
+FILL FILL_2__3660_ (
+);
+
+FILL FILL_2__3240_ (
+);
+
+FILL FILL_4__3586_ (
+);
+
+FILL FILL_4__3166_ (
+);
+
+NAND3X1 _2700_ (
+    .A(_1652_),
+    .B(_1935_),
+    .C(_2034_),
+    .Y(_2035_)
+);
+
+FILL FILL_0__3486_ (
+);
+
+FILL FILL_2__4865_ (
+);
+
+FILL FILL_2__4445_ (
+);
+
+FILL FILL_2__4025_ (
+);
+
+MUX2X1 _3905_ (
+    .A(\u_cpu.AZ ),
+    .B(_692_),
+    .S(_694_),
+    .Y(_691_)
+);
+
+FILL FILL_1__2442_ (
+);
+
+FILL FILL_3__2788_ (
+);
+
+FILL FILL_3__2368_ (
+);
+
+FILL FILL_1__3647_ (
+);
+
+FILL FILL_1__3227_ (
+);
+
+FILL FILL_3__4934_ (
+);
+
+FILL FILL_3__4514_ (
+);
+
+FILL FILL_2__2931_ (
+);
+
+FILL FILL_2__2511_ (
+);
+
+FILL FILL_4__2857_ (
+);
+
+FILL FILL_4__2437_ (
+);
+
+FILL FILL_0__2757_ (
+);
+
+AOI21X1 _4863_ (
+    .A(_1902_),
+    .B(_1889_),
+    .C(_1881_),
+    .Y(_1903_)
+);
+
+OAI21X1 _4443_ (
+    .A(_1178_),
+    .B(_1349_),
+    .C(_1315__bF$buf0),
+    .Y(_1177_)
+);
+
+INVX1 _4023_ (
+    .A(\u_cpu.AXYS[0] [7]),
+    .Y(_793_)
+);
+
+FILL FILL_2__3716_ (
+);
+
+FILL FILL_1__4185_ (
+);
+
+FILL FILL_0__4903_ (
+);
+
+FILL FILL_1__2918_ (
+);
+
+FILL FILL273450x10950 (
+);
+
+FILL FILL_4__3395_ (
+);
+
+FILL FILL_0__3295_ (
+);
+
+FILL FILL_2__4674_ (
+);
+
+FILL FILL_2__4254_ (
+);
+
+NAND2X1 _3714_ (
+    .A(_1129__bF$buf2),
+    .B(_514_),
+    .Y(_513_)
+);
+
+FILL FILL_1__2671_ (
+);
+
+FILL FILL_3__2597_ (
+);
+
+AND2X2 _4919_ (
+    .A(_2194_),
+    .B(_2191_),
+    .Y(_2195_)
+);
+
+FILL FILL_1__3876_ (
+);
+
+FILL FILL_1__3456_ (
+);
+
+FILL FILL_3__4743_ (
+);
+
+FILL FILL_3__4323_ (
+);
+
+FILL FILL_2__2740_ (
+);
+
+FILL FILL_4__2666_ (
+);
+
+FILL FILL_0__2986_ (
+);
+
+FILL FILL_0__2566_ (
+);
+
+OAI21X1 _4672_ (
+    .A(_1716_),
+    .B(_1698_),
+    .C(_1724_),
+    .Y(_1725_)
+);
+
+NOR2X1 _4252_ (
+    .A(_1005_),
+    .B(_1020_),
+    .Y(_1004_)
+);
+
+FILL FILL_2__3945_ (
+);
+
+FILL FILL_2__3525_ (
+);
+
+FILL FILL_4__4812_ (
+);
+
+FILL FILL_0__4712_ (
+);
+
+FILL FILL_2_BUFX2_insert50 (
+);
+
+FILL FILL_2_BUFX2_insert51 (
+);
+
+FILL FILL_2_BUFX2_insert52 (
+);
+
+FILL FILL_2_BUFX2_insert53 (
+);
+
+FILL FILL_2_BUFX2_insert54 (
+);
+
+FILL FILL_2_BUFX2_insert55 (
+);
+
+FILL FILL_2_BUFX2_insert56 (
+);
+
+FILL FILL_2_BUFX2_insert57 (
+);
+
+FILL FILL_1__2727_ (
+);
+
+FILL FILL_2_BUFX2_insert58 (
+);
+
+FILL FILL_2_BUFX2_insert59 (
+);
+
+FILL FILL_2__4483_ (
+);
+
+FILL FILL_2__4063_ (
+);
+
+NAND2X1 _3943_ (
+    .A(_1129__bF$buf4),
+    .B(_998_),
+    .Y(_721_)
+);
+
+INVX1 _3523_ (
+    .A(\u_cpu.ABH [5]),
+    .Y(_333_)
+);
+
+DFFSR _3103_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1444_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.clc )
+);
+
+FILL FILL_1__2480_ (
+);
+
+OAI21X1 _4728_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1773_),
+    .Y(_1781_)
+);
+
+NAND2X1 _4308_ (
+    .A(\u_cpu.src_reg [0]),
+    .B(_1054_),
+    .Y(_1053_)
+);
+
+FILL FILL_1__3685_ (
+);
+
+FILL FILL_1__3265_ (
+);
+
+FILL FILL_3__4972_ (
+);
+
+FILL FILL_3__4552_ (
+);
+
+FILL FILL_3__4132_ (
+);
+
+FILL FILL_4__2475_ (
+);
+
+FILL FILL_0__2795_ (
+);
+
+FILL FILL_0__2375_ (
+);
+
+INVX1 _4481_ (
+    .A(\u_cpu.PC [8]),
+    .Y(_1210_)
+);
+
+NOR2X1 _4061_ (
+    .A(_1328__bF$buf5),
+    .B(_1084_),
+    .Y(_828_)
+);
+
+FILL FILL_2__3754_ (
+);
+
+FILL FILL_2__3334_ (
+);
+
+FILL FILL_4__4621_ (
+);
+
+FILL FILL_4__4201_ (
+);
+
+FILL FILL_0__4941_ (
+);
+
+FILL FILL_2__4959_ (
+);
+
+FILL FILL_2__4539_ (
+);
+
+FILL FILL_0__4521_ (
+);
+
+FILL FILL_0__4101_ (
+);
+
+FILL FILL_2__4119_ (
+);
+
+FILL FILL_1__2536_ (
+);
+
+FILL FILL_3__3823_ (
+);
+
+FILL FILL_3__3403_ (
+);
+
+FILL FILL_2__4292_ (
+);
+
+FILL FILL_3__4608_ (
+);
+
+INVX1 _3752_ (
+    .A(_1061_),
+    .Y(_551_)
+);
+
+INVX8 _3332_ (
+    .A(reset),
+    .Y(_1417_)
+);
+
+FILL FILL_2__2605_ (
+);
+
+INVX1 _4957_ (
+    .A(DO_woz[1]),
+    .Y(_2228_)
+);
+
+AOI21X1 _4537_ (
+    .A(_1300_),
+    .B(\u_cpu.ADD [3]),
+    .C(_1266_),
+    .Y(_1265_)
+);
+
+NAND2X1 _4117_ (
+    .A(_1350_),
+    .B(_1072_),
+    .Y(_883_)
+);
+
+FILL FILL_1__3494_ (
+);
+
+FILL FILL_3__4781_ (
+);
+
+FILL FILL_3__4361_ (
+);
+
+FILL FILL_1__4699_ (
+);
+
+FILL FILL_1__4279_ (
+);
+
+NOR2X1 _4290_ (
+    .A(_1126_),
+    .B(_1123_),
+    .Y(_1036_)
+);
+
+FILL FILL_2__3983_ (
+);
+
+FILL FILL_2__3563_ (
+);
+
+FILL FILL_4__3489_ (
+);
+
+NOR2X1 _2603_ (
+    .A(_2354__0_bF$buf5),
+    .B(_1635__bF$buf3),
+    .Y(_2130_)
+);
+
+FILL FILL_4__4850_ (
+);
+
+FILL FILL_4__4430_ (
+);
+
+FILL FILL_4__4010_ (
+);
+
+FILL FILL_0__3389_ (
+);
+
+FILL FILL_0__4750_ (
+);
+
+FILL FILL_2__4768_ (
+);
+
+FILL FILL_2__4348_ (
+);
+
+FILL FILL_0__4330_ (
+);
+
+AOI22X1 _3808_ (
+    .A(\u_cpu.PC [8]),
+    .B(_873_),
+    .C(_625_),
+    .D(\u_cpu.ADD [0]),
+    .Y(_604_)
+);
+
+FILL FILL_1__2765_ (
+);
+
+FILL FILL_3__3632_ (
+);
+
+FILL FILL_3__3212_ (
+);
+
+FILL FILL_1__4911_ (
+);
+
+FILL FILL_3__4837_ (
+);
+
+FILL FILL_3__4417_ (
+);
+
+NOR2X1 _3981_ (
+    .A(_1001_),
+    .B(_756_),
+    .Y(_755_)
+);
+
+NOR2X1 _3561_ (
+    .A(_1083_),
+    .B(_451_),
+    .Y(_366_)
+);
+
+DFFSR _3141_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1487_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [10])
+);
+
+FILL FILL_2__2834_ (
+);
+
+FILL FILL_2__2414_ (
+);
+
+FILL FILL_4__3701_ (
+);
+
+OAI21X1 _4766_ (
+    .A(_1688_),
+    .B(_1817_),
+    .C(_1818_),
+    .Y(_1819_)
+);
+
+AOI21X1 _4346_ (
+    .A(_1144_),
+    .B(_1133_),
+    .C(_1091_),
+    .Y(_1090_)
+);
+
+FILL FILL_0__3601_ (
+);
+
+FILL FILL_2__3619_ (
+);
+
+FILL FILL_3__4590_ (
+);
+
+FILL FILL_3__4170_ (
+);
+
+FILL FILL_4__4906_ (
+);
+
+FILL FILL_1__4088_ (
+);
+
+FILL FILL_0__4806_ (
+);
+
+FILL FILL_3__2903_ (
+);
+
+FILL FILL_2__3792_ (
+);
+
+FILL FILL_2__3372_ (
+);
+
+FILL FILL_4__3298_ (
+);
+
+AND2X2 _2832_ (
+    .A(_2354__0_bF$buf2),
+    .B(_2354__2_bF$buf2),
+    .Y(_1663_)
+);
+
+AOI21X1 _2412_ (
+    .A(_61_),
+    .B(_1920__bF$buf0),
+    .C(_2354__7_bF$buf3),
+    .Y(_62_)
+);
+
+FILL FILL_0__3198_ (
+);
+
+FILL FILL_2__4577_ (
+);
+
+FILL FILL_2__4157_ (
+);
+
+OR2X2 _3617_ (
+    .A(_430_),
+    .B(_422_),
+    .Y(_421_)
+);
+
+FILL FILL_1__2994_ (
+);
+
+FILL FILL_1__2574_ (
+);
+
+FILL FILL_3__3861_ (
+);
+
+FILL FILL_3__3441_ (
+);
+
+FILL FILL_3__3021_ (
+);
+
+FILL FILL_1__3779_ (
+);
+
+FILL FILL_1__3359_ (
+);
+
+FILL FILL_1__4720_ (
+);
+
+FILL FILL_1__4300_ (
+);
+
+FILL FILL_3__4646_ (
+);
+
+FILL FILL_3__4226_ (
+);
+
+NAND2X1 _3790_ (
+    .A(\u_cpu.ADD [4]),
+    .B(_842_),
+    .Y(_588_)
+);
+
+AND2X2 _3370_ (
+    .A(_418_),
+    .B(_472_),
+    .Y(_206_)
+);
+
+FILL FILL_2__2643_ (
+);
+
+FILL FILL_4__2989_ (
+);
+
+FILL FILL_4__2569_ (
+);
+
+FILL FILL_4__3930_ (
+);
+
+FILL FILL_4__3510_ (
+);
+
+FILL FILL_0__2889_ (
+);
+
+FILL FILL_0__2469_ (
+);
+
+DFFPOSX1 _4995_ (
+    .D(_2354__1_bF$buf3),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[1])
+);
+
+AND2X2 _4575_ (
+    .A(\u_cpu.state [4]),
+    .B(\u_cpu.state [5]),
+    .Y(_1303_)
+);
+
+NAND2X1 _4155_ (
+    .A(\u_cpu.AXYS[3] [2]),
+    .B(_921_),
+    .Y(_918_)
+);
+
+FILL FILL_2__3848_ (
+);
+
+FILL FILL_0__3830_ (
+);
+
+FILL FILL_2__3428_ (
+);
+
+FILL FILL_0__3410_ (
+);
+
+FILL FILL_2__3008_ (
+);
+
+FILL FILL_4__4715_ (
+);
+
+FILL FILL_3__2712_ (
+);
+
+FILL FILL_0__4615_ (
+);
+
+FILL FILL_2__3181_ (
+);
+
+FILL FILL_3__3917_ (
+);
+
+NOR2X1 _2641_ (
+    .A(_1961_),
+    .B(_1663_),
+    .Y(_2093_)
+);
+
+FILL FILL_2__4386_ (
+);
+
+INVX1 _3846_ (
+    .A(_640_),
+    .Y(_639_)
+);
+
+AOI22X1 _3426_ (
+    .A(\u_cpu.PC [9]),
+    .B(_873_),
+    .C(_613_),
+    .D(\u_cpu.Z ),
+    .Y(_253_)
+);
+
+AND2X2 _3006_ (
+    .A(_1590_),
+    .B(_1591_),
+    .Y(_1592_)
+);
+
+FILL FILL_1__2383_ (
+);
+
+FILL FILL_3__3670_ (
+);
+
+FILL FILL_3__3250_ (
+);
+
+FILL FILL_1__3588_ (
+);
+
+FILL FILL_1__3168_ (
+);
+
+FILL FILL_3__4455_ (
+);
+
+FILL FILL_3__4035_ (
+);
+
+FILL FILL_2__2452_ (
+);
+
+FILL FILL_4__2798_ (
+);
+
+FILL FILL_4__2378_ (
+);
+
+FILL FILL_0__2698_ (
+);
+
+INVX4 _4384_ (
+    .A(\u_cpu.IRHOLD_valid ),
+    .Y(_1125_)
+);
+
+FILL FILL_2__3657_ (
+);
+
+FILL FILL_2__3237_ (
+);
+
+FILL FILL_4__4944_ (
+);
+
+FILL FILL_4__4524_ (
+);
+
+FILL FILL_4__4104_ (
+);
+
+FILL FILL_0__4844_ (
+);
+
+FILL FILL_3__2941_ (
+);
+
+FILL FILL_3__2521_ (
+);
+
+FILL FILL_0__4424_ (
+);
+
+FILL FILL_0__4004_ (
+);
+
+FILL FILL_1__2859_ (
+);
+
+FILL FILL_1__2439_ (
+);
+
+FILL FILL_1__3800_ (
+);
+
+FILL FILL_3__3726_ (
+);
+
+FILL FILL_3__3306_ (
+);
+
+DFFSR _2870_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1515_),
+    .CLK(clk_bF$buf1),
+    .Q(DO_dsp[6])
+);
+
+OAI21X1 _2450_ (
+    .A(_2354__2_bF$buf4),
+    .B(_1638__bF$buf3),
+    .C(_1635__bF$buf1),
+    .Y(_25_)
+);
+
+FILL FILL_2__4195_ (
+);
+
+NAND2X1 _3655_ (
+    .A(_1329_),
+    .B(_1075_),
+    .Y(_458_)
+);
+
+OAI21X1 _3235_ (
+    .A(_333_),
+    .B(_800__bF$buf0),
+    .C(_121_),
+    .Y(_1377_)
+);
+
+FILL FILL_0__2910_ (
+);
+
+FILL FILL_2__2928_ (
+);
+
+FILL FILL_2__2508_ (
+);
+
+FILL FILL_1__3397_ (
+);
+
+FILL FILL_3__4684_ (
+);
+
+FILL FILL_3__4264_ (
+);
+
+FILL FILL_2__2681_ (
+);
+
+OAI21X1 _4193_ (
+    .A(_956_),
+    .B(_968_),
+    .C(_958_),
+    .Y(_950_)
+);
+
+FILL FILL_2__3886_ (
+);
+
+FILL FILL_2__3466_ (
+);
+
+OAI21X1 _2926_ (
+    .A(_1537_),
+    .B(_1540_),
+    .C(DO_dsp[3]),
+    .Y(_1543_)
+);
+
+OAI21X1 _2506_ (
+    .A(_1915_),
+    .B(_1918_),
+    .C(_1662_),
+    .Y(_2320_)
+);
+
+FILL FILL_4__4753_ (
+);
+
+FILL FILL_4__4333_ (
+);
+
+FILL FILL_3__2750_ (
+);
+
+FILL FILL_0__4653_ (
+);
+
+FILL FILL_0__4233_ (
+);
+
+FILL FILL_1__2668_ (
+);
+
+FILL FILL_3__3955_ (
+);
+
+FILL FILL_3__3535_ (
+);
+
+FILL FILL_1__4814_ (
+);
+
+INVX1 _3884_ (
+    .A(_697_),
+    .Y(_674_)
+);
+
+NOR2X1 _3464_ (
+    .A(_281_),
+    .B(_280_),
+    .Y(_279_)
+);
+
+DFFSR _3044_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1462_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[3] [3])
+);
+
+FILL FILL_2__2737_ (
+);
+
+FILL FILL_4__3604_ (
+);
+
+NAND3X1 _4669_ (
+    .A(_1684_),
+    .B(_1721_),
+    .C(_1720_),
+    .Y(_1722_)
+);
+
+INVX2 _4249_ (
+    .A(_1123_),
+    .Y(_1001_)
+);
+
+FILL FILL_0__3924_ (
+);
+
+FILL FILL_0__3504_ (
+);
+
+FILL FILL_3__4493_ (
+);
+
+FILL FILL_3__4073_ (
+);
+
+FILL FILL_4__4809_ (
+);
+
+FILL FILL_2__2490_ (
+);
+
+FILL FILL_0__4709_ (
+);
+
+FILL FILL_3__2806_ (
+);
+
+FILL FILL_2__3695_ (
+);
+
+FILL FILL_2__3275_ (
+);
+
+NOR2X1 _2735_ (
+    .A(_2354__3_bF$buf1),
+    .B(_2354__4_bF$buf3),
+    .Y(_2000_)
+);
+
+FILL FILL_4__4982_ (
+);
+
+FILL FILL_4__4562_ (
+);
+
+FILL FILL_4__4142_ (
+);
+
+FILL FILL_0__4462_ (
+);
+
+FILL FILL_0__4042_ (
+);
+
+FILL FILL_1__2897_ (
+);
+
+FILL FILL_1__2477_ (
+);
+
+FILL FILL_3__3764_ (
+);
+
+FILL FILL_3__3344_ (
+);
+
+FILL FILL_1__4623_ (
+);
+
+FILL FILL_1__4203_ (
+);
+
+FILL FILL_3__4969_ (
+);
+
+FILL FILL_3__4549_ (
+);
+
+FILL FILL_3__4129_ (
+);
+
+NAND2X1 _3693_ (
+    .A(_1196__bF$buf3),
+    .B(_497_),
+    .Y(_496_)
+);
+
+NOR2X1 _3273_ (
+    .A(\u_cpu.ABL [0]),
+    .B(_800__bF$buf4),
+    .Y(_143_)
+);
+
+FILL FILL272250x97350 (
+);
+
+FILL FILL_2__2966_ (
+);
+
+FILL FILL_2__2546_ (
+);
+
+FILL FILL_4__3833_ (
+);
+
+FILL FILL_4__3413_ (
+);
+
+NAND3X1 _4898_ (
+    .A(_Addr_Bus[1]),
+    .B(_2160_),
+    .C(_2173_),
+    .Y(_2174_)
+);
+
+OAI21X1 _4478_ (
+    .A(RDY_bF$buf2),
+    .B(_1209_),
+    .C(_1208_),
+    .Y(\u_cpu.DIMUX [0])
+);
+
+NOR2X1 _4058_ (
+    .A(_1302_),
+    .B(_826_),
+    .Y(_825_)
+);
+
+FILL FILL_0__3733_ (
+);
+
+FILL FILL_0__3313_ (
+);
+
+FILL FILL_4__4618_ (
+);
+
+FILL FILL_0__4938_ (
+);
+
+FILL FILL_0__4518_ (
+);
+
+FILL FILL_3__2615_ (
+);
+
+OAI21X1 _2964_ (
+    .A(_1628_),
+    .B(_1500_),
+    .C(_1629_),
+    .Y(_1496_)
+);
+
+AOI21X1 _2544_ (
+    .A(_2282_),
+    .B(_2281_),
+    .C(_1923__bF$buf0),
+    .Y(_2283_)
+);
+
+FILL FILL_4__4791_ (
+);
+
+FILL FILL_4__4371_ (
+);
+
+FILL FILL_0__4691_ (
+);
+
+FILL FILL_2__4289_ (
+);
+
+FILL FILL_0__4271_ (
+);
+
+OAI21X1 _3749_ (
+    .A(_1325__bF$buf2),
+    .B(_888_),
+    .C(_1196__bF$buf6),
+    .Y(_548_)
+);
+
+NAND2X1 _3329_ (
+    .A(\u_cpu.AXYS[2] [5]),
+    .B(_760_),
+    .Y(_176_)
+);
+
+FILL FILL_3__3993_ (
+);
+
+FILL FILL_3__3573_ (
+);
+
+FILL FILL_1__4852_ (
+);
+
+FILL FILL_1__4432_ (
+);
+
+FILL FILL_1__4012_ (
+);
+
+FILL FILL_3__4778_ (
+);
+
+FILL FILL_3__4358_ (
+);
+
+DFFSR _3082_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1439_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[2] [3])
+);
+
+FILL FILL_2__2775_ (
+);
+
+FILL FILL_4__3642_ (
+);
+
+FILL FILL_4__3222_ (
+);
+
+INVX1 _4287_ (
+    .A(_1034_),
+    .Y(_1033_)
+);
+
+FILL FILL_0__3962_ (
+);
+
+FILL FILL_0__3542_ (
+);
+
+FILL FILL_2__4921_ (
+);
+
+FILL FILL_2__4501_ (
+);
+
+FILL FILL_4__4847_ (
+);
+
+FILL FILL_4__4427_ (
+);
+
+FILL FILL_4__4007_ (
+);
+
+FILL FILL_0__4747_ (
+);
+
+FILL FILL_3__2844_ (
+);
+
+FILL FILL_0__4327_ (
+);
+
+FILL FILL_3__2424_ (
+);
+
+FILL FILL_1__3703_ (
+);
+
+FILL FILL_3__3629_ (
+);
+
+FILL FILL_3__3209_ (
+);
+
+AOI21X1 _2773_ (
+    .A(_2354__1_bF$buf3),
+    .B(_2354__2_bF$buf2),
+    .C(_2354__3_bF$buf3),
+    .Y(_1963_)
+);
+
+FILL FILL_4__4180_ (
+);
+
+FILL FILL_2__4098_ (
+);
+
+FILL FILL_0__4080_ (
+);
+
+FILL FILL_1__4908_ (
+);
+
+FILL FILL_4__2913_ (
+);
+
+OAI21X1 _3978_ (
+    .A(_754_),
+    .B(_1003_),
+    .C(_753_),
+    .Y(_752_)
+);
+
+OAI21X1 _3558_ (
+    .A(_1087_),
+    .B(_1325__bF$buf4),
+    .C(_847_),
+    .Y(_363_)
+);
+
+DFFSR _3138_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1405_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.IRHOLD_valid )
+);
+
+FILL FILL_0__2813_ (
+);
+
+FILL FILL_3__3382_ (
+);
+
+FILL FILL_1__4661_ (
+);
+
+FILL FILL_1__4241_ (
+);
+
+FILL FILL_3__4587_ (
+);
+
+FILL FILL_3__4167_ (
+);
+
+FILL FILL_2__2584_ (
+);
+
+FILL FILL_4__3871_ (
+);
+
+FILL FILL_4__3451_ (
+);
+
+FILL FILL_4__3031_ (
+);
+
+OAI21X1 _4096_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [7]),
+    .Y(_862_)
+);
+
+FILL FILL_0__3771_ (
+);
+
+FILL FILL_2__3789_ (
+);
+
+FILL FILL_0__3351_ (
+);
+
+FILL FILL_2__3369_ (
+);
+
+FILL FILL_2__4730_ (
+);
+
+FILL FILL_2__4310_ (
+);
+
+OAI21X1 _2829_ (
+    .A(_1663_),
+    .B(_1665_),
+    .C(_1664_),
+    .Y(_1673_)
+);
+
+AOI21X1 _2409_ (
+    .A(_2028_),
+    .B(_2354__3_bF$buf0),
+    .C(_2330_),
+    .Y(_65_)
+);
+
+FILL FILL_4__4656_ (
+);
+
+FILL FILL_4__4236_ (
+);
+
+FILL FILL_0__4976_ (
+);
+
+FILL FILL_3__2653_ (
+);
+
+FILL FILL_0__4556_ (
+);
+
+FILL FILL_0__4136_ (
+);
+
+FILL FILL_1__3932_ (
+);
+
+FILL FILL_1__3512_ (
+);
+
+FILL FILL_3__3858_ (
+);
+
+FILL FILL_3__3438_ (
+);
+
+FILL FILL_3__3018_ (
+);
+
+OAI21X1 _2582_ (
+    .A(_2354__3_bF$buf2),
+    .B(_2002_),
+    .C(_2150_),
+    .Y(_2151_)
+);
+
+FILL FILL_1__4717_ (
+);
+
+FILL FILL_4__2722_ (
+);
+
+OAI21X1 _3787_ (
+    .A(_629_),
+    .B(_657_),
+    .C(_586_),
+    .Y(_2353_[4])
+);
+
+NAND3X1 _3367_ (
+    .A(_206_),
+    .B(_204_),
+    .C(_511_),
+    .Y(_203_)
+);
+
+FILL FILL_0__2622_ (
+);
+
+FILL FILL_3__3191_ (
+);
+
+FILL FILL_4__3927_ (
+);
+
+FILL FILL_4__3507_ (
+);
+
+FILL FILL_0__3827_ (
+);
+
+FILL FILL_0__3407_ (
+);
+
+FILL FILL_1__4890_ (
+);
+
+FILL FILL_1__4470_ (
+);
+
+FILL FILL_1__4050_ (
+);
+
+FILL FILL_3__4396_ (
+);
+
+FILL FILL_2__2393_ (
+);
+
+FILL FILL_3__2709_ (
+);
+
+FILL FILL_4__3680_ (
+);
+
+FILL FILL_4__3260_ (
+);
+
+FILL FILL272550x50550 (
+);
+
+FILL FILL_0__3580_ (
+);
+
+FILL FILL_2__3598_ (
+);
+
+FILL FILL_2__3178_ (
+);
+
+NAND2X1 _2638_ (
+    .A(_2054_),
+    .B(_2093_),
+    .Y(_2096_)
+);
+
+FILL FILL_4__4885_ (
+);
+
+FILL FILL_4__4465_ (
+);
+
+FILL FILL_4__4045_ (
+);
+
+FILL FILL_0__4785_ (
+);
+
+FILL FILL_3__2882_ (
+);
+
+FILL FILL_3__2462_ (
+);
+
+FILL FILL_0__4365_ (
+);
+
+FILL FILL_1__3741_ (
+);
+
+FILL FILL_1__3321_ (
+);
+
+FILL FILL_3__3667_ (
+);
+
+FILL FILL_3__3247_ (
+);
+
+DFFPOSX1 _2391_ (
+    .D(_2346_[1]),
+    .CLK(clk_bF$buf3),
+    .Q(DO_woz[1])
+);
+
+FILL FILL_1__4946_ (
+);
+
+FILL FILL_1__4526_ (
+);
+
+FILL FILL_1__4106_ (
+);
+
+FILL FILL_4__2951_ (
+);
+
+FILL FILL_4__2531_ (
+);
+
+OAI21X1 _3596_ (
+    .A(_1250_),
+    .B(_401_),
+    .C(_411_),
+    .Y(_400_)
+);
+
+OAI21X1 _3176_ (
+    .A(RDY_bF$buf1),
+    .B(_285_),
+    .C(_80_),
+    .Y(_1359_)
+);
+
+FILL FILL_0__2851_ (
+);
+
+FILL FILL_2__2449_ (
+);
+
+FILL FILL_0__2431_ (
+);
+
+FILL FILL_2__3810_ (
+);
+
+FILL FILL_4__3736_ (
+);
+
+FILL FILL_4__3316_ (
+);
+
+FILL FILL_0__3636_ (
+);
+
+FILL FILL_0__3216_ (
+);
+
+FILL FILL_3__2938_ (
+);
+
+FILL FILL_3__2518_ (
+);
+
+DFFSR _2867_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1517_),
+    .CLK(clk_bF$buf3),
+    .Q(DO_dsp[7])
+);
+
+OAI21X1 _2447_ (
+    .A(_2354__4_bF$buf4),
+    .B(_24_),
+    .C(_27_),
+    .Y(_28_)
+);
+
+FILL FILL_4__4694_ (
+);
+
+FILL FILL_4__4274_ (
+);
+
+FILL FILL_3__2691_ (
+);
+
+FILL FILL_0__4594_ (
+);
+
+FILL FILL_0__4174_ (
+);
+
+FILL FILL_0__2907_ (
+);
+
+FILL FILL_1__3970_ (
+);
+
+FILL FILL_1__3550_ (
+);
+
+FILL FILL_3__3896_ (
+);
+
+FILL FILL_3__3476_ (
+);
+
+FILL FILL_1__4755_ (
+);
+
+FILL FILL_1__4335_ (
+);
+
+FILL FILL_4__2760_ (
+);
+
+FILL FILL_2__2678_ (
+);
+
+FILL FILL_0__2660_ (
+);
+
+FILL FILL_4__3965_ (
+);
+
+FILL FILL_4__3545_ (
+);
+
+FILL FILL_0__3865_ (
+);
+
+FILL FILL_0__3445_ (
+);
+
+FILL FILL_0__3025_ (
+);
+
+FILL FILL_2__4824_ (
+);
+
+FILL FILL_2__4404_ (
+);
+
+FILL FILL_1__2821_ (
+);
+
+FILL FILL_1__2401_ (
+);
+
+FILL FILL_3__2747_ (
+);
+
+FILL FILL_1__3606_ (
+);
+
+AOI21X1 _2676_ (
+    .A(_1637_),
+    .B(_1909_),
+    .C(_1639_),
+    .Y(_2058_)
+);
+
+FILL FILL_4__4083_ (
+);
+
+FILL FILL_4__2816_ (
+);
+
+FILL FILL_0__2716_ (
+);
+
+NAND2X1 _4822_ (
+    .A(_1865_),
+    .B(_1866_),
+    .Y(_1867_)
+);
+
+INVX1 _4402_ (
+    .A(\u_cpu.PC [13]),
+    .Y(_1141_)
+);
+
+FILL FILL_3__3285_ (
+);
+
+FILL FILL_1__4984_ (
+);
+
+FILL FILL_1__4564_ (
+);
+
+FILL FILL_1__4144_ (
+);
+
+FILL FILL_2__2487_ (
+);
+
+FILL FILL_4__3774_ (
+);
+
+FILL FILL_4__3354_ (
+);
+
+FILL FILL_0__3674_ (
+);
+
+FILL FILL_0__3254_ (
+);
+
+FILL FILL_2__4633_ (
+);
+
+FILL FILL_2__4213_ (
+);
+
+FILL FILL_4__4979_ (
+);
+
+FILL FILL_4__4559_ (
+);
+
+FILL FILL_4__4139_ (
+);
+
+FILL FILL_1__2630_ (
+);
+
+FILL FILL_3__2976_ (
+);
+
+FILL FILL_3__2556_ (
+);
+
+FILL FILL_0__4459_ (
+);
+
+FILL FILL_0__4039_ (
+);
+
+FILL FILL_1__3835_ (
+);
+
+FILL FILL_1__3415_ (
+);
+
+OAI21X1 _2485_ (
+    .A(_1661_),
+    .B(_1660_),
+    .C(_1658_),
+    .Y(_2341_)
+);
+
+FILL FILL_3__4702_ (
+);
+
+FILL FILL_4__2625_ (
+);
+
+FILL FILL_0__2945_ (
+);
+
+FILL FILL_0__2525_ (
+);
+
+INVX4 _4631_ (
+    .A(\u_cpu.alu_shift_right ),
+    .Y(_1684_)
+);
+
+NAND2X1 _4211_ (
+    .A(_968_),
+    .B(_966_),
+    .Y(_965_)
+);
+
+FILL FILL_2__3904_ (
+);
+
+FILL FILL_1__4793_ (
+);
+
+FILL FILL_1__4373_ (
+);
+
+FILL FILL_3__4299_ (
+);
+
+FILL FILL_4__3583_ (
+);
+
+FILL FILL_0__3483_ (
+);
+
+FILL FILL_2__4862_ (
+);
+
+FILL FILL_2__4442_ (
+);
+
+FILL FILL_2__4022_ (
+);
+
+FILL FILL_4__4788_ (
+);
+
+FILL FILL_4__4368_ (
+);
+
+OAI22X1 _3902_ (
+    .A(_690_),
+    .B(_1129__bF$buf0),
+    .C(_702_),
+    .D(_1026_),
+    .Y(_1441_)
+);
+
+FILL FILL_0__4688_ (
+);
+
+FILL FILL_3__2785_ (
+);
+
+FILL FILL_3__2365_ (
+);
+
+FILL FILL_0__4268_ (
+);
+
+FILL FILL_1__3644_ (
+);
+
+FILL FILL_1__3224_ (
+);
+
+FILL FILL_3__4931_ (
+);
+
+FILL FILL_3__4511_ (
+);
+
+FILL FILL_1__4849_ (
+);
+
+FILL FILL_1__4429_ (
+);
+
+FILL FILL_1__4009_ (
+);
+
+FILL FILL_4__2854_ (
+);
+
+FILL FILL_4__2434_ (
+);
+
+OAI21X1 _3499_ (
+    .A(_1118_),
+    .B(_1024_),
+    .C(_1120_),
+    .Y(_312_)
+);
+
+DFFSR _3079_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1376_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.D )
+);
+
+FILL FILL_0__2754_ (
+);
+
+INVX1 _4860_ (
+    .A(_1899_),
+    .Y(_1900_)
+);
+
+NOR2X1 _4440_ (
+    .A(_1175_),
+    .B(_1182_),
+    .Y(_1174_)
+);
+
+INVX2 _4020_ (
+    .A(_791_),
+    .Y(_790_)
+);
+
+FILL FILL_2__3713_ (
+);
+
+FILL FILL_4__3639_ (
+);
+
+FILL FILL_4__3219_ (
+);
+
+FILL FILL_0__3959_ (
+);
+
+FILL FILL_0__3539_ (
+);
+
+FILL FILL_1__4182_ (
+);
+
+FILL FILL_0__4900_ (
+);
+
+FILL FILL_2__4918_ (
+);
+
+FILL FILL_1__2915_ (
+);
+
+FILL FILL_4__3392_ (
+);
+
+FILL FILL_0__3292_ (
+);
+
+FILL FILL_2__4671_ (
+);
+
+FILL FILL_2__4251_ (
+);
+
+FILL FILL_4__4597_ (
+);
+
+FILL FILL_4__4177_ (
+);
+
+OAI21X1 _3711_ (
+    .A(_1325__bF$buf3),
+    .B(_881_),
+    .C(_1196__bF$buf4),
+    .Y(_510_)
+);
+
+FILL FILL_3__2594_ (
+);
+
+FILL FILL_0__4497_ (
+);
+
+FILL FILL_0__4077_ (
+);
+
+INVX1 _4916_ (
+    .A(_2164_),
+    .Y(_2192_)
+);
+
+FILL FILL_1__3873_ (
+);
+
+FILL FILL_1__3453_ (
+);
+
+FILL FILL_3__3799_ (
+);
+
+FILL FILL_3__3379_ (
+);
+
+FILL FILL_3__4740_ (
+);
+
+FILL FILL_3__4320_ (
+);
+
+FILL FILL_1__4658_ (
+);
+
+FILL FILL_1__4238_ (
+);
+
+FILL FILL_4__2663_ (
+);
+
+FILL FILL_0__2983_ (
+);
+
+FILL FILL_0__2563_ (
+);
+
+FILL FILL_2__3942_ (
+);
+
+FILL FILL_2__3522_ (
+);
+
+FILL FILL_4__3868_ (
+);
+
+FILL FILL_4__3448_ (
+);
+
+FILL FILL_4__3028_ (
+);
+
+FILL FILL_0__3768_ (
+);
+
+FILL FILL_0__3348_ (
+);
+
+FILL FILL_2__4727_ (
+);
+
+FILL FILL_2__4307_ (
+);
+
+FILL FILL_2_BUFX2_insert20 (
+);
+
+FILL FILL_2_BUFX2_insert21 (
+);
+
+FILL FILL_2_BUFX2_insert22 (
+);
+
+FILL FILL_2_BUFX2_insert23 (
+);
+
+FILL FILL_2_BUFX2_insert24 (
+);
+
+FILL FILL_2_BUFX2_insert25 (
+);
+
+FILL FILL_1__2724_ (
+);
+
+FILL FILL_1__3929_ (
+);
+
+FILL FILL_1__3509_ (
+);
+
+FILL FILL_2__4480_ (
+);
+
+FILL FILL_2__4060_ (
+);
+
+NAND3X1 _2999_ (
+    .A(_1589_),
+    .B(_1592_),
+    .C(_1602_),
+    .Y(_1603_)
+);
+
+AOI21X1 _2579_ (
+    .A(_2153_),
+    .B(_1959_),
+    .C(_1973_),
+    .Y(_2154_)
+);
+
+OAI21X1 _3940_ (
+    .A(\u_cpu.CO ),
+    .B(_970_),
+    .C(\u_cpu.AN ),
+    .Y(_719_)
+);
+
+AOI21X1 _3520_ (
+    .A(_651_),
+    .B(_334_),
+    .C(_331_),
+    .Y(_330_)
+);
+
+DFFSR _3100_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1386_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.ABL [6])
+);
+
+FILL FILL_4__2719_ (
+);
+
+FILL FILL_0__2619_ (
+);
+
+NOR2X1 _4725_ (
+    .A(\u_cpu.alu_shift_right ),
+    .B(_1777_),
+    .Y(_1778_)
+);
+
+NOR2X1 _4305_ (
+    .A(_1051_),
+    .B(_1057_),
+    .Y(_1050_)
+);
+
+FILL FILL_1__3682_ (
+);
+
+FILL FILL_1__3262_ (
+);
+
+FILL FILL_3__3188_ (
+);
+
+FILL FILL_1__4887_ (
+);
+
+FILL FILL_1__4467_ (
+);
+
+FILL FILL_1__4047_ (
+);
+
+FILL FILL_4__2892_ (
+);
+
+FILL FILL_4__2472_ (
+);
+
+FILL FILL_0__2792_ (
+);
+
+FILL FILL_0__2372_ (
+);
+
+FILL FILL_2__3751_ (
+);
+
+FILL FILL_2__3331_ (
+);
+
+FILL FILL_4__3677_ (
+);
+
+FILL FILL_4__3257_ (
+);
+
+FILL FILL_0__3997_ (
+);
+
+FILL FILL_0__3577_ (
+);
+
+FILL FILL_2__4956_ (
+);
+
+FILL FILL_2__4536_ (
+);
+
+FILL FILL_2__4116_ (
+);
+
+FILL FILL_1__2533_ (
+);
+
+FILL FILL_3__2879_ (
+);
+
+FILL FILL_3__2459_ (
+);
+
+FILL FILL_3__3820_ (
+);
+
+FILL FILL_3__3400_ (
+);
+
+FILL FILL_1__3738_ (
+);
+
+FILL FILL_1__3318_ (
+);
+
+BUFX2 _2388_ (
+    .A(DO_dsp[1]),
+    .Y(dsp_data[1])
+);
+
+FILL FILL_3__4605_ (
+);
+
+FILL FILL_2__2602_ (
+);
+
+FILL FILL_4__2948_ (
+);
+
+FILL FILL_4__2528_ (
+);
+
+FILL FILL_0__2848_ (
+);
+
+FILL FILL_0__2428_ (
+);
+
+NAND3X1 _4954_ (
+    .A(_2223_),
+    .B(_2225_),
+    .C(_2182_),
+    .Y(_2226_)
+);
+
+INVX1 _4534_ (
+    .A(\u_cpu.ABL [2]),
+    .Y(_1262_)
+);
+
+OAI21X1 _4114_ (
+    .A(_1325__bF$buf1),
+    .B(_881_),
+    .C(_1063_),
+    .Y(_880_)
+);
+
+FILL FILL_1__3491_ (
+);
+
+FILL FILL_2__3807_ (
+);
+
+FILL FILL_1__4696_ (
+);
+
+FILL FILL_1__4276_ (
+);
+
+FILL FILL_2__3980_ (
+);
+
+FILL FILL_2__3560_ (
+);
+
+FILL FILL_4__3486_ (
+);
+
+AND2X2 _2600_ (
+    .A(_2000_),
+    .B(_1641_),
+    .Y(_2133_)
+);
+
+FILL FILL_0__3386_ (
+);
+
+FILL FILL_2__4765_ (
+);
+
+FILL FILL_2__4345_ (
+);
+
+FILL FILL273750x150 (
+);
+
+NAND2X1 _3805_ (
+    .A(\u_cpu.AXYS[3] [3]),
+    .B(_922_),
+    .Y(_602_)
+);
+
+FILL FILL_1__2762_ (
+);
+
+FILL FILL_3__2688_ (
+);
+
+FILL FILL272850x25350 (
+);
+
+FILL FILL_1__3967_ (
+);
+
+FILL FILL_1__3547_ (
+);
+
+FILL FILL_3__4834_ (
+);
+
+FILL FILL_3__4414_ (
+);
+
+FILL FILL_2__2831_ (
+);
+
+FILL FILL_2__2411_ (
+);
+
+FILL FILL_4__2757_ (
+);
+
+FILL FILL_0__2657_ (
+);
+
+INVX1 _4763_ (
+    .A(\u_cpu.BI [6]),
+    .Y(_1816_)
+);
+
+OAI21X1 _4343_ (
+    .A(_1090_),
+    .B(_1088_),
+    .C(_1097_),
+    .Y(_1482_)
+);
+
+FILL FILL_2__3616_ (
+);
+
+FILL FILL_4__4903_ (
+);
+
+FILL FILL_1__4085_ (
+);
+
+FILL FILL_0__4803_ (
+);
+
+FILL FILL_3__2900_ (
+);
+
+FILL FILL_1__2818_ (
+);
+
+FILL FILL_4__3295_ (
+);
+
+FILL FILL_0__3195_ (
+);
+
+FILL FILL_2__4574_ (
+);
+
+FILL FILL_2__4154_ (
+);
+
+OAI21X1 _3614_ (
+    .A(RDY_bF$buf5),
+    .B(_828_),
+    .C(_420_),
+    .Y(_418_)
+);
+
+FILL FILL_1__2991_ (
+);
+
+FILL FILL_1__2571_ (
+);
+
+FILL FILL_3__2497_ (
+);
+
+NAND2X1 _4819_ (
+    .A(\u_cpu.AN ),
+    .B(\u_cpu.u_ALU8.AI7 ),
+    .Y(_1864_)
+);
+
+FILL FILL_1__3776_ (
+);
+
+FILL FILL_1__3356_ (
+);
+
+FILL FILL_3__4643_ (
+);
+
+FILL FILL_3__4223_ (
+);
+
+FILL FILL_2__2640_ (
+);
+
+FILL FILL_4__2986_ (
+);
+
+FILL FILL_4__2566_ (
+);
+
+FILL FILL_0__2886_ (
+);
+
+FILL FILL_0__2466_ (
+);
+
+DFFPOSX1 _4992_ (
+    .D(_2346_[2]),
+    .CLK(clk_bF$buf3),
+    .Q(DO_woz[2])
+);
+
+NAND3X1 _4572_ (
+    .A(_1333_),
+    .B(_1307_),
+    .C(_1301_),
+    .Y(_1300_)
+);
+
+OAI21X1 _4152_ (
+    .A(_943_),
+    .B(_921_),
+    .C(_917_),
+    .Y(_1462_)
+);
+
+FILL FILL_2__3845_ (
+);
+
+FILL FILL_2__3425_ (
+);
+
+FILL FILL_2__3005_ (
+);
+
+FILL FILL_4__4712_ (
+);
+
+FILL FILL_0__4612_ (
+);
+
+FILL FILL_1__2627_ (
+);
+
+FILL FILL_3__3914_ (
+);
+
+FILL FILL_2__4383_ (
+);
+
+FILL FILL273450x86550 (
+);
+
+OAI21X1 _3843_ (
+    .A(_1305__bF$buf0),
+    .B(_904_),
+    .C(_637_),
+    .Y(_636_)
+);
+
+OAI21X1 _3423_ (
+    .A(_629_),
+    .B(_326_),
+    .C(_251_),
+    .Y(_2353_[1])
+);
+
+AND2X2 _3003_ (
+    .A(_Addr_Bus[0]),
+    .B(_Addr_Bus[15]),
+    .Y(_1599_)
+);
+
+FILL FILL_1__2380_ (
+);
+
+INVX4 _4628_ (
+    .A(RDY_bF$buf3),
+    .Y(_1681_)
+);
+
+NAND2X1 _4208_ (
+    .A(\u_cpu.AXYS[0] [1]),
+    .B(_977_),
+    .Y(_962_)
+);
+
+FILL FILL_1__3585_ (
+);
+
+FILL FILL_1__3165_ (
+);
+
+FILL FILL_3__4452_ (
+);
+
+FILL FILL_3__4032_ (
+);
+
+FILL FILL_4__2795_ (
+);
+
+FILL FILL_4__2375_ (
+);
+
+FILL FILL_0__2695_ (
+);
+
+OAI21X1 _4381_ (
+    .A(_1125_),
+    .B(\u_cpu.IRHOLD [3]),
+    .C(_1340_),
+    .Y(_1122_)
+);
+
+FILL FILL_2__3654_ (
+);
+
+FILL FILL_2__3234_ (
+);
+
+FILL FILL_4__4941_ (
+);
+
+FILL FILL_4__4521_ (
+);
+
+FILL FILL_4__4101_ (
+);
+
+FILL FILL_0__4841_ (
+);
+
+FILL FILL_2__4859_ (
+);
+
+FILL FILL_0__4421_ (
+);
+
+FILL FILL_2__4439_ (
+);
+
+FILL FILL_0__4001_ (
+);
+
+FILL FILL_2__4019_ (
+);
+
+FILL FILL_1__2856_ (
+);
+
+FILL FILL_1__2436_ (
+);
+
+FILL FILL_3__3723_ (
+);
+
+FILL FILL_3__3303_ (
+);
+
+FILL FILL_2__4192_ (
+);
+
+FILL FILL_3__4928_ (
+);
+
+FILL FILL_3__4508_ (
+);
+
+OAI21X1 _3652_ (
+    .A(_1196__bF$buf4),
+    .B(_457_),
+    .C(_456_),
+    .Y(_455_)
+);
+
+NAND2X1 _3232_ (
+    .A(\u_cpu.plp ),
+    .B(\u_cpu.ADD [3]),
+    .Y(_118_)
+);
+
+FILL FILL_3_BUFX2_insert90 (
+);
+
+FILL FILL_3_BUFX2_insert91 (
+);
+
+FILL FILL_3_BUFX2_insert92 (
+);
+
+FILL FILL_3_BUFX2_insert93 (
+);
+
+FILL FILL_2__2925_ (
+);
+
+FILL FILL_2__2505_ (
+);
+
+FILL FILL_3_BUFX2_insert94 (
+);
+
+FILL FILL_3_BUFX2_insert95 (
+);
+
+FILL FILL_3_BUFX2_insert96 (
+);
+
+FILL FILL_3_BUFX2_insert97 (
+);
+
+FILL FILL_3_BUFX2_insert98 (
+);
+
+FILL FILL_3_BUFX2_insert99 (
+);
+
+OAI21X1 _4857_ (
+    .A(_1681__bF$buf3),
+    .B(_1837_),
+    .C(_1897_),
+    .Y(_1678_)
+);
+
+NAND3X1 _4437_ (
+    .A(_1187_),
+    .B(_1172_),
+    .C(_1199_),
+    .Y(_1171_)
+);
+
+INVX1 _4017_ (
+    .A(\u_cpu.AXYS[1] [7]),
+    .Y(_787_)
+);
+
+FILL FILL_1__3394_ (
+);
+
+FILL FILL_3__4681_ (
+);
+
+FILL FILL_3__4261_ (
+);
+
+FILL FILL_1__4599_ (
+);
+
+FILL FILL_1__4179_ (
+);
+
+NAND2X1 _4190_ (
+    .A(_949_),
+    .B(_948_),
+    .Y(_947_)
+);
+
+FILL FILL_2__3883_ (
+);
+
+FILL FILL_2__3463_ (
+);
+
+FILL FILL_4__3389_ (
+);
+
+FILL FILL_4_BUFX2_insert160 (
+);
+
+FILL FILL_4_BUFX2_insert161 (
+);
+
+FILL FILL_4_BUFX2_insert162 (
+);
+
+OAI21X1 _2923_ (
+    .A(_1537_),
+    .B(_1540_),
+    .C(DO_dsp[4]),
+    .Y(_1545_)
+);
+
+OAI21X1 _2503_ (
+    .A(_1651_),
+    .B(_1652_),
+    .C(_2322_),
+    .Y(_2323_)
+);
+
+FILL FILL_4_BUFX2_insert163 (
+);
+
+FILL FILL_4_BUFX2_insert164 (
+);
+
+FILL FILL_4__4750_ (
+);
+
+FILL FILL_4_BUFX2_insert165 (
+);
+
+FILL FILL_4_BUFX2_insert166 (
+);
+
+FILL FILL_4__4330_ (
+);
+
+FILL FILL_4_BUFX2_insert167 (
+);
+
+FILL FILL_0__3289_ (
+);
+
+FILL FILL_0__4650_ (
+);
+
+FILL FILL_2__4668_ (
+);
+
+FILL FILL_0__4230_ (
+);
+
+FILL FILL_2__4248_ (
+);
+
+AOI22X1 _3708_ (
+    .A(_1196__bF$buf3),
+    .B(_869_),
+    .C(_755_),
+    .D(_1129__bF$buf1),
+    .Y(_507_)
+);
+
+FILL FILL_1__2665_ (
+);
+
+FILL FILL_3__3952_ (
+);
+
+FILL FILL_3__3532_ (
+);
+
+FILL FILL_1__4811_ (
+);
+
+FILL FILL_3__4737_ (
+);
+
+FILL FILL_3__4317_ (
+);
+
+INVX1 _3881_ (
+    .A(\u_cpu.shift ),
+    .Y(_671_)
+);
+
+NAND2X1 _3461_ (
+    .A(\u_cpu.PC [0]),
+    .B(_826_),
+    .Y(_277_)
+);
+
+DFFSR _3041_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1360_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.PC [2])
+);
+
+FILL FILL_2__2734_ (
+);
+
+FILL FILL_4__3601_ (
+);
+
+OAI21X1 _4666_ (
+    .A(_1689_),
+    .B(_1718_),
+    .C(\u_cpu.BI [2]),
+    .Y(_1719_)
+);
+
+NOR2X1 _4246_ (
+    .A(_999_),
+    .B(_1000_),
+    .Y(_998_)
+);
+
+FILL FILL_0__3921_ (
+);
+
+FILL FILL_2__3939_ (
+);
+
+FILL FILL_0__3501_ (
+);
+
+FILL FILL_2__3519_ (
+);
+
+FILL FILL_3__4490_ (
+);
+
+FILL FILL_3__4070_ (
+);
+
+FILL FILL_0__4706_ (
+);
+
+FILL FILL_3__2803_ (
+);
+
+FILL FILL_2__3692_ (
+);
+
+FILL FILL_2__3272_ (
+);
+
+FILL FILL_4__3198_ (
+);
+
+OAI21X1 _2732_ (
+    .A(_2354__0_bF$buf4),
+    .B(_1636__bF$buf4),
+    .C(_1944_),
+    .Y(_2003_)
+);
+
+FILL FILL_2__4897_ (
+);
+
+FILL FILL_2__4477_ (
+);
+
+FILL FILL_2__4057_ (
+);
+
+NOR2X1 _3937_ (
+    .A(_717_),
+    .B(_720_),
+    .Y(_716_)
+);
+
+AOI22X1 _3517_ (
+    .A(_922_),
+    .B(\u_cpu.AXYS[3] [1]),
+    .C(\u_cpu.AXYS[0] [1]),
+    .D(_978_),
+    .Y(_328_)
+);
+
+FILL FILL_1__2894_ (
+);
+
+FILL FILL_1__2474_ (
+);
+
+FILL FILL_3__3761_ (
+);
+
+FILL FILL_3__3341_ (
+);
+
+FILL FILL_1__3679_ (
+);
+
+FILL FILL_1__3259_ (
+);
+
+FILL FILL_1__4620_ (
+);
+
+FILL FILL_1__4200_ (
+);
+
+FILL FILL_3__4966_ (
+);
+
+FILL FILL_3__4546_ (
+);
+
+FILL FILL_3__4126_ (
+);
+
+NOR2X1 _3690_ (
+    .A(\u_cpu.CO ),
+    .B(\u_cpu.store ),
+    .Y(_493_)
+);
+
+NAND2X1 _3270_ (
+    .A(_800__bF$buf2),
+    .B(_2354__1_bF$buf3),
+    .Y(_141_)
+);
+
+FILL FILL_2__2543_ (
+);
+
+FILL FILL_4__2889_ (
+);
+
+FILL FILL_4__2469_ (
+);
+
+FILL FILL_4__3830_ (
+);
+
+FILL FILL_4__3410_ (
+);
+
+FILL FILL_0__2789_ (
+);
+
+FILL FILL_0__2369_ (
+);
+
+NOR2X1 _4895_ (
+    .A(_Addr_Bus[0]),
+    .B(_2352_),
+    .Y(_2171_)
+);
+
+INVX1 _4475_ (
+    .A(\u_cpu.ADD [0]),
+    .Y(_1205_)
+);
+
+AOI21X1 _4055_ (
+    .A(_829_),
+    .B(_844_),
+    .C(_823_),
+    .Y(_822_)
+);
+
+FILL FILL_0__3730_ (
+);
+
+FILL FILL_2__3748_ (
+);
+
+FILL FILL_2__3328_ (
+);
+
+FILL FILL_0__3310_ (
+);
+
+FILL FILL_4__4615_ (
+);
+
+FILL FILL_0__4935_ (
+);
+
+FILL FILL_3__2612_ (
+);
+
+FILL FILL_0__4515_ (
+);
+
+FILL FILL_3__3817_ (
+);
+
+DFFSR _2961_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1435_),
+    .CLK(clk_bF$buf12),
+    .Q(DO_kbd[0])
+);
+
+NOR2X1 _2541_ (
+    .A(_1634__bF$buf4),
+    .B(_2098_),
+    .Y(_2286_)
+);
+
+FILL FILL_2__4286_ (
+);
+
+NAND2X1 _3746_ (
+    .A(_549_),
+    .B(_546_),
+    .Y(_545_)
+);
+
+OAI21X1 _3326_ (
+    .A(_924_),
+    .B(_760_),
+    .C(_175_),
+    .Y(_1414_)
+);
+
+FILL FILL_3__3990_ (
+);
+
+FILL FILL_3__3570_ (
+);
+
+FILL FILL_1__3488_ (
+);
+
+FILL FILL_3__4775_ (
+);
+
+FILL FILL_3__4355_ (
+);
+
+FILL FILL_2__2772_ (
+);
+
+FILL FILL_4__2698_ (
+);
+
+FILL FILL_0__2598_ (
+);
+
+OAI21X1 _4284_ (
+    .A(_1196__bF$buf0),
+    .B(_1345__bF$buf2),
+    .C(\u_cpu.bit_ins ),
+    .Y(_1030_)
+);
+
+FILL FILL_2__3977_ (
+);
+
+FILL FILL_2__3557_ (
+);
+
+FILL FILL_4__4844_ (
+);
+
+FILL FILL_4__4424_ (
+);
+
+FILL FILL_4__4004_ (
+);
+
+FILL FILL_0__4744_ (
+);
+
+FILL FILL_3__2841_ (
+);
+
+FILL FILL_0__4324_ (
+);
+
+FILL FILL_3__2421_ (
+);
+
+FILL FILL_1__2759_ (
+);
+
+FILL FILL_1__3700_ (
+);
+
+FILL FILL_3__3626_ (
+);
+
+FILL FILL_3__3206_ (
+);
+
+OAI22X1 _2770_ (
+    .A(_1962_),
+    .B(_1965_),
+    .C(_1956_),
+    .D(_1960_),
+    .Y(_1966_)
+);
+
+FILL FILL_2__4095_ (
+);
+
+FILL FILL_1__4905_ (
+);
+
+FILL FILL_4__2910_ (
+);
+
+INVX1 _3975_ (
+    .A(\u_cpu.N ),
+    .Y(_750_)
+);
+
+NOR2X1 _3555_ (
+    .A(_361_),
+    .B(_365_),
+    .Y(_360_)
+);
+
+DFFSR _3135_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1452_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.cond_code [2])
+);
+
+FILL FILL_2__2828_ (
+);
+
+FILL FILL_0__2810_ (
+);
+
+FILL FILL_2__2408_ (
+);
+
+FILL FILL_1__3297_ (
+);
+
+FILL FILL_3__4584_ (
+);
+
+FILL FILL_3__4164_ (
+);
+
+FILL FILL_2__2581_ (
+);
+
+AOI21X1 _4093_ (
+    .A(\u_cpu.AN ),
+    .B(_908_),
+    .C(_860_),
+    .Y(_859_)
+);
+
+FILL FILL_2__3786_ (
+);
+
+FILL FILL_2__3366_ (
+);
+
+NAND3X1 _2826_ (
+    .A(_1643__bF$buf4),
+    .B(_1909_),
+    .C(_1637_),
+    .Y(_1910_)
+);
+
+AOI21X1 _2406_ (
+    .A(_67_),
+    .B(_2109_),
+    .C(_1956_),
+    .Y(_68_)
+);
+
+FILL FILL_4__4653_ (
+);
+
+FILL FILL_4__4233_ (
+);
+
+FILL FILL_0__4973_ (
+);
+
+FILL FILL_3__2650_ (
+);
+
+FILL FILL_0__4553_ (
+);
+
+FILL FILL_0__4133_ (
+);
+
+FILL FILL_1__2988_ (
+);
+
+FILL FILL_1__2568_ (
+);
+
+FILL FILL_3__3855_ (
+);
+
+FILL FILL_3__3435_ (
+);
+
+FILL FILL_3__3015_ (
+);
+
+FILL FILL_1__4714_ (
+);
+
+INVX1 _3784_ (
+    .A(_584_),
+    .Y(_583_)
+);
+
+NOR2X1 _3364_ (
+    .A(_203_),
+    .B(_201_),
+    .Y(_200_)
+);
+
+FILL FILL_2__2637_ (
+);
+
+FILL FILL_4__3924_ (
+);
+
+FILL FILL_4__3504_ (
+);
+
+DFFPOSX1 _4989_ (
+    .D(_2354_[11]),
+    .CLK(clk_bF$buf12),
+    .Q(_Addr_Bus[11])
+);
+
+INVX2 _4569_ (
+    .A(_1298_),
+    .Y(_1297_)
+);
+
+NAND2X1 _4149_ (
+    .A(_1330_),
+    .B(_1306_),
+    .Y(_915_)
+);
+
+FILL FILL_0__3824_ (
+);
+
+FILL FILL_0__3404_ (
+);
+
+FILL FILL_3__4393_ (
+);
+
+FILL FILL_4__4709_ (
+);
+
+FILL FILL_3__2706_ (
+);
+
+FILL FILL_0__4609_ (
+);
+
+FILL FILL_2__3595_ (
+);
+
+FILL FILL_2__3175_ (
+);
+
+NAND2X1 _2635_ (
+    .A(_2354__1_bF$buf4),
+    .B(_2098_),
+    .Y(_2099_)
+);
+
+FILL FILL_4__4462_ (
+);
+
+FILL FILL_4__4042_ (
+);
+
+FILL FILL_0__4782_ (
+);
+
+FILL FILL_0__4362_ (
+);
+
+FILL FILL_1__2797_ (
+);
+
+FILL FILL_1__2377_ (
+);
+
+FILL FILL_3__3664_ (
+);
+
+FILL FILL_3__3244_ (
+);
+
+FILL FILL_1__4943_ (
+);
+
+FILL FILL_1__4523_ (
+);
+
+FILL FILL_1__4103_ (
+);
+
+FILL FILL_3__4869_ (
+);
+
+FILL FILL_3__4449_ (
+);
+
+FILL FILL_3__4029_ (
+);
+
+AOI21X1 _3593_ (
+    .A(_400_),
+    .B(_399_),
+    .C(_398_),
+    .Y(_397_)
+);
+
+OAI21X1 _3173_ (
+    .A(_1264_),
+    .B(_1226_),
+    .C(_1271_),
+    .Y(_77_)
+);
+
+FILL FILL274050x79350 (
+);
+
+FILL FILL_2__2446_ (
+);
+
+FILL FILL_4__3733_ (
+);
+
+FILL FILL_4__3313_ (
+);
+
+NAND2X1 _4798_ (
+    .A(\u_cpu.ADD [2]),
+    .B(_1681__bF$buf0),
+    .Y(_1848_)
+);
+
+OAI21X1 _4378_ (
+    .A(_1125_),
+    .B(\u_cpu.IRHOLD [2]),
+    .C(_1340_),
+    .Y(_1119_)
+);
+
+FILL FILL_0__3633_ (
+);
+
+FILL FILL_0__3213_ (
+);
+
+FILL FILL_4__4938_ (
+);
+
+FILL FILL_4__4518_ (
+);
+
+FILL FILL_0__4838_ (
+);
+
+FILL FILL_3__2935_ (
+);
+
+FILL FILL_3__2515_ (
+);
+
+FILL FILL_0__4418_ (
+);
+
+DFFSR _2864_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1518_),
+    .CLK(clk_bF$buf1),
+    .Q(DO_dsp[0])
+);
+
+NAND3X1 _2444_ (
+    .A(_1920__bF$buf3),
+    .B(_2258_),
+    .C(_2308_),
+    .Y(_31_)
+);
+
+FILL FILL_4__4691_ (
+);
+
+FILL FILL_4__4271_ (
+);
+
+FILL FILL_0__4591_ (
+);
+
+FILL FILL_2__4189_ (
+);
+
+FILL FILL_0__4171_ (
+);
+
+NAND3X1 _3649_ (
+    .A(_465_),
+    .B(_453_),
+    .C(_468_),
+    .Y(_452_)
+);
+
+MUX2X1 _3229_ (
+    .A(_1165_),
+    .B(_116_),
+    .S(_898_),
+    .Y(_1376_)
+);
+
+FILL FILL_0__2904_ (
+);
+
+FILL FILL_3__3893_ (
+);
+
+FILL FILL_3__3473_ (
+);
+
+FILL FILL_1__4752_ (
+);
+
+FILL FILL_1__4332_ (
+);
+
+FILL FILL_3__4678_ (
+);
+
+FILL FILL_3__4258_ (
+);
+
+FILL FILL_2__2675_ (
+);
+
+FILL FILL_4__3962_ (
+);
+
+FILL FILL_4__3542_ (
+);
+
+OAI21X1 _4187_ (
+    .A(_945_),
+    .B(_946_),
+    .C(_1070__bF$buf3),
+    .Y(_944_)
+);
+
+FILL FILL_0__3862_ (
+);
+
+FILL FILL_0__3442_ (
+);
+
+FILL FILL_0__3022_ (
+);
+
+FILL FILL_2__4821_ (
+);
+
+FILL FILL_2__4401_ (
+);
+
+FILL FILL_4__4747_ (
+);
+
+FILL FILL_4__4327_ (
+);
+
+FILL FILL_0__4647_ (
+);
+
+FILL FILL_3__2744_ (
+);
+
+FILL FILL_0__4227_ (
+);
+
+FILL FILL_1__3603_ (
+);
+
+FILL FILL_3__3949_ (
+);
+
+FILL FILL_3__3529_ (
+);
+
+OAI21X1 _2673_ (
+    .A(_1635__bF$buf2),
+    .B(_2060_),
+    .C(_2010_),
+    .Y(_2061_)
+);
+
+FILL FILL_4__4080_ (
+);
+
+FILL FILL_1__4808_ (
+);
+
+FILL FILL_4__2813_ (
+);
+
+NOR2X1 _3878_ (
+    .A(_669_),
+    .B(_670_),
+    .Y(_668_)
+);
+
+OAI22X1 _3458_ (
+    .A(_615_),
+    .B(_1250_),
+    .C(_1138_),
+    .D(_278_),
+    .Y(\u_cpu.BI [5])
+);
+
+DFFSR _3038_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1484_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [13])
+);
+
+FILL FILL_0__2713_ (
+);
+
+FILL FILL_3__3282_ (
+);
+
+FILL FILL_0__3918_ (
+);
+
+FILL FILL_1__4981_ (
+);
+
+FILL FILL_1__4561_ (
+);
+
+FILL FILL_1__4141_ (
+);
+
+FILL FILL_3__4487_ (
+);
+
+FILL FILL_3__4067_ (
+);
+
+FILL FILL_2__2484_ (
+);
+
+FILL FILL_4__3771_ (
+);
+
+FILL FILL_4__3351_ (
+);
+
+FILL FILL_2__3689_ (
+);
+
+FILL FILL_0__3671_ (
+);
+
+FILL FILL_0__3251_ (
+);
+
+FILL FILL_2__3269_ (
+);
+
+FILL FILL_2__4630_ (
+);
+
+FILL FILL_2__4210_ (
+);
+
+OAI21X1 _2729_ (
+    .A(_1635__bF$buf0),
+    .B(_1638__bF$buf1),
+    .C(_2354__2_bF$buf1),
+    .Y(_2006_)
+);
+
+FILL FILL_4__4976_ (
+);
+
+FILL FILL_4__4556_ (
+);
+
+FILL FILL_4__4136_ (
+);
+
+FILL FILL_3__2973_ (
+);
+
+FILL FILL_3__2553_ (
+);
+
+FILL FILL_0__4456_ (
+);
+
+FILL FILL_0__4036_ (
+);
+
+FILL FILL_1__3832_ (
+);
+
+FILL FILL_1__3412_ (
+);
+
+FILL FILL_3__3758_ (
+);
+
+FILL FILL_3__3338_ (
+);
+
+AOI21X1 _2482_ (
+    .A(_1967_),
+    .B(_2354__2_bF$buf0),
+    .C(_2354__0_bF$buf4),
+    .Y(_2344_)
+);
+
+FILL FILL_1__4617_ (
+);
+
+FILL FILL_4__2622_ (
+);
+
+OAI21X1 _3687_ (
+    .A(_1328__bF$buf1),
+    .B(_1331_),
+    .C(_1196__bF$buf5),
+    .Y(_490_)
+);
+
+OAI21X1 _3267_ (
+    .A(_1262_),
+    .B(_800__bF$buf0),
+    .C(_140_),
+    .Y(_1390_)
+);
+
+FILL FILL_0__2942_ (
+);
+
+FILL FILL_0__2522_ (
+);
+
+FILL FILL_2__3901_ (
+);
+
+FILL FILL_4__3827_ (
+);
+
+FILL FILL_4__3407_ (
+);
+
+FILL FILL_0__3727_ (
+);
+
+FILL FILL_0__3307_ (
+);
+
+FILL FILL_1__4790_ (
+);
+
+FILL FILL_1__4370_ (
+);
+
+FILL FILL_3__4296_ (
+);
+
+FILL FILL_3__2609_ (
+);
+
+FILL FILL_4__3580_ (
+);
+
+FILL FILL_2__3498_ (
+);
+
+FILL FILL_0__3480_ (
+);
+
+DFFSR _2958_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1493_),
+    .CLK(clk_bF$buf12),
+    .Q(_2351_)
+);
+
+NAND2X1 _2538_ (
+    .A(_2354__2_bF$buf3),
+    .B(_1915_),
+    .Y(_2289_)
+);
+
+FILL FILL_4__4785_ (
+);
+
+FILL FILL_4__4365_ (
+);
+
+FILL FILL_0__4685_ (
+);
+
+FILL FILL_3__2782_ (
+);
+
+FILL FILL_3__2362_ (
+);
+
+FILL FILL_0__4265_ (
+);
+
+FILL FILL_1__3641_ (
+);
+
+FILL FILL_1__3221_ (
+);
+
+FILL FILL_3__3987_ (
+);
+
+FILL FILL_3__3567_ (
+);
+
+FILL FILL_1__4846_ (
+);
+
+FILL FILL_1__4426_ (
+);
+
+FILL FILL_1__4006_ (
+);
+
+FILL FILL_4__2851_ (
+);
+
+FILL FILL_4__2431_ (
+);
+
+NOR2X1 _3496_ (
+    .A(_310_),
+    .B(_311_),
+    .Y(_309_)
+);
+
+DFFSR _3076_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1480_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.bit_ins )
+);
+
+FILL FILL_2__2769_ (
+);
+
+FILL FILL_0__2751_ (
+);
+
+FILL FILL_2__3710_ (
+);
+
+FILL FILL_4__3636_ (
+);
+
+FILL FILL_4__3216_ (
+);
+
+FILL FILL_0__3956_ (
+);
+
+FILL FILL_0__3536_ (
+);
+
+FILL FILL_2__4915_ (
+);
+
+FILL FILL_1__2912_ (
+);
+
+FILL FILL_3__2838_ (
+);
+
+FILL FILL_3__2418_ (
+);
+
+AOI21X1 _2767_ (
+    .A(_1967_),
+    .B(_2354__2_bF$buf1),
+    .C(_1968_),
+    .Y(_1969_)
+);
+
+FILL FILL_4__4594_ (
+);
+
+FILL FILL_4__4174_ (
+);
+
+FILL FILL_3__2591_ (
+);
+
+FILL FILL_0__4494_ (
+);
+
+FILL FILL_0__4074_ (
+);
+
+FILL FILL_4__2907_ (
+);
+
+FILL FILL_0__2807_ (
+);
+
+NAND2X1 _4913_ (
+    .A(_Addr_Bus[9]),
+    .B(_Addr_Bus[8]),
+    .Y(_2189_)
+);
+
+FILL FILL_1__3870_ (
+);
+
+FILL FILL_1__3450_ (
+);
+
+FILL FILL_1__3030_ (
+);
+
+FILL FILL_3__3796_ (
+);
+
+FILL FILL_3__3376_ (
+);
+
+FILL FILL_1__4655_ (
+);
+
+FILL FILL_1__4235_ (
+);
+
+FILL FILL_4__2660_ (
+);
+
+FILL FILL_0__2980_ (
+);
+
+FILL FILL_2__2998_ (
+);
+
+FILL FILL_0__2560_ (
+);
+
+FILL FILL_2__2578_ (
+);
+
+FILL FILL_4__3865_ (
+);
+
+FILL FILL_4__3445_ (
+);
+
+FILL FILL_4__3025_ (
+);
+
+FILL FILL_0__3765_ (
+);
+
+FILL FILL_0__3345_ (
+);
+
+FILL FILL_2__4724_ (
+);
+
+FILL FILL_2__4304_ (
+);
+
+FILL FILL_1__2721_ (
+);
+
+FILL FILL_3__2647_ (
+);
+
+FILL FILL_1__3926_ (
+);
+
+FILL FILL_1__3506_ (
+);
+
+NOR2X1 _2996_ (
+    .A(_Addr_Bus[2]),
+    .B(_1604_),
+    .Y(_1605_)
+);
+
+NOR2X1 _2576_ (
+    .A(_2067_),
+    .B(_2156_),
+    .Y(_2157_)
+);
+
+FILL FILL_4__2716_ (
+);
+
+FILL FILL_0__2616_ (
+);
+
+OAI21X1 _4722_ (
+    .A(_1689_),
+    .B(_1715_),
+    .C(\u_cpu.BI [3]),
+    .Y(_1775_)
+);
+
+INVX1 _4302_ (
+    .A(_1048_),
+    .Y(_1047_)
+);
+
+FILL FILL_3__3185_ (
+);
+
+FILL FILL_1__4884_ (
+);
+
+FILL FILL_1__4464_ (
+);
+
+FILL FILL_1__4044_ (
+);
+
+FILL FILL_2__2387_ (
+);
+
+FILL FILL_4__3674_ (
+);
+
+FILL FILL_4__3254_ (
+);
+
+FILL FILL_0__3994_ (
+);
+
+FILL FILL_0__3574_ (
+);
+
+FILL FILL_2__4953_ (
+);
+
+FILL FILL_2__4533_ (
+);
+
+FILL FILL_2__4113_ (
+);
+
+FILL FILL_4__4459_ (
+);
+
+FILL FILL_4__4039_ (
+);
+
+FILL FILL_1__2950_ (
+);
+
+FILL FILL_1__2530_ (
+);
+
+FILL FILL_0__4779_ (
+);
+
+FILL FILL_3__2876_ (
+);
+
+FILL FILL_0__4359_ (
+);
+
+FILL FILL_3__2456_ (
+);
+
+FILL FILL_1__3735_ (
+);
+
+FILL FILL_1__3315_ (
+);
+
+BUFX2 _2385_ (
+    .A(DO_dsp[4]),
+    .Y(dsp_data[4])
+);
+
+FILL FILL_3__4602_ (
+);
+
+FILL FILL_4__2945_ (
+);
+
+FILL FILL_4__2525_ (
+);
+
+FILL FILL_0__2845_ (
+);
+
+FILL FILL_0__2425_ (
+);
+
+NAND3X1 _4951_ (
+    .A(_Addr_Bus[1]),
+    .B(_2222_),
+    .C(_2173_),
+    .Y(_2223_)
+);
+
+AOI21X1 _4531_ (
+    .A(\u_cpu.ADD [2]),
+    .B(_1300_),
+    .C(_1260_),
+    .Y(_1259_)
+);
+
+NOR2X1 _4111_ (
+    .A(_893_),
+    .B(_878_),
+    .Y(_877_)
+);
+
+FILL FILL_2__3804_ (
+);
+
+FILL FILL_1__4693_ (
+);
+
+FILL FILL_1__4273_ (
+);
+
+FILL FILL_3__4199_ (
+);
+
+FILL FILL_4__3483_ (
+);
+
+FILL FILL273150x64950 (
+);
+
+FILL FILL_0__3383_ (
+);
+
+FILL FILL_2__4762_ (
+);
+
+FILL FILL_2__4342_ (
+);
+
+FILL FILL_4__4688_ (
+);
+
+NAND2X1 _3802_ (
+    .A(\u_cpu.AXYS[2] [3]),
+    .B(_790_),
+    .Y(_599_)
+);
+
+FILL FILL_3__2685_ (
+);
+
+FILL FILL_0__4588_ (
+);
+
+FILL FILL_0__4168_ (
+);
+
+FILL FILL_1__3964_ (
+);
+
+FILL FILL_1__3544_ (
+);
+
+FILL FILL_3__4831_ (
+);
+
+FILL FILL_3__4411_ (
+);
+
+FILL FILL_1__4749_ (
+);
+
+FILL FILL_1__4329_ (
+);
+
+FILL FILL_4__2754_ (
+);
+
+OAI21X1 _3399_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [4]),
+    .Y(_231_)
+);
+
+FILL FILL_0__2654_ (
+);
+
+OAI21X1 _4760_ (
+    .A(_1695_),
+    .B(_1702_),
+    .C(_1703_),
+    .Y(_1813_)
+);
+
+NOR2X1 _4340_ (
+    .A(_1348_),
+    .B(_1335_),
+    .Y(_1085_)
+);
+
+FILL FILL_2__3613_ (
+);
+
+FILL FILL_4__3959_ (
+);
+
+FILL FILL_4__3539_ (
+);
+
+FILL FILL_4__4900_ (
+);
+
+FILL FILL_0__3859_ (
+);
+
+FILL FILL_0__3439_ (
+);
+
+FILL FILL_0__3019_ (
+);
+
+FILL FILL_1__4082_ (
+);
+
+FILL FILL272850x46950 (
+);
+
+FILL FILL_2__4818_ (
+);
+
+FILL FILL_0__4800_ (
+);
+
+FILL FILL_1__2815_ (
+);
+
+FILL FILL_4__3292_ (
+);
+
+FILL FILL_0__3192_ (
+);
+
+FILL FILL_2__4571_ (
+);
+
+FILL FILL_2__4151_ (
+);
+
+FILL FILL_4__4497_ (
+);
+
+FILL FILL_4__4077_ (
+);
+
+AOI21X1 _3611_ (
+    .A(_416_),
+    .B(_1129__bF$buf1),
+    .C(_417_),
+    .Y(_415_)
+);
+
+FILL FILL_3__2494_ (
+);
+
+FILL FILL_0__4397_ (
+);
+
+FILL FILL271650x61350 (
+);
+
+NOR2X1 _4816_ (
+    .A(\u_cpu.u_ALU8.BI7 ),
+    .B(\u_cpu.CO ),
+    .Y(_1861_)
+);
+
+FILL FILL_1__3773_ (
+);
+
+FILL FILL_1__3353_ (
+);
+
+FILL FILL_3__3699_ (
+);
+
+FILL FILL_3__3279_ (
+);
+
+FILL FILL_3__4640_ (
+);
+
+FILL FILL_3__4220_ (
+);
+
+FILL FILL_1__4978_ (
+);
+
+FILL FILL_1__4558_ (
+);
+
+FILL FILL_1__4138_ (
+);
+
+FILL FILL_4__2983_ (
+);
+
+FILL FILL_4__2563_ (
+);
+
+FILL FILL_0__2883_ (
+);
+
+FILL FILL_0__2463_ (
+);
+
+FILL FILL_2__3842_ (
+);
+
+FILL FILL_2__3422_ (
+);
+
+FILL FILL_2__3002_ (
+);
+
+FILL FILL_4__3768_ (
+);
+
+FILL FILL_4__3348_ (
+);
+
+FILL FILL_0__3668_ (
+);
+
+FILL FILL_0__3248_ (
+);
+
+FILL FILL272850x150 (
+);
+
+FILL FILL_2__4627_ (
+);
+
+FILL FILL_2__4207_ (
+);
+
+FILL FILL_1__2624_ (
+);
+
+FILL FILL_3__3911_ (
+);
+
+FILL FILL_1__3829_ (
+);
+
+FILL FILL_1__3409_ (
+);
+
+FILL FILL_2__4380_ (
+);
+
+OAI21X1 _2899_ (
+    .A(_1537_),
+    .B(_1540_),
+    .C(DO_dsp[6]),
+    .Y(_1563_)
+);
+
+OAI21X1 _2479_ (
+    .A(_1663_),
+    .B(_1665_),
+    .C(_2286_),
+    .Y(_2348_)
+);
+
+OAI21X1 _3840_ (
+    .A(_1328__bF$buf0),
+    .B(_1076_),
+    .C(_1315__bF$buf3),
+    .Y(_633_)
+);
+
+AND2X2 _3420_ (
+    .A(_250_),
+    .B(_249_),
+    .Y(_248_)
+);
+
+NOR3X1 _3000_ (
+    .A(_2352_),
+    .B(_1598_),
+    .C(_1601_),
+    .Y(_1602_)
+);
+
+FILL FILL_4__2619_ (
+);
+
+FILL FILL_0__2939_ (
+);
+
+FILL FILL_0__2519_ (
+);
+
+NOR2X1 _4625_ (
+    .A(\u_cpu.state [3]),
+    .B(_1354_),
+    .Y(_1353_)
+);
+
+NAND2X1 _4205_ (
+    .A(_1007_),
+    .B(_961_),
+    .Y(_960_)
+);
+
+FILL FILL_1__3582_ (
+);
+
+FILL FILL_1__4787_ (
+);
+
+FILL FILL_1__4367_ (
+);
+
+FILL FILL_4__2792_ (
+);
+
+FILL FILL_4__2372_ (
+);
+
+FILL FILL_0__2692_ (
+);
+
+FILL FILL_2__3651_ (
+);
+
+FILL FILL_2__3231_ (
+);
+
+FILL FILL_4__3997_ (
+);
+
+FILL FILL_0__3897_ (
+);
+
+FILL FILL_0__3477_ (
+);
+
+FILL FILL_2__4856_ (
+);
+
+FILL FILL_2__4436_ (
+);
+
+FILL FILL_2__4016_ (
+);
+
+FILL FILL_1__2853_ (
+);
+
+FILL FILL_1__2433_ (
+);
+
+FILL FILL_3__2779_ (
+);
+
+FILL FILL_3__2359_ (
+);
+
+FILL FILL_3__3720_ (
+);
+
+FILL FILL_3__3300_ (
+);
+
+FILL FILL_1__3638_ (
+);
+
+FILL FILL_1__3218_ (
+);
+
+FILL FILL_3__4925_ (
+);
+
+FILL FILL_3__4505_ (
+);
+
+FILL FILL_3_BUFX2_insert60 (
+);
+
+FILL FILL_3_BUFX2_insert61 (
+);
+
+FILL FILL_3_BUFX2_insert62 (
+);
+
+FILL FILL_3_BUFX2_insert63 (
+);
+
+FILL FILL_2__2922_ (
+);
+
+FILL FILL_2__2502_ (
+);
+
+FILL FILL_3_BUFX2_insert64 (
+);
+
+FILL FILL_3_BUFX2_insert65 (
+);
+
+FILL FILL_3_BUFX2_insert66 (
+);
+
+FILL FILL_3_BUFX2_insert67 (
+);
+
+FILL FILL_3_BUFX2_insert68 (
+);
+
+FILL FILL_4__2848_ (
+);
+
+FILL FILL_4__2428_ (
+);
+
+FILL FILL_3_BUFX2_insert69 (
+);
+
+FILL FILL_0__2748_ (
+);
+
+NAND2X1 _4854_ (
+    .A(RDY_bF$buf7),
+    .B(_1895_),
+    .Y(_1896_)
+);
+
+INVX1 _4434_ (
+    .A(\u_cpu.PC [11]),
+    .Y(_1169_)
+);
+
+OAI21X1 _4014_ (
+    .A(_787_),
+    .B(_786_),
+    .C(_785_),
+    .Y(_784_)
+);
+
+FILL FILL_1__3391_ (
+);
+
+FILL FILL_2__3707_ (
+);
+
+FILL FILL_1__4596_ (
+);
+
+FILL FILL_1__4176_ (
+);
+
+FILL FILL_1__2909_ (
+);
+
+FILL FILL_2__3880_ (
+);
+
+FILL FILL_2__3460_ (
+);
+
+FILL FILL_4__3386_ (
+);
+
+FILL FILL_4_BUFX2_insert130 (
+);
+
+FILL FILL_4_BUFX2_insert131 (
+);
+
+FILL FILL_4_BUFX2_insert132 (
+);
+
+OAI21X1 _2920_ (
+    .A(_1537_),
+    .B(_1540_),
+    .C(DO_dsp[5]),
+    .Y(_1547_)
+);
+
+OAI21X1 _2500_ (
+    .A(_2324_),
+    .B(_2325_),
+    .C(_1920__bF$buf2),
+    .Y(_2326_)
+);
+
+FILL FILL_4_BUFX2_insert133 (
+);
+
+FILL FILL_4_BUFX2_insert134 (
+);
+
+FILL FILL_4_BUFX2_insert135 (
+);
+
+FILL FILL_4_BUFX2_insert136 (
+);
+
+FILL FILL_4_BUFX2_insert137 (
+);
+
+FILL FILL_4_BUFX2_insert138 (
+);
+
+FILL FILL_4_BUFX2_insert139 (
+);
+
+FILL FILL_0__3286_ (
+);
+
+FILL FILL_2__4665_ (
+);
+
+FILL FILL_2__4245_ (
+);
+
+NAND2X1 _3705_ (
+    .A(_552_),
+    .B(_505_),
+    .Y(_504_)
+);
+
+FILL FILL_1__2662_ (
+);
+
+FILL FILL_3__2588_ (
+);
+
+FILL FILL_1__3867_ (
+);
+
+FILL FILL_1__3447_ (
+);
+
+FILL FILL_1__3027_ (
+);
+
+FILL FILL_3_BUFX2_insert150 (
+);
+
+FILL FILL_3_BUFX2_insert151 (
+);
+
+FILL FILL_3_BUFX2_insert152 (
+);
+
+FILL FILL_3_BUFX2_insert153 (
+);
+
+FILL FILL_3__4734_ (
+);
+
+FILL FILL_3_BUFX2_insert154 (
+);
+
+FILL FILL_3_BUFX2_insert155 (
+);
+
+FILL FILL_3__4314_ (
+);
+
+FILL FILL_3_BUFX2_insert156 (
+);
+
+FILL FILL_3_BUFX2_insert157 (
+);
+
+FILL FILL_3_BUFX2_insert158 (
+);
+
+FILL FILL_3_BUFX2_insert159 (
+);
+
+FILL FILL_2__2731_ (
+);
+
+FILL FILL_4__2657_ (
+);
+
+FILL FILL_0__2977_ (
+);
+
+FILL FILL_0__2557_ (
+);
+
+INVX1 _4663_ (
+    .A(\u_cpu.BI [2]),
+    .Y(_1716_)
+);
+
+NOR2X1 _4243_ (
+    .A(_1106_),
+    .B(_1008_),
+    .Y(_995_)
+);
+
+FILL FILL_2__3936_ (
+);
+
+FILL FILL_2__3516_ (
+);
+
+FILL FILL_4__4803_ (
+);
+
+FILL FILL_3__2800_ (
+);
+
+FILL FILL_0__4703_ (
+);
+
+FILL FILL_1__2718_ (
+);
+
+FILL FILL_4__3195_ (
+);
+
+FILL FILL_2__4894_ (
+);
+
+FILL FILL_2__4474_ (
+);
+
+FILL FILL_2__4054_ (
+);
+
+OAI21X1 _3934_ (
+    .A(\u_cpu.DIMUX [7]),
+    .B(_1070__bF$buf1),
+    .C(_714_),
+    .Y(_713_)
+);
+
+INVX1 _3514_ (
+    .A(\u_cpu.ABH [1]),
+    .Y(_325_)
+);
+
+FILL FILL_1__2891_ (
+);
+
+FILL FILL_1__2471_ (
+);
+
+FILL FILL_3__2397_ (
+);
+
+AND2X2 _4719_ (
+    .A(_1769_),
+    .B(_1771_),
+    .Y(_1772_)
+);
+
+FILL FILL_1__3676_ (
+);
+
+FILL FILL_1__3256_ (
+);
+
+FILL FILL_3__4963_ (
+);
+
+FILL FILL_3__4543_ (
+);
+
+FILL FILL_3__4123_ (
+);
+
+FILL FILL_2__2540_ (
+);
+
+FILL FILL_4__2886_ (
+);
+
+FILL FILL_4__2466_ (
+);
+
+FILL FILL_0__2786_ (
+);
+
+FILL FILL_0__2366_ (
+);
+
+NOR2X1 _4892_ (
+    .A(_Addr_Bus[5]),
+    .B(_Addr_Bus[6]),
+    .Y(_2168_)
+);
+
+OAI21X1 _4472_ (
+    .A(_1318_),
+    .B(_1207_),
+    .C(_1203_),
+    .Y(_1202_)
+);
+
+NOR2X1 _4052_ (
+    .A(_820_),
+    .B(_840_),
+    .Y(_819_)
+);
+
+FILL FILL_2__3745_ (
+);
+
+FILL FILL_2__3325_ (
+);
+
+FILL FILL_4__4612_ (
+);
+
+FILL FILL_0__4932_ (
+);
+
+FILL FILL_0__4512_ (
+);
+
+FILL FILL_1__2947_ (
+);
+
+FILL FILL_1__2527_ (
+);
+
+FILL FILL_3__3814_ (
+);
+
+FILL FILL_2__4283_ (
+);
+
+OAI21X1 _3743_ (
+    .A(_1196__bF$buf4),
+    .B(_805_),
+    .C(_543_),
+    .Y(_542_)
+);
+
+INVX1 _3323_ (
+    .A(_681_),
+    .Y(_173_)
+);
+
+AOI22X1 _4948_ (
+    .A(_2214_),
+    .B(_2195_),
+    .C(_2219_),
+    .D(_2220_),
+    .Y(Data_In[3])
+);
+
+OAI21X1 _4528_ (
+    .A(_1286_),
+    .B(_1283_),
+    .C(\u_cpu.ADD [1]),
+    .Y(_1256_)
+);
+
+NOR2X1 _4108_ (
+    .A(_875_),
+    .B(_908_),
+    .Y(_874_)
+);
+
+FILL FILL_1__3485_ (
+);
+
+FILL FILL_3__4772_ (
+);
+
+FILL FILL_3__4352_ (
+);
+
+FILL FILL_4__2695_ (
+);
+
+FILL FILL_0__2595_ (
+);
+
+OAI21X1 _4281_ (
+    .A(RDY_bF$buf7),
+    .B(_1029_),
+    .C(_1114_),
+    .Y(_1479_)
+);
+
+FILL FILL_2__3974_ (
+);
+
+FILL FILL_2__3554_ (
+);
+
+FILL FILL272850x7350 (
+);
+
+FILL FILL_4__4841_ (
+);
+
+FILL FILL_4__4421_ (
+);
+
+FILL FILL_4__4001_ (
+);
+
+FILL FILL_2__4759_ (
+);
+
+FILL FILL_0__4741_ (
+);
+
+FILL FILL_0__4321_ (
+);
+
+FILL FILL_2__4339_ (
+);
+
+FILL FILL_1__2756_ (
+);
+
+FILL FILL_3__3623_ (
+);
+
+FILL FILL_3__3203_ (
+);
+
+FILL FILL_2__4092_ (
+);
+
+FILL FILL_1__4902_ (
+);
+
+FILL FILL_3__4828_ (
+);
+
+FILL FILL_3__4408_ (
+);
+
+INVX1 _3972_ (
+    .A(\u_cpu.bit_ins ),
+    .Y(_747_)
+);
+
+OAI21X1 _3552_ (
+    .A(_1328__bF$buf5),
+    .B(_536_),
+    .C(_1250_),
+    .Y(_357_)
+);
+
+DFFSR _3132_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1402_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[1] [6])
+);
+
+FILL FILL_2__2825_ (
+);
+
+FILL FILL_2__2405_ (
+);
+
+OAI21X1 _4757_ (
+    .A(_1711_),
+    .B(_1808_),
+    .C(_1809_),
+    .Y(_1810_)
+);
+
+NOR2X1 _4337_ (
+    .A(_1087_),
+    .B(_1328__bF$buf3),
+    .Y(_1082_)
+);
+
+FILL FILL_1__3294_ (
+);
+
+FILL FILL_3__4581_ (
+);
+
+FILL FILL_3__4161_ (
+);
+
+FILL FILL_1__4499_ (
+);
+
+FILL FILL_1__4079_ (
+);
+
+NOR2X1 _4090_ (
+    .A(_1305__bF$buf2),
+    .B(_904_),
+    .Y(_857_)
+);
+
+FILL FILL_2__3783_ (
+);
+
+FILL FILL_2__3363_ (
+);
+
+FILL FILL_4__3289_ (
+);
+
+FILL FILL273450x72150 (
+);
+
+AOI21X1 _2823_ (
+    .A(_1674_),
+    .B(_1912_),
+    .C(_2354__6_bF$buf3),
+    .Y(_1913_)
+);
+
+AOI21X1 _2403_ (
+    .A(_2072_),
+    .B(_25_),
+    .C(_2354__3_bF$buf4),
+    .Y(_71_)
+);
+
+FILL FILL_4__4650_ (
+);
+
+FILL FILL_4__4230_ (
+);
+
+FILL FILL_0__3189_ (
+);
+
+FILL FILL_0__4970_ (
+);
+
+FILL FILL_2__4568_ (
+);
+
+FILL FILL_0__4550_ (
+);
+
+FILL FILL_0__4130_ (
+);
+
+FILL FILL_2__4148_ (
+);
+
+FILL FILL273450x39750 (
+);
+
+OAI21X1 _3608_ (
+    .A(_1328__bF$buf4),
+    .B(_914_),
+    .C(RDY_bF$buf5),
+    .Y(_412_)
+);
+
+FILL FILL_1__2985_ (
+);
+
+FILL FILL_1__2565_ (
+);
+
+FILL FILL_3__3852_ (
+);
+
+FILL FILL_3__3432_ (
+);
+
+FILL FILL_3__3012_ (
+);
+
+FILL FILL_1__4711_ (
+);
+
+FILL FILL_3__4637_ (
+);
+
+FILL FILL_3__4217_ (
+);
+
+OR2X2 _3781_ (
+    .A(_581_),
+    .B(_582_),
+    .Y(_580_)
+);
+
+NAND2X1 _3361_ (
+    .A(_489_),
+    .B(_549_),
+    .Y(_197_)
+);
+
+FILL FILL_2__2634_ (
+);
+
+FILL FILL_4__3921_ (
+);
+
+FILL FILL_4__3501_ (
+);
+
+DFFPOSX1 _4986_ (
+    .D(_2354__4_bF$buf2),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[4])
+);
+
+OAI21X1 _4566_ (
+    .A(_1355_),
+    .B(_1310_),
+    .C(_1295_),
+    .Y(_1294_)
+);
+
+NOR2X1 _4146_ (
+    .A(_1337_),
+    .B(_1234_),
+    .Y(_912_)
+);
+
+FILL FILL_2__3839_ (
+);
+
+FILL FILL_0__3821_ (
+);
+
+FILL FILL_0__3401_ (
+);
+
+FILL FILL_2__3419_ (
+);
+
+FILL FILL_3__4390_ (
+);
+
+FILL FILL_4__4706_ (
+);
+
+FILL FILL_3__2703_ (
+);
+
+FILL FILL_0__4606_ (
+);
+
+FILL FILL_2__3592_ (
+);
+
+FILL FILL_2__3172_ (
+);
+
+FILL FILL_3__3908_ (
+);
+
+NAND2X1 _2632_ (
+    .A(_2101_),
+    .B(_2097_),
+    .Y(_2102_)
+);
+
+FILL FILL_2__4797_ (
+);
+
+FILL FILL_2__4377_ (
+);
+
+NOR2X1 _3837_ (
+    .A(_631_),
+    .B(_634_),
+    .Y(_630_)
+);
+
+INVX1 _3417_ (
+    .A(_246_),
+    .Y(_2354_[11])
+);
+
+FILL FILL_1__2794_ (
+);
+
+FILL FILL_1__2374_ (
+);
+
+FILL FILL_3__3661_ (
+);
+
+FILL FILL_3__3241_ (
+);
+
+FILL FILL_1__3999_ (
+);
+
+FILL FILL_1__3579_ (
+);
+
+FILL FILL_1__4940_ (
+);
+
+FILL FILL_1__4520_ (
+);
+
+FILL FILL_1__4100_ (
+);
+
+FILL FILL_3__4866_ (
+);
+
+FILL FILL_3__4446_ (
+);
+
+FILL FILL_3__4026_ (
+);
+
+OAI21X1 _3590_ (
+    .A(RDY_bF$buf0),
+    .B(_843_),
+    .C(_395_),
+    .Y(_394_)
+);
+
+NOR2X1 _3170_ (
+    .A(_1276_),
+    .B(_1225_),
+    .Y(_75_)
+);
+
+FILL FILL271950x36150 (
+);
+
+FILL FILL_2__2443_ (
+);
+
+FILL FILL_4__2789_ (
+);
+
+FILL FILL_4__2369_ (
+);
+
+FILL FILL_4__3310_ (
+);
+
+FILL FILL_0__2689_ (
+);
+
+OAI21X1 _4795_ (
+    .A(_1844_),
+    .B(_1846_),
+    .C(_1843_),
+    .Y(_1667_)
+);
+
+NAND3X1 _4375_ (
+    .A(_1126_),
+    .B(_1123_),
+    .C(_1117_),
+    .Y(_1116_)
+);
+
+FILL FILL_2__3648_ (
+);
+
+FILL FILL_0__3630_ (
+);
+
+FILL FILL_2__3228_ (
+);
+
+FILL FILL_0__3210_ (
+);
+
+FILL FILL_4__4935_ (
+);
+
+FILL FILL_4__4515_ (
+);
+
+FILL FILL_0__4835_ (
+);
+
+FILL FILL_3__2932_ (
+);
+
+FILL FILL_3__2512_ (
+);
+
+FILL FILL_0__4415_ (
+);
+
+FILL FILL_3__3717_ (
+);
+
+INVX8 _2861_ (
+    .A(_2354__4_bF$buf4),
+    .Y(_1634_)
+);
+
+NAND3X1 _2441_ (
+    .A(_1923__bF$buf3),
+    .B(_28_),
+    .C(_33_),
+    .Y(_34_)
+);
+
+FILL FILL_2__4186_ (
+);
+
+NOR2X1 _3646_ (
+    .A(_1305__bF$buf1),
+    .B(_1081_),
+    .Y(_449_)
+);
+
+NAND3X1 _3226_ (
+    .A(RDY_bF$buf0),
+    .B(_114_),
+    .C(_1024_),
+    .Y(_113_)
+);
+
+FILL FILL_2__2919_ (
+);
+
+FILL FILL_0__2901_ (
+);
+
+FILL FILL_3__3890_ (
+);
+
+FILL FILL_3__3470_ (
+);
+
+FILL FILL_1__3388_ (
+);
+
+FILL FILL_3__4675_ (
+);
+
+FILL FILL_3__4255_ (
+);
+
+FILL FILL274050x10950 (
+);
+
+FILL FILL_2__2672_ (
+);
+
+FILL FILL_4__2598_ (
+);
+
+FILL FILL_0__2498_ (
+);
+
+OAI21X1 _4184_ (
+    .A(_977_),
+    .B(_943_),
+    .C(_942_),
+    .Y(_1469_)
+);
+
+FILL FILL_2__3877_ (
+);
+
+FILL FILL_2__3457_ (
+);
+
+INVX1 _2917_ (
+    .A(\u_pia_dsp.state [3]),
+    .Y(_1549_)
+);
+
+FILL FILL_4__4744_ (
+);
+
+FILL FILL_4__4324_ (
+);
+
+FILL FILL_3__2741_ (
+);
+
+FILL FILL_0__4644_ (
+);
+
+FILL FILL_0__4224_ (
+);
+
+FILL FILL_1__2659_ (
+);
+
+FILL FILL_1__3600_ (
+);
+
+FILL FILL_3__3946_ (
+);
+
+FILL FILL_3__3526_ (
+);
+
+AOI21X1 _2670_ (
+    .A(_2062_),
+    .B(_2063_),
+    .C(_2354__6_bF$buf3),
+    .Y(_2064_)
+);
+
+FILL FILL_1__4805_ (
+);
+
+FILL FILL_4__2810_ (
+);
+
+AOI22X1 _3875_ (
+    .A(_674_),
+    .B(_668_),
+    .C(_666_),
+    .D(_897_),
+    .Y(_665_)
+);
+
+NAND2X1 _3455_ (
+    .A(\u_cpu.PC [2]),
+    .B(_826_),
+    .Y(_275_)
+);
+
+DFFSR _3035_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1357_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [5])
+);
+
+FILL FILL_0__2710_ (
+);
+
+FILL FILL_2__2728_ (
+);
+
+FILL FILL_1__3197_ (
+);
+
+FILL FILL_0__3915_ (
+);
+
+FILL FILL_3__4484_ (
+);
+
+FILL FILL_3__4064_ (
+);
+
+FILL FILL_2__2481_ (
+);
+
+FILL FILL_2__3686_ (
+);
+
+FILL FILL_2__3266_ (
+);
+
+OAI21X1 _2726_ (
+    .A(_2354__3_bF$buf6),
+    .B(_2006_),
+    .C(_2008_),
+    .Y(_2009_)
+);
+
+FILL FILL_4__4973_ (
+);
+
+FILL FILL_4__4553_ (
+);
+
+FILL FILL_4__4133_ (
+);
+
+FILL FILL_3__2970_ (
+);
+
+FILL FILL_3__2550_ (
+);
+
+FILL FILL_0__4453_ (
+);
+
+FILL FILL_0__4033_ (
+);
+
+FILL FILL_1__2888_ (
+);
+
+FILL FILL_1__2468_ (
+);
+
+FILL FILL_3__3755_ (
+);
+
+FILL FILL_3__3335_ (
+);
+
+FILL FILL_1__4614_ (
+);
+
+AOI21X1 _3684_ (
+    .A(_1196__bF$buf4),
+    .B(_746_),
+    .C(_488_),
+    .Y(_487_)
+);
+
+INVX1 _3264_ (
+    .A(\u_cpu.ABL [4]),
+    .Y(_138_)
+);
+
+FILL FILL_2__2537_ (
+);
+
+FILL FILL_4__3824_ (
+);
+
+FILL FILL_4__3404_ (
+);
+
+NOR2X1 _4889_ (
+    .A(_Addr_Bus[10]),
+    .B(_Addr_Bus[11]),
+    .Y(_2165_)
+);
+
+NOR3X1 _4469_ (
+    .A(_1293_),
+    .B(_1201_),
+    .C(_1224_),
+    .Y(_1199_)
+);
+
+OR2X2 _4049_ (
+    .A(_839_),
+    .B(_817_),
+    .Y(_816_)
+);
+
+FILL FILL_0__3724_ (
+);
+
+FILL FILL_0__3304_ (
+);
+
+FILL FILL_3__4293_ (
+);
+
+FILL FILL_4__4609_ (
+);
+
+FILL FILL_0__4929_ (
+);
+
+FILL FILL_3__2606_ (
+);
+
+FILL FILL_0__4509_ (
+);
+
+FILL FILL_2__3495_ (
+);
+
+DFFSR _2955_ (
+    .R(vdd),
+    .S(_1491_),
+    .D(_1630_),
+    .CLK(clk_bF$buf12),
+    .Q(\u_pia_kbd.state [0])
+);
+
+AOI22X1 _2535_ (
+    .A(_2354__4_bF$buf6),
+    .B(_2290_),
+    .C(_2291_),
+    .D(_2289_),
+    .Y(_2292_)
+);
+
+FILL FILL_4__4782_ (
+);
+
+FILL FILL_4__4362_ (
+);
+
+FILL FILL_0__4682_ (
+);
+
+FILL FILL_0__4262_ (
+);
+
+FILL FILL_1__2697_ (
+);
+
+FILL FILL_3__3984_ (
+);
+
+FILL FILL_3__3564_ (
+);
+
+FILL FILL_1__4843_ (
+);
+
+FILL FILL_1__4423_ (
+);
+
+FILL FILL_1__4003_ (
+);
+
+FILL FILL_3__4769_ (
+);
+
+FILL FILL_3__4349_ (
+);
+
+OAI21X1 _3493_ (
+    .A(_1305__bF$buf2),
+    .B(_1331_),
+    .C(_843_),
+    .Y(_306_)
+);
+
+DFFSR _3073_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1373_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABH [6])
+);
+
+FILL FILL_2__2766_ (
+);
+
+FILL FILL_4__3633_ (
+);
+
+FILL FILL_4__3213_ (
+);
+
+OAI21X1 _4698_ (
+    .A(_1746_),
+    .B(_1750_),
+    .C(_1742_),
+    .Y(_1751_)
+);
+
+NAND3X1 _4278_ (
+    .A(_1027_),
+    .B(_1123_),
+    .C(_1117_),
+    .Y(_1026_)
+);
+
+FILL FILL_0__3953_ (
+);
+
+FILL FILL_0__3533_ (
+);
+
+FILL FILL_2__4912_ (
+);
+
+FILL FILL_4__4838_ (
+);
+
+FILL FILL_4__4418_ (
+);
+
+FILL FILL_3__2835_ (
+);
+
+FILL FILL_0__4738_ (
+);
+
+FILL FILL_3__2415_ (
+);
+
+FILL FILL_0__4318_ (
+);
+
+OAI21X1 _2764_ (
+    .A(_1923__bF$buf3),
+    .B(_1971_),
+    .C(_2354__7_bF$buf3),
+    .Y(_1972_)
+);
+
+FILL FILL_4__4591_ (
+);
+
+FILL FILL_4__4171_ (
+);
+
+FILL FILL_0__4491_ (
+);
+
+FILL FILL_2__4089_ (
+);
+
+FILL FILL_0__4071_ (
+);
+
+FILL FILL_4__2904_ (
+);
+
+OAI21X1 _3969_ (
+    .A(_1328__bF$buf0),
+    .B(_1252_),
+    .C(_1345__bF$buf3),
+    .Y(_744_)
+);
+
+AOI21X1 _3549_ (
+    .A(_359_),
+    .B(\u_cpu.ADD [4]),
+    .C(_355_),
+    .Y(_354_)
+);
+
+DFFSR _3129_ (
+    .R(vdd),
+    .S(_1417__bF$buf10),
+    .D(_1431_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.state [3])
+);
+
+FILL FILL_0__2804_ (
+);
+
+NAND3X1 _4910_ (
+    .A(_Addr_Bus[1]),
+    .B(_2185_),
+    .C(_2176_),
+    .Y(_2186_)
+);
+
+FILL FILL_3__3793_ (
+);
+
+FILL FILL_3__3373_ (
+);
+
+FILL FILL_1__4652_ (
+);
+
+FILL FILL_1__4232_ (
+);
+
+FILL FILL_3__4578_ (
+);
+
+FILL FILL_3__4158_ (
+);
+
+FILL FILL_2__2995_ (
+);
+
+FILL FILL_2__2575_ (
+);
+
+FILL FILL_4__3862_ (
+);
+
+FILL FILL_4__3442_ (
+);
+
+FILL FILL_4__3022_ (
+);
+
+NOR2X1 _4087_ (
+    .A(_1240_),
+    .B(_855_),
+    .Y(_854_)
+);
+
+FILL FILL_0__3762_ (
+);
+
+FILL FILL_0__3342_ (
+);
+
+FILL FILL_2__4721_ (
+);
+
+FILL FILL_2__4301_ (
+);
+
+FILL FILL_4__4647_ (
+);
+
+FILL FILL_4__4227_ (
+);
+
+FILL FILL_0__4967_ (
+);
+
+FILL FILL_3__2644_ (
+);
+
+FILL FILL_0__4547_ (
+);
+
+FILL FILL_0__4127_ (
+);
+
+FILL FILL_1__3923_ (
+);
+
+FILL FILL_1__3503_ (
+);
+
+FILL FILL_3__3849_ (
+);
+
+FILL FILL_3__3429_ (
+);
+
+FILL FILL_3__3009_ (
+);
+
+AND2X2 _2993_ (
+    .A(_1606_),
+    .B(_1607_),
+    .Y(_1608_)
+);
+
+NOR2X1 _2573_ (
+    .A(_2254_),
+    .B(_1995_),
+    .Y(_2255_)
+);
+
+FILL FILL_1__4708_ (
+);
+
+FILL FILL_4__2713_ (
+);
+
+OAI21X1 _3778_ (
+    .A(_1325__bF$buf4),
+    .B(_904_),
+    .C(_1241_),
+    .Y(_577_)
+);
+
+NAND2X1 _3358_ (
+    .A(_198_),
+    .B(_195_),
+    .Y(_194_)
+);
+
+FILL FILL_0__2613_ (
+);
+
+FILL FILL_3__3182_ (
+);
+
+FILL FILL_4__3918_ (
+);
+
+FILL FILL_0__3818_ (
+);
+
+FILL FILL_1__4461_ (
+);
+
+FILL FILL_1__4041_ (
+);
+
+FILL FILL_3__4387_ (
+);
+
+FILL FILL_2__2384_ (
+);
+
+FILL FILL_4__3671_ (
+);
+
+FILL FILL_4__3251_ (
+);
+
+FILL FILL_0__3991_ (
+);
+
+FILL FILL_2__3589_ (
+);
+
+FILL FILL_0__3571_ (
+);
+
+FILL FILL_2__3169_ (
+);
+
+FILL FILL_2__4950_ (
+);
+
+FILL FILL_2__4530_ (
+);
+
+FILL FILL_2__4110_ (
+);
+
+OAI21X1 _2629_ (
+    .A(_1638__bF$buf2),
+    .B(_1949_),
+    .C(_1979_),
+    .Y(_2105_)
+);
+
+FILL FILL_4__4456_ (
+);
+
+FILL FILL_4__4036_ (
+);
+
+FILL FILL_0__4776_ (
+);
+
+FILL FILL_0__4356_ (
+);
+
+FILL FILL_3__2453_ (
+);
+
+FILL FILL_1__3732_ (
+);
+
+FILL FILL_1__3312_ (
+);
+
+FILL FILL_3__3658_ (
+);
+
+FILL FILL_3__3238_ (
+);
+
+BUFX2 _2382_ (
+    .A(_2350_),
+    .Y(dsp_rdy)
+);
+
+FILL FILL_1__4937_ (
+);
+
+FILL FILL_1__4517_ (
+);
+
+FILL FILL_4__2942_ (
+);
+
+FILL FILL_4__2522_ (
+);
+
+AND2X2 _3587_ (
+    .A(_507_),
+    .B(_392_),
+    .Y(_391_)
+);
+
+NOR2X1 _3167_ (
+    .A(_1288_),
+    .B(_1213_),
+    .Y(_73_)
+);
+
+FILL FILL_0__2842_ (
+);
+
+FILL FILL_0__2422_ (
+);
+
+FILL FILL_2__3801_ (
+);
+
+FILL FILL_4__3727_ (
+);
+
+FILL FILL_4__3307_ (
+);
+
+FILL FILL_0__3627_ (
+);
+
+FILL FILL_0__3207_ (
+);
+
+FILL FILL_1__4690_ (
+);
+
+FILL FILL_1__4270_ (
+);
+
+FILL FILL_3__4196_ (
+);
+
+FILL FILL_3__2929_ (
+);
+
+FILL FILL_3__2509_ (
+);
+
+FILL FILL_4__3480_ (
+);
+
+FILL FILL_0__3380_ (
+);
+
+FILL FILL_2__3398_ (
+);
+
+OAI21X1 _2858_ (
+    .A(_2354__0_bF$buf0),
+    .B(_1635__bF$buf0),
+    .C(_1636__bF$buf0),
+    .Y(_1637_)
+);
+
+OAI21X1 _2438_ (
+    .A(_1658_),
+    .B(_2037_),
+    .C(_1920__bF$buf3),
+    .Y(_37_)
+);
+
+FILL FILL_4__4685_ (
+);
+
+FILL FILL_4__4265_ (
+);
+
+FILL FILL272250x36150 (
+);
+
+FILL FILL_3__2682_ (
+);
+
+FILL FILL_0__4585_ (
+);
+
+FILL FILL_0__4165_ (
+);
+
+FILL FILL_1__3961_ (
+);
+
+FILL FILL_1__3541_ (
+);
+
+FILL FILL_3__3887_ (
+);
+
+FILL FILL_3__3467_ (
+);
+
+FILL FILL_1__4746_ (
+);
+
+FILL FILL_1__4326_ (
+);
+
+FILL FILL_4__2751_ (
+);
+
+AOI21X1 _3396_ (
+    .A(\u_cpu.ADD [4]),
+    .B(_908_),
+    .C(_229_),
+    .Y(_228_)
+);
+
+FILL FILL_0__2651_ (
+);
+
+FILL FILL_2__2669_ (
+);
+
+FILL FILL_2__3610_ (
+);
+
+FILL FILL_4__3956_ (
+);
+
+FILL FILL_4__3536_ (
+);
+
+FILL FILL_0__3856_ (
+);
+
+FILL FILL_0__3436_ (
+);
+
+FILL FILL_0__3016_ (
+);
+
+FILL FILL_2__4815_ (
+);
+
+FILL FILL_1__2812_ (
+);
+
+FILL FILL_3__2738_ (
+);
+
+OAI21X1 _2667_ (
+    .A(_2354__1_bF$buf0),
+    .B(_1961_),
+    .C(_1643__bF$buf1),
+    .Y(_2067_)
+);
+
+FILL FILL_4__4494_ (
+);
+
+FILL FILL_4__4074_ (
+);
+
+FILL FILL_3__2491_ (
+);
+
+FILL FILL_0__4394_ (
+);
+
+FILL FILL_4__2807_ (
+);
+
+FILL FILL_0__2707_ (
+);
+
+NOR2X1 _4813_ (
+    .A(\u_cpu.ADD [6]),
+    .B(\u_cpu.ADD [2]),
+    .Y(_1859_)
+);
+
+FILL FILL_1__3770_ (
+);
+
+FILL FILL_1__3350_ (
+);
+
+FILL FILL_3__3696_ (
+);
+
+FILL FILL_3__3276_ (
+);
+
+FILL FILL_1__4975_ (
+);
+
+FILL FILL_1__4555_ (
+);
+
+FILL FILL_1__4135_ (
+);
+
+FILL FILL_4__2980_ (
+);
+
+FILL FILL_4__2560_ (
+);
+
+FILL FILL_0__2880_ (
+);
+
+FILL FILL_2__2898_ (
+);
+
+FILL FILL_2__2478_ (
+);
+
+FILL FILL_0__2460_ (
+);
+
+FILL FILL_4__3765_ (
+);
+
+FILL FILL_4__3345_ (
+);
+
+FILL FILL_0__3665_ (
+);
+
+FILL FILL_0__3245_ (
+);
+
+FILL FILL_2__4624_ (
+);
+
+FILL FILL_2__4204_ (
+);
+
+FILL FILL_1__2621_ (
+);
+
+FILL FILL_3__2967_ (
+);
+
+FILL FILL_3__2547_ (
+);
+
+FILL FILL_1__3826_ (
+);
+
+FILL FILL_1__3406_ (
+);
+
+OAI21X1 _2896_ (
+    .A(_1550_),
+    .B(_1564_),
+    .C(_2350_),
+    .Y(_1565_)
+);
+
+AOI21X1 _2476_ (
+    .A(_2355_),
+    .B(_2348_),
+    .C(_1923__bF$buf0),
+    .Y(_0_)
+);
+
+FILL FILL_4__2616_ (
+);
+
+FILL FILL_0__2936_ (
+);
+
+FILL FILL_0__2516_ (
+);
+
+NOR2X1 _4622_ (
+    .A(\u_cpu.state [4]),
+    .B(\u_cpu.state [5]),
+    .Y(_1350_)
+);
+
+NAND2X1 _4202_ (
+    .A(\u_cpu.ADD [2]),
+    .B(_972_),
+    .Y(_958_)
+);
+
+FILL FILL_1__4784_ (
+);
+
+FILL FILL_1__4364_ (
+);
+
+FILL FILL_4__3994_ (
+);
+
+FILL FILL_4__3574_ (
+);
+
+FILL FILL_0__3894_ (
+);
+
+FILL FILL_0__3474_ (
+);
+
+FILL FILL_2__4853_ (
+);
+
+FILL FILL_2__4433_ (
+);
+
+FILL FILL_2__4013_ (
+);
+
+FILL FILL_4__4779_ (
+);
+
+FILL FILL_4__4359_ (
+);
+
+FILL FILL_1__2850_ (
+);
+
+FILL FILL_1__2430_ (
+);
+
+FILL FILL_0__4679_ (
+);
+
+FILL FILL_3__2776_ (
+);
+
+FILL FILL_0__4259_ (
+);
+
+FILL FILL_3__2356_ (
+);
+
+FILL FILL272550x79350 (
+);
+
+FILL FILL_1__3635_ (
+);
+
+FILL FILL_1__3215_ (
+);
+
+FILL FILL_3__4922_ (
+);
+
+FILL FILL_3__4502_ (
+);
+
+FILL FILL_4__2845_ (
+);
+
+FILL FILL_4__2425_ (
+);
+
+FILL FILL_3_BUFX2_insert39 (
+);
+
+FILL FILL_0__2745_ (
+);
+
+NAND2X1 _4851_ (
+    .A(_1892_),
+    .B(_1887_),
+    .Y(_1893_)
+);
+
+NAND2X1 _4431_ (
+    .A(RDY_bF$buf2),
+    .B(Data_In[3]),
+    .Y(_1166_)
+);
+
+INVX1 _4011_ (
+    .A(\u_cpu.AN ),
+    .Y(_781_)
+);
+
+FILL FILL_2__3704_ (
+);
+
+FILL FILL_1__4593_ (
+);
+
+FILL FILL_1__4173_ (
+);
+
+FILL FILL_3__4099_ (
+);
+
+FILL FILL_2__4909_ (
+);
+
+FILL FILL_1__2906_ (
+);
+
+FILL FILL_4__3383_ (
+);
+
+FILL FILL_4_BUFX2_insert100 (
+);
+
+FILL FILL_4_BUFX2_insert101 (
+);
+
+FILL FILL_4_BUFX2_insert102 (
+);
+
+FILL FILL_4_BUFX2_insert103 (
+);
+
+FILL FILL_4_BUFX2_insert104 (
+);
+
+FILL FILL_4_BUFX2_insert105 (
+);
+
+FILL FILL_4_BUFX2_insert106 (
+);
+
+FILL FILL_4_BUFX2_insert107 (
+);
+
+FILL FILL_4_BUFX2_insert108 (
+);
+
+FILL FILL_4_BUFX2_insert109 (
+);
+
+FILL FILL_0__3283_ (
+);
+
+FILL FILL_2__4662_ (
+);
+
+FILL FILL_2__4242_ (
+);
+
+FILL FILL_4__4588_ (
+);
+
+FILL FILL_4__4168_ (
+);
+
+INVX2 _3702_ (
+    .A(_503_),
+    .Y(_502_)
+);
+
+FILL FILL_3__2585_ (
+);
+
+FILL FILL_0__4488_ (
+);
+
+FILL FILL_0__4068_ (
+);
+
+INVX1 _4907_ (
+    .A(DI[6]),
+    .Y(_2183_)
+);
+
+FILL FILL_1__3864_ (
+);
+
+FILL FILL_1__3444_ (
+);
+
+FILL FILL_1__3024_ (
+);
+
+FILL FILL_3_BUFX2_insert120 (
+);
+
+FILL FILL_3_BUFX2_insert121 (
+);
+
+FILL FILL274050x150 (
+);
+
+FILL FILL_3_BUFX2_insert122 (
+);
+
+FILL FILL_3_BUFX2_insert123 (
+);
+
+FILL FILL_3__4731_ (
+);
+
+FILL FILL_3_BUFX2_insert124 (
+);
+
+FILL FILL_3__4311_ (
+);
+
+FILL FILL_3_BUFX2_insert125 (
+);
+
+FILL FILL_3_BUFX2_insert126 (
+);
+
+FILL FILL_3_BUFX2_insert127 (
+);
+
+FILL FILL_3_BUFX2_insert128 (
+);
+
+FILL FILL_3_BUFX2_insert129 (
+);
+
+FILL FILL_1__4649_ (
+);
+
+FILL FILL_1__4229_ (
+);
+
+FILL FILL_4__2654_ (
+);
+
+OAI21X1 _3299_ (
+    .A(_924_),
+    .B(_921_),
+    .C(_156_),
+    .Y(_1406_)
+);
+
+FILL FILL_0__2974_ (
+);
+
+FILL FILL_0__2554_ (
+);
+
+OAI21X1 _4660_ (
+    .A(_1704_),
+    .B(_1698_),
+    .C(_1712_),
+    .Y(_1713_)
+);
+
+AOI22X1 _4240_ (
+    .A(_1002_),
+    .B(_1007_),
+    .C(_996_),
+    .D(_993_),
+    .Y(_992_)
+);
+
+FILL FILL_2__3933_ (
+);
+
+FILL FILL_2__3513_ (
+);
+
+FILL FILL_4__3859_ (
+);
+
+FILL FILL_4__3439_ (
+);
+
+FILL FILL_4__3019_ (
+);
+
+FILL FILL_4__4800_ (
+);
+
+FILL FILL_0__3759_ (
+);
+
+FILL FILL_0__3339_ (
+);
+
+FILL FILL_2__4718_ (
+);
+
+FILL FILL_0__4700_ (
+);
+
+FILL FILL_1__2715_ (
+);
+
+FILL FILL_4__3192_ (
+);
+
+FILL FILL_2__4891_ (
+);
+
+FILL FILL_2__4471_ (
+);
+
+FILL FILL_2__4051_ (
+);
+
+FILL FILL_4__4397_ (
+);
+
+NAND2X1 _3931_ (
+    .A(\u_cpu.AXYS[2] [1]),
+    .B(_760_),
+    .Y(_711_)
+);
+
+OAI21X1 _3511_ (
+    .A(_360_),
+    .B(_326_),
+    .C(_323_),
+    .Y(\u_cpu.AI [1])
+);
+
+FILL FILL_3__2394_ (
+);
+
+FILL FILL_0__4297_ (
+);
+
+OAI21X1 _4716_ (
+    .A(_1768_),
+    .B(_1764_),
+    .C(_1741_),
+    .Y(_1769_)
+);
+
+FILL FILL_1__3673_ (
+);
+
+FILL FILL_1__3253_ (
+);
+
+FILL FILL_3__3599_ (
+);
+
+FILL FILL_3__3179_ (
+);
+
+FILL FILL_3__4960_ (
+);
+
+FILL FILL_3__4540_ (
+);
+
+FILL FILL_3__4120_ (
+);
+
+FILL FILL_1__4458_ (
+);
+
+FILL FILL_1__4038_ (
+);
+
+FILL FILL_4__2883_ (
+);
+
+FILL FILL_4__2463_ (
+);
+
+FILL FILL273150x50550 (
+);
+
+FILL FILL_0__2783_ (
+);
+
+FILL FILL_0__2363_ (
+);
+
+FILL FILL_2__3742_ (
+);
+
+FILL FILL_2__3322_ (
+);
+
+FILL FILL_4__3668_ (
+);
+
+FILL FILL_4__3248_ (
+);
+
+FILL FILL_0__3988_ (
+);
+
+FILL FILL_0__3568_ (
+);
+
+FILL FILL_4_BUFX2_insert80 (
+);
+
+FILL FILL_4_BUFX2_insert81 (
+);
+
+FILL FILL_4_BUFX2_insert82 (
+);
+
+FILL FILL_4_BUFX2_insert83 (
+);
+
+FILL FILL_4_BUFX2_insert84 (
+);
+
+FILL FILL_2__4947_ (
+);
+
+FILL FILL_4_BUFX2_insert85 (
+);
+
+FILL FILL_2__4527_ (
+);
+
+FILL FILL_2__4107_ (
+);
+
+FILL FILL_4_BUFX2_insert86 (
+);
+
+FILL FILL_4_BUFX2_insert87 (
+);
+
+FILL FILL_4_BUFX2_insert88 (
+);
+
+FILL FILL_4_BUFX2_insert89 (
+);
+
+FILL FILL_1__2944_ (
+);
+
+FILL FILL_1__2524_ (
+);
+
+FILL FILL_3__3811_ (
+);
+
+FILL FILL_1__3729_ (
+);
+
+FILL FILL_1__3309_ (
+);
+
+FILL FILL_2__4280_ (
+);
+
+OAI22X1 _2799_ (
+    .A(_1935_),
+    .B(_1936_),
+    .C(_1638__bF$buf2),
+    .D(_1934_),
+    .Y(_1937_)
+);
+
+BUFX2 _2379_ (
+    .A(_2353_[0]),
+    .Y(DO[0])
+);
+
+OAI21X1 _3740_ (
+    .A(\u_cpu.CO ),
+    .B(\u_cpu.store ),
+    .C(RDY_bF$buf5),
+    .Y(_539_)
+);
+
+OAI21X1 _3320_ (
+    .A(_174_),
+    .B(_1129__bF$buf5),
+    .C(_171_),
+    .Y(_1412_)
+);
+
+FILL FILL_4__2939_ (
+);
+
+FILL FILL_4__2519_ (
+);
+
+FILL FILL_0__2839_ (
+);
+
+FILL FILL_0__2419_ (
+);
+
+NAND2X1 _4945_ (
+    .A(_2217_),
+    .B(_2186_),
+    .Y(_2218_)
+);
+
+NAND3X1 _4525_ (
+    .A(_1256_),
+    .B(_1254_),
+    .C(_1257_),
+    .Y(_1253_)
+);
+
+INVX1 _4105_ (
+    .A(_872_),
+    .Y(_871_)
+);
+
+FILL FILL_1__3482_ (
+);
+
+FILL FILL_1__4687_ (
+);
+
+FILL FILL_1__4267_ (
+);
+
+FILL FILL_4__2692_ (
+);
+
+FILL FILL_0__2592_ (
+);
+
+FILL FILL_2__3971_ (
+);
+
+FILL FILL_2__3551_ (
+);
+
+FILL FILL_4__3897_ (
+);
+
+FILL FILL_4__3477_ (
+);
+
+FILL FILL_0__3797_ (
+);
+
+FILL FILL_0__3377_ (
+);
+
+FILL FILL_2__4756_ (
+);
+
+FILL FILL_2__4336_ (
+);
+
+FILL FILL_1__2753_ (
+);
+
+FILL FILL_3__2679_ (
+);
+
+FILL FILL_3__3620_ (
+);
+
+FILL FILL_3__3200_ (
+);
+
+FILL FILL_1__3958_ (
+);
+
+FILL FILL_1__3538_ (
+);
+
+FILL FILL_3__4825_ (
+);
+
+FILL FILL_3__4405_ (
+);
+
+FILL FILL_2__2822_ (
+);
+
+FILL FILL_2__2402_ (
+);
+
+FILL FILL_4__2748_ (
+);
+
+FILL FILL_0__2648_ (
+);
+
+OAI21X1 _4754_ (
+    .A(_1803_),
+    .B(_1790_),
+    .C(_1806_),
+    .Y(_1807_)
+);
+
+AOI21X1 _4334_ (
+    .A(_1080_),
+    .B(_1327_),
+    .C(_1082_),
+    .Y(_1079_)
+);
+
+FILL FILL_1__3291_ (
+);
+
+FILL FILL_2__3607_ (
+);
+
+FILL FILL_1__4496_ (
+);
+
+FILL FILL_1__4076_ (
+);
+
+FILL FILL_2_BUFX2_insert160 (
+);
+
+FILL FILL_2_BUFX2_insert161 (
+);
+
+FILL FILL_2_BUFX2_insert162 (
+);
+
+FILL FILL_2_BUFX2_insert163 (
+);
+
+FILL FILL_2_BUFX2_insert164 (
+);
+
+FILL FILL_2_BUFX2_insert165 (
+);
+
+FILL FILL_2_BUFX2_insert166 (
+);
+
+FILL FILL_2_BUFX2_insert167 (
+);
+
+FILL FILL_1__2809_ (
+);
+
+FILL FILL_2__3780_ (
+);
+
+FILL FILL_2__3360_ (
+);
+
+FILL FILL_4__3286_ (
+);
+
+NOR2X1 _2820_ (
+    .A(_2354__1_bF$buf4),
+    .B(_2354__2_bF$buf3),
+    .Y(_1916_)
+);
+
+OAI21X1 _2400_ (
+    .A(_1419_),
+    .B(_71_),
+    .C(_1420_),
+    .Y(_1421_)
+);
+
+FILL FILL_0__3186_ (
+);
+
+FILL FILL_2__4985_ (
+);
+
+FILL FILL_2__4565_ (
+);
+
+FILL FILL_2__4145_ (
+);
+
+NAND2X1 _3605_ (
+    .A(\u_cpu.cond_code [1]),
+    .B(_699_),
+    .Y(_409_)
+);
+
+FILL FILL_1__2982_ (
+);
+
+FILL FILL_1__2562_ (
+);
+
+FILL FILL_3__2488_ (
+);
+
+FILL FILL_1__3767_ (
+);
+
+FILL FILL_1__3347_ (
+);
+
+FILL FILL_3__4634_ (
+);
+
+FILL FILL_3__4214_ (
+);
+
+FILL FILL_2__2631_ (
+);
+
+FILL FILL_4__2977_ (
+);
+
+FILL FILL_4__2557_ (
+);
+
+FILL FILL_0__2877_ (
+);
+
+FILL FILL_0__2457_ (
+);
+
+NAND3X1 _4983_ (
+    .A(_2250_),
+    .B(_2197_),
+    .C(_2251_),
+    .Y(_2252_)
+);
+
+INVX1 _4563_ (
+    .A(\u_cpu.ABL [6]),
+    .Y(_1291_)
+);
+
+NOR2X1 _4143_ (
+    .A(_913_),
+    .B(_910_),
+    .Y(_909_)
+);
+
+FILL FILL_2__3836_ (
+);
+
+FILL FILL_2__3416_ (
+);
+
+FILL FILL_4__4703_ (
+);
+
+FILL FILL_3__2700_ (
+);
+
+FILL FILL_0__4603_ (
+);
+
+FILL FILL_1__2618_ (
+);
+
+FILL FILL_3__3905_ (
+);
+
+FILL FILL_2__4794_ (
+);
+
+FILL FILL_2__4374_ (
+);
+
+OAI21X1 _3834_ (
+    .A(_1274_),
+    .B(_628_),
+    .C(\u_cpu.V ),
+    .Y(_627_)
+);
+
+AOI22X1 _3414_ (
+    .A(_636_),
+    .B(\u_cpu.PC [2]),
+    .C(\u_cpu.ADD [2]),
+    .D(_625_),
+    .Y(_243_)
+);
+
+FILL FILL_1__2791_ (
+);
+
+FILL FILL_1__2371_ (
+);
+
+INVX1 _4619_ (
+    .A(_1348_),
+    .Y(_1347_)
+);
+
+FILL FILL_1__3996_ (
+);
+
+FILL FILL_1__3576_ (
+);
+
+FILL FILL_3__4863_ (
+);
+
+FILL FILL_3__4443_ (
+);
+
+FILL FILL_3__4023_ (
+);
+
+FILL FILL_2__2860_ (
+);
+
+FILL FILL_2__2440_ (
+);
+
+FILL FILL_4__2786_ (
+);
+
+FILL FILL_4__2366_ (
+);
+
+FILL FILL_0__2686_ (
+);
+
+AOI21X1 _4792_ (
+    .A(_1792_),
+    .B(_1763_),
+    .C(_1757_),
+    .Y(_1844_)
+);
+
+OAI21X1 _4372_ (
+    .A(RDY_bF$buf7),
+    .B(_1115_),
+    .C(_1114_),
+    .Y(\u_cpu.DIMUX [7])
+);
+
+FILL FILL_2__3645_ (
+);
+
+FILL FILL_2__3225_ (
+);
+
+FILL FILL_4__4932_ (
+);
+
+FILL FILL_4__4512_ (
+);
+
+FILL FILL_0__4832_ (
+);
+
+FILL FILL_0__4412_ (
+);
+
+FILL FILL_1__2847_ (
+);
+
+FILL FILL_1__2427_ (
+);
+
+FILL FILL_3__3714_ (
+);
+
+FILL FILL_2__4183_ (
+);
+
+FILL FILL_3__4919_ (
+);
+
+OAI21X1 _3643_ (
+    .A(_1328__bF$buf1),
+    .B(_904_),
+    .C(_1196__bF$buf6),
+    .Y(_446_)
+);
+
+OAI21X1 _3223_ (
+    .A(_1196__bF$buf8),
+    .B(_1345__bF$buf0),
+    .C(\u_cpu.load_only ),
+    .Y(_111_)
+);
+
+FILL FILL_2__2916_ (
+);
+
+INVX1 _4848_ (
+    .A(_1889_),
+    .Y(_1890_)
+);
+
+INVX1 _4428_ (
+    .A(\u_cpu.ADD [3]),
+    .Y(_1164_)
+);
+
+OAI21X1 _4008_ (
+    .A(_781_),
+    .B(_877_),
+    .C(_779_),
+    .Y(_778_)
+);
+
+FILL FILL_1__3385_ (
+);
+
+FILL FILL_3__4672_ (
+);
+
+FILL FILL_3__4252_ (
+);
+
+FILL FILL_4__2595_ (
+);
+
+FILL FILL_0__2495_ (
+);
+
+NOR2X1 _4181_ (
+    .A(\u_cpu.CO ),
+    .B(_970_),
+    .Y(_940_)
+);
+
+FILL FILL_2__3874_ (
+);
+
+FILL FILL_2__3454_ (
+);
+
+INVX1 _2914_ (
+    .A(\u_pia_dsp.state [1]),
+    .Y(_1551_)
+);
+
+FILL FILL_4__4741_ (
+);
+
+FILL FILL_4__4321_ (
+);
+
+FILL FILL_2__4659_ (
+);
+
+FILL FILL_0__4641_ (
+);
+
+FILL FILL_2__4239_ (
+);
+
+FILL FILL_0__4221_ (
+);
+
+FILL FILL_1__2656_ (
+);
+
+FILL FILL_3__3943_ (
+);
+
+FILL FILL_3__3523_ (
+);
+
+FILL FILL_1__4802_ (
+);
+
+FILL FILL_3__4728_ (
+);
+
+FILL FILL_3__4308_ (
+);
+
+OAI21X1 _3872_ (
+    .A(_670_),
+    .B(_664_),
+    .C(_663_),
+    .Y(_662_)
+);
+
+OAI21X1 _3452_ (
+    .A(_1192_),
+    .B(_278_),
+    .C(_274_),
+    .Y(\u_cpu.BI [1])
+);
+
+INVX1 _3032_ (
+    .A(DO_kbd[6]),
+    .Y(_1497_)
+);
+
+FILL FILL_2__2725_ (
+);
+
+NAND3X1 _4657_ (
+    .A(_1684_),
+    .B(_1709_),
+    .C(_1708_),
+    .Y(_1710_)
+);
+
+NOR2X1 _4237_ (
+    .A(_1020_),
+    .B(_1000_),
+    .Y(_989_)
+);
+
+FILL FILL_1__3194_ (
+);
+
+FILL FILL_0__3912_ (
+);
+
+FILL FILL_3__4481_ (
+);
+
+FILL FILL_3__4061_ (
+);
+
+FILL FILL_1__4399_ (
+);
+
+FILL FILL_2__3683_ (
+);
+
+FILL FILL_2__3263_ (
+);
+
+FILL FILL_4__3189_ (
+);
+
+NAND3X1 _2723_ (
+    .A(_2009_),
+    .B(_2011_),
+    .C(_2005_),
+    .Y(_2012_)
+);
+
+FILL FILL_4__4970_ (
+);
+
+FILL FILL_4__4550_ (
+);
+
+FILL FILL_4__4130_ (
+);
+
+FILL FILL_0__4870_ (
+);
+
+FILL FILL_2__4888_ (
+);
+
+FILL FILL_0__4450_ (
+);
+
+FILL FILL_2__4468_ (
+);
+
+FILL FILL_0__4030_ (
+);
+
+FILL FILL_2__4048_ (
+);
+
+OAI21X1 _3928_ (
+    .A(_952_),
+    .B(_760_),
+    .C(_710_),
+    .Y(_1447_)
+);
+
+OAI21X1 _3508_ (
+    .A(_1207_),
+    .B(_356_),
+    .C(_321_),
+    .Y(_320_)
+);
+
+FILL FILL_1__2885_ (
+);
+
+FILL FILL_1__2465_ (
+);
+
+FILL FILL_3__3752_ (
+);
+
+FILL FILL_3__3332_ (
+);
+
+FILL FILL_1__4611_ (
+);
+
+FILL FILL_3__4957_ (
+);
+
+FILL FILL_3__4537_ (
+);
+
+FILL FILL_3__4117_ (
+);
+
+AOI22X1 _3681_ (
+    .A(_991_),
+    .B(_485_),
+    .C(_486_),
+    .D(_1001_),
+    .Y(_484_)
+);
+
+NAND2X1 _3261_ (
+    .A(_800__bF$buf3),
+    .B(_2354__5_bF$buf1),
+    .Y(_136_)
+);
+
+FILL FILL_2__2534_ (
+);
+
+FILL FILL_4__3821_ (
+);
+
+FILL FILL_4__3401_ (
+);
+
+NOR2X1 _4886_ (
+    .A(_Addr_Bus[2]),
+    .B(_Addr_Bus[3]),
+    .Y(_2162_)
+);
+
+OAI21X1 _4466_ (
+    .A(RDY_bF$buf4),
+    .B(_1210_),
+    .C(_1197_),
+    .Y(_1489_)
+);
+
+NOR2X1 _4046_ (
+    .A(_882_),
+    .B(_902_),
+    .Y(_813_)
+);
+
+FILL FILL_2__3739_ (
+);
+
+FILL FILL_0__3721_ (
+);
+
+FILL FILL_2__3319_ (
+);
+
+FILL FILL_0__3301_ (
+);
+
+FILL FILL_3__4290_ (
+);
+
+FILL FILL_4__4606_ (
+);
+
+FILL FILL_0__4926_ (
+);
+
+FILL FILL_3__2603_ (
+);
+
+FILL FILL_0__4506_ (
+);
+
+FILL FILL_2__3492_ (
+);
+
+FILL FILL_3__3808_ (
+);
+
+DFFPOSX1 _2952_ (
+    .D(_2346_[3]),
+    .CLK(clk_bF$buf6),
+    .Q(DO_woz[3])
+);
+
+NAND3X1 _2532_ (
+    .A(_1635__bF$buf4),
+    .B(_1935_),
+    .C(_2098_),
+    .Y(_2295_)
+);
+
+FILL FILL_2__4697_ (
+);
+
+FILL FILL_2__4277_ (
+);
+
+INVX1 _3737_ (
+    .A(_1064_),
+    .Y(_536_)
+);
+
+OAI21X1 _3317_ (
+    .A(_781_),
+    .B(_1349_),
+    .C(_1315__bF$buf0),
+    .Y(_168_)
+);
+
+FILL FILL_1__2694_ (
+);
+
+FILL FILL_3__3981_ (
+);
+
+FILL FILL_3__3561_ (
+);
+
+FILL FILL_1__3899_ (
+);
+
+FILL FILL_1__3479_ (
+);
+
+FILL FILL_1__4840_ (
+);
+
+FILL FILL_1__4420_ (
+);
+
+FILL FILL_1__4000_ (
+);
+
+FILL FILL_3__4766_ (
+);
+
+FILL FILL_3__4346_ (
+);
+
+NOR2X1 _3490_ (
+    .A(_306_),
+    .B(_304_),
+    .Y(_303_)
+);
+
+DFFSR _3070_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [6]),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.DIHOLD [6])
+);
+
+FILL FILL_2__2763_ (
+);
+
+FILL FILL_4__2689_ (
+);
+
+FILL FILL_4__3630_ (
+);
+
+FILL FILL_4__3210_ (
+);
+
+FILL FILL_0__2589_ (
+);
+
+INVX1 _4695_ (
+    .A(\u_cpu.AI [0]),
+    .Y(_1748_)
+);
+
+NOR2X1 _4275_ (
+    .A(_1102_),
+    .B(_1025_),
+    .Y(_1024_)
+);
+
+FILL FILL_0__3950_ (
+);
+
+FILL FILL_2__3968_ (
+);
+
+FILL FILL_2__3548_ (
+);
+
+FILL FILL_0__3530_ (
+);
+
+FILL FILL273450x25350 (
+);
+
+FILL FILL_4__4835_ (
+);
+
+FILL FILL_4__4415_ (
+);
+
+FILL FILL_0__4735_ (
+);
+
+FILL FILL_3__2832_ (
+);
+
+FILL FILL_3__2412_ (
+);
+
+FILL FILL_0__4315_ (
+);
+
+FILL FILL_3__3617_ (
+);
+
+OAI21X1 _2761_ (
+    .A(_1635__bF$buf2),
+    .B(_1636__bF$buf1),
+    .C(_1915_),
+    .Y(_1974_)
+);
+
+FILL FILL_2__4086_ (
+);
+
+FILL FILL_4__2901_ (
+);
+
+OAI21X1 _3966_ (
+    .A(_828_),
+    .B(_742_),
+    .C(_748_),
+    .Y(_741_)
+);
+
+INVX1 _3546_ (
+    .A(\u_cpu.ABH [3]),
+    .Y(_352_)
+);
+
+DFFSR _3126_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [2]),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.DIHOLD [2])
+);
+
+FILL FILL_0__2801_ (
+);
+
+FILL FILL_2__2819_ (
+);
+
+FILL FILL_3__3790_ (
+);
+
+FILL FILL_3__3370_ (
+);
+
+FILL FILL_1__3288_ (
+);
+
+FILL FILL_3__4575_ (
+);
+
+FILL FILL_3__4155_ (
+);
+
+FILL FILL_2__2992_ (
+);
+
+FILL FILL_2__2572_ (
+);
+
+FILL FILL_0__2398_ (
+);
+
+OAI21X1 _4084_ (
+    .A(_1305__bF$buf1),
+    .B(_1087_),
+    .C(_1315__bF$buf3),
+    .Y(_851_)
+);
+
+FILL FILL_2__3777_ (
+);
+
+FILL FILL_2__3357_ (
+);
+
+AOI22X1 _2817_ (
+    .A(_1636__bF$buf1),
+    .B(_1914_),
+    .C(_1918_),
+    .D(_1915_),
+    .Y(_1919_)
+);
+
+FILL FILL_4__4644_ (
+);
+
+FILL FILL_4__4224_ (
+);
+
+FILL FILL_0__4964_ (
+);
+
+FILL FILL_3__2641_ (
+);
+
+FILL FILL_0__4544_ (
+);
+
+FILL FILL_0__4124_ (
+);
+
+FILL FILL_1__2979_ (
+);
+
+FILL FILL_1__2559_ (
+);
+
+FILL FILL_1__3920_ (
+);
+
+FILL FILL_1__3500_ (
+);
+
+FILL FILL_3__3846_ (
+);
+
+FILL FILL_3__3426_ (
+);
+
+FILL FILL_3__3006_ (
+);
+
+NAND3X1 _2990_ (
+    .A(_1605_),
+    .B(_1608_),
+    .C(_1610_),
+    .Y(_1611_)
+);
+
+OAI21X1 _2570_ (
+    .A(_1651_),
+    .B(_1652_),
+    .C(_1659_),
+    .Y(_2258_)
+);
+
+FILL FILL_1__4705_ (
+);
+
+FILL FILL_4__2710_ (
+);
+
+NOR2X1 _3775_ (
+    .A(_1324_),
+    .B(_575_),
+    .Y(_574_)
+);
+
+NAND3X1 _3355_ (
+    .A(_450_),
+    .B(_431_),
+    .C(_379_),
+    .Y(_191_)
+);
+
+FILL FILL_0__2610_ (
+);
+
+FILL FILL_2__2628_ (
+);
+
+FILL FILL_4__3915_ (
+);
+
+FILL FILL_0__3815_ (
+);
+
+FILL FILL_3__4384_ (
+);
+
+CLKBUF1 CLKBUF1_insert26 (
+    .A(clk),
+    .Y(clk_bF$buf12)
+);
+
+CLKBUF1 CLKBUF1_insert27 (
+    .A(clk),
+    .Y(clk_bF$buf11)
+);
+
+CLKBUF1 CLKBUF1_insert28 (
+    .A(clk),
+    .Y(clk_bF$buf10)
+);
+
+CLKBUF1 CLKBUF1_insert29 (
+    .A(clk),
+    .Y(clk_bF$buf9)
+);
+
+FILL FILL_2__2381_ (
+);
+
+FILL FILL_2__3586_ (
+);
+
+FILL FILL274050x86550 (
+);
+
+FILL FILL_2__3166_ (
+);
+
+NAND3X1 _2626_ (
+    .A(_2354__7_bF$buf0),
+    .B(_2092_),
+    .C(_2107_),
+    .Y(_2108_)
+);
+
+FILL FILL_4__4453_ (
+);
+
+FILL FILL_4__4033_ (
+);
+
+FILL FILL_0__4773_ (
+);
+
+FILL FILL_3__2450_ (
+);
+
+FILL FILL_0__4353_ (
+);
+
+FILL FILL_1__2788_ (
+);
+
+FILL FILL_1__2368_ (
+);
+
+FILL FILL_3__3655_ (
+);
+
+FILL FILL_3__3235_ (
+);
+
+FILL FILL_1__4934_ (
+);
+
+FILL FILL_1__4514_ (
+);
+
+NAND2X1 _3584_ (
+    .A(_389_),
+    .B(_397_),
+    .Y(_388_)
+);
+
+DFFSR _3164_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1459_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.NMI_edge )
+);
+
+FILL FILL_2__2857_ (
+);
+
+FILL FILL_2__2437_ (
+);
+
+FILL FILL_4__3724_ (
+);
+
+FILL FILL_4__3304_ (
+);
+
+NAND2X1 _4789_ (
+    .A(_1841_),
+    .B(_1829_),
+    .Y(_1842_)
+);
+
+AOI21X1 _4369_ (
+    .A(_1125_),
+    .B(_1113_),
+    .C(_1112_),
+    .Y(_1111_)
+);
+
+FILL FILL_0__3624_ (
+);
+
+FILL FILL_0__3204_ (
+);
+
+FILL FILL_3__4193_ (
+);
+
+FILL FILL_4__4929_ (
+);
+
+FILL FILL_4__4509_ (
+);
+
+FILL FILL273750x68550 (
+);
+
+FILL FILL_0__4829_ (
+);
+
+FILL FILL_3__2926_ (
+);
+
+FILL FILL_3__2506_ (
+);
+
+FILL FILL_0__4409_ (
+);
+
+FILL FILL_2__3395_ (
+);
+
+NOR2X1 _2855_ (
+    .A(_1637_),
+    .B(_1639_),
+    .Y(_1640_)
+);
+
+OAI21X1 _2435_ (
+    .A(_1638__bF$buf0),
+    .B(_1636__bF$buf0),
+    .C(_1967_),
+    .Y(_40_)
+);
+
+FILL FILL_4__4682_ (
+);
+
+FILL FILL_4__4262_ (
+);
+
+FILL FILL_0__4582_ (
+);
+
+FILL FILL_0__4162_ (
+);
+
+FILL FILL_1__2597_ (
+);
+
+FILL FILL_3__3884_ (
+);
+
+FILL FILL_3__3464_ (
+);
+
+FILL FILL_1__4743_ (
+);
+
+FILL FILL_1__4323_ (
+);
+
+FILL FILL_3__4669_ (
+);
+
+FILL FILL_3__4249_ (
+);
+
+AOI22X1 _3393_ (
+    .A(\u_cpu.DIMUX [0]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [0]),
+    .Y(_226_)
+);
+
+FILL FILL_2__2666_ (
+);
+
+FILL FILL_4__3953_ (
+);
+
+FILL FILL_4__3533_ (
+);
+
+NOR2X1 _4598_ (
+    .A(\u_cpu.state [5]),
+    .B(_1327_),
+    .Y(_1326_)
+);
+
+OAI21X1 _4178_ (
+    .A(_938_),
+    .B(_940_),
+    .C(\u_cpu.ADD [5]),
+    .Y(_937_)
+);
+
+FILL FILL_0__3853_ (
+);
+
+FILL FILL_0__3433_ (
+);
+
+FILL FILL_0__3013_ (
+);
+
+FILL FILL_2__4812_ (
+);
+
+FILL FILL_4__4738_ (
+);
+
+FILL FILL_4__4318_ (
+);
+
+FILL FILL_0__4638_ (
+);
+
+FILL FILL_3__2735_ (
+);
+
+FILL FILL_0__4218_ (
+);
+
+OAI21X1 _2664_ (
+    .A(_2069_),
+    .B(_2066_),
+    .C(_2068_),
+    .Y(_2070_)
+);
+
+FILL FILL_4__4491_ (
+);
+
+FILL FILL_4__4071_ (
+);
+
+FILL FILL_0__4391_ (
+);
+
+FILL FILL_4__2804_ (
+);
+
+MUX2X1 _3869_ (
+    .A(_660_),
+    .B(_675_),
+    .S(_665_),
+    .Y(_1438_)
+);
+
+OAI21X1 _3449_ (
+    .A(_1178_),
+    .B(_877_),
+    .C(_273_),
+    .Y(_272_)
+);
+
+NOR2X1 _3029_ (
+    .A(_1498_),
+    .B(_1499_),
+    .Y(_1500_)
+);
+
+FILL FILL_0__2704_ (
+);
+
+OR2X2 _4810_ (
+    .A(\u_cpu.ADD [0]),
+    .B(\u_cpu.ADD [1]),
+    .Y(_1856_)
+);
+
+FILL FILL_3__3693_ (
+);
+
+FILL FILL_3__3273_ (
+);
+
+FILL FILL_0__3909_ (
+);
+
+FILL FILL_1__4972_ (
+);
+
+FILL FILL_1__4552_ (
+);
+
+FILL FILL_1__4132_ (
+);
+
+FILL FILL_3__4898_ (
+);
+
+FILL FILL_3__4478_ (
+);
+
+FILL FILL_3__4058_ (
+);
+
+FILL FILL_2__2895_ (
+);
+
+FILL FILL_2__2475_ (
+);
+
+FILL FILL_4__3762_ (
+);
+
+FILL FILL_4__3342_ (
+);
+
+FILL FILL_0__3662_ (
+);
+
+FILL FILL_0__3242_ (
+);
+
+FILL FILL_2__4621_ (
+);
+
+FILL FILL_2__4201_ (
+);
+
+FILL FILL_4__4967_ (
+);
+
+FILL FILL_4__4547_ (
+);
+
+FILL FILL_4__4127_ (
+);
+
+FILL FILL_0__4867_ (
+);
+
+FILL FILL_3__2964_ (
+);
+
+FILL FILL_3__2544_ (
+);
+
+FILL FILL_0__4447_ (
+);
+
+FILL FILL_0__4027_ (
+);
+
+FILL FILL_1__3823_ (
+);
+
+FILL FILL_1__3403_ (
+);
+
+FILL FILL_3__3749_ (
+);
+
+FILL FILL_3__3329_ (
+);
+
+NAND2X1 _2893_ (
+    .A(_2354__1_bF$buf3),
+    .B(_1528_),
+    .Y(_1567_)
+);
+
+NOR2X1 _2473_ (
+    .A(_2026_),
+    .B(_2028_),
+    .Y(_2_)
+);
+
+FILL FILL_1__4608_ (
+);
+
+FILL FILL_4__2613_ (
+);
+
+NAND2X1 _3678_ (
+    .A(_537_),
+    .B(_482_),
+    .Y(_481_)
+);
+
+OAI21X1 _3258_ (
+    .A(_1291_),
+    .B(_800__bF$buf3),
+    .C(_135_),
+    .Y(_1386_)
+);
+
+FILL FILL_0__2933_ (
+);
+
+FILL FILL_0__2513_ (
+);
+
+FILL FILL_4__3818_ (
+);
+
+FILL FILL_0__3718_ (
+);
+
+FILL FILL_1__4781_ (
+);
+
+FILL FILL_1__4361_ (
+);
+
+FILL FILL_3__4287_ (
+);
+
+FILL FILL_4__3991_ (
+);
+
+FILL FILL_4__3571_ (
+);
+
+FILL FILL_0__3891_ (
+);
+
+FILL FILL_0__3471_ (
+);
+
+FILL FILL_2__3489_ (
+);
+
+FILL FILL_2__4850_ (
+);
+
+FILL FILL_2__4430_ (
+);
+
+FILL FILL_2__4010_ (
+);
+
+INVX1 _2949_ (
+    .A(_2354_[10]),
+    .Y(_1522_)
+);
+
+INVX1 _2529_ (
+    .A(_2060_),
+    .Y(_2298_)
+);
+
+FILL FILL_4__4776_ (
+);
+
+FILL FILL_4__4356_ (
+);
+
+FILL FILL_0__4676_ (
+);
+
+FILL FILL_3__2773_ (
+);
+
+FILL FILL_0__4256_ (
+);
+
+FILL FILL_1__3632_ (
+);
+
+FILL FILL_1__3212_ (
+);
+
+FILL FILL_3__3978_ (
+);
+
+FILL FILL_3__3558_ (
+);
+
+FILL FILL_1__4837_ (
+);
+
+FILL FILL_1__4417_ (
+);
+
+FILL FILL_4__2842_ (
+);
+
+FILL FILL_4__2422_ (
+);
+
+OAI21X1 _3487_ (
+    .A(_302_),
+    .B(_301_),
+    .C(RDY_bF$buf0),
+    .Y(_300_)
+);
+
+DFFSR _3067_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1371_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.write_back )
+);
+
+FILL FILL_0__2742_ (
+);
+
+FILL FILL_2__3701_ (
+);
+
+FILL FILL_4__3627_ (
+);
+
+FILL FILL_4__3207_ (
+);
+
+FILL FILL_0__3947_ (
+);
+
+FILL FILL_0__3527_ (
+);
+
+FILL FILL_1__4590_ (
+);
+
+FILL FILL_1__4170_ (
+);
+
+FILL FILL_3__4096_ (
+);
+
+FILL FILL_2__4906_ (
+);
+
+FILL FILL_1__2903_ (
+);
+
+FILL FILL_3__2829_ (
+);
+
+FILL FILL_3__2409_ (
+);
+
+FILL FILL_4__3380_ (
+);
+
+FILL FILL_2__3298_ (
+);
+
+FILL FILL_0__3280_ (
+);
+
+NAND3X1 _2758_ (
+    .A(_2354__3_bF$buf5),
+    .B(_1976_),
+    .C(_1664_),
+    .Y(_1977_)
+);
+
+FILL FILL_4__4585_ (
+);
+
+FILL FILL_4__4165_ (
+);
+
+FILL FILL274050x18150 (
+);
+
+FILL FILL272550x10950 (
+);
+
+FILL FILL_3__2582_ (
+);
+
+FILL FILL_0__4485_ (
+);
+
+FILL FILL_0__4065_ (
+);
+
+NAND3X1 _4904_ (
+    .A(_Addr_Bus[0]),
+    .B(_2175_),
+    .C(_2179_),
+    .Y(_2180_)
+);
+
+FILL FILL_1__3861_ (
+);
+
+FILL FILL_1__3441_ (
+);
+
+FILL FILL_1__3021_ (
+);
+
+FILL FILL_3__3787_ (
+);
+
+FILL FILL_3__3367_ (
+);
+
+FILL FILL_1__4646_ (
+);
+
+FILL FILL_1__4226_ (
+);
+
+OAI21X1 _3296_ (
+    .A(_721_),
+    .B(_173_),
+    .C(_155_),
+    .Y(_1404_)
+);
+
+FILL FILL_2__2989_ (
+);
+
+FILL FILL_0__2971_ (
+);
+
+FILL FILL_0__2551_ (
+);
+
+FILL FILL_2__2569_ (
+);
+
+FILL FILL_2__3930_ (
+);
+
+FILL FILL_2__3510_ (
+);
+
+FILL FILL_4__3856_ (
+);
+
+FILL FILL_4__3436_ (
+);
+
+FILL FILL_4__3016_ (
+);
+
+FILL FILL_0__3756_ (
+);
+
+FILL FILL_0__3336_ (
+);
+
+FILL FILL_2__4715_ (
+);
+
+FILL FILL_1__2712_ (
+);
+
+FILL FILL_3__2638_ (
+);
+
+FILL FILL_1__3917_ (
+);
+
+NAND2X1 _2987_ (
+    .A(\u_pia_kbd.state [0]),
+    .B(_1499_),
+    .Y(_1613_)
+);
+
+AOI21X1 _2567_ (
+    .A(_2260_),
+    .B(_2258_),
+    .C(_1923__bF$buf2),
+    .Y(_2261_)
+);
+
+FILL FILL_4__4394_ (
+);
+
+FILL FILL_0__4294_ (
+);
+
+FILL FILL_4__2707_ (
+);
+
+FILL FILL_0__2607_ (
+);
+
+NAND3X1 _4713_ (
+    .A(_1684_),
+    .B(_1734_),
+    .C(_1733_),
+    .Y(_1766_)
+);
+
+FILL FILL_1__3670_ (
+);
+
+FILL FILL_1__3250_ (
+);
+
+FILL FILL_3__3596_ (
+);
+
+FILL FILL_3__3176_ (
+);
+
+FILL FILL_1__4455_ (
+);
+
+FILL FILL_1__4035_ (
+);
+
+FILL FILL_4__2880_ (
+);
+
+FILL FILL_4__2460_ (
+);
+
+FILL FILL_0__2780_ (
+);
+
+FILL FILL_2__2798_ (
+);
+
+FILL FILL_0__2360_ (
+);
+
+FILL FILL_2__2378_ (
+);
+
+FILL FILL_4__3665_ (
+);
+
+FILL FILL_4__3245_ (
+);
+
+FILL FILL_0__3985_ (
+);
+
+FILL FILL_0__3565_ (
+);
+
+FILL FILL_4_BUFX2_insert50 (
+);
+
+FILL FILL_4_BUFX2_insert51 (
+);
+
+FILL FILL_4_BUFX2_insert52 (
+);
+
+FILL FILL_4_BUFX2_insert53 (
+);
+
+FILL FILL_2__4944_ (
+);
+
+FILL FILL_4_BUFX2_insert54 (
+);
+
+FILL FILL_4_BUFX2_insert55 (
+);
+
+FILL FILL_2__4524_ (
+);
+
+FILL FILL_4_BUFX2_insert56 (
+);
+
+FILL FILL_2__4104_ (
+);
+
+FILL FILL_4_BUFX2_insert57 (
+);
+
+FILL FILL_4_BUFX2_insert58 (
+);
+
+FILL FILL_4_BUFX2_insert59 (
+);
+
+FILL FILL_1__2941_ (
+);
+
+FILL FILL_1__2521_ (
+);
+
+FILL FILL_3__2447_ (
+);
+
+FILL FILL_1__3726_ (
+);
+
+FILL FILL_1__3306_ (
+);
+
+AOI21X1 _2796_ (
+    .A(_1939_),
+    .B(_2354__3_bF$buf4),
+    .C(_1634__bF$buf4),
+    .Y(_1940_)
+);
+
+BUFX2 _2376_ (
+    .A(_2353_[3]),
+    .Y(DO[3])
+);
+
+FILL FILL_4__2936_ (
+);
+
+FILL FILL_4__2516_ (
+);
+
+FILL FILL_0__2836_ (
+);
+
+FILL FILL_0__2416_ (
+);
+
+INVX1 _4942_ (
+    .A(DO_dsp[3]),
+    .Y(_2215_)
+);
+
+NAND2X1 _4522_ (
+    .A(_1350_),
+    .B(_1251_),
+    .Y(_1250_)
+);
+
+INVX1 _4102_ (
+    .A(_869_),
+    .Y(_868_)
+);
+
+FILL FILL_1__4684_ (
+);
+
+FILL FILL_1__4264_ (
+);
+
+FILL FILL_4__3894_ (
+);
+
+FILL FILL_4__3474_ (
+);
+
+FILL FILL_0__3794_ (
+);
+
+FILL FILL_0__3374_ (
+);
+
+FILL FILL_2__4753_ (
+);
+
+FILL FILL_2__4333_ (
+);
+
+FILL FILL_4__4679_ (
+);
+
+FILL FILL_4__4259_ (
+);
+
+FILL FILL_1__2750_ (
+);
+
+FILL FILL_3__2676_ (
+);
+
+FILL FILL_0__4579_ (
+);
+
+FILL FILL_0__4159_ (
+);
+
+FILL FILL_1__3955_ (
+);
+
+FILL FILL_1__3535_ (
+);
+
+FILL FILL_3__4822_ (
+);
+
+FILL FILL_3__4402_ (
+);
+
+FILL FILL_4__2745_ (
+);
+
+FILL FILL_0__2645_ (
+);
+
+OR2X2 _4751_ (
+    .A(_1779_),
+    .B(_1783_),
+    .Y(_1804_)
+);
+
+INVX2 _4331_ (
+    .A(_1236_),
+    .Y(_1076_)
+);
+
+FILL FILL_2__3604_ (
+);
+
+FILL FILL_1__4493_ (
+);
+
+FILL FILL_1__4073_ (
+);
+
+FILL FILL_2__4809_ (
+);
+
+FILL FILL_2_BUFX2_insert130 (
+);
+
+FILL FILL_2_BUFX2_insert131 (
+);
+
+FILL FILL_2_BUFX2_insert132 (
+);
+
+FILL FILL_2_BUFX2_insert133 (
+);
+
+FILL FILL_2_BUFX2_insert134 (
+);
+
+FILL FILL_2_BUFX2_insert135 (
+);
+
+FILL FILL_2_BUFX2_insert136 (
+);
+
+FILL FILL_2_BUFX2_insert137 (
+);
+
+FILL FILL_2_BUFX2_insert138 (
+);
+
+FILL FILL_2_BUFX2_insert139 (
+);
+
+FILL FILL_1__2806_ (
+);
+
+FILL FILL_4__3283_ (
+);
+
+FILL FILL_0__3183_ (
+);
+
+FILL FILL_2__4982_ (
+);
+
+FILL FILL_2__4562_ (
+);
+
+FILL FILL_2__4142_ (
+);
+
+FILL FILL_4__4488_ (
+);
+
+FILL FILL_4__4068_ (
+);
+
+OAI21X1 _3602_ (
+    .A(\u_cpu.cond_code [1]),
+    .B(_750_),
+    .C(_407_),
+    .Y(_406_)
+);
+
+FILL FILL_3__2485_ (
+);
+
+FILL FILL_0__4388_ (
+);
+
+FILL FILL_1_BUFX2_insert150 (
+);
+
+FILL FILL_1_BUFX2_insert151 (
+);
+
+FILL FILL_1_BUFX2_insert152 (
+);
+
+FILL FILL_1_BUFX2_insert153 (
+);
+
+FILL FILL_1_BUFX2_insert154 (
+);
+
+FILL FILL_1_BUFX2_insert155 (
+);
+
+FILL FILL_1_BUFX2_insert156 (
+);
+
+FILL FILL_1_BUFX2_insert157 (
+);
+
+FILL FILL_1_BUFX2_insert158 (
+);
+
+FILL FILL_1_BUFX2_insert159 (
+);
+
+NAND2X1 _4807_ (
+    .A(_1813_),
+    .B(_1812_),
+    .Y(_1854_)
+);
+
+FILL FILL_1__3764_ (
+);
+
+FILL FILL_1__3344_ (
+);
+
+FILL FILL_3__4631_ (
+);
+
+FILL FILL_3__4211_ (
+);
+
+FILL FILL_1__4969_ (
+);
+
+FILL FILL_1__4549_ (
+);
+
+FILL FILL_1__4129_ (
+);
+
+FILL FILL_4__2974_ (
+);
+
+FILL FILL_4__2554_ (
+);
+
+OAI21X1 _3199_ (
+    .A(_1041_),
+    .B(_943_),
+    .C(_96_),
+    .Y(_1366_)
+);
+
+FILL FILL_0__2454_ (
+);
+
+NOR2X1 _4980_ (
+    .A(_2190_),
+    .B(_2192_),
+    .Y(_2249_)
+);
+
+OAI21X1 _4560_ (
+    .A(_1292_),
+    .B(_1310_),
+    .C(_1289_),
+    .Y(_1288_)
+);
+
+INVX2 _4140_ (
+    .A(_1334_),
+    .Y(_906_)
+);
+
+FILL FILL_2__3833_ (
+);
+
+FILL FILL_2__3413_ (
+);
+
+FILL FILL_4__3759_ (
+);
+
+FILL FILL_4__3339_ (
+);
+
+FILL FILL_4__4700_ (
+);
+
+FILL FILL_0__3659_ (
+);
+
+FILL FILL_0__3239_ (
+);
+
+FILL FILL_0__4600_ (
+);
+
+FILL FILL_2__4618_ (
+);
+
+FILL FILL_1__2615_ (
+);
+
+FILL FILL_3__3902_ (
+);
+
+FILL FILL_2__4791_ (
+);
+
+FILL FILL_2__4371_ (
+);
+
+FILL FILL_4__4297_ (
+);
+
+AOI22X1 _3831_ (
+    .A(\u_cpu.PC [14]),
+    .B(_873_),
+    .C(_625_),
+    .D(\u_cpu.ADD [6]),
+    .Y(_624_)
+);
+
+OAI21X1 _3411_ (
+    .A(_629_),
+    .B(_346_),
+    .C(_241_),
+    .Y(_2353_[2])
+);
+
+FILL FILL_0__4197_ (
+);
+
+INVX2 _4616_ (
+    .A(_1345__bF$buf0),
+    .Y(_1344_)
+);
+
+FILL FILL_1__3993_ (
+);
+
+FILL FILL_1__3573_ (
+);
+
+FILL FILL_3__3499_ (
+);
+
+FILL FILL_3__4860_ (
+);
+
+FILL FILL_3__4440_ (
+);
+
+FILL FILL_3__4020_ (
+);
+
+FILL FILL_1__4778_ (
+);
+
+FILL FILL_1__4358_ (
+);
+
+FILL FILL_4__2783_ (
+);
+
+FILL FILL_4__2363_ (
+);
+
+FILL FILL_0__2683_ (
+);
+
+FILL FILL_2__3642_ (
+);
+
+FILL FILL_2__3222_ (
+);
+
+FILL FILL_4__3988_ (
+);
+
+FILL FILL_4__3568_ (
+);
+
+FILL FILL_0__3888_ (
+);
+
+FILL FILL_0__3468_ (
+);
+
+FILL FILL_2__4847_ (
+);
+
+FILL FILL_2__4427_ (
+);
+
+FILL FILL_2__4007_ (
+);
+
+FILL FILL_1__2844_ (
+);
+
+FILL FILL_1__2424_ (
+);
+
+FILL FILL_3__3711_ (
+);
+
+FILL FILL_1__3629_ (
+);
+
+FILL FILL_1__3209_ (
+);
+
+FILL FILL_2__4180_ (
+);
+
+NAND2X1 _2699_ (
+    .A(_2035_),
+    .B(_2033_),
+    .Y(_2036_)
+);
+
+FILL FILL_3__4916_ (
+);
+
+NAND3X1 _3640_ (
+    .A(_444_),
+    .B(_523_),
+    .C(_447_),
+    .Y(_443_)
+);
+
+OAI21X1 _3220_ (
+    .A(_342_),
+    .B(_800__bF$buf0),
+    .C(_110_),
+    .Y(_1373_)
+);
+
+FILL FILL_2__2913_ (
+);
+
+FILL FILL_4__2839_ (
+);
+
+FILL FILL_4__2419_ (
+);
+
+FILL FILL_0__2739_ (
+);
+
+OAI21X1 _4845_ (
+    .A(_1827_),
+    .B(_1886_),
+    .C(_1826_),
+    .Y(_1887_)
+);
+
+OAI21X1 _4425_ (
+    .A(_1318_),
+    .B(_1165_),
+    .C(_1162_),
+    .Y(_1161_)
+);
+
+INVX4 _4005_ (
+    .A(_776_),
+    .Y(_2354_[7])
+);
+
+FILL FILL_1__3382_ (
+);
+
+FILL FILL_1__4587_ (
+);
+
+FILL FILL_1__4167_ (
+);
+
+FILL FILL_4__2592_ (
+);
+
+FILL FILL_0__2492_ (
+);
+
+FILL FILL_2__3871_ (
+);
+
+FILL FILL_2__3451_ (
+);
+
+FILL FILL_2__3031_ (
+);
+
+FILL FILL_4__3797_ (
+);
+
+FILL FILL_4__3377_ (
+);
+
+AND2X2 _2911_ (
+    .A(_1522_),
+    .B(_2354__4_bF$buf2),
+    .Y(_1553_)
+);
+
+FILL FILL_0__3697_ (
+);
+
+FILL FILL_0__3277_ (
+);
+
+FILL FILL_2__4656_ (
+);
+
+FILL FILL_2__4236_ (
+);
+
+FILL FILL_1__2653_ (
+);
+
+FILL FILL_3__2999_ (
+);
+
+FILL FILL_3__2579_ (
+);
+
+BUFX2 BUFX2_insert0 (
+    .A(_800_),
+    .Y(_800__bF$buf4)
+);
+
+BUFX2 BUFX2_insert1 (
+    .A(_800_),
+    .Y(_800__bF$buf3)
+);
+
+BUFX2 BUFX2_insert2 (
+    .A(_800_),
+    .Y(_800__bF$buf2)
+);
+
+BUFX2 BUFX2_insert3 (
+    .A(_800_),
+    .Y(_800__bF$buf1)
+);
+
+BUFX2 BUFX2_insert4 (
+    .A(_800_),
+    .Y(_800__bF$buf0)
+);
+
+BUFX2 BUFX2_insert5 (
+    .A(_1636_),
+    .Y(_1636__bF$buf4)
+);
+
+BUFX2 BUFX2_insert6 (
+    .A(_1636_),
+    .Y(_1636__bF$buf3)
+);
+
+BUFX2 BUFX2_insert7 (
+    .A(_1636_),
+    .Y(_1636__bF$buf2)
+);
+
+BUFX2 BUFX2_insert8 (
+    .A(_1636_),
+    .Y(_1636__bF$buf1)
+);
+
+BUFX2 BUFX2_insert9 (
+    .A(_1636_),
+    .Y(_1636__bF$buf0)
+);
+
+FILL FILL_3__3940_ (
+);
+
+FILL FILL_3__3520_ (
+);
+
+FILL FILL_1__3858_ (
+);
+
+FILL FILL_1__3438_ (
+);
+
+FILL FILL_1__3018_ (
+);
+
+FILL FILL_3__4725_ (
+);
+
+FILL FILL_3__4305_ (
+);
+
+FILL FILL_2__2722_ (
+);
+
+FILL FILL_4__2648_ (
+);
+
+FILL FILL_0__2968_ (
+);
+
+FILL FILL_0__2548_ (
+);
+
+OAI21X1 _4654_ (
+    .A(_1689_),
+    .B(_1706_),
+    .C(\u_cpu.BI [4]),
+    .Y(_1707_)
+);
+
+INVX1 _4234_ (
+    .A(_987_),
+    .Y(_986_)
+);
+
+FILL FILL_1__3191_ (
+);
+
+FILL FILL_2__3927_ (
+);
+
+FILL FILL_2__3507_ (
+);
+
+FILL FILL_1__4396_ (
+);
+
+FILL FILL_1__2709_ (
+);
+
+FILL FILL_2__3680_ (
+);
+
+FILL FILL_2__3260_ (
+);
+
+FILL FILL_4__3186_ (
+);
+
+NOR2X1 _2720_ (
+    .A(_1663_),
+    .B(_1936_),
+    .Y(_2015_)
+);
+
+FILL FILL_2__4885_ (
+);
+
+FILL FILL_2__4465_ (
+);
+
+FILL FILL_2__4045_ (
+);
+
+OAI21X1 _3925_ (
+    .A(_709_),
+    .B(_1129__bF$buf0),
+    .C(_708_),
+    .Y(_1446_)
+);
+
+NAND3X1 _3505_ (
+    .A(_484_),
+    .B(_396_),
+    .C(_560_),
+    .Y(_318_)
+);
+
+FILL FILL_1__2882_ (
+);
+
+FILL FILL_1__2462_ (
+);
+
+FILL FILL_3__2388_ (
+);
+
+FILL FILL_1__3667_ (
+);
+
+FILL FILL_1__3247_ (
+);
+
+FILL FILL_3__4954_ (
+);
+
+FILL FILL_3__4534_ (
+);
+
+FILL FILL_3__4114_ (
+);
+
+FILL FILL_2__2951_ (
+);
+
+FILL FILL_2__2531_ (
+);
+
+FILL FILL_4__2877_ (
+);
+
+FILL FILL_4__2457_ (
+);
+
+FILL FILL_0__2777_ (
+);
+
+FILL FILL_0__2357_ (
+);
+
+INVX1 _4883_ (
+    .A(DO_woz[6]),
+    .Y(_2159_)
+);
+
+INVX1 _4463_ (
+    .A(\u_cpu.DIHOLD [1]),
+    .Y(_1194_)
+);
+
+OAI21X1 _4043_ (
+    .A(\u_cpu.state [4]),
+    .B(_906_),
+    .C(_811_),
+    .Y(_810_)
+);
+
+FILL FILL_2__3736_ (
+);
+
+FILL FILL_2__3316_ (
+);
+
+FILL FILL_4__4603_ (
+);
+
+FILL FILL_0__4923_ (
+);
+
+FILL FILL_3__2600_ (
+);
+
+FILL FILL_0__4503_ (
+);
+
+FILL FILL_1__2938_ (
+);
+
+FILL FILL_1__2518_ (
+);
+
+FILL FILL_3__3805_ (
+);
+
+FILL FILL_2__4694_ (
+);
+
+FILL FILL_2__4274_ (
+);
+
+NAND2X1 _3734_ (
+    .A(RDY_bF$buf0),
+    .B(_638_),
+    .Y(_533_)
+);
+
+NOR2X1 _3314_ (
+    .A(_166_),
+    .B(_169_),
+    .Y(_165_)
+);
+
+FILL FILL_1__2691_ (
+);
+
+AOI21X1 _4939_ (
+    .A(_2198_),
+    .B(DO_kbd[4]),
+    .C(_2195_),
+    .Y(_2213_)
+);
+
+OR2X2 _4519_ (
+    .A(\u_cpu.backwards ),
+    .B(\u_cpu.CO ),
+    .Y(_1247_)
+);
+
+FILL FILL_1__3896_ (
+);
+
+FILL FILL_1__3476_ (
+);
+
+FILL FILL_3__4763_ (
+);
+
+FILL FILL_3__4343_ (
+);
+
+FILL FILL_2__2760_ (
+);
+
+FILL FILL_4__2686_ (
+);
+
+FILL FILL_0__2586_ (
+);
+
+NAND2X1 _4692_ (
+    .A(\u_cpu.alu_op [1]),
+    .B(\u_cpu.AI [0]),
+    .Y(_1745_)
+);
+
+NAND2X1 _4272_ (
+    .A(_1129__bF$buf3),
+    .B(_1022_),
+    .Y(_1021_)
+);
+
+FILL FILL_2__3965_ (
+);
+
+FILL FILL_2__3545_ (
+);
+
+FILL FILL_4__4832_ (
+);
+
+FILL FILL_4__4412_ (
+);
+
+FILL FILL_0__4732_ (
+);
+
+FILL FILL_0__4312_ (
+);
+
+FILL FILL_1__2747_ (
+);
+
+FILL FILL_3__3614_ (
+);
+
+FILL FILL_2__4083_ (
+);
+
+FILL FILL_3__4819_ (
+);
+
+OAI21X1 _3963_ (
+    .A(_1328__bF$buf0),
+    .B(_1084_),
+    .C(_739_),
+    .Y(_738_)
+);
+
+OAI21X1 _3543_ (
+    .A(_360_),
+    .B(_353_),
+    .C(_350_),
+    .Y(\u_cpu.AI [3])
+);
+
+DFFSR _3123_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1475_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.op [1])
+);
+
+FILL FILL_2__2816_ (
+);
+
+FILL FILL273450x46950 (
+);
+
+NAND2X1 _4748_ (
+    .A(_1800_),
+    .B(_1796_),
+    .Y(_1801_)
+);
+
+OAI21X1 _4328_ (
+    .A(_1328__bF$buf2),
+    .B(_1076_),
+    .C(_1074_),
+    .Y(_1073_)
+);
+
+FILL FILL_1__3285_ (
+);
+
+FILL FILL_3__4572_ (
+);
+
+FILL FILL_3__4152_ (
+);
+
+FILL FILL_4__2495_ (
+);
+
+FILL FILL_0__2395_ (
+);
+
+NOR2X1 _4081_ (
+    .A(_851_),
+    .B(_849_),
+    .Y(_848_)
+);
+
+FILL FILL_2__3774_ (
+);
+
+FILL FILL_2__3354_ (
+);
+
+OAI21X1 _2814_ (
+    .A(_2354__4_bF$buf0),
+    .B(_1919_),
+    .C(_1921_),
+    .Y(_1922_)
+);
+
+FILL FILL_4__4641_ (
+);
+
+FILL FILL_4__4221_ (
+);
+
+FILL FILL_0__4961_ (
+);
+
+FILL FILL_2__4979_ (
+);
+
+FILL FILL_2__4559_ (
+);
+
+FILL FILL_0__4541_ (
+);
+
+FILL FILL_2__4139_ (
+);
+
+FILL FILL_0__4121_ (
+);
+
+FILL FILL_1__2976_ (
+);
+
+FILL FILL_1__2556_ (
+);
+
+FILL FILL_3__3843_ (
+);
+
+FILL FILL_3__3423_ (
+);
+
+FILL FILL_3__3003_ (
+);
+
+FILL FILL_1__4702_ (
+);
+
+FILL FILL_3__4628_ (
+);
+
+FILL FILL_3__4208_ (
+);
+
+OAI21X1 _3772_ (
+    .A(_1305__bF$buf2),
+    .B(_911_),
+    .C(_885_),
+    .Y(_571_)
+);
+
+NAND2X1 _3352_ (
+    .A(\u_cpu.AN ),
+    .B(_625_),
+    .Y(_189_)
+);
+
+FILL FILL_2__2625_ (
+);
+
+FILL FILL_4__3912_ (
+);
+
+NAND3X1 _4977_ (
+    .A(_Addr_Bus[1]),
+    .B(_2245_),
+    .C(_2173_),
+    .Y(_2246_)
+);
+
+NOR2X1 _4557_ (
+    .A(_1309_),
+    .B(_1304_),
+    .Y(_1285_)
+);
+
+INVX2 _4137_ (
+    .A(_1242_),
+    .Y(_903_)
+);
+
+FILL FILL_0__3812_ (
+);
+
+FILL FILL_3__4381_ (
+);
+
+FILL FILL_1__4299_ (
+);
+
+FILL FILL_2__3583_ (
+);
+
+NOR2X1 _2623_ (
+    .A(_1916_),
+    .B(_2109_),
+    .Y(_2110_)
+);
+
+FILL FILL_4__4870_ (
+);
+
+FILL FILL_4__4450_ (
+);
+
+FILL FILL_4__4030_ (
+);
+
+FILL FILL_2__4788_ (
+);
+
+FILL FILL_0__4770_ (
+);
+
+FILL FILL_2__4368_ (
+);
+
+FILL FILL_0__4350_ (
+);
+
+OAI21X1 _3828_ (
+    .A(_629_),
+    .B(_639_),
+    .C(_622_),
+    .Y(_2353_[6])
+);
+
+AND2X2 _3408_ (
+    .A(_240_),
+    .B(_239_),
+    .Y(_238_)
+);
+
+FILL FILL_1__2785_ (
+);
+
+FILL FILL_1__2365_ (
+);
+
+FILL FILL_3__3652_ (
+);
+
+FILL FILL_3__3232_ (
+);
+
+FILL FILL_1__4931_ (
+);
+
+FILL FILL_1__4511_ (
+);
+
+FILL FILL_3__4857_ (
+);
+
+FILL FILL_3__4437_ (
+);
+
+FILL FILL_3__4017_ (
+);
+
+NOR2X1 _3581_ (
+    .A(_1123_),
+    .B(_584_),
+    .Y(_385_)
+);
+
+DFFSR _3161_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1458_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.sed )
+);
+
+FILL FILL_2__2854_ (
+);
+
+FILL FILL_2__2434_ (
+);
+
+FILL FILL_4__3721_ (
+);
+
+FILL FILL_4__3301_ (
+);
+
+INVX1 _4786_ (
+    .A(_1813_),
+    .Y(_1839_)
+);
+
+OAI21X1 _4366_ (
+    .A(RDY_bF$buf3),
+    .B(_1110_),
+    .C(_1109_),
+    .Y(\u_cpu.DIMUX [6])
+);
+
+FILL FILL_0__3621_ (
+);
+
+FILL FILL_2__3639_ (
+);
+
+FILL FILL_2__3219_ (
+);
+
+FILL FILL_0__3201_ (
+);
+
+FILL FILL_3__4190_ (
+);
+
+FILL FILL_4__4926_ (
+);
+
+FILL FILL_4__4506_ (
+);
+
+FILL FILL_0__4826_ (
+);
+
+FILL FILL_3__2923_ (
+);
+
+FILL FILL_3__2503_ (
+);
+
+FILL FILL_0__4406_ (
+);
+
+FILL FILL_2__3392_ (
+);
+
+FILL FILL_3__3708_ (
+);
+
+INVX8 _2852_ (
+    .A(_2354__3_bF$buf1),
+    .Y(_1643_)
+);
+
+AOI21X1 _2432_ (
+    .A(_42_),
+    .B(_39_),
+    .C(_1973_),
+    .Y(_43_)
+);
+
+FILL FILL_2__4597_ (
+);
+
+FILL FILL_2__4177_ (
+);
+
+NOR2X1 _3637_ (
+    .A(_1196__bF$buf6),
+    .B(_441_),
+    .Y(_440_)
+);
+
+NAND3X1 _3217_ (
+    .A(_1129__bF$buf3),
+    .B(_994_),
+    .C(_1004_),
+    .Y(_108_)
+);
+
+FILL FILL_1__2594_ (
+);
+
+FILL FILL_3__3881_ (
+);
+
+FILL FILL_3__3461_ (
+);
+
+FILL FILL_1__3799_ (
+);
+
+FILL FILL_1__3379_ (
+);
+
+FILL FILL_1__4740_ (
+);
+
+FILL FILL_1__4320_ (
+);
+
+FILL FILL_3__4666_ (
+);
+
+FILL FILL_3__4246_ (
+);
+
+AND2X2 _3390_ (
+    .A(_227_),
+    .B(_224_),
+    .Y(_223_)
+);
+
+FILL FILL_2__2663_ (
+);
+
+FILL FILL_4__2589_ (
+);
+
+FILL FILL_4__3950_ (
+);
+
+FILL FILL_4__3530_ (
+);
+
+FILL FILL_0__2489_ (
+);
+
+NAND3X1 _4595_ (
+    .A(_1351_),
+    .B(_1353_),
+    .C(_1326_),
+    .Y(_1323_)
+);
+
+NAND2X1 _4175_ (
+    .A(_937_),
+    .B(_935_),
+    .Y(_934_)
+);
+
+FILL FILL_0__3850_ (
+);
+
+FILL FILL_2__3868_ (
+);
+
+FILL FILL_0__3430_ (
+);
+
+FILL FILL_2__3448_ (
+);
+
+FILL FILL_0__3010_ (
+);
+
+FILL FILL_2__3028_ (
+);
+
+NAND3X1 _2908_ (
+    .A(_1526_),
+    .B(_2352_),
+    .C(_1555_),
+    .Y(_1556_)
+);
+
+FILL FILL_4__4735_ (
+);
+
+FILL FILL_4__4315_ (
+);
+
+FILL FILL_3__2732_ (
+);
+
+FILL FILL_0__4635_ (
+);
+
+FILL FILL_0__4215_ (
+);
+
+FILL FILL_3__3937_ (
+);
+
+FILL FILL_3__3517_ (
+);
+
+INVX1 _2661_ (
+    .A(_2072_),
+    .Y(_2073_)
+);
+
+FILL FILL_4__2801_ (
+);
+
+AND2X2 _3866_ (
+    .A(_659_),
+    .B(_658_),
+    .Y(_657_)
+);
+
+NAND2X1 _3446_ (
+    .A(\u_cpu.ADD [5]),
+    .B(_908_),
+    .Y(_270_)
+);
+
+INVX1 _3026_ (
+    .A(DO_kbd[0]),
+    .Y(_1502_)
+);
+
+FILL FILL_2__2719_ (
+);
+
+FILL FILL_0__2701_ (
+);
+
+FILL FILL_3__3690_ (
+);
+
+FILL FILL_3__3270_ (
+);
+
+FILL FILL_1__3188_ (
+);
+
+FILL FILL_0__3906_ (
+);
+
+FILL FILL_3__4895_ (
+);
+
+FILL FILL_3__4475_ (
+);
+
+FILL FILL_3__4055_ (
+);
+
+FILL FILL_2__2892_ (
+);
+
+FILL FILL_2__2472_ (
+);
+
+FILL FILL_4__2398_ (
+);
+
+FILL FILL_2__3677_ (
+);
+
+FILL FILL_2__3257_ (
+);
+
+OAI21X1 _2717_ (
+    .A(_1643__bF$buf0),
+    .B(_1634__bF$buf3),
+    .C(_1661_),
+    .Y(_2018_)
+);
+
+FILL FILL_4__4964_ (
+);
+
+FILL FILL_4__4544_ (
+);
+
+FILL FILL_4__4124_ (
+);
+
+FILL FILL_0__4864_ (
+);
+
+FILL FILL_0__4444_ (
+);
+
+FILL FILL_3__2541_ (
+);
+
+FILL FILL_0__4024_ (
+);
+
+FILL FILL_1__2879_ (
+);
+
+FILL FILL_1__2459_ (
+);
+
+FILL FILL_1__3820_ (
+);
+
+FILL FILL_1__3400_ (
+);
+
+FILL FILL_3__3746_ (
+);
+
+FILL FILL_3__3326_ (
+);
+
+INVX1 _2890_ (
+    .A(_2354__6_bF$buf4),
+    .Y(_1570_)
+);
+
+OAI21X1 _2470_ (
+    .A(_1653_),
+    .B(_2028_),
+    .C(_2354__4_bF$buf1),
+    .Y(_5_)
+);
+
+FILL FILL_1__4605_ (
+);
+
+FILL FILL_4__2610_ (
+);
+
+OAI21X1 _3675_ (
+    .A(_1123_),
+    .B(_513_),
+    .C(_479_),
+    .Y(_478_)
+);
+
+OAI21X1 _3255_ (
+    .A(_671_),
+    .B(_1129__bF$buf4),
+    .C(_700_),
+    .Y(_1384_)
+);
+
+FILL FILL_2__2948_ (
+);
+
+FILL FILL_0__2930_ (
+);
+
+FILL FILL_2__2528_ (
+);
+
+FILL FILL_0__2510_ (
+);
+
+FILL FILL_4__3815_ (
+);
+
+FILL FILL_0__3715_ (
+);
+
+FILL FILL_3__4284_ (
+);
+
+FILL FILL_0_BUFX2_insert70 (
+);
+
+FILL FILL_0_BUFX2_insert71 (
+);
+
+FILL FILL_2__3486_ (
+);
+
+FILL FILL_0_BUFX2_insert72 (
+);
+
+FILL FILL_0_BUFX2_insert73 (
+);
+
+FILL FILL_0_BUFX2_insert74 (
+);
+
+FILL FILL_0_BUFX2_insert75 (
+);
+
+FILL FILL_0_BUFX2_insert76 (
+);
+
+FILL FILL_0_BUFX2_insert77 (
+);
+
+FILL FILL_0_BUFX2_insert78 (
+);
+
+FILL FILL_0_BUFX2_insert79 (
+);
+
+NOR2X1 _2946_ (
+    .A(_1521_),
+    .B(_1524_),
+    .Y(_1525_)
+);
+
+OAI21X1 _2526_ (
+    .A(_1935_),
+    .B(_1936_),
+    .C(_2354__4_bF$buf1),
+    .Y(_2301_)
+);
+
+FILL FILL_4__4773_ (
+);
+
+FILL FILL_4__4353_ (
+);
+
+FILL FILL_0__4673_ (
+);
+
+FILL FILL_3__2770_ (
+);
+
+FILL FILL_0__4253_ (
+);
+
+FILL FILL_1__2688_ (
+);
+
+FILL FILL_3__3975_ (
+);
+
+FILL FILL_3__3555_ (
+);
+
+FILL FILL_1__4834_ (
+);
+
+FILL FILL_1__4414_ (
+);
+
+NAND2X1 _3484_ (
+    .A(_298_),
+    .B(_300_),
+    .Y(_297_)
+);
+
+DFFSR _3064_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1432_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.state [1])
+);
+
+FILL FILL_2__2757_ (
+);
+
+FILL FILL_4__3624_ (
+);
+
+FILL FILL_4__3204_ (
+);
+
+NAND2X1 _4689_ (
+    .A(\u_cpu.alu_shift_right ),
+    .B(\u_cpu.AI [1]),
+    .Y(_1742_)
+);
+
+NOR2X1 _4269_ (
+    .A(_1037__bF$buf3),
+    .B(_1111_),
+    .Y(_1018_)
+);
+
+FILL FILL_0__3944_ (
+);
+
+FILL FILL_0__3524_ (
+);
+
+FILL FILL_3__4093_ (
+);
+
+FILL FILL_2__4903_ (
+);
+
+FILL FILL_4__4829_ (
+);
+
+FILL FILL_4__4409_ (
+);
+
+FILL FILL_1__2900_ (
+);
+
+FILL FILL_0__4729_ (
+);
+
+FILL FILL_3__2826_ (
+);
+
+FILL FILL_3__2406_ (
+);
+
+FILL FILL_0__4309_ (
+);
+
+FILL FILL_2__3295_ (
+);
+
+OAI21X1 _2755_ (
+    .A(_1635__bF$buf2),
+    .B(_1636__bF$buf1),
+    .C(_2354__0_bF$buf0),
+    .Y(_1980_)
+);
+
+FILL FILL_4__4582_ (
+);
+
+FILL FILL_4__4162_ (
+);
+
+FILL FILL_0__4482_ (
+);
+
+FILL FILL_0__4062_ (
+);
+
+FILL FILL_1__2497_ (
+);
+
+INVX1 _4901_ (
+    .A(_Addr_Bus[7]),
+    .Y(_2177_)
+);
+
+FILL FILL_3__3784_ (
+);
+
+FILL FILL_3__3364_ (
+);
+
+FILL FILL_1__4643_ (
+);
+
+FILL FILL_1__4223_ (
+);
+
+FILL FILL_3__4569_ (
+);
+
+FILL FILL_3__4149_ (
+);
+
+NAND2X1 _3293_ (
+    .A(\u_cpu.AXYS[1] [6]),
+    .B(_1041_),
+    .Y(_153_)
+);
+
+FILL FILL_2__2986_ (
+);
+
+FILL FILL_2__2566_ (
+);
+
+FILL FILL274050x72150 (
+);
+
+FILL FILL_4__3853_ (
+);
+
+FILL FILL_4__3433_ (
+);
+
+FILL FILL_4__3013_ (
+);
+
+NAND3X1 _4498_ (
+    .A(_1258_),
+    .B(_1253_),
+    .C(_1227_),
+    .Y(_1226_)
+);
+
+NOR2X1 _4078_ (
+    .A(_846_),
+    .B(_1078_),
+    .Y(_845_)
+);
+
+FILL FILL_0__3753_ (
+);
+
+FILL FILL_0__3333_ (
+);
+
+FILL FILL274050x39750 (
+);
+
+FILL FILL_2__4712_ (
+);
+
+FILL FILL_4__4638_ (
+);
+
+FILL FILL_4__4218_ (
+);
+
+FILL FILL_0__4958_ (
+);
+
+FILL FILL_3__2635_ (
+);
+
+FILL FILL_0__4538_ (
+);
+
+FILL FILL_0__4118_ (
+);
+
+FILL FILL_1__3914_ (
+);
+
+INVX1 _2984_ (
+    .A(DO_kbd[3]),
+    .Y(_1614_)
+);
+
+AOI21X1 _2564_ (
+    .A(_1638__bF$buf3),
+    .B(_2354__3_bF$buf6),
+    .C(_2354__4_bF$buf5),
+    .Y(_2263_)
+);
+
+FILL FILL_4__4391_ (
+);
+
+FILL FILL_0__4291_ (
+);
+
+FILL FILL_4__2704_ (
+);
+
+NOR2X1 _3769_ (
+    .A(_1196__bF$buf3),
+    .B(_569_),
+    .Y(_568_)
+);
+
+NAND3X1 _3349_ (
+    .A(_189_),
+    .B(_187_),
+    .C(_190_),
+    .Y(_2353_[7])
+);
+
+FILL FILL_0__2604_ (
+);
+
+NAND3X1 _4710_ (
+    .A(_1742_),
+    .B(_1753_),
+    .C(_1762_),
+    .Y(_1763_)
+);
+
+FILL FILL_3__3593_ (
+);
+
+FILL FILL_3__3173_ (
+);
+
+FILL FILL_4__3909_ (
+);
+
+FILL FILL273750x54150 (
+);
+
+FILL FILL_0__3809_ (
+);
+
+FILL FILL_1__4452_ (
+);
+
+FILL FILL_1__4032_ (
+);
+
+FILL FILL_3__4798_ (
+);
+
+FILL FILL_3__4378_ (
+);
+
+FILL FILL_2__2795_ (
+);
+
+FILL FILL_2__2375_ (
+);
+
+FILL FILL_4__3662_ (
+);
+
+FILL FILL_4__3242_ (
+);
+
+FILL FILL_0__3982_ (
+);
+
+FILL FILL_0__3562_ (
+);
+
+FILL FILL_4_BUFX2_insert20 (
+);
+
+FILL FILL_4_BUFX2_insert21 (
+);
+
+FILL FILL_4_BUFX2_insert22 (
+);
+
+FILL FILL_4_BUFX2_insert23 (
+);
+
+FILL FILL_4_BUFX2_insert24 (
+);
+
+FILL FILL_2__4941_ (
+);
+
+FILL FILL_4_BUFX2_insert25 (
+);
+
+FILL FILL_2__4521_ (
+);
+
+FILL FILL_2__4101_ (
+);
+
+FILL FILL_4__4867_ (
+);
+
+FILL FILL_4__4447_ (
+);
+
+FILL FILL_4__4027_ (
+);
+
+FILL FILL_0__4767_ (
+);
+
+FILL FILL_3__2444_ (
+);
+
+FILL FILL_0__4347_ (
+);
+
+BUFX2 BUFX2_insert80 (
+    .A(_2354_[3]),
+    .Y(_2354__3_bF$buf5)
+);
+
+BUFX2 BUFX2_insert81 (
+    .A(_2354_[3]),
+    .Y(_2354__3_bF$buf4)
+);
+
+BUFX2 BUFX2_insert82 (
+    .A(_2354_[3]),
+    .Y(_2354__3_bF$buf3)
+);
+
+BUFX2 BUFX2_insert83 (
+    .A(_2354_[3]),
+    .Y(_2354__3_bF$buf2)
+);
+
+BUFX2 BUFX2_insert84 (
+    .A(_2354_[3]),
+    .Y(_2354__3_bF$buf1)
+);
+
+FILL FILL_1__3723_ (
+);
+
+BUFX2 BUFX2_insert85 (
+    .A(_2354_[3]),
+    .Y(_2354__3_bF$buf0)
+);
+
+FILL FILL_1__3303_ (
+);
+
+BUFX2 BUFX2_insert86 (
+    .A(_2354_[0]),
+    .Y(_2354__0_bF$buf5)
+);
+
+BUFX2 BUFX2_insert87 (
+    .A(_2354_[0]),
+    .Y(_2354__0_bF$buf4)
+);
+
+BUFX2 BUFX2_insert88 (
+    .A(_2354_[0]),
+    .Y(_2354__0_bF$buf3)
+);
+
+BUFX2 BUFX2_insert89 (
+    .A(_2354_[0]),
+    .Y(_2354__0_bF$buf2)
+);
+
+FILL FILL_3__3649_ (
+);
+
+FILL FILL_3__3229_ (
+);
+
+NOR2X1 _2793_ (
+    .A(_1652_),
+    .B(_1938_),
+    .Y(_1943_)
+);
+
+BUFX2 _2373_ (
+    .A(_2353_[6]),
+    .Y(DO[6])
+);
+
+FILL FILL_1__4928_ (
+);
+
+FILL FILL_1__4508_ (
+);
+
+FILL FILL_4__2933_ (
+);
+
+FILL FILL_4__2513_ (
+);
+
+OAI21X1 _3998_ (
+    .A(_1118_),
+    .B(_1001_),
+    .C(_1099_),
+    .Y(_770_)
+);
+
+NOR2X1 _3578_ (
+    .A(_767_),
+    .B(_687_),
+    .Y(_382_)
+);
+
+DFFSR _3158_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1415_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.AXYS[2] [5])
+);
+
+FILL FILL_0__2833_ (
+);
+
+FILL FILL_0__2413_ (
+);
+
+FILL FILL_4__3718_ (
+);
+
+FILL FILL_0__3618_ (
+);
+
+FILL FILL_1__4681_ (
+);
+
+FILL FILL_1__4261_ (
+);
+
+FILL FILL_3__4187_ (
+);
+
+FILL FILL_4__3891_ (
+);
+
+FILL FILL_4__3471_ (
+);
+
+FILL FILL_0__3791_ (
+);
+
+FILL FILL_0__3371_ (
+);
+
+FILL FILL_2__3389_ (
+);
+
+FILL FILL_2__4750_ (
+);
+
+FILL FILL_2__4330_ (
+);
+
+OAI21X1 _2849_ (
+    .A(_1640_),
+    .B(_1645_),
+    .C(_1634__bF$buf1),
+    .Y(_1646_)
+);
+
+AOI21X1 _2429_ (
+    .A(_44_),
+    .B(_2354__3_bF$buf0),
+    .C(_3_),
+    .Y(_45_)
+);
+
+FILL FILL_4__4676_ (
+);
+
+FILL FILL_4__4256_ (
+);
+
+FILL FILL_3__2673_ (
+);
+
+FILL FILL_0__4576_ (
+);
+
+FILL FILL_0__4156_ (
+);
+
+FILL FILL_1__3952_ (
+);
+
+FILL FILL_1__3532_ (
+);
+
+FILL FILL_3__3878_ (
+);
+
+FILL FILL_3__3458_ (
+);
+
+FILL FILL_1__4737_ (
+);
+
+FILL FILL_1__4317_ (
+);
+
+FILL FILL_4__2742_ (
+);
+
+OAI21X1 _3387_ (
+    .A(_572_),
+    .B(_222_),
+    .C(\u_cpu.store ),
+    .Y(_221_)
+);
+
+FILL FILL_0__2642_ (
+);
+
+FILL FILL_2__3601_ (
+);
+
+FILL FILL_4__3947_ (
+);
+
+FILL FILL_4__3527_ (
+);
+
+FILL FILL_0__3847_ (
+);
+
+FILL FILL_0__3427_ (
+);
+
+FILL FILL_0__3007_ (
+);
+
+FILL FILL_1__4490_ (
+);
+
+FILL FILL_1__4070_ (
+);
+
+FILL FILL_2__4806_ (
+);
+
+FILL FILL_2_BUFX2_insert100 (
+);
+
+FILL FILL_2_BUFX2_insert101 (
+);
+
+FILL FILL_2_BUFX2_insert102 (
+);
+
+FILL FILL_2_BUFX2_insert103 (
+);
+
+FILL FILL_2_BUFX2_insert104 (
+);
+
+FILL FILL_2_BUFX2_insert105 (
+);
+
+FILL FILL_2_BUFX2_insert106 (
+);
+
+FILL FILL_2_BUFX2_insert107 (
+);
+
+FILL FILL_2_BUFX2_insert108 (
+);
+
+FILL FILL_2_BUFX2_insert109 (
+);
+
+FILL FILL_1__2803_ (
+);
+
+FILL FILL_3__2729_ (
+);
+
+FILL FILL_4__3280_ (
+);
+
+FILL FILL_2__3198_ (
+);
+
+FILL FILL_0__3180_ (
+);
+
+OAI21X1 _2658_ (
+    .A(_2354__3_bF$buf4),
+    .B(_2073_),
+    .C(_2075_),
+    .Y(_2076_)
+);
+
+FILL FILL_4__4485_ (
+);
+
+FILL FILL_4__4065_ (
+);
+
+FILL FILL_3__2482_ (
+);
+
+FILL FILL_0__4385_ (
+);
+
+FILL FILL_1_BUFX2_insert120 (
+);
+
+FILL FILL_1_BUFX2_insert121 (
+);
+
+FILL FILL_1_BUFX2_insert122 (
+);
+
+FILL FILL_1_BUFX2_insert123 (
+);
+
+FILL FILL_1_BUFX2_insert124 (
+);
+
+FILL FILL_1_BUFX2_insert125 (
+);
+
+FILL FILL_1_BUFX2_insert126 (
+);
+
+FILL FILL_1_BUFX2_insert127 (
+);
+
+FILL FILL_1_BUFX2_insert128 (
+);
+
+FILL FILL_1_BUFX2_insert129 (
+);
+
+OAI21X1 _4804_ (
+    .A(_1810_),
+    .B(_1837_),
+    .C(RDY_bF$buf3),
+    .Y(_1852_)
+);
+
+FILL FILL_1__3761_ (
+);
+
+FILL FILL_1__3341_ (
+);
+
+FILL FILL_3__3687_ (
+);
+
+FILL FILL_3__3267_ (
+);
+
+FILL FILL_1__4966_ (
+);
+
+FILL FILL_1__4546_ (
+);
+
+FILL FILL_1__4126_ (
+);
+
+FILL FILL_4__2971_ (
+);
+
+FILL FILL_4__2551_ (
+);
+
+NAND2X1 _3196_ (
+    .A(\u_cpu.PC [0]),
+    .B(_1196__bF$buf7),
+    .Y(_94_)
+);
+
+FILL FILL_2__2889_ (
+);
+
+FILL FILL_2__2469_ (
+);
+
+FILL FILL_0__2451_ (
+);
+
+FILL FILL_2__3830_ (
+);
+
+FILL FILL_2__3410_ (
+);
+
+FILL FILL_4__3756_ (
+);
+
+FILL FILL_4__3336_ (
+);
+
+FILL FILL_0__3656_ (
+);
+
+FILL FILL_0__3236_ (
+);
+
+FILL FILL_2__4615_ (
+);
+
+FILL FILL_1__2612_ (
+);
+
+FILL FILL_3__2538_ (
+);
+
+FILL FILL_1__3817_ (
+);
+
+NAND2X1 _2887_ (
+    .A(_1529_),
+    .B(_1558_),
+    .Y(_1573_)
+);
+
+OAI21X1 _2467_ (
+    .A(_1653_),
+    .B(_1651_),
+    .C(_1634__bF$buf1),
+    .Y(_8_)
+);
+
+FILL FILL_4__4294_ (
+);
+
+FILL FILL_0__4194_ (
+);
+
+FILL FILL_4__2607_ (
+);
+
+FILL FILL_0__2927_ (
+);
+
+FILL FILL_0__2507_ (
+);
+
+OAI21X1 _4613_ (
+    .A(\u_cpu.I ),
+    .B(_1342_),
+    .C(_1343_),
+    .Y(_1341_)
+);
+
+FILL FILL_1__3990_ (
+);
+
+FILL FILL_1__3570_ (
+);
+
+FILL FILL_3__3496_ (
+);
+
+FILL FILL_1__4775_ (
+);
+
+FILL FILL_1__4355_ (
+);
+
+FILL FILL_4__2780_ (
+);
+
+FILL FILL_4__2360_ (
+);
+
+FILL FILL_0__2680_ (
+);
+
+FILL FILL_2__2698_ (
+);
+
+FILL FILL_4__3985_ (
+);
+
+FILL FILL_4__3565_ (
+);
+
+FILL FILL_0__3885_ (
+);
+
+FILL FILL_0__3465_ (
+);
+
+FILL FILL_2__4844_ (
+);
+
+FILL FILL_2__4424_ (
+);
+
+FILL FILL_2__4004_ (
+);
+
+FILL FILL_1__2841_ (
+);
+
+FILL FILL_1__2421_ (
+);
+
+FILL FILL_3__2767_ (
+);
+
+FILL FILL_1__3626_ (
+);
+
+FILL FILL_1__3206_ (
+);
+
+NAND2X1 _2696_ (
+    .A(_2354__4_bF$buf2),
+    .B(_2038_),
+    .Y(_2039_)
+);
+
+FILL FILL_3__4913_ (
+);
+
+FILL FILL_2__2910_ (
+);
+
+FILL FILL_4__2836_ (
+);
+
+FILL FILL_4__2416_ (
+);
+
+FILL FILL_0__2736_ (
+);
+
+OAI21X1 _4842_ (
+    .A(_1884_),
+    .B(_1881_),
+    .C(_1882_),
+    .Y(_1676_)
+);
+
+NOR3X1 _4422_ (
+    .A(_1201_),
+    .B(_1188_),
+    .C(_1212_),
+    .Y(_1158_)
+);
+
+INVX1 _4002_ (
+    .A(\u_cpu.dst_reg [0]),
+    .Y(_774_)
+);
+
+FILL FILL_1__4584_ (
+);
+
+FILL FILL_1__4164_ (
+);
+
+FILL FILL_4__3794_ (
+);
+
+FILL FILL_4__3374_ (
+);
+
+FILL FILL_0__3694_ (
+);
+
+FILL FILL_0__3274_ (
+);
+
+FILL FILL_2__4653_ (
+);
+
+FILL FILL_2__4233_ (
+);
+
+FILL FILL_4__4579_ (
+);
+
+FILL FILL_4__4159_ (
+);
+
+FILL FILL_1__2650_ (
+);
+
+FILL FILL_3__2996_ (
+);
+
+FILL FILL_0__4899_ (
+);
+
+FILL FILL_3__2576_ (
+);
+
+FILL FILL_0__4479_ (
+);
+
+FILL FILL_0__4059_ (
+);
+
+FILL FILL_1__3855_ (
+);
+
+FILL FILL_1__3435_ (
+);
+
+FILL FILL_1__3015_ (
+);
+
+FILL FILL_3__4722_ (
+);
+
+FILL FILL_3__4302_ (
+);
+
+FILL FILL_4__2645_ (
+);
+
+FILL FILL_0__2965_ (
+);
+
+FILL FILL_0__2545_ (
+);
+
+INVX1 _4651_ (
+    .A(\u_cpu.BI [4]),
+    .Y(_1704_)
+);
+
+NAND2X1 _4231_ (
+    .A(_984_),
+    .B(_985_),
+    .Y(_983_)
+);
+
+FILL FILL_2__3924_ (
+);
+
+FILL FILL_2__3504_ (
+);
+
+FILL FILL_0_BUFX2_insert160 (
+);
+
+FILL FILL_0_BUFX2_insert161 (
+);
+
+FILL FILL_0_BUFX2_insert162 (
+);
+
+FILL FILL_0_BUFX2_insert163 (
+);
+
+FILL FILL_0_BUFX2_insert164 (
+);
+
+FILL FILL_0_BUFX2_insert165 (
+);
+
+FILL FILL_0_BUFX2_insert166 (
+);
+
+FILL FILL_0_BUFX2_insert167 (
+);
+
+FILL FILL_1__4393_ (
+);
+
+FILL FILL_2__4709_ (
+);
+
+FILL FILL_1__2706_ (
+);
+
+FILL FILL_4__3183_ (
+);
+
+FILL FILL_2__4462_ (
+);
+
+FILL FILL_2__4042_ (
+);
+
+FILL FILL_4__4388_ (
+);
+
+OAI21X1 _3922_ (
+    .A(_1000_),
+    .B(_726_),
+    .C(_706_),
+    .Y(_705_)
+);
+
+OAI21X1 _3502_ (
+    .A(_1123_),
+    .B(_1008_),
+    .C(_1035_),
+    .Y(_315_)
+);
+
+FILL FILL_0__4288_ (
+);
+
+FILL FILL_3__2385_ (
+);
+
+NAND2X1 _4707_ (
+    .A(_1759_),
+    .B(_1758_),
+    .Y(_1760_)
+);
+
+FILL FILL_1__3664_ (
+);
+
+FILL FILL_1__3244_ (
+);
+
+FILL FILL_3__4951_ (
+);
+
+FILL FILL_3__4531_ (
+);
+
+FILL FILL_3__4111_ (
+);
+
+FILL FILL_1__4869_ (
+);
+
+FILL FILL_1__4449_ (
+);
+
+FILL FILL_1__4029_ (
+);
+
+FILL FILL_4__2454_ (
+);
+
+DFFSR _3099_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1443_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.rotate )
+);
+
+FILL FILL_0__2774_ (
+);
+
+DFFSR _4880_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1679_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.CO )
+);
+
+INVX2 _4460_ (
+    .A(\u_cpu.DIMUX [1]),
+    .Y(_1192_)
+);
+
+OAI21X1 _4040_ (
+    .A(_1328__bF$buf4),
+    .B(_914_),
+    .C(_808_),
+    .Y(_807_)
+);
+
+FILL FILL_2__3733_ (
+);
+
+FILL FILL_2__3313_ (
+);
+
+FILL FILL_4__3659_ (
+);
+
+FILL FILL_4__3239_ (
+);
+
+FILL FILL_4__4600_ (
+);
+
+FILL FILL_0__3979_ (
+);
+
+FILL FILL_0__3559_ (
+);
+
+FILL FILL_2__4938_ (
+);
+
+FILL FILL_0__4920_ (
+);
+
+FILL FILL_2__4518_ (
+);
+
+FILL FILL_0__4500_ (
+);
+
+FILL FILL_1__2935_ (
+);
+
+FILL FILL_1__2515_ (
+);
+
+FILL FILL_3__3802_ (
+);
+
+FILL FILL_2__4691_ (
+);
+
+FILL FILL_2__4271_ (
+);
+
+FILL FILL_4__4197_ (
+);
+
+OAI21X1 _3731_ (
+    .A(_1196__bF$buf2),
+    .B(_1063_),
+    .C(_531_),
+    .Y(_530_)
+);
+
+AOI21X1 _3311_ (
+    .A(_1089_),
+    .B(_163_),
+    .C(_1196__bF$buf1),
+    .Y(_162_)
+);
+
+FILL FILL_0__4097_ (
+);
+
+INVX1 _4936_ (
+    .A(DI[4]),
+    .Y(_2210_)
+);
+
+OAI21X1 _4516_ (
+    .A(_1345__bF$buf3),
+    .B(_1341_),
+    .C(_1245_),
+    .Y(_1244_)
+);
+
+FILL FILL_1__3893_ (
+);
+
+FILL FILL_1__3473_ (
+);
+
+FILL FILL_3__3399_ (
+);
+
+FILL FILL_3__4760_ (
+);
+
+FILL FILL_3__4340_ (
+);
+
+FILL FILL271650x21750 (
+);
+
+FILL FILL_1__4678_ (
+);
+
+FILL FILL_1__4258_ (
+);
+
+FILL FILL_4__2683_ (
+);
+
+FILL FILL_0__2583_ (
+);
+
+FILL FILL_2__3962_ (
+);
+
+FILL FILL_2__3542_ (
+);
+
+FILL FILL_4__3888_ (
+);
+
+FILL FILL_4__3468_ (
+);
+
+FILL FILL_0__3788_ (
+);
+
+FILL FILL_0__3368_ (
+);
+
+FILL FILL_2__4747_ (
+);
+
+FILL FILL_2__4327_ (
+);
+
+FILL FILL_1__2744_ (
+);
+
+FILL FILL_3__3611_ (
+);
+
+FILL FILL_1__3949_ (
+);
+
+FILL FILL_1__3529_ (
+);
+
+FILL FILL_2__4080_ (
+);
+
+OAI21X1 _2599_ (
+    .A(_2354__1_bF$buf0),
+    .B(_1961_),
+    .C(_2133_),
+    .Y(_2134_)
+);
+
+FILL FILL_3__4816_ (
+);
+
+MUX2X1 _3960_ (
+    .A(_750_),
+    .B(_736_),
+    .S(_741_),
+    .Y(_1453_)
+);
+
+NAND2X1 _3540_ (
+    .A(_349_),
+    .B(_348_),
+    .Y(_347_)
+);
+
+DFFSR _3120_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1449_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.AXYS[2] [7])
+);
+
+FILL FILL_2__2813_ (
+);
+
+FILL FILL_4__2739_ (
+);
+
+FILL FILL_0__2639_ (
+);
+
+OAI21X1 _4745_ (
+    .A(_1723_),
+    .B(_1726_),
+    .C(_1727_),
+    .Y(_1798_)
+);
+
+NAND2X1 _4325_ (
+    .A(_1326_),
+    .B(_1075_),
+    .Y(_1070_)
+);
+
+FILL FILL_1__3282_ (
+);
+
+FILL FILL_1__4487_ (
+);
+
+FILL FILL_1__4067_ (
+);
+
+FILL FILL_4__2492_ (
+);
+
+FILL FILL_2__3771_ (
+);
+
+FILL FILL_2__3351_ (
+);
+
+FILL FILL_4__3697_ (
+);
+
+FILL FILL_4__3277_ (
+);
+
+OAI21X1 _2811_ (
+    .A(_2354__1_bF$buf2),
+    .B(_1636__bF$buf4),
+    .C(_2354__3_bF$buf6),
+    .Y(_1925_)
+);
+
+FILL FILL_0__3597_ (
+);
+
+FILL FILL_0__3177_ (
+);
+
+FILL FILL_2__4976_ (
+);
+
+FILL FILL_2__4556_ (
+);
+
+FILL FILL_2__4136_ (
+);
+
+FILL FILL_1__2973_ (
+);
+
+FILL FILL_1__2553_ (
+);
+
+FILL FILL_3__2899_ (
+);
+
+FILL FILL_3__2479_ (
+);
+
+FILL FILL_3__3840_ (
+);
+
+FILL FILL_3__3420_ (
+);
+
+FILL FILL_3__3000_ (
+);
+
+FILL FILL_1__3758_ (
+);
+
+FILL FILL_1__3338_ (
+);
+
+FILL FILL_3__4625_ (
+);
+
+FILL FILL_3__4205_ (
+);
+
+FILL FILL_2__2622_ (
+);
+
+FILL FILL_4__2968_ (
+);
+
+FILL FILL_4__2548_ (
+);
+
+INVX1 _4974_ (
+    .A(DI[7]),
+    .Y(_2243_)
+);
+
+FILL FILL_0__2448_ (
+);
+
+NOR2X1 _4554_ (
+    .A(_1286_),
+    .B(_1283_),
+    .Y(_1282_)
+);
+
+OAI21X1 _4134_ (
+    .A(_1305__bF$buf0),
+    .B(_904_),
+    .C(_901_),
+    .Y(_900_)
+);
+
+FILL FILL_2__3827_ (
+);
+
+FILL FILL_2__3407_ (
+);
+
+FILL FILL_1__4296_ (
+);
+
+FILL FILL_1__2609_ (
+);
+
+FILL FILL_2__3580_ (
+);
+
+AOI21X1 _2620_ (
+    .A(_2354__3_bF$buf1),
+    .B(_1641_),
+    .C(_2112_),
+    .Y(_2113_)
+);
+
+FILL FILL_2__4785_ (
+);
+
+FILL FILL_2__4365_ (
+);
+
+AND2X2 _3825_ (
+    .A(_621_),
+    .B(_620_),
+    .Y(_619_)
+);
+
+INVX1 _3405_ (
+    .A(_236_),
+    .Y(_2354_[9])
+);
+
+FILL FILL_1__2782_ (
+);
+
+FILL FILL_1__2362_ (
+);
+
+FILL FILL_1__3987_ (
+);
+
+FILL FILL_1__3567_ (
+);
+
+FILL FILL_3__4854_ (
+);
+
+FILL FILL_3__4434_ (
+);
+
+FILL FILL_3__4014_ (
+);
+
+FILL FILL_2__2851_ (
+);
+
+FILL FILL_2__2431_ (
+);
+
+FILL FILL_4__2777_ (
+);
+
+FILL FILL_4__2357_ (
+);
+
+FILL FILL_0__2677_ (
+);
+
+AOI21X1 _4783_ (
+    .A(_1835_),
+    .B(_1801_),
+    .C(_1833_),
+    .Y(_1836_)
+);
+
+AOI21X1 _4363_ (
+    .A(_1125_),
+    .B(_1108_),
+    .C(_1107_),
+    .Y(_1106_)
+);
+
+FILL FILL_2__3636_ (
+);
+
+FILL FILL_2__3216_ (
+);
+
+FILL FILL_4__4923_ (
+);
+
+FILL FILL273150x79350 (
+);
+
+FILL FILL_4__4503_ (
+);
+
+FILL FILL_0__4823_ (
+);
+
+FILL FILL_3__2920_ (
+);
+
+FILL FILL_3__2500_ (
+);
+
+FILL FILL_0__4403_ (
+);
+
+FILL FILL_1__2838_ (
+);
+
+FILL FILL_1__2418_ (
+);
+
+FILL FILL_3__3705_ (
+);
+
+FILL FILL_2__4594_ (
+);
+
+FILL FILL_2__4174_ (
+);
+
+NOR2X1 _3634_ (
+    .A(_1001_),
+    .B(_554_),
+    .Y(_437_)
+);
+
+OAI21X1 _3214_ (
+    .A(_1252_),
+    .B(_1328__bF$buf5),
+    .C(_847_),
+    .Y(_106_)
+);
+
+FILL FILL_1__2591_ (
+);
+
+FILL FILL_2__2907_ (
+);
+
+NAND2X1 _4839_ (
+    .A(\u_cpu.u_ALU8.BI7 ),
+    .B(_1681__bF$buf3),
+    .Y(_1882_)
+);
+
+NAND3X1 _4419_ (
+    .A(RDY_bF$buf4),
+    .B(_1159_),
+    .C(_1156_),
+    .Y(_1155_)
+);
+
+FILL FILL_1__3796_ (
+);
+
+FILL FILL_1__3376_ (
+);
+
+FILL FILL_3__4663_ (
+);
+
+FILL FILL_3__4243_ (
+);
+
+BUFX2 BUFX2_insert140 (
+    .A(_1305_),
+    .Y(_1305__bF$buf1)
+);
+
+BUFX2 BUFX2_insert141 (
+    .A(_1305_),
+    .Y(_1305__bF$buf0)
+);
+
+BUFX2 BUFX2_insert142 (
+    .A(_2354_[5]),
+    .Y(_2354__5_bF$buf4)
+);
+
+BUFX2 BUFX2_insert143 (
+    .A(_2354_[5]),
+    .Y(_2354__5_bF$buf3)
+);
+
+FILL FILL_2__2660_ (
+);
+
+BUFX2 BUFX2_insert144 (
+    .A(_2354_[5]),
+    .Y(_2354__5_bF$buf2)
+);
+
+BUFX2 BUFX2_insert145 (
+    .A(_2354_[5]),
+    .Y(_2354__5_bF$buf1)
+);
+
+BUFX2 BUFX2_insert146 (
+    .A(_2354_[5]),
+    .Y(_2354__5_bF$buf0)
+);
+
+BUFX2 BUFX2_insert147 (
+    .A(_1328_),
+    .Y(_1328__bF$buf5)
+);
+
+BUFX2 BUFX2_insert148 (
+    .A(_1328_),
+    .Y(_1328__bF$buf4)
+);
+
+FILL FILL_4__2586_ (
+);
+
+BUFX2 BUFX2_insert149 (
+    .A(_1328_),
+    .Y(_1328__bF$buf3)
+);
+
+FILL FILL_0__2486_ (
+);
+
+NAND3X1 _4592_ (
+    .A(_1321_),
+    .B(_1332_),
+    .C(_1322_),
+    .Y(_1320_)
+);
+
+NAND2X1 _4172_ (
+    .A(\u_cpu.AXYS[0] [5]),
+    .B(_977_),
+    .Y(_931_)
+);
+
+FILL FILL_2__3865_ (
+);
+
+FILL FILL_2__3445_ (
+);
+
+FILL FILL_2__3025_ (
+);
+
+NAND3X1 _2905_ (
+    .A(_1529_),
+    .B(_1558_),
+    .C(_1557_),
+    .Y(_1559_)
+);
+
+FILL FILL_4__4732_ (
+);
+
+FILL FILL_4__4312_ (
+);
+
+FILL FILL_0__4632_ (
+);
+
+FILL FILL_0__4212_ (
+);
+
+FILL FILL_1__2647_ (
+);
+
+FILL FILL_3__3934_ (
+);
+
+FILL FILL_3__3514_ (
+);
+
+FILL FILL_3__4719_ (
+);
+
+AOI21X1 _3863_ (
+    .A(_782_),
+    .B(\u_cpu.PC [4]),
+    .C(_655_),
+    .Y(_654_)
+);
+
+OAI21X1 _3443_ (
+    .A(_1138_),
+    .B(_886_),
+    .C(_268_),
+    .Y(_267_)
+);
+
+INVX1 _3023_ (
+    .A(DO_kbd[1]),
+    .Y(_1504_)
+);
+
+FILL FILL_2__2716_ (
+);
+
+OAI21X1 _4648_ (
+    .A(_1685_),
+    .B(_1698_),
+    .C(_1700_),
+    .Y(_1701_)
+);
+
+NOR2X1 _4228_ (
+    .A(_1022_),
+    .B(_981_),
+    .Y(_980_)
+);
+
+FILL FILL_1__3185_ (
+);
+
+FILL FILL_0__3903_ (
+);
+
+FILL FILL_3__4892_ (
+);
+
+FILL FILL_3__4472_ (
+);
+
+FILL FILL_3__4052_ (
+);
+
+FILL FILL_4__2395_ (
+);
+
+FILL FILL_2__3674_ (
+);
+
+FILL FILL_2__3254_ (
+);
+
+OAI21X1 _2714_ (
+    .A(_1663_),
+    .B(_1961_),
+    .C(_2020_),
+    .Y(_2021_)
+);
+
+FILL FILL_4__4961_ (
+);
+
+FILL FILL_4__4541_ (
+);
+
+FILL FILL_4__4121_ (
+);
+
+FILL FILL_0__4861_ (
+);
+
+FILL FILL_0__4441_ (
+);
+
+FILL FILL_2__4459_ (
+);
+
+FILL FILL_0__4021_ (
+);
+
+FILL FILL_2__4039_ (
+);
+
+INVX1 _3919_ (
+    .A(\u_cpu.clc ),
+    .Y(_703_)
+);
+
+FILL FILL_1__2876_ (
+);
+
+FILL FILL_1__2456_ (
+);
+
+FILL FILL_3__3743_ (
+);
+
+FILL FILL_3__3323_ (
+);
+
+FILL FILL_4_CLKBUF1_insert26 (
+);
+
+FILL FILL_4_CLKBUF1_insert27 (
+);
+
+FILL FILL_4_CLKBUF1_insert28 (
+);
+
+FILL FILL_1__4602_ (
+);
+
+FILL FILL_4_CLKBUF1_insert29 (
+);
+
+FILL FILL_3__4948_ (
+);
+
+FILL FILL_3__4528_ (
+);
+
+FILL FILL_3__4108_ (
+);
+
+NOR2X1 _3672_ (
+    .A(_476_),
+    .B(_478_),
+    .Y(_475_)
+);
+
+INVX1 _3252_ (
+    .A(_1044_),
+    .Y(_132_)
+);
+
+FILL FILL_2__2945_ (
+);
+
+FILL FILL_2__2525_ (
+);
+
+FILL FILL_4__3812_ (
+);
+
+DFFSR _4877_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1670_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.ADD [3])
+);
+
+OAI21X1 _4457_ (
+    .A(_1318_),
+    .B(_1192_),
+    .C(_1190_),
+    .Y(_1189_)
+);
+
+INVX1 _4037_ (
+    .A(_805_),
+    .Y(_804_)
+);
+
+FILL FILL_0__3712_ (
+);
+
+FILL FILL_3__4281_ (
+);
+
+FILL FILL_1__4199_ (
+);
+
+FILL FILL_0__4917_ (
+);
+
+FILL FILL_0_BUFX2_insert40 (
+);
+
+FILL FILL_0_BUFX2_insert41 (
+);
+
+FILL FILL_0_BUFX2_insert42 (
+);
+
+FILL FILL_2__3483_ (
+);
+
+FILL FILL_0_BUFX2_insert43 (
+);
+
+FILL FILL_0_BUFX2_insert44 (
+);
+
+FILL FILL_0_BUFX2_insert45 (
+);
+
+FILL FILL_0_BUFX2_insert46 (
+);
+
+FILL FILL_0_BUFX2_insert47 (
+);
+
+FILL FILL_0_BUFX2_insert48 (
+);
+
+FILL FILL_0_BUFX2_insert49 (
+);
+
+INVX1 _2943_ (
+    .A(_2354__5_bF$buf1),
+    .Y(_1528_)
+);
+
+MUX2X1 _2523_ (
+    .A(_2303_),
+    .B(_2293_),
+    .S(_2354__5_bF$buf1),
+    .Y(_2304_)
+);
+
+FILL FILL_4__4770_ (
+);
+
+FILL FILL_4__4350_ (
+);
+
+FILL FILL_2__4688_ (
+);
+
+FILL FILL_0__4670_ (
+);
+
+FILL FILL_0__4250_ (
+);
+
+FILL FILL_2__4268_ (
+);
+
+NOR2X1 _3728_ (
+    .A(_541_),
+    .B(_528_),
+    .Y(_527_)
+);
+
+OAI21X1 _3308_ (
+    .A(_1196__bF$buf8),
+    .B(_1126_),
+    .C(_161_),
+    .Y(_1410_)
+);
+
+FILL FILL_1__2685_ (
+);
+
+FILL FILL_3__3972_ (
+);
+
+FILL FILL_3__3552_ (
+);
+
+FILL FILL_1__4831_ (
+);
+
+FILL FILL_1__4411_ (
+);
+
+FILL FILL_3__4757_ (
+);
+
+FILL FILL_3__4337_ (
+);
+
+AOI21X1 _3481_ (
+    .A(_307_),
+    .B(_1344_),
+    .C(_295_),
+    .Y(_294_)
+);
+
+DFFSR _3061_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1429_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.state [2])
+);
+
+FILL FILL_2__2754_ (
+);
+
+FILL FILL_4__3621_ (
+);
+
+FILL FILL_4__3201_ (
+);
+
+OAI21X1 _4686_ (
+    .A(_1696_),
+    .B(\u_cpu.alu_op [2]),
+    .C(_1738_),
+    .Y(_1739_)
+);
+
+INVX1 _4266_ (
+    .A(\u_cpu.op [0]),
+    .Y(_1016_)
+);
+
+FILL FILL_0__3941_ (
+);
+
+FILL FILL_2__3959_ (
+);
+
+FILL FILL_0__3521_ (
+);
+
+FILL FILL_2__3539_ (
+);
+
+FILL FILL_3__4090_ (
+);
+
+FILL FILL_2__4900_ (
+);
+
+FILL FILL_4__4826_ (
+);
+
+FILL FILL_4__4406_ (
+);
+
+FILL FILL_3__2823_ (
+);
+
+FILL FILL_0__4726_ (
+);
+
+FILL FILL_3__2403_ (
+);
+
+FILL FILL_0__4306_ (
+);
+
+FILL FILL_2__3292_ (
+);
+
+FILL FILL_3__3608_ (
+);
+
+OAI21X1 _2752_ (
+    .A(_1975_),
+    .B(_1978_),
+    .C(_1982_),
+    .Y(_1983_)
+);
+
+FILL FILL_2__4497_ (
+);
+
+FILL FILL_2__4077_ (
+);
+
+OAI21X1 _3957_ (
+    .A(RDY_bF$buf0),
+    .B(_735_),
+    .C(_734_),
+    .Y(_1452_)
+);
+
+OAI22X1 _3537_ (
+    .A(_345_),
+    .B(_1333_),
+    .C(_1179_),
+    .D(_356_),
+    .Y(_344_)
+);
+
+DFFSR _3117_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1448_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[2] [1])
+);
+
+FILL FILL_1__2494_ (
+);
+
+FILL FILL_3__3781_ (
+);
+
+FILL FILL_3__3361_ (
+);
+
+FILL FILL_1__3699_ (
+);
+
+FILL FILL_1__3279_ (
+);
+
+FILL FILL_1__4640_ (
+);
+
+FILL FILL_1__4220_ (
+);
+
+FILL FILL_3__4566_ (
+);
+
+FILL FILL_3__4146_ (
+);
+
+OAI21X1 _3290_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [6]),
+    .Y(_152_)
+);
+
+FILL FILL_2__2983_ (
+);
+
+FILL FILL_2__2563_ (
+);
+
+FILL FILL_4__2489_ (
+);
+
+FILL FILL_4__3850_ (
+);
+
+FILL FILL_4__3430_ (
+);
+
+FILL FILL_4__3010_ (
+);
+
+FILL FILL_0__2389_ (
+);
+
+NAND2X1 _4495_ (
+    .A(_1293_),
+    .B(_1224_),
+    .Y(_1223_)
+);
+
+OAI21X1 _4075_ (
+    .A(_1328__bF$buf2),
+    .B(_1084_),
+    .C(_843_),
+    .Y(_842_)
+);
+
+FILL FILL_2__3768_ (
+);
+
+FILL FILL_0__3750_ (
+);
+
+FILL FILL_2__3348_ (
+);
+
+FILL FILL_0__3330_ (
+);
+
+NAND2X1 _2808_ (
+    .A(_2354__1_bF$buf1),
+    .B(_1636__bF$buf0),
+    .Y(_1928_)
+);
+
+FILL FILL_4__4635_ (
+);
+
+FILL FILL_4__4215_ (
+);
+
+FILL FILL_0__4955_ (
+);
+
+FILL FILL_3__2632_ (
+);
+
+FILL FILL_0__4535_ (
+);
+
+FILL FILL_0__4115_ (
+);
+
+FILL FILL_1__3911_ (
+);
+
+FILL FILL_3__3837_ (
+);
+
+FILL FILL_3__3417_ (
+);
+
+AOI22X1 _2981_ (
+    .A(\u_pia_kbd.state [0]),
+    .B(_1499_),
+    .C(_1603_),
+    .D(\u_pia_kbd.state [2]),
+    .Y(_1616_)
+);
+
+NAND2X1 _2561_ (
+    .A(_2354__6_bF$buf2),
+    .B(_2265_),
+    .Y(_2266_)
+);
+
+FILL FILL274050x93750 (
+);
+
+FILL FILL_4__2701_ (
+);
+
+NOR2X1 _3766_ (
+    .A(_1105_),
+    .B(_766_),
+    .Y(_565_)
+);
+
+INVX1 _3346_ (
+    .A(\u_cpu.shift_right ),
+    .Y(_186_)
+);
+
+FILL FILL_2__2619_ (
+);
+
+FILL FILL_0__2601_ (
+);
+
+FILL FILL_3__3590_ (
+);
+
+FILL FILL_3__3170_ (
+);
+
+FILL FILL_4__3906_ (
+);
+
+FILL FILL_0__3806_ (
+);
+
+FILL FILL_3__4795_ (
+);
+
+FILL FILL_3__4375_ (
+);
+
+FILL FILL_2__2792_ (
+);
+
+FILL FILL_2__2372_ (
+);
+
+FILL FILL_2__3997_ (
+);
+
+FILL FILL_2__3577_ (
+);
+
+NAND2X1 _2617_ (
+    .A(_2354__0_bF$buf0),
+    .B(_2354__4_bF$buf1),
+    .Y(_2116_)
+);
+
+FILL FILL_4__4864_ (
+);
+
+FILL FILL_4__4444_ (
+);
+
+FILL FILL_4__4024_ (
+);
+
+FILL FILL_0__4764_ (
+);
+
+FILL FILL_3__2861_ (
+);
+
+FILL FILL_3__2441_ (
+);
+
+FILL FILL_0__4344_ (
+);
+
+FILL FILL_1__2779_ (
+);
+
+FILL FILL_1__2359_ (
+);
+
+BUFX2 BUFX2_insert50 (
+    .A(_2354_[1]),
+    .Y(_2354__1_bF$buf1)
+);
+
+BUFX2 BUFX2_insert51 (
+    .A(_2354_[1]),
+    .Y(_2354__1_bF$buf0)
+);
+
+FILL FILL273750x75750 (
+);
+
+BUFX2 BUFX2_insert52 (
+    .A(_1315_),
+    .Y(_1315__bF$buf3)
+);
+
+BUFX2 BUFX2_insert53 (
+    .A(_1315_),
+    .Y(_1315__bF$buf2)
+);
+
+BUFX2 BUFX2_insert54 (
+    .A(_1315_),
+    .Y(_1315__bF$buf1)
+);
+
+FILL FILL_1__3720_ (
+);
+
+FILL FILL_1__3300_ (
+);
+
+BUFX2 BUFX2_insert55 (
+    .A(_1315_),
+    .Y(_1315__bF$buf0)
+);
+
+BUFX2 BUFX2_insert56 (
+    .A(_1638_),
+    .Y(_1638__bF$buf3)
+);
+
+BUFX2 BUFX2_insert57 (
+    .A(_1638_),
+    .Y(_1638__bF$buf2)
+);
+
+BUFX2 BUFX2_insert58 (
+    .A(_1638_),
+    .Y(_1638__bF$buf1)
+);
+
+BUFX2 BUFX2_insert59 (
+    .A(_1638_),
+    .Y(_1638__bF$buf0)
+);
+
+FILL FILL_3__3646_ (
+);
+
+FILL FILL_3__3226_ (
+);
+
+NOR2X1 _2790_ (
+    .A(_1945_),
+    .B(_1943_),
+    .Y(_1946_)
+);
+
+BUFX2 _2370_ (
+    .A(_2354__1_bF$buf2),
+    .Y(AB[1])
+);
+
+FILL FILL_1__4925_ (
+);
+
+FILL FILL_1__4505_ (
+);
+
+FILL FILL_4__2930_ (
+);
+
+FILL FILL_4__2510_ (
+);
+
+NOR2X1 _3995_ (
+    .A(_1111_),
+    .B(_1123_),
+    .Y(_767_)
+);
+
+INVX1 _3575_ (
+    .A(_380_),
+    .Y(_379_)
+);
+
+DFFPOSX1 _3155_ (
+    .D(_1398_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.IRHOLD [5])
+);
+
+FILL FILL_0__2830_ (
+);
+
+FILL FILL_2__2848_ (
+);
+
+FILL FILL_2__2428_ (
+);
+
+FILL FILL_0__2410_ (
+);
+
+FILL FILL_4__3715_ (
+);
+
+FILL FILL_0__3615_ (
+);
+
+FILL FILL_3__4184_ (
+);
+
+FILL FILL_3__2917_ (
+);
+
+FILL FILL_2__3386_ (
+);
+
+OAI21X1 _2846_ (
+    .A(_2354__1_bF$buf4),
+    .B(_2354__0_bF$buf2),
+    .C(_2354__2_bF$buf2),
+    .Y(_1649_)
+);
+
+OAI21X1 _2426_ (
+    .A(_2354__4_bF$buf1),
+    .B(_45_),
+    .C(_47_),
+    .Y(_48_)
+);
+
+FILL FILL_4__4673_ (
+);
+
+FILL FILL_4__4253_ (
+);
+
+FILL FILL_3__2670_ (
+);
+
+FILL FILL_0__4573_ (
+);
+
+FILL FILL_0__4153_ (
+);
+
+FILL FILL272250x64950 (
+);
+
+FILL FILL_1__2588_ (
+);
+
+FILL FILL_3__3875_ (
+);
+
+FILL FILL_3__3455_ (
+);
+
+FILL FILL_1__4734_ (
+);
+
+FILL FILL_1__4314_ (
+);
+
+NAND3X1 _3384_ (
+    .A(\u_cpu.inc ),
+    .B(_701_),
+    .C(_671_),
+    .Y(_219_)
+);
+
+FILL FILL_2__2657_ (
+);
+
+FILL FILL_4__3944_ (
+);
+
+FILL FILL_4__3524_ (
+);
+
+INVX1 _4589_ (
+    .A(\u_cpu.state [1]),
+    .Y(_1317_)
+);
+
+NAND2X1 _4169_ (
+    .A(_1096_),
+    .B(_939_),
+    .Y(_929_)
+);
+
+FILL FILL_0__3844_ (
+);
+
+FILL FILL_0__3424_ (
+);
+
+FILL FILL_0__3004_ (
+);
+
+FILL FILL_2__4803_ (
+);
+
+FILL FILL_4__4309_ (
+);
+
+FILL FILL_1__2800_ (
+);
+
+FILL FILL_0__4629_ (
+);
+
+FILL FILL_3__2726_ (
+);
+
+FILL FILL_0__4209_ (
+);
+
+FILL FILL_2__3195_ (
+);
+
+AOI21X1 _2655_ (
+    .A(_2076_),
+    .B(_2078_),
+    .C(_1923__bF$buf3),
+    .Y(_2079_)
+);
+
+FILL FILL_3_CLKBUF1_insert30 (
+);
+
+FILL FILL_4__4482_ (
+);
+
+FILL FILL_4__4062_ (
+);
+
+FILL FILL_3_CLKBUF1_insert31 (
+);
+
+FILL FILL_3_CLKBUF1_insert32 (
+);
+
+FILL FILL_3_CLKBUF1_insert33 (
+);
+
+FILL FILL_3_CLKBUF1_insert34 (
+);
+
+FILL FILL_3_CLKBUF1_insert35 (
+);
+
+FILL FILL_3_CLKBUF1_insert36 (
+);
+
+FILL FILL_3_CLKBUF1_insert37 (
+);
+
+FILL FILL_3_CLKBUF1_insert38 (
+);
+
+FILL FILL_0__4382_ (
+);
+
+FILL FILL_1__2397_ (
+);
+
+OAI21X1 _4801_ (
+    .A(_1681__bF$buf1),
+    .B(_1790_),
+    .C(_1849_),
+    .Y(_1670_)
+);
+
+FILL FILL_3__3684_ (
+);
+
+FILL FILL_3__3264_ (
+);
+
+FILL FILL_1__4963_ (
+);
+
+FILL FILL_1__4543_ (
+);
+
+FILL FILL_1__4123_ (
+);
+
+FILL FILL_3__4889_ (
+);
+
+FILL FILL_3__4469_ (
+);
+
+FILL FILL_3__4049_ (
+);
+
+NAND2X1 _3193_ (
+    .A(_92_),
+    .B(_93_),
+    .Y(_91_)
+);
+
+FILL FILL_2__2886_ (
+);
+
+FILL FILL_2__2466_ (
+);
+
+FILL FILL_4__3753_ (
+);
+
+FILL FILL_4__3333_ (
+);
+
+INVX2 _4398_ (
+    .A(\u_cpu.DIMUX [5]),
+    .Y(_1138_)
+);
+
+FILL FILL_0__3653_ (
+);
+
+FILL FILL_0__3233_ (
+);
+
+FILL FILL_2__4612_ (
+);
+
+FILL FILL_4__4958_ (
+);
+
+FILL FILL_4__4538_ (
+);
+
+FILL FILL_4__4118_ (
+);
+
+FILL FILL_0__4858_ (
+);
+
+FILL FILL_3__2535_ (
+);
+
+FILL FILL_0__4438_ (
+);
+
+FILL FILL_0__4018_ (
+);
+
+FILL FILL_1__3814_ (
+);
+
+NAND2X1 _2884_ (
+    .A(\u_pia_dsp.state [0]),
+    .B(_1551_),
+    .Y(_1576_)
+);
+
+AOI22X1 _2464_ (
+    .A(_9_),
+    .B(_10_),
+    .C(_1920__bF$buf1),
+    .D(_6_),
+    .Y(_11_)
+);
+
+FILL FILL_4__4291_ (
+);
+
+FILL FILL_0__4191_ (
+);
+
+FILL FILL_4__2604_ (
+);
+
+OAI21X1 _3669_ (
+    .A(RDY_bF$buf6),
+    .B(_898_),
+    .C(_473_),
+    .Y(_472_)
+);
+
+OAI21X1 _3249_ (
+    .A(\u_cpu.adc_sbc ),
+    .B(_130_),
+    .C(_742_),
+    .Y(_129_)
+);
+
+FILL FILL_0__2924_ (
+);
+
+FILL FILL_0__2504_ (
+);
+
+INVX1 _4610_ (
+    .A(\u_cpu.state [3]),
+    .Y(_1338_)
+);
+
+FILL FILL_3__3493_ (
+);
+
+FILL FILL_4__3809_ (
+);
+
+FILL FILL_0__3709_ (
+);
+
+FILL FILL_1__4772_ (
+);
+
+FILL FILL_1__4352_ (
+);
+
+FILL FILL_3__4698_ (
+);
+
+FILL FILL_3__4278_ (
+);
+
+FILL FILL_2__2695_ (
+);
+
+FILL FILL_4__3982_ (
+);
+
+FILL FILL_4__3562_ (
+);
+
+FILL FILL_0__3882_ (
+);
+
+FILL FILL_0__3462_ (
+);
+
+FILL FILL_2__4841_ (
+);
+
+FILL FILL_2__4421_ (
+);
+
+FILL FILL_2__4001_ (
+);
+
+FILL FILL_4__4767_ (
+);
+
+FILL FILL_4__4347_ (
+);
+
+FILL FILL_0__4667_ (
+);
+
+FILL FILL_3__2764_ (
+);
+
+FILL FILL_0__4247_ (
+);
+
+FILL FILL_1__3623_ (
+);
+
+FILL FILL_1__3203_ (
+);
+
+FILL FILL_3__3969_ (
+);
+
+FILL FILL_3__3549_ (
+);
+
+AOI21X1 _2693_ (
+    .A(_1636__bF$buf2),
+    .B(_1647_),
+    .C(_1964_),
+    .Y(_2042_)
+);
+
+FILL FILL_3__4910_ (
+);
+
+FILL FILL_1__4828_ (
+);
+
+FILL FILL_1__4408_ (
+);
+
+FILL FILL_4__2833_ (
+);
+
+FILL FILL_4__2413_ (
+);
+
+NAND3X1 _3898_ (
+    .A(_1025_),
+    .B(_1036_),
+    .C(_995_),
+    .Y(_686_)
+);
+
+AND2X2 _3478_ (
+    .A(_480_),
+    .B(_292_),
+    .Y(_291_)
+);
+
+DFFSR _3058_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1489_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [8])
+);
+
+FILL FILL_0__2733_ (
+);
+
+FILL FILL274050x25350 (
+);
+
+FILL FILL_4__3618_ (
+);
+
+FILL FILL_0__3938_ (
+);
+
+FILL FILL_0__3518_ (
+);
+
+FILL FILL_1__4581_ (
+);
+
+FILL FILL_1__4161_ (
+);
+
+FILL FILL_3__4087_ (
+);
+
+FILL FILL_4__3791_ (
+);
+
+FILL FILL_4__3371_ (
+);
+
+FILL FILL_0__3691_ (
+);
+
+FILL FILL_2__3289_ (
+);
+
+FILL FILL_0__3271_ (
+);
+
+FILL FILL_2__4650_ (
+);
+
+FILL FILL_2__4230_ (
+);
+
+OAI21X1 _2749_ (
+    .A(_1984_),
+    .B(_1949_),
+    .C(_1985_),
+    .Y(_1986_)
+);
+
+FILL FILL_4__4576_ (
+);
+
+FILL FILL_4__4156_ (
+);
+
+FILL FILL_3__2993_ (
+);
+
+FILL FILL_0__4896_ (
+);
+
+FILL FILL_3__2573_ (
+);
+
+FILL FILL_0__4476_ (
+);
+
+FILL FILL_0__4056_ (
+);
+
+FILL FILL_1__3852_ (
+);
+
+FILL FILL_1__3432_ (
+);
+
+FILL FILL_1__3012_ (
+);
+
+FILL FILL_3__3778_ (
+);
+
+FILL FILL_3__3358_ (
+);
+
+FILL FILL_1__4637_ (
+);
+
+FILL FILL_1__4217_ (
+);
+
+FILL FILL_4__2642_ (
+);
+
+OAI21X1 _3287_ (
+    .A(_1196__bF$buf8),
+    .B(_1345__bF$buf0),
+    .C(\u_cpu.store ),
+    .Y(_150_)
+);
+
+FILL FILL_0__2542_ (
+);
+
+FILL FILL_2__3921_ (
+);
+
+FILL FILL_2__3501_ (
+);
+
+FILL FILL_0_BUFX2_insert130 (
+);
+
+FILL FILL_0_BUFX2_insert131 (
+);
+
+FILL FILL_0_BUFX2_insert132 (
+);
+
+FILL FILL_0_BUFX2_insert133 (
+);
+
+FILL FILL_0_BUFX2_insert134 (
+);
+
+FILL FILL_4__3847_ (
+);
+
+FILL FILL_0_BUFX2_insert135 (
+);
+
+FILL FILL_4__3427_ (
+);
+
+FILL FILL_0_BUFX2_insert136 (
+);
+
+FILL FILL_4__3007_ (
+);
+
+FILL FILL_0_BUFX2_insert137 (
+);
+
+FILL FILL_0_BUFX2_insert138 (
+);
+
+FILL FILL_0_BUFX2_insert139 (
+);
+
+FILL FILL_0__3747_ (
+);
+
+FILL FILL_0__3327_ (
+);
+
+FILL FILL_1__4390_ (
+);
+
+FILL FILL_2__4706_ (
+);
+
+FILL FILL_1__2703_ (
+);
+
+FILL FILL_3__2629_ (
+);
+
+FILL FILL_4__3180_ (
+);
+
+FILL FILL_1__3908_ (
+);
+
+NAND3X1 _2978_ (
+    .A(\u_pia_kbd.state [2]),
+    .B(_1618_),
+    .C(_1616_),
+    .Y(_1619_)
+);
+
+OAI21X1 _2558_ (
+    .A(_2268_),
+    .B(_1937_),
+    .C(_1634__bF$buf5),
+    .Y(_2269_)
+);
+
+FILL FILL_4__4385_ (
+);
+
+FILL FILL_0__4285_ (
+);
+
+FILL FILL_3__2382_ (
+);
+
+INVX1 _4704_ (
+    .A(_1756_),
+    .Y(_1757_)
+);
+
+FILL FILL_1__3661_ (
+);
+
+FILL FILL_1__3241_ (
+);
+
+FILL FILL_3__3587_ (
+);
+
+FILL FILL_3__3167_ (
+);
+
+FILL FILL_1__4866_ (
+);
+
+FILL FILL_1__4446_ (
+);
+
+FILL FILL_1__4026_ (
+);
+
+FILL FILL_4__2451_ (
+);
+
+DFFSR _3096_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1384_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.shift )
+);
+
+FILL FILL_2__2789_ (
+);
+
+FILL FILL_0__2771_ (
+);
+
+FILL FILL_2__2369_ (
+);
+
+FILL FILL_2__3730_ (
+);
+
+FILL FILL_2__3310_ (
+);
+
+FILL FILL_4__3656_ (
+);
+
+FILL FILL_4__3236_ (
+);
+
+FILL FILL_0__3976_ (
+);
+
+FILL FILL_0__3556_ (
+);
+
+FILL FILL_2__4935_ (
+);
+
+FILL FILL_2__4515_ (
+);
+
+FILL FILL_1__2932_ (
+);
+
+FILL FILL_1__2512_ (
+);
+
+FILL FILL_3__2858_ (
+);
+
+FILL FILL_3__2438_ (
+);
+
+FILL FILL_1__3717_ (
+);
+
+OAI21X1 _2787_ (
+    .A(_2354__1_bF$buf2),
+    .B(_2354__2_bF$buf0),
+    .C(_2354__3_bF$buf6),
+    .Y(_1949_)
+);
+
+BUFX2 _2367_ (
+    .A(_2354__4_bF$buf5),
+    .Y(AB[4])
+);
+
+FILL FILL_4__4194_ (
+);
+
+FILL FILL_0__4094_ (
+);
+
+FILL FILL_4__2927_ (
+);
+
+FILL FILL_4__2507_ (
+);
+
+FILL FILL_0__2827_ (
+);
+
+FILL FILL_0__2407_ (
+);
+
+INVX1 _4933_ (
+    .A(DO_woz[4]),
+    .Y(_2207_)
+);
+
+NAND2X1 _4513_ (
+    .A(_1350_),
+    .B(_1242_),
+    .Y(_1241_)
+);
+
+FILL FILL_1__3890_ (
+);
+
+FILL FILL_1__3470_ (
+);
+
+FILL FILL_3__3396_ (
+);
+
+FILL FILL_1__4675_ (
+);
+
+FILL FILL_1__4255_ (
+);
+
+FILL FILL_4__2680_ (
+);
+
+FILL FILL_0__2580_ (
+);
+
+FILL FILL_2__2598_ (
+);
+
+FILL FILL_4__3885_ (
+);
+
+FILL FILL_4__3465_ (
+);
+
+FILL FILL_0__3785_ (
+);
+
+FILL FILL_0__3365_ (
+);
+
+FILL FILL_2__4744_ (
+);
+
+FILL FILL_2__4324_ (
+);
+
+FILL FILL_1__2741_ (
+);
+
+FILL FILL_3__2667_ (
+);
+
+FILL FILL_1__3946_ (
+);
+
+FILL FILL_1__3526_ (
+);
+
+NAND2X1 _2596_ (
+    .A(_1634__bF$buf4),
+    .B(_2136_),
+    .Y(_2137_)
+);
+
+FILL FILL_3__4813_ (
+);
+
+FILL FILL_2__2810_ (
+);
+
+FILL FILL_4__2736_ (
+);
+
+FILL FILL_0__2636_ (
+);
+
+MUX2X1 _4742_ (
+    .A(_1738_),
+    .B(_1739_),
+    .S(_1736_),
+    .Y(_1795_)
+);
+
+NAND2X1 _4322_ (
+    .A(_1068_),
+    .B(_1077_),
+    .Y(_1067_)
+);
+
+FILL FILL_1__4484_ (
+);
+
+FILL FILL_1__4064_ (
+);
+
+FILL FILL_4__3694_ (
+);
+
+FILL FILL_4__3274_ (
+);
+
+FILL FILL_0__3594_ (
+);
+
+FILL FILL_0__3174_ (
+);
+
+FILL FILL_2__4973_ (
+);
+
+FILL FILL_2__4553_ (
+);
+
+FILL FILL_2__4133_ (
+);
+
+FILL FILL_4__4899_ (
+);
+
+FILL FILL_4__4479_ (
+);
+
+FILL FILL_4__4059_ (
+);
+
+FILL FILL_1__2970_ (
+);
+
+FILL FILL_1__2550_ (
+);
+
+FILL FILL_0__4799_ (
+);
+
+FILL FILL_3__2896_ (
+);
+
+FILL FILL_0__4379_ (
+);
+
+FILL FILL_3__2476_ (
+);
+
+FILL FILL272550x72150 (
+);
+
+FILL FILL_1__3755_ (
+);
+
+FILL FILL_1__3335_ (
+);
+
+FILL FILL272550x39750 (
+);
+
+FILL FILL_3__4622_ (
+);
+
+FILL FILL_3__4202_ (
+);
+
+FILL FILL_4__2965_ (
+);
+
+FILL FILL_4__2545_ (
+);
+
+FILL FILL_0__2445_ (
+);
+
+AOI21X1 _4971_ (
+    .A(_2198_),
+    .B(DO_kbd[0]),
+    .C(_2195_),
+    .Y(_2241_)
+);
+
+INVX1 _4551_ (
+    .A(_1280_),
+    .Y(_1279_)
+);
+
+INVX2 _4131_ (
+    .A(_898_),
+    .Y(_897_)
+);
+
+FILL FILL_2__3824_ (
+);
+
+FILL FILL_2__3404_ (
+);
+
+FILL FILL_1__4293_ (
+);
+
+FILL FILL_2__4609_ (
+);
+
+FILL FILL_1__2606_ (
+);
+
+FILL FILL_2__4782_ (
+);
+
+FILL FILL_2__4362_ (
+);
+
+FILL FILL_4__4288_ (
+);
+
+INVX1 _3822_ (
+    .A(_617_),
+    .Y(_2354_[10])
+);
+
+AOI21X1 _3402_ (
+    .A(_782_),
+    .B(\u_cpu.PC [1]),
+    .C(_234_),
+    .Y(_233_)
+);
+
+FILL FILL_0__4188_ (
+);
+
+NAND2X1 _4607_ (
+    .A(\u_cpu.state [1]),
+    .B(_1336_),
+    .Y(_1335_)
+);
+
+FILL FILL_1__3984_ (
+);
+
+FILL FILL_1__3564_ (
+);
+
+FILL FILL_3__4851_ (
+);
+
+FILL FILL_3__4431_ (
+);
+
+FILL FILL_3__4011_ (
+);
+
+FILL FILL_1__4769_ (
+);
+
+FILL FILL_1__4349_ (
+);
+
+FILL FILL_4__2774_ (
+);
+
+FILL FILL_0__2674_ (
+);
+
+INVX1 _4780_ (
+    .A(\u_cpu.u_ALU8.BCD ),
+    .Y(_1833_)
+);
+
+OAI21X1 _4360_ (
+    .A(_1125_),
+    .B(\u_cpu.IRHOLD [1]),
+    .C(_1340_),
+    .Y(_1103_)
+);
+
+FILL FILL_2__3633_ (
+);
+
+FILL FILL_2__3213_ (
+);
+
+FILL FILL_4__3979_ (
+);
+
+FILL FILL_4__3559_ (
+);
+
+FILL FILL_4__4920_ (
+);
+
+FILL FILL_4__4500_ (
+);
+
+FILL FILL_0__3879_ (
+);
+
+FILL FILL_0__3459_ (
+);
+
+FILL FILL_2__4838_ (
+);
+
+FILL FILL_0__4820_ (
+);
+
+FILL FILL_0__4400_ (
+);
+
+FILL FILL_2__4418_ (
+);
+
+FILL FILL_1__2835_ (
+);
+
+FILL FILL_1__2415_ (
+);
+
+FILL FILL_3__3702_ (
+);
+
+FILL FILL_2__4591_ (
+);
+
+FILL FILL_2__4171_ (
+);
+
+FILL FILL_4__4097_ (
+);
+
+FILL FILL_3__4907_ (
+);
+
+NOR2X1 _3631_ (
+    .A(_435_),
+    .B(_452_),
+    .Y(_434_)
+);
+
+NAND2X1 _3211_ (
+    .A(\u_cpu.I ),
+    .B(_104_),
+    .Y(_103_)
+);
+
+FILL FILL_2__2904_ (
+);
+
+OAI21X1 _4836_ (
+    .A(_1871_),
+    .B(_1698_),
+    .C(_1878_),
+    .Y(_1879_)
+);
+
+NOR2X1 _4416_ (
+    .A(_1154_),
+    .B(_1183_),
+    .Y(_1153_)
+);
+
+FILL FILL_1__3793_ (
+);
+
+FILL FILL_1__3373_ (
+);
+
+FILL FILL_3__3299_ (
+);
+
+FILL FILL_3__4660_ (
+);
+
+FILL FILL_3__4240_ (
+);
+
+BUFX2 BUFX2_insert110 (
+    .A(_1643_),
+    .Y(_1643__bF$buf4)
+);
+
+BUFX2 BUFX2_insert111 (
+    .A(_1643_),
+    .Y(_1643__bF$buf3)
+);
+
+BUFX2 BUFX2_insert112 (
+    .A(_1643_),
+    .Y(_1643__bF$buf2)
+);
+
+BUFX2 BUFX2_insert113 (
+    .A(_1643_),
+    .Y(_1643__bF$buf1)
+);
+
+BUFX2 BUFX2_insert114 (
+    .A(_1643_),
+    .Y(_1643__bF$buf0)
+);
+
+FILL FILL_1__4578_ (
+);
+
+BUFX2 BUFX2_insert115 (
+    .A(_1681_),
+    .Y(_1681__bF$buf3)
+);
+
+FILL FILL_1__4158_ (
+);
+
+BUFX2 BUFX2_insert116 (
+    .A(_1681_),
+    .Y(_1681__bF$buf2)
+);
+
+BUFX2 BUFX2_insert117 (
+    .A(_1681_),
+    .Y(_1681__bF$buf1)
+);
+
+BUFX2 BUFX2_insert118 (
+    .A(_1681_),
+    .Y(_1681__bF$buf0)
+);
+
+FILL FILL_4__2583_ (
+);
+
+BUFX2 BUFX2_insert119 (
+    .A(_1070_),
+    .Y(_1070__bF$buf3)
+);
+
+FILL FILL_0__2483_ (
+);
+
+FILL FILL_2__3862_ (
+);
+
+FILL FILL_2__3442_ (
+);
+
+FILL FILL_2__3022_ (
+);
+
+FILL FILL_4__3788_ (
+);
+
+FILL FILL_4__3368_ (
+);
+
+FILL FILL273150x10950 (
+);
+
+OAI21X1 _2902_ (
+    .A(_1537_),
+    .B(_1560_),
+    .C(_1561_),
+    .Y(_1593_)
+);
+
+FILL FILL_0__3688_ (
+);
+
+FILL FILL_0__3268_ (
+);
+
+FILL FILL_2__4647_ (
+);
+
+FILL FILL_2__4227_ (
+);
+
+FILL FILL_1__2644_ (
+);
+
+FILL FILL_3__3931_ (
+);
+
+FILL FILL_3__3511_ (
+);
+
+FILL FILL_1__3849_ (
+);
+
+FILL FILL_1__3429_ (
+);
+
+FILL FILL_1__3009_ (
+);
+
+AOI21X1 _2499_ (
+    .A(_1928_),
+    .B(_2077_),
+    .C(_2326_),
+    .Y(_2327_)
+);
+
+FILL FILL_3__4716_ (
+);
+
+AOI22X1 _3860_ (
+    .A(_922_),
+    .B(\u_cpu.AXYS[3] [5]),
+    .C(\u_cpu.AXYS[0] [5]),
+    .D(_978_),
+    .Y(_652_)
+);
+
+NAND2X1 _3440_ (
+    .A(\u_cpu.ADD [6]),
+    .B(_908_),
+    .Y(_265_)
+);
+
+INVX1 _3020_ (
+    .A(DO_kbd[2]),
+    .Y(_1506_)
+);
+
+FILL FILL_2__2713_ (
+);
+
+FILL FILL_4__2639_ (
+);
+
+FILL FILL_0__2539_ (
+);
+
+NOR2X1 _4645_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(\u_cpu.alu_op [2]),
+    .Y(_1698_)
+);
+
+AND2X2 _4225_ (
+    .A(_979_),
+    .B(_1051_),
+    .Y(_978_)
+);
+
+FILL FILL_1__3182_ (
+);
+
+FILL FILL_0__3900_ (
+);
+
+FILL FILL_2__3918_ (
+);
+
+FILL FILL_1__4387_ (
+);
+
+FILL FILL_2__3671_ (
+);
+
+FILL FILL_2__3251_ (
+);
+
+FILL FILL_4__3597_ (
+);
+
+FILL FILL_4__3177_ (
+);
+
+OAI21X1 _2711_ (
+    .A(_2354__1_bF$buf1),
+    .B(_1638__bF$buf0),
+    .C(_1643__bF$buf5),
+    .Y(_2024_)
+);
+
+FILL FILL_0__3497_ (
+);
+
+FILL FILL_2__4456_ (
+);
+
+FILL FILL_2__4036_ (
+);
+
+INVX1 _3916_ (
+    .A(\u_cpu.rotate ),
+    .Y(_701_)
+);
+
+FILL FILL_1__2453_ (
+);
+
+FILL FILL_3__2799_ (
+);
+
+FILL FILL_3__2379_ (
+);
+
+FILL FILL_3__3740_ (
+);
+
+FILL FILL_3__3320_ (
+);
+
+FILL FILL_1__3658_ (
+);
+
+FILL FILL_1__3238_ (
+);
+
+FILL FILL_3__4945_ (
+);
+
+FILL FILL_3__4525_ (
+);
+
+FILL FILL_3__4105_ (
+);
+
+FILL FILL_2__2942_ (
+);
+
+FILL FILL_2__2522_ (
+);
+
+FILL FILL_4__2448_ (
+);
+
+FILL FILL_0__2768_ (
+);
+
+DFFSR _4874_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1676_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.u_ALU8.BI7 )
+);
+
+NOR2X1 _4454_ (
+    .A(_1187_),
+    .B(_1199_),
+    .Y(_1186_)
+);
+
+AOI21X1 _4034_ (
+    .A(_814_),
+    .B(_835_),
+    .C(_802_),
+    .Y(_801_)
+);
+
+FILL FILL_2__3727_ (
+);
+
+FILL FILL_2__3307_ (
+);
+
+FILL FILL_1__4196_ (
+);
+
+FILL FILL_0__4914_ (
+);
+
+FILL FILL_1__2929_ (
+);
+
+FILL FILL_1__2509_ (
+);
+
+FILL FILL_0_BUFX2_insert10 (
+);
+
+FILL FILL_0_BUFX2_insert11 (
+);
+
+FILL FILL_0_BUFX2_insert12 (
+);
+
+FILL FILL_2__3480_ (
+);
+
+FILL FILL_0_BUFX2_insert13 (
+);
+
+FILL FILL_0_BUFX2_insert14 (
+);
+
+FILL FILL_0_BUFX2_insert15 (
+);
+
+FILL FILL_0_BUFX2_insert16 (
+);
+
+FILL FILL_0_BUFX2_insert17 (
+);
+
+FILL FILL_0_BUFX2_insert18 (
+);
+
+FILL FILL_0_BUFX2_insert19 (
+);
+
+INVX1 _2940_ (
+    .A(_2354_[9]),
+    .Y(_1531_)
+);
+
+OAI21X1 _2520_ (
+    .A(_1961_),
+    .B(_1647_),
+    .C(_2000_),
+    .Y(_2306_)
+);
+
+FILL FILL_2__4685_ (
+);
+
+FILL FILL_2__4265_ (
+);
+
+OAI21X1 _3725_ (
+    .A(_1325__bF$buf2),
+    .B(_904_),
+    .C(_1196__bF$buf6),
+    .Y(_524_)
+);
+
+OAI21X1 _3305_ (
+    .A(_1037__bF$buf1),
+    .B(_160_),
+    .C(_159_),
+    .Y(_1409_)
+);
+
+FILL FILL_1__2682_ (
+);
+
+FILL FILL_1__3887_ (
+);
+
+FILL FILL_1__3467_ (
+);
+
+FILL FILL_3__4754_ (
+);
+
+FILL FILL_3__4334_ (
+);
+
+FILL FILL_2__2751_ (
+);
+
+FILL FILL_4__2677_ (
+);
+
+FILL FILL_0__2997_ (
+);
+
+FILL FILL_0__2577_ (
+);
+
+AOI22X1 _4683_ (
+    .A(\u_cpu.alu_shift_right ),
+    .B(\u_cpu.AI [2]),
+    .C(_1735_),
+    .D(_1733_),
+    .Y(_1736_)
+);
+
+AOI22X1 _4263_ (
+    .A(_1016_),
+    .B(_1037__bF$buf1),
+    .C(_1015_),
+    .D(_1014_),
+    .Y(_1476_)
+);
+
+FILL FILL_2__3956_ (
+);
+
+FILL FILL_2__3536_ (
+);
+
+FILL FILL_4__4823_ (
+);
+
+FILL FILL_4__4403_ (
+);
+
+FILL FILL_3__2820_ (
+);
+
+FILL FILL_0__4723_ (
+);
+
+FILL FILL_3__2400_ (
+);
+
+FILL FILL_0__4303_ (
+);
+
+FILL FILL_1__2738_ (
+);
+
+FILL FILL_3__3605_ (
+);
+
+FILL FILL_2__4494_ (
+);
+
+FILL FILL_2__4074_ (
+);
+
+NAND2X1 _3954_ (
+    .A(_1099_),
+    .B(_732_),
+    .Y(_731_)
+);
+
+INVX1 _3534_ (
+    .A(\u_cpu.ABH [6]),
+    .Y(_342_)
+);
+
+DFFSR _3114_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1473_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[0] [0])
+);
+
+FILL FILL_1__2491_ (
+);
+
+FILL FILL_2__2807_ (
+);
+
+OAI21X1 _4739_ (
+    .A(_1697_),
+    .B(_1791_),
+    .C(_1751_),
+    .Y(_1792_)
+);
+
+NOR2X1 _4319_ (
+    .A(_1352_),
+    .B(_1237_),
+    .Y(_1064_)
+);
+
+FILL FILL_1__3696_ (
+);
+
+FILL FILL_1__3276_ (
+);
+
+FILL FILL_3__4983_ (
+);
+
+FILL FILL_3__4563_ (
+);
+
+FILL FILL_3__4143_ (
+);
+
+FILL FILL_2__2980_ (
+);
+
+FILL FILL_2__2560_ (
+);
+
+FILL FILL_4__2486_ (
+);
+
+FILL FILL_0__2386_ (
+);
+
+OAI21X1 _4492_ (
+    .A(_1221_),
+    .B(_1282_),
+    .C(_1254_),
+    .Y(_1220_)
+);
+
+OAI21X1 _4072_ (
+    .A(_1328__bF$buf3),
+    .B(_870_),
+    .C(_1063_),
+    .Y(_839_)
+);
+
+FILL FILL_2__3765_ (
+);
+
+FILL FILL_2__3345_ (
+);
+
+AND2X2 _2805_ (
+    .A(_1930_),
+    .B(_1920__bF$buf1),
+    .Y(_1931_)
+);
+
+FILL FILL_4__4632_ (
+);
+
+FILL FILL_4__4212_ (
+);
+
+FILL FILL_0__4952_ (
+);
+
+FILL FILL_0__4532_ (
+);
+
+FILL FILL_0__4112_ (
+);
+
+FILL FILL_1__2967_ (
+);
+
+FILL FILL_1__2547_ (
+);
+
+FILL FILL273750x7350 (
+);
+
+FILL FILL_3__3834_ (
+);
+
+FILL FILL_3__3414_ (
+);
+
+FILL FILL271950x50550 (
+);
+
+FILL FILL_3__4619_ (
+);
+
+AOI21X1 _3763_ (
+    .A(_566_),
+    .B(_577_),
+    .C(_563_),
+    .Y(_562_)
+);
+
+INVX1 _3343_ (
+    .A(\u_cpu.D ),
+    .Y(_185_)
+);
+
+FILL FILL_2__2616_ (
+);
+
+FILL FILL_4__3903_ (
+);
+
+INVX1 _4968_ (
+    .A(DI[0]),
+    .Y(_2238_)
+);
+
+INVX1 _4548_ (
+    .A(_1277_),
+    .Y(_1276_)
+);
+
+AOI21X1 _4128_ (
+    .A(_1326_),
+    .B(_1072_),
+    .C(_1046_),
+    .Y(_894_)
+);
+
+FILL FILL_0__3803_ (
+);
+
+FILL FILL_3__4792_ (
+);
+
+FILL FILL_3__4372_ (
+);
+
+FILL FILL_2__3994_ (
+);
+
+FILL FILL_2__3574_ (
+);
+
+OAI21X1 _2614_ (
+    .A(_2354__1_bF$buf0),
+    .B(_2354__0_bF$buf5),
+    .C(_2118_),
+    .Y(_2119_)
+);
+
+FILL FILL_4__4861_ (
+);
+
+FILL FILL_4__4441_ (
+);
+
+FILL FILL_4__4021_ (
+);
+
+FILL FILL_2__4779_ (
+);
+
+FILL FILL_0__4761_ (
+);
+
+FILL FILL_2__4359_ (
+);
+
+FILL FILL_0__4341_ (
+);
+
+INVX1 _3819_ (
+    .A(_636_),
+    .Y(_614_)
+);
+
+FILL FILL_1__2776_ (
+);
+
+FILL FILL_1__2356_ (
+);
+
+BUFX2 BUFX2_insert20 (
+    .A(RDY),
+    .Y(RDY_bF$buf1)
+);
+
+BUFX2 BUFX2_insert21 (
+    .A(RDY),
+    .Y(RDY_bF$buf0)
+);
+
+BUFX2 BUFX2_insert22 (
+    .A(_2354_[7]),
+    .Y(_2354__7_bF$buf3)
+);
+
+BUFX2 BUFX2_insert23 (
+    .A(_2354_[7]),
+    .Y(_2354__7_bF$buf2)
+);
+
+BUFX2 BUFX2_insert24 (
+    .A(_2354_[7]),
+    .Y(_2354__7_bF$buf1)
+);
+
+BUFX2 BUFX2_insert25 (
+    .A(_2354_[7]),
+    .Y(_2354__7_bF$buf0)
+);
+
+FILL FILL_3__3643_ (
+);
+
+FILL FILL_3__3223_ (
+);
+
+FILL FILL_1__4922_ (
+);
+
+FILL FILL_1__4502_ (
+);
+
+FILL FILL_3__4848_ (
+);
+
+FILL FILL_3__4428_ (
+);
+
+FILL FILL_3__4008_ (
+);
+
+INVX1 _3992_ (
+    .A(_765_),
+    .Y(_764_)
+);
+
+NAND3X1 _3572_ (
+    .A(_378_),
+    .B(_377_),
+    .C(_379_),
+    .Y(_376_)
+);
+
+DFFSR _3152_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1412_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.src_reg [0])
+);
+
+FILL FILL_2__2845_ (
+);
+
+FILL FILL_2__2425_ (
+);
+
+FILL FILL_4__3712_ (
+);
+
+NAND3X1 _4777_ (
+    .A(_1727_),
+    .B(_1788_),
+    .C(_1786_),
+    .Y(_1830_)
+);
+
+AOI21X1 _4357_ (
+    .A(_1125_),
+    .B(_1207_),
+    .C(_1101_),
+    .Y(_1100_)
+);
+
+FILL FILL_0__3612_ (
+);
+
+FILL FILL_3__4181_ (
+);
+
+FILL FILL_4__4917_ (
+);
+
+FILL FILL_1__4099_ (
+);
+
+FILL FILL_0__4817_ (
+);
+
+FILL FILL_3__2914_ (
+);
+
+FILL FILL_2__3383_ (
+);
+
+OAI21X1 _2843_ (
+    .A(_2354__1_bF$buf5),
+    .B(_2354__0_bF$buf1),
+    .C(_1636__bF$buf3),
+    .Y(_1652_)
+);
+
+AOI21X1 _2423_ (
+    .A(_1647_),
+    .B(_1636__bF$buf3),
+    .C(_1634__bF$buf1),
+    .Y(_51_)
+);
+
+FILL FILL_4__4670_ (
+);
+
+FILL FILL_4__4250_ (
+);
+
+FILL FILL_0__4570_ (
+);
+
+FILL FILL_2__4588_ (
+);
+
+FILL FILL_2__4168_ (
+);
+
+FILL FILL_0__4150_ (
+);
+
+NOR2X1 _3628_ (
+    .A(_554_),
+    .B(_581_),
+    .Y(_432_)
+);
+
+AOI21X1 _3208_ (
+    .A(_101_),
+    .B(_897_),
+    .C(_102_),
+    .Y(_100_)
+);
+
+FILL FILL_1__2585_ (
+);
+
+FILL FILL_3__3872_ (
+);
+
+FILL FILL_3__3452_ (
+);
+
+FILL FILL_3__3032_ (
+);
+
+FILL FILL_1__4731_ (
+);
+
+FILL FILL_1__4311_ (
+);
+
+FILL FILL_3__4657_ (
+);
+
+FILL FILL_3__4237_ (
+);
+
+OAI21X1 _3381_ (
+    .A(_1286_),
+    .B(_891_),
+    .C(\u_cpu.CO ),
+    .Y(_216_)
+);
+
+FILL FILL_2__2654_ (
+);
+
+FILL FILL_4__3941_ (
+);
+
+FILL FILL_4__3521_ (
+);
+
+NAND3X1 _4586_ (
+    .A(_1345__bF$buf3),
+    .B(_1349_),
+    .C(_1315__bF$buf3),
+    .Y(_1314_)
+);
+
+AND2X2 _4166_ (
+    .A(_937_),
+    .B(_928_),
+    .Y(_926_)
+);
+
+FILL FILL_0__3841_ (
+);
+
+FILL FILL_2__3859_ (
+);
+
+FILL FILL_2__3439_ (
+);
+
+FILL FILL_0__3421_ (
+);
+
+FILL FILL_0__3001_ (
+);
+
+FILL FILL_2__3019_ (
+);
+
+FILL FILL_2__4800_ (
+);
+
+FILL FILL_4__4726_ (
+);
+
+FILL FILL_4__4306_ (
+);
+
+FILL FILL_3__2723_ (
+);
+
+FILL FILL_0__4626_ (
+);
+
+FILL FILL_0__4206_ (
+);
+
+FILL FILL_2__3192_ (
+);
+
+FILL FILL_3__3928_ (
+);
+
+FILL FILL_3__3508_ (
+);
+
+OAI21X1 _2652_ (
+    .A(_2354__3_bF$buf2),
+    .B(_2081_),
+    .C(_2026_),
+    .Y(_2082_)
+);
+
+FILL FILL_2__4397_ (
+);
+
+AOI22X1 _3857_ (
+    .A(\u_cpu.DIMUX [5]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [5]),
+    .Y(_649_)
+);
+
+OAI21X1 _3437_ (
+    .A(_1108_),
+    .B(_886_),
+    .C(_263_),
+    .Y(_262_)
+);
+
+INVX1 _3017_ (
+    .A(\u_pia_kbd.state [2]),
+    .Y(_1512_)
+);
+
+FILL FILL_1__2394_ (
+);
+
+FILL FILL_3__3681_ (
+);
+
+FILL FILL_3__3261_ (
+);
+
+FILL FILL_1_BUFX2_insert80 (
+);
+
+FILL FILL_1_BUFX2_insert81 (
+);
+
+FILL FILL_1_BUFX2_insert82 (
+);
+
+FILL FILL_1_BUFX2_insert83 (
+);
+
+FILL FILL_1_BUFX2_insert84 (
+);
+
+FILL FILL_1_BUFX2_insert85 (
+);
+
+FILL FILL_1_BUFX2_insert86 (
+);
+
+FILL FILL_1_BUFX2_insert87 (
+);
+
+FILL FILL_1_BUFX2_insert88 (
+);
+
+FILL FILL_1_BUFX2_insert89 (
+);
+
+FILL FILL_1__3599_ (
+);
+
+FILL FILL_1__3179_ (
+);
+
+FILL FILL_1__4960_ (
+);
+
+FILL FILL_1__4540_ (
+);
+
+FILL FILL_1__4120_ (
+);
+
+FILL FILL_3__4886_ (
+);
+
+FILL FILL_3__4466_ (
+);
+
+FILL FILL_3__4046_ (
+);
+
+OAI21X1 _3190_ (
+    .A(_1196__bF$buf0),
+    .B(_282_),
+    .C(\u_cpu.adc_sbc ),
+    .Y(_89_)
+);
+
+FILL FILL_2__2883_ (
+);
+
+FILL FILL_2__2463_ (
+);
+
+FILL FILL_4__2389_ (
+);
+
+FILL FILL_4__3750_ (
+);
+
+FILL FILL_4__3330_ (
+);
+
+OAI21X1 _4395_ (
+    .A(_1318_),
+    .B(_1138_),
+    .C(_1136_),
+    .Y(_1135_)
+);
+
+FILL FILL_2__3668_ (
+);
+
+FILL FILL_0__3650_ (
+);
+
+FILL FILL_0__3230_ (
+);
+
+FILL FILL_2__3248_ (
+);
+
+NAND2X1 _2708_ (
+    .A(_1634__bF$buf5),
+    .B(_2026_),
+    .Y(_2027_)
+);
+
+FILL FILL_4__4955_ (
+);
+
+FILL FILL_4__4535_ (
+);
+
+FILL FILL_4__4115_ (
+);
+
+FILL FILL_0__4855_ (
+);
+
+FILL FILL_3__2532_ (
+);
+
+FILL FILL_0__4435_ (
+);
+
+FILL FILL_0__4015_ (
+);
+
+FILL FILL_1__3811_ (
+);
+
+FILL FILL_3__3737_ (
+);
+
+FILL FILL_3__3317_ (
+);
+
+OAI21X1 _2881_ (
+    .A(_1566_),
+    .B(_1577_),
+    .C(_1578_),
+    .Y(_1517_)
+);
+
+OAI21X1 _2461_ (
+    .A(_2354__1_bF$buf5),
+    .B(_13_),
+    .C(_2354__4_bF$buf3),
+    .Y(_14_)
+);
+
+FILL FILL_4__2601_ (
+);
+
+NAND3X1 _3666_ (
+    .A(_470_),
+    .B(_472_),
+    .C(_542_),
+    .Y(_469_)
+);
+
+AOI21X1 _3246_ (
+    .A(_131_),
+    .B(\u_cpu.AV ),
+    .C(_127_),
+    .Y(_126_)
+);
+
+FILL FILL_2__2939_ (
+);
+
+FILL FILL_0__2921_ (
+);
+
+FILL FILL_0__2501_ (
+);
+
+FILL FILL_2__2519_ (
+);
+
+FILL FILL_3__3490_ (
+);
+
+FILL FILL_4__3806_ (
+);
+
+FILL FILL_0__3706_ (
+);
+
+FILL FILL_3__4695_ (
+);
+
+FILL FILL_3__4275_ (
+);
+
+FILL FILL_2__2692_ (
+);
+
+FILL FILL_2__3897_ (
+);
+
+FILL FILL_2__3477_ (
+);
+
+NOR3X1 _2937_ (
+    .A(_1527_),
+    .B(_1530_),
+    .C(_1533_),
+    .Y(_1534_)
+);
+
+NAND3X1 _2517_ (
+    .A(_2306_),
+    .B(_2307_),
+    .C(_2308_),
+    .Y(_2309_)
+);
+
+FILL FILL_4__4764_ (
+);
+
+FILL FILL_4__4344_ (
+);
+
+FILL FILL_3__2761_ (
+);
+
+FILL FILL_0__4664_ (
+);
+
+FILL FILL_0__4244_ (
+);
+
+FILL FILL_1__2679_ (
+);
+
+FILL FILL_1__3620_ (
+);
+
+FILL FILL_1__3200_ (
+);
+
+FILL FILL_3__3966_ (
+);
+
+FILL FILL_3__3546_ (
+);
+
+OAI21X1 _2690_ (
+    .A(_2044_),
+    .B(_2042_),
+    .C(_2354__5_bF$buf1),
+    .Y(_2045_)
+);
+
+FILL FILL_1__4825_ (
+);
+
+FILL FILL_1__4405_ (
+);
+
+FILL FILL_4__2830_ (
+);
+
+FILL FILL_4__2410_ (
+);
+
+NAND3X1 _3895_ (
+    .A(_997_),
+    .B(_688_),
+    .C(_684_),
+    .Y(_683_)
+);
+
+AOI22X1 _3475_ (
+    .A(\u_cpu.DIMUX [6]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [6]),
+    .Y(_289_)
+);
+
+DFFSR _3055_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1367_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[1] [2])
+);
+
+FILL FILL_0__2730_ (
+);
+
+FILL FILL_2__2748_ (
+);
+
+FILL FILL_4__3615_ (
+);
+
+FILL FILL_0__3935_ (
+);
+
+FILL FILL_0__3515_ (
+);
+
+FILL FILL_3__4084_ (
+);
+
+FILL FILL_3__2817_ (
+);
+
+FILL FILL_2__3286_ (
+);
+
+NAND3X1 _2746_ (
+    .A(_1923__bF$buf1),
+    .B(_1986_),
+    .C(_1988_),
+    .Y(_1989_)
+);
+
+FILL FILL_4__4573_ (
+);
+
+FILL FILL_4__4153_ (
+);
+
+FILL FILL_0__4893_ (
+);
+
+FILL FILL_3__2990_ (
+);
+
+FILL FILL_3__2570_ (
+);
+
+FILL FILL_0__4473_ (
+);
+
+FILL FILL_0__4053_ (
+);
+
+FILL FILL274050x46950 (
+);
+
+FILL FILL_1__2488_ (
+);
+
+FILL FILL_3__3775_ (
+);
+
+FILL FILL_3__3355_ (
+);
+
+FILL FILL_1__4634_ (
+);
+
+FILL FILL_1__4214_ (
+);
+
+OAI21X1 _3284_ (
+    .A(_1138_),
+    .B(_179_),
+    .C(_149_),
+    .Y(_1398_)
+);
+
+FILL FILL_2__2977_ (
+);
+
+FILL FILL_2__2557_ (
+);
+
+FILL FILL_0_BUFX2_insert100 (
+);
+
+FILL FILL_0_BUFX2_insert101 (
+);
+
+FILL FILL_0_BUFX2_insert102 (
+);
+
+FILL FILL_0_BUFX2_insert103 (
+);
+
+FILL FILL_0_BUFX2_insert104 (
+);
+
+FILL FILL_4__3844_ (
+);
+
+FILL FILL_0_BUFX2_insert105 (
+);
+
+FILL FILL_4__3424_ (
+);
+
+FILL FILL_0_BUFX2_insert106 (
+);
+
+FILL FILL_4__3004_ (
+);
+
+FILL FILL_0_BUFX2_insert107 (
+);
+
+FILL FILL_0_BUFX2_insert108 (
+);
+
+FILL FILL_0_BUFX2_insert109 (
+);
+
+INVX1 _4489_ (
+    .A(_1228_),
+    .Y(_1217_)
+);
+
+NOR2X1 _4069_ (
+    .A(_837_),
+    .B(_840_),
+    .Y(_836_)
+);
+
+FILL FILL_0__3744_ (
+);
+
+FILL FILL_0__3324_ (
+);
+
+FILL FILL_2__4703_ (
+);
+
+FILL FILL_4__4629_ (
+);
+
+FILL FILL_4__4209_ (
+);
+
+FILL FILL273750x61350 (
+);
+
+FILL FILL_1__2700_ (
+);
+
+FILL FILL_0__4949_ (
+);
+
+FILL FILL_3__2626_ (
+);
+
+FILL FILL_0__4529_ (
+);
+
+FILL FILL_0__4109_ (
+);
+
+FILL FILL_1__3905_ (
+);
+
+NAND2X1 _2975_ (
+    .A(_1619_),
+    .B(_1621_),
+    .Y(_1493_)
+);
+
+AOI21X1 _2555_ (
+    .A(_1659_),
+    .B(_2270_),
+    .C(_2271_),
+    .Y(_2272_)
+);
+
+FILL FILL_4__4382_ (
+);
+
+FILL FILL_0__4282_ (
+);
+
+OAI21X1 _4701_ (
+    .A(_1696_),
+    .B(\u_cpu.alu_op [2]),
+    .C(_1753_),
+    .Y(_1754_)
+);
+
+FILL FILL_3__3584_ (
+);
+
+FILL FILL_1__4863_ (
+);
+
+FILL FILL_1__4443_ (
+);
+
+FILL FILL_1__4023_ (
+);
+
+FILL FILL_3__4789_ (
+);
+
+FILL FILL_3__4369_ (
+);
+
+DFFSR _3093_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1481_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[1] [4])
+);
+
+FILL FILL_2__2786_ (
+);
+
+FILL FILL_2__2366_ (
+);
+
+FILL FILL_4__3233_ (
+);
+
+AOI21X1 _4298_ (
+    .A(\u_cpu.load_reg ),
+    .B(_1044_),
+    .C(_1069_),
+    .Y(_1043_)
+);
+
+FILL FILL_0__3973_ (
+);
+
+FILL FILL_0__3553_ (
+);
+
+FILL FILL272250x50550 (
+);
+
+FILL FILL_2__4932_ (
+);
+
+FILL FILL_2__4512_ (
+);
+
+FILL FILL_4__4858_ (
+);
+
+FILL FILL_4__4438_ (
+);
+
+FILL FILL_4__4018_ (
+);
+
+FILL FILL_0__4758_ (
+);
+
+FILL FILL_3__2855_ (
+);
+
+FILL FILL_3__2435_ (
+);
+
+FILL FILL_0__4338_ (
+);
+
+FILL FILL_1__3714_ (
+);
+
+OAI21X1 _2784_ (
+    .A(_1951_),
+    .B(_1948_),
+    .C(_1923__bF$buf3),
+    .Y(_1952_)
+);
+
+BUFX2 _2364_ (
+    .A(_2354__7_bF$buf1),
+    .Y(AB[7])
+);
+
+FILL FILL_0__4091_ (
+);
+
+FILL FILL_1__4919_ (
+);
+
+FILL FILL_4__2924_ (
+);
+
+FILL FILL_4__2504_ (
+);
+
+OAI21X1 _3989_ (
+    .A(_769_),
+    .B(_762_),
+    .C(_1129__bF$buf5),
+    .Y(_761_)
+);
+
+OAI21X1 _3569_ (
+    .A(_441_),
+    .B(_374_),
+    .C(_375_),
+    .Y(_373_)
+);
+
+DFFSR _3149_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1455_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[2] [0])
+);
+
+FILL FILL_0__2824_ (
+);
+
+FILL FILL_0__2404_ (
+);
+
+NAND3X1 _4930_ (
+    .A(_2202_),
+    .B(_2204_),
+    .C(_2182_),
+    .Y(_2205_)
+);
+
+NOR2X1 _4510_ (
+    .A(\u_cpu.state [2]),
+    .B(\u_cpu.state [3]),
+    .Y(_1238_)
+);
+
+FILL FILL_3__3393_ (
+);
+
+FILL FILL_4__3709_ (
+);
+
+FILL FILL_0__3609_ (
+);
+
+FILL FILL_1__4672_ (
+);
+
+FILL FILL_1__4252_ (
+);
+
+FILL FILL_3__4598_ (
+);
+
+FILL FILL_3__4178_ (
+);
+
+FILL FILL_2__2595_ (
+);
+
+FILL FILL_4__3882_ (
+);
+
+FILL FILL_4__3462_ (
+);
+
+FILL FILL_0__3782_ (
+);
+
+FILL FILL_0__3362_ (
+);
+
+FILL FILL_2__4741_ (
+);
+
+FILL FILL_2__4321_ (
+);
+
+FILL FILL_4__4667_ (
+);
+
+FILL FILL_4__4247_ (
+);
+
+FILL FILL_3__2664_ (
+);
+
+FILL FILL_0__4567_ (
+);
+
+FILL FILL_0__4147_ (
+);
+
+FILL FILL_1__3943_ (
+);
+
+FILL FILL_1__3523_ (
+);
+
+FILL FILL_3__3869_ (
+);
+
+FILL FILL_3__3449_ (
+);
+
+FILL FILL_3__3029_ (
+);
+
+AOI21X1 _2593_ (
+    .A(_2139_),
+    .B(_2138_),
+    .C(_1923__bF$buf2),
+    .Y(_2140_)
+);
+
+FILL FILL_3__4810_ (
+);
+
+FILL FILL_1__4728_ (
+);
+
+FILL FILL_1__4308_ (
+);
+
+FILL FILL_4__2733_ (
+);
+
+OAI21X1 _3798_ (
+    .A(_1164_),
+    .B(_877_),
+    .C(_596_),
+    .Y(_595_)
+);
+
+NOR2X1 _3378_ (
+    .A(_1083_),
+    .B(_898_),
+    .Y(_213_)
+);
+
+FILL FILL_0__2633_ (
+);
+
+FILL FILL_4__3938_ (
+);
+
+FILL FILL_4__3518_ (
+);
+
+FILL FILL_0__3838_ (
+);
+
+FILL FILL_0__3418_ (
+);
+
+FILL FILL_1__4481_ (
+);
+
+FILL FILL_1__4061_ (
+);
+
+FILL FILL_4__3691_ (
+);
+
+FILL FILL_4__3271_ (
+);
+
+FILL FILL_0__3591_ (
+);
+
+FILL FILL_2__3189_ (
+);
+
+FILL FILL_0__3171_ (
+);
+
+FILL FILL_2__4970_ (
+);
+
+FILL FILL_2__4550_ (
+);
+
+FILL FILL_2__4130_ (
+);
+
+NAND3X1 _2649_ (
+    .A(_1920__bF$buf1),
+    .B(_2084_),
+    .C(_2083_),
+    .Y(_2085_)
+);
+
+FILL FILL_4__4896_ (
+);
+
+FILL FILL_4__4476_ (
+);
+
+FILL FILL_4__4056_ (
+);
+
+FILL FILL_0__4796_ (
+);
+
+FILL FILL_3__2893_ (
+);
+
+FILL FILL_3__2473_ (
+);
+
+FILL FILL_0__4376_ (
+);
+
+FILL FILL_1__3752_ (
+);
+
+FILL FILL_1__3332_ (
+);
+
+FILL FILL_3__3678_ (
+);
+
+FILL FILL_3__3258_ (
+);
+
+FILL FILL_1__4957_ (
+);
+
+FILL FILL_1__4537_ (
+);
+
+FILL FILL_1__4117_ (
+);
+
+FILL FILL_4__2542_ (
+);
+
+NOR2X1 _3187_ (
+    .A(_1253_),
+    .B(_1227_),
+    .Y(_87_)
+);
+
+FILL FILL_0__2442_ (
+);
+
+FILL FILL_2__3821_ (
+);
+
+FILL FILL_2__3401_ (
+);
+
+FILL FILL_4__3747_ (
+);
+
+FILL FILL_4__3327_ (
+);
+
+FILL FILL_0__3647_ (
+);
+
+FILL FILL_0__3227_ (
+);
+
+FILL FILL_1__4290_ (
+);
+
+FILL FILL_2__4606_ (
+);
+
+FILL FILL_1__2603_ (
+);
+
+FILL FILL_3__2949_ (
+);
+
+FILL FILL_3__2529_ (
+);
+
+FILL FILL_1__3808_ (
+);
+
+OAI21X1 _2878_ (
+    .A(_1579_),
+    .B(_1535_),
+    .C(_1580_),
+    .Y(_1518_)
+);
+
+NOR2X1 _2458_ (
+    .A(_1938_),
+    .B(_2093_),
+    .Y(_17_)
+);
+
+FILL FILL_4__4285_ (
+);
+
+FILL FILL_0__4185_ (
+);
+
+FILL FILL_0__2918_ (
+);
+
+NOR2X1 _4604_ (
+    .A(\u_cpu.state [1]),
+    .B(_1336_),
+    .Y(_1332_)
+);
+
+FILL FILL_1__3981_ (
+);
+
+FILL FILL_1__3561_ (
+);
+
+FILL FILL_3__3487_ (
+);
+
+FILL FILL_1__4766_ (
+);
+
+FILL FILL_1__4346_ (
+);
+
+FILL FILL_4__2771_ (
+);
+
+FILL FILL_0__2671_ (
+);
+
+FILL FILL_2__2689_ (
+);
+
+FILL FILL_2__3630_ (
+);
+
+FILL FILL_2__3210_ (
+);
+
+FILL FILL_4__3976_ (
+);
+
+FILL FILL_4__3556_ (
+);
+
+FILL FILL_0__3876_ (
+);
+
+FILL FILL_0__3456_ (
+);
+
+FILL FILL_2__4835_ (
+);
+
+FILL FILL_2__4415_ (
+);
+
+FILL FILL_1__2832_ (
+);
+
+FILL FILL_1__2412_ (
+);
+
+FILL FILL_3__2758_ (
+);
+
+FILL FILL_1__3617_ (
+);
+
+OAI21X1 _2687_ (
+    .A(_2047_),
+    .B(_2032_),
+    .C(_2014_),
+    .Y(_2346_[5])
+);
+
+FILL FILL_4__4094_ (
+);
+
+FILL FILL_3__4904_ (
+);
+
+FILL FILL_2__2901_ (
+);
+
+FILL FILL_4__2827_ (
+);
+
+FILL FILL_4__2407_ (
+);
+
+FILL FILL_0__2727_ (
+);
+
+AOI21X1 _4833_ (
+    .A(_1875_),
+    .B(_1815_),
+    .C(\u_cpu.alu_shift_right ),
+    .Y(_1876_)
+);
+
+OAI21X1 _4413_ (
+    .A(RDY_bF$buf2),
+    .B(_1152_),
+    .C(_1151_),
+    .Y(\u_cpu.DIMUX [4])
+);
+
+FILL FILL_1__3790_ (
+);
+
+FILL FILL_1__3370_ (
+);
+
+FILL FILL_3__3296_ (
+);
+
+FILL FILL_1__4575_ (
+);
+
+FILL FILL_1__4155_ (
+);
+
+FILL FILL_4__2580_ (
+);
+
+FILL FILL_0__2480_ (
+);
+
+FILL FILL_2__2498_ (
+);
+
+FILL FILL_4__3785_ (
+);
+
+FILL FILL_4__3365_ (
+);
+
+FILL FILL_0__3685_ (
+);
+
+FILL FILL_0__3265_ (
+);
+
+FILL FILL_2__4644_ (
+);
+
+FILL FILL_2__4224_ (
+);
+
+FILL FILL_1__2641_ (
+);
+
+FILL FILL_3__2987_ (
+);
+
+FILL FILL_3__2567_ (
+);
+
+FILL FILL_1__3846_ (
+);
+
+FILL FILL_1__3426_ (
+);
+
+FILL FILL_1__3006_ (
+);
+
+OAI21X1 _2496_ (
+    .A(_2354__3_bF$buf0),
+    .B(_2354__0_bF$buf1),
+    .C(_1920__bF$buf4),
+    .Y(_2330_)
+);
+
+FILL FILL_3__4713_ (
+);
+
+FILL FILL_2__2710_ (
+);
+
+FILL FILL_4__2636_ (
+);
+
+FILL FILL_0__2536_ (
+);
+
+OAI21X1 _4642_ (
+    .A(_1683_),
+    .B(_1684_),
+    .C(_1694_),
+    .Y(_1695_)
+);
+
+OAI21X1 _4222_ (
+    .A(\u_cpu.DIMUX [0]),
+    .B(_1070__bF$buf2),
+    .C(_976_),
+    .Y(_975_)
+);
+
+FILL FILL_2__3915_ (
+);
+
+FILL FILL_1__4384_ (
+);
+
+FILL FILL_4__3594_ (
+);
+
+FILL FILL_4__3174_ (
+);
+
+FILL FILL_0__3494_ (
+);
+
+FILL FILL_2__4453_ (
+);
+
+FILL FILL_2__4033_ (
+);
+
+FILL FILL_4__4799_ (
+);
+
+FILL FILL_4__4379_ (
+);
+
+INVX1 _3913_ (
+    .A(\u_cpu.Z ),
+    .Y(_699_)
+);
+
+FILL FILL_1__2450_ (
+);
+
+FILL FILL_0__4699_ (
+);
+
+FILL FILL_3__2796_ (
+);
+
+FILL FILL_0__4279_ (
+);
+
+FILL FILL_3__2376_ (
+);
+
+FILL FILL_1__3655_ (
+);
+
+FILL FILL_1__3235_ (
+);
+
+FILL FILL_3__4942_ (
+);
+
+FILL FILL_3__4522_ (
+);
+
+FILL FILL_3__4102_ (
+);
+
+FILL FILL_4__2445_ (
+);
+
+FILL FILL_0__2765_ (
+);
+
+DFFSR _4871_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1667_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.ADD [0])
+);
+
+INVX1 _4451_ (
+    .A(\u_cpu.PC [10]),
+    .Y(_1184_)
+);
+
+AOI21X1 _4031_ (
+    .A(_859_),
+    .B(_800__bF$buf1),
+    .C(_799_),
+    .Y(_1460_)
+);
+
+FILL FILL_2__3724_ (
+);
+
+FILL FILL_2__3304_ (
+);
+
+FILL FILL_1_CLKBUF1_insert26 (
+);
+
+FILL FILL_1_CLKBUF1_insert27 (
+);
+
+FILL FILL_1_CLKBUF1_insert28 (
+);
+
+FILL FILL_1_CLKBUF1_insert29 (
+);
+
+FILL FILL_1__4193_ (
+);
+
+FILL FILL_0__4911_ (
+);
+
+FILL FILL_2__4929_ (
+);
+
+FILL FILL_2__4509_ (
+);
+
+FILL FILL_1__2926_ (
+);
+
+FILL FILL_1__2506_ (
+);
+
+FILL FILL_2__4682_ (
+);
+
+FILL FILL_2__4262_ (
+);
+
+FILL FILL_4__4188_ (
+);
+
+OAI21X1 _3722_ (
+    .A(_1325__bF$buf2),
+    .B(_903_),
+    .C(_1196__bF$buf5),
+    .Y(_521_)
+);
+
+NAND2X1 _3302_ (
+    .A(\u_cpu.AXYS[3] [5]),
+    .B(_921_),
+    .Y(_157_)
+);
+
+FILL FILL_0__4088_ (
+);
+
+NAND3X1 _4927_ (
+    .A(_Addr_Bus[1]),
+    .B(_2201_),
+    .C(_2173_),
+    .Y(_2202_)
+);
+
+NAND2X1 _4507_ (
+    .A(_1350_),
+    .B(_1236_),
+    .Y(_1235_)
+);
+
+FILL FILL_1__3884_ (
+);
+
+FILL FILL_1__3464_ (
+);
+
+FILL FILL_3__4751_ (
+);
+
+FILL FILL_3__4331_ (
+);
+
+FILL FILL_1__4669_ (
+);
+
+FILL FILL_1__4249_ (
+);
+
+FILL FILL_4__2674_ (
+);
+
+FILL FILL_0__2994_ (
+);
+
+FILL FILL_0__2574_ (
+);
+
+NAND2X1 _4680_ (
+    .A(_1732_),
+    .B(_1730_),
+    .Y(_1733_)
+);
+
+NAND2X1 _4260_ (
+    .A(_1018_),
+    .B(_1012_),
+    .Y(_1011_)
+);
+
+FILL FILL_2__3953_ (
+);
+
+FILL FILL_2__3533_ (
+);
+
+FILL FILL_4__3879_ (
+);
+
+FILL FILL_4__3459_ (
+);
+
+FILL FILL_4__4820_ (
+);
+
+FILL FILL_4__4400_ (
+);
+
+FILL FILL_0__3779_ (
+);
+
+FILL FILL_0__3359_ (
+);
+
+FILL FILL_2__4738_ (
+);
+
+FILL FILL_0__4720_ (
+);
+
+FILL FILL_0__4300_ (
+);
+
+FILL FILL_2__4318_ (
+);
+
+FILL FILL_1__2735_ (
+);
+
+FILL FILL272550x25350 (
+);
+
+FILL FILL_3__3602_ (
+);
+
+FILL FILL_2__4491_ (
+);
+
+FILL FILL_2__4071_ (
+);
+
+FILL FILL_3__4807_ (
+);
+
+NOR2X1 _3951_ (
+    .A(_757_),
+    .B(_1020_),
+    .Y(_728_)
+);
+
+OAI21X1 _3531_ (
+    .A(_360_),
+    .B(_639_),
+    .C(_340_),
+    .Y(\u_cpu.AI [6])
+);
+
+DFFSR _3111_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(_1391_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABL [1])
+);
+
+FILL FILL_2__2804_ (
+);
+
+NAND3X1 _4736_ (
+    .A(_1727_),
+    .B(_1785_),
+    .C(_1788_),
+    .Y(_1789_)
+);
+
+NAND2X1 _4316_ (
+    .A(_1303_),
+    .B(_1233_),
+    .Y(_1061_)
+);
+
+FILL FILL_1__3693_ (
+);
+
+FILL FILL_1__3273_ (
+);
+
+FILL FILL_3__3199_ (
+);
+
+FILL FILL_3__4980_ (
+);
+
+FILL FILL_3__4560_ (
+);
+
+FILL FILL_3__4140_ (
+);
+
+FILL FILL_1__4898_ (
+);
+
+FILL FILL_1__4478_ (
+);
+
+FILL FILL_1__4058_ (
+);
+
+FILL FILL_4__2483_ (
+);
+
+FILL FILL_0__2383_ (
+);
+
+FILL FILL_2__3762_ (
+);
+
+FILL FILL_2__3342_ (
+);
+
+FILL FILL_4__3688_ (
+);
+
+FILL FILL_4__3268_ (
+);
+
+NAND3X1 _2802_ (
+    .A(_2354__1_bF$buf1),
+    .B(_1643__bF$buf5),
+    .C(_1636__bF$buf0),
+    .Y(_1934_)
+);
+
+FILL FILL_0__3588_ (
+);
+
+FILL FILL_0__3168_ (
+);
+
+FILL FILL_2__4967_ (
+);
+
+FILL FILL_2__4547_ (
+);
+
+FILL FILL_2__4127_ (
+);
+
+FILL FILL_1__2964_ (
+);
+
+FILL FILL_1__2544_ (
+);
+
+FILL FILL_3__3831_ (
+);
+
+FILL FILL_3__3411_ (
+);
+
+FILL FILL_1__3749_ (
+);
+
+FILL FILL_1__3329_ (
+);
+
+OAI21X1 _2399_ (
+    .A(_2119_),
+    .B(_2073_),
+    .C(_1929_),
+    .Y(_1422_)
+);
+
+FILL FILL_3__4616_ (
+);
+
+NAND2X1 _3760_ (
+    .A(_1196__bF$buf8),
+    .B(_1083_),
+    .Y(_559_)
+);
+
+AOI22X1 _3340_ (
+    .A(\u_cpu.ABH [7]),
+    .B(_1286_),
+    .C(_359_),
+    .D(\u_cpu.AN ),
+    .Y(_183_)
+);
+
+FILL FILL_2__2613_ (
+);
+
+FILL FILL_4__2539_ (
+);
+
+FILL FILL_4__3900_ (
+);
+
+FILL FILL_0__2859_ (
+);
+
+FILL FILL_0__2439_ (
+);
+
+INVX1 _4965_ (
+    .A(DO_woz[0]),
+    .Y(_2235_)
+);
+
+AOI21X1 _4545_ (
+    .A(_1298_),
+    .B(\u_cpu.ABL [4]),
+    .C(_1274_),
+    .Y(_1273_)
+);
+
+OAI21X1 _4125_ (
+    .A(_1325__bF$buf0),
+    .B(_911_),
+    .C(_892_),
+    .Y(_891_)
+);
+
+FILL FILL_0__3800_ (
+);
+
+FILL FILL_2__3818_ (
+);
+
+FILL FILL_1__4287_ (
+);
+
+FILL FILL_2__3991_ (
+);
+
+FILL FILL_2__3571_ (
+);
+
+FILL FILL_4__3497_ (
+);
+
+AOI21X1 _2611_ (
+    .A(_2120_),
+    .B(_2121_),
+    .C(_2117_),
+    .Y(_2122_)
+);
+
+FILL FILL_0__3397_ (
+);
+
+FILL FILL_2__4776_ (
+);
+
+FILL FILL_2__4356_ (
+);
+
+OAI21X1 _3816_ (
+    .A(_615_),
+    .B(_614_),
+    .C(_612_),
+    .Y(_611_)
+);
+
+FILL FILL_1__2773_ (
+);
+
+FILL FILL273150x86550 (
+);
+
+FILL FILL_3__2699_ (
+);
+
+FILL FILL_3__3640_ (
+);
+
+FILL FILL_3__3220_ (
+);
+
+FILL FILL_1__3978_ (
+);
+
+FILL FILL_1__3558_ (
+);
+
+FILL FILL_3__4845_ (
+);
+
+FILL FILL_3__4425_ (
+);
+
+FILL FILL_3__4005_ (
+);
+
+FILL FILL_2__2842_ (
+);
+
+FILL FILL_2__2422_ (
+);
+
+FILL FILL_4__2768_ (
+);
+
+FILL FILL_0__2668_ (
+);
+
+OAI21X1 _4774_ (
+    .A(_1822_),
+    .B(_1825_),
+    .C(_1826_),
+    .Y(_1827_)
+);
+
+OAI22X1 _4354_ (
+    .A(_1130_),
+    .B(_1129__bF$buf4),
+    .C(_1116_),
+    .D(_1098_),
+    .Y(_1483_)
+);
+
+FILL FILL_2__3627_ (
+);
+
+FILL FILL_2__3207_ (
+);
+
+FILL FILL_4__4914_ (
+);
+
+FILL FILL_1__4096_ (
+);
+
+FILL FILL_0__4814_ (
+);
+
+FILL FILL_3__2911_ (
+);
+
+FILL FILL_1__2829_ (
+);
+
+FILL FILL_1__2409_ (
+);
+
+FILL FILL_2__3380_ (
+);
+
+OAI21X1 _2840_ (
+    .A(_1651_),
+    .B(_1652_),
+    .C(_1654_),
+    .Y(_1655_)
+);
+
+NAND3X1 _2420_ (
+    .A(_2354__5_bF$buf0),
+    .B(_53_),
+    .C(_48_),
+    .Y(_54_)
+);
+
+FILL FILL272850x68550 (
+);
+
+FILL FILL_2__4585_ (
+);
+
+FILL FILL_2__4165_ (
+);
+
+OAI21X1 _3625_ (
+    .A(_1305__bF$buf3),
+    .B(_904_),
+    .C(RDY_bF$buf6),
+    .Y(_429_)
+);
+
+OAI21X1 _3205_ (
+    .A(_1041_),
+    .B(_975_),
+    .C(_99_),
+    .Y(_1369_)
+);
+
+FILL FILL_1__2582_ (
+);
+
+FILL FILL_1__3787_ (
+);
+
+FILL FILL_1__3367_ (
+);
+
+FILL FILL_3__4654_ (
+);
+
+FILL FILL_3__4234_ (
+);
+
+FILL FILL_2__2651_ (
+);
+
+FILL FILL_4__2997_ (
+);
+
+FILL FILL_4__2577_ (
+);
+
+FILL FILL_0__2897_ (
+);
+
+FILL FILL_0__2477_ (
+);
+
+NAND3X1 _4583_ (
+    .A(_1349_),
+    .B(_1339_),
+    .C(_1312_),
+    .Y(_1311_)
+);
+
+NAND2X1 _4163_ (
+    .A(\u_cpu.AXYS[0] [6]),
+    .B(_977_),
+    .Y(_923_)
+);
+
+FILL FILL_2__3856_ (
+);
+
+FILL FILL_2__3436_ (
+);
+
+FILL FILL_2__3016_ (
+);
+
+FILL FILL_4__4723_ (
+);
+
+FILL FILL_4__4303_ (
+);
+
+FILL FILL_3__2720_ (
+);
+
+FILL FILL_0__4623_ (
+);
+
+FILL FILL_0__4203_ (
+);
+
+FILL FILL_1__2638_ (
+);
+
+FILL FILL_3__3925_ (
+);
+
+FILL FILL_3__3505_ (
+);
+
+FILL FILL_2__4394_ (
+);
+
+NAND2X1 _3854_ (
+    .A(_647_),
+    .B(_650_),
+    .Y(_2354_[5])
+);
+
+OAI21X1 _3434_ (
+    .A(_601_),
+    .B(_598_),
+    .C(_630_),
+    .Y(_260_)
+);
+
+INVX1 _3014_ (
+    .A(_1583_),
+    .Y(_1584_)
+);
+
+FILL FILL_2__2707_ (
+);
+
+FILL FILL_1_BUFX2_insert50 (
+);
+
+FILL FILL_1_BUFX2_insert51 (
+);
+
+FILL FILL_1_BUFX2_insert52 (
+);
+
+FILL FILL_1_BUFX2_insert53 (
+);
+
+FILL FILL_1_BUFX2_insert54 (
+);
+
+FILL FILL_1_BUFX2_insert55 (
+);
+
+FILL FILL_1_BUFX2_insert56 (
+);
+
+FILL FILL_1_BUFX2_insert57 (
+);
+
+FILL FILL_1_BUFX2_insert58 (
+);
+
+FILL FILL_1_BUFX2_insert59 (
+);
+
+OAI21X1 _4639_ (
+    .A(_1686_),
+    .B(_1688_),
+    .C(_1691_),
+    .Y(_1692_)
+);
+
+NAND3X1 _4219_ (
+    .A(\u_cpu.adj_bcd ),
+    .B(\u_cpu.adc_bcd ),
+    .C(\u_cpu.HC ),
+    .Y(_973_)
+);
+
+FILL FILL_1__3596_ (
+);
+
+FILL FILL_1__3176_ (
+);
+
+FILL FILL_0_CLKBUF1_insert30 (
+);
+
+FILL FILL_0_CLKBUF1_insert31 (
+);
+
+FILL FILL_0_CLKBUF1_insert32 (
+);
+
+FILL FILL_0_CLKBUF1_insert33 (
+);
+
+FILL FILL_3__4883_ (
+);
+
+FILL FILL_0_CLKBUF1_insert34 (
+);
+
+FILL FILL_3__4463_ (
+);
+
+FILL FILL_0_CLKBUF1_insert35 (
+);
+
+FILL FILL_0_CLKBUF1_insert36 (
+);
+
+FILL FILL_3__4043_ (
+);
+
+FILL FILL_0_CLKBUF1_insert37 (
+);
+
+FILL FILL_0_CLKBUF1_insert38 (
+);
+
+FILL FILL_2__2880_ (
+);
+
+FILL FILL_2__2460_ (
+);
+
+FILL FILL_4__2386_ (
+);
+
+NOR2X1 _4392_ (
+    .A(_1133_),
+    .B(_1144_),
+    .Y(_1132_)
+);
+
+FILL FILL_2__3665_ (
+);
+
+FILL FILL_2__3245_ (
+);
+
+OAI21X1 _2705_ (
+    .A(_2027_),
+    .B(_2025_),
+    .C(_2029_),
+    .Y(_2030_)
+);
+
+FILL FILL_4__4952_ (
+);
+
+FILL FILL_4__4532_ (
+);
+
+FILL FILL_4__4112_ (
+);
+
+FILL FILL_0__4852_ (
+);
+
+FILL FILL_0__4432_ (
+);
+
+FILL FILL_0__4012_ (
+);
+
+FILL FILL_1__2447_ (
+);
+
+FILL FILL_3__3734_ (
+);
+
+FILL FILL_3__3314_ (
+);
+
+FILL FILL_3__4939_ (
+);
+
+FILL FILL_3__4519_ (
+);
+
+NOR2X1 _3663_ (
+    .A(_1196__bF$buf8),
+    .B(_667_),
+    .Y(_466_)
+);
+
+OAI21X1 _3243_ (
+    .A(_325_),
+    .B(_800__bF$buf4),
+    .C(_125_),
+    .Y(_1381_)
+);
+
+FILL FILL_2__2936_ (
+);
+
+FILL FILL_2__2516_ (
+);
+
+FILL FILL_4__3803_ (
+);
+
+AOI22X1 _4868_ (
+    .A(_1681__bF$buf3),
+    .B(_1898_),
+    .C(_1907_),
+    .D(_1904_),
+    .Y(_1679_)
+);
+
+INVX1 _4448_ (
+    .A(\u_cpu.DIHOLD [2]),
+    .Y(_1181_)
+);
+
+OAI21X1 _4028_ (
+    .A(_1305__bF$buf0),
+    .B(_903_),
+    .C(\u_cpu.NMI_edge ),
+    .Y(_796_)
+);
+
+FILL FILL_0__3703_ (
+);
+
+FILL FILL_3__4692_ (
+);
+
+FILL FILL_3__4272_ (
+);
+
+FILL FILL_0__4908_ (
+);
+
+FILL FILL_2__3894_ (
+);
+
+FILL FILL_2__3474_ (
+);
+
+INVX1 _2934_ (
+    .A(_2353_[2]),
+    .Y(_1536_)
+);
+
+NAND3X1 _2514_ (
+    .A(_2289_),
+    .B(_2311_),
+    .C(_1940_),
+    .Y(_2312_)
+);
+
+FILL FILL_4__4761_ (
+);
+
+FILL FILL_4__4341_ (
+);
+
+FILL FILL_0__4661_ (
+);
+
+FILL FILL_2__4679_ (
+);
+
+FILL FILL_0__4241_ (
+);
+
+FILL FILL_2__4259_ (
+);
+
+OAI21X1 _3719_ (
+    .A(_1196__bF$buf5),
+    .B(_1047_),
+    .C(_519_),
+    .Y(_518_)
+);
+
+FILL FILL_1__2676_ (
+);
+
+FILL FILL_3__3963_ (
+);
+
+FILL FILL_3__3543_ (
+);
+
+FILL FILL_1__4822_ (
+);
+
+FILL FILL_1__4402_ (
+);
+
+FILL FILL_3__4748_ (
+);
+
+FILL FILL_3__4328_ (
+);
+
+OAI21X1 _3892_ (
+    .A(_682_),
+    .B(_989_),
+    .C(_681_),
+    .Y(_680_)
+);
+
+AND2X2 _3472_ (
+    .A(_290_),
+    .B(_287_),
+    .Y(_286_)
+);
+
+DFFSR _3052_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1464_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[3] [1])
+);
+
+FILL FILL_2__2745_ (
+);
+
+FILL FILL_4__3612_ (
+);
+
+MUX2X1 _4677_ (
+    .A(\u_cpu.alu_op [1]),
+    .B(_1729_),
+    .S(\u_cpu.alu_op [0]),
+    .Y(_1730_)
+);
+
+INVX1 _4257_ (
+    .A(\u_cpu.op [2]),
+    .Y(_1009_)
+);
+
+FILL FILL_0__3932_ (
+);
+
+FILL FILL_0__3512_ (
+);
+
+FILL FILL_3__4081_ (
+);
+
+FILL FILL_4__4817_ (
+);
+
+FILL FILL_0__4717_ (
+);
+
+FILL FILL_3__2814_ (
+);
+
+FILL FILL_2__3283_ (
+);
+
+AOI21X1 _2743_ (
+    .A(_1991_),
+    .B(_1636__bF$buf1),
+    .C(_2354__4_bF$buf1),
+    .Y(_1992_)
+);
+
+FILL FILL_4__4570_ (
+);
+
+FILL FILL_4__4150_ (
+);
+
+FILL FILL_0__4890_ (
+);
+
+FILL FILL_2__4488_ (
+);
+
+FILL FILL_0__4470_ (
+);
+
+FILL FILL_2__4068_ (
+);
+
+FILL FILL_0__4050_ (
+);
+
+NAND3X1 _3948_ (
+    .A(_727_),
+    .B(_726_),
+    .C(_986_),
+    .Y(_725_)
+);
+
+AOI21X1 _3528_ (
+    .A(\u_cpu.ADD [0]),
+    .B(_908_),
+    .C(_893_),
+    .Y(_337_)
+);
+
+DFFSR _3108_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1445_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.dst_reg [1])
+);
+
+FILL FILL_1__2485_ (
+);
+
+FILL FILL_3__3772_ (
+);
+
+FILL FILL_3__3352_ (
+);
+
+FILL FILL_1__4631_ (
+);
+
+FILL FILL_1__4211_ (
+);
+
+FILL FILL_3__4977_ (
+);
+
+FILL FILL_3__4557_ (
+);
+
+FILL FILL_3__4137_ (
+);
+
+OAI21X1 _3281_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [3]),
+    .Y(_147_)
+);
+
+FILL FILL_2__2974_ (
+);
+
+FILL FILL_2__2554_ (
+);
+
+FILL FILL_4__3841_ (
+);
+
+FILL FILL_4__3421_ (
+);
+
+FILL FILL_4__3001_ (
+);
+
+NAND3X1 _4486_ (
+    .A(_1222_),
+    .B(_1258_),
+    .C(_1215_),
+    .Y(_1214_)
+);
+
+NAND2X1 _4066_ (
+    .A(_1327_),
+    .B(_1236_),
+    .Y(_833_)
+);
+
+FILL FILL_2__3759_ (
+);
+
+FILL FILL_0__3741_ (
+);
+
+FILL FILL_0__3321_ (
+);
+
+FILL FILL_2__3339_ (
+);
+
+FILL FILL_2__4700_ (
+);
+
+FILL FILL_4__4626_ (
+);
+
+FILL FILL_4__4206_ (
+);
+
+FILL FILL_0__4946_ (
+);
+
+FILL FILL_3__2623_ (
+);
+
+FILL FILL_0__4526_ (
+);
+
+FILL FILL_0__4106_ (
+);
+
+FILL FILL_1__3902_ (
+);
+
+FILL FILL_3__3828_ (
+);
+
+FILL FILL_3__3408_ (
+);
+
+OAI21X1 _2972_ (
+    .A(_1622_),
+    .B(_1500_),
+    .C(_1623_),
+    .Y(_1494_)
+);
+
+AOI21X1 _2552_ (
+    .A(_2354__1_bF$buf2),
+    .B(_1935_),
+    .C(_1925_),
+    .Y(_2275_)
+);
+
+FILL FILL_2__4297_ (
+);
+
+NAND3X1 _3757_ (
+    .A(_578_),
+    .B(_562_),
+    .C(_557_),
+    .Y(_556_)
+);
+
+OAI21X1 _3337_ (
+    .A(_1083_),
+    .B(_451_),
+    .C(RDY_bF$buf0),
+    .Y(_181_)
+);
+
+FILL FILL_3__3581_ (
+);
+
+FILL FILL_1__3499_ (
+);
+
+FILL FILL_1__4860_ (
+);
+
+FILL FILL_1__4440_ (
+);
+
+FILL FILL_1__4020_ (
+);
+
+FILL FILL_3__4786_ (
+);
+
+FILL FILL_3__4366_ (
+);
+
+DFFSR _3090_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1441_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.sec )
+);
+
+FILL FILL_2__2783_ (
+);
+
+FILL FILL_2__2363_ (
+);
+
+FILL FILL_4__3650_ (
+);
+
+FILL FILL_4__3230_ (
+);
+
+NAND2X1 _4295_ (
+    .A(_1275_),
+    .B(_1070__bF$buf2),
+    .Y(_1040_)
+);
+
+FILL FILL_2__3988_ (
+);
+
+FILL FILL_0__3970_ (
+);
+
+FILL FILL_0__3550_ (
+);
+
+FILL FILL_2__3568_ (
+);
+
+AOI22X1 _2608_ (
+    .A(_2123_),
+    .B(_1929_),
+    .C(_1924_),
+    .D(_2124_),
+    .Y(_2125_)
+);
+
+FILL FILL_4__4855_ (
+);
+
+FILL FILL_4__4435_ (
+);
+
+FILL FILL_4__4015_ (
+);
+
+FILL FILL_0__4755_ (
+);
+
+FILL FILL_3__2852_ (
+);
+
+FILL FILL_3__2432_ (
+);
+
+FILL FILL_0__4335_ (
+);
+
+FILL FILL_1__3711_ (
+);
+
+FILL FILL_3__3637_ (
+);
+
+FILL FILL_3__3217_ (
+);
+
+OAI21X1 _2781_ (
+    .A(_1644_),
+    .B(_1647_),
+    .C(_1954_),
+    .Y(_1955_)
+);
+
+BUFX2 _2361_ (
+    .A(_2354_[10]),
+    .Y(AB[10])
+);
+
+FILL FILL_1__4916_ (
+);
+
+FILL FILL_4__2921_ (
+);
+
+FILL FILL_4__2501_ (
+);
+
+NAND2X1 _3986_ (
+    .A(\u_cpu.AXYS[2] [0]),
+    .B(_760_),
+    .Y(_759_)
+);
+
+OAI21X1 _3566_ (
+    .A(_1037__bF$buf2),
+    .B(_383_),
+    .C(_371_),
+    .Y(_370_)
+);
+
+DFFSR _3146_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1409_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.compare )
+);
+
+FILL FILL_0__2821_ (
+);
+
+FILL FILL_2__2839_ (
+);
+
+FILL FILL_0__2401_ (
+);
+
+FILL FILL_2__2419_ (
+);
+
+FILL FILL_3__3390_ (
+);
+
+FILL FILL_4__3706_ (
+);
+
+FILL FILL_0__3606_ (
+);
+
+FILL FILL_3__4595_ (
+);
+
+FILL FILL_3__4175_ (
+);
+
+FILL FILL_2__2592_ (
+);
+
+FILL FILL_3__2908_ (
+);
+
+FILL FILL_2__3797_ (
+);
+
+FILL FILL_2__3377_ (
+);
+
+NAND2X1 _2837_ (
+    .A(_2354__3_bF$buf4),
+    .B(_2354__4_bF$buf6),
+    .Y(_1658_)
+);
+
+OAI21X1 _2417_ (
+    .A(_2003_),
+    .B(_56_),
+    .C(_1634__bF$buf3),
+    .Y(_57_)
+);
+
+FILL FILL_4__4664_ (
+);
+
+FILL FILL_4__4244_ (
+);
+
+FILL FILL_0__4984_ (
+);
+
+FILL FILL_3__2661_ (
+);
+
+FILL FILL_0__4564_ (
+);
+
+FILL FILL_0__4144_ (
+);
+
+FILL FILL_1__2999_ (
+);
+
+FILL FILL_1__2579_ (
+);
+
+FILL FILL_1__3940_ (
+);
+
+FILL FILL_1__3520_ (
+);
+
+FILL FILL_3__3866_ (
+);
+
+FILL FILL_3__3446_ (
+);
+
+FILL FILL_3__3026_ (
+);
+
+NOR2X1 _2590_ (
+    .A(_1957_),
+    .B(_1958_),
+    .Y(_2143_)
+);
+
+FILL FILL_1__4725_ (
+);
+
+FILL FILL_1__4305_ (
+);
+
+FILL FILL_4__2730_ (
+);
+
+AOI21X1 _3795_ (
+    .A(_597_),
+    .B(_871_),
+    .C(_593_),
+    .Y(_592_)
+);
+
+AOI21X1 _3375_ (
+    .A(_211_),
+    .B(_672_),
+    .C(\u_cpu.rotate ),
+    .Y(_210_)
+);
+
+FILL FILL_2__2648_ (
+);
+
+FILL FILL_0__2630_ (
+);
+
+FILL FILL_4__3935_ (
+);
+
+FILL FILL_4__3515_ (
+);
+
+FILL FILL_0__3835_ (
+);
+
+FILL FILL_0__3415_ (
+);
+
+FILL FILL_3__2717_ (
+);
+
+FILL FILL_2__3186_ (
+);
+
+NAND2X1 _2646_ (
+    .A(_2354__0_bF$buf5),
+    .B(_1635__bF$buf3),
+    .Y(_2088_)
+);
+
+FILL FILL_4__4893_ (
+);
+
+FILL FILL_4__4473_ (
+);
+
+FILL FILL_4__4053_ (
+);
+
+FILL FILL_0__4793_ (
+);
+
+FILL FILL_3__2890_ (
+);
+
+FILL FILL_3__2470_ (
+);
+
+FILL FILL_0__4373_ (
+);
+
+FILL FILL_1__2388_ (
+);
+
+FILL FILL_3__3675_ (
+);
+
+FILL FILL_3__3255_ (
+);
+
+FILL FILL_1__4954_ (
+);
+
+FILL FILL_1__4534_ (
+);
+
+FILL FILL_1__4114_ (
+);
+
+NAND2X1 _3184_ (
+    .A(\u_cpu.AXYS[0] [7]),
+    .B(_977_),
+    .Y(_85_)
+);
+
+FILL FILL_2__2877_ (
+);
+
+FILL FILL_2__2457_ (
+);
+
+FILL FILL_4__3744_ (
+);
+
+FILL FILL_4__3324_ (
+);
+
+INVX1 _4389_ (
+    .A(\u_cpu.cli ),
+    .Y(_1130_)
+);
+
+FILL FILL_0__3644_ (
+);
+
+FILL FILL_0__3224_ (
+);
+
+FILL FILL_2__4603_ (
+);
+
+FILL FILL_4__4949_ (
+);
+
+FILL FILL_4__4529_ (
+);
+
+FILL FILL_4__4109_ (
+);
+
+FILL FILL_1__2600_ (
+);
+
+FILL FILL_0__4849_ (
+);
+
+FILL FILL_3__2946_ (
+);
+
+FILL FILL_3__2526_ (
+);
+
+FILL FILL_0__4429_ (
+);
+
+FILL FILL_0__4009_ (
+);
+
+FILL FILL_1__3805_ (
+);
+
+OAI21X1 _2875_ (
+    .A(_1581_),
+    .B(_1535_),
+    .C(_1582_),
+    .Y(_1519_)
+);
+
+NAND2X1 _2455_ (
+    .A(_2354__6_bF$buf0),
+    .B(_19_),
+    .Y(_20_)
+);
+
+FILL FILL_4__4282_ (
+);
+
+FILL FILL_0__4182_ (
+);
+
+FILL FILL_0__2915_ (
+);
+
+NOR2X1 _4601_ (
+    .A(\u_cpu.state [4]),
+    .B(_1330_),
+    .Y(_1329_)
+);
+
+FILL FILL_3__3484_ (
+);
+
+FILL FILL_1__4763_ (
+);
+
+FILL FILL_1__4343_ (
+);
+
+FILL FILL_3__4689_ (
+);
+
+FILL FILL_3__4269_ (
+);
+
+FILL FILL_2__2686_ (
+);
+
+FILL FILL_4__3973_ (
+);
+
+FILL FILL_4__3553_ (
+);
+
+AND2X2 _4198_ (
+    .A(_968_),
+    .B(_956_),
+    .Y(_954_)
+);
+
+FILL FILL_0__3873_ (
+);
+
+FILL FILL_0__3453_ (
+);
+
+FILL FILL274050x32550 (
+);
+
+FILL FILL_2__4832_ (
+);
+
+FILL FILL_2__4412_ (
+);
+
+FILL FILL_4__4758_ (
+);
+
+FILL FILL_4__4338_ (
+);
+
+FILL FILL_3__2755_ (
+);
+
+FILL FILL_0__4658_ (
+);
+
+FILL FILL_0__4238_ (
+);
+
+FILL FILL_1__3614_ (
+);
+
+OAI21X1 _2684_ (
+    .A(_2354__1_bF$buf2),
+    .B(_2354__2_bF$buf3),
+    .C(_2354__0_bF$buf3),
+    .Y(_2050_)
+);
+
+FILL FILL_4__4091_ (
+);
+
+FILL FILL_3__4901_ (
+);
+
+FILL FILL_1__4819_ (
+);
+
+FILL FILL_4__2824_ (
+);
+
+FILL FILL_4__2404_ (
+);
+
+OAI21X1 _3889_ (
+    .A(_683_),
+    .B(_678_),
+    .C(_1129__bF$buf3),
+    .Y(_677_)
+);
+
+OAI21X1 _3469_ (
+    .A(_1251_),
+    .B(_889_),
+    .C(_1329_),
+    .Y(_284_)
+);
+
+DFFSR _3049_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1364_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.PC [0])
+);
+
+FILL FILL_0__2724_ (
+);
+
+OAI21X1 _4830_ (
+    .A(_1689_),
+    .B(_1815_),
+    .C(\u_cpu.BI [7]),
+    .Y(_1873_)
+);
+
+AOI21X1 _4410_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [4]),
+    .C(_1149_),
+    .Y(_1148_)
+);
+
+FILL FILL_3__3293_ (
+);
+
+FILL FILL_4__3609_ (
+);
+
+FILL FILL_0__3929_ (
+);
+
+FILL FILL_0__3509_ (
+);
+
+FILL FILL_1__4572_ (
+);
+
+FILL FILL_1__4152_ (
+);
+
+FILL FILL_3__4498_ (
+);
+
+FILL FILL_3__4078_ (
+);
+
+FILL FILL_2__2495_ (
+);
+
+FILL FILL273750x14550 (
+);
+
+FILL FILL_4__3782_ (
+);
+
+FILL FILL_4__3362_ (
+);
+
+FILL FILL_0__3682_ (
+);
+
+FILL FILL_0__3262_ (
+);
+
+FILL FILL_2__4641_ (
+);
+
+FILL FILL_2__4221_ (
+);
+
+FILL FILL_4__4567_ (
+);
+
+FILL FILL_4__4147_ (
+);
+
+FILL FILL_0__4887_ (
+);
+
+FILL FILL_3__2984_ (
+);
+
+FILL FILL_3__2564_ (
+);
+
+FILL FILL_0__4467_ (
+);
+
+FILL FILL_0__4047_ (
+);
+
+FILL FILL_1__3843_ (
+);
+
+FILL FILL_1__3423_ (
+);
+
+FILL FILL_1__3003_ (
+);
+
+FILL FILL_3__3769_ (
+);
+
+FILL FILL_3__3349_ (
+);
+
+AOI21X1 _2493_ (
+    .A(_1643__bF$buf4),
+    .B(_1673_),
+    .C(_2332_),
+    .Y(_2333_)
+);
+
+FILL FILL_3__4710_ (
+);
+
+FILL FILL_1__4628_ (
+);
+
+FILL FILL_1__4208_ (
+);
+
+FILL FILL_4__2633_ (
+);
+
+INVX1 _3698_ (
+    .A(\u_cpu.op [1]),
+    .Y(_499_)
+);
+
+OAI21X1 _3278_ (
+    .A(_1179_),
+    .B(_179_),
+    .C(_146_),
+    .Y(_1395_)
+);
+
+FILL FILL_0__2533_ (
+);
+
+FILL FILL_2__3912_ (
+);
+
+FILL FILL_4__3838_ (
+);
+
+FILL FILL_4__3418_ (
+);
+
+FILL FILL_0__3738_ (
+);
+
+FILL FILL_0__3318_ (
+);
+
+DFFPOSX1 _5004_ (
+    .D(_2354_[10]),
+    .CLK(clk_bF$buf3),
+    .Q(_Addr_Bus[10])
+);
+
+FILL FILL_1__4381_ (
+);
+
+FILL FILL_4__3591_ (
+);
+
+FILL FILL_4__3171_ (
+);
+
+FILL FILL_0__3491_ (
+);
+
+FILL FILL_2__4870_ (
+);
+
+FILL FILL_2__4450_ (
+);
+
+FILL FILL_2__4030_ (
+);
+
+NAND2X1 _2969_ (
+    .A(DO_kbd[7]),
+    .B(_1625_),
+    .Y(_1626_)
+);
+
+OAI21X1 _2549_ (
+    .A(_2275_),
+    .B(_2276_),
+    .C(_2277_),
+    .Y(_2278_)
+);
+
+FILL FILL_4__4796_ (
+);
+
+FILL FILL_4__4376_ (
+);
+
+NOR2X1 _3910_ (
+    .A(_698_),
+    .B(_697_),
+    .Y(_696_)
+);
+
+FILL FILL_0__4696_ (
+);
+
+FILL FILL_3__2793_ (
+);
+
+FILL FILL_0__4276_ (
+);
+
+FILL FILL_3__2373_ (
+);
+
+FILL FILL_1__3652_ (
+);
+
+FILL FILL_1__3232_ (
+);
+
+FILL FILL_3__3998_ (
+);
+
+FILL FILL_3__3578_ (
+);
+
+FILL FILL_1__4857_ (
+);
+
+FILL FILL_1__4437_ (
+);
+
+FILL FILL_1__4017_ (
+);
+
+FILL FILL_4__2442_ (
+);
+
+DFFSR _3087_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1380_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABH [2])
+);
+
+FILL FILL_0__2762_ (
+);
+
+FILL FILL_2__3721_ (
+);
+
+FILL FILL_2__3301_ (
+);
+
+FILL FILL_4__3647_ (
+);
+
+FILL FILL_4__3227_ (
+);
+
+FILL FILL_0__3967_ (
+);
+
+FILL FILL_0__3547_ (
+);
+
+FILL FILL_1__4190_ (
+);
+
+FILL FILL_2__4926_ (
+);
+
+FILL FILL_2__4506_ (
+);
+
+FILL FILL_1__2923_ (
+);
+
+FILL FILL_1__2503_ (
+);
+
+FILL FILL_3__2849_ (
+);
+
+FILL FILL_3__2429_ (
+);
+
+FILL FILL_1__3708_ (
+);
+
+OAI21X1 _2778_ (
+    .A(_2354__1_bF$buf0),
+    .B(_1638__bF$buf3),
+    .C(_2354__2_bF$buf4),
+    .Y(_1958_)
+);
+
+BUFX2 _2358_ (
+    .A(_2354_[13]),
+    .Y(AB[13])
+);
+
+FILL FILL_4__4185_ (
+);
+
+FILL FILL_0__4085_ (
+);
+
+FILL FILL_4__2918_ (
+);
+
+FILL FILL_0__2818_ (
+);
+
+AOI22X1 _4924_ (
+    .A(_2159_),
+    .B(_2195_),
+    .C(_2188_),
+    .D(_2199_),
+    .Y(Data_In[6])
+);
+
+NAND2X1 _4504_ (
+    .A(_1350_),
+    .B(_1233_),
+    .Y(_1232_)
+);
+
+FILL FILL_1__3881_ (
+);
+
+FILL FILL_1__3461_ (
+);
+
+FILL FILL_3__3387_ (
+);
+
+FILL FILL_1__4666_ (
+);
+
+FILL FILL_1__4246_ (
+);
+
+FILL FILL_4__2671_ (
+);
+
+FILL FILL_0__2991_ (
+);
+
+FILL FILL_0__2571_ (
+);
+
+FILL FILL_2__2589_ (
+);
+
+FILL FILL_2__3950_ (
+);
+
+FILL FILL_2__3530_ (
+);
+
+FILL FILL_4__3876_ (
+);
+
+FILL FILL_4__3456_ (
+);
+
+FILL FILL_0__3776_ (
+);
+
+FILL FILL_0__3356_ (
+);
+
+FILL FILL_2__4735_ (
+);
+
+FILL FILL_2__4315_ (
+);
+
+FILL FILL_1__2732_ (
+);
+
+FILL FILL_3__2658_ (
+);
+
+FILL FILL_1__3937_ (
+);
+
+FILL FILL_1__3517_ (
+);
+
+NOR2X1 _2587_ (
+    .A(_2024_),
+    .B(_2130_),
+    .Y(_2146_)
+);
+
+FILL FILL_3__4804_ (
+);
+
+FILL FILL_2__2801_ (
+);
+
+FILL FILL_4__2727_ (
+);
+
+FILL FILL_0__2627_ (
+);
+
+INVX1 _4733_ (
+    .A(_1785_),
+    .Y(_1786_)
+);
+
+AOI21X1 _4313_ (
+    .A(\u_cpu.dst_reg [1]),
+    .B(_1344_),
+    .C(_1059_),
+    .Y(_1058_)
+);
+
+FILL FILL_1__3690_ (
+);
+
+FILL FILL_1__3270_ (
+);
+
+FILL FILL_3__3196_ (
+);
+
+FILL FILL_1__4895_ (
+);
+
+FILL FILL_1__4475_ (
+);
+
+FILL FILL_1__4055_ (
+);
+
+FILL FILL_4__2480_ (
+);
+
+FILL FILL_0__2380_ (
+);
+
+FILL FILL_2__2398_ (
+);
+
+FILL FILL_4__3685_ (
+);
+
+FILL FILL_4__3265_ (
+);
+
+FILL FILL_0__3585_ (
+);
+
+FILL FILL_0__3165_ (
+);
+
+FILL FILL_2__4964_ (
+);
+
+FILL FILL_2__4544_ (
+);
+
+FILL FILL_2__4124_ (
+);
+
+FILL FILL_1__2541_ (
+);
+
+FILL FILL_3__2887_ (
+);
+
+FILL FILL_3__2467_ (
+);
+
+FILL FILL_1__3746_ (
+);
+
+FILL FILL_1__3326_ (
+);
+
+AND2X2 _2396_ (
+    .A(_1424_),
+    .B(_1423_),
+    .Y(_1425_)
+);
+
+FILL FILL_3__4613_ (
+);
+
+FILL FILL_2__2610_ (
+);
+
+FILL FILL_4__2536_ (
+);
+
+FILL FILL_0__2856_ (
+);
+
+FILL FILL_0__2436_ (
+);
+
+NAND3X1 _4962_ (
+    .A(_2230_),
+    .B(_2232_),
+    .C(_2182_),
+    .Y(_2233_)
+);
+
+INVX2 _4542_ (
+    .A(_1349_),
+    .Y(_1270_)
+);
+
+INVX2 _4122_ (
+    .A(_889_),
+    .Y(_888_)
+);
+
+FILL FILL_2__3815_ (
+);
+
+FILL FILL_1__4284_ (
+);
+
+FILL FILL_4__3494_ (
+);
+
+FILL FILL_0__3394_ (
+);
+
+FILL FILL_2__4773_ (
+);
+
+FILL FILL_2__4353_ (
+);
+
+FILL FILL_4__4699_ (
+);
+
+FILL FILL_4__4279_ (
+);
+
+AOI22X1 _3813_ (
+    .A(_790_),
+    .B(\u_cpu.AXYS[2] [0]),
+    .C(\u_cpu.AXYS[0] [0]),
+    .D(_978_),
+    .Y(_609_)
+);
+
+FILL FILL_1__2770_ (
+);
+
+FILL FILL_3__2696_ (
+);
+
+FILL FILL_0__4599_ (
+);
+
+FILL FILL_0__4179_ (
+);
+
+FILL FILL_1__3975_ (
+);
+
+FILL FILL_1__3555_ (
+);
+
+FILL FILL_3__4842_ (
+);
+
+FILL FILL_3__4422_ (
+);
+
+FILL FILL_3__4002_ (
+);
+
+FILL FILL_4__2765_ (
+);
+
+FILL FILL_0__2665_ (
+);
+
+OAI21X1 _4771_ (
+    .A(_1816_),
+    .B(_1698_),
+    .C(_1823_),
+    .Y(_1824_)
+);
+
+OAI21X1 _4351_ (
+    .A(_1096_),
+    .B(_1349_),
+    .C(_1315__bF$buf0),
+    .Y(_1095_)
+);
+
+FILL FILL_2__3624_ (
+);
+
+FILL FILL_2__3204_ (
+);
+
+FILL FILL_4__4911_ (
+);
+
+FILL FILL_1__4093_ (
+);
+
+FILL FILL_2__4829_ (
+);
+
+FILL FILL_0__4811_ (
+);
+
+FILL FILL_2__4409_ (
+);
+
+FILL FILL_1__2826_ (
+);
+
+FILL FILL_1__2406_ (
+);
+
+FILL FILL_2__4582_ (
+);
+
+FILL FILL_2__4162_ (
+);
+
+FILL FILL_4__4088_ (
+);
+
+OAI21X1 _3622_ (
+    .A(_1196__bF$buf6),
+    .B(_898_),
+    .C(_427_),
+    .Y(_426_)
+);
+
+NAND2X1 _3202_ (
+    .A(\u_cpu.AXYS[1] [2]),
+    .B(_1041_),
+    .Y(_97_)
+);
+
+INVX4 _4827_ (
+    .A(reset),
+    .Y(_1675_)
+);
+
+OAI21X1 _4407_ (
+    .A(_1160_),
+    .B(_1171_),
+    .C(_1146_),
+    .Y(_1145_)
+);
+
+FILL FILL_1__3784_ (
+);
+
+FILL FILL_1__3364_ (
+);
+
+FILL FILL_3__4651_ (
+);
+
+FILL FILL_3__4231_ (
+);
+
+FILL FILL_1__4569_ (
+);
+
+FILL FILL_1__4149_ (
+);
+
+FILL FILL_4__2994_ (
+);
+
+FILL FILL_4__2574_ (
+);
+
+FILL FILL_0__2894_ (
+);
+
+FILL FILL_0__2474_ (
+);
+
+NOR2X1 _4580_ (
+    .A(_1348_),
+    .B(_1309_),
+    .Y(_1308_)
+);
+
+NAND2X1 _4160_ (
+    .A(_1042_),
+    .B(_922_),
+    .Y(_921_)
+);
+
+FILL FILL_2__3853_ (
+);
+
+FILL FILL_2__3433_ (
+);
+
+FILL FILL_2__3013_ (
+);
+
+FILL FILL_4__3779_ (
+);
+
+FILL FILL_4__3359_ (
+);
+
+FILL FILL_4__4720_ (
+);
+
+FILL FILL_4__4300_ (
+);
+
+FILL FILL_0__3679_ (
+);
+
+FILL FILL_0__3259_ (
+);
+
+FILL FILL_2__4638_ (
+);
+
+FILL FILL_0__4620_ (
+);
+
+FILL FILL_2__4218_ (
+);
+
+FILL FILL_0__4200_ (
+);
+
+FILL FILL_1__2635_ (
+);
+
+FILL FILL_3__3922_ (
+);
+
+FILL FILL_3__3502_ (
+);
+
+FILL FILL_2__4391_ (
+);
+
+FILL FILL_3__4707_ (
+);
+
+OAI21X1 _3851_ (
+    .A(_646_),
+    .B(_786_),
+    .C(_645_),
+    .Y(_644_)
+);
+
+OAI21X1 _3431_ (
+    .A(_285_),
+    .B(_614_),
+    .C(_258_),
+    .Y(_257_)
+);
+
+NOR2X1 _3011_ (
+    .A(_Addr_Bus[11]),
+    .B(_Addr_Bus[8]),
+    .Y(_1587_)
+);
+
+FILL FILL_2__2704_ (
+);
+
+FILL FILL_1_BUFX2_insert20 (
+);
+
+FILL FILL_1_BUFX2_insert21 (
+);
+
+FILL FILL_1_BUFX2_insert22 (
+);
+
+FILL FILL_1_BUFX2_insert23 (
+);
+
+FILL FILL_1_BUFX2_insert24 (
+);
+
+FILL FILL_1_BUFX2_insert25 (
+);
+
+INVX2 _4636_ (
+    .A(\u_cpu.alu_op [1]),
+    .Y(_1689_)
+);
+
+NAND2X1 _4216_ (
+    .A(\u_cpu.adj_bcd ),
+    .B(_971_),
+    .Y(_970_)
+);
+
+FILL FILL_1__3593_ (
+);
+
+FILL FILL_1__3173_ (
+);
+
+FILL FILL_2__3909_ (
+);
+
+FILL FILL_3__4460_ (
+);
+
+FILL FILL_3__4040_ (
+);
+
+FILL FILL_1__4798_ (
+);
+
+FILL FILL_1__4378_ (
+);
+
+FILL FILL_4__2383_ (
+);
+
+FILL FILL_2__3662_ (
+);
+
+FILL FILL_2__3242_ (
+);
+
+FILL FILL_4__3588_ (
+);
+
+FILL FILL_4__3168_ (
+);
+
+AOI21X1 _2702_ (
+    .A(_1918_),
+    .B(_1915_),
+    .C(_2354__4_bF$buf6),
+    .Y(_2033_)
+);
+
+FILL FILL_0__3488_ (
+);
+
+FILL FILL_2__4867_ (
+);
+
+FILL FILL_2__4447_ (
+);
+
+FILL FILL_2__4027_ (
+);
+
+OAI21X1 _3907_ (
+    .A(_1328__bF$buf0),
+    .B(_1252_),
+    .C(\u_cpu.ADD [1]),
+    .Y(_693_)
+);
+
+FILL FILL_1__2444_ (
+);
+
+FILL FILL_3__3731_ (
+);
+
+FILL FILL_3__3311_ (
+);
+
+FILL FILL_1__3649_ (
+);
+
+FILL FILL_1__3229_ (
+);
+
+FILL FILL_3__4936_ (
+);
+
+FILL FILL_3__4516_ (
+);
+
+OAI21X1 _3660_ (
+    .A(_1305__bF$buf3),
+    .B(_1076_),
+    .C(RDY_bF$buf5),
+    .Y(_463_)
+);
+
+NAND2X1 _3240_ (
+    .A(_2354_[11]),
+    .B(_800__bF$buf0),
+    .Y(_123_)
+);
+
+FILL FILL_2__2933_ (
+);
+
+FILL FILL_2__2513_ (
+);
+
+FILL FILL_4__2859_ (
+);
+
+FILL FILL_4__2439_ (
+);
+
+FILL FILL_4__3800_ (
+);
+
+FILL FILL_0__2759_ (
+);
+
+OAI21X1 _4865_ (
+    .A(_1890_),
+    .B(_1887_),
+    .C(_1880_),
+    .Y(_1905_)
+);
+
+INVX2 _4445_ (
+    .A(\u_cpu.DIMUX [2]),
+    .Y(_1179_)
+);
+
+NAND2X1 _4025_ (
+    .A(_1129__bF$buf0),
+    .B(_985_),
+    .Y(_794_)
+);
+
+FILL FILL_0__3700_ (
+);
+
+FILL FILL_2__3718_ (
+);
+
+FILL FILL_1__4187_ (
+);
+
+FILL FILL_0__4905_ (
+);
+
+FILL FILL_2__3891_ (
+);
+
+FILL FILL_2__3471_ (
+);
+
+FILL FILL_4__3397_ (
+);
+
+NOR2X1 _2931_ (
+    .A(_1530_),
+    .B(_1533_),
+    .Y(_1539_)
+);
+
+NAND3X1 _2511_ (
+    .A(_2354__5_bF$buf3),
+    .B(_2314_),
+    .C(_2312_),
+    .Y(_2315_)
+);
+
+FILL FILL_0__3297_ (
+);
+
+FILL FILL_2__4676_ (
+);
+
+FILL FILL_2__4256_ (
+);
+
+NAND3X1 _3716_ (
+    .A(_544_),
+    .B(_516_),
+    .C(_527_),
+    .Y(_515_)
+);
+
+FILL FILL_1__2673_ (
+);
+
+FILL FILL_3__2599_ (
+);
+
+FILL FILL_3__3960_ (
+);
+
+FILL FILL_3__3540_ (
+);
+
+FILL FILL_1__3878_ (
+);
+
+FILL FILL_1__3458_ (
+);
+
+FILL FILL_3__4745_ (
+);
+
+FILL FILL_3__4325_ (
+);
+
+FILL FILL_2__2742_ (
+);
+
+FILL FILL_4__2668_ (
+);
+
+FILL FILL_0__2988_ (
+);
+
+FILL FILL_0__2568_ (
+);
+
+OAI21X1 _4674_ (
+    .A(_1697_),
+    .B(_1726_),
+    .C(_1723_),
+    .Y(_1727_)
+);
+
+INVX1 _4254_ (
+    .A(_1024_),
+    .Y(_1006_)
+);
+
+FILL FILL_2__3947_ (
+);
+
+FILL FILL_2__3527_ (
+);
+
+FILL FILL_4__4814_ (
+);
+
+FILL FILL_3__2811_ (
+);
+
+FILL FILL_0__4714_ (
+);
+
+FILL FILL_2_BUFX2_insert70 (
+);
+
+FILL FILL_2_BUFX2_insert71 (
+);
+
+FILL FILL_2_BUFX2_insert72 (
+);
+
+FILL FILL_2_BUFX2_insert73 (
+);
+
+FILL FILL_2_BUFX2_insert74 (
+);
+
+FILL FILL_2_BUFX2_insert75 (
+);
+
+FILL FILL_2_BUFX2_insert76 (
+);
+
+FILL FILL_1__2729_ (
+);
+
+FILL FILL_2_BUFX2_insert77 (
+);
+
+FILL FILL_2_BUFX2_insert78 (
+);
+
+FILL FILL_2_BUFX2_insert79 (
+);
+
+FILL FILL_2__3280_ (
+);
+
+NOR2X1 _2740_ (
+    .A(_2354__0_bF$buf3),
+    .B(_1944_),
+    .Y(_1995_)
+);
+
+FILL FILL_2__4485_ (
+);
+
+FILL FILL_2__4065_ (
+);
+
+INVX1 _3945_ (
+    .A(\u_cpu.plp ),
+    .Y(_723_)
+);
+
+OAI21X1 _3525_ (
+    .A(_1210_),
+    .B(_864_),
+    .C(_335_),
+    .Y(_2354_[8])
+);
+
+DFFSR _3105_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1472_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[0] [1])
+);
+
+FILL FILL_1__2482_ (
+);
+
+FILL FILL_1__3687_ (
+);
+
+FILL FILL_1__3267_ (
+);
+
+FILL FILL_3__4974_ (
+);
+
+FILL FILL_3__4554_ (
+);
+
+FILL FILL_3__4134_ (
+);
+
+FILL FILL_2__2971_ (
+);
+
+FILL FILL_2__2551_ (
+);
+
+FILL FILL_4__2897_ (
+);
+
+FILL FILL_4__2477_ (
+);
+
+FILL FILL_0__2797_ (
+);
+
+FILL FILL_0__2377_ (
+);
+
+NAND3X1 _4483_ (
+    .A(RDY_bF$buf1),
+    .B(_1223_),
+    .C(_1212_),
+    .Y(_1211_)
+);
+
+NOR2X1 _4063_ (
+    .A(_834_),
+    .B(_831_),
+    .Y(_830_)
+);
+
+FILL FILL_2__3756_ (
+);
+
+FILL FILL_2__3336_ (
+);
+
+FILL FILL_4__4623_ (
+);
+
+FILL FILL_4__4203_ (
+);
+
+FILL FILL273150x72150 (
+);
+
+FILL FILL_0__4943_ (
+);
+
+FILL FILL_3__2620_ (
+);
+
+FILL FILL_0__4523_ (
+);
+
+FILL FILL_0__4103_ (
+);
+
+FILL FILL_1__2538_ (
+);
+
+FILL FILL273150x39750 (
+);
+
+FILL FILL_3__3825_ (
+);
+
+FILL FILL_3__3405_ (
+);
+
+FILL FILL_2__4294_ (
+);
+
+NOR2X1 _3754_ (
+    .A(_554_),
+    .B(_722_),
+    .Y(_553_)
+);
+
+OAI21X1 _3334_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [7]),
+    .Y(_178_)
+);
+
+FILL FILL_2__2607_ (
+);
+
+NAND3X1 _4959_ (
+    .A(_Addr_Bus[1]),
+    .B(_2229_),
+    .C(_2173_),
+    .Y(_2230_)
+);
+
+INVX1 _4539_ (
+    .A(\u_cpu.ABL [3]),
+    .Y(_1267_)
+);
+
+NAND2X1 _4119_ (
+    .A(_1303_),
+    .B(_889_),
+    .Y(_885_)
+);
+
+FILL FILL_1__3496_ (
+);
+
+FILL FILL_3__4783_ (
+);
+
+FILL FILL_3__4363_ (
+);
+
+FILL FILL_2__2780_ (
+);
+
+FILL FILL_2__2360_ (
+);
+
+OAI21X1 _4292_ (
+    .A(_1041_),
+    .B(_1039_),
+    .C(_1038_),
+    .Y(_1481_)
+);
+
+FILL FILL_2__3985_ (
+);
+
+FILL FILL_2__3565_ (
+);
+
+NOR2X1 _2605_ (
+    .A(_2048_),
+    .B(_1938_),
+    .Y(_2128_)
+);
+
+FILL FILL_4__4852_ (
+);
+
+FILL FILL_4__4432_ (
+);
+
+FILL FILL_4__4012_ (
+);
+
+FILL FILL_0__4752_ (
+);
+
+FILL FILL_0__4332_ (
+);
+
+FILL FILL_1__2767_ (
+);
+
+FILL FILL_3__3634_ (
+);
+
+FILL FILL_3__3214_ (
+);
+
+FILL FILL_1__4913_ (
+);
+
+FILL FILL_3__4839_ (
+);
+
+FILL FILL_3__4419_ (
+);
+
+NOR2X1 _3983_ (
+    .A(_1121_),
+    .B(_1118_),
+    .Y(_757_)
+);
+
+INVX1 _3563_ (
+    .A(\u_cpu.load_only ),
+    .Y(_368_)
+);
+
+DFFSR _3143_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(NMI),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.NMI_1 )
+);
+
+FILL FILL_2__2836_ (
+);
+
+FILL FILL_2__2416_ (
+);
+
+FILL FILL_4__3703_ (
+);
+
+NAND3X1 _4768_ (
+    .A(_1684_),
+    .B(_1820_),
+    .C(_1819_),
+    .Y(_1821_)
+);
+
+AOI21X1 _4348_ (
+    .A(\u_cpu.PC [14]),
+    .B(_1269_),
+    .C(_1093_),
+    .Y(_1092_)
+);
+
+FILL FILL_0__3603_ (
+);
+
+FILL FILL_3__4592_ (
+);
+
+FILL FILL_3__4172_ (
+);
+
+FILL FILL_4__4908_ (
+);
+
+FILL FILL_0__4808_ (
+);
+
+FILL FILL_3__2905_ (
+);
+
+FILL FILL_2__3794_ (
+);
+
+FILL FILL_2__3374_ (
+);
+
+OAI21X1 _2834_ (
+    .A(_2354__0_bF$buf4),
+    .B(_1635__bF$buf4),
+    .C(_2354__4_bF$buf5),
+    .Y(_1661_)
+);
+
+OAI22X1 _2414_ (
+    .A(_2354__0_bF$buf0),
+    .B(_1658_),
+    .C(_59_),
+    .D(_2086_),
+    .Y(_60_)
+);
+
+FILL FILL_4__4661_ (
+);
+
+FILL FILL_4__4241_ (
+);
+
+FILL FILL_0__4981_ (
+);
+
+FILL FILL_0__4561_ (
+);
+
+FILL FILL_2__4579_ (
+);
+
+FILL FILL_2__4159_ (
+);
+
+FILL FILL_0__4141_ (
+);
+
+NOR2X1 _3619_ (
+    .A(_443_),
+    .B(_424_),
+    .Y(_423_)
+);
+
+FILL FILL_1__2996_ (
+);
+
+FILL FILL_1__2576_ (
+);
+
+FILL FILL_3__3863_ (
+);
+
+FILL FILL_3__3443_ (
+);
+
+FILL FILL_3__3023_ (
+);
+
+FILL FILL_1__4722_ (
+);
+
+FILL FILL_1__4302_ (
+);
+
+FILL FILL_3__4648_ (
+);
+
+FILL FILL_3__4228_ (
+);
+
+AOI21X1 _3792_ (
+    .A(_636_),
+    .B(\u_cpu.PC [4]),
+    .C(_628_),
+    .Y(_590_)
+);
+
+NOR2X1 _3372_ (
+    .A(_214_),
+    .B(_208_),
+    .Y(_207_)
+);
+
+FILL FILL_2__2645_ (
+);
+
+FILL FILL_4__3932_ (
+);
+
+FILL FILL_4__3512_ (
+);
+
+DFFPOSX1 _4997_ (
+    .D(_2354__5_bF$buf2),
+    .CLK(clk_bF$buf12),
+    .Q(_Addr_Bus[5])
+);
+
+INVX8 _4577_ (
+    .A(_1350_),
+    .Y(_1305_)
+);
+
+NAND2X1 _4157_ (
+    .A(\u_cpu.AXYS[3] [1]),
+    .B(_921_),
+    .Y(_919_)
+);
+
+FILL FILL_0__3832_ (
+);
+
+FILL FILL_0__3412_ (
+);
+
+FILL FILL_4__4717_ (
+);
+
+FILL FILL_3__2714_ (
+);
+
+FILL FILL_0__4617_ (
+);
+
+FILL FILL_2__3183_ (
+);
+
+FILL FILL_3__3919_ (
+);
+
+NAND3X1 _2643_ (
+    .A(_2354__5_bF$buf2),
+    .B(_2087_),
+    .C(_2090_),
+    .Y(_2091_)
+);
+
+FILL FILL_4__4890_ (
+);
+
+FILL FILL_4__4470_ (
+);
+
+FILL FILL_4__4050_ (
+);
+
+FILL FILL_0__4790_ (
+);
+
+FILL FILL_0__4370_ (
+);
+
+FILL FILL_2__4388_ (
+);
+
+OAI21X1 _3848_ (
+    .A(_643_),
+    .B(_792_),
+    .C(_642_),
+    .Y(_641_)
+);
+
+NAND2X1 _3428_ (
+    .A(\u_cpu.ADD [1]),
+    .B(_625_),
+    .Y(_255_)
+);
+
+NOR2X1 _3008_ (
+    .A(_Addr_Bus[9]),
+    .B(_Addr_Bus[6]),
+    .Y(_1590_)
+);
+
+FILL FILL_1__2385_ (
+);
+
+FILL FILL_3__3672_ (
+);
+
+FILL FILL_3__3252_ (
+);
+
+FILL FILL_1__4951_ (
+);
+
+FILL FILL_1__4531_ (
+);
+
+FILL FILL_1__4111_ (
+);
+
+FILL FILL_3__4457_ (
+);
+
+FILL FILL_3__4037_ (
+);
+
+NOR2X1 _3181_ (
+    .A(_1258_),
+    .B(_1215_),
+    .Y(_83_)
+);
+
+FILL FILL_2__2454_ (
+);
+
+FILL FILL_4__3741_ (
+);
+
+FILL FILL_4__3321_ (
+);
+
+OAI21X1 _4386_ (
+    .A(\u_cpu.IRHOLD_valid ),
+    .B(_1138_),
+    .C(_1128_),
+    .Y(_1127_)
+);
+
+FILL FILL_2__3659_ (
+);
+
+FILL FILL_0__3641_ (
+);
+
+FILL FILL_0__3221_ (
+);
+
+FILL FILL_2__3239_ (
+);
+
+FILL FILL_2__4600_ (
+);
+
+FILL FILL_4__4946_ (
+);
+
+FILL FILL_4__4526_ (
+);
+
+FILL FILL_4__4106_ (
+);
+
+FILL FILL_0__4846_ (
+);
+
+FILL FILL_3__2943_ (
+);
+
+FILL FILL_3__2523_ (
+);
+
+FILL FILL_0__4426_ (
+);
+
+FILL FILL_0__4006_ (
+);
+
+FILL FILL_1__3802_ (
+);
+
+FILL FILL_3__3728_ (
+);
+
+FILL FILL_3__3308_ (
+);
+
+DFFSR _2872_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1597_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_pia_dsp.state [3])
+);
+
+NAND3X1 _2452_ (
+    .A(_1643__bF$buf1),
+    .B(_1665_),
+    .C(_1648_),
+    .Y(_23_)
+);
+
+FILL FILL_2__4197_ (
+);
+
+OAI21X1 _3657_ (
+    .A(_1305__bF$buf3),
+    .B(_903_),
+    .C(_1196__bF$buf5),
+    .Y(_460_)
+);
+
+OAI21X1 _3237_ (
+    .A(_358_),
+    .B(_800__bF$buf1),
+    .C(_122_),
+    .Y(_1378_)
+);
+
+FILL FILL_0__2912_ (
+);
+
+FILL FILL_3__3481_ (
+);
+
+FILL FILL271950x79350 (
+);
+
+FILL FILL_1__3399_ (
+);
+
+FILL FILL_1__4760_ (
+);
+
+FILL FILL_1__4340_ (
+);
+
+FILL FILL_3__4686_ (
+);
+
+FILL FILL_3__4266_ (
+);
+
+FILL FILL_2__2683_ (
+);
+
+FILL FILL_4__3970_ (
+);
+
+FILL FILL_4__3550_ (
+);
+
+NAND2X1 _4195_ (
+    .A(\u_cpu.AXYS[0] [2]),
+    .B(_977_),
+    .Y(_951_)
+);
+
+FILL FILL_2__3888_ (
+);
+
+FILL FILL_0__3870_ (
+);
+
+FILL FILL_2__3468_ (
+);
+
+FILL FILL_0__3450_ (
+);
+
+FILL FILL_0__3030_ (
+);
+
+OAI21X1 _2928_ (
+    .A(_1536_),
+    .B(_1535_),
+    .C(_1541_),
+    .Y(_1507_)
+);
+
+NOR2X1 _2508_ (
+    .A(_2354__0_bF$buf3),
+    .B(_1949_),
+    .Y(_2318_)
+);
+
+FILL FILL_4__4755_ (
+);
+
+FILL FILL_4__4335_ (
+);
+
+FILL FILL_3__2752_ (
+);
+
+FILL FILL_0__4655_ (
+);
+
+FILL FILL_0__4235_ (
+);
+
+FILL FILL_1__3611_ (
+);
+
+FILL FILL_3__3957_ (
+);
+
+FILL FILL_3__3537_ (
+);
+
+OAI21X1 _2681_ (
+    .A(_2354__1_bF$buf5),
+    .B(_2354__2_bF$buf5),
+    .C(_1643__bF$buf3),
+    .Y(_2053_)
+);
+
+FILL FILL_1__4816_ (
+);
+
+FILL FILL_4__2821_ (
+);
+
+FILL FILL_4__2401_ (
+);
+
+OAI21X1 _3886_ (
+    .A(_943_),
+    .B(_760_),
+    .C(_676_),
+    .Y(_1439_)
+);
+
+NAND3X1 _3466_ (
+    .A(_282_),
+    .B(_632_),
+    .C(_356_),
+    .Y(_281_)
+);
+
+DFFPOSX1 _3046_ (
+    .D(_1394_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.IRHOLD [1])
+);
+
+FILL FILL_0__2721_ (
+);
+
+FILL FILL_2__2739_ (
+);
+
+FILL FILL_3__3290_ (
+);
+
+FILL FILL_4__3606_ (
+);
+
+FILL FILL_0__3926_ (
+);
+
+FILL FILL_0__3506_ (
+);
+
+FILL FILL_3__4495_ (
+);
+
+FILL FILL_3__4075_ (
+);
+
+FILL FILL_2__2492_ (
+);
+
+FILL FILL_3__2808_ (
+);
+
+FILL FILL_2__3697_ (
+);
+
+FILL FILL_2__3277_ (
+);
+
+AOI21X1 _2737_ (
+    .A(_1996_),
+    .B(_1997_),
+    .C(_1923__bF$buf0),
+    .Y(_1998_)
+);
+
+FILL FILL_4__4984_ (
+);
+
+FILL FILL_4__4564_ (
+);
+
+FILL FILL_4__4144_ (
+);
+
+FILL FILL_0__4884_ (
+);
+
+FILL FILL_3__2981_ (
+);
+
+FILL FILL_3__2561_ (
+);
+
+FILL FILL_0__4464_ (
+);
+
+FILL FILL_0__4044_ (
+);
+
+FILL FILL_1__2899_ (
+);
+
+FILL FILL_1__2479_ (
+);
+
+FILL FILL_1__3840_ (
+);
+
+FILL FILL_1__3420_ (
+);
+
+FILL FILL_1__3000_ (
+);
+
+FILL FILL_3__3766_ (
+);
+
+FILL FILL_3__3346_ (
+);
+
+OAI21X1 _2490_ (
+    .A(_2354__3_bF$buf6),
+    .B(_1928_),
+    .C(_2354__5_bF$buf4),
+    .Y(_2336_)
+);
+
+FILL FILL_1__4625_ (
+);
+
+FILL FILL_1__4205_ (
+);
+
+FILL FILL_4__2630_ (
+);
+
+OAI21X1 _3695_ (
+    .A(_1016_),
+    .B(_502_),
+    .C(_498_),
+    .Y(\u_cpu.alu_op [0])
+);
+
+OAI21X1 _3275_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [0]),
+    .Y(_144_)
+);
+
+FILL FILL_0__2950_ (
+);
+
+FILL FILL_2__2968_ (
+);
+
+FILL FILL_0__2530_ (
+);
+
+FILL FILL_2__2548_ (
+);
+
+FILL FILL_4__3835_ (
+);
+
+FILL FILL_4__3415_ (
+);
+
+FILL FILL_0__3735_ (
+);
+
+FILL FILL_0__3315_ (
+);
+
+DFFPOSX1 _5001_ (
+    .D(_2354_[15]),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[15])
+);
+
+FILL FILL_3__2617_ (
+);
+
+INVX1 _2966_ (
+    .A(DO_kbd[5]),
+    .Y(_1628_)
+);
+
+INVX1 _2546_ (
+    .A(_2116_),
+    .Y(_2281_)
+);
+
+FILL FILL_4__4793_ (
+);
+
+FILL FILL_4__4373_ (
+);
+
+FILL FILL_0__4693_ (
+);
+
+FILL FILL_3__2790_ (
+);
+
+FILL FILL_3__2370_ (
+);
+
+FILL FILL_0__4273_ (
+);
+
+FILL FILL_3__3995_ (
+);
+
+FILL FILL_3__3575_ (
+);
+
+FILL FILL_1__4854_ (
+);
+
+FILL FILL_1__4434_ (
+);
+
+FILL FILL_1__4014_ (
+);
+
+DFFSR _3084_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1488_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [9])
+);
+
+FILL FILL_2__2777_ (
+);
+
+FILL FILL_2__2357_ (
+);
+
+FILL FILL_4__3644_ (
+);
+
+FILL FILL_4__3224_ (
+);
+
+INVX1 _4289_ (
+    .A(_1036_),
+    .Y(_1035_)
+);
+
+FILL FILL_0__3964_ (
+);
+
+FILL FILL_0__3544_ (
+);
+
+FILL FILL_2__4923_ (
+);
+
+FILL FILL_2__4503_ (
+);
+
+FILL FILL_4__4849_ (
+);
+
+FILL FILL_4__4429_ (
+);
+
+FILL FILL_4__4009_ (
+);
+
+FILL FILL_1__2920_ (
+);
+
+FILL FILL_1__2500_ (
+);
+
+FILL FILL_0__4749_ (
+);
+
+FILL FILL_3__2846_ (
+);
+
+FILL FILL_3__2426_ (
+);
+
+FILL FILL_0__4329_ (
+);
+
+FILL FILL_1__3705_ (
+);
+
+NOR2X1 _2775_ (
+    .A(_2354__0_bF$buf2),
+    .B(_2354__2_bF$buf2),
+    .Y(_1961_)
+);
+
+FILL FILL_4__4182_ (
+);
+
+FILL FILL_0__4082_ (
+);
+
+FILL FILL_4__2915_ (
+);
+
+FILL FILL_0__2815_ (
+);
+
+NAND3X1 _4921_ (
+    .A(_2175_),
+    .B(_2185_),
+    .C(_2176_),
+    .Y(_2197_)
+);
+
+OAI21X1 _4501_ (
+    .A(_1270_),
+    .B(_1269_),
+    .C(\u_cpu.PC [0]),
+    .Y(_1229_)
+);
+
+FILL FILL_3__3384_ (
+);
+
+FILL FILL_1__4663_ (
+);
+
+FILL FILL_1__4243_ (
+);
+
+FILL FILL_3__4589_ (
+);
+
+FILL FILL_3__4169_ (
+);
+
+FILL FILL_2__2586_ (
+);
+
+FILL FILL_4__3873_ (
+);
+
+FILL FILL_4__3453_ (
+);
+
+NAND2X1 _4098_ (
+    .A(_865_),
+    .B(_877_),
+    .Y(_864_)
+);
+
+FILL FILL_0__3773_ (
+);
+
+FILL FILL_0__3353_ (
+);
+
+FILL FILL_2__4732_ (
+);
+
+FILL FILL_2__4312_ (
+);
+
+FILL FILL_4__4658_ (
+);
+
+FILL FILL_4__4238_ (
+);
+
+FILL FILL_0__4978_ (
+);
+
+FILL FILL_3__2655_ (
+);
+
+FILL FILL_0__4558_ (
+);
+
+FILL FILL_0__4138_ (
+);
+
+FILL FILL_1__3934_ (
+);
+
+FILL FILL273150x7350 (
+);
+
+FILL FILL_1__3514_ (
+);
+
+NOR2X1 _2584_ (
+    .A(_2354__1_bF$buf1),
+    .B(_1935_),
+    .Y(_2149_)
+);
+
+FILL FILL_3__4801_ (
+);
+
+FILL FILL_1__4719_ (
+);
+
+FILL FILL_4__2724_ (
+);
+
+OAI21X1 _3789_ (
+    .A(_1154_),
+    .B(_616_),
+    .C(_588_),
+    .Y(_587_)
+);
+
+OAI21X1 _3369_ (
+    .A(_1328__bF$buf3),
+    .B(_906_),
+    .C(_1196__bF$buf4),
+    .Y(_205_)
+);
+
+FILL FILL_0__2624_ (
+);
+
+AND2X2 _4730_ (
+    .A(_1782_),
+    .B(_1780_),
+    .Y(_1783_)
+);
+
+NAND2X1 _4310_ (
+    .A(\u_cpu.dst_reg [0]),
+    .B(_1344_),
+    .Y(_1055_)
+);
+
+FILL FILL_3__3193_ (
+);
+
+FILL FILL_4__3929_ (
+);
+
+FILL FILL_4__3509_ (
+);
+
+FILL FILL_0__3829_ (
+);
+
+FILL FILL_0__3409_ (
+);
+
+FILL FILL_1__4892_ (
+);
+
+FILL FILL_1__4472_ (
+);
+
+FILL FILL_1__4052_ (
+);
+
+FILL FILL_3__4398_ (
+);
+
+FILL FILL_2__2395_ (
+);
+
+FILL FILL_4__3682_ (
+);
+
+FILL FILL_4__3262_ (
+);
+
+FILL FILL_0__3582_ (
+);
+
+FILL FILL_2__4961_ (
+);
+
+FILL FILL_2__4541_ (
+);
+
+FILL FILL_2__4121_ (
+);
+
+FILL FILL_4__4887_ (
+);
+
+FILL FILL_4__4467_ (
+);
+
+FILL FILL_4__4047_ (
+);
+
+FILL FILL_0__4787_ (
+);
+
+FILL FILL_3__2884_ (
+);
+
+FILL FILL_3__2464_ (
+);
+
+FILL FILL_0__4367_ (
+);
+
+FILL FILL_1__3743_ (
+);
+
+FILL FILL_1__3323_ (
+);
+
+FILL FILL_3__3669_ (
+);
+
+FILL FILL_3__3249_ (
+);
+
+AOI22X1 _2393_ (
+    .A(_62_),
+    .B(_54_),
+    .C(_1427_),
+    .D(_70_),
+    .Y(_2346_[7])
+);
+
+FILL FILL_3__4610_ (
+);
+
+FILL FILL_1__4948_ (
+);
+
+FILL FILL_1__4528_ (
+);
+
+FILL FILL_1__4108_ (
+);
+
+FILL FILL_4__2533_ (
+);
+
+NAND2X1 _3598_ (
+    .A(_410_),
+    .B(_404_),
+    .Y(_402_)
+);
+
+NAND2X1 _3178_ (
+    .A(_1264_),
+    .B(_1226_),
+    .Y(_81_)
+);
+
+FILL FILL_0__2853_ (
+);
+
+FILL FILL_0__2433_ (
+);
+
+FILL FILL_2__3812_ (
+);
+
+FILL FILL_4__3738_ (
+);
+
+FILL FILL_4__3318_ (
+);
+
+FILL FILL_0__3638_ (
+);
+
+FILL FILL_0__3218_ (
+);
+
+FILL FILL_1__4281_ (
+);
+
+FILL FILL_4__3491_ (
+);
+
+FILL FILL_0__3391_ (
+);
+
+FILL FILL_2__4770_ (
+);
+
+FILL FILL_2__4350_ (
+);
+
+DFFSR _2869_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1510_),
+    .CLK(clk_bF$buf10),
+    .Q(DO_dsp[5])
+);
+
+OAI21X1 _2449_ (
+    .A(_2150_),
+    .B(_25_),
+    .C(_2354__5_bF$buf2),
+    .Y(_26_)
+);
+
+FILL FILL_4__4696_ (
+);
+
+FILL FILL_4__4276_ (
+);
+
+NAND2X1 _3810_ (
+    .A(_630_),
+    .B(_607_),
+    .Y(_606_)
+);
+
+FILL FILL_3__2693_ (
+);
+
+FILL FILL_0__4596_ (
+);
+
+FILL FILL_0__4176_ (
+);
+
+FILL FILL_0__2909_ (
+);
+
+FILL FILL_1__3972_ (
+);
+
+FILL FILL_1__3552_ (
+);
+
+FILL FILL_3__3898_ (
+);
+
+FILL FILL_3__3478_ (
+);
+
+FILL FILL_1__4757_ (
+);
+
+FILL FILL_1__4337_ (
+);
+
+FILL FILL_4__2762_ (
+);
+
+FILL FILL_0__2662_ (
+);
+
+FILL FILL_2__3621_ (
+);
+
+FILL FILL_2__3201_ (
+);
+
+FILL FILL_4__3967_ (
+);
+
+FILL FILL_4__3547_ (
+);
+
+FILL FILL_0__3867_ (
+);
+
+FILL FILL_0__3447_ (
+);
+
+FILL FILL_0__3027_ (
+);
+
+FILL FILL_1__4090_ (
+);
+
+FILL FILL_2__4826_ (
+);
+
+FILL FILL_2__4406_ (
+);
+
+FILL FILL_1__2823_ (
+);
+
+FILL FILL_1__2403_ (
+);
+
+FILL FILL_3__2749_ (
+);
+
+FILL FILL272250x79350 (
+);
+
+FILL FILL_1__3608_ (
+);
+
+AOI21X1 _2678_ (
+    .A(_2055_),
+    .B(_1655_),
+    .C(_1920__bF$buf4),
+    .Y(_2056_)
+);
+
+FILL FILL_4__4085_ (
+);
+
+FILL FILL_4__2818_ (
+);
+
+FILL FILL_0__2718_ (
+);
+
+OR2X2 _4824_ (
+    .A(_1863_),
+    .B(_1868_),
+    .Y(_1869_)
+);
+
+NAND3X1 _4404_ (
+    .A(RDY_bF$buf4),
+    .B(_1145_),
+    .C(_1143_),
+    .Y(_1142_)
+);
+
+FILL FILL_1__3781_ (
+);
+
+FILL FILL_1__3361_ (
+);
+
+FILL FILL_3__3287_ (
+);
+
+FILL FILL_1__4566_ (
+);
+
+FILL FILL_1__4146_ (
+);
+
+FILL FILL_4__2991_ (
+);
+
+FILL FILL_4__2571_ (
+);
+
+FILL FILL_0__2891_ (
+);
+
+FILL FILL_0__2471_ (
+);
+
+FILL FILL_2__2489_ (
+);
+
+FILL FILL_2__3850_ (
+);
+
+FILL FILL_2__3430_ (
+);
+
+FILL FILL_2__3010_ (
+);
+
+FILL FILL_4__3776_ (
+);
+
+FILL FILL_4__3356_ (
+);
+
+FILL FILL_0__3676_ (
+);
+
+FILL FILL_0__3256_ (
+);
+
+FILL FILL_2__4635_ (
+);
+
+FILL FILL_2__4215_ (
+);
+
+FILL FILL_1__2632_ (
+);
+
+FILL FILL_3__2978_ (
+);
+
+FILL FILL_3__2558_ (
+);
+
+FILL FILL_1__3837_ (
+);
+
+FILL FILL_1__3417_ (
+);
+
+AOI21X1 _2487_ (
+    .A(_2338_),
+    .B(_2337_),
+    .C(_2354__6_bF$buf1),
+    .Y(_2339_)
+);
+
+FILL FILL_3__4704_ (
+);
+
+FILL FILL_2__2701_ (
+);
+
+FILL FILL_4__2627_ (
+);
+
+FILL FILL_0__2947_ (
+);
+
+FILL FILL_0__2527_ (
+);
+
+NOR2X1 _4633_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1685_),
+    .Y(_1686_)
+);
+
+INVX1 _4213_ (
+    .A(_969_),
+    .Y(_967_)
+);
+
+FILL FILL_1__3590_ (
+);
+
+FILL FILL_1__3170_ (
+);
+
+FILL FILL_2__3906_ (
+);
+
+FILL FILL_1__4795_ (
+);
+
+FILL FILL_1__4375_ (
+);
+
+FILL FILL_4__2380_ (
+);
+
+FILL FILL_4__3585_ (
+);
+
+FILL FILL_4__3165_ (
+);
+
+FILL FILL_0__3485_ (
+);
+
+FILL FILL_2__4864_ (
+);
+
+FILL FILL_2__4444_ (
+);
+
+FILL FILL_2__4024_ (
+);
+
+MUX2X1 _3904_ (
+    .A(_691_),
+    .B(_699_),
+    .S(_695_),
+    .Y(_1442_)
+);
+
+FILL FILL_1__2861_ (
+);
+
+FILL FILL_1__2441_ (
+);
+
+FILL FILL_3__2787_ (
+);
+
+FILL FILL_3__2367_ (
+);
+
+FILL FILL_1__3646_ (
+);
+
+FILL FILL_1__3226_ (
+);
+
+FILL FILL_3__4933_ (
+);
+
+FILL FILL_3__4513_ (
+);
+
+FILL FILL_2__2930_ (
+);
+
+FILL FILL_2__2510_ (
+);
+
+FILL FILL_4__2856_ (
+);
+
+FILL FILL_4__2436_ (
+);
+
+FILL FILL_0__2756_ (
+);
+
+AOI21X1 _4862_ (
+    .A(_1814_),
+    .B(_1828_),
+    .C(_1901_),
+    .Y(_1902_)
+);
+
+AOI21X1 _4442_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [2]),
+    .C(_1177_),
+    .Y(_1176_)
+);
+
+NAND2X1 _4022_ (
+    .A(_1051_),
+    .B(_979_),
+    .Y(_792_)
+);
+
+FILL FILL_2__3715_ (
+);
+
+FILL FILL_1__4184_ (
+);
+
+FILL FILL_0__4902_ (
+);
+
+FILL FILL_1__2917_ (
+);
+
+FILL FILL_4__3394_ (
+);
+
+FILL FILL_0__3294_ (
+);
+
+FILL FILL_2__4673_ (
+);
+
+FILL FILL_2__4253_ (
+);
+
+FILL FILL_4__4599_ (
+);
+
+FILL FILL_4__4179_ (
+);
+
+INVX1 _3713_ (
+    .A(_513_),
+    .Y(_512_)
+);
+
+FILL FILL_1__2670_ (
+);
+
+FILL FILL_3__2596_ (
+);
+
+FILL FILL_0__4499_ (
+);
+
+FILL FILL_0__4079_ (
+);
+
+NOR2X1 _4918_ (
+    .A(_2193_),
+    .B(_2192_),
+    .Y(_2194_)
+);
+
+FILL FILL_1__3875_ (
+);
+
+FILL FILL_1__3455_ (
+);
+
+FILL FILL_3__4742_ (
+);
+
+FILL FILL_3__4322_ (
+);
+
+FILL FILL_4__2665_ (
+);
+
+FILL FILL_0__2985_ (
+);
+
+FILL FILL_0__2565_ (
+);
+
+OAI21X1 _4671_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1716_),
+    .Y(_1724_)
+);
+
+INVX1 _4251_ (
+    .A(_1004_),
+    .Y(_1003_)
+);
+
+FILL FILL_2__3944_ (
+);
+
+FILL FILL_2__3524_ (
+);
+
+FILL FILL_4__4811_ (
+);
+
+FILL FILL_0__4711_ (
+);
+
+FILL FILL_2__4729_ (
+);
+
+FILL FILL_2__4309_ (
+);
+
+FILL FILL_2_BUFX2_insert40 (
+);
+
+FILL FILL_2_BUFX2_insert41 (
+);
+
+FILL FILL_2_BUFX2_insert42 (
+);
+
+FILL FILL_2_BUFX2_insert43 (
+);
+
+FILL FILL_2_BUFX2_insert44 (
+);
+
+FILL FILL_2_BUFX2_insert45 (
+);
+
+FILL FILL_2_BUFX2_insert46 (
+);
+
+FILL FILL_1__2726_ (
+);
+
+FILL FILL_2_BUFX2_insert47 (
+);
+
+FILL FILL_2_BUFX2_insert48 (
+);
+
+FILL FILL_2_BUFX2_insert49 (
+);
+
+FILL FILL_2__4482_ (
+);
+
+FILL FILL_2__4062_ (
+);
+
+OAI22X1 _3942_ (
+    .A(_723_),
+    .B(_1129__bF$buf0),
+    .C(_722_),
+    .D(_721_),
+    .Y(_1450_)
+);
+
+NAND2X1 _3522_ (
+    .A(\u_cpu.ADD [5]),
+    .B(_359_),
+    .Y(_332_)
+);
+
+DFFSR _3102_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(_1387_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABL [5])
+);
+
+INVX1 _4727_ (
+    .A(_1697_),
+    .Y(_1780_)
+);
+
+NAND3X1 _4307_ (
+    .A(_1056_),
+    .B(_1055_),
+    .C(_1053_),
+    .Y(_1052_)
+);
+
+FILL FILL_1__3684_ (
+);
+
+FILL FILL_1__3264_ (
+);
+
+FILL FILL_3__4971_ (
+);
+
+FILL FILL_3__4551_ (
+);
+
+FILL FILL_3__4131_ (
+);
+
+FILL FILL_1__4889_ (
+);
+
+FILL FILL_1__4469_ (
+);
+
+FILL FILL_1__4049_ (
+);
+
+FILL FILL_4__2894_ (
+);
+
+FILL FILL_4__2474_ (
+);
+
+FILL FILL_0__2794_ (
+);
+
+FILL FILL_0__2374_ (
+);
+
+INVX1 _4480_ (
+    .A(\u_cpu.DIHOLD [0]),
+    .Y(_1209_)
+);
+
+INVX1 _4060_ (
+    .A(_828_),
+    .Y(_827_)
+);
+
+FILL FILL_2__3753_ (
+);
+
+FILL FILL_2__3333_ (
+);
+
+FILL FILL_4__3679_ (
+);
+
+FILL FILL_4__3259_ (
+);
+
+FILL FILL_4__4620_ (
+);
+
+FILL FILL_4__4200_ (
+);
+
+FILL FILL_0__3999_ (
+);
+
+FILL FILL_0__3579_ (
+);
+
+FILL FILL_0__4940_ (
+);
+
+FILL FILL_2__4958_ (
+);
+
+FILL FILL_0__4520_ (
+);
+
+FILL FILL_2__4538_ (
+);
+
+FILL FILL_0__4100_ (
+);
+
+FILL FILL_2__4118_ (
+);
+
+FILL FILL_1__2535_ (
+);
+
+FILL FILL_3__3822_ (
+);
+
+FILL FILL_3__3402_ (
+);
+
+FILL FILL_2__4291_ (
+);
+
+FILL FILL_3__4607_ (
+);
+
+OAI21X1 _3751_ (
+    .A(_1321_),
+    .B(_888_),
+    .C(_1196__bF$buf6),
+    .Y(_550_)
+);
+
+NAND2X1 _3331_ (
+    .A(\u_cpu.AXYS[2] [4]),
+    .B(_760_),
+    .Y(_177_)
+);
+
+FILL FILL_2__2604_ (
+);
+
+AOI22X1 _4956_ (
+    .A(_2221_),
+    .B(_2195_),
+    .C(_2226_),
+    .D(_2227_),
+    .Y(Data_In[2])
+);
+
+AND2X2 _4536_ (
+    .A(_1268_),
+    .B(_1265_),
+    .Y(_1264_)
+);
+
+INVX1 _4116_ (
+    .A(_883_),
+    .Y(_882_)
+);
+
+FILL FILL_1__3493_ (
+);
+
+FILL FILL_2__3809_ (
+);
+
+FILL FILL_3__4780_ (
+);
+
+FILL FILL_3__4360_ (
+);
+
+FILL FILL_1__4698_ (
+);
+
+FILL FILL_1__4278_ (
+);
+
+FILL FILL_2__3982_ (
+);
+
+FILL FILL_2__3562_ (
+);
+
+FILL FILL_4__3488_ (
+);
+
+NOR2X1 _2602_ (
+    .A(_2043_),
+    .B(_2130_),
+    .Y(_2131_)
+);
+
+FILL FILL_0__3388_ (
+);
+
+FILL FILL_2__4767_ (
+);
+
+FILL FILL_2__4347_ (
+);
+
+NAND3X1 _3807_ (
+    .A(_605_),
+    .B(_604_),
+    .C(_606_),
+    .Y(_2353_[0])
+);
+
+FILL FILL_1__2764_ (
+);
+
+FILL FILL_3__3631_ (
+);
+
+FILL FILL_3__3211_ (
+);
+
+FILL FILL_1__3969_ (
+);
+
+FILL FILL_1__3549_ (
+);
+
+FILL FILL_1__4910_ (
+);
+
+FILL FILL_3__4836_ (
+);
+
+FILL FILL_3__4416_ (
+);
+
+NAND2X1 _3980_ (
+    .A(_1123_),
+    .B(_995_),
+    .Y(_754_)
+);
+
+NAND3X1 _3560_ (
+    .A(_811_),
+    .B(_367_),
+    .C(_366_),
+    .Y(_365_)
+);
+
+DFFSR _3140_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1406_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[3] [6])
+);
+
+FILL FILL272850x75750 (
+);
+
+FILL FILL_2__2833_ (
+);
+
+FILL FILL_2__2413_ (
+);
+
+FILL FILL_4__2759_ (
+);
+
+FILL FILL_4__3700_ (
+);
+
+FILL FILL_0__2659_ (
+);
+
+OAI21X1 _4765_ (
+    .A(_1689_),
+    .B(_1683_),
+    .C(\u_cpu.BI [6]),
+    .Y(_1818_)
+);
+
+NAND3X1 _4345_ (
+    .A(_1133_),
+    .B(_1091_),
+    .C(_1144_),
+    .Y(_1089_)
+);
+
+FILL FILL_0__3600_ (
+);
+
+FILL FILL_2__3618_ (
+);
+
+FILL FILL_4__4905_ (
+);
+
+FILL FILL_1__4087_ (
+);
+
+FILL FILL_0__4805_ (
+);
+
+FILL FILL_3__2902_ (
+);
+
+FILL FILL_2__3791_ (
+);
+
+FILL FILL_2__3371_ (
+);
+
+FILL FILL_4__3297_ (
+);
+
+NAND2X1 _2831_ (
+    .A(_1635__bF$buf2),
+    .B(_1663_),
+    .Y(_1664_)
+);
+
+OAI21X1 _2411_ (
+    .A(_1961_),
+    .B(_1663_),
+    .C(_1643__bF$buf3),
+    .Y(_63_)
+);
+
+FILL FILL_0__3197_ (
+);
+
+FILL FILL_2__4576_ (
+);
+
+FILL FILL_2__4156_ (
+);
+
+OAI21X1 _3616_ (
+    .A(_1328__bF$buf4),
+    .B(_536_),
+    .C(RDY_bF$buf5),
+    .Y(_420_)
+);
+
+FILL FILL_1__2993_ (
+);
+
+FILL FILL_1__2573_ (
+);
+
+FILL FILL_3__2499_ (
+);
+
+FILL FILL_3__3860_ (
+);
+
+FILL FILL_3__3440_ (
+);
+
+FILL FILL_3__3020_ (
+);
+
+FILL FILL_1__3778_ (
+);
+
+FILL FILL_1__3358_ (
+);
+
+FILL FILL_3__4645_ (
+);
+
+FILL FILL_3__4225_ (
+);
+
+FILL FILL_2__2642_ (
+);
+
+FILL FILL_4__2988_ (
+);
+
+FILL FILL_4__2568_ (
+);
+
+FILL FILL_0__2888_ (
+);
+
+FILL FILL_0__2468_ (
+);
+
+DFFSR _4994_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1632_),
+    .CLK(clk_bF$buf12),
+    .Q(\u_pia_kbd.state [1])
+);
+
+NOR3X1 _4574_ (
+    .A(_1303_),
+    .B(_1309_),
+    .C(_1304_),
+    .Y(_1302_)
+);
+
+OAI21X1 _4154_ (
+    .A(_952_),
+    .B(_921_),
+    .C(_918_),
+    .Y(_1463_)
+);
+
+FILL FILL_2__3847_ (
+);
+
+FILL FILL_2__3427_ (
+);
+
+FILL FILL_2__3007_ (
+);
+
+FILL FILL_4__4714_ (
+);
+
+FILL FILL_3__2711_ (
+);
+
+FILL FILL_0__4614_ (
+);
+
+FILL FILL_1__2629_ (
+);
+
+FILL FILL_2__3180_ (
+);
+
+FILL FILL_3__3916_ (
+);
+
+NOR2X1 _2640_ (
+    .A(_1653_),
+    .B(_1651_),
+    .Y(_2094_)
+);
+
+FILL FILL_2__4385_ (
+);
+
+NOR2X1 _3845_ (
+    .A(_1325__bF$buf4),
+    .B(_903_),
+    .Y(_638_)
+);
+
+NAND3X1 _3425_ (
+    .A(_254_),
+    .B(_253_),
+    .C(_255_),
+    .Y(_252_)
+);
+
+INVX1 _3005_ (
+    .A(_Addr_Bus[1]),
+    .Y(_1594_)
+);
+
+FILL FILL_1__2382_ (
+);
+
+FILL FILL_1__3587_ (
+);
+
+FILL FILL_1__3167_ (
+);
+
+FILL FILL_3__4454_ (
+);
+
+FILL FILL_3__4034_ (
+);
+
+FILL FILL_2__2451_ (
+);
+
+FILL FILL_4__2797_ (
+);
+
+FILL FILL_4__2377_ (
+);
+
+FILL FILL_0__2697_ (
+);
+
+OAI21X1 _4383_ (
+    .A(_1125_),
+    .B(\u_cpu.IRHOLD [4]),
+    .C(_1340_),
+    .Y(_1124_)
+);
+
+FILL FILL_2__3656_ (
+);
+
+FILL FILL_2__3236_ (
+);
+
+FILL FILL_4__4943_ (
+);
+
+FILL FILL_4__4523_ (
+);
+
+FILL FILL_4__4103_ (
+);
+
+FILL FILL_0__4843_ (
+);
+
+FILL FILL_3__2940_ (
+);
+
+FILL FILL_3__2520_ (
+);
+
+FILL FILL_0__4423_ (
+);
+
+FILL FILL_0__4003_ (
+);
+
+FILL FILL_1__2858_ (
+);
+
+FILL FILL_1__2438_ (
+);
+
+FILL FILL_3__3725_ (
+);
+
+FILL FILL_3__3305_ (
+);
+
+FILL FILL_2__4194_ (
+);
+
+INVX1 _3654_ (
+    .A(_458_),
+    .Y(_457_)
+);
+
+NOR2X1 _3234_ (
+    .A(\u_cpu.sed ),
+    .B(\u_cpu.plp ),
+    .Y(_120_)
+);
+
+FILL FILL_2__2927_ (
+);
+
+FILL FILL_2__2507_ (
+);
+
+NOR2X1 _4859_ (
+    .A(_1684_),
+    .B(_1748_),
+    .Y(_1899_)
+);
+
+OAI21X1 _4439_ (
+    .A(_1188_),
+    .B(_1198_),
+    .C(_1174_),
+    .Y(_1173_)
+);
+
+NAND2X1 _4019_ (
+    .A(\u_cpu.AXYS[2] [7]),
+    .B(_790_),
+    .Y(_789_)
+);
+
+FILL FILL_1__3396_ (
+);
+
+FILL FILL_3__4683_ (
+);
+
+FILL FILL_3__4263_ (
+);
+
+FILL FILL_2__2680_ (
+);
+
+OAI21X1 _4192_ (
+    .A(\u_cpu.HC ),
+    .B(_970_),
+    .C(\u_cpu.ADD [3]),
+    .Y(_949_)
+);
+
+FILL FILL_2__3885_ (
+);
+
+FILL FILL_2__3465_ (
+);
+
+OAI21X1 _2925_ (
+    .A(_1542_),
+    .B(_1535_),
+    .C(_1543_),
+    .Y(_1508_)
+);
+
+NAND3X1 _2505_ (
+    .A(_2354__5_bF$buf4),
+    .B(_2320_),
+    .C(_2319_),
+    .Y(_2321_)
+);
+
+FILL FILL_4__4752_ (
+);
+
+FILL FILL_4__4332_ (
+);
+
+FILL FILL_0__4652_ (
+);
+
+FILL FILL_0__4232_ (
+);
+
+FILL FILL_1__2667_ (
+);
+
+FILL FILL_3__3954_ (
+);
+
+FILL FILL_3__3534_ (
+);
+
+FILL FILL_1__4813_ (
+);
+
+FILL FILL_3__4739_ (
+);
+
+FILL FILL_3__4319_ (
+);
+
+INVX1 _3883_ (
+    .A(\u_cpu.adc_sbc ),
+    .Y(_673_)
+);
+
+NAND3X1 _3463_ (
+    .A(_284_),
+    .B(_283_),
+    .C(_279_),
+    .Y(_278_)
+);
+
+DFFSR _3043_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1361_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.AXYS[0] [7])
+);
+
+FILL FILL_2__2736_ (
+);
+
+FILL FILL271950x10950 (
+);
+
+FILL FILL_4__3603_ (
+);
+
+OAI21X1 _4668_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1716_),
+    .C(_1718_),
+    .Y(_1721_)
+);
+
+INVX1 _4248_ (
+    .A(_1117_),
+    .Y(_1000_)
+);
+
+FILL FILL_0__3923_ (
+);
+
+FILL FILL_0__3503_ (
+);
+
+FILL FILL_3__4492_ (
+);
+
+FILL FILL_3__4072_ (
+);
+
+FILL FILL_4__4808_ (
+);
+
+FILL FILL273150x25350 (
+);
+
+FILL FILL_0__4708_ (
+);
+
+FILL FILL_3__2805_ (
+);
+
+FILL FILL_2__3694_ (
+);
+
+FILL FILL_2__3274_ (
+);
+
+NAND2X1 _2734_ (
+    .A(_2354__1_bF$buf1),
+    .B(_1638__bF$buf0),
+    .Y(_2001_)
+);
+
+FILL FILL_4__4981_ (
+);
+
+FILL FILL_4__4561_ (
+);
+
+FILL FILL_4__4141_ (
+);
+
+FILL FILL_2__4899_ (
+);
+
+FILL FILL_0__4461_ (
+);
+
+FILL FILL_2__4479_ (
+);
+
+FILL FILL_2__4059_ (
+);
+
+FILL FILL_0__4041_ (
+);
+
+NAND2X1 _3939_ (
+    .A(_781_),
+    .B(_940_),
+    .Y(_718_)
+);
+
+OAI21X1 _3519_ (
+    .A(_1138_),
+    .B(_356_),
+    .C(_330_),
+    .Y(\u_cpu.AI [5])
+);
+
+FILL FILL_1__2896_ (
+);
+
+FILL FILL_1__2476_ (
+);
+
+FILL FILL_3__3763_ (
+);
+
+FILL FILL_3__3343_ (
+);
+
+FILL FILL_1__4622_ (
+);
+
+FILL FILL_1__4202_ (
+);
+
+FILL FILL_3__4968_ (
+);
+
+FILL FILL_3__4548_ (
+);
+
+FILL FILL_3__4128_ (
+);
+
+OAI21X1 _3692_ (
+    .A(_554_),
+    .B(_564_),
+    .C(_496_),
+    .Y(_495_)
+);
+
+AOI21X1 _3272_ (
+    .A(_223_),
+    .B(_800__bF$buf4),
+    .C(_143_),
+    .Y(_1392_)
+);
+
+FILL FILL_2__2965_ (
+);
+
+FILL FILL_2__2545_ (
+);
+
+FILL FILL_4__3832_ (
+);
+
+FILL FILL_4__3412_ (
+);
+
+NOR3X1 _4897_ (
+    .A(_2163_),
+    .B(_2167_),
+    .C(_2172_),
+    .Y(_2173_)
+);
+
+INVX2 _4477_ (
+    .A(\u_cpu.DIMUX [0]),
+    .Y(_1207_)
+);
+
+NOR2X1 _4057_ (
+    .A(_889_),
+    .B(_1083_),
+    .Y(_824_)
+);
+
+FILL FILL_0__3732_ (
+);
+
+FILL FILL_0__3312_ (
+);
+
+FILL FILL_4__4617_ (
+);
+
+FILL FILL_0__4937_ (
+);
+
+FILL FILL_3__2614_ (
+);
+
+FILL FILL_0__4517_ (
+);
+
+FILL FILL_3__3819_ (
+);
+
+DFFSR _2963_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1496_),
+    .CLK(clk_bF$buf3),
+    .Q(DO_kbd[5])
+);
+
+AOI22X1 _2543_ (
+    .A(_2280_),
+    .B(_2283_),
+    .C(_2278_),
+    .D(_1923__bF$buf0),
+    .Y(_2284_)
+);
+
+FILL FILL_4__4790_ (
+);
+
+FILL FILL_4__4370_ (
+);
+
+FILL FILL_0__4690_ (
+);
+
+FILL FILL_2__4288_ (
+);
+
+FILL FILL_0__4270_ (
+);
+
+OAI21X1 _3748_ (
+    .A(_1325__bF$buf2),
+    .B(_881_),
+    .C(RDY_bF$buf6),
+    .Y(_547_)
+);
+
+OAI21X1 _3328_ (
+    .A(_932_),
+    .B(_760_),
+    .C(_176_),
+    .Y(_1415_)
+);
+
+FILL FILL_3__3992_ (
+);
+
+FILL FILL_3__3572_ (
+);
+
+FILL FILL_1__4851_ (
+);
+
+FILL FILL_1__4431_ (
+);
+
+FILL FILL_1__4011_ (
+);
+
+FILL FILL_3__4777_ (
+);
+
+FILL FILL_3__4357_ (
+);
+
+DFFSR _3081_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1377_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABH [5])
+);
+
+FILL FILL_2__2774_ (
+);
+
+FILL FILL_4__3641_ (
+);
+
+FILL FILL_4__3221_ (
+);
+
+NOR2X1 _4286_ (
+    .A(_1035_),
+    .B(_1033_),
+    .Y(_1032_)
+);
+
+FILL FILL_2__3979_ (
+);
+
+FILL FILL_0__3961_ (
+);
+
+FILL FILL_2__3559_ (
+);
+
+FILL FILL_0__3541_ (
+);
+
+FILL FILL_2__4920_ (
+);
+
+FILL FILL_2__4500_ (
+);
+
+FILL FILL_4__4846_ (
+);
+
+FILL FILL_4__4426_ (
+);
+
+FILL FILL_4__4006_ (
+);
+
+FILL FILL_0__4746_ (
+);
+
+FILL FILL_3__2843_ (
+);
+
+FILL FILL_3__2423_ (
+);
+
+FILL FILL_0__4326_ (
+);
+
+FILL FILL_1__3702_ (
+);
+
+FILL FILL_3__3628_ (
+);
+
+FILL FILL_3__3208_ (
+);
+
+INVX1 _2772_ (
+    .A(_1963_),
+    .Y(_1964_)
+);
+
+FILL FILL_2__4097_ (
+);
+
+FILL FILL_1__4907_ (
+);
+
+FILL FILL_4__2912_ (
+);
+
+OAI21X1 _3977_ (
+    .A(_755_),
+    .B(_752_),
+    .C(_1129__bF$buf1),
+    .Y(_751_)
+);
+
+NOR2X1 _3557_ (
+    .A(_363_),
+    .B(_834_),
+    .Y(_362_)
+);
+
+DFFSR _3137_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1476_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.op [0])
+);
+
+FILL FILL_0__2812_ (
+);
+
+FILL FILL_3__3381_ (
+);
+
+FILL FILL_1__3299_ (
+);
+
+FILL FILL_1__4660_ (
+);
+
+FILL FILL_1__4240_ (
+);
+
+FILL FILL_3__4586_ (
+);
+
+FILL FILL_3__4166_ (
+);
+
+FILL FILL_2__2583_ (
+);
+
+FILL FILL273450x68550 (
+);
+
+FILL FILL_4__3870_ (
+);
+
+FILL FILL_4__3450_ (
+);
+
+FILL FILL_4__3030_ (
+);
+
+AND2X2 _4095_ (
+    .A(_863_),
+    .B(_862_),
+    .Y(_861_)
+);
+
+FILL FILL_0__3770_ (
+);
+
+FILL FILL_2__3788_ (
+);
+
+FILL FILL_0__3350_ (
+);
+
+FILL FILL_2__3368_ (
+);
+
+OAI22X1 _2828_ (
+    .A(_1643__bF$buf4),
+    .B(_1673_),
+    .C(_1659_),
+    .D(_1662_),
+    .Y(_1674_)
+);
+
+OAI21X1 _2408_ (
+    .A(_65_),
+    .B(_64_),
+    .C(_2354__4_bF$buf3),
+    .Y(_66_)
+);
+
+FILL FILL_4__4655_ (
+);
+
+FILL FILL_4__4235_ (
+);
+
+FILL FILL_0__4975_ (
+);
+
+FILL FILL_3__2652_ (
+);
+
+FILL FILL_0__4555_ (
+);
+
+FILL FILL_0__4135_ (
+);
+
+FILL FILL_1__3931_ (
+);
+
+FILL FILL_1__3511_ (
+);
+
+FILL FILL_3__3857_ (
+);
+
+FILL FILL_3__3437_ (
+);
+
+FILL FILL_3__3017_ (
+);
+
+OAI21X1 _2581_ (
+    .A(_2354__2_bF$buf1),
+    .B(_1638__bF$buf1),
+    .C(_2354__4_bF$buf5),
+    .Y(_2152_)
+);
+
+FILL FILL_1__4716_ (
+);
+
+FILL FILL_4__2721_ (
+);
+
+NOR2X1 _3786_ (
+    .A(_1325__bF$buf2),
+    .B(_1081_),
+    .Y(_585_)
+);
+
+INVX1 _3366_ (
+    .A(_478_),
+    .Y(_202_)
+);
+
+FILL FILL_0__2621_ (
+);
+
+FILL FILL_2__2639_ (
+);
+
+FILL FILL_3__3190_ (
+);
+
+FILL FILL_4__3926_ (
+);
+
+FILL FILL_4__3506_ (
+);
+
+FILL FILL_0__3826_ (
+);
+
+FILL FILL_0__3406_ (
+);
+
+FILL FILL_3__4395_ (
+);
+
+FILL FILL_3__2708_ (
+);
+
+FILL FILL_2__3597_ (
+);
+
+FILL FILL_2__3177_ (
+);
+
+NAND3X1 _2637_ (
+    .A(_2354__4_bF$buf4),
+    .B(_2095_),
+    .C(_2096_),
+    .Y(_2097_)
+);
+
+FILL FILL_4__4884_ (
+);
+
+FILL FILL_4__4464_ (
+);
+
+FILL FILL_4__4044_ (
+);
+
+FILL FILL_0__4784_ (
+);
+
+FILL FILL_3__2881_ (
+);
+
+FILL FILL_0__4364_ (
+);
+
+FILL FILL_3__2461_ (
+);
+
+FILL FILL_1__2799_ (
+);
+
+FILL FILL_1__2379_ (
+);
+
+FILL FILL_1__3740_ (
+);
+
+FILL FILL_1__3320_ (
+);
+
+FILL FILL_3__3666_ (
+);
+
+FILL FILL_3__3246_ (
+);
+
+DFFPOSX1 _2390_ (
+    .D(_2346_[0]),
+    .CLK(clk_bF$buf12),
+    .Q(DO_woz[0])
+);
+
+FILL FILL_1__4945_ (
+);
+
+FILL FILL_1__4525_ (
+);
+
+FILL FILL_1__4105_ (
+);
+
+FILL FILL_4__2950_ (
+);
+
+FILL FILL_4__2530_ (
+);
+
+OAI21X1 _3595_ (
+    .A(\u_cpu.state [4]),
+    .B(_906_),
+    .C(_1196__bF$buf3),
+    .Y(_399_)
+);
+
+NAND2X1 _3175_ (
+    .A(\u_cpu.PC [4]),
+    .B(_1196__bF$buf1),
+    .Y(_79_)
+);
+
+FILL FILL_0__2850_ (
+);
+
+FILL FILL_0__2430_ (
+);
+
+FILL FILL_2__2448_ (
+);
+
+FILL FILL_4__3735_ (
+);
+
+FILL FILL_4__3315_ (
+);
+
+FILL FILL_0__3635_ (
+);
+
+FILL FILL_0__3215_ (
+);
+
+FILL FILL_3__2937_ (
+);
+
+FILL FILL_3__2517_ (
+);
+
+DFFSR _2866_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1596_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_pia_dsp.state [2])
+);
+
+OAI21X1 _2446_ (
+    .A(_2156_),
+    .B(_2086_),
+    .C(_2000_),
+    .Y(_29_)
+);
+
+FILL FILL_4__4693_ (
+);
+
+FILL FILL_4__4273_ (
+);
+
+FILL FILL_3__2690_ (
+);
+
+FILL FILL_0__4593_ (
+);
+
+FILL FILL_0__4173_ (
+);
+
+FILL FILL_0__2906_ (
+);
+
+FILL FILL_3__3895_ (
+);
+
+FILL FILL_3__3475_ (
+);
+
+FILL FILL_1__4754_ (
+);
+
+FILL FILL_1__4334_ (
+);
+
+FILL FILL_2__2677_ (
+);
+
+FILL FILL_4__3964_ (
+);
+
+FILL FILL_4__3544_ (
+);
+
+AND2X2 _4189_ (
+    .A(_950_),
+    .B(_947_),
+    .Y(_946_)
+);
+
+FILL FILL_0__3864_ (
+);
+
+FILL FILL_0__3444_ (
+);
+
+FILL FILL_0__3024_ (
+);
+
+FILL FILL_2__4823_ (
+);
+
+FILL FILL_2__4403_ (
+);
+
+FILL FILL_4__4749_ (
+);
+
+FILL FILL_4__4329_ (
+);
+
+FILL FILL_1__2820_ (
+);
+
+FILL FILL_1__2400_ (
+);
+
+FILL FILL_0__4649_ (
+);
+
+FILL FILL_3__2746_ (
+);
+
+FILL FILL_0__4229_ (
+);
+
+FILL FILL_1__3605_ (
+);
+
+FILL FILL273750x21750 (
+);
+
+OAI21X1 _2675_ (
+    .A(_2354__3_bF$buf5),
+    .B(_1637_),
+    .C(_1634__bF$buf5),
+    .Y(_2059_)
+);
+
+FILL FILL_4__4082_ (
+);
+
+FILL FILL_4__2815_ (
+);
+
+FILL FILL_0__2715_ (
+);
+
+INVX1 _4821_ (
+    .A(\u_cpu.u_ALU8.AI7 ),
+    .Y(_1866_)
+);
+
+INVX1 _4401_ (
+    .A(\u_cpu.DIHOLD [5]),
+    .Y(_1140_)
+);
+
+FILL FILL_3__3284_ (
+);
+
+FILL FILL_1__4983_ (
+);
+
+FILL FILL_1__4563_ (
+);
+
+FILL FILL_1__4143_ (
+);
+
+FILL FILL_3__4489_ (
+);
+
+FILL FILL_3__4069_ (
+);
+
+FILL FILL_2__2486_ (
+);
+
+FILL FILL_4__3773_ (
+);
+
+FILL FILL_4__3353_ (
+);
+
+FILL FILL_0__3673_ (
+);
+
+FILL FILL_0__3253_ (
+);
+
+FILL FILL_2__4632_ (
+);
+
+FILL FILL_2__4212_ (
+);
+
+FILL FILL_4__4978_ (
+);
+
+FILL FILL_4__4558_ (
+);
+
+FILL FILL_4__4138_ (
+);
+
+FILL FILL_3__2975_ (
+);
+
+FILL FILL_3__2555_ (
+);
+
+FILL FILL_0__4458_ (
+);
+
+FILL FILL_0__4038_ (
+);
+
+FILL FILL272250x10950 (
+);
+
+FILL FILL_1__3834_ (
+);
+
+FILL FILL_1__3414_ (
+);
+
+OAI21X1 _2484_ (
+    .A(_1994_),
+    .B(_1995_),
+    .C(_2354__3_bF$buf6),
+    .Y(_2342_)
+);
+
+FILL FILL_3__4701_ (
+);
+
+FILL FILL_1__4619_ (
+);
+
+FILL FILL_4__2624_ (
+);
+
+AOI22X1 _3689_ (
+    .A(_891_),
+    .B(_493_),
+    .C(_569_),
+    .D(_667_),
+    .Y(_492_)
+);
+
+OAI21X1 _3269_ (
+    .A(_142_),
+    .B(_800__bF$buf2),
+    .C(_141_),
+    .Y(_1391_)
+);
+
+FILL FILL_0__2944_ (
+);
+
+FILL FILL_0__2524_ (
+);
+
+INVX1 _4630_ (
+    .A(\u_cpu.AI [6]),
+    .Y(_1683_)
+);
+
+NAND2X1 _4210_ (
+    .A(_1070__bF$buf1),
+    .B(_965_),
+    .Y(_964_)
+);
+
+FILL FILL_2__3903_ (
+);
+
+FILL FILL_4__3829_ (
+);
+
+FILL FILL_4__3409_ (
+);
+
+FILL FILL_0__3729_ (
+);
+
+FILL FILL_0__3309_ (
+);
+
+FILL FILL_1__4792_ (
+);
+
+FILL FILL_1__4372_ (
+);
+
+FILL FILL_3__4298_ (
+);
+
+FILL FILL_4__3582_ (
+);
+
+FILL FILL_0__3482_ (
+);
+
+FILL FILL_2__4861_ (
+);
+
+FILL FILL_2__4441_ (
+);
+
+FILL FILL_2__4021_ (
+);
+
+FILL FILL_4__4787_ (
+);
+
+FILL FILL_4__4367_ (
+);
+
+INVX1 _3901_ (
+    .A(\u_cpu.load_reg ),
+    .Y(_689_)
+);
+
+FILL FILL_0__4687_ (
+);
+
+FILL FILL_3__2784_ (
+);
+
+FILL FILL_3__2364_ (
+);
+
+FILL FILL_0__4267_ (
+);
+
+FILL FILL_1__3643_ (
+);
+
+FILL FILL_1__3223_ (
+);
+
+FILL FILL_3__3989_ (
+);
+
+FILL FILL_3__3569_ (
+);
+
+FILL FILL_3__4930_ (
+);
+
+FILL FILL_3__4510_ (
+);
+
+FILL FILL_1__4848_ (
+);
+
+FILL FILL_1__4428_ (
+);
+
+FILL FILL_1__4008_ (
+);
+
+FILL FILL_4__2853_ (
+);
+
+FILL FILL_4__2433_ (
+);
+
+OAI21X1 _3498_ (
+    .A(_766_),
+    .B(_768_),
+    .C(_312_),
+    .Y(_311_)
+);
+
+DFFSR _3078_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1438_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.C )
+);
+
+FILL FILL_0__2753_ (
+);
+
+FILL FILL_2__3712_ (
+);
+
+FILL FILL_4__3638_ (
+);
+
+FILL FILL_4__3218_ (
+);
+
+FILL FILL_0__3958_ (
+);
+
+FILL FILL_0__3538_ (
+);
+
+FILL FILL_1__4181_ (
+);
+
+FILL FILL_2__4917_ (
+);
+
+FILL FILL_1__2914_ (
+);
+
+FILL FILL_4__3391_ (
+);
+
+FILL FILL_0__3291_ (
+);
+
+FILL FILL_2__4670_ (
+);
+
+FILL FILL_2__4250_ (
+);
+
+NOR2X1 _2769_ (
+    .A(_2354__3_bF$buf2),
+    .B(_2354__1_bF$buf1),
+    .Y(_1967_)
+);
+
+FILL FILL_4__4596_ (
+);
+
+FILL FILL_4__4176_ (
+);
+
+OAI21X1 _3710_ (
+    .A(_1196__bF$buf4),
+    .B(_882_),
+    .C(_510_),
+    .Y(_509_)
+);
+
+FILL FILL_3__2593_ (
+);
+
+FILL FILL_0__4496_ (
+);
+
+FILL FILL_0__4076_ (
+);
+
+FILL FILL_4__2909_ (
+);
+
+FILL FILL_0__2809_ (
+);
+
+NOR2X1 _4915_ (
+    .A(_2189_),
+    .B(_2190_),
+    .Y(_2191_)
+);
+
+FILL FILL_1__3872_ (
+);
+
+FILL FILL_1__3452_ (
+);
+
+FILL FILL_1__3032_ (
+);
+
+FILL FILL_3__3798_ (
+);
+
+FILL FILL_3__3378_ (
+);
+
+FILL FILL_1__4657_ (
+);
+
+FILL FILL_1__4237_ (
+);
+
+FILL FILL_4__2662_ (
+);
+
+FILL FILL_0__2982_ (
+);
+
+FILL FILL_0__2562_ (
+);
+
+FILL FILL_2__3941_ (
+);
+
+FILL FILL_2__3521_ (
+);
+
+FILL FILL_4__3867_ (
+);
+
+FILL FILL_4__3447_ (
+);
+
+FILL FILL_4__3027_ (
+);
+
+FILL FILL_0__3767_ (
+);
+
+FILL FILL_0__3347_ (
+);
+
+FILL FILL_2__4726_ (
+);
+
+FILL FILL_2__4306_ (
+);
+
+FILL FILL_2_BUFX2_insert10 (
+);
+
+FILL FILL_2_BUFX2_insert11 (
+);
+
+FILL FILL_2_BUFX2_insert12 (
+);
+
+FILL FILL_2_BUFX2_insert13 (
+);
+
+FILL FILL_2_BUFX2_insert14 (
+);
+
+FILL FILL_2_BUFX2_insert15 (
+);
+
+FILL FILL_2_BUFX2_insert16 (
+);
+
+FILL FILL_1__2723_ (
+);
+
+FILL FILL_2_BUFX2_insert17 (
+);
+
+FILL FILL_2_BUFX2_insert18 (
+);
+
+FILL FILL_2_BUFX2_insert19 (
+);
+
+FILL FILL_3__2649_ (
+);
+
+FILL FILL_1__3928_ (
+);
+
+FILL FILL_1__3508_ (
+);
+
+OAI21X1 _2998_ (
+    .A(_1512_),
+    .B(_1603_),
+    .C(_1584_),
+    .Y(_1632_)
+);
+
+OAI21X1 _2578_ (
+    .A(_2154_),
+    .B(_2148_),
+    .C(_1923__bF$buf2),
+    .Y(_2155_)
+);
+
+FILL FILL_4__2718_ (
+);
+
+FILL FILL_0__2618_ (
+);
+
+NOR2X1 _4724_ (
+    .A(\u_cpu.AI [3]),
+    .B(_1774_),
+    .Y(_1777_)
+);
+
+INVX1 _4304_ (
+    .A(_1087_),
+    .Y(_1049_)
+);
+
+FILL FILL_1__3681_ (
+);
+
+FILL FILL_1__3261_ (
+);
+
+FILL FILL_3__3187_ (
+);
+
+FILL FILL_1__4886_ (
+);
+
+FILL FILL_1__4466_ (
+);
+
+FILL FILL_1__4046_ (
+);
+
+FILL FILL_4__2891_ (
+);
+
+FILL FILL_4__2471_ (
+);
+
+FILL FILL_0__2791_ (
+);
+
+FILL FILL_0__2371_ (
+);
+
+FILL FILL_2__2389_ (
+);
+
+FILL FILL_2__3750_ (
+);
+
+FILL FILL_2__3330_ (
+);
+
+FILL FILL_4__3676_ (
+);
+
+FILL FILL_4__3256_ (
+);
+
+FILL FILL_0__3996_ (
+);
+
+FILL FILL_0__3576_ (
+);
+
+FILL FILL_2__4955_ (
+);
+
+FILL FILL_2__4535_ (
+);
+
+FILL FILL_2__4115_ (
+);
+
+FILL FILL_1__2532_ (
+);
+
+FILL FILL_3__2878_ (
+);
+
+FILL FILL_3__2458_ (
+);
+
+FILL FILL_1__3737_ (
+);
+
+FILL FILL_1__3317_ (
+);
+
+BUFX2 _2387_ (
+    .A(DO_dsp[2]),
+    .Y(dsp_data[2])
+);
+
+FILL FILL_3__4604_ (
+);
+
+FILL FILL_2__2601_ (
+);
+
+FILL FILL_4__2947_ (
+);
+
+FILL FILL_4__2527_ (
+);
+
+FILL FILL_0__2847_ (
+);
+
+FILL FILL_0__2427_ (
+);
+
+NAND2X1 _4953_ (
+    .A(_2224_),
+    .B(_2186_),
+    .Y(_2225_)
+);
+
+OAI21X1 _4533_ (
+    .A(_1343_),
+    .B(\u_cpu.res ),
+    .C(_1274_),
+    .Y(_1261_)
+);
+
+NOR2X1 _4113_ (
+    .A(_882_),
+    .B(_880_),
+    .Y(_879_)
+);
+
+FILL FILL_1__3490_ (
+);
+
+FILL FILL_2__3806_ (
+);
+
+FILL FILL_1__4695_ (
+);
+
+FILL FILL_1__4275_ (
+);
+
+FILL FILL_4__3485_ (
+);
+
+FILL FILL_0__3385_ (
+);
+
+FILL FILL_2__4764_ (
+);
+
+FILL FILL_2__4344_ (
+);
+
+OAI21X1 _3804_ (
+    .A(_603_),
+    .B(_786_),
+    .C(_602_),
+    .Y(_601_)
+);
+
+FILL FILL_1__2761_ (
+);
+
+FILL FILL_3__2687_ (
+);
+
+FILL FILL_1__3966_ (
+);
+
+FILL FILL_1__3546_ (
+);
+
+FILL FILL_3__4833_ (
+);
+
+FILL FILL_3__4413_ (
+);
+
+FILL FILL_2__2830_ (
+);
+
+FILL FILL_2__2410_ (
+);
+
+FILL FILL_4__2756_ (
+);
+
+FILL FILL_0__2656_ (
+);
+
+INVX1 _4762_ (
+    .A(\u_cpu.AI [7]),
+    .Y(_1815_)
+);
+
+NAND2X1 _4342_ (
+    .A(_1346_),
+    .B(_1347_),
+    .Y(_1087_)
+);
+
+FILL FILL_2__3615_ (
+);
+
+FILL FILL_4__4902_ (
+);
+
+FILL FILL_1__4084_ (
+);
+
+FILL FILL_0__4802_ (
+);
+
+FILL FILL_1__2817_ (
+);
+
+FILL FILL_4__3294_ (
+);
+
+FILL FILL_0__3194_ (
+);
+
+FILL FILL_2__4573_ (
+);
+
+FILL FILL_2__4153_ (
+);
+
+FILL FILL_4__4499_ (
+);
+
+FILL FILL_4__4079_ (
+);
+
+OAI21X1 _3613_ (
+    .A(_808_),
+    .B(_419_),
+    .C(_418_),
+    .Y(_417_)
+);
+
+FILL FILL_1__2990_ (
+);
+
+FILL FILL_1__2570_ (
+);
+
+FILL FILL_3__2496_ (
+);
+
+FILL FILL_0__4399_ (
+);
+
+NOR2X1 _4818_ (
+    .A(_1861_),
+    .B(_1862_),
+    .Y(_1863_)
+);
+
+FILL FILL_1__3775_ (
+);
+
+FILL FILL_1__3355_ (
+);
+
+FILL FILL_3__4642_ (
+);
+
+FILL FILL_3__4222_ (
+);
+
+FILL FILL_4__2985_ (
+);
+
+FILL FILL_4__2565_ (
+);
+
+FILL FILL_0__2885_ (
+);
+
+FILL FILL_0__2465_ (
+);
+
+DFFPOSX1 _4991_ (
+    .D(_2354_[9]),
+    .CLK(clk_bF$buf12),
+    .Q(_Addr_Bus[9])
+);
+
+INVX1 _4571_ (
+    .A(\u_cpu.ABL [7]),
+    .Y(_1299_)
+);
+
+NAND2X1 _4151_ (
+    .A(\u_cpu.AXYS[3] [4]),
+    .B(_921_),
+    .Y(_916_)
+);
+
+FILL FILL_2__3844_ (
+);
+
+FILL FILL_2__3424_ (
+);
+
+FILL FILL_2__3004_ (
+);
+
+FILL FILL_4__4711_ (
+);
+
+FILL FILL_2__4629_ (
+);
+
+FILL FILL_0__4611_ (
+);
+
+FILL FILL_2__4209_ (
+);
+
+FILL FILL_1__2626_ (
+);
+
+FILL FILL_3__3913_ (
+);
+
+FILL FILL_2__4382_ (
+);
+
+NOR2X1 _3842_ (
+    .A(_873_),
+    .B(_636_),
+    .Y(_635_)
+);
+
+OAI21X1 _3422_ (
+    .A(_1319_),
+    .B(_887_),
+    .C(\u_cpu.DIMUX [3]),
+    .Y(_250_)
+);
+
+NOR2X1 _3002_ (
+    .A(_Addr_Bus[5]),
+    .B(_Addr_Bus[2]),
+    .Y(_1600_)
+);
+
+INVX1 _4627_ (
+    .A(\u_cpu.PC [7]),
+    .Y(_1355_)
+);
+
+OAI21X1 _4207_ (
+    .A(_977_),
+    .B(_963_),
+    .C(_962_),
+    .Y(_1472_)
+);
+
+FILL FILL_1__3584_ (
+);
+
+FILL FILL_3__4451_ (
+);
+
+FILL FILL_3__4031_ (
+);
+
+FILL FILL_1__4789_ (
+);
+
+FILL FILL_1__4369_ (
+);
+
+FILL FILL_4__2794_ (
+);
+
+FILL FILL_4__2374_ (
+);
+
+FILL FILL_0__2694_ (
+);
+
+AOI21X1 _4380_ (
+    .A(_1125_),
+    .B(_1165_),
+    .C(_1122_),
+    .Y(_1121_)
+);
+
+FILL FILL_2__3653_ (
+);
+
+FILL FILL_2__3233_ (
+);
+
+FILL FILL_4__3999_ (
+);
+
+FILL FILL_4__3579_ (
+);
+
+FILL FILL_4__4940_ (
+);
+
+FILL FILL_4__4520_ (
+);
+
+FILL FILL_4__4100_ (
+);
+
+FILL FILL_0__3899_ (
+);
+
+FILL FILL_0__3479_ (
+);
+
+FILL FILL_2__4858_ (
+);
+
+FILL FILL_0__4840_ (
+);
+
+FILL FILL_0__4420_ (
+);
+
+FILL FILL_2__4438_ (
+);
+
+FILL FILL_0__4000_ (
+);
+
+FILL FILL_2__4018_ (
+);
+
+FILL FILL_1__2855_ (
+);
+
+FILL FILL_1__2435_ (
+);
+
+FILL FILL_3__3722_ (
+);
+
+FILL FILL_3__3302_ (
+);
+
+FILL FILL_2__4191_ (
+);
+
+FILL FILL_3__4927_ (
+);
+
+FILL FILL_3__4507_ (
+);
+
+NAND3X1 _3651_ (
+    .A(_459_),
+    .B(_520_),
+    .C(_455_),
+    .Y(_454_)
+);
+
+OAI21X1 _3231_ (
+    .A(\u_cpu.plp ),
+    .B(\u_cpu.cld ),
+    .C(_118_),
+    .Y(_117_)
+);
+
+FILL FILL_3_BUFX2_insert80 (
+);
+
+FILL FILL_3_BUFX2_insert81 (
+);
+
+FILL FILL_3_BUFX2_insert82 (
+);
+
+FILL FILL_3_BUFX2_insert83 (
+);
+
+FILL FILL_2__2924_ (
+);
+
+FILL FILL_2__2504_ (
+);
+
+FILL FILL_3_BUFX2_insert84 (
+);
+
+FILL FILL_3_BUFX2_insert85 (
+);
+
+FILL FILL_3_BUFX2_insert86 (
+);
+
+FILL FILL_3_BUFX2_insert87 (
+);
+
+FILL FILL_3_BUFX2_insert88 (
+);
+
+FILL FILL_3_BUFX2_insert89 (
+);
+
+NAND2X1 _4856_ (
+    .A(\u_cpu.HC ),
+    .B(_1681__bF$buf3),
+    .Y(_1897_)
+);
+
+AOI21X1 _4436_ (
+    .A(_1173_),
+    .B(_1171_),
+    .C(_1196__bF$buf1),
+    .Y(_1170_)
+);
+
+INVX1 _4016_ (
+    .A(_1050_),
+    .Y(_786_)
+);
+
+FILL FILL_1__3393_ (
+);
+
+FILL FILL_2__3709_ (
+);
+
+FILL FILL_3__4680_ (
+);
+
+FILL FILL_3__4260_ (
+);
+
+FILL FILL_1__4598_ (
+);
+
+FILL FILL_1__4178_ (
+);
+
+FILL FILL_2__3882_ (
+);
+
+FILL FILL_2__3462_ (
+);
+
+FILL FILL_4__3388_ (
+);
+
+FILL FILL_4_BUFX2_insert150 (
+);
+
+FILL FILL_4_BUFX2_insert151 (
+);
+
+FILL FILL_4_BUFX2_insert152 (
+);
+
+OAI21X1 _2922_ (
+    .A(_1544_),
+    .B(_1535_),
+    .C(_1545_),
+    .Y(_1509_)
+);
+
+FILL FILL_4_BUFX2_insert153 (
+);
+
+AOI21X1 _2502_ (
+    .A(_2354__1_bF$buf2),
+    .B(_2354__0_bF$buf4),
+    .C(_2354__2_bF$buf0),
+    .Y(_2324_)
+);
+
+FILL FILL_4_BUFX2_insert154 (
+);
+
+FILL FILL_4_BUFX2_insert155 (
+);
+
+FILL FILL_4_BUFX2_insert156 (
+);
+
+FILL FILL_4_BUFX2_insert157 (
+);
+
+FILL FILL_4_BUFX2_insert158 (
+);
+
+FILL FILL_4_BUFX2_insert159 (
+);
+
+FILL FILL_0__3288_ (
+);
+
+FILL FILL_2__4667_ (
+);
+
+FILL FILL_2__4247_ (
+);
+
+NAND2X1 _3707_ (
+    .A(_507_),
+    .B(_508_),
+    .Y(_506_)
+);
+
+FILL FILL_1__2664_ (
+);
+
+FILL FILL_3__3951_ (
+);
+
+FILL FILL_3__3531_ (
+);
+
+FILL FILL_1__3869_ (
+);
+
+FILL FILL_1__3449_ (
+);
+
+FILL FILL_1__3029_ (
+);
+
+FILL FILL_1__4810_ (
+);
+
+FILL FILL_3__4736_ (
+);
+
+FILL FILL_3__4316_ (
+);
+
+NAND3X1 _3880_ (
+    .A(_673_),
+    .B(_672_),
+    .C(_671_),
+    .Y(_670_)
+);
+
+OAI21X1 _3460_ (
+    .A(_1207_),
+    .B(_278_),
+    .C(_277_),
+    .Y(\u_cpu.BI [0])
+);
+
+DFFSR _3040_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1461_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[3] [4])
+);
+
+FILL FILL_2__2733_ (
+);
+
+FILL FILL_4__2659_ (
+);
+
+FILL FILL_4__3600_ (
+);
+
+FILL FILL_0__2979_ (
+);
+
+FILL FILL_0__2559_ (
+);
+
+INVX1 _4665_ (
+    .A(\u_cpu.AI [2]),
+    .Y(_1718_)
+);
+
+NAND2X1 _4245_ (
+    .A(_1001_),
+    .B(_998_),
+    .Y(_997_)
+);
+
+FILL FILL_0__3920_ (
+);
+
+FILL FILL_2__3938_ (
+);
+
+FILL FILL_0__3500_ (
+);
+
+FILL FILL_2__3518_ (
+);
+
+FILL FILL_4__4805_ (
+);
+
+FILL FILL_3__2802_ (
+);
+
+FILL FILL_0__4705_ (
+);
+
+FILL FILL_2__3691_ (
+);
+
+FILL FILL_2__3271_ (
+);
+
+FILL FILL_4__3197_ (
+);
+
+AOI22X1 _2731_ (
+    .A(_1636__bF$buf4),
+    .B(_2002_),
+    .C(_2003_),
+    .D(_2001_),
+    .Y(_2004_)
+);
+
+FILL FILL_2__4896_ (
+);
+
+FILL FILL_2__4476_ (
+);
+
+FILL FILL_2__4056_ (
+);
+
+AND2X2 _3936_ (
+    .A(_720_),
+    .B(_717_),
+    .Y(_715_)
+);
+
+NAND2X1 _3516_ (
+    .A(_329_),
+    .B(_328_),
+    .Y(_327_)
+);
+
+FILL FILL_1__2893_ (
+);
+
+FILL FILL_1__2473_ (
+);
+
+FILL FILL_3__2399_ (
+);
+
+FILL FILL_3__3760_ (
+);
+
+FILL FILL_3__3340_ (
+);
+
+FILL FILL_1__3678_ (
+);
+
+FILL FILL_1__3258_ (
+);
+
+FILL FILL273150x46950 (
+);
+
+FILL FILL_3__4965_ (
+);
+
+FILL FILL_3__4545_ (
+);
+
+FILL FILL_3__4125_ (
+);
+
+FILL FILL_2__2542_ (
+);
+
+FILL FILL_4__2888_ (
+);
+
+FILL FILL_4__2468_ (
+);
+
+FILL FILL_0__2788_ (
+);
+
+FILL FILL_0__2368_ (
+);
+
+NOR2X1 _4894_ (
+    .A(_Addr_Bus[7]),
+    .B(_2169_),
+    .Y(_2170_)
+);
+
+OAI21X1 _4474_ (
+    .A(_1205_),
+    .B(_1349_),
+    .C(_1315__bF$buf2),
+    .Y(_1204_)
+);
+
+OAI21X1 _4054_ (
+    .A(\u_cpu.state [4]),
+    .B(_1330_),
+    .C(_889_),
+    .Y(_821_)
+);
+
+FILL FILL_2__3747_ (
+);
+
+FILL FILL_2__3327_ (
+);
+
+FILL FILL_4__4614_ (
+);
+
+FILL FILL_0__4934_ (
+);
+
+FILL FILL_3__2611_ (
+);
+
+FILL FILL_0__4514_ (
+);
+
+FILL FILL_1__2949_ (
+);
+
+FILL FILL_1__2529_ (
+);
+
+FILL FILL_3__3816_ (
+);
+
+DFFSR _2960_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1492_),
+    .CLK(clk_bF$buf12),
+    .Q(DO_kbd[3])
+);
+
+AOI21X1 _2540_ (
+    .A(_2354__3_bF$buf4),
+    .B(_1917_),
+    .C(_2254_),
+    .Y(_2287_)
+);
+
+FILL FILL272850x61350 (
+);
+
+FILL FILL_2__4285_ (
+);
+
+INVX1 _3745_ (
+    .A(_545_),
+    .Y(_544_)
+);
+
+AOI21X1 _3325_ (
+    .A(_186_),
+    .B(_1037__bF$buf3),
+    .C(_982_),
+    .Y(_1413_)
+);
+
+FILL FILL_1__3487_ (
+);
+
+FILL FILL_3__4774_ (
+);
+
+FILL FILL_3__4354_ (
+);
+
+FILL FILL_2__2771_ (
+);
+
+FILL FILL_4__2697_ (
+);
+
+FILL FILL_0__2597_ (
+);
+
+OAI21X1 _4283_ (
+    .A(_1037__bF$buf3),
+    .B(_1031_),
+    .C(_1030_),
+    .Y(_1480_)
+);
+
+FILL FILL_2__3976_ (
+);
+
+FILL FILL_2__3556_ (
+);
+
+FILL FILL_4__4843_ (
+);
+
+FILL FILL_4__4423_ (
+);
+
+FILL FILL_4__4003_ (
+);
+
+FILL FILL_0__4743_ (
+);
+
+FILL FILL_3__2840_ (
+);
+
+FILL FILL_3__2420_ (
+);
+
+FILL FILL_0__4323_ (
+);
+
+FILL FILL_1__2758_ (
+);
+
+FILL FILL_3__3625_ (
+);
+
+FILL FILL_3__3205_ (
+);
+
+FILL FILL_2__4094_ (
+);
+
+FILL FILL_1__4904_ (
+);
+
+AOI21X1 _3974_ (
+    .A(_786_),
+    .B(\u_cpu.load_reg ),
+    .C(\u_cpu.compare ),
+    .Y(_749_)
+);
+
+NAND3X1 _3554_ (
+    .A(_895_),
+    .B(_883_),
+    .C(_899_),
+    .Y(_359_)
+);
+
+DFFSR _3134_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1403_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.AXYS[1] [5])
+);
+
+FILL FILL_2__2827_ (
+);
+
+FILL FILL_2__2407_ (
+);
+
+AOI22X1 _4759_ (
+    .A(_1711_),
+    .B(_1714_),
+    .C(_1807_),
+    .D(_1811_),
+    .Y(_1812_)
+);
+
+INVX2 _4339_ (
+    .A(_1085_),
+    .Y(_1084_)
+);
+
+FILL FILL_1__3296_ (
+);
+
+FILL FILL_3__4583_ (
+);
+
+FILL FILL_3__4163_ (
+);
+
+FILL FILL_2__2580_ (
+);
+
+INVX1 _4092_ (
+    .A(_859_),
+    .Y(_2354_[15])
+);
+
+FILL FILL_2__3785_ (
+);
+
+FILL FILL_2__3365_ (
+);
+
+AOI21X1 _2825_ (
+    .A(_1665_),
+    .B(_2354__3_bF$buf5),
+    .C(_2354__4_bF$buf0),
+    .Y(_1911_)
+);
+
+OAI21X1 _2405_ (
+    .A(_1920__bF$buf4),
+    .B(_2060_),
+    .C(_68_),
+    .Y(_69_)
+);
+
+FILL FILL_4__4232_ (
+);
+
+FILL FILL_0__4972_ (
+);
+
+FILL FILL_0__4552_ (
+);
+
+FILL FILL_0__4132_ (
+);
+
+FILL FILL_1__2987_ (
+);
+
+FILL FILL_1__2567_ (
+);
+
+FILL FILL_3__3854_ (
+);
+
+FILL FILL_3__3434_ (
+);
+
+FILL FILL_3__3014_ (
+);
+
+FILL FILL_1__4713_ (
+);
+
+FILL FILL_3__4639_ (
+);
+
+FILL FILL_3__4219_ (
+);
+
+NAND2X1 _3783_ (
+    .A(_1099_),
+    .B(_583_),
+    .Y(_582_)
+);
+
+NAND2X1 _3363_ (
+    .A(_298_),
+    .B(_455_),
+    .Y(_199_)
+);
+
+FILL FILL_2__2636_ (
+);
+
+FILL FILL_4__3923_ (
+);
+
+FILL FILL_4__3503_ (
+);
+
+DFFPOSX1 _4988_ (
+    .D(_2354__2_bF$buf4),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[2])
+);
+
+OAI21X1 _4568_ (
+    .A(_1299_),
+    .B(_1297_),
+    .C(_1315__bF$buf1),
+    .Y(_1296_)
+);
+
+INVX1 _4148_ (
+    .A(_1251_),
+    .Y(_914_)
+);
+
+FILL FILL_0__3823_ (
+);
+
+FILL FILL_0__3403_ (
+);
+
+FILL FILL_3__4392_ (
+);
+
+FILL FILL_4__4708_ (
+);
+
+FILL FILL_3__2705_ (
+);
+
+FILL FILL_0__4608_ (
+);
+
+FILL FILL_2__3594_ (
+);
+
+FILL FILL_2__3174_ (
+);
+
+AOI21X1 _2634_ (
+    .A(_2037_),
+    .B(_1963_),
+    .C(_2354__4_bF$buf2),
+    .Y(_2100_)
+);
+
+FILL FILL_4__4461_ (
+);
+
+FILL FILL_4__4041_ (
+);
+
+FILL FILL_2__4799_ (
+);
+
+FILL FILL_0__4781_ (
+);
+
+FILL FILL_0__4361_ (
+);
+
+FILL FILL_2__4379_ (
+);
+
+INVX1 _3839_ (
+    .A(_633_),
+    .Y(_632_)
+);
+
+OAI21X1 _3419_ (
+    .A(_1169_),
+    .B(_864_),
+    .C(_248_),
+    .Y(_247_)
+);
+
+FILL FILL_1__2796_ (
+);
+
+FILL FILL_1__2376_ (
+);
+
+FILL FILL_3__3663_ (
+);
+
+FILL FILL_3__3243_ (
+);
+
+FILL FILL_1__4942_ (
+);
+
+FILL FILL_1__4522_ (
+);
+
+FILL FILL_1__4102_ (
+);
+
+FILL FILL_3__4868_ (
+);
+
+FILL FILL_3__4448_ (
+);
+
+FILL FILL_3__4028_ (
+);
+
+OAI21X1 _3592_ (
+    .A(_583_),
+    .B(_486_),
+    .C(_1123_),
+    .Y(_396_)
+);
+
+NAND2X1 _3172_ (
+    .A(_77_),
+    .B(_78_),
+    .Y(_76_)
+);
+
+FILL FILL_2__2445_ (
+);
+
+FILL FILL_4__3732_ (
+);
+
+FILL FILL_4__3312_ (
+);
+
+OAI21X1 _4797_ (
+    .A(_1681__bF$buf2),
+    .B(_1801_),
+    .C(_1847_),
+    .Y(_1668_)
+);
+
+AOI21X1 _4377_ (
+    .A(_1125_),
+    .B(_1179_),
+    .C(_1119_),
+    .Y(_1118_)
+);
+
+FILL FILL_0__3632_ (
+);
+
+FILL FILL_0__3212_ (
+);
+
+FILL FILL_4__4937_ (
+);
+
+FILL FILL_4__4517_ (
+);
+
+FILL FILL_0__4837_ (
+);
+
+FILL FILL_3__2934_ (
+);
+
+FILL FILL_3__2514_ (
+);
+
+FILL FILL_0__4417_ (
+);
+
+FILL FILL_3__3719_ (
+);
+
+DFFPOSX1 _2863_ (
+    .D(_1516_),
+    .CLK(clk_bF$buf1),
+    .Q(_2350_)
+);
+
+INVX1 _2443_ (
+    .A(_31_),
+    .Y(_32_)
+);
+
+FILL FILL_4__4690_ (
+);
+
+FILL FILL_4__4270_ (
+);
+
+FILL FILL_0__4590_ (
+);
+
+FILL FILL_2__4188_ (
+);
+
+FILL FILL_0__4170_ (
+);
+
+NOR2X1 _3648_ (
+    .A(_1328__bF$buf4),
+    .B(_888_),
+    .Y(_451_)
+);
+
+OAI21X1 _3228_ (
+    .A(_1196__bF$buf0),
+    .B(_282_),
+    .C(\u_cpu.adc_bcd ),
+    .Y(_115_)
+);
+
+FILL FILL_0__2903_ (
+);
+
+FILL FILL_3__3892_ (
+);
+
+FILL FILL_3__3472_ (
+);
+
+FILL FILL_1__4751_ (
+);
+
+FILL FILL_1__4331_ (
+);
+
+FILL FILL_3__4677_ (
+);
+
+FILL FILL_3__4257_ (
+);
+
+FILL FILL_2__2674_ (
+);
+
+FILL FILL_4__3541_ (
+);
+
+OAI21X1 _4186_ (
+    .A(\u_cpu.DIMUX [3]),
+    .B(_1070__bF$buf3),
+    .C(_944_),
+    .Y(_943_)
+);
+
+FILL FILL_2__3879_ (
+);
+
+FILL FILL_0__3861_ (
+);
+
+FILL FILL_2__3459_ (
+);
+
+FILL FILL_0__3441_ (
+);
+
+FILL FILL_0__3021_ (
+);
+
+FILL FILL_2__4820_ (
+);
+
+FILL FILL_2__4400_ (
+);
+
+OAI21X1 _2919_ (
+    .A(_1546_),
+    .B(_1535_),
+    .C(_1547_),
+    .Y(_1510_)
+);
+
+FILL FILL_4__4746_ (
+);
+
+FILL FILL_4__4326_ (
+);
+
+FILL FILL_0__4646_ (
+);
+
+FILL FILL_3__2743_ (
+);
+
+FILL FILL_0__4226_ (
+);
+
+FILL FILL_1__3602_ (
+);
+
+FILL FILL_3__3948_ (
+);
+
+FILL FILL_3__3528_ (
+);
+
+OAI22X1 _2672_ (
+    .A(_1634__bF$buf5),
+    .B(_2058_),
+    .C(_2059_),
+    .D(_2061_),
+    .Y(_2062_)
+);
+
+FILL FILL_1__4807_ (
+);
+
+FILL FILL_4__2812_ (
+);
+
+INVX2 _3877_ (
+    .A(\u_cpu.write_back ),
+    .Y(_667_)
+);
+
+NAND2X1 _3457_ (
+    .A(\u_cpu.PC [4]),
+    .B(_826_),
+    .Y(_276_)
+);
+
+DFFSR _3037_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1358_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [4])
+);
+
+FILL FILL_0__2712_ (
+);
+
+FILL FILL_3__3281_ (
+);
+
+FILL FILL_1__3199_ (
+);
+
+FILL FILL_0__3917_ (
+);
+
+FILL FILL_1__4980_ (
+);
+
+FILL FILL_1__4560_ (
+);
+
+FILL FILL_1__4140_ (
+);
+
+FILL FILL_3__4486_ (
+);
+
+FILL FILL_3__4066_ (
+);
+
+FILL FILL_2__2483_ (
+);
+
+FILL FILL_4__3770_ (
+);
+
+FILL FILL_4__3350_ (
+);
+
+FILL FILL_2__3688_ (
+);
+
+FILL FILL_0__3670_ (
+);
+
+FILL FILL_0__3250_ (
+);
+
+FILL FILL_2__3268_ (
+);
+
+INVX1 _2728_ (
+    .A(_1949_),
+    .Y(_2007_)
+);
+
+FILL FILL_4__4975_ (
+);
+
+FILL FILL_4__4555_ (
+);
+
+FILL FILL_4__4135_ (
+);
+
+FILL FILL_3__2972_ (
+);
+
+FILL FILL_3__2552_ (
+);
+
+FILL FILL_0__4455_ (
+);
+
+FILL FILL_0__4035_ (
+);
+
+FILL FILL_1__3831_ (
+);
+
+FILL FILL_1__3411_ (
+);
+
+FILL FILL_3__3757_ (
+);
+
+FILL FILL_3__3337_ (
+);
+
+AOI21X1 _2481_ (
+    .A(_2344_),
+    .B(_1925_),
+    .C(_2354__4_bF$buf5),
+    .Y(_2345_)
+);
+
+FILL FILL_1__4616_ (
+);
+
+FILL FILL_4__2621_ (
+);
+
+OAI21X1 _3686_ (
+    .A(_1196__bF$buf5),
+    .B(_1082_),
+    .C(_490_),
+    .Y(_489_)
+);
+
+NAND2X1 _3266_ (
+    .A(_800__bF$buf2),
+    .B(_2354__3_bF$buf3),
+    .Y(_139_)
+);
+
+FILL FILL_0__2941_ (
+);
+
+FILL FILL_0__2521_ (
+);
+
+FILL FILL_2__2539_ (
+);
+
+FILL FILL_2__3900_ (
+);
+
+FILL FILL_4__3826_ (
+);
+
+FILL FILL_4__3406_ (
+);
+
+FILL FILL_0__3726_ (
+);
+
+FILL FILL_0__3306_ (
+);
+
+FILL FILL_3__4295_ (
+);
+
+FILL FILL_3__2608_ (
+);
+
+FILL FILL_2__3497_ (
+);
+
+DFFSR _2957_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1436_),
+    .CLK(clk_bF$buf12),
+    .Q(DO_kbd[1])
+);
+
+OAI21X1 _2537_ (
+    .A(_1961_),
+    .B(_1949_),
+    .C(_1964_),
+    .Y(_2290_)
+);
+
+FILL FILL_4__4784_ (
+);
+
+FILL FILL_4__4364_ (
+);
+
+FILL FILL_0__4684_ (
+);
+
+FILL FILL_3__2781_ (
+);
+
+FILL FILL_0__4264_ (
+);
+
+FILL FILL_3__2361_ (
+);
+
+FILL FILL_1__2699_ (
+);
+
+FILL FILL_1__3640_ (
+);
+
+FILL FILL_1__3220_ (
+);
+
+FILL FILL_3__3986_ (
+);
+
+FILL FILL_3__3566_ (
+);
+
+FILL FILL273450x54150 (
+);
+
+FILL FILL_1__4845_ (
+);
+
+FILL FILL_1__4425_ (
+);
+
+FILL FILL_1__4005_ (
+);
+
+FILL FILL_4__2850_ (
+);
+
+FILL FILL_4__2430_ (
+);
+
+NAND3X1 _3495_ (
+    .A(_383_),
+    .B(_309_),
+    .C(_313_),
+    .Y(_308_)
+);
+
+DFFSR _3075_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1374_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.load_only )
+);
+
+FILL FILL_0__2750_ (
+);
+
+FILL FILL_2__2768_ (
+);
+
+FILL FILL_4__3635_ (
+);
+
+FILL FILL_4__3215_ (
+);
+
+FILL FILL_0__3955_ (
+);
+
+FILL FILL_0__3535_ (
+);
+
+FILL FILL_2__4914_ (
+);
+
+FILL FILL_1__2911_ (
+);
+
+FILL FILL_3__2837_ (
+);
+
+FILL FILL_3__2417_ (
+);
+
+AOI21X1 _2766_ (
+    .A(_1969_),
+    .B(_1642_),
+    .C(_1920__bF$buf4),
+    .Y(_1970_)
+);
+
+FILL FILL_4__4593_ (
+);
+
+FILL FILL_4__4173_ (
+);
+
+FILL FILL_0__4493_ (
+);
+
+FILL FILL_3__2590_ (
+);
+
+FILL FILL_0__4073_ (
+);
+
+FILL FILL_4__2906_ (
+);
+
+FILL FILL_0__2806_ (
+);
+
+NAND3X1 _4912_ (
+    .A(_2174_),
+    .B(_2187_),
+    .C(_2182_),
+    .Y(_2188_)
+);
+
+FILL FILL_3__3795_ (
+);
+
+FILL FILL_3__3375_ (
+);
+
+FILL FILL_1__4654_ (
+);
+
+FILL FILL_1__4234_ (
+);
+
+FILL FILL_2__2997_ (
+);
+
+FILL FILL_2__2577_ (
+);
+
+FILL FILL_4__3864_ (
+);
+
+FILL FILL_4__3444_ (
+);
+
+FILL FILL_4__3024_ (
+);
+
+AOI21X1 _4089_ (
+    .A(_1305__bF$buf2),
+    .B(_889_),
+    .C(_857_),
+    .Y(_856_)
+);
+
+FILL FILL_0__3764_ (
+);
+
+FILL FILL_0__3344_ (
+);
+
+FILL FILL_2__4723_ (
+);
+
+FILL FILL_2__4303_ (
+);
+
+FILL FILL_4__4649_ (
+);
+
+FILL FILL_4__4229_ (
+);
+
+FILL FILL_1__2720_ (
+);
+
+FILL FILL_0__4969_ (
+);
+
+FILL FILL_0__4549_ (
+);
+
+FILL FILL_3__2646_ (
+);
+
+FILL FILL_0__4129_ (
+);
+
+FILL FILL_1__3925_ (
+);
+
+FILL FILL_1__3505_ (
+);
+
+NOR2X1 _2995_ (
+    .A(_Addr_Bus[3]),
+    .B(_Addr_Bus[9]),
+    .Y(_1606_)
+);
+
+OAI21X1 _2575_ (
+    .A(_1643__bF$buf0),
+    .B(_1980_),
+    .C(_2354__4_bF$buf5),
+    .Y(_2158_)
+);
+
+FILL FILL274050x108150 (
+);
+
+FILL FILL_4__2715_ (
+);
+
+FILL FILL_0__2615_ (
+);
+
+NOR2X1 _4721_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1773_),
+    .Y(_1774_)
+);
+
+AOI21X1 _4301_ (
+    .A(_1081_),
+    .B(_1087_),
+    .C(_1328__bF$buf2),
+    .Y(_1046_)
+);
+
+FILL FILL_3__3184_ (
+);
+
+FILL FILL_1__4883_ (
+);
+
+FILL FILL_1__4463_ (
+);
+
+FILL FILL_1__4043_ (
+);
+
+FILL FILL_3__4389_ (
+);
+
+FILL FILL_2__2386_ (
+);
+
+FILL FILL_4__3673_ (
+);
+
+FILL FILL_4__3253_ (
+);
+
+FILL FILL_0__3993_ (
+);
+
+FILL FILL_0__3573_ (
+);
+
+FILL FILL_2__4952_ (
+);
+
+FILL FILL_2__4532_ (
+);
+
+FILL FILL_2__4112_ (
+);
+
+FILL FILL_4__4458_ (
+);
+
+FILL FILL_0__4778_ (
+);
+
+FILL FILL_3__2875_ (
+);
+
+FILL FILL_0__4358_ (
+);
+
+FILL FILL_3__2455_ (
+);
+
+FILL FILL_1__3734_ (
+);
+
+FILL FILL_1__3314_ (
+);
+
+BUFX2 _2384_ (
+    .A(DO_dsp[5]),
+    .Y(dsp_data[5])
+);
+
+FILL FILL_3__4601_ (
+);
+
+FILL FILL_1__4939_ (
+);
+
+FILL FILL_1__4519_ (
+);
+
+FILL FILL_4__2944_ (
+);
+
+FILL FILL_4__2524_ (
+);
+
+FILL FILL273750x97350 (
+);
+
+NAND3X1 _3589_ (
+    .A(_1196__bF$buf7),
+    .B(_1315__bF$buf3),
+    .C(_1235_),
+    .Y(_393_)
+);
+
+OAI21X1 _3169_ (
+    .A(_1277_),
+    .B(_78_),
+    .C(RDY_bF$buf1),
+    .Y(_74_)
+);
+
+FILL FILL_0__2844_ (
+);
+
+INVX1 _4950_ (
+    .A(DO_dsp[2]),
+    .Y(_2222_)
+);
+
+FILL FILL_0__2424_ (
+);
+
+NAND2X1 _4530_ (
+    .A(_1259_),
+    .B(_1263_),
+    .Y(_1258_)
+);
+
+OAI21X1 _4110_ (
+    .A(_1064_),
+    .B(_912_),
+    .C(_1329_),
+    .Y(_876_)
+);
+
+FILL FILL_2__3803_ (
+);
+
+FILL FILL_4__3729_ (
+);
+
+FILL FILL_4__3309_ (
+);
+
+FILL FILL_0__3629_ (
+);
+
+FILL FILL_0__3209_ (
+);
+
+FILL FILL_1__4692_ (
+);
+
+FILL FILL_1__4272_ (
+);
+
+FILL FILL_3__4198_ (
+);
+
+FILL FILL_4__3482_ (
+);
+
+FILL FILL_0__3382_ (
+);
+
+FILL FILL_2__4761_ (
+);
+
+FILL FILL_2__4341_ (
+);
+
+FILL FILL_4__4687_ (
+);
+
+FILL FILL_4__4267_ (
+);
+
+OAI21X1 _3801_ (
+    .A(_600_),
+    .B(_792_),
+    .C(_599_),
+    .Y(_598_)
+);
+
+FILL FILL_3__2684_ (
+);
+
+FILL FILL_0__4587_ (
+);
+
+FILL FILL_0__4167_ (
+);
+
+FILL FILL_1__3963_ (
+);
+
+FILL FILL_1__3543_ (
+);
+
+FILL FILL_3__3889_ (
+);
+
+FILL FILL_3__3469_ (
+);
+
+FILL FILL_3__4830_ (
+);
+
+FILL FILL_3__4410_ (
+);
+
+FILL FILL_1__4748_ (
+);
+
+FILL FILL_1__4328_ (
+);
+
+FILL FILL_4__2753_ (
+);
+
+AND2X2 _3398_ (
+    .A(_232_),
+    .B(_231_),
+    .Y(_230_)
+);
+
+FILL FILL_0__2653_ (
+);
+
+FILL FILL_2__3612_ (
+);
+
+FILL FILL_4__3958_ (
+);
+
+FILL FILL_4__3538_ (
+);
+
+FILL FILL_0__3858_ (
+);
+
+FILL FILL_0__3438_ (
+);
+
+FILL FILL_0__3018_ (
+);
+
+FILL FILL_1__4081_ (
+);
+
+FILL FILL_2__4817_ (
+);
+
+FILL FILL_1__2814_ (
+);
+
+FILL FILL_4__3291_ (
+);
+
+FILL FILL_0__3191_ (
+);
+
+FILL FILL_2__4570_ (
+);
+
+FILL FILL_2__4150_ (
+);
+
+OAI21X1 _2669_ (
+    .A(_2354__2_bF$buf3),
+    .B(_1924_),
+    .C(_2020_),
+    .Y(_2065_)
+);
+
+FILL FILL_4__4496_ (
+);
+
+FILL FILL_4__4076_ (
+);
+
+NAND3X1 _3610_ (
+    .A(_482_),
+    .B(_415_),
+    .C(_557_),
+    .Y(_414_)
+);
+
+FILL FILL_3__2493_ (
+);
+
+FILL FILL_0__4396_ (
+);
+
+FILL FILL_4__2809_ (
+);
+
+FILL FILL_0__2709_ (
+);
+
+NOR2X1 _4815_ (
+    .A(_1856_),
+    .B(_1860_),
+    .Y(\u_cpu.AZ )
+);
+
+FILL FILL_1__3772_ (
+);
+
+FILL FILL_1__3352_ (
+);
+
+FILL FILL_3__3698_ (
+);
+
+FILL FILL_3__3278_ (
+);
+
+FILL FILL_1__4977_ (
+);
+
+FILL FILL_1__4557_ (
+);
+
+FILL FILL_1__4137_ (
+);
+
+FILL FILL_4__2982_ (
+);
+
+FILL FILL_4__2562_ (
+);
+
+FILL FILL_0__2882_ (
+);
+
+FILL FILL_0__2462_ (
+);
+
+FILL FILL_2__3841_ (
+);
+
+FILL FILL_2__3421_ (
+);
+
+FILL FILL_2__3001_ (
+);
+
+FILL FILL_4__3767_ (
+);
+
+FILL FILL_4__3347_ (
+);
+
+FILL FILL_0__3667_ (
+);
+
+FILL FILL_0__3247_ (
+);
+
+FILL FILL_2__4626_ (
+);
+
+FILL FILL_2__4206_ (
+);
+
+FILL FILL_1__2623_ (
+);
+
+FILL FILL_3__2969_ (
+);
+
+FILL FILL_3__2549_ (
+);
+
+FILL FILL_3__3910_ (
+);
+
+FILL FILL_1__3828_ (
+);
+
+FILL FILL_1__3408_ (
+);
+
+OAI21X1 _2898_ (
+    .A(_1562_),
+    .B(_1535_),
+    .C(_1563_),
+    .Y(_1515_)
+);
+
+OAI21X1 _2478_ (
+    .A(_1638__bF$buf0),
+    .B(_2081_),
+    .C(_1643__bF$buf5),
+    .Y(_2349_)
+);
+
+FILL FILL_4__2618_ (
+);
+
+FILL FILL_0__2938_ (
+);
+
+FILL FILL_0__2518_ (
+);
+
+NAND2X1 _4624_ (
+    .A(\u_cpu.state [1]),
+    .B(\u_cpu.state [0]),
+    .Y(_1352_)
+);
+
+OAI21X1 _4204_ (
+    .A(_1196__bF$buf8),
+    .B(_1345__bF$buf0),
+    .C(\u_cpu.inc ),
+    .Y(_959_)
+);
+
+FILL FILL_1__3581_ (
+);
+
+FILL FILL_1__4786_ (
+);
+
+FILL FILL_1__4366_ (
+);
+
+FILL FILL_4__2791_ (
+);
+
+FILL FILL_4__2371_ (
+);
+
+FILL FILL_0__2691_ (
+);
+
+FILL FILL_2__3650_ (
+);
+
+FILL FILL_2__3230_ (
+);
+
+FILL FILL_4__3996_ (
+);
+
+FILL FILL_4__3576_ (
+);
+
+FILL FILL_0__3896_ (
+);
+
+FILL FILL_0__3476_ (
+);
+
+FILL FILL_2__4855_ (
+);
+
+FILL FILL_2__4435_ (
+);
+
+FILL FILL_2__4015_ (
+);
+
+FILL FILL_1__2852_ (
+);
+
+FILL FILL_1__2432_ (
+);
+
+FILL FILL_3__2778_ (
+);
+
+FILL FILL_3__2358_ (
+);
+
+FILL FILL_1__3637_ (
+);
+
+FILL FILL_1__3217_ (
+);
+
+FILL FILL_3__4924_ (
+);
+
+FILL FILL_3__4504_ (
+);
+
+FILL FILL_3_BUFX2_insert50 (
+);
+
+FILL FILL_3_BUFX2_insert51 (
+);
+
+FILL FILL_3_BUFX2_insert52 (
+);
+
+FILL FILL_2__2921_ (
+);
+
+FILL FILL_3_BUFX2_insert53 (
+);
+
+FILL FILL_2__2501_ (
+);
+
+FILL FILL_3_BUFX2_insert54 (
+);
+
+FILL FILL_3_BUFX2_insert55 (
+);
+
+FILL FILL_3_BUFX2_insert56 (
+);
+
+FILL FILL_3_BUFX2_insert57 (
+);
+
+FILL FILL_3_BUFX2_insert58 (
+);
+
+FILL FILL_4__2847_ (
+);
+
+FILL FILL_3_BUFX2_insert59 (
+);
+
+FILL FILL_4__2427_ (
+);
+
+FILL FILL_0__2747_ (
+);
+
+NAND2X1 _4853_ (
+    .A(_1894_),
+    .B(_1893_),
+    .Y(_1895_)
+);
+
+NOR2X1 _4433_ (
+    .A(_1169_),
+    .B(_1183_),
+    .Y(_1168_)
+);
+
+OAI21X1 _4013_ (
+    .A(_784_),
+    .B(_788_),
+    .C(_871_),
+    .Y(_783_)
+);
+
+FILL FILL_1__3390_ (
+);
+
+FILL FILL_2__3706_ (
+);
+
+FILL FILL_1__4595_ (
+);
+
+FILL FILL_1__4175_ (
+);
+
+FILL FILL_1__2908_ (
+);
+
+FILL FILL_4__3385_ (
+);
+
+FILL FILL_4_BUFX2_insert120 (
+);
+
+FILL FILL_4_BUFX2_insert121 (
+);
+
+FILL FILL_4_BUFX2_insert122 (
+);
+
+FILL FILL_4_BUFX2_insert123 (
+);
+
+FILL FILL_4_BUFX2_insert124 (
+);
+
+FILL FILL_4_BUFX2_insert125 (
+);
+
+FILL FILL_4_BUFX2_insert126 (
+);
+
+FILL FILL_4_BUFX2_insert127 (
+);
+
+FILL FILL_4_BUFX2_insert128 (
+);
+
+FILL FILL_4_BUFX2_insert129 (
+);
+
+FILL FILL_0__3285_ (
+);
+
+FILL FILL_2__4664_ (
+);
+
+FILL FILL_2__4244_ (
+);
+
+OR2X2 _3704_ (
+    .A(_556_),
+    .B(_504_),
+    .Y(_1430_)
+);
+
+FILL FILL_1__2661_ (
+);
+
+FILL FILL_3__2587_ (
+);
+
+NOR2X1 _4909_ (
+    .A(_2184_),
+    .B(_2178_),
+    .Y(_2185_)
+);
+
+FILL FILL_1__3866_ (
+);
+
+FILL FILL_1__3446_ (
+);
+
+FILL FILL_1__3026_ (
+);
+
+FILL FILL_3_BUFX2_insert140 (
+);
+
+FILL FILL_3_BUFX2_insert141 (
+);
+
+FILL FILL_3_BUFX2_insert142 (
+);
+
+FILL FILL_3_BUFX2_insert143 (
+);
+
+FILL FILL_3__4733_ (
+);
+
+FILL FILL_3_BUFX2_insert144 (
+);
+
+FILL FILL_3__4313_ (
+);
+
+FILL FILL_3_BUFX2_insert145 (
+);
+
+FILL FILL_3_BUFX2_insert146 (
+);
+
+FILL FILL_3_BUFX2_insert147 (
+);
+
+FILL FILL_3_BUFX2_insert148 (
+);
+
+FILL FILL_3_BUFX2_insert149 (
+);
+
+FILL FILL_2__2730_ (
+);
+
+FILL FILL_4__2656_ (
+);
+
+FILL FILL_0__2976_ (
+);
+
+FILL FILL_0__2556_ (
+);
+
+INVX1 _4662_ (
+    .A(\u_cpu.AI [3]),
+    .Y(_1715_)
+);
+
+INVX1 _4242_ (
+    .A(_995_),
+    .Y(_994_)
+);
+
+FILL FILL_2__3935_ (
+);
+
+FILL FILL_2__3515_ (
+);
+
+FILL FILL_4__4802_ (
+);
+
+FILL FILL_0__4702_ (
+);
+
+FILL FILL_1__2717_ (
+);
+
+FILL FILL_4__3194_ (
+);
+
+FILL FILL_2__4893_ (
+);
+
+FILL FILL_2__4473_ (
+);
+
+FILL FILL_2__4053_ (
+);
+
+FILL FILL_4__4399_ (
+);
+
+NAND2X1 _3933_ (
+    .A(\u_cpu.AXYS[2] [7]),
+    .B(_760_),
+    .Y(_712_)
+);
+
+OAI22X1 _3513_ (
+    .A(_325_),
+    .B(_1333_),
+    .C(_1192_),
+    .D(_356_),
+    .Y(_324_)
+);
+
+FILL FILL_1__2890_ (
+);
+
+FILL FILL_1__2470_ (
+);
+
+FILL FILL_0__4299_ (
+);
+
+FILL FILL_3__2396_ (
+);
+
+MUX2X1 _4718_ (
+    .A(_1770_),
+    .B(_1725_),
+    .S(_1723_),
+    .Y(_1771_)
+);
+
+FILL FILL_1__3675_ (
+);
+
+FILL FILL_1__3255_ (
+);
+
+FILL FILL_3__4962_ (
+);
+
+FILL FILL_3__4542_ (
+);
+
+FILL FILL_3__4122_ (
+);
+
+FILL FILL_4__2885_ (
+);
+
+FILL FILL_4__2465_ (
+);
+
+FILL FILL_0__2785_ (
+);
+
+FILL FILL_0__2365_ (
+);
+
+NAND3X1 _4891_ (
+    .A(_2165_),
+    .B(_2164_),
+    .C(_2166_),
+    .Y(_2167_)
+);
+
+AOI21X1 _4471_ (
+    .A(\u_cpu.PC [8]),
+    .B(_1269_),
+    .C(_1202_),
+    .Y(_1201_)
+);
+
+NAND3X1 _4051_ (
+    .A(_1071_),
+    .B(_915_),
+    .C(_1241_),
+    .Y(_818_)
+);
+
+FILL FILL_2__3744_ (
+);
+
+FILL FILL_2__3324_ (
+);
+
+FILL FILL_4__4611_ (
+);
+
+FILL FILL_2__4949_ (
+);
+
+FILL FILL_0__4931_ (
+);
+
+FILL FILL_2__4529_ (
+);
+
+FILL FILL_0__4511_ (
+);
+
+FILL FILL_2__4109_ (
+);
+
+FILL FILL_1__2946_ (
+);
+
+FILL FILL_1__2526_ (
+);
+
+FILL FILL_3__3813_ (
+);
+
+FILL FILL_2__4282_ (
+);
+
+INVX1 _3742_ (
+    .A(_542_),
+    .Y(_541_)
+);
+
+NOR2X1 _3322_ (
+    .A(_988_),
+    .B(_173_),
+    .Y(_172_)
+);
+
+AOI21X1 _4947_ (
+    .A(_2198_),
+    .B(DO_kbd[3]),
+    .C(_2195_),
+    .Y(_2220_)
+);
+
+INVX1 _4527_ (
+    .A(\u_cpu.res ),
+    .Y(_1255_)
+);
+
+OAI21X1 _4107_ (
+    .A(_1305__bF$buf0),
+    .B(_1081_),
+    .C(_1070__bF$buf0),
+    .Y(_873_)
+);
+
+FILL FILL_1__3484_ (
+);
+
+FILL FILL_3__4771_ (
+);
+
+FILL FILL_3__4351_ (
+);
+
+FILL FILL_1__4689_ (
+);
+
+FILL FILL_1__4269_ (
+);
+
+FILL FILL_4__2694_ (
+);
+
+FILL FILL_0__2594_ (
+);
+
+OAI21X1 _4280_ (
+    .A(_1196__bF$buf0),
+    .B(_1345__bF$buf2),
+    .C(\u_cpu.sei ),
+    .Y(_1028_)
+);
+
+FILL FILL_2__3973_ (
+);
+
+FILL FILL_2__3553_ (
+);
+
+FILL FILL_4__3899_ (
+);
+
+FILL FILL_4__3479_ (
+);
+
+FILL FILL_4__4840_ (
+);
+
+FILL FILL_4__4420_ (
+);
+
+FILL FILL_4__4000_ (
+);
+
+FILL FILL_0__3799_ (
+);
+
+FILL FILL_0__3379_ (
+);
+
+FILL FILL_0__4740_ (
+);
+
+FILL FILL_2__4758_ (
+);
+
+FILL FILL_0__4320_ (
+);
+
+FILL FILL_2__4338_ (
+);
+
+FILL FILL_1__2755_ (
+);
+
+FILL FILL_3__3622_ (
+);
+
+FILL FILL_3__3202_ (
+);
+
+FILL FILL_2__4091_ (
+);
+
+FILL FILL_1__4901_ (
+);
+
+FILL FILL_3__4827_ (
+);
+
+FILL FILL_3__4407_ (
+);
+
+NOR2X1 _3971_ (
+    .A(_1305__bF$buf3),
+    .B(_1331_),
+    .Y(_746_)
+);
+
+INVX2 _3551_ (
+    .A(_357_),
+    .Y(_356_)
+);
+
+DFFSR _3131_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1451_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.src_reg [1])
+);
+
+FILL FILL_2__2824_ (
+);
+
+FILL FILL_2__2404_ (
+);
+
+OAI21X1 _4756_ (
+    .A(_1697_),
+    .B(_1808_),
+    .C(_1711_),
+    .Y(_1809_)
+);
+
+NAND2X1 _4336_ (
+    .A(_1346_),
+    .B(_1322_),
+    .Y(_1081_)
+);
+
+FILL FILL_1__3293_ (
+);
+
+FILL FILL_2__3609_ (
+);
+
+FILL FILL_3__4580_ (
+);
+
+FILL FILL_3__4160_ (
+);
+
+FILL FILL_1__4498_ (
+);
+
+FILL FILL_1__4078_ (
+);
+
+FILL FILL_2__3782_ (
+);
+
+FILL FILL_2__3362_ (
+);
+
+FILL FILL_4__3288_ (
+);
+
+AOI21X1 _2822_ (
+    .A(_1635__bF$buf4),
+    .B(_2354__0_bF$buf3),
+    .C(_1643__bF$buf0),
+    .Y(_1914_)
+);
+
+OAI21X1 _2402_ (
+    .A(_1643__bF$buf2),
+    .B(_2049_),
+    .C(_1634__bF$buf4),
+    .Y(_1419_)
+);
+
+FILL FILL_0__3188_ (
+);
+
+FILL FILL_2__4567_ (
+);
+
+FILL FILL_2__4147_ (
+);
+
+INVX1 _3607_ (
+    .A(_412_),
+    .Y(_411_)
+);
+
+FILL FILL_1__2984_ (
+);
+
+FILL FILL_1__2564_ (
+);
+
+FILL FILL_3__3851_ (
+);
+
+FILL FILL_3__3431_ (
+);
+
+FILL FILL_3__3011_ (
+);
+
+FILL FILL_1__3769_ (
+);
+
+FILL FILL_1__3349_ (
+);
+
+FILL FILL_1__4710_ (
+);
+
+FILL FILL_3__4636_ (
+);
+
+FILL FILL_3__4216_ (
+);
+
+INVX1 _3780_ (
+    .A(_580_),
+    .Y(_579_)
+);
+
+NAND2X1 _3360_ (
+    .A(_444_),
+    .B(_426_),
+    .Y(_196_)
+);
+
+FILL FILL_2__2633_ (
+);
+
+FILL FILL_4__2979_ (
+);
+
+FILL FILL_4__2559_ (
+);
+
+FILL FILL_4__3920_ (
+);
+
+FILL FILL_0__2879_ (
+);
+
+FILL FILL_0__2459_ (
+);
+
+AOI22X1 _4985_ (
+    .A(_2242_),
+    .B(_2195_),
+    .C(_2247_),
+    .D(_2253_),
+    .Y(Data_In[7])
+);
+
+INVX1 _4565_ (
+    .A(_1294_),
+    .Y(_1293_)
+);
+
+INVX2 _4145_ (
+    .A(_912_),
+    .Y(_911_)
+);
+
+FILL FILL_2__3838_ (
+);
+
+FILL FILL_0__3820_ (
+);
+
+FILL FILL_2__3418_ (
+);
+
+FILL FILL_0__3400_ (
+);
+
+FILL FILL_4__4705_ (
+);
+
+FILL FILL_3__2702_ (
+);
+
+FILL FILL_0__4605_ (
+);
+
+FILL FILL_2__3591_ (
+);
+
+FILL FILL_2__3171_ (
+);
+
+FILL FILL_3__3907_ (
+);
+
+OAI21X1 _2631_ (
+    .A(_2354__2_bF$buf4),
+    .B(_1643__bF$buf1),
+    .C(_1924_),
+    .Y(_2103_)
+);
+
+FILL FILL_2__4796_ (
+);
+
+FILL FILL_2__4376_ (
+);
+
+INVX1 _3836_ (
+    .A(_630_),
+    .Y(_629_)
+);
+
+OAI21X1 _3416_ (
+    .A(_1274_),
+    .B(_628_),
+    .C(\u_cpu.I ),
+    .Y(_245_)
+);
+
+FILL FILL_1__2793_ (
+);
+
+FILL FILL_1__2373_ (
+);
+
+FILL FILL_3__3660_ (
+);
+
+FILL FILL_3__3240_ (
+);
+
+FILL FILL_1__3998_ (
+);
+
+FILL FILL_1__3578_ (
+);
+
+FILL FILL_3__4865_ (
+);
+
+FILL FILL_3__4445_ (
+);
+
+FILL FILL_3__4025_ (
+);
+
+FILL FILL_2__2442_ (
+);
+
+FILL FILL_4__2788_ (
+);
+
+FILL FILL_4__2368_ (
+);
+
+FILL FILL_0__2688_ (
+);
+
+OAI21X1 _4794_ (
+    .A(_1756_),
+    .B(_1845_),
+    .C(RDY_bF$buf3),
+    .Y(_1846_)
+);
+
+INVX1 _4374_ (
+    .A(\u_cpu.DIHOLD [7]),
+    .Y(_1115_)
+);
+
+FILL FILL_2__3647_ (
+);
+
+FILL FILL_2__3227_ (
+);
+
+FILL FILL_4__4934_ (
+);
+
+FILL FILL_4__4514_ (
+);
+
+FILL FILL_0__4834_ (
+);
+
+FILL FILL_3__2931_ (
+);
+
+FILL FILL_3__2511_ (
+);
+
+FILL FILL_0__4414_ (
+);
+
+FILL FILL_1__2849_ (
+);
+
+FILL FILL_1__2429_ (
+);
+
+FILL FILL_3__3716_ (
+);
+
+INVX8 _2860_ (
+    .A(_2354__1_bF$buf3),
+    .Y(_1635_)
+);
+
+AOI21X1 _2440_ (
+    .A(_1673_),
+    .B(_1643__bF$buf4),
+    .C(_2051_),
+    .Y(_35_)
+);
+
+FILL FILL_2__4185_ (
+);
+
+OAI21X1 _3645_ (
+    .A(_1305__bF$buf1),
+    .B(_904_),
+    .C(_1196__bF$buf5),
+    .Y(_448_)
+);
+
+NAND3X1 _3225_ (
+    .A(\u_cpu.D ),
+    .B(_1106_),
+    .C(_561_),
+    .Y(_112_)
+);
+
+FILL FILL_0__2900_ (
+);
+
+FILL FILL_2__2918_ (
+);
+
+FILL FILL_1__3387_ (
+);
+
+FILL FILL_3__4674_ (
+);
+
+FILL FILL_3__4254_ (
+);
+
+FILL FILL_2__2671_ (
+);
+
+FILL FILL_4__2597_ (
+);
+
+FILL FILL_0__2497_ (
+);
+
+NAND2X1 _4183_ (
+    .A(\u_cpu.AXYS[0] [4]),
+    .B(_977_),
+    .Y(_941_)
+);
+
+FILL FILL_2__3876_ (
+);
+
+FILL FILL_2__3456_ (
+);
+
+OAI21X1 _2916_ (
+    .A(dsp_ack),
+    .B(_1548_),
+    .C(_1549_),
+    .Y(_1596_)
+);
+
+FILL FILL_4__4743_ (
+);
+
+FILL FILL_4__4323_ (
+);
+
+FILL FILL_3__2740_ (
+);
+
+FILL FILL_0__4643_ (
+);
+
+FILL FILL_0__4223_ (
+);
+
+FILL FILL_1__2658_ (
+);
+
+FILL FILL_3__3945_ (
+);
+
+FILL FILL_3__3525_ (
+);
+
+FILL FILL_1__4804_ (
+);
+
+MUX2X1 _3874_ (
+    .A(\u_cpu.ADD [0]),
+    .B(_703_),
+    .S(\u_cpu.plp ),
+    .Y(_664_)
+);
+
+OAI21X1 _3454_ (
+    .A(_1179_),
+    .B(_278_),
+    .C(_275_),
+    .Y(\u_cpu.BI [2])
+);
+
+DFFSR _3034_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1477_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.op [3])
+);
+
+FILL FILL_2__2727_ (
+);
+
+OAI21X1 _4659_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1704_),
+    .Y(_1712_)
+);
+
+NOR2X1 _4239_ (
+    .A(_1123_),
+    .B(_1008_),
+    .Y(_991_)
+);
+
+FILL FILL_1__3196_ (
+);
+
+FILL FILL_0__3914_ (
+);
+
+FILL FILL_3__4483_ (
+);
+
+FILL FILL_3__4063_ (
+);
+
+FILL FILL_2__2480_ (
+);
+
+FILL FILL_2__3685_ (
+);
+
+FILL FILL_2__3265_ (
+);
+
+OAI21X1 _2725_ (
+    .A(_1663_),
+    .B(_1917_),
+    .C(_1924_),
+    .Y(_2010_)
+);
+
+FILL FILL_4__4972_ (
+);
+
+FILL FILL_4__4552_ (
+);
+
+FILL FILL_4__4132_ (
+);
+
+FILL FILL_0__4452_ (
+);
+
+FILL FILL_0__4032_ (
+);
+
+FILL FILL_1__2887_ (
+);
+
+FILL FILL_1__2467_ (
+);
+
+FILL FILL_3__3754_ (
+);
+
+FILL FILL_3__3334_ (
+);
+
+FILL FILL_1__4613_ (
+);
+
+FILL FILL_3__4959_ (
+);
+
+FILL FILL_3__4539_ (
+);
+
+FILL FILL_3__4119_ (
+);
+
+INVX1 _3683_ (
+    .A(_753_),
+    .Y(_486_)
+);
+
+NAND2X1 _3263_ (
+    .A(_800__bF$buf2),
+    .B(_2354__4_bF$buf2),
+    .Y(_137_)
+);
+
+FILL FILL_2__2536_ (
+);
+
+FILL FILL_4__3823_ (
+);
+
+FILL FILL_4__3403_ (
+);
+
+AND2X2 _4888_ (
+    .A(_Addr_Bus[15]),
+    .B(_Addr_Bus[14]),
+    .Y(_2164_)
+);
+
+INVX1 _4468_ (
+    .A(_1199_),
+    .Y(_1198_)
+);
+
+NOR2X1 _4048_ (
+    .A(_818_),
+    .B(_816_),
+    .Y(_815_)
+);
+
+FILL FILL_0__3723_ (
+);
+
+FILL FILL_0__3303_ (
+);
+
+FILL FILL_3__4292_ (
+);
+
+FILL FILL_4__4608_ (
+);
+
+FILL FILL_0__4928_ (
+);
+
+FILL FILL_3__2605_ (
+);
+
+FILL FILL_0__4508_ (
+);
+
+FILL FILL_2__3494_ (
+);
+
+DFFSR _2954_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1495_),
+    .CLK(clk_bF$buf12),
+    .Q(DO_kbd[7])
+);
+
+MUX2X1 _2534_ (
+    .A(_2288_),
+    .B(_2292_),
+    .S(_2354__6_bF$buf4),
+    .Y(_2293_)
+);
+
+FILL FILL_4__4781_ (
+);
+
+FILL FILL_4__4361_ (
+);
+
+FILL FILL_2__4699_ (
+);
+
+FILL FILL_0__4681_ (
+);
+
+FILL FILL_2__4279_ (
+);
+
+FILL FILL_0__4261_ (
+);
+
+INVX1 _3739_ (
+    .A(_539_),
+    .Y(_538_)
+);
+
+NOR3X1 _3319_ (
+    .A(_1146_),
+    .B(_1134_),
+    .C(_1156_),
+    .Y(_170_)
+);
+
+FILL FILL_1__2696_ (
+);
+
+FILL FILL_3__3983_ (
+);
+
+FILL FILL_3__3563_ (
+);
+
+FILL FILL_1__4842_ (
+);
+
+FILL FILL_1__4422_ (
+);
+
+FILL FILL_1__4002_ (
+);
+
+FILL FILL_3__4768_ (
+);
+
+FILL FILL_3__4348_ (
+);
+
+OAI21X1 _3492_ (
+    .A(_1285_),
+    .B(_1233_),
+    .C(_1329_),
+    .Y(_305_)
+);
+
+DFFSR _3072_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1485_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [12])
+);
+
+FILL FILL_2__2765_ (
+);
+
+FILL FILL_4__3632_ (
+);
+
+FILL FILL_4__3212_ (
+);
+
+NAND2X1 _4697_ (
+    .A(_1684_),
+    .B(_1749_),
+    .Y(_1750_)
+);
+
+OAI21X1 _4277_ (
+    .A(_1026_),
+    .B(_1098_),
+    .C(_1028_),
+    .Y(_1478_)
+);
+
+FILL FILL_0__3952_ (
+);
+
+FILL FILL_0__3532_ (
+);
+
+FILL FILL_2__4911_ (
+);
+
+FILL FILL_4__4837_ (
+);
+
+FILL FILL_4__4417_ (
+);
+
+FILL FILL_0__4737_ (
+);
+
+FILL FILL_3__2834_ (
+);
+
+FILL FILL_3__2414_ (
+);
+
+FILL FILL_0__4317_ (
+);
+
+FILL FILL_3__3619_ (
+);
+
+FILL FILL273450x75750 (
+);
+
+OAI22X1 _2763_ (
+    .A(_2354__7_bF$buf3),
+    .B(_1933_),
+    .C(_1972_),
+    .D(_1953_),
+    .Y(_2346_[6])
+);
+
+FILL FILL_4__4590_ (
+);
+
+FILL FILL_4__4170_ (
+);
+
+FILL FILL_0__4490_ (
+);
+
+FILL FILL_2__4088_ (
+);
+
+FILL FILL_0__4070_ (
+);
+
+FILL FILL_4__2903_ (
+);
+
+INVX1 _3968_ (
+    .A(_744_),
+    .Y(_743_)
+);
+
+OAI21X1 _3548_ (
+    .A(_360_),
+    .B(_657_),
+    .C(_354_),
+    .Y(\u_cpu.AI [4])
+);
+
+DFFSR _3128_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1430_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.state [4])
+);
+
+FILL FILL_0__2803_ (
+);
+
+FILL FILL_3__3792_ (
+);
+
+FILL FILL_3__3372_ (
+);
+
+FILL FILL_1__4651_ (
+);
+
+FILL FILL_1__4231_ (
+);
+
+FILL FILL_3__4577_ (
+);
+
+FILL FILL_3__4157_ (
+);
+
+FILL FILL_2__2994_ (
+);
+
+FILL FILL_2__2574_ (
+);
+
+FILL FILL_4__3861_ (
+);
+
+FILL FILL_4__3441_ (
+);
+
+FILL FILL_4__3021_ (
+);
+
+NOR2X1 _4086_ (
+    .A(_1305__bF$buf1),
+    .B(_888_),
+    .Y(_853_)
+);
+
+FILL FILL_0__3761_ (
+);
+
+FILL FILL_2__3779_ (
+);
+
+FILL FILL_0__3341_ (
+);
+
+FILL FILL_2__3359_ (
+);
+
+FILL FILL_2__4720_ (
+);
+
+FILL FILL_2__4300_ (
+);
+
+AND2X2 _2819_ (
+    .A(_2354__1_bF$buf4),
+    .B(_2354__2_bF$buf3),
+    .Y(_1917_)
+);
+
+FILL FILL_4__4646_ (
+);
+
+FILL FILL_4__4226_ (
+);
+
+FILL FILL_0__4966_ (
+);
+
+FILL FILL_3__2643_ (
+);
+
+FILL FILL_0__4546_ (
+);
+
+FILL FILL_0__4126_ (
+);
+
+FILL FILL_1__3922_ (
+);
+
+FILL FILL_1__3502_ (
+);
+
+FILL FILL_3__3848_ (
+);
+
+FILL FILL_3__3428_ (
+);
+
+FILL FILL_3__3008_ (
+);
+
+OR2X2 _2992_ (
+    .A(_2352_),
+    .B(_Addr_Bus[7]),
+    .Y(_1609_)
+);
+
+AOI21X1 _2572_ (
+    .A(_2255_),
+    .B(_2099_),
+    .C(_2354__7_bF$buf3),
+    .Y(_2256_)
+);
+
+FILL FILL_1__4707_ (
+);
+
+FILL FILL_4__2712_ (
+);
+
+NOR2X1 _3777_ (
+    .A(_828_),
+    .B(_913_),
+    .Y(_576_)
+);
+
+NOR2X1 _3357_ (
+    .A(_194_),
+    .B(_495_),
+    .Y(_193_)
+);
+
+FILL FILL_0__2612_ (
+);
+
+FILL FILL_3__3181_ (
+);
+
+FILL FILL_4__3917_ (
+);
+
+FILL FILL271950x72150 (
+);
+
+FILL FILL_0__3817_ (
+);
+
+FILL FILL_1__4460_ (
+);
+
+FILL FILL_1__4040_ (
+);
+
+FILL FILL_3__4386_ (
+);
+
+FILL FILL271950x39750 (
+);
+
+FILL FILL_2__2383_ (
+);
+
+FILL FILL_4__3670_ (
+);
+
+FILL FILL_4__3250_ (
+);
+
+FILL FILL_0__3990_ (
+);
+
+FILL FILL_2__3588_ (
+);
+
+FILL FILL_0__3570_ (
+);
+
+FILL FILL_2__3168_ (
+);
+
+NAND3X1 _2628_ (
+    .A(_1920__bF$buf1),
+    .B(_2104_),
+    .C(_2105_),
+    .Y(_2106_)
+);
+
+FILL FILL_4__4455_ (
+);
+
+FILL FILL_4__4035_ (
+);
+
+FILL FILL_0__4775_ (
+);
+
+FILL FILL_0__4355_ (
+);
+
+FILL FILL_3__2452_ (
+);
+
+FILL FILL_1__3731_ (
+);
+
+FILL FILL_1__3311_ (
+);
+
+FILL FILL_3__3657_ (
+);
+
+FILL FILL_3__3237_ (
+);
+
+BUFX2 _2381_ (
+    .A(_2351_),
+    .Y(kbd_ack)
+);
+
+FILL FILL_1__4936_ (
+);
+
+FILL FILL_1__4516_ (
+);
+
+FILL FILL_4__2941_ (
+);
+
+FILL FILL_4__2521_ (
+);
+
+OAI21X1 _3586_ (
+    .A(_1037__bF$buf2),
+    .B(_396_),
+    .C(_391_),
+    .Y(_390_)
+);
+
+NAND2X1 _3166_ (
+    .A(RDY_bF$buf1),
+    .B(_1224_),
+    .Y(_72_)
+);
+
+FILL FILL_2__2859_ (
+);
+
+FILL FILL_0__2841_ (
+);
+
+FILL FILL_2__2439_ (
+);
+
+FILL FILL_0__2421_ (
+);
+
+FILL FILL_2__3800_ (
+);
+
+FILL FILL_4__3726_ (
+);
+
+FILL FILL_4__3306_ (
+);
+
+FILL FILL_0__3626_ (
+);
+
+FILL FILL_0__3206_ (
+);
+
+FILL FILL_3__4195_ (
+);
+
+FILL FILL_3__2928_ (
+);
+
+FILL FILL_3__2508_ (
+);
+
+FILL FILL_2__3397_ (
+);
+
+INVX8 _2857_ (
+    .A(_2354__0_bF$buf0),
+    .Y(_1638_)
+);
+
+AOI21X1 _2437_ (
+    .A(_1929_),
+    .B(_36_),
+    .C(_37_),
+    .Y(_38_)
+);
+
+FILL FILL_4__4684_ (
+);
+
+FILL FILL_4__4264_ (
+);
+
+FILL FILL_3__2681_ (
+);
+
+FILL FILL_0__4584_ (
+);
+
+FILL FILL_0__4164_ (
+);
+
+FILL FILL_1__2599_ (
+);
+
+FILL FILL_1__3960_ (
+);
+
+FILL FILL_1__3540_ (
+);
+
+FILL FILL_3__3886_ (
+);
+
+FILL FILL_3__3466_ (
+);
+
+FILL FILL_1__4745_ (
+);
+
+FILL FILL_1__4325_ (
+);
+
+FILL FILL_4__2750_ (
+);
+
+INVX1 _3395_ (
+    .A(_228_),
+    .Y(_2354_[12])
+);
+
+FILL FILL_2__2668_ (
+);
+
+FILL FILL_0__2650_ (
+);
+
+FILL FILL_4__3955_ (
+);
+
+FILL FILL_4__3535_ (
+);
+
+FILL FILL_0__3855_ (
+);
+
+FILL FILL_0__3435_ (
+);
+
+FILL FILL_0__3015_ (
+);
+
+FILL FILL_2__4814_ (
+);
+
+FILL FILL_1__2811_ (
+);
+
+FILL FILL_3__2737_ (
+);
+
+NAND3X1 _2666_ (
+    .A(_2354__4_bF$buf0),
+    .B(_2067_),
+    .C(_2035_),
+    .Y(_2068_)
+);
+
+FILL FILL_4__4493_ (
+);
+
+FILL FILL_4__4073_ (
+);
+
+FILL FILL_3__2490_ (
+);
+
+FILL FILL_0__4393_ (
+);
+
+FILL FILL_4__2806_ (
+);
+
+FILL FILL_0__2706_ (
+);
+
+NOR2X1 _4812_ (
+    .A(\u_cpu.ADD [5]),
+    .B(\u_cpu.AN ),
+    .Y(_1858_)
+);
+
+FILL FILL_3__3695_ (
+);
+
+FILL FILL_3__3275_ (
+);
+
+FILL FILL_1__4974_ (
+);
+
+FILL FILL_1__4554_ (
+);
+
+FILL FILL_1__4134_ (
+);
+
+FILL FILL_2__2897_ (
+);
+
+FILL FILL_2__2477_ (
+);
+
+FILL FILL_4__3764_ (
+);
+
+FILL FILL_4__3344_ (
+);
+
+FILL FILL_0__3664_ (
+);
+
+FILL FILL_0__3244_ (
+);
+
+FILL FILL_2__4623_ (
+);
+
+FILL FILL_2__4203_ (
+);
+
+FILL FILL_4__4969_ (
+);
+
+FILL FILL_4__4549_ (
+);
+
+FILL FILL_4__4129_ (
+);
+
+FILL FILL_1__2620_ (
+);
+
+FILL FILL_0__4869_ (
+);
+
+FILL FILL_3__2966_ (
+);
+
+FILL FILL_3__2546_ (
+);
+
+FILL FILL_0__4449_ (
+);
+
+FILL FILL_0__4029_ (
+);
+
+FILL FILL_1__3825_ (
+);
+
+FILL FILL_1__3405_ (
+);
+
+OAI21X1 _2895_ (
+    .A(\u_pia_dsp.state [2]),
+    .B(_1564_),
+    .C(_1565_),
+    .Y(_1516_)
+);
+
+AOI21X1 _2475_ (
+    .A(_2347_),
+    .B(_0_),
+    .C(_2354__7_bF$buf1),
+    .Y(_1_)
+);
+
+FILL FILL_4__2615_ (
+);
+
+FILL FILL_0__2935_ (
+);
+
+FILL FILL_0__2515_ (
+);
+
+NAND3X1 _4621_ (
+    .A(_1351_),
+    .B(_1350_),
+    .C(_1353_),
+    .Y(_1349_)
+);
+
+NAND2X1 _4201_ (
+    .A(_1178_),
+    .B(_973_),
+    .Y(_957_)
+);
+
+FILL FILL_1__4783_ (
+);
+
+FILL FILL_1__4363_ (
+);
+
+FILL FILL_3__4289_ (
+);
+
+FILL FILL_4__3993_ (
+);
+
+FILL FILL_4__3573_ (
+);
+
+FILL FILL_0__3893_ (
+);
+
+FILL FILL_0__3473_ (
+);
+
+FILL FILL_2__4852_ (
+);
+
+FILL FILL_2__4432_ (
+);
+
+FILL FILL_2__4012_ (
+);
+
+FILL FILL_4__4778_ (
+);
+
+FILL FILL_4__4358_ (
+);
+
+FILL FILL_0__4678_ (
+);
+
+FILL FILL_3__2775_ (
+);
+
+FILL FILL_0__4258_ (
+);
+
+FILL FILL_1__3634_ (
+);
+
+FILL FILL_1__3214_ (
+);
+
+FILL FILL_3__4921_ (
+);
+
+FILL FILL_3__4501_ (
+);
+
+FILL FILL_3_BUFX2_insert20 (
+);
+
+FILL FILL_3_BUFX2_insert21 (
+);
+
+FILL FILL_3_BUFX2_insert22 (
+);
+
+FILL FILL_1__4839_ (
+);
+
+FILL FILL_3_BUFX2_insert23 (
+);
+
+FILL FILL_3_BUFX2_insert24 (
+);
+
+FILL FILL_1__4419_ (
+);
+
+FILL FILL_3_BUFX2_insert25 (
+);
+
+FILL FILL_4__2844_ (
+);
+
+FILL FILL_4__2424_ (
+);
+
+INVX1 _3489_ (
+    .A(_1245_),
+    .Y(_302_)
+);
+
+DFFSR _3069_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [5]),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.DIHOLD [5])
+);
+
+FILL FILL_0__2744_ (
+);
+
+INVX1 _4850_ (
+    .A(_1891_),
+    .Y(_1892_)
+);
+
+OAI21X1 _4430_ (
+    .A(RDY_bF$buf2),
+    .B(_1167_),
+    .C(_1166_),
+    .Y(\u_cpu.DIMUX [3])
+);
+
+INVX2 _4010_ (
+    .A(_874_),
+    .Y(_780_)
+);
+
+FILL FILL_2__3703_ (
+);
+
+FILL FILL_4__3629_ (
+);
+
+FILL FILL_4__3209_ (
+);
+
+FILL FILL_0__3949_ (
+);
+
+FILL FILL_0__3529_ (
+);
+
+FILL FILL_1__4592_ (
+);
+
+FILL FILL_1__4172_ (
+);
+
+FILL FILL_3__4098_ (
+);
+
+FILL FILL_2__4908_ (
+);
+
+FILL FILL_1__2905_ (
+);
+
+FILL FILL_4__3382_ (
+);
+
+FILL FILL_0__3282_ (
+);
+
+FILL FILL_2__4661_ (
+);
+
+FILL FILL_2__4241_ (
+);
+
+FILL FILL_4__4587_ (
+);
+
+FILL FILL_4__4167_ (
+);
+
+OAI21X1 _3701_ (
+    .A(_1029_),
+    .B(_1333_),
+    .C(_632_),
+    .Y(_501_)
+);
+
+FILL FILL_3__2584_ (
+);
+
+FILL FILL_0__4487_ (
+);
+
+FILL FILL_0__4067_ (
+);
+
+AOI22X1 _4906_ (
+    .A(_2176_),
+    .B(_2181_),
+    .C(_2173_),
+    .D(_2175_),
+    .Y(_2182_)
+);
+
+FILL FILL_1__3863_ (
+);
+
+FILL FILL_1__3443_ (
+);
+
+FILL FILL_1__3023_ (
+);
+
+FILL FILL_3__3789_ (
+);
+
+FILL FILL_3__3369_ (
+);
+
+FILL FILL_3_BUFX2_insert110 (
+);
+
+FILL FILL_3_BUFX2_insert111 (
+);
+
+FILL FILL_3_BUFX2_insert112 (
+);
+
+FILL FILL_3_BUFX2_insert113 (
+);
+
+FILL FILL_3__4730_ (
+);
+
+FILL FILL_3_BUFX2_insert114 (
+);
+
+FILL FILL_3_BUFX2_insert115 (
+);
+
+FILL FILL_3__4310_ (
+);
+
+FILL FILL_3_BUFX2_insert116 (
+);
+
+FILL FILL_3_BUFX2_insert117 (
+);
+
+FILL FILL_3_BUFX2_insert118 (
+);
+
+FILL FILL274050x68550 (
+);
+
+FILL FILL_3_BUFX2_insert119 (
+);
+
+FILL FILL_1__4648_ (
+);
+
+FILL FILL_1__4228_ (
+);
+
+FILL FILL_4__2653_ (
+);
+
+OAI21X1 _3298_ (
+    .A(_1125_),
+    .B(_1129__bF$buf0),
+    .C(_181_),
+    .Y(_1405_)
+);
+
+FILL FILL_0__2973_ (
+);
+
+FILL FILL_0__2553_ (
+);
+
+FILL FILL_2__3932_ (
+);
+
+FILL FILL_2__3512_ (
+);
+
+FILL FILL_4__3858_ (
+);
+
+FILL FILL_4__3438_ (
+);
+
+FILL FILL_4__3018_ (
+);
+
+FILL FILL_0__3758_ (
+);
+
+FILL FILL_0__3338_ (
+);
+
+FILL FILL_2__4717_ (
+);
+
+FILL FILL_1__2714_ (
+);
+
+FILL FILL_4__3191_ (
+);
+
+FILL FILL_1__3919_ (
+);
+
+FILL FILL_2__4890_ (
+);
+
+FILL FILL_2__4470_ (
+);
+
+FILL FILL_2__4050_ (
+);
+
+OAI21X1 _2989_ (
+    .A(_1588_),
+    .B(_1611_),
+    .C(\u_pia_kbd.state [2]),
+    .Y(_1612_)
+);
+
+NAND3X1 _2569_ (
+    .A(_1643__bF$buf4),
+    .B(_1928_),
+    .C(_1664_),
+    .Y(_2259_)
+);
+
+FILL FILL_4__4396_ (
+);
+
+OAI21X1 _3930_ (
+    .A(_963_),
+    .B(_760_),
+    .C(_711_),
+    .Y(_1448_)
+);
+
+INVX1 _3510_ (
+    .A(\u_cpu.ABH [0]),
+    .Y(_322_)
+);
+
+FILL FILL_3__2393_ (
+);
+
+FILL FILL_0__4296_ (
+);
+
+FILL FILL_4__2709_ (
+);
+
+FILL FILL_0__2609_ (
+);
+
+OAI21X1 _4715_ (
+    .A(_1736_),
+    .B(_1740_),
+    .C(_1767_),
+    .Y(_1768_)
+);
+
+FILL FILL_1__3672_ (
+);
+
+FILL FILL_1__3252_ (
+);
+
+FILL FILL_3__3598_ (
+);
+
+FILL FILL_3__3178_ (
+);
+
+FILL FILL_1__4457_ (
+);
+
+FILL FILL_1__4037_ (
+);
+
+FILL FILL_4__2882_ (
+);
+
+FILL FILL_4__2462_ (
+);
+
+FILL FILL_0__2782_ (
+);
+
+FILL FILL_0__2362_ (
+);
+
+FILL FILL_2__3741_ (
+);
+
+FILL FILL_2__3321_ (
+);
+
+FILL FILL_4__3667_ (
+);
+
+FILL FILL_4__3247_ (
+);
+
+FILL FILL_0__3987_ (
+);
+
+FILL FILL_0__3567_ (
+);
+
+FILL FILL_4_BUFX2_insert70 (
+);
+
+FILL FILL_4_BUFX2_insert71 (
+);
+
+FILL FILL_4_BUFX2_insert72 (
+);
+
+FILL FILL_4_BUFX2_insert73 (
+);
+
+FILL FILL_4_BUFX2_insert74 (
+);
+
+FILL FILL_2__4946_ (
+);
+
+FILL FILL_4_BUFX2_insert75 (
+);
+
+FILL FILL_2__4526_ (
+);
+
+FILL FILL_4_BUFX2_insert76 (
+);
+
+FILL FILL_2__4106_ (
+);
+
+FILL FILL_4_BUFX2_insert77 (
+);
+
+FILL FILL_4_BUFX2_insert78 (
+);
+
+FILL FILL_4_BUFX2_insert79 (
+);
+
+FILL FILL_1__2943_ (
+);
+
+FILL FILL_1__2523_ (
+);
+
+FILL FILL_3__2449_ (
+);
+
+FILL FILL_3__3810_ (
+);
+
+FILL FILL272250x72150 (
+);
+
+FILL FILL_1__3728_ (
+);
+
+FILL FILL_1__3308_ (
+);
+
+OAI21X1 _2798_ (
+    .A(_1635__bF$buf1),
+    .B(_1638__bF$buf3),
+    .C(_2354__3_bF$buf4),
+    .Y(_1938_)
+);
+
+BUFX2 _2378_ (
+    .A(_2353_[1]),
+    .Y(DO[1])
+);
+
+FILL FILL272250x39750 (
+);
+
+FILL FILL_4__2938_ (
+);
+
+FILL FILL_4__2518_ (
+);
+
+FILL FILL_0__2838_ (
+);
+
+FILL FILL_0__2418_ (
+);
+
+INVX1 _4944_ (
+    .A(DI[3]),
+    .Y(_2217_)
+);
+
+INVX2 _4524_ (
+    .A(_1306_),
+    .Y(_1252_)
+);
+
+INVX2 _4104_ (
+    .A(_1072_),
+    .Y(_870_)
+);
+
+FILL FILL_1__3481_ (
+);
+
+FILL FILL_1__4686_ (
+);
+
+FILL FILL_1__4266_ (
+);
+
+FILL FILL_4__2691_ (
+);
+
+FILL FILL_0__2591_ (
+);
+
+FILL FILL_2__3970_ (
+);
+
+FILL FILL_2__3550_ (
+);
+
+FILL FILL_4__3896_ (
+);
+
+FILL FILL_4__3476_ (
+);
+
+FILL FILL_0__3796_ (
+);
+
+FILL FILL_0__3376_ (
+);
+
+FILL FILL_2__4755_ (
+);
+
+FILL FILL_2__4335_ (
+);
+
+FILL FILL_1__2752_ (
+);
+
+FILL FILL_3__2678_ (
+);
+
+FILL FILL_1__3957_ (
+);
+
+FILL FILL_1__3537_ (
+);
+
+FILL FILL_3__4824_ (
+);
+
+FILL FILL_3__4404_ (
+);
+
+FILL FILL_2__2821_ (
+);
+
+FILL FILL_2__2401_ (
+);
+
+FILL FILL_4__2747_ (
+);
+
+FILL FILL_0__2647_ (
+);
+
+NAND2X1 _4753_ (
+    .A(_1784_),
+    .B(_1805_),
+    .Y(_1806_)
+);
+
+OAI21X1 _4333_ (
+    .A(_1087_),
+    .B(_1325__bF$buf1),
+    .C(_1079_),
+    .Y(_1078_)
+);
+
+FILL FILL_1__3290_ (
+);
+
+FILL FILL_2__3606_ (
+);
+
+FILL FILL_1__4495_ (
+);
+
+FILL FILL_1__4075_ (
+);
+
+FILL FILL_2_BUFX2_insert150 (
+);
+
+FILL FILL_2_BUFX2_insert151 (
+);
+
+FILL FILL_2_BUFX2_insert152 (
+);
+
+FILL FILL_2_BUFX2_insert153 (
+);
+
+FILL FILL_2_BUFX2_insert154 (
+);
+
+FILL FILL_2_BUFX2_insert155 (
+);
+
+FILL FILL_2_BUFX2_insert156 (
+);
+
+FILL FILL_2_BUFX2_insert157 (
+);
+
+FILL FILL_2_BUFX2_insert158 (
+);
+
+FILL FILL_2_BUFX2_insert159 (
+);
+
+FILL FILL_1__2808_ (
+);
+
+FILL FILL_4__3285_ (
+);
+
+FILL FILL_0__3185_ (
+);
+
+FILL FILL_2__4984_ (
+);
+
+FILL FILL_2__4564_ (
+);
+
+FILL FILL_2__4144_ (
+);
+
+OAI21X1 _3604_ (
+    .A(\u_cpu.C ),
+    .B(\u_cpu.cond_code [1]),
+    .C(_409_),
+    .Y(_408_)
+);
+
+FILL FILL_1__2981_ (
+);
+
+FILL FILL_1__2561_ (
+);
+
+FILL FILL_3__2487_ (
+);
+
+OAI21X1 _4809_ (
+    .A(_1681__bF$buf2),
+    .B(_1855_),
+    .C(_1853_),
+    .Y(_1672_)
+);
+
+FILL FILL_1__3766_ (
+);
+
+FILL FILL_1__3346_ (
+);
+
+FILL FILL_3__4633_ (
+);
+
+FILL FILL_3__4213_ (
+);
+
+FILL FILL_2__2630_ (
+);
+
+FILL FILL_4__2976_ (
+);
+
+FILL FILL_4__2556_ (
+);
+
+FILL FILL_0__2876_ (
+);
+
+FILL FILL_0__2456_ (
+);
+
+NAND3X1 _4982_ (
+    .A(DO_kbd[7]),
+    .B(_2181_),
+    .C(_2176_),
+    .Y(_2251_)
+);
+
+OAI21X1 _4562_ (
+    .A(_1291_),
+    .B(_1297_),
+    .C(_1315__bF$buf1),
+    .Y(_1290_)
+);
+
+OAI21X1 _4142_ (
+    .A(\u_cpu.state [4]),
+    .B(_915_),
+    .C(_909_),
+    .Y(_908_)
+);
+
+FILL FILL_2__3835_ (
+);
+
+FILL FILL_2__3415_ (
+);
+
+FILL FILL_4__4702_ (
+);
+
+FILL FILL_0__4602_ (
+);
+
+FILL FILL_1__2617_ (
+);
+
+FILL FILL_3__3904_ (
+);
+
+FILL FILL_2__4793_ (
+);
+
+FILL FILL_2__4373_ (
+);
+
+FILL FILL_4__4299_ (
+);
+
+OAI21X1 _3833_ (
+    .A(_638_),
+    .B(_857_),
+    .C(\u_cpu.PC [6]),
+    .Y(_626_)
+);
+
+NAND3X1 _3413_ (
+    .A(_245_),
+    .B(_244_),
+    .C(_243_),
+    .Y(_242_)
+);
+
+FILL FILL_1__2790_ (
+);
+
+FILL FILL_1__2370_ (
+);
+
+FILL FILL_0__4199_ (
+);
+
+NOR2X1 _4618_ (
+    .A(\u_cpu.state [1]),
+    .B(\u_cpu.state [0]),
+    .Y(_1346_)
+);
+
+FILL FILL_1__3995_ (
+);
+
+FILL FILL_1__3575_ (
+);
+
+FILL FILL_3__4862_ (
+);
+
+FILL FILL_3__4442_ (
+);
+
+FILL FILL_3__4022_ (
+);
+
+FILL FILL_4__2785_ (
+);
+
+FILL FILL_4__2365_ (
+);
+
+FILL FILL_0__2685_ (
+);
+
+NAND2X1 _4791_ (
+    .A(\u_cpu.ADD [0]),
+    .B(_1681__bF$buf0),
+    .Y(_1843_)
+);
+
+INVX2 _4371_ (
+    .A(\u_cpu.DIMUX [7]),
+    .Y(_1113_)
+);
+
+FILL FILL_2__3644_ (
+);
+
+FILL FILL_2__3224_ (
+);
+
+FILL FILL_4__4931_ (
+);
+
+FILL FILL_4__4511_ (
+);
+
+FILL FILL_2__4849_ (
+);
+
+FILL FILL_0__4831_ (
+);
+
+FILL FILL_2__4429_ (
+);
+
+FILL FILL_0__4411_ (
+);
+
+FILL FILL_2__4009_ (
+);
+
+FILL FILL_1__2846_ (
+);
+
+FILL FILL_1__2426_ (
+);
+
+FILL FILL_3__3713_ (
+);
+
+FILL FILL_2__4182_ (
+);
+
+FILL FILL_3__4918_ (
+);
+
+OAI21X1 _3642_ (
+    .A(_1328__bF$buf1),
+    .B(_1081_),
+    .C(RDY_bF$buf6),
+    .Y(_445_)
+);
+
+OAI21X1 _3222_ (
+    .A(_1037__bF$buf0),
+    .B(_771_),
+    .C(_111_),
+    .Y(_1374_)
+);
+
+FILL FILL_2__2915_ (
+);
+
+NAND2X1 _4847_ (
+    .A(_1883_),
+    .B(_1888_),
+    .Y(_1889_)
+);
+
+OAI21X1 _4427_ (
+    .A(_1164_),
+    .B(_1349_),
+    .C(_1315__bF$buf2),
+    .Y(_1163_)
+);
+
+AOI21X1 _4007_ (
+    .A(_782_),
+    .B(\u_cpu.PC [7]),
+    .C(_778_),
+    .Y(_777_)
+);
+
+FILL FILL_1__3384_ (
+);
+
+FILL FILL_3__4671_ (
+);
+
+FILL FILL_3__4251_ (
+);
+
+FILL FILL_1__4589_ (
+);
+
+FILL FILL_1__4169_ (
+);
+
+FILL FILL_4__2594_ (
+);
+
+FILL FILL_0__2494_ (
+);
+
+NAND3X1 _4180_ (
+    .A(\u_cpu.CO ),
+    .B(\u_cpu.adj_bcd ),
+    .C(\u_cpu.adc_bcd ),
+    .Y(_939_)
+);
+
+FILL FILL_2__3873_ (
+);
+
+FILL FILL_2__3453_ (
+);
+
+FILL FILL_4__3799_ (
+);
+
+FILL FILL_4__3379_ (
+);
+
+AOI21X1 _2913_ (
+    .A(_1551_),
+    .B(_1548_),
+    .C(_1550_),
+    .Y(_1595_)
+);
+
+FILL FILL_4__4740_ (
+);
+
+FILL FILL_4__4320_ (
+);
+
+FILL FILL_0__3699_ (
+);
+
+FILL FILL_0__3279_ (
+);
+
+FILL FILL_0__4640_ (
+);
+
+FILL FILL_2__4658_ (
+);
+
+FILL FILL_2__4238_ (
+);
+
+FILL FILL_0__4220_ (
+);
+
+FILL FILL_1__2655_ (
+);
+
+FILL FILL_3__3942_ (
+);
+
+FILL FILL_3__3522_ (
+);
+
+FILL FILL_1__4801_ (
+);
+
+FILL FILL_3__4727_ (
+);
+
+FILL FILL_3__4307_ (
+);
+
+NAND2X1 _3871_ (
+    .A(_1207_),
+    .B(_898_),
+    .Y(_661_)
+);
+
+OR2X2 _3451_ (
+    .A(_388_),
+    .B(_452_),
+    .Y(_1432_)
+);
+
+INVX1 _3031_ (
+    .A(\u_pia_kbd.state [0]),
+    .Y(_1498_)
+);
+
+FILL FILL_2__2724_ (
+);
+
+OAI21X1 _4656_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1704_),
+    .C(_1706_),
+    .Y(_1709_)
+);
+
+INVX1 _4236_ (
+    .A(_989_),
+    .Y(_988_)
+);
+
+FILL FILL_1__3193_ (
+);
+
+FILL FILL_0__3911_ (
+);
+
+FILL FILL_2__3929_ (
+);
+
+FILL FILL_2__3509_ (
+);
+
+FILL FILL_3__4480_ (
+);
+
+FILL FILL_3__4060_ (
+);
+
+FILL FILL_1__4398_ (
+);
+
+FILL FILL_2__3682_ (
+);
+
+FILL FILL_2__3262_ (
+);
+
+FILL FILL_4__3188_ (
+);
+
+NAND3X1 _2722_ (
+    .A(_2354__5_bF$buf3),
+    .B(_2012_),
+    .C(_1999_),
+    .Y(_2013_)
+);
+
+FILL FILL_2__4887_ (
+);
+
+FILL FILL_2__4467_ (
+);
+
+FILL FILL_2__4047_ (
+);
+
+INVX1 _3927_ (
+    .A(\u_cpu.php ),
+    .Y(_709_)
+);
+
+AOI21X1 _3507_ (
+    .A(_607_),
+    .B(_334_),
+    .C(_320_),
+    .Y(_319_)
+);
+
+FILL FILL_1__2884_ (
+);
+
+FILL FILL_1__2464_ (
+);
+
+FILL FILL_3__3751_ (
+);
+
+FILL FILL_3__3331_ (
+);
+
+FILL FILL_1__3669_ (
+);
+
+FILL FILL_1__3249_ (
+);
+
+FILL FILL_1__4610_ (
+);
+
+FILL FILL_3__4956_ (
+);
+
+FILL FILL_3__4536_ (
+);
+
+FILL FILL_3__4116_ (
+);
+
+OAI21X1 _3680_ (
+    .A(_1037__bF$buf2),
+    .B(_484_),
+    .C(_487_),
+    .Y(_483_)
+);
+
+OAI21X1 _3260_ (
+    .A(_1281_),
+    .B(_800__bF$buf3),
+    .C(_136_),
+    .Y(_1387_)
+);
+
+FILL FILL_2__2533_ (
+);
+
+FILL FILL_4__2879_ (
+);
+
+FILL FILL_4__2459_ (
+);
+
+FILL FILL_4__3820_ (
+);
+
+FILL FILL_4__3400_ (
+);
+
+FILL FILL_0__2779_ (
+);
+
+FILL FILL_0__2359_ (
+);
+
+INVX1 _4885_ (
+    .A(_Addr_Bus[13]),
+    .Y(_2161_)
+);
+
+INVX8 _4465_ (
+    .A(RDY_bF$buf1),
+    .Y(_1196_)
+);
+
+NAND2X1 _4045_ (
+    .A(_813_),
+    .B(_895_),
+    .Y(_812_)
+);
+
+FILL FILL_2__3738_ (
+);
+
+FILL FILL_0__3720_ (
+);
+
+FILL FILL_0__3300_ (
+);
+
+FILL FILL_2__3318_ (
+);
+
+FILL FILL_4__4605_ (
+);
+
+FILL FILL_0__4925_ (
+);
+
+FILL FILL_3__2602_ (
+);
+
+FILL FILL_0__4505_ (
+);
+
+FILL FILL_2__3491_ (
+);
+
+FILL FILL_3__3807_ (
+);
+
+INVX1 _2951_ (
+    .A(_2354_[13]),
+    .Y(_1520_)
+);
+
+AOI21X1 _2531_ (
+    .A(_2050_),
+    .B(_1643__bF$buf0),
+    .C(_2354__4_bF$buf6),
+    .Y(_2296_)
+);
+
+FILL FILL_2__4696_ (
+);
+
+FILL FILL_2__4276_ (
+);
+
+FILL FILL271650x50550 (
+);
+
+OAI21X1 _3736_ (
+    .A(_1325__bF$buf0),
+    .B(_536_),
+    .C(_1196__bF$buf2),
+    .Y(_535_)
+);
+
+AOI21X1 _3316_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [7]),
+    .C(_168_),
+    .Y(_167_)
+);
+
+FILL FILL_1__2693_ (
+);
+
+FILL FILL_3__3980_ (
+);
+
+FILL FILL_3__3560_ (
+);
+
+FILL FILL_1__3898_ (
+);
+
+FILL FILL_1__3478_ (
+);
+
+FILL FILL_3__4765_ (
+);
+
+FILL FILL_3__4345_ (
+);
+
+FILL FILL_2__2762_ (
+);
+
+FILL FILL_4__2688_ (
+);
+
+FILL FILL_0__2588_ (
+);
+
+INVX1 _4694_ (
+    .A(\u_cpu.BI [0]),
+    .Y(_1747_)
+);
+
+OAI21X1 _4274_ (
+    .A(_1126_),
+    .B(_1105_),
+    .C(_1024_),
+    .Y(_1023_)
+);
+
+FILL FILL_2__3967_ (
+);
+
+FILL FILL_2__3547_ (
+);
+
+FILL FILL_4__4834_ (
+);
+
+FILL FILL_4__4414_ (
+);
+
+FILL FILL_0__4734_ (
+);
+
+FILL FILL_3__2831_ (
+);
+
+FILL FILL_3__2411_ (
+);
+
+FILL FILL_0__4314_ (
+);
+
+FILL FILL_1__2749_ (
+);
+
+FILL FILL_3__3616_ (
+);
+
+OAI21X1 _2760_ (
+    .A(_1916_),
+    .B(_1974_),
+    .C(_1634__bF$buf2),
+    .Y(_1975_)
+);
+
+FILL FILL_2__4085_ (
+);
+
+FILL FILL_4__2900_ (
+);
+
+NAND2X1 _3965_ (
+    .A(\u_cpu.plp ),
+    .B(_1344_),
+    .Y(_740_)
+);
+
+OAI22X1 _3545_ (
+    .A(_352_),
+    .B(_1333_),
+    .C(_1165_),
+    .D(_356_),
+    .Y(_351_)
+);
+
+DFFSR _3125_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [0]),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.DIHOLD [0])
+);
+
+FILL FILL_0__2800_ (
+);
+
+FILL FILL_2__2818_ (
+);
+
+FILL FILL_1__3287_ (
+);
+
+FILL FILL_3__4574_ (
+);
+
+FILL FILL_3__4154_ (
+);
+
+FILL FILL_2__2991_ (
+);
+
+FILL FILL_2__2571_ (
+);
+
+FILL FILL_4__2497_ (
+);
+
+FILL FILL_0__2397_ (
+);
+
+OAI21X1 _4083_ (
+    .A(_1236_),
+    .B(_1080_),
+    .C(_1326_),
+    .Y(_850_)
+);
+
+FILL FILL_2__3776_ (
+);
+
+FILL FILL_2__3356_ (
+);
+
+INVX8 _2816_ (
+    .A(_2354__5_bF$buf0),
+    .Y(_1920_)
+);
+
+FILL FILL_4__4643_ (
+);
+
+FILL FILL_4__4223_ (
+);
+
+FILL FILL_0__4963_ (
+);
+
+FILL FILL_3__2640_ (
+);
+
+FILL FILL_0__4543_ (
+);
+
+FILL FILL_0__4123_ (
+);
+
+FILL FILL_1__2978_ (
+);
+
+FILL FILL_1__2558_ (
+);
+
+FILL FILL_3__3845_ (
+);
+
+FILL FILL_3__3425_ (
+);
+
+FILL FILL_3__3005_ (
+);
+
+FILL FILL_1__4704_ (
+);
+
+INVX1 _3774_ (
+    .A(_853_),
+    .Y(_573_)
+);
+
+OR2X2 _3354_ (
+    .A(_191_),
+    .B(_192_),
+    .Y(_1633_)
+);
+
+FILL FILL_2__2627_ (
+);
+
+FILL FILL_4__3914_ (
+);
+
+NOR2X1 _4979_ (
+    .A(_2189_),
+    .B(_2193_),
+    .Y(_2248_)
+);
+
+INVX1 _4559_ (
+    .A(\u_cpu.ADD [5]),
+    .Y(_1287_)
+);
+
+NOR2X1 _4139_ (
+    .A(_1328__bF$buf2),
+    .B(_906_),
+    .Y(_905_)
+);
+
+FILL FILL_0__3814_ (
+);
+
+FILL FILL_3__4383_ (
+);
+
+FILL FILL_2__2380_ (
+);
+
+FILL FILL_2__3585_ (
+);
+
+FILL FILL_2__3165_ (
+);
+
+OAI21X1 _2625_ (
+    .A(_2354__7_bF$buf0),
+    .B(_2080_),
+    .C(_2108_),
+    .Y(_2346_[4])
+);
+
+FILL FILL_4__4452_ (
+);
+
+FILL FILL_4__4032_ (
+);
+
+FILL FILL_0__4772_ (
+);
+
+FILL FILL_0__4352_ (
+);
+
+FILL FILL_1__2787_ (
+);
+
+FILL FILL_1__2367_ (
+);
+
+FILL FILL_3__3654_ (
+);
+
+FILL FILL_3__3234_ (
+);
+
+FILL FILL_1__4933_ (
+);
+
+FILL FILL_1__4513_ (
+);
+
+FILL FILL_3__4859_ (
+);
+
+FILL FILL_3__4439_ (
+);
+
+FILL FILL_3__4019_ (
+);
+
+INVX1 _3583_ (
+    .A(_582_),
+    .Y(_387_)
+);
+
+DFFPOSX1 _3163_ (
+    .D(_1396_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.IRHOLD [3])
+);
+
+FILL FILL_2__2856_ (
+);
+
+FILL FILL_2__2436_ (
+);
+
+FILL FILL_4__3723_ (
+);
+
+FILL FILL_4__3303_ (
+);
+
+NAND3X1 _4788_ (
+    .A(_1703_),
+    .B(_1827_),
+    .C(_1840_),
+    .Y(_1841_)
+);
+
+INVX1 _4368_ (
+    .A(\u_cpu.DIHOLD [6]),
+    .Y(_1110_)
+);
+
+FILL FILL_0__3623_ (
+);
+
+FILL FILL_0__3203_ (
+);
+
+FILL FILL_3__4192_ (
+);
+
+FILL FILL_4__4928_ (
+);
+
+FILL FILL_4__4508_ (
+);
+
+FILL FILL_0__4828_ (
+);
+
+FILL FILL_3__2925_ (
+);
+
+FILL FILL_3__2505_ (
+);
+
+FILL FILL_0__4408_ (
+);
+
+FILL FILL_2__3394_ (
+);
+
+NAND2X1 _2854_ (
+    .A(_2354__0_bF$buf1),
+    .B(_2354__2_bF$buf5),
+    .Y(_1641_)
+);
+
+AOI21X1 _2434_ (
+    .A(_1954_),
+    .B(_40_),
+    .C(_1920__bF$buf0),
+    .Y(_41_)
+);
+
+FILL FILL_4__4681_ (
+);
+
+FILL FILL_4__4261_ (
+);
+
+FILL FILL_2__4599_ (
+);
+
+FILL FILL_0__4581_ (
+);
+
+FILL FILL_2__4179_ (
+);
+
+FILL FILL_0__4161_ (
+);
+
+NOR2X1 _3639_ (
+    .A(RDY_bF$buf6),
+    .B(_853_),
+    .Y(_442_)
+);
+
+NAND2X1 _3219_ (
+    .A(\u_cpu.AXYS[1] [7]),
+    .B(_1041_),
+    .Y(_109_)
+);
+
+FILL FILL_1__2596_ (
+);
+
+FILL FILL_3__3883_ (
+);
+
+FILL FILL_3__3463_ (
+);
+
+FILL FILL_1__4742_ (
+);
+
+FILL FILL_1__4322_ (
+);
+
+FILL FILL_3__4668_ (
+);
+
+FILL FILL_3__4248_ (
+);
+
+OAI21X1 _3392_ (
+    .A(_1205_),
+    .B(_877_),
+    .C(_226_),
+    .Y(_225_)
+);
+
+FILL FILL_2__2665_ (
+);
+
+FILL FILL_4__3952_ (
+);
+
+FILL FILL_4__3532_ (
+);
+
+INVX8 _4597_ (
+    .A(_1326_),
+    .Y(_1325_)
+);
+
+INVX1 _4177_ (
+    .A(_940_),
+    .Y(_936_)
+);
+
+FILL FILL_0__3852_ (
+);
+
+FILL FILL_0__3432_ (
+);
+
+FILL FILL_0__3012_ (
+);
+
+FILL FILL_2__4811_ (
+);
+
+FILL FILL_4__4737_ (
+);
+
+FILL FILL_4__4317_ (
+);
+
+FILL FILL_3__2734_ (
+);
+
+FILL FILL_0__4637_ (
+);
+
+FILL FILL_0__4217_ (
+);
+
+FILL FILL_3__3939_ (
+);
+
+FILL FILL_3__3519_ (
+);
+
+NAND2X1 _2663_ (
+    .A(_1920__bF$buf0),
+    .B(_2070_),
+    .Y(_2071_)
+);
+
+FILL FILL_4__4490_ (
+);
+
+FILL FILL_4__4070_ (
+);
+
+FILL FILL_0__4390_ (
+);
+
+FILL FILL_4__2803_ (
+);
+
+AOI22X1 _3868_ (
+    .A(_922_),
+    .B(\u_cpu.AXYS[3] [4]),
+    .C(\u_cpu.AXYS[0] [4]),
+    .D(_978_),
+    .Y(_659_)
+);
+
+AOI21X1 _3448_ (
+    .A(_782_),
+    .B(\u_cpu.PC [2]),
+    .C(_272_),
+    .Y(_271_)
+);
+
+NAND2X1 _3028_ (
+    .A(kbd_data[6]),
+    .B(_1500_),
+    .Y(_1501_)
+);
+
+FILL FILL_0__2703_ (
+);
+
+FILL FILL_3__3692_ (
+);
+
+FILL FILL_3__3272_ (
+);
+
+FILL FILL_0__3908_ (
+);
+
+FILL FILL_1__4971_ (
+);
+
+FILL FILL_1__4551_ (
+);
+
+FILL FILL_1__4131_ (
+);
+
+FILL FILL_3__4897_ (
+);
+
+FILL FILL_3__4477_ (
+);
+
+FILL FILL_3__4057_ (
+);
+
+FILL FILL_2__2894_ (
+);
+
+FILL FILL_2__2474_ (
+);
+
+FILL FILL_4__3761_ (
+);
+
+FILL FILL_4__3341_ (
+);
+
+FILL FILL_2__3679_ (
+);
+
+FILL FILL_0__3661_ (
+);
+
+FILL FILL_2__3259_ (
+);
+
+FILL FILL_0__3241_ (
+);
+
+FILL FILL_2__4620_ (
+);
+
+FILL FILL_2__4200_ (
+);
+
+OAI21X1 _2719_ (
+    .A(_2354__0_bF$buf0),
+    .B(_1643__bF$buf5),
+    .C(_1924_),
+    .Y(_2016_)
+);
+
+FILL FILL_4__4966_ (
+);
+
+FILL FILL_4__4546_ (
+);
+
+FILL FILL_4__4126_ (
+);
+
+FILL FILL_0__4866_ (
+);
+
+FILL FILL_3__2543_ (
+);
+
+FILL FILL_0__4446_ (
+);
+
+FILL FILL_0__4026_ (
+);
+
+FILL FILL_1__3822_ (
+);
+
+FILL FILL_1__3402_ (
+);
+
+FILL FILL_3__3748_ (
+);
+
+FILL FILL_3__3328_ (
+);
+
+NAND2X1 _2892_ (
+    .A(_2352_),
+    .B(_1526_),
+    .Y(_1568_)
+);
+
+OAI21X1 _2472_ (
+    .A(_2354__3_bF$buf0),
+    .B(_2354__0_bF$buf1),
+    .C(_1934_),
+    .Y(_3_)
+);
+
+FILL FILL_1__4607_ (
+);
+
+FILL FILL_4__2612_ (
+);
+
+NOR2X1 _3677_ (
+    .A(_495_),
+    .B(_481_),
+    .Y(_480_)
+);
+
+OAI21X1 _3257_ (
+    .A(_1196__bF$buf0),
+    .B(_1345__bF$buf2),
+    .C(\u_cpu.cld ),
+    .Y(_134_)
+);
+
+FILL FILL_0__2932_ (
+);
+
+FILL FILL_0__2512_ (
+);
+
+FILL FILL_4__3817_ (
+);
+
+FILL FILL_0__3717_ (
+);
+
+FILL FILL_1__4780_ (
+);
+
+FILL FILL_1__4360_ (
+);
+
+FILL FILL_3__4286_ (
+);
+
+FILL FILL273450x61350 (
+);
+
+FILL FILL_4__3990_ (
+);
+
+FILL FILL_4__3570_ (
+);
+
+FILL FILL_0_BUFX2_insert90 (
+);
+
+FILL FILL_0_BUFX2_insert91 (
+);
+
+FILL FILL_0__3890_ (
+);
+
+FILL FILL_0_BUFX2_insert92 (
+);
+
+FILL FILL_2__3488_ (
+);
+
+FILL FILL_0__3470_ (
+);
+
+FILL FILL_0_BUFX2_insert93 (
+);
+
+FILL FILL_0_BUFX2_insert94 (
+);
+
+FILL FILL_0_BUFX2_insert95 (
+);
+
+FILL FILL_0_BUFX2_insert96 (
+);
+
+FILL FILL_0_BUFX2_insert97 (
+);
+
+FILL FILL_0_BUFX2_insert98 (
+);
+
+FILL FILL_0_BUFX2_insert99 (
+);
+
+NOR2X1 _2948_ (
+    .A(_2354_[11]),
+    .B(_2354_[8]),
+    .Y(_1523_)
+);
+
+OAI21X1 _2528_ (
+    .A(_1635__bF$buf4),
+    .B(_2298_),
+    .C(_1634__bF$buf3),
+    .Y(_2299_)
+);
+
+FILL FILL_4__4775_ (
+);
+
+FILL FILL_4__4355_ (
+);
+
+FILL FILL_0__4675_ (
+);
+
+FILL FILL_3__2772_ (
+);
+
+FILL FILL_0__4255_ (
+);
+
+FILL FILL_1__3631_ (
+);
+
+FILL FILL_1__3211_ (
+);
+
+FILL FILL_3__3977_ (
+);
+
+FILL FILL_3__3557_ (
+);
+
+FILL FILL_1__4836_ (
+);
+
+FILL FILL_1__4416_ (
+);
+
+FILL FILL_4__2841_ (
+);
+
+OAI21X1 _3486_ (
+    .A(_1328__bF$buf1),
+    .B(_903_),
+    .C(RDY_bF$buf6),
+    .Y(_299_)
+);
+
+DFFSR _3066_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1680_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.u_ALU8.AI7 )
+);
+
+FILL FILL_0__2741_ (
+);
+
+FILL FILL_2__2759_ (
+);
+
+FILL FILL_2__3700_ (
+);
+
+FILL FILL_4__3626_ (
+);
+
+FILL FILL_4__3206_ (
+);
+
+FILL FILL_0__3946_ (
+);
+
+FILL FILL_0__3526_ (
+);
+
+FILL FILL_3__4095_ (
+);
+
+FILL FILL_2__4905_ (
+);
+
+FILL FILL_1__2902_ (
+);
+
+FILL FILL_3__2828_ (
+);
+
+FILL FILL_3__2408_ (
+);
+
+FILL FILL_2__3297_ (
+);
+
+INVX1 _2757_ (
+    .A(_1977_),
+    .Y(_1978_)
+);
+
+FILL FILL_4__4584_ (
+);
+
+FILL FILL_4__4164_ (
+);
+
+FILL FILL_3__2581_ (
+);
+
+FILL FILL_0__4484_ (
+);
+
+FILL FILL_0__4064_ (
+);
+
+FILL FILL_1__2499_ (
+);
+
+INVX1 _4903_ (
+    .A(_2352_),
+    .Y(_2179_)
+);
+
+FILL FILL_1__3860_ (
+);
+
+FILL FILL_1__3440_ (
+);
+
+FILL FILL_1__3020_ (
+);
+
+FILL FILL_3__3786_ (
+);
+
+FILL FILL_3__3366_ (
+);
+
+FILL FILL271950x25350 (
+);
+
+FILL FILL_1__4645_ (
+);
+
+FILL FILL_1__4225_ (
+);
+
+FILL FILL_4__2650_ (
+);
+
+NAND2X1 _3295_ (
+    .A(\u_cpu.AXYS[1] [5]),
+    .B(_1041_),
+    .Y(_154_)
+);
+
+FILL FILL_0__2970_ (
+);
+
+FILL FILL_2__2988_ (
+);
+
+FILL FILL_0__2550_ (
+);
+
+FILL FILL_2__2568_ (
+);
+
+FILL FILL_4__3855_ (
+);
+
+FILL FILL_4__3435_ (
+);
+
+FILL FILL_4__3015_ (
+);
+
+FILL FILL_0__3755_ (
+);
+
+FILL FILL_0__3335_ (
+);
+
+FILL FILL_2__4714_ (
+);
+
+FILL FILL_1__2711_ (
+);
+
+FILL FILL_3__2637_ (
+);
+
+FILL FILL_1__3916_ (
+);
+
+OAI21X1 _2986_ (
+    .A(kbd_rdy),
+    .B(_1513_),
+    .C(_1613_),
+    .Y(_1630_)
+);
+
+AOI21X1 _2566_ (
+    .A(_2261_),
+    .B(_2257_),
+    .C(_2354__5_bF$buf2),
+    .Y(_2262_)
+);
+
+FILL FILL_4__4393_ (
+);
+
+FILL FILL_0__4293_ (
+);
+
+FILL FILL_4__2706_ (
+);
+
+FILL FILL_0__2606_ (
+);
+
+NAND2X1 _4712_ (
+    .A(\u_cpu.alu_shift_right ),
+    .B(\u_cpu.AI [2]),
+    .Y(_1765_)
+);
+
+FILL FILL_3__3595_ (
+);
+
+FILL FILL_3__3175_ (
+);
+
+FILL FILL_1__4454_ (
+);
+
+FILL FILL_1__4034_ (
+);
+
+FILL FILL_2__2797_ (
+);
+
+FILL FILL_2__2377_ (
+);
+
+FILL FILL_4__3664_ (
+);
+
+FILL FILL_4__3244_ (
+);
+
+FILL FILL_0__3984_ (
+);
+
+FILL FILL_0__3564_ (
+);
+
+FILL FILL_4_BUFX2_insert40 (
+);
+
+FILL FILL_4_BUFX2_insert41 (
+);
+
+FILL FILL_4_BUFX2_insert42 (
+);
+
+FILL FILL_4_BUFX2_insert43 (
+);
+
+FILL FILL_2__4943_ (
+);
+
+FILL FILL_4_BUFX2_insert44 (
+);
+
+FILL FILL_4_BUFX2_insert45 (
+);
+
+FILL FILL_2__4523_ (
+);
+
+FILL FILL_4_BUFX2_insert46 (
+);
+
+FILL FILL_2__4103_ (
+);
+
+FILL FILL_4_BUFX2_insert47 (
+);
+
+FILL FILL_4_BUFX2_insert48 (
+);
+
+FILL FILL_4_BUFX2_insert49 (
+);
+
+FILL FILL_4__4869_ (
+);
+
+FILL FILL_4__4449_ (
+);
+
+FILL FILL_4__4029_ (
+);
+
+FILL FILL_1__2940_ (
+);
+
+FILL FILL_1__2520_ (
+);
+
+FILL FILL_0__4769_ (
+);
+
+FILL FILL_3__2446_ (
+);
+
+FILL FILL_0__4349_ (
+);
+
+FILL FILL_1__3725_ (
+);
+
+FILL FILL_1__3305_ (
+);
+
+OAI21X1 _2795_ (
+    .A(_1938_),
+    .B(_1918_),
+    .C(_1940_),
+    .Y(_1941_)
+);
+
+BUFX2 _2375_ (
+    .A(_2353_[4]),
+    .Y(DO[4])
+);
+
+FILL FILL_4__2935_ (
+);
+
+FILL FILL_4__2515_ (
+);
+
+FILL FILL274050x7350 (
+);
+
+FILL FILL_0__2835_ (
+);
+
+FILL FILL_0__2415_ (
+);
+
+INVX1 _4941_ (
+    .A(DO_woz[3]),
+    .Y(_2214_)
+);
+
+OAI21X1 _4521_ (
+    .A(\u_cpu.state [5]),
+    .B(_1252_),
+    .C(_1250_),
+    .Y(_1249_)
+);
+
+OAI21X1 _4101_ (
+    .A(_1328__bF$buf4),
+    .B(_870_),
+    .C(_868_),
+    .Y(_867_)
+);
+
+FILL FILL_1__4683_ (
+);
+
+FILL FILL_1__4263_ (
+);
+
+FILL FILL_3__4189_ (
+);
+
+FILL FILL_4__3893_ (
+);
+
+FILL FILL_4__3473_ (
+);
+
+FILL FILL_0__3793_ (
+);
+
+FILL FILL_0__3373_ (
+);
+
+FILL FILL_2__4752_ (
+);
+
+FILL FILL_2__4332_ (
+);
+
+FILL FILL_4__4678_ (
+);
+
+FILL FILL_4__4258_ (
+);
+
+FILL FILL_3__2675_ (
+);
+
+FILL FILL_0__4578_ (
+);
+
+FILL FILL_0__4158_ (
+);
+
+FILL FILL_1__3954_ (
+);
+
+FILL FILL_1__3534_ (
+);
+
+FILL FILL_3__4821_ (
+);
+
+FILL FILL_3__4401_ (
+);
+
+FILL FILL_1__4739_ (
+);
+
+FILL FILL_1__4319_ (
+);
+
+FILL FILL_4__2744_ (
+);
+
+INVX8 _3389_ (
+    .A(_223_),
+    .Y(_2354_[0])
+);
+
+FILL FILL_0__2644_ (
+);
+
+NAND2X1 _4750_ (
+    .A(\u_cpu.u_ALU8.BCD ),
+    .B(_1802_),
+    .Y(_1803_)
+);
+
+NOR2X1 _4330_ (
+    .A(_1335_),
+    .B(_1304_),
+    .Y(_1075_)
+);
+
+FILL FILL_2__3603_ (
+);
+
+FILL FILL_4__3949_ (
+);
+
+FILL FILL_4__3529_ (
+);
+
+FILL FILL_0__3849_ (
+);
+
+FILL FILL_0__3429_ (
+);
+
+FILL FILL_0__3009_ (
+);
+
+FILL FILL_1__4492_ (
+);
+
+FILL FILL_1__4072_ (
+);
+
+FILL FILL_2__4808_ (
+);
+
+FILL FILL_2_BUFX2_insert120 (
+);
+
+FILL FILL_2_BUFX2_insert121 (
+);
+
+FILL FILL_2_BUFX2_insert122 (
+);
+
+FILL FILL_2_BUFX2_insert123 (
+);
+
+FILL FILL_2_BUFX2_insert124 (
+);
+
+FILL FILL_2_BUFX2_insert125 (
+);
+
+FILL FILL_2_BUFX2_insert126 (
+);
+
+FILL FILL_2_BUFX2_insert127 (
+);
+
+FILL FILL_2_BUFX2_insert128 (
+);
+
+FILL FILL_2_BUFX2_insert129 (
+);
+
+FILL FILL_1__2805_ (
+);
+
+FILL FILL_4__3282_ (
+);
+
+FILL FILL_0__3182_ (
+);
+
+FILL FILL_2__4981_ (
+);
+
+FILL FILL_2__4561_ (
+);
+
+FILL FILL_2__4141_ (
+);
+
+FILL FILL_4__4487_ (
+);
+
+FILL FILL_4__4067_ (
+);
+
+NAND2X1 _3601_ (
+    .A(_735_),
+    .B(_406_),
+    .Y(_405_)
+);
+
+FILL FILL_0__4387_ (
+);
+
+FILL FILL_3__2484_ (
+);
+
+FILL FILL_1_BUFX2_insert140 (
+);
+
+FILL FILL_1_BUFX2_insert141 (
+);
+
+FILL FILL_1_BUFX2_insert142 (
+);
+
+FILL FILL_1_BUFX2_insert143 (
+);
+
+FILL FILL_1_BUFX2_insert144 (
+);
+
+FILL FILL_1_BUFX2_insert145 (
+);
+
+FILL FILL_1_BUFX2_insert146 (
+);
+
+FILL FILL_1_BUFX2_insert147 (
+);
+
+FILL FILL_1_BUFX2_insert148 (
+);
+
+FILL FILL_1_BUFX2_insert149 (
+);
+
+NAND2X1 _4806_ (
+    .A(\u_cpu.ADD [5]),
+    .B(_1681__bF$buf2),
+    .Y(_1853_)
+);
+
+FILL FILL_1__3763_ (
+);
+
+FILL FILL_1__3343_ (
+);
+
+FILL FILL_3__3689_ (
+);
+
+FILL FILL_3__3269_ (
+);
+
+FILL FILL_3__4630_ (
+);
+
+FILL FILL_3__4210_ (
+);
+
+FILL FILL_1__4968_ (
+);
+
+FILL FILL_1__4548_ (
+);
+
+FILL FILL_1__4128_ (
+);
+
+FILL FILL_4__2973_ (
+);
+
+FILL FILL_4__2553_ (
+);
+
+NAND2X1 _3198_ (
+    .A(\u_cpu.AXYS[3] [7]),
+    .B(_921_),
+    .Y(_95_)
+);
+
+FILL FILL_0__2453_ (
+);
+
+FILL FILL_2__3832_ (
+);
+
+FILL FILL_2__3412_ (
+);
+
+FILL FILL_4__3758_ (
+);
+
+FILL FILL_4__3338_ (
+);
+
+FILL FILL_0__3658_ (
+);
+
+FILL FILL_0__3238_ (
+);
+
+FILL FILL_2__4617_ (
+);
+
+FILL FILL_1__2614_ (
+);
+
+FILL FILL_3__3901_ (
+);
+
+FILL FILL_1__3819_ (
+);
+
+FILL FILL_2__4790_ (
+);
+
+FILL FILL_2__4370_ (
+);
+
+INVX1 _2889_ (
+    .A(_2354__7_bF$buf2),
+    .Y(_1571_)
+);
+
+OAI22X1 _2469_ (
+    .A(_3_),
+    .B(_5_),
+    .C(_4_),
+    .D(_2_),
+    .Y(_6_)
+);
+
+FILL FILL_4__4296_ (
+);
+
+NAND3X1 _3830_ (
+    .A(_627_),
+    .B(_626_),
+    .C(_624_),
+    .Y(_623_)
+);
+
+NAND2X1 _3410_ (
+    .A(\u_cpu.ADD [1]),
+    .B(_908_),
+    .Y(_240_)
+);
+
+FILL FILL_0__4196_ (
+);
+
+FILL FILL_4__2609_ (
+);
+
+FILL FILL_0__2929_ (
+);
+
+FILL FILL_0__2509_ (
+);
+
+INVX1 _4615_ (
+    .A(\u_cpu.NMI_edge ),
+    .Y(_1343_)
+);
+
+FILL FILL_1__3992_ (
+);
+
+FILL FILL_1__3572_ (
+);
+
+FILL FILL_3__3498_ (
+);
+
+FILL FILL_1__4777_ (
+);
+
+FILL FILL_1__4357_ (
+);
+
+FILL FILL_4__2782_ (
+);
+
+FILL FILL_4__2362_ (
+);
+
+FILL FILL_0__2682_ (
+);
+
+FILL FILL_2__3641_ (
+);
+
+FILL FILL_2__3221_ (
+);
+
+FILL FILL_4__3987_ (
+);
+
+FILL FILL_4__3567_ (
+);
+
+FILL FILL_0__3887_ (
+);
+
+FILL FILL_0__3467_ (
+);
+
+FILL FILL_2__4846_ (
+);
+
+FILL FILL_2__4426_ (
+);
+
+FILL FILL_2__4006_ (
+);
+
+FILL FILL_1__2843_ (
+);
+
+FILL FILL_1__2423_ (
+);
+
+FILL FILL_3__2769_ (
+);
+
+FILL FILL_3__3710_ (
+);
+
+FILL FILL274050x54150 (
+);
+
+FILL FILL_1__3628_ (
+);
+
+FILL FILL_1__3208_ (
+);
+
+NAND2X1 _2698_ (
+    .A(_1635__bF$buf1),
+    .B(_1636__bF$buf2),
+    .Y(_2037_)
+);
+
+FILL FILL_3__4915_ (
+);
+
+FILL FILL_2__2912_ (
+);
+
+FILL FILL_4__2838_ (
+);
+
+FILL FILL_4__2418_ (
+);
+
+FILL FILL_0__2738_ (
+);
+
+AOI22X1 _4844_ (
+    .A(_1695_),
+    .B(_1885_),
+    .C(_1838_),
+    .D(_1839_),
+    .Y(_1886_)
+);
+
+NOR2X1 _4424_ (
+    .A(_1161_),
+    .B(_1168_),
+    .Y(_1160_)
+);
+
+NAND2X1 _4004_ (
+    .A(_800__bF$buf3),
+    .B(_2354__7_bF$buf2),
+    .Y(_775_)
+);
+
+FILL FILL_1__3381_ (
+);
+
+FILL FILL_1__4586_ (
+);
+
+FILL FILL_1__4166_ (
+);
+
+FILL FILL_4__2591_ (
+);
+
+FILL FILL_0__2491_ (
+);
+
+FILL FILL_2__3870_ (
+);
+
+FILL FILL_2__3450_ (
+);
+
+FILL FILL_2__3030_ (
+);
+
+FILL FILL_4__3796_ (
+);
+
+FILL FILL_4__3376_ (
+);
+
+NAND3X1 _2910_ (
+    .A(_1523_),
+    .B(_1552_),
+    .C(_1553_),
+    .Y(_1554_)
+);
+
+FILL FILL_0__3696_ (
+);
+
+FILL FILL_0__3276_ (
+);
+
+FILL FILL_2__4655_ (
+);
+
+FILL FILL_2__4235_ (
+);
+
+FILL FILL273750x36150 (
+);
+
+FILL FILL_1__2652_ (
+);
+
+FILL FILL_3__2998_ (
+);
+
+FILL FILL_3__2578_ (
+);
+
+FILL FILL_1__3857_ (
+);
+
+FILL FILL_1__3437_ (
+);
+
+FILL FILL_1__3017_ (
+);
+
+FILL FILL_3__4724_ (
+);
+
+FILL FILL_3__4304_ (
+);
+
+FILL FILL_2__2721_ (
+);
+
+FILL FILL_4__2647_ (
+);
+
+FILL FILL_0__2967_ (
+);
+
+FILL FILL_0__2547_ (
+);
+
+INVX1 _4653_ (
+    .A(\u_cpu.AI [4]),
+    .Y(_1706_)
+);
+
+AND2X2 _4233_ (
+    .A(_1007_),
+    .B(_1099_),
+    .Y(_985_)
+);
+
+FILL FILL_1__3190_ (
+);
+
+FILL FILL_2__3926_ (
+);
+
+FILL FILL_2__3506_ (
+);
+
+FILL FILL_1__4395_ (
+);
+
+FILL FILL_1__2708_ (
+);
+
+FILL FILL_4__3185_ (
+);
+
+FILL FILL272250x25350 (
+);
+
+FILL FILL_2__4884_ (
+);
+
+FILL FILL_2__4464_ (
+);
+
+FILL FILL_2__4044_ (
+);
+
+INVX1 _3924_ (
+    .A(\u_cpu.dst_reg [1]),
+    .Y(_707_)
+);
+
+OAI21X1 _3504_ (
+    .A(_554_),
+    .B(_581_),
+    .C(_381_),
+    .Y(_317_)
+);
+
+FILL FILL_1__2881_ (
+);
+
+FILL FILL_1__2461_ (
+);
+
+FILL FILL_3__2387_ (
+);
+
+NAND2X1 _4709_ (
+    .A(_1761_),
+    .B(_1760_),
+    .Y(_1762_)
+);
+
+FILL FILL_1__3666_ (
+);
+
+FILL FILL_1__3246_ (
+);
+
+FILL FILL_3__4953_ (
+);
+
+FILL FILL_3__4533_ (
+);
+
+FILL FILL_3__4113_ (
+);
+
+FILL FILL_2__2950_ (
+);
+
+FILL FILL_2__2530_ (
+);
+
+FILL FILL_4__2876_ (
+);
+
+FILL FILL_4__2456_ (
+);
+
+FILL FILL_0__2776_ (
+);
+
+FILL FILL_0__2356_ (
+);
+
+DFFPOSX1 _4882_ (
+    .D(_2346_[6]),
+    .CLK(clk_bF$buf6),
+    .Q(DO_woz[6])
+);
+
+NAND2X1 _4462_ (
+    .A(RDY_bF$buf3),
+    .B(Data_In[1]),
+    .Y(_1193_)
+);
+
+NOR2X1 _4042_ (
+    .A(_810_),
+    .B(_812_),
+    .Y(_809_)
+);
+
+FILL FILL_2__3735_ (
+);
+
+FILL FILL_2__3315_ (
+);
+
+FILL FILL_4__4602_ (
+);
+
+FILL FILL_0__4922_ (
+);
+
+FILL FILL_0__4502_ (
+);
+
+FILL FILL_1__2937_ (
+);
+
+FILL FILL_1__2517_ (
+);
+
+FILL FILL_3__3804_ (
+);
+
+FILL FILL_2__4693_ (
+);
+
+FILL FILL_2__4273_ (
+);
+
+FILL FILL_4__4199_ (
+);
+
+OAI21X1 _3733_ (
+    .A(RDY_bF$buf0),
+    .B(_1048_),
+    .C(_533_),
+    .Y(_532_)
+);
+
+NAND3X1 _3313_ (
+    .A(_1091_),
+    .B(_165_),
+    .C(_170_),
+    .Y(_164_)
+);
+
+FILL FILL_1__2690_ (
+);
+
+FILL FILL_0__4099_ (
+);
+
+NAND3X1 _4938_ (
+    .A(_2209_),
+    .B(_2211_),
+    .C(_2182_),
+    .Y(_2212_)
+);
+
+NAND2X1 _4518_ (
+    .A(_1248_),
+    .B(_1247_),
+    .Y(_1246_)
+);
+
+FILL FILL_1__3895_ (
+);
+
+FILL FILL_1__3475_ (
+);
+
+FILL FILL_3__4762_ (
+);
+
+FILL FILL_3__4342_ (
+);
+
+FILL FILL_4__2685_ (
+);
+
+FILL FILL_0__2585_ (
+);
+
+NAND2X1 _4691_ (
+    .A(\u_cpu.BI [0]),
+    .B(_1687_),
+    .Y(_1744_)
+);
+
+NAND2X1 _4271_ (
+    .A(_1102_),
+    .B(_1025_),
+    .Y(_1020_)
+);
+
+FILL FILL_2__3964_ (
+);
+
+FILL FILL_2__3544_ (
+);
+
+FILL FILL_4__4831_ (
+);
+
+FILL FILL_4__4411_ (
+);
+
+FILL FILL_2__4749_ (
+);
+
+FILL FILL_0__4731_ (
+);
+
+FILL FILL_0__4311_ (
+);
+
+FILL FILL_2__4329_ (
+);
+
+FILL FILL_1__2746_ (
+);
+
+FILL FILL_3__3613_ (
+);
+
+FILL FILL_2__4082_ (
+);
+
+FILL FILL_3__4818_ (
+);
+
+NOR2X1 _3962_ (
+    .A(_1044_),
+    .B(_828_),
+    .Y(_737_)
+);
+
+AOI22X1 _3542_ (
+    .A(\u_cpu.AXYS[1] [2]),
+    .B(_1050_),
+    .C(_790_),
+    .D(\u_cpu.AXYS[2] [2]),
+    .Y(_349_)
+);
+
+DFFSR _3122_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1450_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.plp )
+);
+
+FILL FILL_2__2815_ (
+);
+
+NAND2X1 _4747_ (
+    .A(_1768_),
+    .B(_1764_),
+    .Y(_1800_)
+);
+
+NOR2X1 _4327_ (
+    .A(_1352_),
+    .B(_1348_),
+    .Y(_1072_)
+);
+
+FILL FILL_1__3284_ (
+);
+
+FILL FILL_3__4571_ (
+);
+
+FILL FILL_3__4151_ (
+);
+
+FILL FILL_1__4489_ (
+);
+
+FILL FILL_1__4069_ (
+);
+
+FILL FILL_4__2494_ (
+);
+
+FILL FILL_0__2394_ (
+);
+
+NAND2X1 _4080_ (
+    .A(_1329_),
+    .B(_912_),
+    .Y(_847_)
+);
+
+FILL FILL_2__3773_ (
+);
+
+FILL FILL_2__3353_ (
+);
+
+FILL FILL_4__3699_ (
+);
+
+FILL FILL_4__3279_ (
+);
+
+INVX4 _2813_ (
+    .A(_2354__6_bF$buf2),
+    .Y(_1923_)
+);
+
+FILL FILL_4__4640_ (
+);
+
+FILL FILL_4__4220_ (
+);
+
+FILL FILL_0__3599_ (
+);
+
+FILL FILL_0__3179_ (
+);
+
+FILL FILL_0__4960_ (
+);
+
+FILL FILL_2__4978_ (
+);
+
+FILL FILL_2__4558_ (
+);
+
+FILL FILL_0__4540_ (
+);
+
+FILL FILL_0__4120_ (
+);
+
+FILL FILL_2__4138_ (
+);
+
+FILL FILL_1__2975_ (
+);
+
+FILL FILL_1__2555_ (
+);
+
+FILL FILL_3__3842_ (
+);
+
+FILL FILL_3__3422_ (
+);
+
+FILL FILL_3__3002_ (
+);
+
+FILL FILL_1__4701_ (
+);
+
+FILL FILL_3__4627_ (
+);
+
+FILL FILL_3__4207_ (
+);
+
+NOR2X1 _3771_ (
+    .A(_571_),
+    .B(_572_),
+    .Y(_570_)
+);
+
+OAI22X1 _3351_ (
+    .A(_907_),
+    .B(_616_),
+    .C(_1355_),
+    .D(_614_),
+    .Y(_188_)
+);
+
+FILL FILL_2__2624_ (
+);
+
+FILL FILL_4__3911_ (
+);
+
+INVX1 _4976_ (
+    .A(DO_dsp[7]),
+    .Y(_2245_)
+);
+
+NAND3X1 _4556_ (
+    .A(_1305__bF$buf1),
+    .B(_1321_),
+    .C(_1285_),
+    .Y(_1284_)
+);
+
+NOR2X1 _4136_ (
+    .A(_1328__bF$buf2),
+    .B(_903_),
+    .Y(_902_)
+);
+
+FILL FILL_2__3829_ (
+);
+
+FILL FILL_0__3811_ (
+);
+
+FILL FILL_2__3409_ (
+);
+
+FILL FILL_3__4380_ (
+);
+
+FILL FILL_1__4298_ (
+);
+
+FILL FILL_2__3582_ (
+);
+
+OAI21X1 _2622_ (
+    .A(_2110_),
+    .B(_1937_),
+    .C(_2354__4_bF$buf1),
+    .Y(_2111_)
+);
+
+FILL FILL_2__4787_ (
+);
+
+FILL FILL_2__4367_ (
+);
+
+OAI21X1 _3827_ (
+    .A(_1319_),
+    .B(_887_),
+    .C(\u_cpu.DIMUX [2]),
+    .Y(_621_)
+);
+
+OAI21X1 _3407_ (
+    .A(_1192_),
+    .B(_886_),
+    .C(_238_),
+    .Y(_237_)
+);
+
+FILL FILL_1__2784_ (
+);
+
+FILL FILL_1__2364_ (
+);
+
+FILL FILL_3__3651_ (
+);
+
+FILL FILL_3__3231_ (
+);
+
+FILL FILL_1__3989_ (
+);
+
+FILL FILL_1__3569_ (
+);
+
+FILL FILL_1__4930_ (
+);
+
+FILL FILL_1__4510_ (
+);
+
+FILL FILL_3__4856_ (
+);
+
+FILL FILL_3__4436_ (
+);
+
+FILL FILL_3__4016_ (
+);
+
+OAI21X1 _3580_ (
+    .A(_1024_),
+    .B(_1019_),
+    .C(_385_),
+    .Y(_384_)
+);
+
+DFFSR _3160_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1416_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[2] [4])
+);
+
+FILL FILL_2__2853_ (
+);
+
+FILL FILL_2__2433_ (
+);
+
+FILL FILL_4__2779_ (
+);
+
+FILL FILL_4__2359_ (
+);
+
+FILL FILL_4__3720_ (
+);
+
+FILL FILL_4__3300_ (
+);
+
+FILL FILL_0__2679_ (
+);
+
+OAI21X1 _4785_ (
+    .A(_1810_),
+    .B(_1837_),
+    .C(_1809_),
+    .Y(_1838_)
+);
+
+INVX2 _4365_ (
+    .A(\u_cpu.DIMUX [6]),
+    .Y(_1108_)
+);
+
+FILL FILL_0__3620_ (
+);
+
+FILL FILL_2__3638_ (
+);
+
+FILL FILL_0__3200_ (
+);
+
+FILL FILL_2__3218_ (
+);
+
+FILL FILL_4__4925_ (
+);
+
+FILL FILL_4__4505_ (
+);
+
+FILL FILL_0__4825_ (
+);
+
+FILL FILL_3__2922_ (
+);
+
+FILL FILL_3__2502_ (
+);
+
+FILL FILL_0__4405_ (
+);
+
+FILL FILL_2__3391_ (
+);
+
+FILL FILL_3__3707_ (
+);
+
+OAI21X1 _2851_ (
+    .A(_2354__2_bF$buf4),
+    .B(_1635__bF$buf3),
+    .C(_1643__bF$buf1),
+    .Y(_1644_)
+);
+
+AOI22X1 _2431_ (
+    .A(_34_),
+    .B(_43_),
+    .C(_21_),
+    .D(_1973_),
+    .Y(_2346_[0])
+);
+
+FILL FILL_2__4596_ (
+);
+
+FILL FILL_2__4176_ (
+);
+
+OAI21X1 _3636_ (
+    .A(_442_),
+    .B(_440_),
+    .C(_544_),
+    .Y(_439_)
+);
+
+OAI21X1 _3216_ (
+    .A(_667_),
+    .B(_1129__bF$buf5),
+    .C(_108_),
+    .Y(_1371_)
+);
+
+FILL FILL_1__2593_ (
+);
+
+FILL FILL_2__2909_ (
+);
+
+FILL FILL_3__3880_ (
+);
+
+FILL FILL_3__3460_ (
+);
+
+FILL FILL_1__3798_ (
+);
+
+FILL FILL_1__3378_ (
+);
+
+FILL FILL_3__4665_ (
+);
+
+FILL FILL_3__4245_ (
+);
+
+BUFX2 BUFX2_insert160 (
+    .A(_1325_),
+    .Y(_1325__bF$buf3)
+);
+
+BUFX2 BUFX2_insert161 (
+    .A(_1325_),
+    .Y(_1325__bF$buf2)
+);
+
+BUFX2 BUFX2_insert162 (
+    .A(_1325_),
+    .Y(_1325__bF$buf1)
+);
+
+BUFX2 BUFX2_insert163 (
+    .A(_1325_),
+    .Y(_1325__bF$buf0)
+);
+
+BUFX2 BUFX2_insert164 (
+    .A(_1037_),
+    .Y(_1037__bF$buf3)
+);
+
+FILL FILL_2__2662_ (
+);
+
+BUFX2 BUFX2_insert165 (
+    .A(_1037_),
+    .Y(_1037__bF$buf2)
+);
+
+BUFX2 BUFX2_insert166 (
+    .A(_1037_),
+    .Y(_1037__bF$buf1)
+);
+
+BUFX2 BUFX2_insert167 (
+    .A(_1037_),
+    .Y(_1037__bF$buf0)
+);
+
+FILL FILL_4__2588_ (
+);
+
+FILL FILL_0__2488_ (
+);
+
+NOR2X1 _4594_ (
+    .A(\u_cpu.state [2]),
+    .B(_1338_),
+    .Y(_1322_)
+);
+
+NAND2X1 _4174_ (
+    .A(_1070__bF$buf1),
+    .B(_934_),
+    .Y(_933_)
+);
+
+FILL FILL_2__3867_ (
+);
+
+FILL FILL_2__3447_ (
+);
+
+FILL FILL_2__3027_ (
+);
+
+NOR3X1 _2907_ (
+    .A(_2354_[9]),
+    .B(_2354__6_bF$buf4),
+    .C(_2354__7_bF$buf2),
+    .Y(_1557_)
+);
+
+FILL FILL_4__4734_ (
+);
+
+FILL FILL_4__4314_ (
+);
+
+FILL FILL_3__2731_ (
+);
+
+FILL FILL_0__4634_ (
+);
+
+FILL FILL_0__4214_ (
+);
+
+FILL FILL_1__2649_ (
+);
+
+FILL FILL_3__3936_ (
+);
+
+FILL FILL_3__3516_ (
+);
+
+NAND2X1 _2660_ (
+    .A(_1636__bF$buf2),
+    .B(_1651_),
+    .Y(_2074_)
+);
+
+FILL FILL_4__2800_ (
+);
+
+AOI22X1 _3865_ (
+    .A(\u_cpu.DIMUX [4]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [4]),
+    .Y(_656_)
+);
+
+OAI21X1 _3445_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [5]),
+    .Y(_269_)
+);
+
+NAND2X1 _3025_ (
+    .A(kbd_data[0]),
+    .B(_1500_),
+    .Y(_1503_)
+);
+
+FILL FILL272850x21750 (
+);
+
+FILL FILL_2__2718_ (
+);
+
+FILL FILL_0__2700_ (
+);
+
+FILL FILL_1__3187_ (
+);
+
+FILL FILL_0__3905_ (
+);
+
+FILL FILL_3__4894_ (
+);
+
+FILL FILL_3__4474_ (
+);
+
+FILL FILL_3__4054_ (
+);
+
+FILL FILL_2__2891_ (
+);
+
+FILL FILL_2__2471_ (
+);
+
+FILL FILL_4__2397_ (
+);
+
+FILL FILL_2__3676_ (
+);
+
+FILL FILL_2__3256_ (
+);
+
+NAND2X1 _2716_ (
+    .A(_1967_),
+    .B(_1984_),
+    .Y(_2019_)
+);
+
+FILL FILL_4__4963_ (
+);
+
+FILL FILL_4__4543_ (
+);
+
+FILL FILL_4__4123_ (
+);
+
+FILL FILL_0__4863_ (
+);
+
+FILL FILL_3__2540_ (
+);
+
+FILL FILL_0__4443_ (
+);
+
+FILL FILL_0__4023_ (
+);
+
+FILL FILL_1__2878_ (
+);
+
+FILL FILL_1__2458_ (
+);
+
+FILL FILL_3__3745_ (
+);
+
+FILL FILL_3__3325_ (
+);
+
+FILL FILL_1__4604_ (
+);
+
+NAND2X1 _3674_ (
+    .A(_1196__bF$buf4),
+    .B(_882_),
+    .Y(_477_)
+);
+
+NAND2X1 _3254_ (
+    .A(_2354_[8]),
+    .B(_800__bF$buf4),
+    .Y(_133_)
+);
+
+FILL FILL_2__2947_ (
+);
+
+FILL FILL_2__2527_ (
+);
+
+FILL FILL_4__3814_ (
+);
+
+DFFSR _4879_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1668_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.ADD [1])
+);
+
+OAI21X1 _4459_ (
+    .A(_1221_),
+    .B(_1349_),
+    .C(_1315__bF$buf2),
+    .Y(_1191_)
+);
+
+INVX1 _4039_ (
+    .A(_807_),
+    .Y(_806_)
+);
+
+FILL FILL_0__3714_ (
+);
+
+FILL FILL_3__4283_ (
+);
+
+FILL FILL_0__4919_ (
+);
+
+FILL FILL_0_BUFX2_insert60 (
+);
+
+FILL FILL_0_BUFX2_insert61 (
+);
+
+FILL FILL_0_BUFX2_insert62 (
+);
+
+FILL FILL_2__3485_ (
+);
+
+FILL FILL_0_BUFX2_insert63 (
+);
+
+FILL FILL_0_BUFX2_insert64 (
+);
+
+FILL FILL_0_BUFX2_insert65 (
+);
+
+FILL FILL_0_BUFX2_insert66 (
+);
+
+FILL FILL_0_BUFX2_insert67 (
+);
+
+FILL FILL_0_BUFX2_insert68 (
+);
+
+FILL FILL_0_BUFX2_insert69 (
+);
+
+INVX1 _2945_ (
+    .A(_2354__0_bF$buf2),
+    .Y(_1526_)
+);
+
+OAI21X1 _2525_ (
+    .A(_2301_),
+    .B(_2110_),
+    .C(_2354__6_bF$buf3),
+    .Y(_2302_)
+);
+
+FILL FILL_4__4772_ (
+);
+
+FILL FILL_4__4352_ (
+);
+
+FILL FILL_0__4672_ (
+);
+
+FILL FILL_0__4252_ (
+);
+
+FILL FILL_1__2687_ (
+);
+
+FILL FILL_3__3974_ (
+);
+
+FILL FILL_3__3554_ (
+);
+
+FILL FILL_1__4833_ (
+);
+
+FILL FILL_1__4413_ (
+);
+
+FILL FILL_3__4759_ (
+);
+
+FILL FILL_3__4339_ (
+);
+
+NOR2X1 _3483_ (
+    .A(_532_),
+    .B(_297_),
+    .Y(_296_)
+);
+
+DFFSR _3063_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1479_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.backwards )
+);
+
+FILL FILL_2__2756_ (
+);
+
+FILL FILL_4__3623_ (
+);
+
+FILL FILL_4__3203_ (
+);
+
+OR2X2 _4688_ (
+    .A(_1740_),
+    .B(_1736_),
+    .Y(_1741_)
+);
+
+AOI22X1 _4268_ (
+    .A(\u_cpu.op [3]),
+    .B(_1037__bF$buf3),
+    .C(_1019_),
+    .D(_1018_),
+    .Y(_1017_)
+);
+
+FILL FILL_0__3943_ (
+);
+
+FILL FILL_0__3523_ (
+);
+
+FILL FILL_3__4092_ (
+);
+
+FILL FILL_2__4902_ (
+);
+
+FILL FILL_4__4828_ (
+);
+
+FILL FILL_4__4408_ (
+);
+
+FILL FILL_0__4728_ (
+);
+
+FILL FILL_3__2825_ (
+);
+
+FILL FILL_3__2405_ (
+);
+
+FILL FILL_0__4308_ (
+);
+
+FILL FILL_2__3294_ (
+);
+
+OAI21X1 _2754_ (
+    .A(_2354__3_bF$buf5),
+    .B(_1944_),
+    .C(_1980_),
+    .Y(_1981_)
+);
+
+FILL FILL_4__4581_ (
+);
+
+FILL FILL_4__4161_ (
+);
+
+FILL FILL_0__4481_ (
+);
+
+FILL FILL_2__4499_ (
+);
+
+FILL FILL_0__4061_ (
+);
+
+FILL FILL_2__4079_ (
+);
+
+INVX1 _3959_ (
+    .A(\u_cpu.cond_code [2]),
+    .Y(_735_)
+);
+
+INVX1 _3539_ (
+    .A(_347_),
+    .Y(_346_)
+);
+
+DFFSR _3119_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1474_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.op [2])
+);
+
+FILL FILL_1__2496_ (
+);
+
+NOR2X1 _4900_ (
+    .A(_2163_),
+    .B(_2167_),
+    .Y(_2176_)
+);
+
+FILL FILL_3__3783_ (
+);
+
+FILL FILL_3__3363_ (
+);
+
+FILL FILL_1__4642_ (
+);
+
+FILL FILL_1__4222_ (
+);
+
+FILL FILL_3__4568_ (
+);
+
+FILL FILL_3__4148_ (
+);
+
+OAI21X1 _3292_ (
+    .A(_1041_),
+    .B(_924_),
+    .C(_153_),
+    .Y(_1402_)
+);
+
+FILL FILL_2__2985_ (
+);
+
+FILL FILL_2__2565_ (
+);
+
+FILL FILL_4__3852_ (
+);
+
+FILL FILL_4__3432_ (
+);
+
+FILL FILL_4__3012_ (
+);
+
+NOR3X1 _4497_ (
+    .A(_1271_),
+    .B(_1264_),
+    .C(_1226_),
+    .Y(_1225_)
+);
+
+NAND2X1 _4077_ (
+    .A(_848_),
+    .B(_845_),
+    .Y(_844_)
+);
+
+FILL FILL_0__3752_ (
+);
+
+FILL FILL_0__3332_ (
+);
+
+FILL FILL_2__4711_ (
+);
+
+FILL FILL_4__4637_ (
+);
+
+FILL FILL_4__4217_ (
+);
+
+FILL FILL_0__4957_ (
+);
+
+FILL FILL_3__2634_ (
+);
+
+FILL FILL_0__4537_ (
+);
+
+FILL FILL_0__4117_ (
+);
+
+FILL FILL_1__3913_ (
+);
+
+FILL FILL_3__3839_ (
+);
+
+FILL FILL_3__3419_ (
+);
+
+NAND2X1 _2983_ (
+    .A(kbd_data[3]),
+    .B(_1500_),
+    .Y(_1615_)
+);
+
+NAND2X1 _2563_ (
+    .A(_2263_),
+    .B(_2019_),
+    .Y(_2264_)
+);
+
+FILL FILL_4__4390_ (
+);
+
+FILL FILL_0__4290_ (
+);
+
+FILL FILL_4__2703_ (
+);
+
+NAND2X1 _3768_ (
+    .A(_574_),
+    .B(_568_),
+    .Y(_567_)
+);
+
+OAI22X1 _3348_ (
+    .A(_1355_),
+    .B(_1250_),
+    .C(_1113_),
+    .D(_278_),
+    .Y(\u_cpu.BI [7])
+);
+
+FILL FILL_0__2603_ (
+);
+
+FILL FILL_3__3592_ (
+);
+
+FILL FILL_3__3172_ (
+);
+
+FILL FILL_4__3908_ (
+);
+
+FILL FILL_0__3808_ (
+);
+
+FILL FILL_1__4451_ (
+);
+
+FILL FILL_1__4031_ (
+);
+
+FILL FILL_3__4797_ (
+);
+
+FILL FILL_3__4377_ (
+);
+
+FILL FILL_2__2794_ (
+);
+
+FILL FILL_2__2374_ (
+);
+
+FILL FILL_4__3661_ (
+);
+
+FILL FILL_4__3241_ (
+);
+
+FILL FILL_2__3999_ (
+);
+
+FILL FILL_0__3981_ (
+);
+
+FILL FILL_2__3579_ (
+);
+
+FILL FILL_0__3561_ (
+);
+
+FILL FILL_4_BUFX2_insert10 (
+);
+
+FILL FILL_4_BUFX2_insert11 (
+);
+
+FILL FILL_4_BUFX2_insert12 (
+);
+
+FILL FILL_4_BUFX2_insert13 (
+);
+
+FILL FILL_2__4940_ (
+);
+
+FILL FILL_2__4520_ (
+);
+
+FILL FILL_4_BUFX2_insert15 (
+);
+
+FILL FILL_4_BUFX2_insert16 (
+);
+
+FILL FILL_2__4100_ (
+);
+
+OAI21X1 _2619_ (
+    .A(_1943_),
+    .B(_2113_),
+    .C(_1634__bF$buf1),
+    .Y(_2114_)
+);
+
+FILL FILL_4_BUFX2_insert17 (
+);
+
+FILL FILL_4_BUFX2_insert18 (
+);
+
+FILL FILL_4__4866_ (
+);
+
+FILL FILL_4_BUFX2_insert19 (
+);
+
+FILL FILL_4__4446_ (
+);
+
+FILL FILL_4__4026_ (
+);
+
+FILL FILL_0__4766_ (
+);
+
+FILL FILL_3__2443_ (
+);
+
+FILL FILL_0__4346_ (
+);
+
+BUFX2 BUFX2_insert70 (
+    .A(_1920_),
+    .Y(_1920__bF$buf3)
+);
+
+BUFX2 BUFX2_insert71 (
+    .A(_1920_),
+    .Y(_1920__bF$buf2)
+);
+
+BUFX2 BUFX2_insert72 (
+    .A(_1920_),
+    .Y(_1920__bF$buf1)
+);
+
+BUFX2 BUFX2_insert73 (
+    .A(_1920_),
+    .Y(_1920__bF$buf0)
+);
+
+BUFX2 BUFX2_insert74 (
+    .A(_2354_[6]),
+    .Y(_2354__6_bF$buf4)
+);
+
+FILL FILL_1__3722_ (
+);
+
+BUFX2 BUFX2_insert75 (
+    .A(_2354_[6]),
+    .Y(_2354__6_bF$buf3)
+);
+
+FILL FILL_1__3302_ (
+);
+
+BUFX2 BUFX2_insert76 (
+    .A(_2354_[6]),
+    .Y(_2354__6_bF$buf2)
+);
+
+BUFX2 BUFX2_insert77 (
+    .A(_2354_[6]),
+    .Y(_2354__6_bF$buf1)
+);
+
+BUFX2 BUFX2_insert78 (
+    .A(_2354_[6]),
+    .Y(_2354__6_bF$buf0)
+);
+
+BUFX2 BUFX2_insert79 (
+    .A(_2354_[3]),
+    .Y(_2354__3_bF$buf6)
+);
+
+FILL FILL_3__3648_ (
+);
+
+FILL FILL_3__3228_ (
+);
+
+NAND2X1 _2792_ (
+    .A(_2354__1_bF$buf2),
+    .B(_2354__2_bF$buf0),
+    .Y(_1944_)
+);
+
+BUFX2 _2372_ (
+    .A(_2353_[7]),
+    .Y(DO[7])
+);
+
+FILL FILL_1__4927_ (
+);
+
+FILL FILL_1__4507_ (
+);
+
+FILL FILL_4__2932_ (
+);
+
+FILL FILL_4__2512_ (
+);
+
+OAI21X1 _3997_ (
+    .A(_771_),
+    .B(_770_),
+    .C(_773_),
+    .Y(_769_)
+);
+
+NOR2X1 _3577_ (
+    .A(_989_),
+    .B(_382_),
+    .Y(_381_)
+);
+
+DFFSR _3157_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1457_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABL [7])
+);
+
+FILL FILL_0__2832_ (
+);
+
+FILL FILL_0__2412_ (
+);
+
+FILL FILL_4__3717_ (
+);
+
+FILL FILL_0__3617_ (
+);
+
+FILL FILL_1__4680_ (
+);
+
+FILL FILL_1__4260_ (
+);
+
+FILL FILL_3__4186_ (
+);
+
+FILL FILL_3__2919_ (
+);
+
+FILL FILL_4__3890_ (
+);
+
+FILL FILL_4__3470_ (
+);
+
+FILL FILL_0__3790_ (
+);
+
+FILL FILL_2__3388_ (
+);
+
+FILL FILL_0__3370_ (
+);
+
+NOR2X1 _2848_ (
+    .A(_2354__1_bF$buf3),
+    .B(_2354__0_bF$buf2),
+    .Y(_1647_)
+);
+
+INVX1 _2428_ (
+    .A(_2301_),
+    .Y(_46_)
+);
+
+FILL FILL_4__4675_ (
+);
+
+FILL FILL_4__4255_ (
+);
+
+FILL FILL_3__2672_ (
+);
+
+FILL FILL_0__4575_ (
+);
+
+FILL FILL_0__4155_ (
+);
+
+FILL FILL_1__3951_ (
+);
+
+FILL FILL_1__3531_ (
+);
+
+FILL FILL_3__3877_ (
+);
+
+FILL FILL_3__3457_ (
+);
+
+FILL FILL_1__4736_ (
+);
+
+FILL FILL_1__4316_ (
+);
+
+FILL FILL_4__2741_ (
+);
+
+NAND2X1 _3386_ (
+    .A(_221_),
+    .B(_630_),
+    .Y(_2352_)
+);
+
+FILL FILL_2__2659_ (
+);
+
+FILL FILL_0__2641_ (
+);
+
+FILL FILL_2__3600_ (
+);
+
+FILL FILL_4__3946_ (
+);
+
+FILL FILL_4__3526_ (
+);
+
+FILL FILL_0__3846_ (
+);
+
+FILL FILL_0__3426_ (
+);
+
+FILL FILL_0__3006_ (
+);
+
+FILL FILL_2__4805_ (
+);
+
+FILL FILL_1__2802_ (
+);
+
+FILL FILL_3__2728_ (
+);
+
+FILL FILL_2__3197_ (
+);
+
+NOR2X1 _2657_ (
+    .A(_1634__bF$buf0),
+    .B(_1653_),
+    .Y(_2077_)
+);
+
+FILL FILL_4__4484_ (
+);
+
+FILL FILL_4__4064_ (
+);
+
+FILL FILL_0__4384_ (
+);
+
+FILL FILL_3__2481_ (
+);
+
+FILL FILL_1_BUFX2_insert110 (
+);
+
+FILL FILL_1_BUFX2_insert111 (
+);
+
+FILL FILL_1_BUFX2_insert112 (
+);
+
+FILL FILL_1_BUFX2_insert113 (
+);
+
+FILL FILL_1_BUFX2_insert114 (
+);
+
+FILL FILL_1_BUFX2_insert115 (
+);
+
+FILL FILL_1_BUFX2_insert116 (
+);
+
+FILL FILL_1_BUFX2_insert117 (
+);
+
+FILL FILL_1_BUFX2_insert118 (
+);
+
+FILL FILL_1_BUFX2_insert119 (
+);
+
+FILL FILL_1__2399_ (
+);
+
+NOR2X1 _4803_ (
+    .A(_1811_),
+    .B(_1807_),
+    .Y(_1851_)
+);
+
+FILL FILL_1__3760_ (
+);
+
+FILL FILL_1__3340_ (
+);
+
+FILL FILL_3__3686_ (
+);
+
+FILL FILL_3__3266_ (
+);
+
+FILL FILL_1__4965_ (
+);
+
+FILL FILL_1__4545_ (
+);
+
+FILL FILL_1__4125_ (
+);
+
+FILL FILL_4__2970_ (
+);
+
+FILL FILL_4__2550_ (
+);
+
+INVX1 _3195_ (
+    .A(_1227_),
+    .Y(_93_)
+);
+
+FILL FILL_2__2888_ (
+);
+
+FILL FILL_2__2468_ (
+);
+
+FILL FILL_0__2450_ (
+);
+
+FILL FILL_4__3755_ (
+);
+
+FILL FILL_4__3335_ (
+);
+
+FILL FILL_0__3655_ (
+);
+
+FILL FILL_0__3235_ (
+);
+
+FILL FILL_2__4614_ (
+);
+
+FILL FILL_1__2611_ (
+);
+
+FILL FILL_3__2537_ (
+);
+
+FILL FILL_1__3816_ (
+);
+
+NOR2X1 _2886_ (
+    .A(_1572_),
+    .B(_1573_),
+    .Y(_1574_)
+);
+
+OAI21X1 _2466_ (
+    .A(_8_),
+    .B(_7_),
+    .C(_2129_),
+    .Y(_9_)
+);
+
+FILL FILL_4__4293_ (
+);
+
+FILL FILL_0__4193_ (
+);
+
+FILL FILL_4__2606_ (
+);
+
+FILL FILL_0__2926_ (
+);
+
+FILL FILL_0__2506_ (
+);
+
+INVX2 _4612_ (
+    .A(_1341_),
+    .Y(_1340_)
+);
+
+FILL FILL_3__3495_ (
+);
+
+FILL FILL_1__4774_ (
+);
+
+FILL FILL_1__4354_ (
+);
+
+FILL FILL_2__2697_ (
+);
+
+FILL FILL_4__3984_ (
+);
+
+FILL FILL_4__3564_ (
+);
+
+FILL FILL_0__3884_ (
+);
+
+FILL FILL_0__3464_ (
+);
+
+FILL FILL_2__4843_ (
+);
+
+FILL FILL_2__4423_ (
+);
+
+FILL FILL_2__4003_ (
+);
+
+FILL FILL_4__4769_ (
+);
+
+FILL FILL_4__4349_ (
+);
+
+FILL FILL_1__2840_ (
+);
+
+FILL FILL_1__2420_ (
+);
+
+FILL FILL_3__2766_ (
+);
+
+FILL FILL_0__4669_ (
+);
+
+FILL FILL_0__4249_ (
+);
+
+FILL FILL_1__3625_ (
+);
+
+FILL FILL_1__3205_ (
+);
+
+AOI21X1 _2695_ (
+    .A(_2036_),
+    .B(_2039_),
+    .C(_2354__5_bF$buf1),
+    .Y(_2040_)
+);
+
+FILL FILL_3__4912_ (
+);
+
+FILL FILL_4__2835_ (
+);
+
+FILL FILL_4__2415_ (
+);
+
+FILL FILL_0__2735_ (
+);
+
+NAND2X1 _4841_ (
+    .A(RDY_bF$buf7),
+    .B(_1883_),
+    .Y(_1884_)
+);
+
+INVX1 _4421_ (
+    .A(_1160_),
+    .Y(_1157_)
+);
+
+NAND3X1 _4001_ (
+    .A(_1126_),
+    .B(_1111_),
+    .C(_996_),
+    .Y(_773_)
+);
+
+FILL FILL_1__4583_ (
+);
+
+FILL FILL_1__4163_ (
+);
+
+FILL FILL_3__4089_ (
+);
+
+FILL FILL274050x75750 (
+);
+
+FILL FILL_4__3793_ (
+);
+
+FILL FILL_4__3373_ (
+);
+
+FILL FILL_0__3693_ (
+);
+
+FILL FILL_0__3273_ (
+);
+
+FILL FILL_2__4652_ (
+);
+
+FILL FILL_2__4232_ (
+);
+
+FILL FILL_4__4578_ (
+);
+
+FILL FILL_4__4158_ (
+);
+
+FILL FILL_3__2995_ (
+);
+
+FILL FILL_0__4898_ (
+);
+
+FILL FILL_3__2575_ (
+);
+
+FILL FILL_0__4478_ (
+);
+
+FILL FILL_0__4058_ (
+);
+
+FILL FILL_1__3854_ (
+);
+
+FILL FILL_1__3434_ (
+);
+
+FILL FILL_1__3014_ (
+);
+
+FILL FILL_3__4721_ (
+);
+
+FILL FILL_3__4301_ (
+);
+
+FILL FILL_1__4639_ (
+);
+
+FILL FILL_1__4219_ (
+);
+
+FILL FILL_4__2644_ (
+);
+
+FILL FILL273750x90150 (
+);
+
+OAI21X1 _3289_ (
+    .A(_1108_),
+    .B(_179_),
+    .C(_152_),
+    .Y(_1400_)
+);
+
+FILL FILL_0__2964_ (
+);
+
+FILL FILL_0__2544_ (
+);
+
+OAI21X1 _4650_ (
+    .A(_1697_),
+    .B(_1702_),
+    .C(_1695_),
+    .Y(_1703_)
+);
+
+AOI21X1 _4230_ (
+    .A(_1019_),
+    .B(_1104_),
+    .C(_1037__bF$buf3),
+    .Y(_982_)
+);
+
+FILL FILL_2__3923_ (
+);
+
+FILL FILL_2__3503_ (
+);
+
+FILL FILL_0_BUFX2_insert150 (
+);
+
+FILL FILL_0_BUFX2_insert151 (
+);
+
+FILL FILL_0_BUFX2_insert152 (
+);
+
+FILL FILL_0_BUFX2_insert153 (
+);
+
+FILL FILL_4__3849_ (
+);
+
+FILL FILL_0_BUFX2_insert154 (
+);
+
+FILL FILL_0_BUFX2_insert155 (
+);
+
+FILL FILL_4__3429_ (
+);
+
+FILL FILL_0_BUFX2_insert156 (
+);
+
+FILL FILL_4__3009_ (
+);
+
+FILL FILL_0_BUFX2_insert157 (
+);
+
+FILL FILL_0_BUFX2_insert158 (
+);
+
+FILL FILL_0_BUFX2_insert159 (
+);
+
+FILL FILL_0__3749_ (
+);
+
+FILL FILL_0__3329_ (
+);
+
+FILL FILL_1__4392_ (
+);
+
+FILL FILL_2__4708_ (
+);
+
+FILL FILL_1__2705_ (
+);
+
+FILL FILL_4__3182_ (
+);
+
+FILL FILL_2__4461_ (
+);
+
+FILL FILL_2__4041_ (
+);
+
+FILL FILL_4__4387_ (
+);
+
+OAI21X1 _3921_ (
+    .A(_769_),
+    .B(_705_),
+    .C(_1129__bF$buf5),
+    .Y(_704_)
+);
+
+OAI21X1 _3501_ (
+    .A(_554_),
+    .B(_315_),
+    .C(_316_),
+    .Y(_314_)
+);
+
+FILL FILL_0__4287_ (
+);
+
+FILL FILL_3__2384_ (
+);
+
+NAND2X1 _4706_ (
+    .A(\u_cpu.BI [0]),
+    .B(_1745_),
+    .Y(_1759_)
+);
+
+FILL FILL_1__3663_ (
+);
+
+FILL FILL_1__3243_ (
+);
+
+FILL FILL_3__3589_ (
+);
+
+FILL FILL_3__3169_ (
+);
+
+FILL FILL_3__4950_ (
+);
+
+FILL FILL_3__4530_ (
+);
+
+FILL FILL_3__4110_ (
+);
+
+FILL FILL_1__4868_ (
+);
+
+FILL FILL_1__4448_ (
+);
+
+FILL FILL_1__4028_ (
+);
+
+FILL FILL_4__2453_ (
+);
+
+DFFSR _3098_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1385_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.cld )
+);
+
+FILL FILL_0__2773_ (
+);
+
+FILL FILL_2__3732_ (
+);
+
+FILL FILL_2__3312_ (
+);
+
+FILL FILL_4__3658_ (
+);
+
+FILL FILL_4__3238_ (
+);
+
+FILL FILL_0__3978_ (
+);
+
+FILL FILL_0__3558_ (
+);
+
+FILL FILL_2__4937_ (
+);
+
+FILL FILL_2__4517_ (
+);
+
+FILL FILL_1__2934_ (
+);
+
+FILL FILL_1__2514_ (
+);
+
+FILL FILL_3__3801_ (
+);
+
+FILL FILL_1__3719_ (
+);
+
+FILL FILL_2__4690_ (
+);
+
+FILL FILL_2__4270_ (
+);
+
+AOI21X1 _2789_ (
+    .A(_1946_),
+    .B(_1650_),
+    .C(_1920__bF$buf4),
+    .Y(_1947_)
+);
+
+BUFX2 _2369_ (
+    .A(_2354__2_bF$buf0),
+    .Y(AB[2])
+);
+
+FILL FILL_4__4196_ (
+);
+
+NOR2X1 _3730_ (
+    .A(_532_),
+    .B(_530_),
+    .Y(_529_)
+);
+
+AOI22X1 _3310_ (
+    .A(_1196__bF$buf1),
+    .B(_907_),
+    .C(_164_),
+    .D(_162_),
+    .Y(_1411_)
+);
+
+FILL FILL_0__4096_ (
+);
+
+FILL FILL_4__2929_ (
+);
+
+FILL FILL_4__2509_ (
+);
+
+FILL FILL_0__2829_ (
+);
+
+FILL FILL_0__2409_ (
+);
+
+NAND3X1 _4935_ (
+    .A(_Addr_Bus[1]),
+    .B(_2208_),
+    .C(_2173_),
+    .Y(_2209_)
+);
+
+NOR2X1 _4515_ (
+    .A(_1249_),
+    .B(_1244_),
+    .Y(_1243_)
+);
+
+FILL FILL_1__3892_ (
+);
+
+FILL FILL_1__3472_ (
+);
+
+FILL FILL_3__3398_ (
+);
+
+FILL FILL_1__4677_ (
+);
+
+FILL FILL_1__4257_ (
+);
+
+FILL FILL_4__2682_ (
+);
+
+FILL FILL_0__2582_ (
+);
+
+FILL FILL_2__3961_ (
+);
+
+FILL FILL_2__3541_ (
+);
+
+FILL FILL_4__3887_ (
+);
+
+FILL FILL_4__3467_ (
+);
+
+FILL FILL_0__3787_ (
+);
+
+FILL FILL_0__3367_ (
+);
+
+FILL FILL_2__4746_ (
+);
+
+FILL FILL_2__4326_ (
+);
+
+FILL FILL_1__2743_ (
+);
+
+FILL FILL_3__2669_ (
+);
+
+FILL FILL_3__3610_ (
+);
+
+FILL FILL_1__3948_ (
+);
+
+FILL FILL_1__3528_ (
+);
+
+NAND3X1 _2598_ (
+    .A(_1923__bF$buf2),
+    .B(_2134_),
+    .C(_2132_),
+    .Y(_2135_)
+);
+
+FILL FILL_3__4815_ (
+);
+
+FILL FILL_2__2812_ (
+);
+
+FILL FILL_4__2738_ (
+);
+
+FILL FILL_0__2638_ (
+);
+
+NAND3X1 _4744_ (
+    .A(_1741_),
+    .B(_1771_),
+    .C(_1796_),
+    .Y(_1797_)
+);
+
+NAND3X1 _4324_ (
+    .A(_1071_),
+    .B(_1241_),
+    .C(_1070__bF$buf0),
+    .Y(_1069_)
+);
+
+FILL FILL_1__3281_ (
+);
+
+FILL FILL_1__4486_ (
+);
+
+FILL FILL_1__4066_ (
+);
+
+FILL FILL_4__2491_ (
+);
+
+FILL FILL_2__3770_ (
+);
+
+FILL FILL_2__3350_ (
+);
+
+FILL FILL_4__3696_ (
+);
+
+FILL FILL_4__3276_ (
+);
+
+OAI21X1 _2810_ (
+    .A(_1647_),
+    .B(_1925_),
+    .C(_1924_),
+    .Y(_1926_)
+);
+
+FILL FILL_0__3596_ (
+);
+
+FILL FILL_0__3176_ (
+);
+
+FILL FILL_2__4975_ (
+);
+
+FILL FILL_2__4555_ (
+);
+
+FILL FILL_2__4135_ (
+);
+
+FILL FILL_1__2972_ (
+);
+
+FILL FILL_1__2552_ (
+);
+
+FILL FILL_3__2898_ (
+);
+
+FILL FILL_3__2478_ (
+);
+
+FILL FILL_1__3757_ (
+);
+
+FILL FILL_1__3337_ (
+);
+
+FILL FILL_3__4624_ (
+);
+
+FILL FILL_3__4204_ (
+);
+
+FILL FILL_2__2621_ (
+);
+
+FILL FILL_4__2967_ (
+);
+
+FILL FILL_4__2547_ (
+);
+
+FILL FILL_0__2447_ (
+);
+
+INVX1 _4973_ (
+    .A(DO_woz[7]),
+    .Y(_2242_)
+);
+
+INVX1 _4553_ (
+    .A(\u_cpu.ABL [5]),
+    .Y(_1281_)
+);
+
+NOR2X1 _4133_ (
+    .A(_905_),
+    .B(_900_),
+    .Y(_899_)
+);
+
+FILL FILL_2__3826_ (
+);
+
+FILL FILL_2__3406_ (
+);
+
+FILL FILL_1__4295_ (
+);
+
+FILL FILL_1__2608_ (
+);
+
+FILL FILL_2__4784_ (
+);
+
+FILL FILL_2__4364_ (
+);
+
+OAI21X1 _3824_ (
+    .A(_1184_),
+    .B(_864_),
+    .C(_619_),
+    .Y(_618_)
+);
+
+AOI22X1 _3404_ (
+    .A(\u_cpu.DIMUX [1]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [1]),
+    .Y(_235_)
+);
+
+FILL FILL_1__2781_ (
+);
+
+FILL FILL_1__2361_ (
+);
+
+NAND2X1 _4609_ (
+    .A(\u_cpu.state [2]),
+    .B(_1338_),
+    .Y(_1337_)
+);
+
+FILL FILL_1__3986_ (
+);
+
+FILL FILL_1__3566_ (
+);
+
+FILL FILL_3__4853_ (
+);
+
+FILL FILL_3__4433_ (
+);
+
+FILL FILL_3__4013_ (
+);
+
+FILL FILL_2__2850_ (
+);
+
+FILL FILL_2__2430_ (
+);
+
+FILL FILL_4__2776_ (
+);
+
+FILL FILL_4__2356_ (
+);
+
+FILL FILL_0__2676_ (
+);
+
+NAND2X1 _4782_ (
+    .A(_1788_),
+    .B(_1834_),
+    .Y(_1835_)
+);
+
+INVX2 _4362_ (
+    .A(_1106_),
+    .Y(_1105_)
+);
+
+FILL FILL_2__3635_ (
+);
+
+FILL FILL_2__3215_ (
+);
+
+FILL FILL_4__4922_ (
+);
+
+FILL FILL_4__4502_ (
+);
+
+FILL FILL_0__4822_ (
+);
+
+FILL FILL_0__4402_ (
+);
+
+FILL FILL_1__2837_ (
+);
+
+FILL FILL_1__2417_ (
+);
+
+FILL FILL_3__3704_ (
+);
+
+FILL FILL_2__4593_ (
+);
+
+FILL FILL_2__4173_ (
+);
+
+FILL FILL_4__4099_ (
+);
+
+FILL FILL_3__4909_ (
+);
+
+AOI22X1 _3633_ (
+    .A(_1196__bF$buf3),
+    .B(_826_),
+    .C(_437_),
+    .D(_1129__bF$buf2),
+    .Y(_436_)
+);
+
+OAI21X1 _3213_ (
+    .A(_723_),
+    .B(_1345__bF$buf3),
+    .C(_1241_),
+    .Y(_105_)
+);
+
+FILL FILL_1__2590_ (
+);
+
+FILL FILL_2__2906_ (
+);
+
+INVX1 _4838_ (
+    .A(_1880_),
+    .Y(_1881_)
+);
+
+OAI21X1 _4418_ (
+    .A(RDY_bF$buf7),
+    .B(_1169_),
+    .C(_1155_),
+    .Y(_1486_)
+);
+
+FILL FILL_1__3795_ (
+);
+
+FILL FILL_1__3375_ (
+);
+
+FILL FILL_3__4662_ (
+);
+
+FILL FILL_3__4242_ (
+);
+
+BUFX2 BUFX2_insert130 (
+    .A(_1196_),
+    .Y(_1196__bF$buf1)
+);
+
+BUFX2 BUFX2_insert131 (
+    .A(_1196_),
+    .Y(_1196__bF$buf0)
+);
+
+BUFX2 BUFX2_insert132 (
+    .A(_1634_),
+    .Y(_1634__bF$buf5)
+);
+
+BUFX2 BUFX2_insert133 (
+    .A(_1634_),
+    .Y(_1634__bF$buf4)
+);
+
+BUFX2 BUFX2_insert134 (
+    .A(_1634_),
+    .Y(_1634__bF$buf3)
+);
+
+BUFX2 BUFX2_insert135 (
+    .A(_1634_),
+    .Y(_1634__bF$buf2)
+);
+
+BUFX2 BUFX2_insert136 (
+    .A(_1634_),
+    .Y(_1634__bF$buf1)
+);
+
+BUFX2 BUFX2_insert137 (
+    .A(_1634_),
+    .Y(_1634__bF$buf0)
+);
+
+BUFX2 BUFX2_insert138 (
+    .A(_1305_),
+    .Y(_1305__bF$buf3)
+);
+
+FILL FILL_4__2585_ (
+);
+
+BUFX2 BUFX2_insert139 (
+    .A(_1305_),
+    .Y(_1305__bF$buf2)
+);
+
+FILL FILL_0__2485_ (
+);
+
+OAI21X1 _4591_ (
+    .A(_1350_),
+    .B(_1320_),
+    .C(_1323_),
+    .Y(_1319_)
+);
+
+OAI21X1 _4171_ (
+    .A(_977_),
+    .B(_932_),
+    .C(_931_),
+    .Y(_1467_)
+);
+
+FILL FILL_2__3864_ (
+);
+
+FILL FILL_2__3444_ (
+);
+
+FILL FILL_2__3024_ (
+);
+
+NOR3X1 _2904_ (
+    .A(_1559_),
+    .B(_1556_),
+    .C(_1554_),
+    .Y(_1560_)
+);
+
+FILL FILL_4__4731_ (
+);
+
+FILL FILL_4__4311_ (
+);
+
+FILL FILL_2__4649_ (
+);
+
+FILL FILL_0__4631_ (
+);
+
+FILL FILL_2__4229_ (
+);
+
+FILL FILL_0__4211_ (
+);
+
+FILL FILL_1__2646_ (
+);
+
+FILL FILL_3__3933_ (
+);
+
+FILL FILL_3__3513_ (
+);
+
+FILL FILL_3__4718_ (
+);
+
+OAI21X1 _3862_ (
+    .A(_872_),
+    .B(_657_),
+    .C(_654_),
+    .Y(_2354_[4])
+);
+
+AOI21X1 _3442_ (
+    .A(_782_),
+    .B(\u_cpu.PC [13]),
+    .C(_267_),
+    .Y(_266_)
+);
+
+NAND2X1 _3022_ (
+    .A(kbd_data[1]),
+    .B(_1500_),
+    .Y(_1505_)
+);
+
+FILL FILL_2__2715_ (
+);
+
+OAI21X1 _4647_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1685_),
+    .Y(_1700_)
+);
+
+AOI22X1 _4227_ (
+    .A(_1009_),
+    .B(_1037__bF$buf1),
+    .C(_980_),
+    .D(_992_),
+    .Y(_1474_)
+);
+
+FILL FILL_1__3184_ (
+);
+
+FILL FILL_0__3902_ (
+);
+
+FILL FILL_3__4891_ (
+);
+
+FILL FILL_3__4471_ (
+);
+
+FILL FILL_3__4051_ (
+);
+
+FILL FILL_1__4389_ (
+);
+
+FILL FILL_4__2394_ (
+);
+
+FILL FILL_2__3673_ (
+);
+
+FILL FILL_2__3253_ (
+);
+
+FILL FILL_4__3599_ (
+);
+
+FILL FILL_4__3179_ (
+);
+
+NAND3X1 _2713_ (
+    .A(_2019_),
+    .B(_2018_),
+    .C(_2021_),
+    .Y(_2022_)
+);
+
+FILL FILL_4__4960_ (
+);
+
+FILL FILL_4__4540_ (
+);
+
+FILL FILL_4__4120_ (
+);
+
+FILL FILL_0__3499_ (
+);
+
+FILL FILL_0__4860_ (
+);
+
+FILL FILL_2__4458_ (
+);
+
+FILL FILL_0__4440_ (
+);
+
+FILL FILL_0__4020_ (
+);
+
+FILL FILL_2__4038_ (
+);
+
+NAND3X1 _3918_ (
+    .A(_1129__bF$buf3),
+    .B(_1099_),
+    .C(_1034_),
+    .Y(_702_)
+);
+
+FILL FILL_1__2875_ (
+);
+
+FILL FILL_1__2455_ (
+);
+
+FILL FILL_3__3742_ (
+);
+
+FILL FILL_3__3322_ (
+);
+
+FILL FILL_1__4601_ (
+);
+
+FILL FILL_3__4947_ (
+);
+
+FILL FILL_3__4527_ (
+);
+
+FILL FILL_3__4107_ (
+);
+
+INVX1 _3671_ (
+    .A(_475_),
+    .Y(_474_)
+);
+
+NOR2X1 _3251_ (
+    .A(\u_cpu.clv ),
+    .B(_132_),
+    .Y(_131_)
+);
+
+FILL FILL_2__2944_ (
+);
+
+FILL FILL_2__2524_ (
+);
+
+FILL FILL_4__3811_ (
+);
+
+DFFSR _4876_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1677_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.AN )
+);
+
+AOI21X1 _4456_ (
+    .A(\u_cpu.PC [9]),
+    .B(_1269_),
+    .C(_1189_),
+    .Y(_1188_)
+);
+
+NAND3X1 _4036_ (
+    .A(_806_),
+    .B(_804_),
+    .C(_809_),
+    .Y(_803_)
+);
+
+FILL FILL_2__3729_ (
+);
+
+FILL FILL_0__3711_ (
+);
+
+FILL FILL_2__3309_ (
+);
+
+FILL FILL_3__4280_ (
+);
+
+FILL FILL_1__4198_ (
+);
+
+FILL FILL_0__4916_ (
+);
+
+FILL FILL_2__3482_ (
+);
+
+FILL FILL_0_BUFX2_insert39 (
+);
+
+NOR2X1 _2942_ (
+    .A(_2354__2_bF$buf2),
+    .B(_2354__3_bF$buf3),
+    .Y(_1529_)
+);
+
+OAI22X1 _2522_ (
+    .A(_1973_),
+    .B(_2304_),
+    .C(_2274_),
+    .D(_2285_),
+    .Y(_2346_[2])
+);
+
+FILL FILL_2__4687_ (
+);
+
+FILL FILL_2__4267_ (
+);
+
+OAI21X1 _3727_ (
+    .A(_1325__bF$buf3),
+    .B(_870_),
+    .C(_1196__bF$buf4),
+    .Y(_526_)
+);
+
+AOI22X1 _3307_ (
+    .A(_1012_),
+    .B(_1111_),
+    .C(_985_),
+    .D(_984_),
+    .Y(_160_)
+);
+
+FILL FILL_1__2684_ (
+);
+
+FILL FILL_3__3971_ (
+);
+
+FILL FILL_3__3551_ (
+);
+
+FILL FILL_1__3889_ (
+);
+
+FILL FILL_1__3469_ (
+);
+
+FILL FILL_1__4830_ (
+);
+
+FILL FILL_1__4410_ (
+);
+
+FILL FILL_3__4756_ (
+);
+
+FILL FILL_3__4336_ (
+);
+
+NAND3X1 _3480_ (
+    .A(_525_),
+    .B(_436_),
+    .C(_468_),
+    .Y(_293_)
+);
+
+DFFSR _3060_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1466_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[0] [6])
+);
+
+FILL FILL_2__2753_ (
+);
+
+FILL FILL_4__2679_ (
+);
+
+FILL FILL_4__3620_ (
+);
+
+FILL FILL_4__3200_ (
+);
+
+FILL FILL_0__2999_ (
+);
+
+FILL FILL_0__2579_ (
+);
+
+OAI21X1 _4685_ (
+    .A(_1729_),
+    .B(_1698_),
+    .C(_1737_),
+    .Y(_1738_)
+);
+
+NOR2X1 _4265_ (
+    .A(_1111_),
+    .B(_1023_),
+    .Y(_1015_)
+);
+
+FILL FILL_0__3940_ (
+);
+
+FILL FILL_2__3958_ (
+);
+
+FILL FILL_0__3520_ (
+);
+
+FILL FILL_2__3538_ (
+);
+
+FILL FILL_4__4825_ (
+);
+
+FILL FILL_4__4405_ (
+);
+
+FILL FILL_3__2822_ (
+);
+
+FILL FILL_0__4725_ (
+);
+
+FILL FILL_3__2402_ (
+);
+
+FILL FILL_0__4305_ (
+);
+
+FILL FILL_2__3291_ (
+);
+
+FILL FILL_3__3607_ (
+);
+
+NOR2X1 _2751_ (
+    .A(_2354__2_bF$buf0),
+    .B(_1638__bF$buf1),
+    .Y(_1984_)
+);
+
+FILL FILL_2__4496_ (
+);
+
+FILL FILL_2__4076_ (
+);
+
+INVX1 _3956_ (
+    .A(_993_),
+    .Y(_733_)
+);
+
+AOI21X1 _3536_ (
+    .A(_359_),
+    .B(\u_cpu.ADD [2]),
+    .C(_344_),
+    .Y(_343_)
+);
+
+DFFSR _3116_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1482_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [14])
+);
+
+FILL FILL_1__2493_ (
+);
+
+FILL FILL_2__2809_ (
+);
+
+FILL FILL_3__3780_ (
+);
+
+FILL FILL_3__3360_ (
+);
+
+FILL FILL_1__3698_ (
+);
+
+FILL FILL_1__3278_ (
+);
+
+FILL FILL_3__4985_ (
+);
+
+FILL FILL_3__4565_ (
+);
+
+FILL FILL_3__4145_ (
+);
+
+FILL FILL_2__2982_ (
+);
+
+FILL FILL_2__2562_ (
+);
+
+FILL FILL_4__2488_ (
+);
+
+FILL FILL273750x108150 (
+);
+
+FILL FILL_0__2388_ (
+);
+
+INVX1 _4494_ (
+    .A(_1264_),
+    .Y(_1222_)
+);
+
+NOR2X1 _4074_ (
+    .A(_842_),
+    .B(_844_),
+    .Y(_841_)
+);
+
+FILL FILL_2__3767_ (
+);
+
+FILL FILL_2__3347_ (
+);
+
+NOR2X1 _2807_ (
+    .A(_2354__3_bF$buf2),
+    .B(_1634__bF$buf5),
+    .Y(_1929_)
+);
+
+FILL FILL_4__4634_ (
+);
+
+FILL FILL_4__4214_ (
+);
+
+FILL FILL_0__4954_ (
+);
+
+FILL FILL_3__2631_ (
+);
+
+FILL FILL_0__4534_ (
+);
+
+FILL FILL_0__4114_ (
+);
+
+FILL FILL_1__2969_ (
+);
+
+FILL FILL_1__2549_ (
+);
+
+FILL FILL_1__3910_ (
+);
+
+FILL FILL_3__3836_ (
+);
+
+FILL FILL_3__3416_ (
+);
+
+NOR2X1 _2980_ (
+    .A(\u_pia_kbd.state [2]),
+    .B(\u_pia_kbd.state [0]),
+    .Y(_1617_)
+);
+
+NAND3X1 _2560_ (
+    .A(_2354__3_bF$buf2),
+    .B(_1635__bF$buf0),
+    .C(_1641_),
+    .Y(_2267_)
+);
+
+FILL FILL_4__2700_ (
+);
+
+NAND2X1 _3765_ (
+    .A(_1129__bF$buf2),
+    .B(_565_),
+    .Y(_564_)
+);
+
+NOR2X1 _3345_ (
+    .A(_186_),
+    .B(_502_),
+    .Y(\u_cpu.alu_shift_right )
+);
+
+FILL FILL_2__2618_ (
+);
+
+FILL FILL_0__2600_ (
+);
+
+FILL FILL_4__3905_ (
+);
+
+FILL FILL_0__3805_ (
+);
+
+FILL FILL_3__4794_ (
+);
+
+FILL FILL_3__4374_ (
+);
+
+FILL FILL_2__2791_ (
+);
+
+FILL FILL_2__2371_ (
+);
+
+FILL FILL_2__3996_ (
+);
+
+FILL FILL_2__3576_ (
+);
+
+OAI21X1 _2616_ (
+    .A(_2116_),
+    .B(_1934_),
+    .C(_1923__bF$buf1),
+    .Y(_2117_)
+);
+
+FILL FILL_4__4863_ (
+);
+
+FILL FILL_4__4443_ (
+);
+
+FILL FILL_4__4023_ (
+);
+
+FILL FILL_0__4763_ (
+);
+
+FILL FILL_3__2860_ (
+);
+
+FILL FILL_3__2440_ (
+);
+
+FILL FILL_0__4343_ (
+);
+
+FILL FILL_1__2778_ (
+);
+
+FILL FILL_1__2358_ (
+);
+
+BUFX2 BUFX2_insert40 (
+    .A(_2354_[4]),
+    .Y(_2354__4_bF$buf5)
+);
+
+BUFX2 BUFX2_insert41 (
+    .A(_2354_[4]),
+    .Y(_2354__4_bF$buf4)
+);
+
+BUFX2 BUFX2_insert42 (
+    .A(_2354_[4]),
+    .Y(_2354__4_bF$buf3)
+);
+
+BUFX2 BUFX2_insert43 (
+    .A(_2354_[4]),
+    .Y(_2354__4_bF$buf2)
+);
+
+BUFX2 BUFX2_insert44 (
+    .A(_2354_[4]),
+    .Y(_2354__4_bF$buf1)
+);
+
+BUFX2 BUFX2_insert45 (
+    .A(_2354_[4]),
+    .Y(_2354__4_bF$buf0)
+);
+
+BUFX2 BUFX2_insert46 (
+    .A(_2354_[1]),
+    .Y(_2354__1_bF$buf5)
+);
+
+BUFX2 BUFX2_insert47 (
+    .A(_2354_[1]),
+    .Y(_2354__1_bF$buf4)
+);
+
+BUFX2 BUFX2_insert48 (
+    .A(_2354_[1]),
+    .Y(_2354__1_bF$buf3)
+);
+
+BUFX2 BUFX2_insert49 (
+    .A(_2354_[1]),
+    .Y(_2354__1_bF$buf2)
+);
+
+FILL FILL_3__3645_ (
+);
+
+FILL FILL_3__3225_ (
+);
+
+FILL FILL_1__4924_ (
+);
+
+FILL FILL_1__4504_ (
+);
+
+NAND2X1 _3994_ (
+    .A(_1126_),
+    .B(_767_),
+    .Y(_766_)
+);
+
+OAI21X1 _3574_ (
+    .A(_538_),
+    .B(_466_),
+    .C(_464_),
+    .Y(_378_)
+);
+
+DFFSR _3154_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1413_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.shift_right )
+);
+
+FILL FILL_2__2847_ (
+);
+
+FILL FILL_2__2427_ (
+);
+
+FILL FILL_4__3714_ (
+);
+
+NAND2X1 _4779_ (
+    .A(_1830_),
+    .B(_1831_),
+    .Y(_1832_)
+);
+
+AOI21X1 _4359_ (
+    .A(_1125_),
+    .B(_1192_),
+    .C(_1103_),
+    .Y(_1102_)
+);
+
+FILL FILL_0__3614_ (
+);
+
+FILL FILL272850x97350 (
+);
+
+FILL FILL_3__4183_ (
+);
+
+FILL FILL_4__4919_ (
+);
+
+FILL FILL_0__4819_ (
+);
+
+FILL FILL_3__2916_ (
+);
+
+FILL FILL_2__3385_ (
+);
+
+NAND3X1 _2845_ (
+    .A(_1643__bF$buf3),
+    .B(_1649_),
+    .C(_1648_),
+    .Y(_1650_)
+);
+
+AND2X2 _2425_ (
+    .A(_1648_),
+    .B(_1649_),
+    .Y(_49_)
+);
+
+FILL FILL_4__4672_ (
+);
+
+FILL FILL_4__4252_ (
+);
+
+FILL FILL_0__4572_ (
+);
+
+FILL FILL_0__4152_ (
+);
+
+FILL FILL_1__2587_ (
+);
+
+FILL FILL_3__3874_ (
+);
+
+FILL FILL_3__3454_ (
+);
+
+FILL FILL271650x79350 (
+);
+
+FILL FILL_1__4733_ (
+);
+
+FILL FILL_1__4313_ (
+);
+
+FILL FILL_3__4659_ (
+);
+
+FILL FILL_3__4239_ (
+);
+
+OAI21X1 _3383_ (
+    .A(_701_),
+    .B(_675_),
+    .C(_219_),
+    .Y(_218_)
+);
+
+FILL FILL_2__2656_ (
+);
+
+FILL FILL_4__3943_ (
+);
+
+FILL FILL_4__3523_ (
+);
+
+NOR2X1 _4588_ (
+    .A(\u_cpu.state [0]),
+    .B(_1317_),
+    .Y(_1316_)
+);
+
+NAND2X1 _4168_ (
+    .A(_929_),
+    .B(_930_),
+    .Y(_928_)
+);
+
+FILL FILL_0__3843_ (
+);
+
+FILL FILL_0__3423_ (
+);
+
+FILL FILL_0__3003_ (
+);
+
+FILL FILL_2__4802_ (
+);
+
+FILL FILL_4__4728_ (
+);
+
+FILL FILL_4__4308_ (
+);
+
+FILL FILL_0__4628_ (
+);
+
+FILL FILL_3__2725_ (
+);
+
+FILL FILL_0__4208_ (
+);
+
+FILL FILL_2__3194_ (
+);
+
+AOI22X1 _2654_ (
+    .A(_2071_),
+    .B(_2079_),
+    .C(_2057_),
+    .D(_2064_),
+    .Y(_2080_)
+);
+
+FILL FILL_4__4481_ (
+);
+
+FILL FILL_4__4061_ (
+);
+
+FILL FILL_3_CLKBUF1_insert26 (
+);
+
+FILL FILL_3_CLKBUF1_insert27 (
+);
+
+FILL FILL_3_CLKBUF1_insert28 (
+);
+
+FILL FILL_3_CLKBUF1_insert29 (
+);
+
+FILL FILL_0__4381_ (
+);
+
+FILL FILL_2__4399_ (
+);
+
+NAND2X1 _3859_ (
+    .A(_653_),
+    .B(_652_),
+    .Y(_651_)
+);
+
+OAI21X1 _3439_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [6]),
+    .Y(_264_)
+);
+
+NAND2X1 _3019_ (
+    .A(kbd_data[2]),
+    .B(_1500_),
+    .Y(_1511_)
+);
+
+FILL FILL_1__2396_ (
+);
+
+NAND2X1 _4800_ (
+    .A(\u_cpu.ADD [3]),
+    .B(_1681__bF$buf1),
+    .Y(_1849_)
+);
+
+FILL FILL_3__3683_ (
+);
+
+FILL FILL_3__3263_ (
+);
+
+FILL FILL_1__4962_ (
+);
+
+FILL FILL_1__4542_ (
+);
+
+FILL FILL_1__4122_ (
+);
+
+FILL FILL_3__4888_ (
+);
+
+FILL FILL_3__4468_ (
+);
+
+FILL FILL_3__4048_ (
+);
+
+OAI21X1 _3192_ (
+    .A(_1196__bF$buf7),
+    .B(_91_),
+    .C(_94_),
+    .Y(_1364_)
+);
+
+FILL FILL_2__2885_ (
+);
+
+FILL FILL_2__2465_ (
+);
+
+FILL FILL_4__3752_ (
+);
+
+FILL FILL_4__3332_ (
+);
+
+OAI21X1 _4397_ (
+    .A(_1287_),
+    .B(_1349_),
+    .C(_1315__bF$buf2),
+    .Y(_1137_)
+);
+
+FILL FILL_0__3652_ (
+);
+
+FILL FILL_0__3232_ (
+);
+
+FILL FILL_2__4611_ (
+);
+
+FILL FILL_4__4957_ (
+);
+
+FILL FILL_4__4537_ (
+);
+
+FILL FILL_4__4117_ (
+);
+
+FILL FILL_0__4857_ (
+);
+
+FILL FILL_3__2534_ (
+);
+
+FILL FILL_0__4437_ (
+);
+
+FILL FILL_0__4017_ (
+);
+
+FILL FILL_1__3813_ (
+);
+
+FILL FILL_3__3739_ (
+);
+
+FILL FILL_3__3319_ (
+);
+
+AOI22X1 _2883_ (
+    .A(_1561_),
+    .B(_1576_),
+    .C(_1575_),
+    .D(\u_pia_dsp.state [0]),
+    .Y(_1577_)
+);
+
+OAI21X1 _2463_ (
+    .A(_2086_),
+    .B(_2112_),
+    .C(_2000_),
+    .Y(_12_)
+);
+
+FILL FILL_4__4290_ (
+);
+
+FILL FILL_0__4190_ (
+);
+
+FILL FILL_4__2603_ (
+);
+
+NOR2X1 _3668_ (
+    .A(_1196__bF$buf7),
+    .B(_1246_),
+    .Y(_471_)
+);
+
+NAND2X1 _3248_ (
+    .A(\u_cpu.V ),
+    .B(_129_),
+    .Y(_128_)
+);
+
+FILL FILL_0__2923_ (
+);
+
+FILL FILL_0__2503_ (
+);
+
+FILL FILL_3__3492_ (
+);
+
+FILL FILL_4__3808_ (
+);
+
+FILL FILL_0__3708_ (
+);
+
+FILL FILL_1__4771_ (
+);
+
+FILL FILL_1__4351_ (
+);
+
+FILL FILL_3__4697_ (
+);
+
+FILL FILL_3__4277_ (
+);
+
+FILL FILL_2__2694_ (
+);
+
+FILL FILL_4__3981_ (
+);
+
+FILL FILL_4__3561_ (
+);
+
+FILL FILL_2__3899_ (
+);
+
+FILL FILL_0__3881_ (
+);
+
+FILL FILL_0__3461_ (
+);
+
+FILL FILL_2__3479_ (
+);
+
+FILL FILL_2__4840_ (
+);
+
+FILL FILL_2__4420_ (
+);
+
+FILL FILL_2__4000_ (
+);
+
+NOR2X1 _2939_ (
+    .A(_2354__6_bF$buf4),
+    .B(_2354__7_bF$buf2),
+    .Y(_1532_)
+);
+
+NAND3X1 _2519_ (
+    .A(_1649_),
+    .B(_1924_),
+    .C(_1659_),
+    .Y(_2307_)
+);
+
+FILL FILL_4__4766_ (
+);
+
+FILL FILL_4__4346_ (
+);
+
+FILL FILL_3__2763_ (
+);
+
+FILL FILL_0__4666_ (
+);
+
+FILL FILL_0__4246_ (
+);
+
+FILL FILL_1__3622_ (
+);
+
+FILL FILL_1__3202_ (
+);
+
+FILL FILL_3__3968_ (
+);
+
+FILL FILL_3__3548_ (
+);
+
+OAI21X1 _2692_ (
+    .A(_2354__2_bF$buf2),
+    .B(_1638__bF$buf3),
+    .C(_2354__3_bF$buf4),
+    .Y(_2043_)
+);
+
+FILL FILL_1__4827_ (
+);
+
+FILL FILL_1__4407_ (
+);
+
+FILL FILL_4__2832_ (
+);
+
+FILL FILL_4__2412_ (
+);
+
+OAI21X1 _3897_ (
+    .A(_687_),
+    .B(_733_),
+    .C(_686_),
+    .Y(_685_)
+);
+
+NAND3X1 _3477_ (
+    .A(_397_),
+    .B(_294_),
+    .C(_291_),
+    .Y(_1429_)
+);
+
+DFFSR _3057_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1368_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[1] [1])
+);
+
+FILL FILL_0__2732_ (
+);
+
+FILL FILL_4__3617_ (
+);
+
+FILL FILL_0__3937_ (
+);
+
+FILL FILL_0__3517_ (
+);
+
+FILL FILL_1__4580_ (
+);
+
+FILL FILL_1__4160_ (
+);
+
+FILL FILL_3__4086_ (
+);
+
+FILL FILL_3__2819_ (
+);
+
+FILL FILL_4__3790_ (
+);
+
+FILL FILL_4__3370_ (
+);
+
+FILL FILL_0__3690_ (
+);
+
+FILL FILL_2__3288_ (
+);
+
+FILL FILL_0__3270_ (
+);
+
+NAND3X1 _2748_ (
+    .A(_1643__bF$buf2),
+    .B(_2354__1_bF$buf4),
+    .C(_1935_),
+    .Y(_1987_)
+);
+
+FILL FILL_4__4155_ (
+);
+
+FILL FILL_0__4895_ (
+);
+
+FILL FILL_3__2992_ (
+);
+
+FILL FILL_3__2572_ (
+);
+
+FILL FILL_0__4475_ (
+);
+
+FILL FILL_0__4055_ (
+);
+
+FILL FILL_1__3851_ (
+);
+
+FILL FILL_1__3431_ (
+);
+
+FILL FILL_1__3011_ (
+);
+
+FILL FILL_3__3777_ (
+);
+
+FILL FILL_3__3357_ (
+);
+
+FILL FILL_1__4636_ (
+);
+
+FILL FILL_1__4216_ (
+);
+
+FILL FILL_4__2641_ (
+);
+
+OAI21X1 _3286_ (
+    .A(_1037__bF$buf0),
+    .B(_151_),
+    .C(_150_),
+    .Y(_1399_)
+);
+
+FILL FILL_2__2979_ (
+);
+
+FILL FILL_2__2559_ (
+);
+
+FILL FILL_0__2541_ (
+);
+
+FILL FILL_2__3920_ (
+);
+
+FILL FILL_2__3500_ (
+);
+
+FILL FILL_0_BUFX2_insert120 (
+);
+
+FILL FILL_0_BUFX2_insert121 (
+);
+
+FILL FILL_0_BUFX2_insert122 (
+);
+
+FILL FILL_0_BUFX2_insert123 (
+);
+
+FILL FILL_4__3846_ (
+);
+
+FILL FILL_0_BUFX2_insert124 (
+);
+
+FILL FILL_4__3426_ (
+);
+
+FILL FILL_0_BUFX2_insert125 (
+);
+
+FILL FILL_4__3006_ (
+);
+
+FILL FILL_0_BUFX2_insert126 (
+);
+
+FILL FILL_0_BUFX2_insert127 (
+);
+
+FILL FILL_0_BUFX2_insert128 (
+);
+
+FILL FILL_0_BUFX2_insert129 (
+);
+
+FILL FILL_0__3746_ (
+);
+
+FILL FILL_0__3326_ (
+);
+
+FILL FILL_2__4705_ (
+);
+
+FILL FILL_1__2702_ (
+);
+
+FILL FILL_3__2628_ (
+);
+
+FILL FILL_1__3907_ (
+);
+
+NAND3X1 _2977_ (
+    .A(_1613_),
+    .B(_1618_),
+    .C(_1612_),
+    .Y(_1620_)
+);
+
+OAI21X1 _2557_ (
+    .A(_1636__bF$buf1),
+    .B(_2001_),
+    .C(_1980_),
+    .Y(_2270_)
+);
+
+FILL FILL_4__4384_ (
+);
+
+FILL FILL_0__4284_ (
+);
+
+FILL FILL_3__2381_ (
+);
+
+NAND3X1 _4703_ (
+    .A(\u_cpu.CI ),
+    .B(_1684_),
+    .C(_1755_),
+    .Y(_1756_)
+);
+
+FILL FILL_1__3660_ (
+);
+
+FILL FILL_1__3240_ (
+);
+
+FILL FILL_3__3586_ (
+);
+
+FILL FILL_3__3166_ (
+);
+
+FILL FILL_1__4865_ (
+);
+
+FILL FILL_1__4445_ (
+);
+
+FILL FILL_1__4025_ (
+);
+
+FILL FILL_4__2450_ (
+);
+
+DFFSR _3095_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1442_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.Z )
+);
+
+FILL FILL_0__2770_ (
+);
+
+FILL FILL_2__2788_ (
+);
+
+FILL FILL_2__2368_ (
+);
+
+FILL FILL_4__3655_ (
+);
+
+FILL FILL_4__3235_ (
+);
+
+FILL FILL_0__3975_ (
+);
+
+FILL FILL_0__3555_ (
+);
+
+FILL FILL_2__4934_ (
+);
+
+FILL FILL_2__4514_ (
+);
+
+FILL FILL_1__2931_ (
+);
+
+FILL FILL_1__2511_ (
+);
+
+FILL FILL_3__2857_ (
+);
+
+FILL FILL_3__2437_ (
+);
+
+FILL FILL_1__3716_ (
+);
+
+AOI21X1 _2786_ (
+    .A(_1936_),
+    .B(_1949_),
+    .C(_1638__bF$buf2),
+    .Y(_1950_)
+);
+
+BUFX2 _2366_ (
+    .A(_2354__5_bF$buf4),
+    .Y(AB[5])
+);
+
+FILL FILL_4__4193_ (
+);
+
+FILL FILL_0__4093_ (
+);
+
+FILL FILL_4__2926_ (
+);
+
+FILL FILL_4__2506_ (
+);
+
+FILL FILL_0__2826_ (
+);
+
+FILL FILL_0__2406_ (
+);
+
+AOI22X1 _4932_ (
+    .A(_2200_),
+    .B(_2195_),
+    .C(_2205_),
+    .D(_2206_),
+    .Y(Data_In[5])
+);
+
+OAI21X1 _4512_ (
+    .A(_1350_),
+    .B(_1320_),
+    .C(_1241_),
+    .Y(_1240_)
+);
+
+FILL FILL_3__3395_ (
+);
+
+FILL FILL_1__4674_ (
+);
+
+FILL FILL_1__4254_ (
+);
+
+FILL FILL_2__2597_ (
+);
+
+FILL FILL_4__3464_ (
+);
+
+FILL FILL_0__3784_ (
+);
+
+FILL FILL_0__3364_ (
+);
+
+FILL FILL_2_CLKBUF1_insert30 (
+);
+
+FILL FILL_2_CLKBUF1_insert31 (
+);
+
+FILL FILL_2_CLKBUF1_insert32 (
+);
+
+FILL FILL_2_CLKBUF1_insert33 (
+);
+
+FILL FILL_2_CLKBUF1_insert34 (
+);
+
+FILL FILL_2_CLKBUF1_insert35 (
+);
+
+FILL FILL_2__4743_ (
+);
+
+FILL FILL_2_CLKBUF1_insert36 (
+);
+
+FILL FILL_2__4323_ (
+);
+
+FILL FILL_2_CLKBUF1_insert37 (
+);
+
+FILL FILL_2_CLKBUF1_insert38 (
+);
+
+FILL FILL_4__4669_ (
+);
+
+FILL FILL_4__4249_ (
+);
+
+FILL FILL_1__2740_ (
+);
+
+FILL FILL_3__2666_ (
+);
+
+FILL FILL_0__4569_ (
+);
+
+FILL FILL_0__4149_ (
+);
+
+FILL FILL_1__3945_ (
+);
+
+FILL FILL_1__3525_ (
+);
+
+NOR2X1 _2595_ (
+    .A(_1634__bF$buf0),
+    .B(_1663_),
+    .Y(_2138_)
+);
+
+FILL FILL_3__4812_ (
+);
+
+FILL FILL_4__2735_ (
+);
+
+FILL FILL_0__2635_ (
+);
+
+OAI21X1 _4741_ (
+    .A(_1756_),
+    .B(_1793_),
+    .C(_1792_),
+    .Y(_1794_)
+);
+
+NOR2X1 _4321_ (
+    .A(_1086_),
+    .B(_1067_),
+    .Y(_1066_)
+);
+
+FILL FILL_1__4483_ (
+);
+
+FILL FILL_1__4063_ (
+);
+
+FILL FILL_4__3693_ (
+);
+
+FILL FILL_4__3273_ (
+);
+
+FILL FILL_0__3593_ (
+);
+
+FILL FILL_0__3173_ (
+);
+
+FILL FILL_2__4972_ (
+);
+
+FILL FILL_2__4552_ (
+);
+
+FILL FILL_2__4132_ (
+);
+
+FILL FILL_4__4898_ (
+);
+
+FILL FILL_4__4478_ (
+);
+
+FILL FILL_4__4058_ (
+);
+
+FILL FILL_0__4798_ (
+);
+
+FILL FILL_3__2895_ (
+);
+
+FILL FILL_3__2475_ (
+);
+
+FILL FILL_0__4378_ (
+);
+
+FILL FILL_1__3754_ (
+);
+
+FILL FILL_1__3334_ (
+);
+
+FILL FILL_3__4621_ (
+);
+
+FILL FILL_3__4201_ (
+);
+
+FILL FILL_1__4959_ (
+);
+
+FILL FILL_1__4539_ (
+);
+
+FILL FILL_1__4119_ (
+);
+
+FILL FILL_4__2964_ (
+);
+
+FILL FILL_4__2544_ (
+);
+
+OAI21X1 _3189_ (
+    .A(_90_),
+    .B(_113_),
+    .C(_89_),
+    .Y(_1363_)
+);
+
+FILL FILL_0__2444_ (
+);
+
+NAND3X1 _4970_ (
+    .A(_2237_),
+    .B(_2239_),
+    .C(_2182_),
+    .Y(_2240_)
+);
+
+OAI21X1 _4550_ (
+    .A(_1287_),
+    .B(_1282_),
+    .C(_1279_),
+    .Y(_1278_)
+);
+
+OAI21X1 _4130_ (
+    .A(_1325__bF$buf4),
+    .B(_903_),
+    .C(_897_),
+    .Y(_896_)
+);
+
+FILL FILL_2__3823_ (
+);
+
+FILL FILL_2__3403_ (
+);
+
+FILL FILL_4__3749_ (
+);
+
+FILL FILL_4__3329_ (
+);
+
+FILL FILL_0__3649_ (
+);
+
+FILL FILL_0__3229_ (
+);
+
+FILL FILL_1__4292_ (
+);
+
+FILL FILL_2__4608_ (
+);
+
+FILL FILL_1__2605_ (
+);
+
+FILL FILL_2__4781_ (
+);
+
+FILL FILL_2__4361_ (
+);
+
+FILL FILL_4__4287_ (
+);
+
+INVX1 _3821_ (
+    .A(_873_),
+    .Y(_616_)
+);
+
+OAI21X1 _3401_ (
+    .A(_872_),
+    .B(_326_),
+    .C(_233_),
+    .Y(_2354_[1])
+);
+
+FILL FILL_0__4187_ (
+);
+
+NOR2X1 _4606_ (
+    .A(_1337_),
+    .B(_1335_),
+    .Y(_1334_)
+);
+
+FILL FILL_1__3983_ (
+);
+
+FILL FILL_1__3563_ (
+);
+
+FILL FILL_3__3489_ (
+);
+
+FILL FILL_3__4850_ (
+);
+
+FILL FILL_3__4430_ (
+);
+
+FILL FILL_3__4010_ (
+);
+
+FILL FILL274050x61350 (
+);
+
+FILL FILL_1__4768_ (
+);
+
+FILL FILL_1__4348_ (
+);
+
+FILL FILL_4__2773_ (
+);
+
+FILL FILL_0__2673_ (
+);
+
+FILL FILL274050x28950 (
+);
+
+FILL FILL_2__3632_ (
+);
+
+FILL FILL_2__3212_ (
+);
+
+FILL FILL_4__3978_ (
+);
+
+FILL FILL_4__3558_ (
+);
+
+FILL FILL_0__3878_ (
+);
+
+FILL FILL_0__3458_ (
+);
+
+FILL FILL_2__4837_ (
+);
+
+FILL FILL_2__4417_ (
+);
+
+FILL FILL_1__2834_ (
+);
+
+FILL FILL_1__2414_ (
+);
+
+FILL FILL_3__3701_ (
+);
+
+FILL FILL_1__3619_ (
+);
+
+FILL FILL_2__4590_ (
+);
+
+FILL FILL_2__4170_ (
+);
+
+OAI21X1 _2689_ (
+    .A(_2045_),
+    .B(_2041_),
+    .C(_2354__6_bF$buf4),
+    .Y(_2046_)
+);
+
+FILL FILL_4__4096_ (
+);
+
+FILL FILL_3__4906_ (
+);
+
+AND2X2 _3630_ (
+    .A(_480_),
+    .B(_434_),
+    .Y(_433_)
+);
+
+OAI21X1 _3210_ (
+    .A(_1179_),
+    .B(_897_),
+    .C(_1241_),
+    .Y(_102_)
+);
+
+FILL FILL_2__2903_ (
+);
+
+FILL FILL_4__2829_ (
+);
+
+FILL FILL_4__2409_ (
+);
+
+FILL FILL_0__2729_ (
+);
+
+OAI21X1 _4835_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1871_),
+    .Y(_1878_)
+);
+
+INVX1 _4415_ (
+    .A(\u_cpu.DIHOLD [4]),
+    .Y(_1152_)
+);
+
+FILL FILL_1__3792_ (
+);
+
+FILL FILL_1__3372_ (
+);
+
+FILL FILL_3__3298_ (
+);
+
+BUFX2 BUFX2_insert100 (
+    .A(_1417_),
+    .Y(_1417__bF$buf2)
+);
+
+BUFX2 BUFX2_insert101 (
+    .A(_1417_),
+    .Y(_1417__bF$buf1)
+);
+
+BUFX2 BUFX2_insert102 (
+    .A(_1417_),
+    .Y(_1417__bF$buf0)
+);
+
+BUFX2 BUFX2_insert103 (
+    .A(_1129_),
+    .Y(_1129__bF$buf5)
+);
+
+BUFX2 BUFX2_insert104 (
+    .A(_1129_),
+    .Y(_1129__bF$buf4)
+);
+
+FILL FILL_1__4577_ (
+);
+
+BUFX2 BUFX2_insert105 (
+    .A(_1129_),
+    .Y(_1129__bF$buf3)
+);
+
+FILL FILL_1__4157_ (
+);
+
+BUFX2 BUFX2_insert106 (
+    .A(_1129_),
+    .Y(_1129__bF$buf2)
+);
+
+BUFX2 BUFX2_insert107 (
+    .A(_1129_),
+    .Y(_1129__bF$buf1)
+);
+
+BUFX2 BUFX2_insert108 (
+    .A(_1129_),
+    .Y(_1129__bF$buf0)
+);
+
+FILL FILL_4__2582_ (
+);
+
+BUFX2 BUFX2_insert109 (
+    .A(_1643_),
+    .Y(_1643__bF$buf5)
+);
+
+FILL FILL_0__2482_ (
+);
+
+FILL FILL_2__3861_ (
+);
+
+FILL FILL_2__3441_ (
+);
+
+FILL FILL_2__3021_ (
+);
+
+FILL FILL_4__3787_ (
+);
+
+FILL FILL_4__3367_ (
+);
+
+INVX4 _2901_ (
+    .A(reset),
+    .Y(_1514_)
+);
+
+FILL FILL_0__3687_ (
+);
+
+FILL FILL_0__3267_ (
+);
+
+FILL FILL_2__4646_ (
+);
+
+FILL FILL_2__4226_ (
+);
+
+FILL FILL_1__2643_ (
+);
+
+FILL FILL_3__2989_ (
+);
+
+FILL FILL_3__2569_ (
+);
+
+FILL FILL_3__3930_ (
+);
+
+FILL FILL_3__3510_ (
+);
+
+FILL FILL_1__3848_ (
+);
+
+FILL FILL_1__3428_ (
+);
+
+FILL FILL_1__3008_ (
+);
+
+AOI21X1 _2498_ (
+    .A(_2327_),
+    .B(_2323_),
+    .C(_1923__bF$buf1),
+    .Y(_2328_)
+);
+
+FILL FILL_3__4715_ (
+);
+
+FILL FILL_2__2712_ (
+);
+
+FILL FILL_4__2638_ (
+);
+
+FILL FILL_0__2538_ (
+);
+
+NOR2X1 _4644_ (
+    .A(\u_cpu.alu_op [2]),
+    .B(_1696_),
+    .Y(_1697_)
+);
+
+NAND2X1 _4224_ (
+    .A(_1042_),
+    .B(_978_),
+    .Y(_977_)
+);
+
+FILL FILL_1__3181_ (
+);
+
+FILL FILL_2__3917_ (
+);
+
+FILL FILL_1__4386_ (
+);
+
+FILL FILL_2__3670_ (
+);
+
+FILL FILL_2__3250_ (
+);
+
+FILL FILL_4__3596_ (
+);
+
+FILL FILL_4__3176_ (
+);
+
+AOI21X1 _2710_ (
+    .A(_1637_),
+    .B(_1909_),
+    .C(_2024_),
+    .Y(_2025_)
+);
+
+FILL FILL_0__3496_ (
+);
+
+FILL FILL_2__4455_ (
+);
+
+FILL FILL_2__4035_ (
+);
+
+NAND2X1 _3915_ (
+    .A(_1018_),
+    .B(_728_),
+    .Y(_700_)
+);
+
+FILL FILL_1__2452_ (
+);
+
+FILL FILL_3__2798_ (
+);
+
+FILL FILL_3__2378_ (
+);
+
+FILL FILL_1__3657_ (
+);
+
+FILL FILL_1__3237_ (
+);
+
+FILL FILL_3__4944_ (
+);
+
+FILL FILL_3__4524_ (
+);
+
+FILL FILL_3__4104_ (
+);
+
+FILL FILL_2__2941_ (
+);
+
+FILL FILL_2__2521_ (
+);
+
+FILL FILL_4__2447_ (
+);
+
+FILL FILL_0__2767_ (
+);
+
+DFFSR _4873_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1669_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.ADD [2])
+);
+
+OAI21X1 _4453_ (
+    .A(_1188_),
+    .B(_1198_),
+    .C(RDY_bF$buf4),
+    .Y(_1185_)
+);
+
+AOI21X1 _4033_ (
+    .A(_801_),
+    .B(_858_),
+    .C(_1196__bF$buf7),
+    .Y(_800_)
+);
+
+FILL FILL_2__3726_ (
+);
+
+FILL FILL_2__3306_ (
+);
+
+FILL FILL_1__4195_ (
+);
+
+FILL FILL_0__4913_ (
+);
+
+FILL FILL_1__2928_ (
+);
+
+FILL FILL_1__2508_ (
+);
+
+FILL FILL_2__4684_ (
+);
+
+FILL FILL_2__4264_ (
+);
+
+OAI21X1 _3724_ (
+    .A(_1196__bF$buf6),
+    .B(_585_),
+    .C(_524_),
+    .Y(_523_)
+);
+
+NAND2X1 _3304_ (
+    .A(\u_cpu.cond_code [1]),
+    .B(_1196__bF$buf0),
+    .Y(_158_)
+);
+
+FILL FILL_1__2681_ (
+);
+
+NAND2X1 _4929_ (
+    .A(_2203_),
+    .B(_2186_),
+    .Y(_2204_)
+);
+
+INVX1 _4509_ (
+    .A(_1238_),
+    .Y(_1237_)
+);
+
+FILL FILL_1__3886_ (
+);
+
+FILL FILL_1__3466_ (
+);
+
+FILL FILL_3__4753_ (
+);
+
+FILL FILL_3__4333_ (
+);
+
+FILL FILL_2__2750_ (
+);
+
+FILL FILL_4__2676_ (
+);
+
+FILL FILL_0__2996_ (
+);
+
+FILL FILL_0__2576_ (
+);
+
+AND2X2 _4682_ (
+    .A(_1734_),
+    .B(_1684_),
+    .Y(_1735_)
+);
+
+NOR2X1 _4262_ (
+    .A(_1027_),
+    .B(_1105_),
+    .Y(_1013_)
+);
+
+FILL FILL_2__3955_ (
+);
+
+FILL FILL_2__3535_ (
+);
+
+FILL FILL_4__4822_ (
+);
+
+FILL FILL_4__4402_ (
+);
+
+FILL FILL_0__4722_ (
+);
+
+FILL FILL_0__4302_ (
+);
+
+FILL FILL_1__2737_ (
+);
+
+FILL FILL_3__3604_ (
+);
+
+FILL FILL_2__4493_ (
+);
+
+FILL FILL_2__4073_ (
+);
+
+FILL FILL_3__4809_ (
+);
+
+AND2X2 _3953_ (
+    .A(_731_),
+    .B(_773_),
+    .Y(_730_)
+);
+
+OAI22X1 _3533_ (
+    .A(_342_),
+    .B(_1333_),
+    .C(_1108_),
+    .D(_356_),
+    .Y(_341_)
+);
+
+DFFSR _3113_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(_1392_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.ABL [0])
+);
+
+FILL FILL_1__2490_ (
+);
+
+FILL FILL_2__2806_ (
+);
+
+FILL FILL272550x75750 (
+);
+
+INVX1 _4738_ (
+    .A(_1753_),
+    .Y(_1791_)
+);
+
+NAND2X1 _4318_ (
+    .A(_1326_),
+    .B(_1064_),
+    .Y(_1063_)
+);
+
+FILL FILL_1__3695_ (
+);
+
+FILL FILL_1__3275_ (
+);
+
+FILL FILL_3__4982_ (
+);
+
+FILL FILL_3__4562_ (
+);
+
+FILL FILL_3__4142_ (
+);
+
+FILL FILL_4__2485_ (
+);
+
+FILL FILL_0__2385_ (
+);
+
+AOI21X1 _4491_ (
+    .A(_1311_),
+    .B(\u_cpu.PC [1]),
+    .C(_1220_),
+    .Y(_1219_)
+);
+
+NOR2X1 _4071_ (
+    .A(_1249_),
+    .B(_839_),
+    .Y(_838_)
+);
+
+FILL FILL_2__3764_ (
+);
+
+FILL FILL_2__3344_ (
+);
+
+AOI21X1 _2804_ (
+    .A(_1931_),
+    .B(_1927_),
+    .C(_1923__bF$buf2),
+    .Y(_1932_)
+);
+
+FILL FILL_4__4631_ (
+);
+
+FILL FILL_4__4211_ (
+);
+
+FILL FILL_2__4969_ (
+);
+
+FILL FILL_0__4951_ (
+);
+
+FILL FILL_0__4531_ (
+);
+
+FILL FILL_2__4549_ (
+);
+
+FILL FILL_2__4129_ (
+);
+
+FILL FILL_0__4111_ (
+);
+
+FILL FILL_1__2966_ (
+);
+
+FILL FILL_1__2546_ (
+);
+
+FILL FILL_3__3833_ (
+);
+
+FILL FILL_3__3413_ (
+);
+
+FILL FILL_3__4618_ (
+);
+
+NOR2X1 _3762_ (
+    .A(_1126_),
+    .B(_1111_),
+    .Y(_561_)
+);
+
+NOR2X1 _3342_ (
+    .A(_185_),
+    .B(_673_),
+    .Y(_1433_)
+);
+
+FILL FILL_2__2615_ (
+);
+
+FILL FILL_4__3902_ (
+);
+
+NAND3X1 _4967_ (
+    .A(_Addr_Bus[1]),
+    .B(_2236_),
+    .C(_2173_),
+    .Y(_2237_)
+);
+
+INVX1 _4547_ (
+    .A(\u_cpu.ADD [4]),
+    .Y(_1275_)
+);
+
+NAND3X1 _4127_ (
+    .A(_895_),
+    .B(_894_),
+    .C(_899_),
+    .Y(_893_)
+);
+
+FILL FILL_0__3802_ (
+);
+
+FILL FILL_3__4791_ (
+);
+
+FILL FILL_3__4371_ (
+);
+
+FILL FILL_1__4289_ (
+);
+
+FILL FILL_2__3993_ (
+);
+
+FILL FILL_2__3573_ (
+);
+
+FILL FILL_4__3499_ (
+);
+
+NOR2X1 _2613_ (
+    .A(_2354__4_bF$buf1),
+    .B(_2119_),
+    .Y(_2120_)
+);
+
+FILL FILL_4__4860_ (
+);
+
+FILL FILL_4__4440_ (
+);
+
+FILL FILL_4__4020_ (
+);
+
+FILL FILL_0__3399_ (
+);
+
+FILL FILL_2__4778_ (
+);
+
+FILL FILL_0__4760_ (
+);
+
+FILL FILL_2__4358_ (
+);
+
+FILL FILL_0__4340_ (
+);
+
+OAI21X1 _3818_ (
+    .A(_709_),
+    .B(_843_),
+    .C(_1315__bF$buf3),
+    .Y(_613_)
+);
+
+FILL FILL_1__2775_ (
+);
+
+BUFX2 BUFX2_insert10 (
+    .A(_1345_),
+    .Y(_1345__bF$buf3)
+);
+
+BUFX2 BUFX2_insert11 (
+    .A(_1345_),
+    .Y(_1345__bF$buf2)
+);
+
+BUFX2 BUFX2_insert12 (
+    .A(_1345_),
+    .Y(_1345__bF$buf1)
+);
+
+BUFX2 BUFX2_insert13 (
+    .A(_1345_),
+    .Y(_1345__bF$buf0)
+);
+
+BUFX2 BUFX2_insert14 (
+    .A(RDY),
+    .Y(RDY_bF$buf7)
+);
+
+BUFX2 BUFX2_insert15 (
+    .A(RDY),
+    .Y(RDY_bF$buf6)
+);
+
+BUFX2 BUFX2_insert16 (
+    .A(RDY),
+    .Y(RDY_bF$buf5)
+);
+
+BUFX2 BUFX2_insert17 (
+    .A(RDY),
+    .Y(RDY_bF$buf4)
+);
+
+BUFX2 BUFX2_insert18 (
+    .A(RDY),
+    .Y(RDY_bF$buf3)
+);
+
+BUFX2 BUFX2_insert19 (
+    .A(RDY),
+    .Y(RDY_bF$buf2)
+);
+
+FILL FILL_3__3642_ (
+);
+
+FILL FILL_3__3222_ (
+);
+
+FILL FILL_1__4921_ (
+);
+
+FILL FILL_1__4501_ (
+);
+
+FILL FILL_3__4847_ (
+);
+
+FILL FILL_3__4427_ (
+);
+
+FILL FILL_3__4007_ (
+);
+
+NAND2X1 _3991_ (
+    .A(_1123_),
+    .B(_993_),
+    .Y(_763_)
+);
+
+OAI21X1 _3571_ (
+    .A(_1325__bF$buf3),
+    .B(_870_),
+    .C(RDY_bF$buf6),
+    .Y(_375_)
+);
+
+DFFSR _3151_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [4]),
+    .CLK(clk_bF$buf3),
+    .Q(\u_cpu.DIHOLD [4])
+);
+
+FILL FILL_2__2844_ (
+);
+
+FILL FILL_2__2424_ (
+);
+
+FILL FILL_4__3711_ (
+);
+
+NAND2X1 _4776_ (
+    .A(_1828_),
+    .B(_1814_),
+    .Y(_1829_)
+);
+
+NOR2X1 _4356_ (
+    .A(_1102_),
+    .B(_1100_),
+    .Y(_1099_)
+);
+
+FILL FILL_0__3611_ (
+);
+
+FILL FILL_2__3629_ (
+);
+
+FILL FILL_2__3209_ (
+);
+
+FILL FILL_3__4180_ (
+);
+
+FILL FILL_4__4916_ (
+);
+
+FILL FILL_1__4098_ (
+);
+
+FILL FILL_0__4816_ (
+);
+
+FILL FILL_3__2913_ (
+);
+
+FILL FILL_2__3382_ (
+);
+
+OAI21X1 _2842_ (
+    .A(_2354__1_bF$buf5),
+    .B(_2354__0_bF$buf1),
+    .C(_2354__3_bF$buf0),
+    .Y(_1653_)
+);
+
+AOI21X1 _2422_ (
+    .A(_51_),
+    .B(_13_),
+    .C(_1923__bF$buf3),
+    .Y(_52_)
+);
+
+FILL FILL_2__4587_ (
+);
+
+FILL FILL_2__4167_ (
+);
+
+AOI22X1 _3627_ (
+    .A(_1196__bF$buf3),
+    .B(_457_),
+    .C(_432_),
+    .D(_1129__bF$buf2),
+    .Y(_431_)
+);
+
+OAI21X1 _3207_ (
+    .A(_104_),
+    .B(_100_),
+    .C(_103_),
+    .Y(_1370_)
+);
+
+FILL FILL_1__2584_ (
+);
+
+FILL FILL_3__3871_ (
+);
+
+FILL FILL_3__3451_ (
+);
+
+FILL FILL_3__3031_ (
+);
+
+FILL FILL_1__3789_ (
+);
+
+FILL FILL_1__3369_ (
+);
+
+FILL FILL_1__4730_ (
+);
+
+FILL FILL_1__4310_ (
+);
+
+FILL FILL_3__4656_ (
+);
+
+FILL FILL_3__4236_ (
+);
+
+INVX1 _3380_ (
+    .A(_905_),
+    .Y(_215_)
+);
+
+FILL FILL_2__2653_ (
+);
+
+FILL FILL_4__2999_ (
+);
+
+FILL FILL_4__2579_ (
+);
+
+FILL FILL_4__3940_ (
+);
+
+FILL FILL_4__3520_ (
+);
+
+FILL FILL_0__2899_ (
+);
+
+FILL FILL_0__2479_ (
+);
+
+INVX1 _4585_ (
+    .A(_1314_),
+    .Y(_1313_)
+);
+
+OAI21X1 _4165_ (
+    .A(_927_),
+    .B(_926_),
+    .C(_1070__bF$buf1),
+    .Y(_925_)
+);
+
+FILL FILL_0__3840_ (
+);
+
+FILL FILL_2__3858_ (
+);
+
+FILL FILL_2__3438_ (
+);
+
+FILL FILL_0__3420_ (
+);
+
+FILL FILL_0__3000_ (
+);
+
+FILL FILL_2__3018_ (
+);
+
+FILL FILL_4__4725_ (
+);
+
+FILL FILL_4__4305_ (
+);
+
+FILL FILL_3__2722_ (
+);
+
+FILL FILL_0__4625_ (
+);
+
+FILL FILL_0__4205_ (
+);
+
+FILL FILL_2__3191_ (
+);
+
+FILL FILL_3__3927_ (
+);
+
+FILL FILL_3__3507_ (
+);
+
+NAND2X1 _2651_ (
+    .A(_1634__bF$buf5),
+    .B(_2082_),
+    .Y(_2083_)
+);
+
+FILL FILL_2__4396_ (
+);
+
+OAI21X1 _3856_ (
+    .A(_1287_),
+    .B(_877_),
+    .C(_649_),
+    .Y(_648_)
+);
+
+AOI21X1 _3436_ (
+    .A(_782_),
+    .B(\u_cpu.PC [14]),
+    .C(_262_),
+    .Y(_261_)
+);
+
+INVX1 _3016_ (
+    .A(\u_pia_kbd.state [1]),
+    .Y(_1513_)
+);
+
+FILL FILL_1__2393_ (
+);
+
+FILL FILL_2__2709_ (
+);
+
+FILL FILL_3__3680_ (
+);
+
+FILL FILL_3__3260_ (
+);
+
+FILL FILL_1_BUFX2_insert70 (
+);
+
+FILL FILL_1_BUFX2_insert71 (
+);
+
+FILL FILL_1_BUFX2_insert72 (
+);
+
+FILL FILL_1_BUFX2_insert73 (
+);
+
+FILL FILL_1_BUFX2_insert74 (
+);
+
+FILL FILL_1_BUFX2_insert75 (
+);
+
+FILL FILL_1_BUFX2_insert76 (
+);
+
+FILL FILL_1_BUFX2_insert77 (
+);
+
+FILL FILL_1_BUFX2_insert78 (
+);
+
+FILL FILL_1_BUFX2_insert79 (
+);
+
+FILL FILL_1__3598_ (
+);
+
+FILL FILL_1__3178_ (
+);
+
+FILL FILL_3__4885_ (
+);
+
+FILL FILL_3__4465_ (
+);
+
+FILL FILL_3__4045_ (
+);
+
+FILL FILL_2__2882_ (
+);
+
+FILL FILL_2__2462_ (
+);
+
+FILL FILL_4__2388_ (
+);
+
+AOI21X1 _4394_ (
+    .A(\u_cpu.PC [13]),
+    .B(_1269_),
+    .C(_1135_),
+    .Y(_1134_)
+);
+
+FILL FILL_2__3667_ (
+);
+
+FILL FILL_2__3247_ (
+);
+
+NOR2X1 _2707_ (
+    .A(_2354__2_bF$buf5),
+    .B(_1924_),
+    .Y(_2028_)
+);
+
+FILL FILL_4__4954_ (
+);
+
+FILL FILL_4__4534_ (
+);
+
+FILL FILL_0__4854_ (
+);
+
+FILL FILL_3__2951_ (
+);
+
+FILL FILL_3__2531_ (
+);
+
+FILL FILL_0__4434_ (
+);
+
+FILL FILL_0__4014_ (
+);
+
+FILL FILL_1__2449_ (
+);
+
+FILL FILL_1__3810_ (
+);
+
+FILL FILL_3__3736_ (
+);
+
+FILL FILL_3__3316_ (
+);
+
+INVX1 _2880_ (
+    .A(_2353_[0]),
+    .Y(_1579_)
+);
+
+OAI22X1 _2460_ (
+    .A(_14_),
+    .B(_1960_),
+    .C(_2354__4_bF$buf4),
+    .D(_1640_),
+    .Y(_15_)
+);
+
+FILL FILL_4__2600_ (
+);
+
+NOR2X1 _3665_ (
+    .A(_469_),
+    .B(_474_),
+    .Y(_468_)
+);
+
+OAI21X1 _3245_ (
+    .A(_129_),
+    .B(_126_),
+    .C(_128_),
+    .Y(_1382_)
+);
+
+FILL FILL_2__2938_ (
+);
+
+FILL FILL_0__2920_ (
+);
+
+FILL FILL_0__2500_ (
+);
+
+FILL FILL_2__2518_ (
+);
+
+FILL FILL_4__3805_ (
+);
+
+FILL FILL_0__3705_ (
+);
+
+FILL FILL_3__4694_ (
+);
+
+FILL FILL_3__4274_ (
+);
+
+FILL FILL_2__2691_ (
+);
+
+FILL FILL_2__3896_ (
+);
+
+FILL FILL_2__3476_ (
+);
+
+NAND3X1 _2936_ (
+    .A(\u_pia_dsp.state [0]),
+    .B(_1525_),
+    .C(_1534_),
+    .Y(_1535_)
+);
+
+OAI21X1 _2516_ (
+    .A(_2309_),
+    .B(_2305_),
+    .C(_1920__bF$buf3),
+    .Y(_2310_)
+);
+
+FILL FILL_4__4763_ (
+);
+
+FILL FILL_4__4343_ (
+);
+
+FILL FILL_3__2760_ (
+);
+
+FILL FILL_0__4663_ (
+);
+
+FILL FILL_0__4243_ (
+);
+
+FILL FILL_1__2678_ (
+);
+
+FILL FILL_3__3965_ (
+);
+
+FILL FILL_3__3545_ (
+);
+
+FILL FILL_1__4824_ (
+);
+
+FILL FILL_1__4404_ (
+);
+
+NOR2X1 _3894_ (
+    .A(_1100_),
+    .B(_1005_),
+    .Y(_682_)
+);
+
+OAI21X1 _3474_ (
+    .A(_1096_),
+    .B(_877_),
+    .C(_289_),
+    .Y(_288_)
+);
+
+DFFSR _3054_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1478_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.sei )
+);
+
+FILL FILL_2__2747_ (
+);
+
+FILL FILL_4__3614_ (
+);
+
+OAI21X1 _4679_ (
+    .A(_1689_),
+    .B(_1731_),
+    .C(\u_cpu.BI [1]),
+    .Y(_1732_)
+);
+
+OAI21X1 _4259_ (
+    .A(\u_cpu.op [1]),
+    .B(_1129__bF$buf4),
+    .C(_1021_),
+    .Y(_1010_)
+);
+
+FILL FILL_0__3934_ (
+);
+
+FILL FILL_0__3514_ (
+);
+
+FILL FILL_3__4083_ (
+);
+
+FILL FILL_4__4819_ (
+);
+
+FILL FILL_0__4719_ (
+);
+
+FILL FILL_3__2816_ (
+);
+
+FILL FILL_2__3285_ (
+);
+
+NAND3X1 _2745_ (
+    .A(_1920__bF$buf2),
+    .B(_1989_),
+    .C(_1983_),
+    .Y(_1990_)
+);
+
+FILL FILL_4__4572_ (
+);
+
+FILL FILL_4__4152_ (
+);
+
+FILL FILL_0__4892_ (
+);
+
+FILL FILL_0__4472_ (
+);
+
+FILL FILL_0__4052_ (
+);
+
+FILL FILL_1__2487_ (
+);
+
+FILL FILL_3__3774_ (
+);
+
+FILL FILL_3__3354_ (
+);
+
+FILL FILL_1__4633_ (
+);
+
+FILL FILL_1__4213_ (
+);
+
+FILL FILL_3__4979_ (
+);
+
+FILL FILL_3__4559_ (
+);
+
+FILL FILL_3__4139_ (
+);
+
+OAI21X1 _3283_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [4]),
+    .Y(_148_)
+);
+
+FILL FILL_2__2976_ (
+);
+
+FILL FILL_2__2556_ (
+);
+
+FILL FILL_4__3843_ (
+);
+
+FILL FILL273150x68550 (
+);
+
+FILL FILL_4__3003_ (
+);
+
+AOI21X1 _4488_ (
+    .A(_1311_),
+    .B(\u_cpu.PC [0]),
+    .C(_1217_),
+    .Y(_1216_)
+);
+
+NAND3X1 _4068_ (
+    .A(_854_),
+    .B(_852_),
+    .C(_836_),
+    .Y(_835_)
+);
+
+FILL FILL_0__3743_ (
+);
+
+FILL FILL_0__3323_ (
+);
+
+FILL FILL_2__4702_ (
+);
+
+FILL FILL_4__4628_ (
+);
+
+FILL FILL_4__4208_ (
+);
+
+FILL FILL_0__4948_ (
+);
+
+FILL FILL_3__2625_ (
+);
+
+FILL FILL_0__4528_ (
+);
+
+FILL FILL_0__4108_ (
+);
+
+FILL FILL_1__3904_ (
+);
+
+INVX1 _2974_ (
+    .A(DO_kbd[4]),
+    .Y(_1622_)
+);
+
+NAND2X1 _2554_ (
+    .A(_2269_),
+    .B(_2272_),
+    .Y(_2273_)
+);
+
+FILL FILL_4__4381_ (
+);
+
+FILL FILL_2__4299_ (
+);
+
+FILL FILL_0__4281_ (
+);
+
+OAI21X1 _3759_ (
+    .A(_1037__bF$buf0),
+    .B(_560_),
+    .C(_559_),
+    .Y(_558_)
+);
+
+AND2X2 _3339_ (
+    .A(_184_),
+    .B(_183_),
+    .Y(_182_)
+);
+
+OAI21X1 _4700_ (
+    .A(_1747_),
+    .B(_1698_),
+    .C(_1752_),
+    .Y(_1753_)
+);
+
+FILL FILL_3__3583_ (
+);
+
+FILL FILL_1__4862_ (
+);
+
+FILL FILL_1__4442_ (
+);
+
+FILL FILL_1__4022_ (
+);
+
+FILL FILL_3__4788_ (
+);
+
+FILL FILL_3__4368_ (
+);
+
+DFFSR _3092_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1382_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.V )
+);
+
+FILL FILL_2__2785_ (
+);
+
+FILL FILL_2__2365_ (
+);
+
+FILL FILL_4__3652_ (
+);
+
+FILL FILL_4__3232_ (
+);
+
+AOI21X1 _4297_ (
+    .A(_1045_),
+    .B(_1043_),
+    .C(_1196__bF$buf7),
+    .Y(_1042_)
+);
+
+FILL FILL_0__3972_ (
+);
+
+FILL FILL_0__3552_ (
+);
+
+FILL FILL_2__4931_ (
+);
+
+FILL FILL_2__4511_ (
+);
+
+FILL FILL_4__4857_ (
+);
+
+FILL FILL_4__4437_ (
+);
+
+FILL FILL_4__4017_ (
+);
+
+FILL FILL_3__2854_ (
+);
+
+FILL FILL_0__4757_ (
+);
+
+FILL FILL_3__2434_ (
+);
+
+FILL FILL_0__4337_ (
+);
+
+FILL FILL_1__3713_ (
+);
+
+FILL FILL_3__3639_ (
+);
+
+FILL FILL_3__3219_ (
+);
+
+AOI21X1 _2783_ (
+    .A(_1942_),
+    .B(_1947_),
+    .C(_1952_),
+    .Y(_1953_)
+);
+
+BUFX2 _2363_ (
+    .A(_2354_[8]),
+    .Y(AB[8])
+);
+
+FILL FILL_4__4190_ (
+);
+
+FILL FILL_0__4090_ (
+);
+
+FILL FILL_1__4918_ (
+);
+
+FILL FILL_4__2923_ (
+);
+
+FILL FILL_4__2503_ (
+);
+
+OAI21X1 _3988_ (
+    .A(_774_),
+    .B(_1129__bF$buf5),
+    .C(_761_),
+    .Y(_1456_)
+);
+
+NAND2X1 _3568_ (
+    .A(_373_),
+    .B(_508_),
+    .Y(_372_)
+);
+
+DFFSR _3148_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1410_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.cond_code [0])
+);
+
+FILL FILL_0__2823_ (
+);
+
+FILL FILL_0__2403_ (
+);
+
+FILL FILL_3__3392_ (
+);
+
+FILL FILL_4__3708_ (
+);
+
+FILL FILL_0__3608_ (
+);
+
+FILL FILL_1__4671_ (
+);
+
+FILL FILL_1__4251_ (
+);
+
+FILL FILL_3__4597_ (
+);
+
+FILL FILL_3__4177_ (
+);
+
+FILL FILL_2__2594_ (
+);
+
+FILL FILL_4__3881_ (
+);
+
+FILL FILL_4__3461_ (
+);
+
+FILL FILL_0__3781_ (
+);
+
+FILL FILL_2__3799_ (
+);
+
+FILL FILL_2__3379_ (
+);
+
+FILL FILL_0__3361_ (
+);
+
+FILL FILL_2__4740_ (
+);
+
+FILL FILL_2__4320_ (
+);
+
+NAND3X1 _2839_ (
+    .A(_2354__4_bF$buf3),
+    .B(_1655_),
+    .C(_1650_),
+    .Y(_1656_)
+);
+
+INVX1 _2419_ (
+    .A(_1961_),
+    .Y(_55_)
+);
+
+FILL FILL_4__4666_ (
+);
+
+FILL FILL_4__4246_ (
+);
+
+FILL FILL_3__2663_ (
+);
+
+FILL FILL_0__4566_ (
+);
+
+FILL FILL_0__4146_ (
+);
+
+FILL FILL_1__3942_ (
+);
+
+FILL FILL_1__3522_ (
+);
+
+FILL FILL_3__3868_ (
+);
+
+FILL FILL_3__3448_ (
+);
+
+FILL FILL_3__3028_ (
+);
+
+AOI21X1 _2592_ (
+    .A(_2140_),
+    .B(_2137_),
+    .C(_2354__7_bF$buf3),
+    .Y(_2141_)
+);
+
+FILL FILL_1__4727_ (
+);
+
+FILL FILL_1__4307_ (
+);
+
+FILL FILL_4__2732_ (
+);
+
+AOI21X1 _3797_ (
+    .A(_782_),
+    .B(\u_cpu.PC [3]),
+    .C(_595_),
+    .Y(_594_)
+);
+
+NOR2X1 _3377_ (
+    .A(_701_),
+    .B(_675_),
+    .Y(_212_)
+);
+
+FILL FILL_0__2632_ (
+);
+
+FILL FILL_4__3937_ (
+);
+
+FILL FILL_4__3517_ (
+);
+
+FILL FILL_0__3837_ (
+);
+
+FILL FILL_0__3417_ (
+);
+
+FILL FILL_1__4480_ (
+);
+
+FILL FILL_1__4060_ (
+);
+
+FILL FILL_3__2719_ (
+);
+
+FILL FILL_4__3690_ (
+);
+
+FILL FILL_4__3270_ (
+);
+
+FILL FILL_0__3590_ (
+);
+
+FILL FILL_0__3170_ (
+);
+
+FILL FILL_2__3188_ (
+);
+
+AOI21X1 _2648_ (
+    .A(_2002_),
+    .B(_1924_),
+    .C(_1636__bF$buf0),
+    .Y(_2086_)
+);
+
+FILL FILL273450x21750 (
+);
+
+FILL FILL_4__4475_ (
+);
+
+FILL FILL_4__4055_ (
+);
+
+FILL FILL_0__4795_ (
+);
+
+FILL FILL_3__2892_ (
+);
+
+FILL FILL_3__2472_ (
+);
+
+FILL FILL_0__4375_ (
+);
+
+FILL FILL_1__3751_ (
+);
+
+FILL FILL_1__3331_ (
+);
+
+FILL FILL_3__3677_ (
+);
+
+FILL FILL_3__3257_ (
+);
+
+FILL FILL_1__4956_ (
+);
+
+FILL FILL_1__4536_ (
+);
+
+FILL FILL_1__4116_ (
+);
+
+FILL FILL_4__2541_ (
+);
+
+OAI21X1 _3186_ (
+    .A(_1219_),
+    .B(_93_),
+    .C(RDY_bF$buf1),
+    .Y(_86_)
+);
+
+FILL FILL_2__2879_ (
+);
+
+FILL FILL_0__2861_ (
+);
+
+FILL FILL_2__2459_ (
+);
+
+FILL FILL_0__2441_ (
+);
+
+FILL FILL_2__3820_ (
+);
+
+FILL FILL_2__3400_ (
+);
+
+FILL FILL_4__3746_ (
+);
+
+FILL FILL_4__3326_ (
+);
+
+FILL FILL_0__3646_ (
+);
+
+FILL FILL_0__3226_ (
+);
+
+FILL FILL_2__4605_ (
+);
+
+FILL FILL_1__2602_ (
+);
+
+FILL FILL_3__2948_ (
+);
+
+FILL FILL_3__2528_ (
+);
+
+FILL FILL_1__3807_ (
+);
+
+INVX1 _2877_ (
+    .A(_2353_[1]),
+    .Y(_1581_)
+);
+
+AOI21X1 _2457_ (
+    .A(_1959_),
+    .B(_2354__4_bF$buf4),
+    .C(_1920__bF$buf1),
+    .Y(_18_)
+);
+
+FILL FILL_4__4284_ (
+);
+
+FILL FILL_0__4184_ (
+);
+
+FILL FILL_0__2917_ (
+);
+
+NAND2X1 _4603_ (
+    .A(_1347_),
+    .B(_1332_),
+    .Y(_1331_)
+);
+
+FILL FILL_1__3980_ (
+);
+
+FILL FILL_1__3560_ (
+);
+
+FILL FILL_3__3486_ (
+);
+
+FILL FILL_1__4765_ (
+);
+
+FILL FILL_1__4345_ (
+);
+
+FILL FILL_4__2770_ (
+);
+
+FILL FILL_0__2670_ (
+);
+
+FILL FILL_2__2688_ (
+);
+
+FILL FILL_4__3975_ (
+);
+
+FILL FILL_4__3555_ (
+);
+
+FILL FILL_0__3875_ (
+);
+
+FILL FILL_0__3455_ (
+);
+
+FILL FILL_2__4834_ (
+);
+
+FILL FILL_2__4414_ (
+);
+
+FILL FILL_1__2831_ (
+);
+
+FILL FILL_1__2411_ (
+);
+
+FILL FILL_3__2757_ (
+);
+
+FILL FILL_1__3616_ (
+);
+
+AOI21X1 _2686_ (
+    .A(_2354__1_bF$buf4),
+    .B(_2354__2_bF$buf3),
+    .C(_2354__0_bF$buf3),
+    .Y(_2048_)
+);
+
+FILL FILL_4__4093_ (
+);
+
+FILL FILL_3__4903_ (
+);
+
+FILL FILL_2__2900_ (
+);
+
+FILL FILL_4__2826_ (
+);
+
+FILL FILL_4__2406_ (
+);
+
+FILL FILL_0__2726_ (
+);
+
+INVX1 _4832_ (
+    .A(_1872_),
+    .Y(_1875_)
+);
+
+INVX2 _4412_ (
+    .A(\u_cpu.DIMUX [4]),
+    .Y(_1150_)
+);
+
+FILL FILL_3__3295_ (
+);
+
+FILL FILL_1__4574_ (
+);
+
+FILL FILL_1__4154_ (
+);
+
+FILL FILL_2__2497_ (
+);
+
+FILL FILL_4__3784_ (
+);
+
+FILL FILL_4__3364_ (
+);
+
+FILL FILL_0__3684_ (
+);
+
+FILL FILL_0__3264_ (
+);
+
+FILL FILL_2__4643_ (
+);
+
+FILL FILL_2__4223_ (
+);
+
+FILL FILL_4__4569_ (
+);
+
+FILL FILL_4__4149_ (
+);
+
+FILL FILL273750x64950 (
+);
+
+FILL FILL_1__2640_ (
+);
+
+FILL FILL_0__4889_ (
+);
+
+FILL FILL_3__2986_ (
+);
+
+FILL FILL_3__2566_ (
+);
+
+FILL FILL_0__4469_ (
+);
+
+FILL FILL_0__4049_ (
+);
+
+FILL FILL_1__3845_ (
+);
+
+FILL FILL_1__3425_ (
+);
+
+FILL FILL_1__3005_ (
+);
+
+NOR2X1 _2495_ (
+    .A(_2330_),
+    .B(_2128_),
+    .Y(_2331_)
+);
+
+FILL FILL_3__4712_ (
+);
+
+FILL FILL_4__2635_ (
+);
+
+FILL FILL_0__2535_ (
+);
+
+NAND3X1 _4641_ (
+    .A(_1684_),
+    .B(_1693_),
+    .C(_1692_),
+    .Y(_1694_)
+);
+
+NAND2X1 _4221_ (
+    .A(\u_cpu.AXYS[0] [0]),
+    .B(_977_),
+    .Y(_974_)
+);
+
+FILL FILL_2__3914_ (
+);
+
+FILL FILL_1__4383_ (
+);
+
+FILL FILL_4__3593_ (
+);
+
+FILL FILL_4__3173_ (
+);
+
+FILL FILL_0__3493_ (
+);
+
+FILL FILL_2__4452_ (
+);
+
+FILL FILL_2__4032_ (
+);
+
+FILL FILL_4__4798_ (
+);
+
+FILL FILL_4__4378_ (
+);
+
+OAI21X1 _3912_ (
+    .A(_1328__bF$buf5),
+    .B(_1084_),
+    .C(_747_),
+    .Y(_698_)
+);
+
+FILL FILL_0__4698_ (
+);
+
+FILL FILL_3__2795_ (
+);
+
+FILL FILL_3__2375_ (
+);
+
+FILL FILL_0__4278_ (
+);
+
+FILL FILL_1__3654_ (
+);
+
+FILL FILL_1__3234_ (
+);
+
+FILL FILL_3__4941_ (
+);
+
+FILL FILL_3__4521_ (
+);
+
+FILL FILL_3__4101_ (
+);
+
+FILL FILL_1__4859_ (
+);
+
+FILL FILL_1__4439_ (
+);
+
+FILL FILL_1__4019_ (
+);
+
+FILL FILL_4__2444_ (
+);
+
+DFFSR _3089_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1381_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.ABH [1])
+);
+
+FILL FILL_0__2764_ (
+);
+
+OAI21X1 _4870_ (
+    .A(RDY_bF$buf7),
+    .B(_1866_),
+    .C(_1908_),
+    .Y(_1680_)
+);
+
+INVX1 _4450_ (
+    .A(_1269_),
+    .Y(_1183_)
+);
+
+INVX1 _4030_ (
+    .A(\u_cpu.NMI_1 ),
+    .Y(_798_)
+);
+
+FILL FILL_2__3723_ (
+);
+
+FILL FILL_2__3303_ (
+);
+
+FILL FILL_4__3649_ (
+);
+
+FILL FILL_4__3229_ (
+);
+
+FILL FILL_0__3969_ (
+);
+
+FILL FILL_0__3549_ (
+);
+
+FILL FILL_1__4192_ (
+);
+
+FILL FILL_2__4928_ (
+);
+
+FILL FILL_0__4910_ (
+);
+
+FILL FILL_2__4508_ (
+);
+
+FILL FILL_1__2925_ (
+);
+
+FILL FILL_1__2505_ (
+);
+
+FILL FILL_2__4681_ (
+);
+
+FILL FILL_2__4261_ (
+);
+
+FILL FILL_4__4187_ (
+);
+
+OAI21X1 _3721_ (
+    .A(_1196__bF$buf5),
+    .B(_555_),
+    .C(_521_),
+    .Y(_520_)
+);
+
+OAI21X1 _3301_ (
+    .A(_932_),
+    .B(_921_),
+    .C(_157_),
+    .Y(_1407_)
+);
+
+FILL FILL_0__4087_ (
+);
+
+INVX1 _4926_ (
+    .A(DO_dsp[5]),
+    .Y(_2201_)
+);
+
+INVX1 _4506_ (
+    .A(_1346_),
+    .Y(_1234_)
+);
+
+FILL FILL_1__3883_ (
+);
+
+FILL FILL_1__3463_ (
+);
+
+FILL FILL_3__3389_ (
+);
+
+FILL FILL_3__4750_ (
+);
+
+FILL FILL_3__4330_ (
+);
+
+FILL FILL_1__4668_ (
+);
+
+FILL FILL_1__4248_ (
+);
+
+FILL FILL_4__2673_ (
+);
+
+FILL FILL_0__2993_ (
+);
+
+FILL FILL_0__2573_ (
+);
+
+FILL FILL_2__3952_ (
+);
+
+FILL FILL_2__3532_ (
+);
+
+FILL FILL_4__3878_ (
+);
+
+FILL FILL_4__3458_ (
+);
+
+FILL FILL_0__3778_ (
+);
+
+FILL FILL_0__3358_ (
+);
+
+FILL FILL_2__4737_ (
+);
+
+FILL FILL_2__4317_ (
+);
+
+FILL FILL_1__2734_ (
+);
+
+FILL FILL_3__3601_ (
+);
+
+FILL FILL_1__3939_ (
+);
+
+FILL FILL_1__3519_ (
+);
+
+FILL FILL_2__4490_ (
+);
+
+FILL FILL_2__4070_ (
+);
+
+NOR2X1 _2589_ (
+    .A(_2354__2_bF$buf4),
+    .B(_2088_),
+    .Y(_2144_)
+);
+
+FILL FILL_3__4806_ (
+);
+
+NAND2X1 _3950_ (
+    .A(_728_),
+    .B(_993_),
+    .Y(_727_)
+);
+
+INVX1 _3530_ (
+    .A(_886_),
+    .Y(_339_)
+);
+
+DFFSR _3110_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [7]),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.DIHOLD [7])
+);
+
+FILL FILL_2__2803_ (
+);
+
+FILL FILL_4__2729_ (
+);
+
+FILL FILL_0__2629_ (
+);
+
+NAND2X1 _4735_ (
+    .A(_1771_),
+    .B(_1769_),
+    .Y(_1788_)
+);
+
+OAI21X1 _4315_ (
+    .A(_1305__bF$buf3),
+    .B(_1076_),
+    .C(_1061_),
+    .Y(_1060_)
+);
+
+FILL FILL_1__3692_ (
+);
+
+FILL FILL_1__3272_ (
+);
+
+FILL FILL_3__3198_ (
+);
+
+FILL FILL_1__4897_ (
+);
+
+FILL FILL_1__4477_ (
+);
+
+FILL FILL_1__4057_ (
+);
+
+FILL FILL_4__2482_ (
+);
+
+FILL FILL_0__2382_ (
+);
+
+FILL FILL_2__3761_ (
+);
+
+FILL FILL_2__3341_ (
+);
+
+FILL FILL_4__3687_ (
+);
+
+FILL FILL_4__3267_ (
+);
+
+NAND2X1 _2801_ (
+    .A(_2354__2_bF$buf1),
+    .B(_1638__bF$buf1),
+    .Y(_1935_)
+);
+
+FILL FILL_0__3587_ (
+);
+
+FILL FILL_0__3167_ (
+);
+
+FILL FILL_2__4966_ (
+);
+
+FILL FILL_2__4546_ (
+);
+
+FILL FILL_2__4126_ (
+);
+
+FILL FILL_1__2543_ (
+);
+
+FILL FILL_3__2889_ (
+);
+
+FILL FILL_3__2469_ (
+);
+
+FILL FILL_3__3830_ (
+);
+
+FILL FILL_3__3410_ (
+);
+
+FILL FILL_1__3748_ (
+);
+
+FILL FILL_1__3328_ (
+);
+
+AOI21X1 _2398_ (
+    .A(_25_),
+    .B(_1634__bF$buf4),
+    .C(_1920__bF$buf3),
+    .Y(_1423_)
+);
+
+FILL FILL_3__4615_ (
+);
+
+FILL FILL274050x14550 (
+);
+
+FILL FILL_2__2612_ (
+);
+
+FILL FILL_4__2538_ (
+);
+
+FILL FILL_0__2858_ (
+);
+
+FILL FILL_0__2438_ (
+);
+
+AOI22X1 _4964_ (
+    .A(_2228_),
+    .B(_2195_),
+    .C(_2233_),
+    .D(_2234_),
+    .Y(Data_In[1])
+);
+
+OAI21X1 _4544_ (
+    .A(_1275_),
+    .B(_1282_),
+    .C(_1273_),
+    .Y(_1272_)
+);
+
+INVX1 _4124_ (
+    .A(_891_),
+    .Y(_890_)
+);
+
+FILL FILL_2__3817_ (
+);
+
+FILL FILL_1__4286_ (
+);
+
+FILL FILL_2__3990_ (
+);
+
+FILL FILL_2__3570_ (
+);
+
+FILL FILL_4__3496_ (
+);
+
+INVX1 _2610_ (
+    .A(_2006_),
+    .Y(_2123_)
+);
+
+FILL FILL_0__3396_ (
+);
+
+FILL FILL_2__4775_ (
+);
+
+FILL FILL_2__4355_ (
+);
+
+AOI21X1 _3815_ (
+    .A(_651_),
+    .B(_630_),
+    .C(_611_),
+    .Y(_610_)
+);
+
+FILL FILL_1__2772_ (
+);
+
+FILL FILL_3__2698_ (
+);
+
+FILL FILL_1__3977_ (
+);
+
+FILL FILL_1__3557_ (
+);
+
+FILL FILL_3__4844_ (
+);
+
+FILL FILL_3__4424_ (
+);
+
+FILL FILL_3__4004_ (
+);
+
+FILL FILL_2__2841_ (
+);
+
+FILL FILL_2__2421_ (
+);
+
+FILL FILL_4__2767_ (
+);
+
+FILL FILL_0__2667_ (
+);
+
+OAI21X1 _4773_ (
+    .A(_1697_),
+    .B(_1825_),
+    .C(_1822_),
+    .Y(_1826_)
+);
+
+NAND2X1 _4353_ (
+    .A(\u_cpu.PC [14]),
+    .B(_1196__bF$buf1),
+    .Y(_1097_)
+);
+
+FILL FILL_2__3626_ (
+);
+
+FILL FILL_2__3206_ (
+);
+
+FILL FILL_4__4913_ (
+);
+
+FILL FILL_1__4095_ (
+);
+
+FILL FILL_0__4813_ (
+);
+
+FILL FILL_3__2910_ (
+);
+
+FILL FILL_1__2828_ (
+);
+
+FILL FILL_1__2408_ (
+);
+
+FILL FILL_2__4584_ (
+);
+
+FILL FILL_2__4164_ (
+);
+
+OAI21X1 _3624_ (
+    .A(RDY_bF$buf6),
+    .B(_1274_),
+    .C(_429_),
+    .Y(_428_)
+);
+
+NAND2X1 _3204_ (
+    .A(\u_cpu.AXYS[1] [1]),
+    .B(_1041_),
+    .Y(_98_)
+);
+
+FILL FILL_1__2581_ (
+);
+
+NOR2X1 _4829_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1871_),
+    .Y(_1872_)
+);
+
+OAI21X1 _4409_ (
+    .A(_1318_),
+    .B(_1150_),
+    .C(_1148_),
+    .Y(_1147_)
+);
+
+FILL FILL_1__3786_ (
+);
+
+FILL FILL_1__3366_ (
+);
+
+FILL FILL_3__4653_ (
+);
+
+FILL FILL_3__4233_ (
+);
+
+FILL FILL_2__2650_ (
+);
+
+FILL FILL_4__2996_ (
+);
+
+FILL FILL_4__2576_ (
+);
+
+FILL FILL_0__2896_ (
+);
+
+FILL FILL_0__2476_ (
+);
+
+INVX1 _4582_ (
+    .A(_1311_),
+    .Y(_1310_)
+);
+
+OAI21X1 _4162_ (
+    .A(_977_),
+    .B(_924_),
+    .C(_923_),
+    .Y(_1466_)
+);
+
+FILL FILL_2__3855_ (
+);
+
+FILL FILL_2__3435_ (
+);
+
+FILL FILL_2__3015_ (
+);
+
+FILL FILL_4__4722_ (
+);
+
+FILL FILL_4__4302_ (
+);
+
+FILL FILL_0__4622_ (
+);
+
+FILL FILL_0__4202_ (
+);
+
+FILL FILL_1__2637_ (
+);
+
+FILL FILL_3__3924_ (
+);
+
+FILL FILL_3__3504_ (
+);
+
+FILL FILL_2__4393_ (
+);
+
+FILL FILL_3__4709_ (
+);
+
+INVX1 _3853_ (
+    .A(\u_cpu.AXYS[1] [6]),
+    .Y(_646_)
+);
+
+NAND2X1 _3433_ (
+    .A(\u_cpu.ADD [3]),
+    .B(_625_),
+    .Y(_259_)
+);
+
+AND2X2 _3013_ (
+    .A(_Addr_Bus[12]),
+    .B(_Addr_Bus[4]),
+    .Y(_1585_)
+);
+
+FILL FILL_2__2706_ (
+);
+
+FILL FILL_1_BUFX2_insert40 (
+);
+
+FILL FILL_1_BUFX2_insert41 (
+);
+
+FILL FILL_1_BUFX2_insert42 (
+);
+
+FILL FILL_1_BUFX2_insert43 (
+);
+
+FILL FILL_1_BUFX2_insert44 (
+);
+
+FILL FILL_1_BUFX2_insert45 (
+);
+
+FILL FILL_1_BUFX2_insert46 (
+);
+
+FILL FILL_1_BUFX2_insert47 (
+);
+
+FILL FILL_1_BUFX2_insert48 (
+);
+
+FILL FILL_1_BUFX2_insert49 (
+);
+
+OAI21X1 _4638_ (
+    .A(_1689_),
+    .B(_1690_),
+    .C(\u_cpu.BI [5]),
+    .Y(_1691_)
+);
+
+INVX1 _4218_ (
+    .A(_973_),
+    .Y(_972_)
+);
+
+FILL FILL_1__3595_ (
+);
+
+FILL FILL_1__3175_ (
+);
+
+FILL FILL_3__4462_ (
+);
+
+FILL FILL_3__4042_ (
+);
+
+FILL FILL_0_CLKBUF1_insert26 (
+);
+
+FILL FILL_0_CLKBUF1_insert27 (
+);
+
+FILL FILL_0_CLKBUF1_insert28 (
+);
+
+FILL FILL_0_CLKBUF1_insert29 (
+);
+
+FILL FILL_4__2385_ (
+);
+
+OAI21X1 _4391_ (
+    .A(_1134_),
+    .B(_1143_),
+    .C(RDY_bF$buf4),
+    .Y(_1131_)
+);
+
+FILL FILL_2__3664_ (
+);
+
+FILL FILL_2__3244_ (
+);
+
+NOR2X1 _2704_ (
+    .A(_1920__bF$buf2),
+    .B(_2030_),
+    .Y(_2031_)
+);
+
+FILL FILL_4__4951_ (
+);
+
+FILL FILL_4__4531_ (
+);
+
+FILL FILL_4__4111_ (
+);
+
+FILL FILL_0__4851_ (
+);
+
+FILL FILL_2__4869_ (
+);
+
+FILL FILL_0__4431_ (
+);
+
+FILL FILL_2__4449_ (
+);
+
+FILL FILL_2__4029_ (
+);
+
+FILL FILL_0__4011_ (
+);
+
+AOI22X1 _3909_ (
+    .A(_827_),
+    .B(_743_),
+    .C(_749_),
+    .D(_696_),
+    .Y(_695_)
+);
+
+FILL FILL_1__2446_ (
+);
+
+FILL FILL_3__3733_ (
+);
+
+FILL FILL_3__3313_ (
+);
+
+FILL FILL_3__4938_ (
+);
+
+FILL FILL_3__4518_ (
+);
+
+AOI22X1 _3662_ (
+    .A(_1196__bF$buf8),
+    .B(_467_),
+    .C(_569_),
+    .D(_466_),
+    .Y(_465_)
+);
+
+NAND2X1 _3242_ (
+    .A(_2354_[10]),
+    .B(_800__bF$buf3),
+    .Y(_124_)
+);
+
+FILL FILL_2__2935_ (
+);
+
+FILL FILL_2__2515_ (
+);
+
+FILL FILL_4__3802_ (
+);
+
+AOI22X1 _4867_ (
+    .A(_1899_),
+    .B(_1905_),
+    .C(_1906_),
+    .D(_1895_),
+    .Y(_1907_)
+);
+
+NAND2X1 _4447_ (
+    .A(RDY_bF$buf2),
+    .B(Data_In[2]),
+    .Y(_1180_)
+);
+
+OAI21X1 _4027_ (
+    .A(\u_cpu.NMI_edge ),
+    .B(_797_),
+    .C(_796_),
+    .Y(_1459_)
+);
+
+FILL FILL_0__3702_ (
+);
+
+FILL FILL_3__4691_ (
+);
+
+FILL FILL_3__4271_ (
+);
+
+FILL FILL_1__4189_ (
+);
+
+FILL FILL_0__4907_ (
+);
+
+FILL FILL_2__3893_ (
+);
+
+FILL FILL_2__3473_ (
+);
+
+FILL FILL_4__3399_ (
+);
+
+INVX2 _2933_ (
+    .A(\u_pia_dsp.state [0]),
+    .Y(_1537_)
+);
+
+AOI21X1 _2513_ (
+    .A(_1994_),
+    .B(_1643__bF$buf4),
+    .C(_2354__4_bF$buf0),
+    .Y(_2313_)
+);
+
+FILL FILL_4__4760_ (
+);
+
+FILL FILL_4__4340_ (
+);
+
+FILL FILL_0__3299_ (
+);
+
+FILL FILL272550x61350 (
+);
+
+FILL FILL_0__4660_ (
+);
+
+FILL FILL_2__4678_ (
+);
+
+FILL FILL_0__4240_ (
+);
+
+FILL FILL_2__4258_ (
+);
+
+NAND2X1 _3718_ (
+    .A(_520_),
+    .B(_518_),
+    .Y(_517_)
+);
+
+FILL FILL_1__2675_ (
+);
+
+FILL FILL_3__3962_ (
+);
+
+FILL FILL_3__3542_ (
+);
+
+FILL FILL_1__4821_ (
+);
+
+FILL FILL_1__4401_ (
+);
+
+FILL FILL_3__4747_ (
+);
+
+FILL FILL_3__4327_ (
+);
+
+OAI21X1 _3891_ (
+    .A(_1008_),
+    .B(_1013_),
+    .C(_1001_),
+    .Y(_679_)
+);
+
+INVX8 _3471_ (
+    .A(_286_),
+    .Y(_2354_[6])
+);
+
+DFFSR _3051_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1365_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.AXYS[3] [7])
+);
+
+FILL FILL_2__2744_ (
+);
+
+FILL FILL_4__3611_ (
+);
+
+INVX1 _4676_ (
+    .A(\u_cpu.BI [1]),
+    .Y(_1729_)
+);
+
+INVX2 _4256_ (
+    .A(_1111_),
+    .Y(_1008_)
+);
+
+FILL FILL_2__3949_ (
+);
+
+FILL FILL_0__3931_ (
+);
+
+FILL FILL_0__3511_ (
+);
+
+FILL FILL_2__3529_ (
+);
+
+FILL FILL_3__4080_ (
+);
+
+FILL FILL_4__4816_ (
+);
+
+FILL FILL_0__4716_ (
+);
+
+FILL FILL_3__2813_ (
+);
+
+FILL FILL_2_BUFX2_insert90 (
+);
+
+FILL FILL_2_BUFX2_insert91 (
+);
+
+FILL FILL_2_BUFX2_insert92 (
+);
+
+FILL FILL_2_BUFX2_insert93 (
+);
+
+FILL FILL_2_BUFX2_insert94 (
+);
+
+FILL FILL_2_BUFX2_insert95 (
+);
+
+FILL FILL_2_BUFX2_insert96 (
+);
+
+FILL FILL_2_BUFX2_insert97 (
+);
+
+FILL FILL_2_BUFX2_insert98 (
+);
+
+FILL FILL_2_BUFX2_insert99 (
+);
+
+FILL FILL_2__3282_ (
+);
+
+OAI21X1 _2742_ (
+    .A(_1637_),
+    .B(_1639_),
+    .C(_1992_),
+    .Y(_1993_)
+);
+
+FILL FILL_2__4487_ (
+);
+
+FILL FILL_2__4067_ (
+);
+
+OAI21X1 _3947_ (
+    .A(_725_),
+    .B(_729_),
+    .C(_1129__bF$buf5),
+    .Y(_724_)
+);
+
+NAND3X1 _3527_ (
+    .A(_872_),
+    .B(_338_),
+    .C(_337_),
+    .Y(_336_)
+);
+
+DFFSR _3107_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1389_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABL [3])
+);
+
+FILL FILL_1__2484_ (
+);
+
+FILL FILL_3__3771_ (
+);
+
+FILL FILL_3__3351_ (
+);
+
+FILL FILL_1__3689_ (
+);
+
+FILL FILL_1__3269_ (
+);
+
+FILL FILL_1__4630_ (
+);
+
+FILL FILL_1__4210_ (
+);
+
+FILL FILL_3__4976_ (
+);
+
+FILL FILL_3__4556_ (
+);
+
+FILL FILL_3__4136_ (
+);
+
+OAI21X1 _3280_ (
+    .A(_1165_),
+    .B(_179_),
+    .C(_147_),
+    .Y(_1396_)
+);
+
+FILL FILL_2__2973_ (
+);
+
+FILL FILL_2__2553_ (
+);
+
+FILL FILL_4__2899_ (
+);
+
+FILL FILL_4__2479_ (
+);
+
+FILL FILL_4__3840_ (
+);
+
+FILL FILL_4__3420_ (
+);
+
+FILL FILL_4__3000_ (
+);
+
+FILL FILL_0__2799_ (
+);
+
+FILL FILL_0__2379_ (
+);
+
+NOR3X1 _4485_ (
+    .A(_1277_),
+    .B(_1271_),
+    .C(_1214_),
+    .Y(_1213_)
+);
+
+AND2X2 _4065_ (
+    .A(_833_),
+    .B(_847_),
+    .Y(_832_)
+);
+
+FILL FILL_2__3758_ (
+);
+
+FILL FILL_0__3740_ (
+);
+
+FILL FILL_0__3320_ (
+);
+
+FILL FILL_2__3338_ (
+);
+
+FILL FILL_4__4625_ (
+);
+
+FILL FILL_4__4205_ (
+);
+
+FILL FILL_0__4945_ (
+);
+
+FILL FILL_3__2622_ (
+);
+
+FILL FILL_0__4525_ (
+);
+
+FILL FILL_0__4105_ (
+);
+
+FILL FILL_1__3901_ (
+);
+
+FILL FILL_3__3827_ (
+);
+
+FILL FILL_3__3407_ (
+);
+
+INVX1 _2971_ (
+    .A(_1617_),
+    .Y(_1624_)
+);
+
+OAI21X1 _2551_ (
+    .A(_2354__2_bF$buf5),
+    .B(_2024_),
+    .C(_1634__bF$buf2),
+    .Y(_2276_)
+);
+
+FILL FILL_2__4296_ (
+);
+
+INVX1 _3756_ (
+    .A(_1070__bF$buf0),
+    .Y(_555_)
+);
+
+NOR2X1 _3336_ (
+    .A(reset),
+    .B(_181_),
+    .Y(_180_)
+);
+
+FILL FILL_2__2609_ (
+);
+
+FILL FILL_3__3580_ (
+);
+
+FILL FILL_1__3498_ (
+);
+
+FILL FILL_3__4785_ (
+);
+
+FILL FILL_3__4365_ (
+);
+
+FILL FILL_2__2782_ (
+);
+
+FILL FILL_2__2362_ (
+);
+
+OAI21X1 _4294_ (
+    .A(\u_cpu.DIMUX [4]),
+    .B(_1070__bF$buf2),
+    .C(_1040_),
+    .Y(_1039_)
+);
+
+FILL FILL_2__3987_ (
+);
+
+FILL FILL_2__3567_ (
+);
+
+AOI21X1 _2607_ (
+    .A(_2122_),
+    .B(_2125_),
+    .C(_1973_),
+    .Y(_2126_)
+);
+
+FILL FILL_4__4854_ (
+);
+
+FILL FILL_4__4434_ (
+);
+
+FILL FILL_4__4014_ (
+);
+
+FILL FILL_0__4754_ (
+);
+
+FILL FILL_3__2851_ (
+);
+
+FILL FILL_3__2431_ (
+);
+
+FILL FILL_0__4334_ (
+);
+
+FILL FILL_1__2769_ (
+);
+
+FILL FILL_1__3710_ (
+);
+
+FILL FILL_3__3636_ (
+);
+
+FILL FILL_3__3216_ (
+);
+
+OAI21X1 _2780_ (
+    .A(_2354__3_bF$buf1),
+    .B(_1928_),
+    .C(_1634__bF$buf1),
+    .Y(_1956_)
+);
+
+BUFX2 _2360_ (
+    .A(_2354_[11]),
+    .Y(AB[11])
+);
+
+FILL FILL_1__4915_ (
+);
+
+FILL FILL_4__2920_ (
+);
+
+FILL FILL_4__2500_ (
+);
+
+OAI21X1 _3985_ (
+    .A(_975_),
+    .B(_760_),
+    .C(_759_),
+    .Y(_1455_)
+);
+
+OR2X2 _3565_ (
+    .A(_1428_),
+    .B(_370_),
+    .Y(_369_)
+);
+
+DFFSR _3145_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1454_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.index_y )
+);
+
+FILL FILL_0__2820_ (
+);
+
+FILL FILL_2__2838_ (
+);
+
+FILL FILL_0__2400_ (
+);
+
+FILL FILL_2__2418_ (
+);
+
+FILL FILL_4__3705_ (
+);
+
+FILL FILL_0__3605_ (
+);
+
+FILL FILL_3__4594_ (
+);
+
+FILL FILL_3__4174_ (
+);
+
+FILL FILL_2__2591_ (
+);
+
+FILL FILL_3__2907_ (
+);
+
+FILL FILL_2__3796_ (
+);
+
+FILL FILL_2__3376_ (
+);
+
+INVX2 _2836_ (
+    .A(_1658_),
+    .Y(_1659_)
+);
+
+AOI21X1 _2416_ (
+    .A(_2018_),
+    .B(_2267_),
+    .C(_2354__6_bF$buf1),
+    .Y(_58_)
+);
+
+FILL FILL_4__4663_ (
+);
+
+FILL FILL_4__4243_ (
+);
+
+FILL FILL_0__4983_ (
+);
+
+FILL FILL_3__2660_ (
+);
+
+FILL FILL_0__4563_ (
+);
+
+FILL FILL_0__4143_ (
+);
+
+FILL FILL_1__2998_ (
+);
+
+FILL FILL_1__2578_ (
+);
+
+FILL FILL_3__3865_ (
+);
+
+FILL FILL_3__3445_ (
+);
+
+FILL FILL_3__3025_ (
+);
+
+FILL FILL_1__4724_ (
+);
+
+FILL FILL_1__4304_ (
+);
+
+INVX8 _3794_ (
+    .A(_592_),
+    .Y(_2354_[3])
+);
+
+OAI21X1 _3374_ (
+    .A(_212_),
+    .B(_210_),
+    .C(_746_),
+    .Y(_209_)
+);
+
+FILL FILL_2__2647_ (
+);
+
+FILL FILL_4__3934_ (
+);
+
+FILL FILL_4__3514_ (
+);
+
+DFFPOSX1 _4999_ (
+    .D(_2354__7_bF$buf0),
+    .CLK(clk_bF$buf12),
+    .Q(_Addr_Bus[7])
+);
+
+OAI21X1 _4579_ (
+    .A(_1329_),
+    .B(_1326_),
+    .C(_1308_),
+    .Y(_1307_)
+);
+
+NAND2X1 _4159_ (
+    .A(\u_cpu.AXYS[3] [0]),
+    .B(_921_),
+    .Y(_920_)
+);
+
+FILL FILL_0__3834_ (
+);
+
+FILL FILL_0__3414_ (
+);
+
+FILL FILL_4__4719_ (
+);
+
+FILL FILL_3__2716_ (
+);
+
+FILL FILL_0__4619_ (
+);
+
+FILL FILL_2__3185_ (
+);
+
+INVX1 _2645_ (
+    .A(_2088_),
+    .Y(_2089_)
+);
+
+FILL FILL_4__4892_ (
+);
+
+FILL FILL_4__4472_ (
+);
+
+FILL FILL_4__4052_ (
+);
+
+FILL FILL_0__4792_ (
+);
+
+FILL FILL_0__4372_ (
+);
+
+FILL FILL_1__2387_ (
+);
+
+FILL FILL_3__3674_ (
+);
+
+FILL FILL_3__3254_ (
+);
+
+FILL FILL_1__4953_ (
+);
+
+FILL FILL_1__4533_ (
+);
+
+FILL FILL_1__4113_ (
+);
+
+FILL FILL_3__4459_ (
+);
+
+FILL FILL_3__4039_ (
+);
+
+OAI21X1 _3183_ (
+    .A(_977_),
+    .B(_713_),
+    .C(_85_),
+    .Y(_1361_)
+);
+
+FILL FILL_2__2876_ (
+);
+
+FILL FILL_2__2456_ (
+);
+
+FILL FILL_4__3743_ (
+);
+
+FILL FILL_4__3323_ (
+);
+
+NOR2X1 _4388_ (
+    .A(_1196__bF$buf8),
+    .B(_1345__bF$buf0),
+    .Y(_1129_)
+);
+
+FILL FILL_0__3643_ (
+);
+
+FILL FILL_0__3223_ (
+);
+
+FILL FILL_2__4602_ (
+);
+
+FILL FILL_4__4948_ (
+);
+
+FILL FILL_4__4528_ (
+);
+
+FILL FILL_4__4108_ (
+);
+
+FILL FILL_0__4848_ (
+);
+
+FILL FILL_3__2945_ (
+);
+
+FILL FILL_3__2525_ (
+);
+
+FILL FILL_0__4428_ (
+);
+
+FILL FILL_0__4008_ (
+);
+
+FILL FILL_1__3804_ (
+);
+
+DFFSR _2874_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1509_),
+    .CLK(clk_bF$buf3),
+    .Q(DO_dsp[4])
+);
+
+OAI22X1 _2454_ (
+    .A(_16_),
+    .B(_20_),
+    .C(_2354__6_bF$buf0),
+    .D(_11_),
+    .Y(_21_)
+);
+
+FILL FILL_4__4281_ (
+);
+
+FILL FILL_2__4199_ (
+);
+
+FILL FILL_0__4181_ (
+);
+
+OAI21X1 _3659_ (
+    .A(RDY_bF$buf5),
+    .B(_464_),
+    .C(_463_),
+    .Y(_462_)
+);
+
+OAI21X1 _3239_ (
+    .A(_352_),
+    .B(_800__bF$buf4),
+    .C(_123_),
+    .Y(_1379_)
+);
+
+FILL FILL_0__2914_ (
+);
+
+INVX8 _4600_ (
+    .A(_1329_),
+    .Y(_1328_)
+);
+
+FILL FILL_3__3483_ (
+);
+
+FILL FILL_1__4762_ (
+);
+
+FILL FILL_1__4342_ (
+);
+
+FILL FILL_3__4688_ (
+);
+
+FILL FILL_3__4268_ (
+);
+
+FILL FILL_2__2685_ (
+);
+
+FILL FILL_4__3972_ (
+);
+
+FILL FILL_4__3552_ (
+);
+
+OAI21X1 _4197_ (
+    .A(_955_),
+    .B(_954_),
+    .C(_1070__bF$buf3),
+    .Y(_953_)
+);
+
+FILL FILL_0__3872_ (
+);
+
+FILL FILL_0__3452_ (
+);
+
+FILL FILL_0__3032_ (
+);
+
+FILL FILL_2__4831_ (
+);
+
+FILL FILL_2__4411_ (
+);
+
+FILL FILL_4__4757_ (
+);
+
+FILL FILL_4__4337_ (
+);
+
+FILL FILL_3__2754_ (
+);
+
+FILL FILL_0__4657_ (
+);
+
+FILL FILL_0__4237_ (
+);
+
+FILL FILL_1__3613_ (
+);
+
+FILL FILL_3__3959_ (
+);
+
+FILL FILL_3__3539_ (
+);
+
+AOI21X1 _2683_ (
+    .A(_2049_),
+    .B(_2050_),
+    .C(_1643__bF$buf0),
+    .Y(_2051_)
+);
+
+FILL FILL_4__4090_ (
+);
+
+FILL FILL_3__4900_ (
+);
+
+FILL FILL_1__4818_ (
+);
+
+FILL FILL_4__2823_ (
+);
+
+FILL FILL_4__2403_ (
+);
+
+OAI21X1 _3888_ (
+    .A(_689_),
+    .B(_1129__bF$buf3),
+    .C(_677_),
+    .Y(_1440_)
+);
+
+NOR2X1 _3468_ (
+    .A(_857_),
+    .B(_363_),
+    .Y(_283_)
+);
+
+DFFSR _3048_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1463_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[3] [2])
+);
+
+FILL FILL_0__2723_ (
+);
+
+FILL FILL_3__3292_ (
+);
+
+FILL FILL_4__3608_ (
+);
+
+FILL FILL_0__3928_ (
+);
+
+FILL FILL_0__3508_ (
+);
+
+FILL FILL_1__4571_ (
+);
+
+FILL FILL_1__4151_ (
+);
+
+FILL FILL_3__4497_ (
+);
+
+FILL FILL_3__4077_ (
+);
+
+FILL FILL_2__2494_ (
+);
+
+FILL FILL_4__3781_ (
+);
+
+FILL FILL_4__3361_ (
+);
+
+FILL FILL_2__3699_ (
+);
+
+FILL FILL_0__3681_ (
+);
+
+FILL FILL_2__3279_ (
+);
+
+FILL FILL_0__3261_ (
+);
+
+FILL FILL_2__4640_ (
+);
+
+FILL FILL_2__4220_ (
+);
+
+OAI21X1 _2739_ (
+    .A(_1994_),
+    .B(_1995_),
+    .C(_1914_),
+    .Y(_1996_)
+);
+
+FILL FILL_4__4566_ (
+);
+
+FILL FILL_4__4146_ (
+);
+
+FILL FILL_0__4886_ (
+);
+
+FILL FILL_3__2983_ (
+);
+
+FILL FILL_3__2563_ (
+);
+
+FILL FILL_0__4466_ (
+);
+
+FILL FILL_0__4046_ (
+);
+
+FILL FILL_1__3842_ (
+);
+
+FILL FILL_1__3422_ (
+);
+
+FILL FILL_1__3002_ (
+);
+
+FILL FILL_3__3768_ (
+);
+
+FILL FILL_3__3348_ (
+);
+
+FILL FILL272850x36150 (
+);
+
+OAI21X1 _2492_ (
+    .A(_2331_),
+    .B(_2333_),
+    .C(_2354__4_bF$buf0),
+    .Y(_2334_)
+);
+
+FILL FILL_1__4627_ (
+);
+
+FILL FILL_1__4207_ (
+);
+
+FILL FILL_4__2632_ (
+);
+
+NAND3X1 _3697_ (
+    .A(_1345__bF$buf1),
+    .B(_573_),
+    .C(_502_),
+    .Y(_498_)
+);
+
+OAI21X1 _3277_ (
+    .A(reset),
+    .B(_181_),
+    .C(\u_cpu.IRHOLD [1]),
+    .Y(_145_)
+);
+
+FILL FILL_0__2532_ (
+);
+
+FILL FILL_2__3911_ (
+);
+
+FILL FILL_4__3837_ (
+);
+
+FILL FILL_4__3417_ (
+);
+
+FILL FILL_0__3737_ (
+);
+
+FILL FILL_0__3317_ (
+);
+
+DFFPOSX1 _5003_ (
+    .D(_2354_[8]),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[8])
+);
+
+FILL FILL_1__4380_ (
+);
+
+FILL FILL_3__2619_ (
+);
+
+FILL FILL_4__3590_ (
+);
+
+FILL FILL_4__3170_ (
+);
+
+FILL FILL_0__3490_ (
+);
+
+NAND2X1 _2968_ (
+    .A(_1512_),
+    .B(_1500_),
+    .Y(_1627_)
+);
+
+NAND2X1 _2548_ (
+    .A(_2000_),
+    .B(_1663_),
+    .Y(_2279_)
+);
+
+FILL FILL_4__4795_ (
+);
+
+FILL FILL_4__4375_ (
+);
+
+FILL FILL_3__2792_ (
+);
+
+FILL FILL_0__4695_ (
+);
+
+FILL FILL_3__2372_ (
+);
+
+FILL FILL_0__4275_ (
+);
+
+FILL FILL_1__3651_ (
+);
+
+FILL FILL_1__3231_ (
+);
+
+FILL FILL_3__3997_ (
+);
+
+FILL FILL_3__3577_ (
+);
+
+FILL FILL_1__4856_ (
+);
+
+FILL FILL_1__4436_ (
+);
+
+FILL FILL_1__4016_ (
+);
+
+FILL FILL_4__2861_ (
+);
+
+FILL FILL_4__2441_ (
+);
+
+DFFSR _3086_ (
+    .R(_1417__bF$buf5),
+    .S(vdd),
+    .D(_1440_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.load_reg )
+);
+
+FILL FILL_0__2761_ (
+);
+
+FILL FILL_2__2779_ (
+);
+
+FILL FILL_2__2359_ (
+);
+
+FILL FILL_2__3720_ (
+);
+
+FILL FILL_2__3300_ (
+);
+
+FILL FILL_4__3646_ (
+);
+
+FILL FILL_4__3226_ (
+);
+
+FILL FILL_0__3966_ (
+);
+
+FILL FILL_0__3546_ (
+);
+
+FILL FILL_2__4925_ (
+);
+
+FILL FILL_2__4505_ (
+);
+
+FILL FILL_1__2922_ (
+);
+
+FILL FILL_1__2502_ (
+);
+
+FILL FILL_3__2848_ (
+);
+
+FILL FILL_3__2428_ (
+);
+
+FILL FILL_1__3707_ (
+);
+
+NAND3X1 _2777_ (
+    .A(_2354__3_bF$buf1),
+    .B(_1636__bF$buf3),
+    .C(_1647_),
+    .Y(_1959_)
+);
+
+BUFX2 _2357_ (
+    .A(_2354_[14]),
+    .Y(AB[14])
+);
+
+FILL FILL_4__4184_ (
+);
+
+FILL FILL_0__4084_ (
+);
+
+FILL FILL_4__2917_ (
+);
+
+FILL FILL273450x97350 (
+);
+
+FILL FILL_0__2817_ (
+);
+
+AOI21X1 _4923_ (
+    .A(_2198_),
+    .B(DO_kbd[6]),
+    .C(_2195_),
+    .Y(_2199_)
+);
+
+NAND3X1 _4503_ (
+    .A(_1239_),
+    .B(_1235_),
+    .C(_1232_),
+    .Y(_1231_)
+);
+
+FILL FILL_1__3880_ (
+);
+
+FILL FILL_1__3460_ (
+);
+
+FILL FILL_3__3386_ (
+);
+
+FILL FILL_1__4665_ (
+);
+
+FILL FILL_1__4245_ (
+);
+
+FILL FILL_4__2670_ (
+);
+
+FILL FILL_0__2990_ (
+);
+
+FILL FILL_0__2570_ (
+);
+
+FILL FILL_2__2588_ (
+);
+
+FILL FILL_4__3875_ (
+);
+
+FILL FILL_4__3455_ (
+);
+
+FILL FILL_0__3775_ (
+);
+
+FILL FILL_0__3355_ (
+);
+
+FILL FILL_2__4734_ (
+);
+
+FILL FILL_2__4314_ (
+);
+
+FILL FILL_1__2731_ (
+);
+
+FILL FILL_3__2657_ (
+);
+
+FILL FILL_1__3936_ (
+);
+
+FILL FILL_1__3516_ (
+);
+
+NOR2X1 _2586_ (
+    .A(_2077_),
+    .B(_2146_),
+    .Y(_2147_)
+);
+
+FILL FILL_3__4803_ (
+);
+
+FILL FILL_2__2800_ (
+);
+
+FILL FILL_4__2726_ (
+);
+
+FILL FILL_0__2626_ (
+);
+
+OAI21X1 _4732_ (
+    .A(_1779_),
+    .B(_1783_),
+    .C(_1784_),
+    .Y(_1785_)
+);
+
+NAND2X1 _4312_ (
+    .A(_1058_),
+    .B(_1065_),
+    .Y(_1057_)
+);
+
+FILL FILL_3__3195_ (
+);
+
+FILL FILL_1__4894_ (
+);
+
+FILL FILL_1__4474_ (
+);
+
+FILL FILL_1__4054_ (
+);
+
+FILL FILL_2__2397_ (
+);
+
+FILL FILL_4__3684_ (
+);
+
+FILL FILL_4__3264_ (
+);
+
+FILL FILL_0__3584_ (
+);
+
+FILL FILL_2__4963_ (
+);
+
+FILL FILL_2__4543_ (
+);
+
+FILL FILL_2__4123_ (
+);
+
+FILL FILL_4__4889_ (
+);
+
+FILL FILL_4__4469_ (
+);
+
+FILL FILL_4__4049_ (
+);
+
+FILL FILL_1__2540_ (
+);
+
+FILL FILL_0__4789_ (
+);
+
+FILL FILL_3__2886_ (
+);
+
+FILL FILL_0__4369_ (
+);
+
+FILL FILL_3__2466_ (
+);
+
+FILL FILL_1__3745_ (
+);
+
+FILL FILL_1__3325_ (
+);
+
+AOI21X1 _2395_ (
+    .A(_1425_),
+    .B(_1422_),
+    .C(_2354__6_bF$buf1),
+    .Y(_1426_)
+);
+
+FILL FILL_3__4612_ (
+);
+
+FILL FILL_4__2535_ (
+);
+
+FILL FILL_0__2855_ (
+);
+
+FILL FILL_0__2435_ (
+);
+
+NAND2X1 _4961_ (
+    .A(_2231_),
+    .B(_2186_),
+    .Y(_2232_)
+);
+
+OAI21X1 _4541_ (
+    .A(_1314_),
+    .B(_1300_),
+    .C(_1339_),
+    .Y(_1269_)
+);
+
+OAI21X1 _4121_ (
+    .A(\u_cpu.state [5]),
+    .B(_888_),
+    .C(_890_),
+    .Y(_887_)
+);
+
+FILL FILL_2__3814_ (
+);
+
+FILL FILL_1__4283_ (
+);
+
+FILL FILL_4__3493_ (
+);
+
+FILL FILL_0__3393_ (
+);
+
+FILL FILL_2__4772_ (
+);
+
+FILL FILL_2__4352_ (
+);
+
+FILL FILL_4__4698_ (
+);
+
+FILL FILL_4__4278_ (
+);
+
+AOI22X1 _3812_ (
+    .A(\u_cpu.AXYS[1] [0]),
+    .B(_1050_),
+    .C(_922_),
+    .D(\u_cpu.AXYS[3] [0]),
+    .Y(_608_)
+);
+
+FILL FILL_3__2695_ (
+);
+
+FILL FILL_0__4598_ (
+);
+
+FILL FILL_0__4178_ (
+);
+
+FILL FILL_1__3974_ (
+);
+
+FILL FILL_1__3554_ (
+);
+
+FILL FILL_3__4841_ (
+);
+
+FILL FILL_3__4421_ (
+);
+
+FILL FILL_3__4001_ (
+);
+
+FILL FILL_1__4759_ (
+);
+
+FILL FILL_1__4339_ (
+);
+
+FILL FILL_4__2764_ (
+);
+
+FILL FILL_0__2664_ (
+);
+
+OAI21X1 _4770_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1816_),
+    .Y(_1823_)
+);
+
+AOI21X1 _4350_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [6]),
+    .C(_1095_),
+    .Y(_1094_)
+);
+
+FILL FILL_2__3623_ (
+);
+
+FILL FILL_2__3203_ (
+);
+
+FILL FILL_4__3969_ (
+);
+
+FILL FILL_4__3549_ (
+);
+
+FILL FILL273750x50550 (
+);
+
+FILL FILL_4__4910_ (
+);
+
+FILL FILL_0__3869_ (
+);
+
+FILL FILL_0__3449_ (
+);
+
+FILL FILL_0__3029_ (
+);
+
+FILL FILL_1__4092_ (
+);
+
+FILL FILL_2__4828_ (
+);
+
+FILL FILL_0__4810_ (
+);
+
+FILL FILL_2__4408_ (
+);
+
+FILL FILL_1__2825_ (
+);
+
+FILL FILL_1__2405_ (
+);
+
+FILL FILL_2__4581_ (
+);
+
+FILL FILL_2__4161_ (
+);
+
+FILL FILL_4__4087_ (
+);
+
+NAND3X1 _3621_ (
+    .A(_428_),
+    .B(_525_),
+    .C(_426_),
+    .Y(_425_)
+);
+
+OAI21X1 _3201_ (
+    .A(_1041_),
+    .B(_952_),
+    .C(_97_),
+    .Y(_1367_)
+);
+
+NAND2X1 _4826_ (
+    .A(_1870_),
+    .B(_1869_),
+    .Y(\u_cpu.AV )
+);
+
+NOR3X1 _4406_ (
+    .A(_1160_),
+    .B(_1146_),
+    .C(_1171_),
+    .Y(_1144_)
+);
+
+FILL FILL_1__3783_ (
+);
+
+FILL FILL_1__3363_ (
+);
+
+FILL FILL_3__3289_ (
+);
+
+FILL FILL_3__4650_ (
+);
+
+FILL FILL_3__4230_ (
+);
+
+FILL FILL_1__4568_ (
+);
+
+FILL FILL_1__4148_ (
+);
+
+FILL FILL_4__2993_ (
+);
+
+FILL FILL_4__2573_ (
+);
+
+FILL FILL_0__2893_ (
+);
+
+FILL FILL_0__2473_ (
+);
+
+FILL FILL_2__3852_ (
+);
+
+FILL FILL_2__3432_ (
+);
+
+FILL FILL_2__3012_ (
+);
+
+FILL FILL_4__3778_ (
+);
+
+FILL FILL_4__3358_ (
+);
+
+FILL FILL_0__3678_ (
+);
+
+FILL FILL_0__3258_ (
+);
+
+FILL FILL_2__4637_ (
+);
+
+FILL FILL_2__4217_ (
+);
+
+FILL FILL_1__2634_ (
+);
+
+FILL FILL_3__3921_ (
+);
+
+FILL FILL_3__3501_ (
+);
+
+FILL FILL_1__3839_ (
+);
+
+FILL FILL_1__3419_ (
+);
+
+FILL FILL_2__4390_ (
+);
+
+NAND2X1 _2489_ (
+    .A(_2336_),
+    .B(_2335_),
+    .Y(_2337_)
+);
+
+FILL FILL_3__4706_ (
+);
+
+INVX1 _3850_ (
+    .A(\u_cpu.AXYS[0] [6]),
+    .Y(_643_)
+);
+
+AOI21X1 _3430_ (
+    .A(\u_cpu.D ),
+    .B(_613_),
+    .C(_257_),
+    .Y(_256_)
+);
+
+NAND3X1 _3010_ (
+    .A(_1586_),
+    .B(_1585_),
+    .C(_1587_),
+    .Y(_1588_)
+);
+
+FILL FILL_2__2703_ (
+);
+
+FILL FILL_4__2629_ (
+);
+
+FILL FILL_1_BUFX2_insert10 (
+);
+
+FILL FILL_1_BUFX2_insert11 (
+);
+
+FILL FILL_1_BUFX2_insert12 (
+);
+
+FILL FILL_1_BUFX2_insert13 (
+);
+
+FILL FILL_1_BUFX2_insert14 (
+);
+
+FILL FILL_1_BUFX2_insert15 (
+);
+
+FILL FILL_1_BUFX2_insert16 (
+);
+
+FILL FILL_1_BUFX2_insert17 (
+);
+
+FILL FILL_1_BUFX2_insert18 (
+);
+
+FILL FILL_1_BUFX2_insert19 (
+);
+
+FILL FILL_0__2949_ (
+);
+
+FILL FILL_0__2529_ (
+);
+
+NOR2X1 _4635_ (
+    .A(\u_cpu.alu_op [1]),
+    .B(_1687_),
+    .Y(_1688_)
+);
+
+NOR2X1 _4215_ (
+    .A(\u_cpu.HC ),
+    .B(_970_),
+    .Y(_969_)
+);
+
+FILL FILL_1__3592_ (
+);
+
+FILL FILL_1__3172_ (
+);
+
+FILL FILL_2__3908_ (
+);
+
+FILL FILL_1__4797_ (
+);
+
+FILL FILL_1__4377_ (
+);
+
+FILL FILL_4__2382_ (
+);
+
+FILL FILL_2__3661_ (
+);
+
+FILL FILL_2__3241_ (
+);
+
+FILL FILL_4__3587_ (
+);
+
+FILL FILL_4__3167_ (
+);
+
+AOI21X1 _2701_ (
+    .A(_1635__bF$buf1),
+    .B(_2354__2_bF$buf2),
+    .C(_1643__bF$buf2),
+    .Y(_2034_)
+);
+
+FILL FILL_0__3487_ (
+);
+
+FILL FILL_2__4866_ (
+);
+
+FILL FILL_2__4446_ (
+);
+
+FILL FILL_2__4026_ (
+);
+
+OAI21X1 _3906_ (
+    .A(_1192_),
+    .B(_897_),
+    .C(_693_),
+    .Y(_692_)
+);
+
+FILL FILL_1__2443_ (
+);
+
+FILL FILL_3__2789_ (
+);
+
+FILL FILL_3__2369_ (
+);
+
+FILL FILL_3__3730_ (
+);
+
+FILL FILL_3__3310_ (
+);
+
+FILL FILL_1__3648_ (
+);
+
+FILL FILL_1__3228_ (
+);
+
+FILL FILL_3__4935_ (
+);
+
+FILL FILL_3__4515_ (
+);
+
+FILL FILL_2__2932_ (
+);
+
+FILL FILL_2__2512_ (
+);
+
+FILL FILL_4__2858_ (
+);
+
+FILL FILL_4__2438_ (
+);
+
+FILL FILL_0__2758_ (
+);
+
+AOI21X1 _4864_ (
+    .A(_1903_),
+    .B(_1900_),
+    .C(_1681__bF$buf3),
+    .Y(_1904_)
+);
+
+INVX1 _4444_ (
+    .A(\u_cpu.ADD [2]),
+    .Y(_1178_)
+);
+
+OAI21X1 _4024_ (
+    .A(_1026_),
+    .B(_794_),
+    .C(_795_),
+    .Y(_1458_)
+);
+
+FILL FILL_2__3717_ (
+);
+
+FILL FILL_1__4186_ (
+);
+
+FILL FILL_0__4904_ (
+);
+
+FILL FILL_1__2919_ (
+);
+
+FILL FILL_2__3890_ (
+);
+
+FILL FILL_2__3470_ (
+);
+
+FILL FILL_4__3396_ (
+);
+
+NAND3X1 _2930_ (
+    .A(_1538_),
+    .B(_1525_),
+    .C(_1539_),
+    .Y(_1540_)
+);
+
+NAND2X1 _2510_ (
+    .A(_2315_),
+    .B(_2310_),
+    .Y(_2316_)
+);
+
+FILL FILL_0__3296_ (
+);
+
+FILL FILL_2__4675_ (
+);
+
+FILL FILL_2__4255_ (
+);
+
+NOR2X1 _3715_ (
+    .A(_1121_),
+    .B(_1005_),
+    .Y(_514_)
+);
+
+FILL FILL_1__2672_ (
+);
+
+FILL FILL_3__2598_ (
+);
+
+FILL FILL_1__3877_ (
+);
+
+FILL FILL_1__3457_ (
+);
+
+FILL FILL_3__4744_ (
+);
+
+FILL FILL_3__4324_ (
+);
+
+FILL FILL_2__2741_ (
+);
+
+FILL FILL_4__2667_ (
+);
+
+FILL FILL_0__2987_ (
+);
+
+FILL FILL_0__2567_ (
+);
+
+INVX1 _4673_ (
+    .A(_1725_),
+    .Y(_1726_)
+);
+
+INVX1 _4253_ (
+    .A(_1118_),
+    .Y(_1005_)
+);
+
+FILL FILL_2__3946_ (
+);
+
+FILL FILL_2__3526_ (
+);
+
+FILL FILL_4__4813_ (
+);
+
+FILL FILL_0__4713_ (
+);
+
+FILL FILL_3__2810_ (
+);
+
+FILL FILL_2_BUFX2_insert60 (
+);
+
+FILL FILL_2_BUFX2_insert61 (
+);
+
+FILL FILL_2_BUFX2_insert62 (
+);
+
+FILL FILL_2_BUFX2_insert63 (
+);
+
+FILL FILL_2_BUFX2_insert64 (
+);
+
+FILL FILL_2_BUFX2_insert65 (
+);
+
+FILL FILL_2_BUFX2_insert66 (
+);
+
+FILL FILL_1__2728_ (
+);
+
+FILL FILL_2_BUFX2_insert67 (
+);
+
+FILL FILL_2_BUFX2_insert68 (
+);
+
+FILL FILL_2_BUFX2_insert69 (
+);
+
+FILL FILL_2__4484_ (
+);
+
+FILL FILL_2__4064_ (
+);
+
+INVX1 _3944_ (
+    .A(_1032_),
+    .Y(_722_)
+);
+
+INVX1 _3524_ (
+    .A(_360_),
+    .Y(_334_)
+);
+
+DFFSR _3104_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(_1388_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABL [4])
+);
+
+FILL FILL_1__2481_ (
+);
+
+OAI21X1 _4729_ (
+    .A(_1773_),
+    .B(_1698_),
+    .C(_1781_),
+    .Y(_1782_)
+);
+
+NOR2X1 _4309_ (
+    .A(_1344_),
+    .B(_1059_),
+    .Y(_1054_)
+);
+
+FILL FILL_1__3686_ (
+);
+
+FILL FILL_1__3266_ (
+);
+
+FILL FILL_3__4973_ (
+);
+
+FILL FILL_3__4553_ (
+);
+
+FILL FILL_3__4133_ (
+);
+
+FILL FILL_2__2970_ (
+);
+
+FILL FILL_2__2550_ (
+);
+
+FILL FILL_4__2896_ (
+);
+
+FILL FILL_4__2476_ (
+);
+
+FILL FILL_0__2796_ (
+);
+
+FILL FILL_0__2376_ (
+);
+
+OAI21X1 _4482_ (
+    .A(_1355_),
+    .B(RDY_bF$buf7),
+    .C(_1211_),
+    .Y(_1490_)
+);
+
+NAND3X1 _4062_ (
+    .A(_1045_),
+    .B(_848_),
+    .C(_830_),
+    .Y(_829_)
+);
+
+FILL FILL_2__3755_ (
+);
+
+FILL FILL_2__3335_ (
+);
+
+FILL FILL_4__4622_ (
+);
+
+FILL FILL_4__4202_ (
+);
+
+FILL FILL_0__4942_ (
+);
+
+FILL FILL_0__4522_ (
+);
+
+FILL FILL_0__4102_ (
+);
+
+FILL FILL_1__2537_ (
+);
+
+FILL FILL_3__3824_ (
+);
+
+FILL FILL_3__3404_ (
+);
+
+FILL FILL_2__4293_ (
+);
+
+FILL FILL_3__4609_ (
+);
+
+AOI22X1 _3753_ (
+    .A(_1196__bF$buf3),
+    .B(_555_),
+    .C(_553_),
+    .D(_1129__bF$buf2),
+    .Y(_552_)
+);
+
+OAI21X1 _3333_ (
+    .A(_1113_),
+    .B(_179_),
+    .C(_178_),
+    .Y(_1418_)
+);
+
+FILL FILL_2__2606_ (
+);
+
+INVX1 _4958_ (
+    .A(DO_dsp[1]),
+    .Y(_2229_)
+);
+
+OAI21X1 _4538_ (
+    .A(_1267_),
+    .B(_1297_),
+    .C(_1315__bF$buf0),
+    .Y(_1266_)
+);
+
+AND2X2 _4118_ (
+    .A(_885_),
+    .B(_1333_),
+    .Y(_884_)
+);
+
+FILL FILL_1__3495_ (
+);
+
+FILL FILL_3__4782_ (
+);
+
+FILL FILL_3__4362_ (
+);
+
+INVX4 _4291_ (
+    .A(_1129__bF$buf3),
+    .Y(_1037_)
+);
+
+FILL FILL_2__3984_ (
+);
+
+FILL FILL_2__3564_ (
+);
+
+OAI21X1 _2604_ (
+    .A(_1647_),
+    .B(_1644_),
+    .C(_2354__4_bF$buf4),
+    .Y(_2129_)
+);
+
+FILL FILL_4__4851_ (
+);
+
+FILL FILL_4__4431_ (
+);
+
+FILL FILL_4__4011_ (
+);
+
+FILL FILL_0__4751_ (
+);
+
+FILL FILL_2__4769_ (
+);
+
+FILL FILL_2__4349_ (
+);
+
+FILL FILL_0__4331_ (
+);
+
+AOI22X1 _3809_ (
+    .A(\u_cpu.C ),
+    .B(_613_),
+    .C(_636_),
+    .D(\u_cpu.PC [0]),
+    .Y(_605_)
+);
+
+FILL FILL_1__2766_ (
+);
+
+FILL FILL_3__3633_ (
+);
+
+FILL FILL_3__3213_ (
+);
+
+FILL FILL_1__4912_ (
+);
+
+FILL FILL_3__4838_ (
+);
+
+FILL FILL_3__4418_ (
+);
+
+NAND2X1 _3982_ (
+    .A(_757_),
+    .B(_1024_),
+    .Y(_756_)
+);
+
+NAND2X1 _3562_ (
+    .A(_368_),
+    .B(_746_),
+    .Y(_367_)
+);
+
+DFFSR _3142_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1407_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[3] [5])
+);
+
+FILL FILL_2__2835_ (
+);
+
+FILL FILL_2__2415_ (
+);
+
+FILL FILL_4__3702_ (
+);
+
+OAI21X1 _4767_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1816_),
+    .C(_1683_),
+    .Y(_1820_)
+);
+
+INVX1 _4347_ (
+    .A(_1092_),
+    .Y(_1091_)
+);
+
+FILL FILL_0__3602_ (
+);
+
+FILL FILL_3__4591_ (
+);
+
+FILL FILL_3__4171_ (
+);
+
+FILL FILL_4__4907_ (
+);
+
+FILL FILL_1__4089_ (
+);
+
+FILL FILL_0__4807_ (
+);
+
+FILL FILL_3__2904_ (
+);
+
+FILL FILL_2__3793_ (
+);
+
+FILL FILL_2__3373_ (
+);
+
+FILL FILL_4__3299_ (
+);
+
+NOR2X1 _2833_ (
+    .A(_1661_),
+    .B(_1660_),
+    .Y(_1662_)
+);
+
+AOI22X1 _2413_ (
+    .A(_2354__6_bF$buf1),
+    .B(_60_),
+    .C(_57_),
+    .D(_58_),
+    .Y(_61_)
+);
+
+FILL FILL_4__4660_ (
+);
+
+FILL FILL_4__4240_ (
+);
+
+FILL FILL_0__3199_ (
+);
+
+FILL FILL_0__4980_ (
+);
+
+FILL FILL_0__4560_ (
+);
+
+FILL FILL_2__4578_ (
+);
+
+FILL FILL_0__4140_ (
+);
+
+FILL FILL_2__4158_ (
+);
+
+NAND3X1 _3618_ (
+    .A(_475_),
+    .B(_423_),
+    .C(_578_),
+    .Y(_422_)
+);
+
+FILL FILL_1__2995_ (
+);
+
+FILL FILL_1__2575_ (
+);
+
+FILL FILL_3__3862_ (
+);
+
+FILL FILL_3__3442_ (
+);
+
+FILL FILL_3__3022_ (
+);
+
+FILL FILL_1__4721_ (
+);
+
+FILL FILL_1__4301_ (
+);
+
+FILL FILL_3__4647_ (
+);
+
+FILL FILL_3__4227_ (
+);
+
+OAI21X1 _3791_ (
+    .A(_591_),
+    .B(_1315__bF$buf1),
+    .C(_590_),
+    .Y(_589_)
+);
+
+NAND3X1 _3371_ (
+    .A(_217_),
+    .B(_216_),
+    .C(_207_),
+    .Y(\u_cpu.CI )
+);
+
+FILL FILL_2__2644_ (
+);
+
+FILL FILL_4__3931_ (
+);
+
+FILL FILL_4__3511_ (
+);
+
+DFFPOSX1 _4996_ (
+    .D(_2354__0_bF$buf5),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[0])
+);
+
+NAND2X1 _4576_ (
+    .A(\u_cpu.state [3]),
+    .B(_1354_),
+    .Y(_1304_)
+);
+
+OAI21X1 _4156_ (
+    .A(_963_),
+    .B(_921_),
+    .C(_919_),
+    .Y(_1464_)
+);
+
+FILL FILL_2__3849_ (
+);
+
+FILL FILL_0__3831_ (
+);
+
+FILL FILL_2__3429_ (
+);
+
+FILL FILL_0__3411_ (
+);
+
+FILL FILL_2__3009_ (
+);
+
+FILL FILL_4__4716_ (
+);
+
+FILL FILL_3__2713_ (
+);
+
+FILL FILL_0__4616_ (
+);
+
+FILL FILL_2__3182_ (
+);
+
+FILL FILL_3__3918_ (
+);
+
+NAND3X1 _2642_ (
+    .A(_2354__6_bF$buf0),
+    .B(_2085_),
+    .C(_2091_),
+    .Y(_2092_)
+);
+
+FILL FILL_2__4387_ (
+);
+
+OR2X2 _3847_ (
+    .A(_641_),
+    .B(_644_),
+    .Y(_640_)
+);
+
+OAI21X1 _3427_ (
+    .A(_638_),
+    .B(_857_),
+    .C(\u_cpu.PC [1]),
+    .Y(_254_)
+);
+
+NOR2X1 _3007_ (
+    .A(_Addr_Bus[7]),
+    .B(_Addr_Bus[3]),
+    .Y(_1591_)
+);
+
+FILL FILL_1__2384_ (
+);
+
+FILL FILL_3__3671_ (
+);
+
+FILL FILL_3__3251_ (
+);
+
+FILL FILL_1__3589_ (
+);
+
+FILL FILL_1__3169_ (
+);
+
+FILL FILL_1__4950_ (
+);
+
+FILL FILL_1__4530_ (
+);
+
+FILL FILL_1__4110_ (
+);
+
+FILL FILL_3__4456_ (
+);
+
+FILL FILL_3__4036_ (
+);
+
+NAND2X1 _3180_ (
+    .A(RDY_bF$buf1),
+    .B(_1226_),
+    .Y(_82_)
+);
+
+FILL FILL_2__2453_ (
+);
+
+FILL FILL_4__2799_ (
+);
+
+FILL FILL_4__2379_ (
+);
+
+FILL FILL_4__3740_ (
+);
+
+FILL FILL_4__3320_ (
+);
+
+FILL FILL_0__2699_ (
+);
+
+NAND2X1 _4385_ (
+    .A(_1340_),
+    .B(_1127_),
+    .Y(_1126_)
+);
+
+FILL FILL_2__3658_ (
+);
+
+FILL FILL_0__3640_ (
+);
+
+FILL FILL_0__3220_ (
+);
+
+FILL FILL_2__3238_ (
+);
+
+FILL FILL_4__4945_ (
+);
+
+FILL FILL_4__4525_ (
+);
+
+FILL FILL_4__4105_ (
+);
+
+FILL FILL_0__4845_ (
+);
+
+FILL FILL_3__2942_ (
+);
+
+FILL FILL_3__2522_ (
+);
+
+FILL FILL_0__4425_ (
+);
+
+FILL FILL_0__4005_ (
+);
+
+FILL FILL_1__3801_ (
+);
+
+FILL FILL_3__3727_ (
+);
+
+FILL FILL_3__3307_ (
+);
+
+DFFSR _2871_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1507_),
+    .CLK(clk_bF$buf3),
+    .Q(DO_dsp[2])
+);
+
+OAI21X1 _2451_ (
+    .A(_1643__bF$buf1),
+    .B(_22_),
+    .C(_23_),
+    .Y(_24_)
+);
+
+FILL FILL_2__4196_ (
+);
+
+OAI21X1 _3656_ (
+    .A(_1196__bF$buf5),
+    .B(_1274_),
+    .C(_460_),
+    .Y(_459_)
+);
+
+NAND2X1 _3236_ (
+    .A(_2354_[13]),
+    .B(_800__bF$buf0),
+    .Y(_121_)
+);
+
+FILL FILL_0__2911_ (
+);
+
+FILL FILL_2__2929_ (
+);
+
+FILL FILL_2__2509_ (
+);
+
+FILL FILL_3__3480_ (
+);
+
+FILL FILL_1__3398_ (
+);
+
+FILL FILL_3__4685_ (
+);
+
+FILL FILL_3__4265_ (
+);
+
+FILL FILL_2__2682_ (
+);
+
+OAI21X1 _4194_ (
+    .A(_977_),
+    .B(_952_),
+    .C(_951_),
+    .Y(_1470_)
+);
+
+FILL FILL_2__3887_ (
+);
+
+FILL FILL_2__3467_ (
+);
+
+INVX1 _2927_ (
+    .A(_2353_[3]),
+    .Y(_1542_)
+);
+
+OAI21X1 _2507_ (
+    .A(_2318_),
+    .B(_2025_),
+    .C(_1634__bF$buf3),
+    .Y(_2319_)
+);
+
+FILL FILL_4__4754_ (
+);
+
+FILL FILL_4__4334_ (
+);
+
+FILL FILL_3__2751_ (
+);
+
+FILL FILL_0__4654_ (
+);
+
+FILL FILL_0__4234_ (
+);
+
+FILL FILL_1__2669_ (
+);
+
+FILL FILL_1__3610_ (
+);
+
+FILL FILL_3__3956_ (
+);
+
+FILL FILL_3__3536_ (
+);
+
+INVX1 _2680_ (
+    .A(_2053_),
+    .Y(_2054_)
+);
+
+FILL FILL_1__4815_ (
+);
+
+FILL FILL_4__2820_ (
+);
+
+FILL FILL_4__2400_ (
+);
+
+INVX1 _3885_ (
+    .A(\u_cpu.C ),
+    .Y(_675_)
+);
+
+NAND2X1 _3465_ (
+    .A(_852_),
+    .B(_809_),
+    .Y(_280_)
+);
+
+DFFSR _3045_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1362_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.PC [1])
+);
+
+FILL FILL_0__2720_ (
+);
+
+FILL FILL_2__2738_ (
+);
+
+FILL FILL_4__3605_ (
+);
+
+FILL FILL_0__3925_ (
+);
+
+FILL FILL_0__3505_ (
+);
+
+FILL FILL_3__4494_ (
+);
+
+FILL FILL_3__4074_ (
+);
+
+FILL FILL_2__2491_ (
+);
+
+FILL FILL_3__2807_ (
+);
+
+FILL FILL_2__3696_ (
+);
+
+FILL FILL_2__3276_ (
+);
+
+NAND2X1 _2736_ (
+    .A(_1993_),
+    .B(_1998_),
+    .Y(_1999_)
+);
+
+FILL FILL_4__4983_ (
+);
+
+FILL FILL_4__4563_ (
+);
+
+FILL FILL273150x75750 (
+);
+
+FILL FILL_4__4143_ (
+);
+
+FILL FILL_0__4883_ (
+);
+
+FILL FILL_3__2980_ (
+);
+
+FILL FILL_3__2560_ (
+);
+
+FILL FILL_0__4463_ (
+);
+
+FILL FILL_0__4043_ (
+);
+
+FILL FILL_1__2898_ (
+);
+
+FILL FILL_1__2478_ (
+);
+
+FILL FILL_3__3765_ (
+);
+
+FILL FILL_3__3345_ (
+);
+
+FILL FILL_1__4624_ (
+);
+
+FILL FILL_1__4204_ (
+);
+
+NOR2X1 _3694_ (
+    .A(_1328__bF$buf4),
+    .B(_914_),
+    .Y(_497_)
+);
+
+OAI21X1 _3274_ (
+    .A(_1207_),
+    .B(_179_),
+    .C(_144_),
+    .Y(_1393_)
+);
+
+FILL FILL_2__2967_ (
+);
+
+FILL FILL_2__2547_ (
+);
+
+FILL FILL_4__3834_ (
+);
+
+FILL FILL_4__3414_ (
+);
+
+INVX1 _4899_ (
+    .A(_Addr_Bus[1]),
+    .Y(_2175_)
+);
+
+NAND2X1 _4479_ (
+    .A(RDY_bF$buf2),
+    .B(Data_In[0]),
+    .Y(_1208_)
+);
+
+INVX1 _4059_ (
+    .A(_1250_),
+    .Y(_826_)
+);
+
+FILL FILL_0__3734_ (
+);
+
+FILL FILL_0__3314_ (
+);
+
+DFFPOSX1 _5000_ (
+    .D(_2354__3_bF$buf3),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[3])
+);
+
+FILL FILL_4__4619_ (
+);
+
+FILL FILL_0__4939_ (
+);
+
+FILL FILL_3__2616_ (
+);
+
+FILL FILL_0__4519_ (
+);
+
+NAND2X1 _2965_ (
+    .A(kbd_data[5]),
+    .B(_1500_),
+    .Y(_1629_)
+);
+
+OAI21X1 _2545_ (
+    .A(_2354__3_bF$buf6),
+    .B(_1916_),
+    .C(_1944_),
+    .Y(_2282_)
+);
+
+FILL FILL_4__4792_ (
+);
+
+FILL FILL_4__4372_ (
+);
+
+FILL FILL_0__4692_ (
+);
+
+FILL FILL_0__4272_ (
+);
+
+FILL FILL_3__3994_ (
+);
+
+FILL FILL_3__3574_ (
+);
+
+FILL FILL271650x72150 (
+);
+
+FILL FILL_1__4853_ (
+);
+
+FILL FILL_1__4433_ (
+);
+
+FILL FILL_1__4013_ (
+);
+
+FILL FILL_3__4779_ (
+);
+
+FILL FILL_3__4359_ (
+);
+
+DFFSR _3083_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(_1378_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABH [4])
+);
+
+FILL FILL_2__2776_ (
+);
+
+FILL FILL_2__2356_ (
+);
+
+FILL FILL271650x39750 (
+);
+
+FILL FILL_4__3643_ (
+);
+
+FILL FILL_4__3223_ (
+);
+
+NOR2X1 _4288_ (
+    .A(_1111_),
+    .B(_1106_),
+    .Y(_1034_)
+);
+
+FILL FILL_0__3963_ (
+);
+
+FILL FILL_0__3543_ (
+);
+
+FILL FILL_2__4922_ (
+);
+
+FILL FILL_2__4502_ (
+);
+
+FILL FILL_4__4848_ (
+);
+
+FILL FILL_4__4428_ (
+);
+
+FILL FILL_4__4008_ (
+);
+
+FILL FILL_0__4748_ (
+);
+
+FILL FILL_3__2845_ (
+);
+
+FILL FILL_3__2425_ (
+);
+
+FILL FILL_0__4328_ (
+);
+
+FILL FILL_1__3704_ (
+);
+
+NOR2X1 _2774_ (
+    .A(_1949_),
+    .B(_1961_),
+    .Y(_1962_)
+);
+
+FILL FILL_4__4181_ (
+);
+
+FILL FILL_2__4099_ (
+);
+
+FILL FILL_0__4081_ (
+);
+
+FILL FILL_1__4909_ (
+);
+
+FILL FILL_4__2914_ (
+);
+
+NAND2X1 _3979_ (
+    .A(_1117_),
+    .B(_1024_),
+    .Y(_753_)
+);
+
+AND2X2 _3559_ (
+    .A(_833_),
+    .B(_1063_),
+    .Y(_364_)
+);
+
+DFFSR _3139_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1453_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.N )
+);
+
+FILL FILL_0__2814_ (
+);
+
+NAND2X1 _4920_ (
+    .A(_2181_),
+    .B(_2176_),
+    .Y(_2196_)
+);
+
+AOI22X1 _4500_ (
+    .A(\u_cpu.ABL [0]),
+    .B(_1298_),
+    .C(_1300_),
+    .D(\u_cpu.ADD [0]),
+    .Y(_1228_)
+);
+
+FILL FILL_3__3383_ (
+);
+
+FILL FILL_1__4662_ (
+);
+
+FILL FILL_1__4242_ (
+);
+
+FILL FILL_3__4588_ (
+);
+
+FILL FILL_3__4168_ (
+);
+
+FILL FILL_2__2585_ (
+);
+
+FILL FILL_4__3872_ (
+);
+
+FILL FILL_4__3452_ (
+);
+
+FILL FILL_4__3032_ (
+);
+
+OAI21X1 _4097_ (
+    .A(_1319_),
+    .B(_887_),
+    .C(\u_cpu.DIMUX [7]),
+    .Y(_863_)
+);
+
+FILL FILL_0__3772_ (
+);
+
+FILL FILL_0__3352_ (
+);
+
+FILL FILL_2__4731_ (
+);
+
+FILL FILL_2__4311_ (
+);
+
+FILL FILL_4__4657_ (
+);
+
+FILL FILL_4__4237_ (
+);
+
+FILL FILL_0__4977_ (
+);
+
+FILL FILL_3__2654_ (
+);
+
+FILL FILL_0__4557_ (
+);
+
+FILL FILL_0__4137_ (
+);
+
+FILL FILL_1__3933_ (
+);
+
+FILL FILL_1__3513_ (
+);
+
+FILL FILL_3__3859_ (
+);
+
+FILL FILL_3__3439_ (
+);
+
+FILL FILL_3__3019_ (
+);
+
+NAND2X1 _2583_ (
+    .A(_2354__4_bF$buf5),
+    .B(_1643__bF$buf0),
+    .Y(_2150_)
+);
+
+FILL FILL_3__4800_ (
+);
+
+FILL FILL_1__4718_ (
+);
+
+FILL FILL_4__2723_ (
+);
+
+NOR2X1 _3788_ (
+    .A(_587_),
+    .B(_589_),
+    .Y(_586_)
+);
+
+AOI21X1 _3368_ (
+    .A(_412_),
+    .B(_205_),
+    .C(_394_),
+    .Y(_204_)
+);
+
+FILL FILL_0__2623_ (
+);
+
+FILL FILL_3__3192_ (
+);
+
+FILL FILL_4__3928_ (
+);
+
+FILL FILL_4__3508_ (
+);
+
+FILL FILL_0__3828_ (
+);
+
+FILL FILL_0__3408_ (
+);
+
+FILL FILL_1__4891_ (
+);
+
+FILL FILL_1__4471_ (
+);
+
+FILL FILL_1__4051_ (
+);
+
+FILL FILL_3__4397_ (
+);
+
+FILL FILL_2__2394_ (
+);
+
+FILL FILL_4__3681_ (
+);
+
+FILL FILL_4__3261_ (
+);
+
+FILL FILL_0__3581_ (
+);
+
+FILL FILL_2__3599_ (
+);
+
+FILL FILL_2__3179_ (
+);
+
+FILL FILL_2__4960_ (
+);
+
+FILL FILL_2__4540_ (
+);
+
+FILL FILL_2__4120_ (
+);
+
+NAND2X1 _2639_ (
+    .A(_2094_),
+    .B(_2093_),
+    .Y(_2095_)
+);
+
+FILL FILL_4__4886_ (
+);
+
+FILL FILL_4__4466_ (
+);
+
+FILL FILL_4__4046_ (
+);
+
+FILL FILL_0__4786_ (
+);
+
+FILL FILL_3__2883_ (
+);
+
+FILL FILL_3__2463_ (
+);
+
+FILL FILL_0__4366_ (
+);
+
+FILL FILL_1__3742_ (
+);
+
+FILL FILL_1__3322_ (
+);
+
+FILL FILL_3__3668_ (
+);
+
+FILL FILL_3__3248_ (
+);
+
+DFFPOSX1 _2392_ (
+    .D(_2346_[7]),
+    .CLK(clk_bF$buf6),
+    .Q(DO_woz[7])
+);
+
+FILL FILL_1__4947_ (
+);
+
+FILL FILL_1__4527_ (
+);
+
+FILL FILL_1__4107_ (
+);
+
+FILL FILL_4__2532_ (
+);
+
+NAND2X1 _3597_ (
+    .A(_402_),
+    .B(_403_),
+    .Y(_401_)
+);
+
+NAND3X1 _3177_ (
+    .A(RDY_bF$buf1),
+    .B(_81_),
+    .C(_1214_),
+    .Y(_80_)
+);
+
+FILL FILL_0__2852_ (
+);
+
+FILL FILL_0__2432_ (
+);
+
+FILL FILL_2__3811_ (
+);
+
+FILL FILL_4__3737_ (
+);
+
+FILL FILL_4__3317_ (
+);
+
+FILL FILL_0__3637_ (
+);
+
+FILL FILL_0__3217_ (
+);
+
+FILL FILL_1__4280_ (
+);
+
+FILL FILL_3__2939_ (
+);
+
+FILL FILL_3__2519_ (
+);
+
+FILL FILL_4__3490_ (
+);
+
+FILL FILL_0__3390_ (
+);
+
+DFFSR _2868_ (
+    .R(vdd),
+    .S(_1514_),
+    .D(_1593_),
+    .CLK(clk_bF$buf3),
+    .Q(\u_pia_dsp.state [0])
+);
+
+AOI21X1 _2448_ (
+    .A(_2074_),
+    .B(_2124_),
+    .C(_26_),
+    .Y(_27_)
+);
+
+FILL FILL_4__4695_ (
+);
+
+FILL FILL_4__4275_ (
+);
+
+FILL FILL_3__2692_ (
+);
+
+FILL FILL_0__4595_ (
+);
+
+FILL FILL_0__4175_ (
+);
+
+FILL FILL_0__2908_ (
+);
+
+FILL FILL_1__3971_ (
+);
+
+FILL FILL_1__3551_ (
+);
+
+FILL FILL_3__3897_ (
+);
+
+FILL FILL_3__3477_ (
+);
+
+FILL FILL_1__4756_ (
+);
+
+FILL FILL_1__4336_ (
+);
+
+FILL FILL_4__2761_ (
+);
+
+FILL FILL_2__2679_ (
+);
+
+FILL FILL_0__2661_ (
+);
+
+FILL FILL_2__3620_ (
+);
+
+FILL FILL_2__3200_ (
+);
+
+FILL FILL_4__3966_ (
+);
+
+FILL FILL_4__3546_ (
+);
+
+FILL FILL_0__3866_ (
+);
+
+FILL FILL_0__3446_ (
+);
+
+FILL FILL_0__3026_ (
+);
+
+FILL FILL_2__4825_ (
+);
+
+FILL FILL_2__4405_ (
+);
+
+FILL FILL_1__2822_ (
+);
+
+FILL FILL_1__2402_ (
+);
+
+FILL FILL_3__2748_ (
+);
+
+FILL FILL_1__3607_ (
+);
+
+NAND2X1 _2677_ (
+    .A(_2052_),
+    .B(_2056_),
+    .Y(_2057_)
+);
+
+FILL FILL_4__4084_ (
+);
+
+FILL FILL_4__2817_ (
+);
+
+FILL FILL_0__2717_ (
+);
+
+NAND2X1 _4823_ (
+    .A(_1864_),
+    .B(_1867_),
+    .Y(_1868_)
+);
+
+OAI21X1 _4403_ (
+    .A(RDY_bF$buf4),
+    .B(_1154_),
+    .C(_1142_),
+    .Y(_1485_)
+);
+
+FILL FILL_1__3780_ (
+);
+
+FILL FILL_1__3360_ (
+);
+
+FILL FILL_3__3286_ (
+);
+
+FILL FILL_1__4985_ (
+);
+
+FILL FILL_1__4565_ (
+);
+
+FILL FILL_1__4145_ (
+);
+
+FILL FILL_4__2990_ (
+);
+
+FILL FILL_4__2570_ (
+);
+
+FILL FILL_0__2890_ (
+);
+
+FILL FILL_0__2470_ (
+);
+
+FILL FILL_2__2488_ (
+);
+
+FILL FILL_4__3775_ (
+);
+
+FILL FILL_4__3355_ (
+);
+
+FILL FILL_0__3675_ (
+);
+
+FILL FILL_0__3255_ (
+);
+
+FILL FILL_2__4634_ (
+);
+
+FILL FILL_2__4214_ (
+);
+
+FILL FILL_1__2631_ (
+);
+
+FILL FILL_3__2977_ (
+);
+
+FILL FILL_3__2557_ (
+);
+
+FILL FILL_1__3836_ (
+);
+
+FILL FILL_1__3416_ (
+);
+
+NAND2X1 _2486_ (
+    .A(_2339_),
+    .B(_2334_),
+    .Y(_2340_)
+);
+
+FILL FILL_3__4703_ (
+);
+
+FILL FILL_2__2700_ (
+);
+
+FILL FILL_4__2626_ (
+);
+
+FILL FILL_0__2946_ (
+);
+
+FILL FILL_0__2526_ (
+);
+
+INVX1 _4632_ (
+    .A(\u_cpu.BI [5]),
+    .Y(_1685_)
+);
+
+NAND3X1 _4212_ (
+    .A(_1221_),
+    .B(_973_),
+    .C(_967_),
+    .Y(_966_)
+);
+
+FILL FILL_2__3905_ (
+);
+
+FILL FILL_1__4794_ (
+);
+
+FILL FILL_1__4374_ (
+);
+
+FILL FILL_4__3584_ (
+);
+
+FILL FILL_0__3484_ (
+);
+
+FILL FILL_2__4863_ (
+);
+
+FILL FILL_2__4443_ (
+);
+
+FILL FILL_2__4023_ (
+);
+
+FILL FILL_4__4789_ (
+);
+
+FILL FILL_4__4369_ (
+);
+
+INVX1 _3903_ (
+    .A(\u_cpu.sec ),
+    .Y(_690_)
+);
+
+FILL FILL_1__2860_ (
+);
+
+FILL FILL_1__2440_ (
+);
+
+FILL FILL_3__2786_ (
+);
+
+FILL FILL_0__4689_ (
+);
+
+FILL FILL_3__2366_ (
+);
+
+FILL FILL_0__4269_ (
+);
+
+FILL FILL_1__3645_ (
+);
+
+FILL FILL_1__3225_ (
+);
+
+FILL FILL_3__4932_ (
+);
+
+FILL FILL_3__4512_ (
+);
+
+FILL FILL_4__2855_ (
+);
+
+FILL FILL_4__2435_ (
+);
+
+FILL FILL_0__2755_ (
+);
+
+INVX1 _4861_ (
+    .A(_1826_),
+    .Y(_1901_)
+);
+
+OAI21X1 _4441_ (
+    .A(_1318_),
+    .B(_1179_),
+    .C(_1176_),
+    .Y(_1175_)
+);
+
+NAND2X1 _4021_ (
+    .A(_1051_),
+    .B(_1057_),
+    .Y(_791_)
+);
+
+FILL FILL_2__3714_ (
+);
+
+FILL FILL_1__4183_ (
+);
+
+FILL FILL_0__4901_ (
+);
+
+FILL FILL_2__4919_ (
+);
+
+FILL FILL_1__2916_ (
+);
+
+FILL FILL_4__3393_ (
+);
+
+FILL FILL_0__3293_ (
+);
+
+FILL FILL_2__4672_ (
+);
+
+FILL FILL_2__4252_ (
+);
+
+FILL FILL_4__4598_ (
+);
+
+FILL FILL_4__4178_ (
+);
+
+AOI22X1 _3712_ (
+    .A(_1196__bF$buf2),
+    .B(_551_),
+    .C(_512_),
+    .D(_1123_),
+    .Y(_511_)
+);
+
+FILL FILL_3__2595_ (
+);
+
+FILL FILL_0__4498_ (
+);
+
+FILL FILL_0__4078_ (
+);
+
+NAND2X1 _4917_ (
+    .A(_Addr_Bus[12]),
+    .B(_Addr_Bus[13]),
+    .Y(_2193_)
+);
+
+FILL FILL_1__3874_ (
+);
+
+FILL FILL_1__3454_ (
+);
+
+FILL FILL_3__4741_ (
+);
+
+FILL FILL_3__4321_ (
+);
+
+FILL FILL_1__4659_ (
+);
+
+FILL FILL_1__4239_ (
+);
+
+FILL FILL_4__2664_ (
+);
+
+FILL FILL_0__2984_ (
+);
+
+FILL FILL_0__2564_ (
+);
+
+OAI21X1 _4670_ (
+    .A(_1684_),
+    .B(_1715_),
+    .C(_1722_),
+    .Y(_1723_)
+);
+
+OAI21X1 _4250_ (
+    .A(_1027_),
+    .B(_1003_),
+    .C(_1006_),
+    .Y(_1002_)
+);
+
+FILL FILL_2__3943_ (
+);
+
+FILL FILL_2__3523_ (
+);
+
+FILL FILL_4__3869_ (
+);
+
+FILL FILL_4__3449_ (
+);
+
+FILL FILL_4__3029_ (
+);
+
+FILL FILL_4__4810_ (
+);
+
+FILL FILL_0__3769_ (
+);
+
+FILL FILL_0__3349_ (
+);
+
+FILL FILL_2__4728_ (
+);
+
+FILL FILL_0__4710_ (
+);
+
+FILL FILL_2__4308_ (
+);
+
+FILL FILL_1__2725_ (
+);
+
+FILL FILL_2_BUFX2_insert39 (
+);
+
+FILL FILL_2__4481_ (
+);
+
+FILL FILL_2__4061_ (
+);
+
+OAI21X1 _3941_ (
+    .A(_928_),
+    .B(_937_),
+    .C(_930_),
+    .Y(_720_)
+);
+
+OAI21X1 _3521_ (
+    .A(_333_),
+    .B(_1333_),
+    .C(_332_),
+    .Y(_331_)
+);
+
+DFFSR _3101_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1486_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [11])
+);
+
+AOI22X1 _4726_ (
+    .A(\u_cpu.alu_shift_right ),
+    .B(\u_cpu.AI [4]),
+    .C(_1778_),
+    .D(_1776_),
+    .Y(_1779_)
+);
+
+NOR2X1 _4306_ (
+    .A(_1067_),
+    .B(_1052_),
+    .Y(_1051_)
+);
+
+FILL FILL_1__3683_ (
+);
+
+FILL FILL_1__3263_ (
+);
+
+FILL FILL_3__3189_ (
+);
+
+FILL FILL_3__4970_ (
+);
+
+FILL FILL_3__4550_ (
+);
+
+FILL FILL_3__4130_ (
+);
+
+FILL FILL_1__4888_ (
+);
+
+FILL FILL_1__4468_ (
+);
+
+FILL FILL_1__4048_ (
+);
+
+FILL FILL_4__2893_ (
+);
+
+FILL FILL_4__2473_ (
+);
+
+FILL FILL_0__2793_ (
+);
+
+FILL FILL_0__2373_ (
+);
+
+FILL FILL274050x21750 (
+);
+
+FILL FILL_2__3752_ (
+);
+
+FILL FILL_2__3332_ (
+);
+
+FILL FILL_4__3678_ (
+);
+
+FILL FILL_4__3258_ (
+);
+
+FILL FILL_0__3998_ (
+);
+
+FILL FILL_0__3578_ (
+);
+
+FILL FILL_2__4957_ (
+);
+
+FILL FILL_2__4537_ (
+);
+
+FILL FILL_2__4117_ (
+);
+
+FILL FILL_1__2534_ (
+);
+
+FILL FILL_3__3821_ (
+);
+
+FILL FILL_3__3401_ (
+);
+
+FILL FILL_1__3739_ (
+);
+
+FILL FILL_1__3319_ (
+);
+
+FILL FILL_2__4290_ (
+);
+
+BUFX2 _2389_ (
+    .A(DO_dsp[0]),
+    .Y(dsp_data[0])
+);
+
+FILL FILL_3__4606_ (
+);
+
+OAI21X1 _3750_ (
+    .A(_1196__bF$buf6),
+    .B(_551_),
+    .C(_550_),
+    .Y(_549_)
+);
+
+OAI21X1 _3330_ (
+    .A(_1039_),
+    .B(_760_),
+    .C(_177_),
+    .Y(_1416_)
+);
+
+FILL FILL_2__2603_ (
+);
+
+FILL FILL_4__2949_ (
+);
+
+FILL FILL_4__2529_ (
+);
+
+FILL FILL_0__2849_ (
+);
+
+FILL FILL_0__2429_ (
+);
+
+AOI21X1 _4955_ (
+    .A(_2198_),
+    .B(DO_kbd[2]),
+    .C(_2195_),
+    .Y(_2227_)
+);
+
+OAI21X1 _4535_ (
+    .A(_1270_),
+    .B(_1269_),
+    .C(\u_cpu.PC [2]),
+    .Y(_1263_)
+);
+
+INVX2 _4115_ (
+    .A(_1233_),
+    .Y(_881_)
+);
+
+FILL FILL_1__3492_ (
+);
+
+FILL FILL_2__3808_ (
+);
+
+FILL FILL_1__4697_ (
+);
+
+FILL FILL_1__4277_ (
+);
+
+FILL FILL_2__3981_ (
+);
+
+FILL FILL_2__3561_ (
+);
+
+FILL FILL_4__3487_ (
+);
+
+OAI22X1 _2601_ (
+    .A(_2354__4_bF$buf6),
+    .B(_2128_),
+    .C(_2129_),
+    .D(_2131_),
+    .Y(_2132_)
+);
+
+FILL FILL_0__3387_ (
+);
+
+FILL FILL_2__4766_ (
+);
+
+FILL FILL_2__4346_ (
+);
+
+INVX1 _3806_ (
+    .A(\u_cpu.AXYS[1] [3]),
+    .Y(_603_)
+);
+
+FILL FILL_1__2763_ (
+);
+
+FILL FILL_3__2689_ (
+);
+
+FILL FILL_3__3630_ (
+);
+
+FILL FILL_3__3210_ (
+);
+
+FILL FILL_1__3968_ (
+);
+
+FILL FILL_1__3548_ (
+);
+
+FILL FILL_3__4835_ (
+);
+
+FILL FILL_3__4415_ (
+);
+
+FILL FILL_2__2832_ (
+);
+
+FILL FILL_2__2412_ (
+);
+
+FILL FILL_4__2758_ (
+);
+
+FILL FILL_0__2658_ (
+);
+
+NOR2X1 _4764_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1816_),
+    .Y(_1817_)
+);
+
+NAND2X1 _4344_ (
+    .A(RDY_bF$buf4),
+    .B(_1089_),
+    .Y(_1088_)
+);
+
+FILL FILL_2__3617_ (
+);
+
+FILL FILL_4__4904_ (
+);
+
+FILL FILL_1__4086_ (
+);
+
+FILL FILL_0__4804_ (
+);
+
+FILL FILL_3__2901_ (
+);
+
+FILL FILL_1__2819_ (
+);
+
+FILL FILL_2__3790_ (
+);
+
+FILL FILL_2__3370_ (
+);
+
+FILL FILL_4__3296_ (
+);
+
+OAI21X1 _2830_ (
+    .A(_2354__0_bF$buf3),
+    .B(_2354__2_bF$buf3),
+    .C(_2354__1_bF$buf4),
+    .Y(_1665_)
+);
+
+AOI21X1 _2410_ (
+    .A(_63_),
+    .B(_1642_),
+    .C(_1920__bF$buf4),
+    .Y(_64_)
+);
+
+FILL FILL_0__3196_ (
+);
+
+FILL FILL_2__4575_ (
+);
+
+FILL FILL_2__4155_ (
+);
+
+INVX1 _3615_ (
+    .A(_420_),
+    .Y(_419_)
+);
+
+FILL FILL_1__2992_ (
+);
+
+FILL FILL_1__2572_ (
+);
+
+FILL FILL_3__2498_ (
+);
+
+FILL FILL_1__3777_ (
+);
+
+FILL FILL_1__3357_ (
+);
+
+FILL FILL_3__4644_ (
+);
+
+FILL FILL_3__4224_ (
+);
+
+FILL FILL_2__2641_ (
+);
+
+FILL FILL_4__2987_ (
+);
+
+FILL FILL_4__2567_ (
+);
+
+FILL FILL_0__2887_ (
+);
+
+FILL FILL_0__2467_ (
+);
+
+DFFSR _4993_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1519_),
+    .CLK(clk_bF$buf1),
+    .Q(DO_dsp[1])
+);
+
+AOI22X1 _4573_ (
+    .A(_1306_),
+    .B(_1326_),
+    .C(_1302_),
+    .D(_1305__bF$buf1),
+    .Y(_1301_)
+);
+
+NAND2X1 _4153_ (
+    .A(\u_cpu.AXYS[3] [3]),
+    .B(_921_),
+    .Y(_917_)
+);
+
+FILL FILL_2__3846_ (
+);
+
+FILL FILL_2__3426_ (
+);
+
+FILL FILL_2__3006_ (
+);
+
+FILL FILL_4__4713_ (
+);
+
+FILL FILL_3__2710_ (
+);
+
+FILL FILL_0__4613_ (
+);
+
+FILL FILL_1__2628_ (
+);
+
+FILL FILL_3__3915_ (
+);
+
+FILL FILL_2__4384_ (
+);
+
+INVX1 _3844_ (
+    .A(_638_),
+    .Y(_637_)
+);
+
+INVX1 _3424_ (
+    .A(_252_),
+    .Y(_251_)
+);
+
+NAND2X1 _3004_ (
+    .A(_Addr_Bus[14]),
+    .B(_1594_),
+    .Y(_1598_)
+);
+
+FILL FILL_1__2381_ (
+);
+
+NAND2X1 _4629_ (
+    .A(\u_cpu.ADD [6]),
+    .B(_1681__bF$buf1),
+    .Y(_1682_)
+);
+
+OAI21X1 _4209_ (
+    .A(\u_cpu.DIMUX [1]),
+    .B(_1070__bF$buf3),
+    .C(_964_),
+    .Y(_963_)
+);
+
+FILL FILL_1__3586_ (
+);
+
+FILL FILL_1__3166_ (
+);
+
+FILL FILL_3__4453_ (
+);
+
+FILL FILL_3__4033_ (
+);
+
+FILL FILL_2__2450_ (
+);
+
+FILL FILL_4__2796_ (
+);
+
+FILL FILL_4__2376_ (
+);
+
+FILL FILL_0__2696_ (
+);
+
+AOI21X1 _4382_ (
+    .A(_1125_),
+    .B(_1150_),
+    .C(_1124_),
+    .Y(_1123_)
+);
+
+FILL FILL_2__3655_ (
+);
+
+FILL FILL_2__3235_ (
+);
+
+FILL FILL_4__4942_ (
+);
+
+FILL FILL_4__4522_ (
+);
+
+FILL FILL_4__4102_ (
+);
+
+FILL FILL_0__4842_ (
+);
+
+FILL FILL_0__4422_ (
+);
+
+FILL FILL_0__4002_ (
+);
+
+FILL FILL_1__2857_ (
+);
+
+FILL FILL_1__2437_ (
+);
+
+FILL FILL_3__3724_ (
+);
+
+FILL FILL_3__3304_ (
+);
+
+FILL FILL_2__4193_ (
+);
+
+FILL FILL_3__4929_ (
+);
+
+FILL FILL_3__4509_ (
+);
+
+OAI21X1 _3653_ (
+    .A(_1328__bF$buf3),
+    .B(_903_),
+    .C(_1196__bF$buf5),
+    .Y(_456_)
+);
+
+OAI21X1 _3233_ (
+    .A(_120_),
+    .B(_1345__bF$buf1),
+    .C(_185_),
+    .Y(_119_)
+);
+
+FILL FILL_2__2926_ (
+);
+
+FILL FILL_2__2506_ (
+);
+
+INVX1 _4858_ (
+    .A(\u_cpu.CO ),
+    .Y(_1898_)
+);
+
+INVX1 _4438_ (
+    .A(_1174_),
+    .Y(_1172_)
+);
+
+OAI21X1 _4018_ (
+    .A(_793_),
+    .B(_792_),
+    .C(_789_),
+    .Y(_788_)
+);
+
+FILL FILL_1__3395_ (
+);
+
+FILL FILL_3__4682_ (
+);
+
+FILL FILL_3__4262_ (
+);
+
+NAND2X1 _4191_ (
+    .A(_1164_),
+    .B(_969_),
+    .Y(_948_)
+);
+
+FILL FILL_2__3884_ (
+);
+
+FILL FILL_2__3464_ (
+);
+
+INVX1 _2924_ (
+    .A(_2353_[4]),
+    .Y(_1544_)
+);
+
+AOI21X1 _2504_ (
+    .A(_2002_),
+    .B(_2354__2_bF$buf1),
+    .C(_2150_),
+    .Y(_2322_)
+);
+
+FILL FILL_4__4751_ (
+);
+
+FILL FILL_4__4331_ (
+);
+
+FILL FILL_0__4651_ (
+);
+
+FILL FILL_2__4669_ (
+);
+
+FILL FILL_0__4231_ (
+);
+
+FILL FILL_2__4249_ (
+);
+
+AND2X2 _3709_ (
+    .A(_511_),
+    .B(_509_),
+    .Y(_508_)
+);
+
+FILL FILL_1__2666_ (
+);
+
+FILL FILL_3__3953_ (
+);
+
+FILL FILL_3__3533_ (
+);
+
+FILL FILL_1__4812_ (
+);
+
+FILL FILL_3__4738_ (
+);
+
+FILL FILL_3__4318_ (
+);
+
+INVX1 _3882_ (
+    .A(\u_cpu.compare ),
+    .Y(_672_)
+);
+
+OAI22X1 _3462_ (
+    .A(_285_),
+    .B(_1250_),
+    .C(_1165_),
+    .D(_278_),
+    .Y(\u_cpu.BI [3])
+);
+
+DFFPOSX1 _3042_ (
+    .D(_1395_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.IRHOLD [2])
+);
+
+FILL FILL_2__2735_ (
+);
+
+FILL FILL_4__3602_ (
+);
+
+OAI21X1 _4667_ (
+    .A(_1688_),
+    .B(_1717_),
+    .C(_1719_),
+    .Y(_1720_)
+);
+
+INVX1 _4247_ (
+    .A(_1099_),
+    .Y(_999_)
+);
+
+FILL FILL_0__3922_ (
+);
+
+FILL FILL_0__3502_ (
+);
+
+FILL FILL_3__4491_ (
+);
+
+FILL FILL_3__4071_ (
+);
+
+FILL FILL_4__4807_ (
+);
+
+FILL FILL_0__4707_ (
+);
+
+FILL FILL_3__2804_ (
+);
+
+FILL FILL_2__3693_ (
+);
+
+FILL FILL_2__3273_ (
+);
+
+FILL FILL_4__3199_ (
+);
+
+NAND2X1 _2733_ (
+    .A(_1635__bF$buf0),
+    .B(_1638__bF$buf0),
+    .Y(_2002_)
+);
+
+FILL FILL_4__4980_ (
+);
+
+FILL FILL_4__4560_ (
+);
+
+FILL FILL_4__4140_ (
+);
+
+FILL FILL_2__4898_ (
+);
+
+FILL FILL_0__4460_ (
+);
+
+FILL FILL_2__4478_ (
+);
+
+FILL FILL_0__4040_ (
+);
+
+FILL FILL_2__4058_ (
+);
+
+NAND2X1 _3938_ (
+    .A(_719_),
+    .B(_718_),
+    .Y(_717_)
+);
+
+AOI22X1 _3518_ (
+    .A(\u_cpu.AXYS[1] [1]),
+    .B(_1050_),
+    .C(_790_),
+    .D(\u_cpu.AXYS[2] [1]),
+    .Y(_329_)
+);
+
+FILL FILL_1__2895_ (
+);
+
+FILL FILL_1__2475_ (
+);
+
+FILL FILL_3__3762_ (
+);
+
+FILL FILL_3__3342_ (
+);
+
+FILL FILL_1__4621_ (
+);
+
+FILL FILL_1__4201_ (
+);
+
+FILL FILL_3__4967_ (
+);
+
+FILL FILL_3__4547_ (
+);
+
+FILL FILL_3__4127_ (
+);
+
+NOR2X1 _3691_ (
+    .A(_667_),
+    .B(_540_),
+    .Y(_494_)
+);
+
+INVX1 _3271_ (
+    .A(\u_cpu.ABL [1]),
+    .Y(_142_)
+);
+
+FILL FILL_2__2964_ (
+);
+
+FILL FILL_2__2544_ (
+);
+
+FILL FILL_4__3831_ (
+);
+
+FILL FILL_4__3411_ (
+);
+
+NAND3X1 _4896_ (
+    .A(_2168_),
+    .B(_2171_),
+    .C(_2170_),
+    .Y(_2172_)
+);
+
+OAI21X1 _4476_ (
+    .A(_1345__bF$buf3),
+    .B(_1340_),
+    .C(_1333_),
+    .Y(_1206_)
+);
+
+NAND3X1 _4056_ (
+    .A(_827_),
+    .B(_825_),
+    .C(_824_),
+    .Y(_823_)
+);
+
+FILL FILL_0__3731_ (
+);
+
+FILL FILL_2__3749_ (
+);
+
+FILL FILL_2__3329_ (
+);
+
+FILL FILL_0__3311_ (
+);
+
+FILL FILL_4__4616_ (
+);
+
+FILL FILL_0__4936_ (
+);
+
+FILL FILL_3__2613_ (
+);
+
+FILL FILL_0__4516_ (
+);
+
+FILL FILL_3__3818_ (
+);
+
+DFFSR _2962_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1437_),
+    .CLK(clk_bF$buf3),
+    .Q(DO_kbd[2])
+);
+
+OAI21X1 _2542_ (
+    .A(_1920__bF$buf2),
+    .B(_2284_),
+    .C(_1973_),
+    .Y(_2285_)
+);
+
+FILL FILL_2__4287_ (
+);
+
+NAND2X1 _3747_ (
+    .A(_548_),
+    .B(_547_),
+    .Y(_546_)
+);
+
+NAND2X1 _3327_ (
+    .A(\u_cpu.AXYS[2] [6]),
+    .B(_760_),
+    .Y(_175_)
+);
+
+FILL FILL_3__3991_ (
+);
+
+FILL FILL_3__3571_ (
+);
+
+FILL FILL_1__3489_ (
+);
+
+FILL FILL_1__4850_ (
+);
+
+FILL FILL_1__4430_ (
+);
+
+FILL FILL_1__4010_ (
+);
+
+FILL FILL_3__4776_ (
+);
+
+FILL FILL_3__4356_ (
+);
+
+DFFSR _3080_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1469_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[0] [3])
+);
+
+FILL FILL_2__2773_ (
+);
+
+FILL FILL_4__2699_ (
+);
+
+FILL FILL_4__3640_ (
+);
+
+FILL FILL_4__3220_ (
+);
+
+FILL FILL_0__2599_ (
+);
+
+NAND3X1 _4285_ (
+    .A(_1118_),
+    .B(_1099_),
+    .C(_1032_),
+    .Y(_1031_)
+);
+
+FILL FILL_2__3978_ (
+);
+
+FILL FILL_0__3960_ (
+);
+
+FILL FILL_2__3558_ (
+);
+
+FILL FILL_0__3540_ (
+);
+
+FILL FILL_4__4845_ (
+);
+
+FILL FILL_4__4425_ (
+);
+
+FILL FILL_4__4005_ (
+);
+
+FILL FILL_0__4745_ (
+);
+
+FILL FILL_3__2842_ (
+);
+
+FILL FILL_3__2422_ (
+);
+
+FILL FILL_0__4325_ (
+);
+
+FILL FILL_1__3701_ (
+);
+
+FILL FILL_3__3627_ (
+);
+
+FILL FILL_3__3207_ (
+);
+
+OAI21X1 _2771_ (
+    .A(_2354__0_bF$buf2),
+    .B(_1964_),
+    .C(_2354__4_bF$buf2),
+    .Y(_1965_)
+);
+
+FILL FILL_2__4096_ (
+);
+
+FILL FILL_1__4906_ (
+);
+
+FILL FILL_4__2911_ (
+);
+
+OAI21X1 _3976_ (
+    .A(_758_),
+    .B(_1129__bF$buf1),
+    .C(_751_),
+    .Y(_1454_)
+);
+
+NAND3X1 _3556_ (
+    .A(_806_),
+    .B(_364_),
+    .C(_362_),
+    .Y(_361_)
+);
+
+DFFSR _3136_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1404_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.clv )
+);
+
+FILL FILL_0__2811_ (
+);
+
+FILL FILL_2__2829_ (
+);
+
+FILL FILL_2__2409_ (
+);
+
+FILL FILL_3__3380_ (
+);
+
+FILL FILL_1__3298_ (
+);
+
+FILL FILL_3__4585_ (
+);
+
+FILL FILL_3__4165_ (
+);
+
+FILL FILL_2__2582_ (
+);
+
+OAI21X1 _4094_ (
+    .A(_907_),
+    .B(_864_),
+    .C(_861_),
+    .Y(_860_)
+);
+
+FILL FILL_2__3787_ (
+);
+
+FILL FILL_2__3367_ (
+);
+
+NAND3X1 _2827_ (
+    .A(_2354__1_bF$buf5),
+    .B(_2354__2_bF$buf5),
+    .C(_1638__bF$buf2),
+    .Y(_1909_)
+);
+
+AOI21X1 _2407_ (
+    .A(_1935_),
+    .B(_1643__bF$buf3),
+    .C(_2354__5_bF$buf0),
+    .Y(_67_)
+);
+
+FILL FILL_4__4654_ (
+);
+
+FILL FILL_4__4234_ (
+);
+
+FILL FILL_0__4974_ (
+);
+
+FILL FILL_3__2651_ (
+);
+
+FILL FILL_0__4554_ (
+);
+
+FILL FILL_0__4134_ (
+);
+
+FILL FILL_1__2989_ (
+);
+
+FILL FILL_1__2569_ (
+);
+
+FILL FILL_1__3930_ (
+);
+
+FILL FILL_1__3510_ (
+);
+
+FILL FILL_3__3856_ (
+);
+
+FILL FILL_3__3436_ (
+);
+
+FILL FILL_3__3016_ (
+);
+
+OAI21X1 _2580_ (
+    .A(_2152_),
+    .B(_2149_),
+    .C(_2151_),
+    .Y(_2153_)
+);
+
+FILL FILL_1__4715_ (
+);
+
+FILL FILL_4__2720_ (
+);
+
+NAND2X1 _3785_ (
+    .A(_1121_),
+    .B(_1118_),
+    .Y(_584_)
+);
+
+NAND2X1 _3365_ (
+    .A(_202_),
+    .B(_465_),
+    .Y(_201_)
+);
+
+FILL FILL_0__2620_ (
+);
+
+FILL FILL_2__2638_ (
+);
+
+FILL FILL_4__3925_ (
+);
+
+FILL FILL_4__3505_ (
+);
+
+FILL FILL_0__3825_ (
+);
+
+FILL FILL_0__3405_ (
+);
+
+FILL FILL_3__4394_ (
+);
+
+FILL FILL_3__2707_ (
+);
+
+FILL FILL_2__3596_ (
+);
+
+FILL FILL_2__3176_ (
+);
+
+AOI21X1 _2636_ (
+    .A(_1636__bF$buf2),
+    .B(_2354__0_bF$buf3),
+    .C(_1643__bF$buf2),
+    .Y(_2098_)
+);
+
+FILL FILL_4__4883_ (
+);
+
+FILL FILL_4__4463_ (
+);
+
+FILL FILL_4__4043_ (
+);
+
+FILL FILL_0__4783_ (
+);
+
+FILL FILL_3__2880_ (
+);
+
+FILL FILL_0__4363_ (
+);
+
+FILL FILL_3__2460_ (
+);
+
+FILL FILL_1__2798_ (
+);
+
+FILL FILL_1__2378_ (
+);
+
+FILL FILL_3__3665_ (
+);
+
+FILL FILL_3__3245_ (
+);
+
+FILL FILL_1__4944_ (
+);
+
+FILL FILL_1__4524_ (
+);
+
+FILL FILL_1__4104_ (
+);
+
+NAND3X1 _3594_ (
+    .A(_562_),
+    .B(_415_),
+    .C(_557_),
+    .Y(_398_)
+);
+
+INVX1 _3174_ (
+    .A(_1225_),
+    .Y(_78_)
+);
+
+FILL FILL_2__2447_ (
+);
+
+FILL FILL_4__3734_ (
+);
+
+FILL FILL_4__3314_ (
+);
+
+OAI21X1 _4799_ (
+    .A(_1681__bF$buf0),
+    .B(_1835_),
+    .C(_1848_),
+    .Y(_1669_)
+);
+
+INVX1 _4379_ (
+    .A(_1121_),
+    .Y(_1120_)
+);
+
+FILL FILL_0__3634_ (
+);
+
+FILL FILL_0__3214_ (
+);
+
+FILL FILL_4__4939_ (
+);
+
+FILL FILL_4__4519_ (
+);
+
+FILL FILL_0__4839_ (
+);
+
+FILL FILL_3__2936_ (
+);
+
+FILL FILL_3__2516_ (
+);
+
+FILL FILL_0__4419_ (
+);
+
+DFFSR _2865_ (
+    .R(_1514_),
+    .S(vdd),
+    .D(_1508_),
+    .CLK(clk_bF$buf3),
+    .Q(DO_dsp[3])
+);
+
+OR2X2 _2445_ (
+    .A(_2095_),
+    .B(_2354__4_bF$buf4),
+    .Y(_30_)
+);
+
+FILL FILL_4__4692_ (
+);
+
+FILL FILL_4__4272_ (
+);
+
+FILL FILL_0__4592_ (
+);
+
+FILL FILL_0__4172_ (
+);
+
+FILL FILL_0__2905_ (
+);
+
+FILL FILL_3__3894_ (
+);
+
+FILL FILL_3__3474_ (
+);
+
+FILL FILL_1__4753_ (
+);
+
+FILL FILL_1__4333_ (
+);
+
+FILL FILL_3__4679_ (
+);
+
+FILL FILL_3__4259_ (
+);
+
+FILL FILL_2__2676_ (
+);
+
+FILL FILL_4__3963_ (
+);
+
+FILL FILL_4__3543_ (
+);
+
+FILL FILL273150x61350 (
+);
+
+NOR2X1 _4188_ (
+    .A(_947_),
+    .B(_950_),
+    .Y(_945_)
+);
+
+FILL FILL_0__3863_ (
+);
+
+FILL FILL_0__3443_ (
+);
+
+FILL FILL_0__3023_ (
+);
+
+FILL FILL_2__4822_ (
+);
+
+FILL FILL_2__4402_ (
+);
+
+FILL FILL_4__4748_ (
+);
+
+FILL FILL_4__4328_ (
+);
+
+FILL FILL_0__4648_ (
+);
+
+FILL FILL_3__2745_ (
+);
+
+FILL FILL_0__4228_ (
+);
+
+FILL FILL_1__3604_ (
+);
+
+NAND2X1 _2674_ (
+    .A(_2354__3_bF$buf3),
+    .B(_1636__bF$buf2),
+    .Y(_2060_)
+);
+
+FILL FILL_4__4081_ (
+);
+
+FILL FILL_1__4809_ (
+);
+
+FILL FILL_4__2814_ (
+);
+
+NAND2X1 _3879_ (
+    .A(_703_),
+    .B(_690_),
+    .Y(_669_)
+);
+
+OAI22X1 _3459_ (
+    .A(_1292_),
+    .B(_1250_),
+    .C(_1108_),
+    .D(_278_),
+    .Y(\u_cpu.BI [6])
+);
+
+DFFSR _3039_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1359_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [3])
+);
+
+FILL FILL_0__2714_ (
+);
+
+INVX1 _4820_ (
+    .A(\u_cpu.AN ),
+    .Y(_1865_)
+);
+
+NAND2X1 _4400_ (
+    .A(RDY_bF$buf3),
+    .B(Data_In[5]),
+    .Y(_1139_)
+);
+
+FILL FILL_3__3283_ (
+);
+
+FILL FILL_0__3919_ (
+);
+
+FILL FILL_1__4982_ (
+);
+
+FILL FILL_1__4562_ (
+);
+
+FILL FILL_1__4142_ (
+);
+
+FILL FILL_3__4488_ (
+);
+
+FILL FILL_3__4068_ (
+);
+
+FILL FILL_2__2485_ (
+);
+
+FILL FILL_4__3772_ (
+);
+
+FILL FILL_4__3352_ (
+);
+
+FILL FILL_0__3672_ (
+);
+
+FILL FILL_0__3252_ (
+);
+
+FILL FILL_2__4631_ (
+);
+
+FILL FILL_2__4211_ (
+);
+
+FILL FILL_4__4977_ (
+);
+
+FILL FILL_4__4557_ (
+);
+
+FILL FILL_4__4137_ (
+);
+
+FILL FILL_3__2974_ (
+);
+
+FILL FILL_3__2554_ (
+);
+
+FILL FILL_0__4457_ (
+);
+
+FILL FILL_0__4037_ (
+);
+
+FILL FILL_1__3833_ (
+);
+
+FILL FILL_1__3413_ (
+);
+
+FILL FILL_3__3759_ (
+);
+
+FILL FILL_3__3339_ (
+);
+
+AND2X2 _2483_ (
+    .A(_2342_),
+    .B(_2341_),
+    .Y(_2343_)
+);
+
+FILL FILL_3__4700_ (
+);
+
+FILL FILL271650x25350 (
+);
+
+FILL FILL_1__4618_ (
+);
+
+FILL FILL_4__2623_ (
+);
+
+OAI21X1 _3688_ (
+    .A(_494_),
+    .B(_492_),
+    .C(_574_),
+    .Y(_491_)
+);
+
+NAND2X1 _3268_ (
+    .A(_800__bF$buf2),
+    .B(_2354__2_bF$buf2),
+    .Y(_140_)
+);
+
+FILL FILL_0__2943_ (
+);
+
+FILL FILL_0__2523_ (
+);
+
+FILL FILL_2__3902_ (
+);
+
+FILL FILL_4__3828_ (
+);
+
+FILL FILL_4__3408_ (
+);
+
+FILL FILL_0__3728_ (
+);
+
+FILL FILL_0__3308_ (
+);
+
+FILL FILL_1__4791_ (
+);
+
+FILL FILL_1__4371_ (
+);
+
+FILL FILL_3__4297_ (
+);
+
+FILL FILL_4__3581_ (
+);
+
+FILL FILL_2__3499_ (
+);
+
+FILL FILL_0__3481_ (
+);
+
+FILL FILL_2__4860_ (
+);
+
+FILL FILL_2__4440_ (
+);
+
+FILL FILL_2__4020_ (
+);
+
+DFFSR _2959_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1434_),
+    .CLK(clk_bF$buf12),
+    .Q(DO_kbd[6])
+);
+
+AOI21X1 _2539_ (
+    .A(_2286_),
+    .B(_1928_),
+    .C(_2287_),
+    .Y(_2288_)
+);
+
+FILL FILL_4__4786_ (
+);
+
+FILL FILL_4__4366_ (
+);
+
+OAI21X1 _3900_ (
+    .A(_1027_),
+    .B(_1008_),
+    .C(_1024_),
+    .Y(_688_)
+);
+
+FILL FILL_0__4686_ (
+);
+
+FILL FILL_3__2783_ (
+);
+
+FILL FILL_0__4266_ (
+);
+
+FILL FILL_3__2363_ (
+);
+
+FILL FILL_1__3642_ (
+);
+
+FILL FILL_1__3222_ (
+);
+
+FILL FILL_3__3988_ (
+);
+
+FILL FILL_3__3568_ (
+);
+
+FILL FILL_1__4847_ (
+);
+
+FILL FILL_1__4427_ (
+);
+
+FILL FILL_1__4007_ (
+);
+
+FILL FILL_4__2852_ (
+);
+
+FILL FILL_4__2432_ (
+);
+
+OAI21X1 _3497_ (
+    .A(_554_),
+    .B(_722_),
+    .C(_580_),
+    .Y(_310_)
+);
+
+DFFSR _3077_ (
+    .R(_1417__bF$buf2),
+    .S(vdd),
+    .D(_1375_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.adc_bcd )
+);
+
+FILL FILL_0__2752_ (
+);
+
+FILL FILL_2__3711_ (
+);
+
+FILL FILL_4__3637_ (
+);
+
+FILL FILL_4__3217_ (
+);
+
+FILL FILL_0__3957_ (
+);
+
+FILL FILL_0__3537_ (
+);
+
+FILL FILL_1__4180_ (
+);
+
+FILL FILL_2__4916_ (
+);
+
+FILL FILL_1__2913_ (
+);
+
+FILL FILL_3__2839_ (
+);
+
+FILL FILL_3__2419_ (
+);
+
+FILL FILL_4__3390_ (
+);
+
+FILL FILL_0__3290_ (
+);
+
+OAI21X1 _2768_ (
+    .A(_2354__0_bF$buf4),
+    .B(_2354__2_bF$buf0),
+    .C(_2354__4_bF$buf5),
+    .Y(_1968_)
+);
+
+FILL FILL_4__4595_ (
+);
+
+FILL FILL_4__4175_ (
+);
+
+FILL FILL_3__2592_ (
+);
+
+FILL FILL_0__4495_ (
+);
+
+FILL FILL_0__4075_ (
+);
+
+FILL FILL_4__2908_ (
+);
+
+FILL FILL_0__2808_ (
+);
+
+NAND2X1 _4914_ (
+    .A(_Addr_Bus[10]),
+    .B(_Addr_Bus[11]),
+    .Y(_2190_)
+);
+
+FILL FILL_1__3871_ (
+);
+
+FILL FILL_1__3451_ (
+);
+
+FILL FILL_1__3031_ (
+);
+
+FILL FILL_3__3797_ (
+);
+
+FILL FILL_3__3377_ (
+);
+
+FILL FILL_1__4656_ (
+);
+
+FILL FILL_1__4236_ (
+);
+
+FILL FILL_4__2661_ (
+);
+
+FILL FILL_2__2999_ (
+);
+
+FILL FILL_0__2981_ (
+);
+
+FILL FILL_0__2561_ (
+);
+
+FILL FILL_2__2579_ (
+);
+
+FILL FILL_2__3940_ (
+);
+
+FILL FILL_2__3520_ (
+);
+
+FILL FILL_4__3866_ (
+);
+
+FILL FILL_4__3446_ (
+);
+
+FILL FILL_4__3026_ (
+);
+
+FILL FILL_0__3766_ (
+);
+
+FILL FILL_0__3346_ (
+);
+
+FILL FILL_2__4725_ (
+);
+
+FILL FILL_2__4305_ (
+);
+
+FILL FILL_1__2722_ (
+);
+
+FILL FILL_3__2648_ (
+);
+
+FILL FILL_1__3927_ (
+);
+
+FILL FILL_1__3507_ (
+);
+
+NAND2X1 _2997_ (
+    .A(_Addr_Bus[0]),
+    .B(_Addr_Bus[15]),
+    .Y(_1604_)
+);
+
+NOR2X1 _2577_ (
+    .A(_2354__2_bF$buf4),
+    .B(_2001_),
+    .Y(_2156_)
+);
+
+FILL FILL_4__2717_ (
+);
+
+FILL FILL_0__2617_ (
+);
+
+OAI21X1 _4723_ (
+    .A(_1688_),
+    .B(_1774_),
+    .C(_1775_),
+    .Y(_1776_)
+);
+
+NAND2X1 _4303_ (
+    .A(_1326_),
+    .B(_1049_),
+    .Y(_1048_)
+);
+
+FILL FILL_1__3680_ (
+);
+
+FILL FILL_1__3260_ (
+);
+
+FILL FILL_3__3186_ (
+);
+
+FILL FILL_1__4885_ (
+);
+
+FILL FILL_1__4465_ (
+);
+
+FILL FILL_1__4045_ (
+);
+
+FILL FILL_4__2890_ (
+);
+
+FILL FILL_4__2470_ (
+);
+
+FILL FILL_0__2790_ (
+);
+
+FILL FILL_0__2370_ (
+);
+
+FILL FILL_2__2388_ (
+);
+
+FILL FILL_4__3675_ (
+);
+
+FILL FILL_4__3255_ (
+);
+
+FILL FILL_0__3995_ (
+);
+
+FILL FILL_0__3575_ (
+);
+
+FILL FILL_2__4954_ (
+);
+
+FILL FILL_2__4534_ (
+);
+
+FILL FILL_2__4114_ (
+);
+
+FILL FILL_1__2951_ (
+);
+
+FILL FILL_1__2531_ (
+);
+
+FILL FILL_3__2877_ (
+);
+
+FILL FILL_3__2457_ (
+);
+
+FILL FILL_1__3736_ (
+);
+
+FILL FILL_1__3316_ (
+);
+
+BUFX2 _2386_ (
+    .A(DO_dsp[3]),
+    .Y(dsp_data[3])
+);
+
+FILL FILL_3__4603_ (
+);
+
+FILL FILL_2__2600_ (
+);
+
+FILL FILL_4__2946_ (
+);
+
+FILL FILL_4__2526_ (
+);
+
+FILL FILL_0__2846_ (
+);
+
+INVX1 _4952_ (
+    .A(DI[2]),
+    .Y(_2224_)
+);
+
+FILL FILL_0__2426_ (
+);
+
+OAI21X1 _4532_ (
+    .A(_1262_),
+    .B(_1297_),
+    .C(_1261_),
+    .Y(_1260_)
+);
+
+NAND3X1 _4112_ (
+    .A(_884_),
+    .B(_879_),
+    .C(_886_),
+    .Y(_878_)
+);
+
+FILL FILL_2__3805_ (
+);
+
+FILL FILL_1__4694_ (
+);
+
+FILL FILL_1__4274_ (
+);
+
+FILL FILL_4__3484_ (
+);
+
+FILL FILL_0__3384_ (
+);
+
+FILL FILL_2__4763_ (
+);
+
+FILL FILL_2__4343_ (
+);
+
+FILL FILL_4__4689_ (
+);
+
+FILL FILL_4__4269_ (
+);
+
+INVX1 _3803_ (
+    .A(\u_cpu.AXYS[0] [3]),
+    .Y(_600_)
+);
+
+FILL FILL_1__2760_ (
+);
+
+FILL FILL_3__2686_ (
+);
+
+FILL FILL_0__4589_ (
+);
+
+FILL FILL_0__4169_ (
+);
+
+FILL FILL_1__3965_ (
+);
+
+FILL FILL_1__3545_ (
+);
+
+FILL FILL_3__4832_ (
+);
+
+FILL FILL_3__4412_ (
+);
+
+FILL FILL_4__2755_ (
+);
+
+FILL FILL_0__2655_ (
+);
+
+OAI21X1 _4761_ (
+    .A(_1813_),
+    .B(_1812_),
+    .C(_1703_),
+    .Y(_1814_)
+);
+
+INVX1 _4341_ (
+    .A(\u_cpu.src_reg [1]),
+    .Y(_1086_)
+);
+
+FILL FILL_2__3614_ (
+);
+
+FILL FILL_4__4901_ (
+);
+
+FILL FILL_1__4083_ (
+);
+
+FILL FILL_2__4819_ (
+);
+
+FILL FILL_0__4801_ (
+);
+
+FILL FILL_1__2816_ (
+);
+
+FILL FILL_4__3293_ (
+);
+
+FILL FILL_0__3193_ (
+);
+
+FILL FILL_2__4572_ (
+);
+
+FILL FILL_2__4152_ (
+);
+
+FILL FILL_4__4078_ (
+);
+
+NOR2X1 _3612_ (
+    .A(_1123_),
+    .B(_756_),
+    .Y(_416_)
+);
+
+FILL FILL_3__2495_ (
+);
+
+FILL FILL_0__4398_ (
+);
+
+AND2X2 _4817_ (
+    .A(\u_cpu.u_ALU8.BI7 ),
+    .B(\u_cpu.CO ),
+    .Y(_1862_)
+);
+
+FILL FILL_1__3774_ (
+);
+
+FILL FILL_1__3354_ (
+);
+
+FILL FILL_3__4641_ (
+);
+
+FILL FILL_3__4221_ (
+);
+
+FILL FILL_1__4979_ (
+);
+
+FILL FILL_1__4559_ (
+);
+
+FILL FILL_1__4139_ (
+);
+
+FILL FILL_4__2564_ (
+);
+
+FILL FILL_0__2884_ (
+);
+
+FILL FILL_0__2464_ (
+);
+
+DFFPOSX1 _4990_ (
+    .D(_2354_[14]),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[14])
+);
+
+NOR2X1 _4570_ (
+    .A(_1345__bF$buf3),
+    .B(_1340_),
+    .Y(_1298_)
+);
+
+OAI21X1 _4150_ (
+    .A(_1039_),
+    .B(_921_),
+    .C(_916_),
+    .Y(_1461_)
+);
+
+FILL FILL_2__3843_ (
+);
+
+FILL FILL_2__3423_ (
+);
+
+FILL FILL_2__3003_ (
+);
+
+FILL FILL_4__3769_ (
+);
+
+FILL FILL_4__3349_ (
+);
+
+FILL FILL_4__4710_ (
+);
+
+FILL FILL_0__3669_ (
+);
+
+FILL FILL_0__3249_ (
+);
+
+FILL FILL_2__4628_ (
+);
+
+FILL FILL_0__4610_ (
+);
+
+FILL FILL_2__4208_ (
+);
+
+FILL FILL273450x36150 (
+);
+
+FILL FILL_1__2625_ (
+);
+
+FILL FILL_3__3912_ (
+);
+
+FILL FILL_2__4381_ (
+);
+
+INVX1 _3841_ (
+    .A(_635_),
+    .Y(_634_)
+);
+
+OAI21X1 _3421_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [3]),
+    .Y(_249_)
+);
+
+NAND2X1 _3001_ (
+    .A(_1600_),
+    .B(_1599_),
+    .Y(_1601_)
+);
+
+INVX1 _4626_ (
+    .A(\u_cpu.state [2]),
+    .Y(_1354_)
+);
+
+OAI21X1 _4206_ (
+    .A(_1126_),
+    .B(_1003_),
+    .C(_997_),
+    .Y(_961_)
+);
+
+FILL FILL_1__3583_ (
+);
+
+FILL FILL_3__4870_ (
+);
+
+FILL FILL_3__4450_ (
+);
+
+FILL FILL_3__4030_ (
+);
+
+FILL FILL_1__4788_ (
+);
+
+FILL FILL_1__4368_ (
+);
+
+FILL FILL_4__2793_ (
+);
+
+FILL FILL_4__2373_ (
+);
+
+FILL FILL_0__2693_ (
+);
+
+FILL FILL_2__3652_ (
+);
+
+FILL FILL_2__3232_ (
+);
+
+FILL FILL_4__3998_ (
+);
+
+FILL FILL_4__3578_ (
+);
+
+FILL FILL_0__3898_ (
+);
+
+FILL FILL_0__3478_ (
+);
+
+FILL FILL_2__4857_ (
+);
+
+FILL FILL_2__4437_ (
+);
+
+FILL FILL_2__4017_ (
+);
+
+FILL FILL_1__2854_ (
+);
+
+FILL FILL_1__2434_ (
+);
+
+FILL FILL_3__3721_ (
+);
+
+FILL FILL_3__3301_ (
+);
+
+FILL FILL_1__3639_ (
+);
+
+FILL FILL_1__3219_ (
+);
+
+FILL FILL_2__4190_ (
+);
+
+FILL FILL_3__4926_ (
+);
+
+FILL FILL_3__4506_ (
+);
+
+NOR2X1 _3650_ (
+    .A(_454_),
+    .B(_461_),
+    .Y(_453_)
+);
+
+OAI21X1 _3230_ (
+    .A(_1345__bF$buf1),
+    .B(_117_),
+    .C(_119_),
+    .Y(_116_)
+);
+
+FILL FILL_3_BUFX2_insert70 (
+);
+
+FILL FILL_3_BUFX2_insert71 (
+);
+
+FILL FILL_3_BUFX2_insert72 (
+);
+
+FILL FILL_3_BUFX2_insert73 (
+);
+
+FILL FILL_2__2923_ (
+);
+
+FILL FILL_2__2503_ (
+);
+
+FILL FILL_3_BUFX2_insert74 (
+);
+
+FILL FILL_3_BUFX2_insert75 (
+);
+
+FILL FILL_3_BUFX2_insert76 (
+);
+
+FILL FILL_3_BUFX2_insert77 (
+);
+
+FILL FILL_4__2849_ (
+);
+
+FILL FILL_3_BUFX2_insert78 (
+);
+
+FILL FILL_3_BUFX2_insert79 (
+);
+
+FILL FILL_4__2429_ (
+);
+
+FILL FILL_0__2749_ (
+);
+
+OAI21X1 _4855_ (
+    .A(RDY_bF$buf7),
+    .B(_1865_),
+    .C(_1896_),
+    .Y(_1677_)
+);
+
+AOI21X1 _4435_ (
+    .A(_1196__bF$buf1),
+    .B(_1184_),
+    .C(_1170_),
+    .Y(_1487_)
+);
+
+NAND2X1 _4015_ (
+    .A(\u_cpu.AXYS[3] [7]),
+    .B(_922_),
+    .Y(_785_)
+);
+
+FILL FILL_1__3392_ (
+);
+
+FILL FILL_2__3708_ (
+);
+
+FILL FILL_1__4597_ (
+);
+
+FILL FILL_1__4177_ (
+);
+
+FILL FILL_2__3881_ (
+);
+
+FILL FILL_2__3461_ (
+);
+
+FILL FILL_4__3387_ (
+);
+
+FILL FILL_4_BUFX2_insert140 (
+);
+
+FILL FILL_4_BUFX2_insert141 (
+);
+
+FILL FILL_4_BUFX2_insert142 (
+);
+
+INVX1 _2921_ (
+    .A(_2353_[5]),
+    .Y(_1546_)
+);
+
+OAI21X1 _2501_ (
+    .A(_1635__bF$buf4),
+    .B(_1636__bF$buf4),
+    .C(_2000_),
+    .Y(_2325_)
+);
+
+FILL FILL_4_BUFX2_insert143 (
+);
+
+FILL FILL_4_BUFX2_insert144 (
+);
+
+FILL FILL_4_BUFX2_insert145 (
+);
+
+FILL FILL_4_BUFX2_insert146 (
+);
+
+FILL FILL_4_BUFX2_insert147 (
+);
+
+FILL FILL_4_BUFX2_insert148 (
+);
+
+FILL FILL_4_BUFX2_insert149 (
+);
+
+FILL FILL_0__3287_ (
+);
+
+FILL FILL_2__4666_ (
+);
+
+FILL FILL274050x97350 (
+);
+
+FILL FILL_2__4246_ (
+);
+
+NOR2X1 _3706_ (
+    .A(_515_),
+    .B(_506_),
+    .Y(_505_)
+);
+
+FILL FILL_1__2663_ (
+);
+
+FILL FILL_3__2589_ (
+);
+
+FILL FILL_3__3950_ (
+);
+
+FILL FILL_3__3530_ (
+);
+
+FILL FILL_1__3868_ (
+);
+
+FILL FILL_1__3448_ (
+);
+
+FILL FILL_1__3028_ (
+);
+
+FILL FILL_3_BUFX2_insert160 (
+);
+
+FILL FILL_3_BUFX2_insert161 (
+);
+
+FILL FILL_3_BUFX2_insert162 (
+);
+
+FILL FILL_3_BUFX2_insert163 (
+);
+
+FILL FILL_3__4735_ (
+);
+
+FILL FILL_3_BUFX2_insert164 (
+);
+
+FILL FILL_3_BUFX2_insert165 (
+);
+
+FILL FILL_3__4315_ (
+);
+
+FILL FILL_3_BUFX2_insert166 (
+);
+
+FILL FILL_3_BUFX2_insert167 (
+);
+
+FILL FILL_2__2732_ (
+);
+
+FILL FILL_4__2658_ (
+);
+
+FILL FILL_0__2978_ (
+);
+
+FILL FILL_0__2558_ (
+);
+
+NOR2X1 _4664_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1716_),
+    .Y(_1717_)
+);
+
+INVX1 _4244_ (
+    .A(_997_),
+    .Y(_996_)
+);
+
+FILL FILL_2__3937_ (
+);
+
+FILL FILL_2__3517_ (
+);
+
+FILL FILL_4__4804_ (
+);
+
+FILL FILL_3__2801_ (
+);
+
+FILL FILL_0__4704_ (
+);
+
+FILL FILL_1__2719_ (
+);
+
+FILL FILL_2__3690_ (
+);
+
+FILL FILL273750x79350 (
+);
+
+FILL FILL_2__3270_ (
+);
+
+FILL FILL_4__3196_ (
+);
+
+AOI21X1 _2730_ (
+    .A(_2004_),
+    .B(_2000_),
+    .C(_2354__6_bF$buf1),
+    .Y(_2005_)
+);
+
+FILL FILL_2__4895_ (
+);
+
+FILL FILL_2__4475_ (
+);
+
+FILL FILL_2__4055_ (
+);
+
+OAI21X1 _3935_ (
+    .A(_716_),
+    .B(_715_),
+    .C(_1070__bF$buf1),
+    .Y(_714_)
+);
+
+INVX1 _3515_ (
+    .A(_327_),
+    .Y(_326_)
+);
+
+FILL FILL_1__2892_ (
+);
+
+FILL FILL_1__2472_ (
+);
+
+FILL FILL_3__2398_ (
+);
+
+FILL FILL_1__3677_ (
+);
+
+FILL FILL_1__3257_ (
+);
+
+FILL FILL_3__4964_ (
+);
+
+FILL FILL_3__4544_ (
+);
+
+FILL FILL_3__4124_ (
+);
+
+FILL FILL_2__2541_ (
+);
+
+FILL FILL_4__2887_ (
+);
+
+FILL FILL_4__2467_ (
+);
+
+FILL FILL_0__2787_ (
+);
+
+FILL FILL_0__2367_ (
+);
+
+INVX1 _4893_ (
+    .A(_Addr_Bus[4]),
+    .Y(_2169_)
+);
+
+AOI21X1 _4473_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [0]),
+    .C(_1204_),
+    .Y(_1203_)
+);
+
+NAND2X1 _4053_ (
+    .A(_821_),
+    .B(_825_),
+    .Y(_820_)
+);
+
+FILL FILL_2__3746_ (
+);
+
+FILL FILL_2__3326_ (
+);
+
+FILL FILL_4__4613_ (
+);
+
+FILL FILL_0__4933_ (
+);
+
+FILL FILL_3__2610_ (
+);
+
+FILL FILL_0__4513_ (
+);
+
+FILL FILL_1__2948_ (
+);
+
+FILL FILL_1__2528_ (
+);
+
+FILL FILL_3__3815_ (
+);
+
+FILL FILL_2__4284_ (
+);
+
+OAI21X1 _3744_ (
+    .A(_1325__bF$buf3),
+    .B(_1252_),
+    .C(_1196__bF$buf4),
+    .Y(_543_)
+);
+
+INVX1 _3324_ (
+    .A(\u_cpu.src_reg [0]),
+    .Y(_174_)
+);
+
+INVX1 _4949_ (
+    .A(DO_woz[2]),
+    .Y(_2221_)
+);
+
+OAI21X1 _4529_ (
+    .A(_1270_),
+    .B(_1269_),
+    .C(\u_cpu.PC [1]),
+    .Y(_1257_)
+);
+
+OAI21X1 _4109_ (
+    .A(_1328__bF$buf2),
+    .B(_1084_),
+    .C(_876_),
+    .Y(_875_)
+);
+
+FILL FILL_1__3486_ (
+);
+
+FILL FILL_3__4773_ (
+);
+
+FILL FILL_3__4353_ (
+);
+
+FILL FILL_2__2770_ (
+);
+
+FILL FILL_4__2696_ (
+);
+
+FILL FILL_0__2596_ (
+);
+
+INVX1 _4282_ (
+    .A(\u_cpu.backwards ),
+    .Y(_1029_)
+);
+
+FILL FILL_2__3975_ (
+);
+
+FILL FILL_2__3555_ (
+);
+
+FILL FILL_4__4842_ (
+);
+
+FILL FILL_4__4002_ (
+);
+
+FILL FILL_0__4742_ (
+);
+
+FILL FILL_0__4322_ (
+);
+
+FILL FILL_1__2757_ (
+);
+
+FILL FILL_3__3624_ (
+);
+
+FILL FILL_3__3204_ (
+);
+
+FILL FILL_2__4093_ (
+);
+
+FILL FILL_1__4903_ (
+);
+
+FILL FILL_3__4829_ (
+);
+
+FILL FILL_3__4409_ (
+);
+
+NAND2X1 _3973_ (
+    .A(_1044_),
+    .B(_749_),
+    .Y(_748_)
+);
+
+INVX1 _3553_ (
+    .A(\u_cpu.ABH [4]),
+    .Y(_358_)
+);
+
+DFFSR _3133_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1483_),
+    .CLK(clk_bF$buf11),
+    .Q(\u_cpu.cli )
+);
+
+FILL FILL_2__2826_ (
+);
+
+FILL FILL_2__2406_ (
+);
+
+INVX1 _4758_ (
+    .A(_1810_),
+    .Y(_1811_)
+);
+
+NOR2X1 _4338_ (
+    .A(_1325__bF$buf4),
+    .B(_1084_),
+    .Y(_1083_)
+);
+
+FILL FILL_1__3295_ (
+);
+
+FILL FILL_3__4582_ (
+);
+
+FILL FILL_3__4162_ (
+);
+
+NAND2X1 _4091_ (
+    .A(_1327_),
+    .B(_1064_),
+    .Y(_858_)
+);
+
+FILL FILL_2__3784_ (
+);
+
+FILL FILL_2__3364_ (
+);
+
+AOI21X1 _2824_ (
+    .A(_1910_),
+    .B(_1911_),
+    .C(_2354__5_bF$buf3),
+    .Y(_1912_)
+);
+
+NAND3X1 _2404_ (
+    .A(_2354__6_bF$buf3),
+    .B(_66_),
+    .C(_69_),
+    .Y(_70_)
+);
+
+FILL FILL_4__4651_ (
+);
+
+FILL FILL_4__4231_ (
+);
+
+FILL FILL_0__4971_ (
+);
+
+FILL FILL_2__4569_ (
+);
+
+FILL FILL_0__4551_ (
+);
+
+FILL FILL_0__4131_ (
+);
+
+FILL FILL_2__4149_ (
+);
+
+NOR2X1 _3609_ (
+    .A(_421_),
+    .B(_414_),
+    .Y(_413_)
+);
+
+FILL FILL_1__2986_ (
+);
+
+FILL FILL_1__2566_ (
+);
+
+FILL FILL_3__3853_ (
+);
+
+FILL FILL_3__3433_ (
+);
+
+FILL FILL_3__3013_ (
+);
+
+FILL FILL_1__4712_ (
+);
+
+FILL FILL_3__4638_ (
+);
+
+FILL FILL_3__4218_ (
+);
+
+NAND2X1 _3782_ (
+    .A(_1036_),
+    .B(_1104_),
+    .Y(_581_)
+);
+
+AOI21X1 _3362_ (
+    .A(_375_),
+    .B(_374_),
+    .C(_199_),
+    .Y(_198_)
+);
+
+FILL FILL_2__2635_ (
+);
+
+FILL FILL_4__3922_ (
+);
+
+FILL FILL_4__3502_ (
+);
+
+DFFPOSX1 _4987_ (
+    .D(_2354_[12]),
+    .CLK(clk_bF$buf6),
+    .Q(_Addr_Bus[12])
+);
+
+AOI21X1 _4567_ (
+    .A(_1300_),
+    .B(\u_cpu.AN ),
+    .C(_1296_),
+    .Y(_1295_)
+);
+
+NOR2X1 _4147_ (
+    .A(_1325__bF$buf4),
+    .B(_914_),
+    .Y(_913_)
+);
+
+FILL FILL_0__3822_ (
+);
+
+FILL FILL_0__3402_ (
+);
+
+FILL FILL_3__4391_ (
+);
+
+FILL FILL_4__4707_ (
+);
+
+FILL FILL_3__2704_ (
+);
+
+FILL FILL_0__4607_ (
+);
+
+FILL FILL_2__3593_ (
+);
+
+FILL FILL_2__3173_ (
+);
+
+FILL FILL_3__3909_ (
+);
+
+AOI21X1 _2633_ (
+    .A(_2100_),
+    .B(_2099_),
+    .C(_1920__bF$buf3),
+    .Y(_2101_)
+);
+
+FILL FILL_4__4460_ (
+);
+
+FILL FILL_4__4040_ (
+);
+
+FILL FILL_2__4798_ (
+);
+
+FILL FILL_0__4780_ (
+);
+
+FILL FILL_0__4360_ (
+);
+
+FILL FILL_2__4378_ (
+);
+
+OAI21X1 _3838_ (
+    .A(_1328__bF$buf0),
+    .B(_1084_),
+    .C(_632_),
+    .Y(_631_)
+);
+
+AOI21X1 _3418_ (
+    .A(\u_cpu.ADD [3]),
+    .B(_908_),
+    .C(_247_),
+    .Y(_246_)
+);
+
+FILL FILL_1__2795_ (
+);
+
+FILL FILL_1__2375_ (
+);
+
+FILL FILL272550x21750 (
+);
+
+FILL FILL_3__3662_ (
+);
+
+FILL FILL_3__3242_ (
+);
+
+FILL FILL_1__4941_ (
+);
+
+FILL FILL_1__4521_ (
+);
+
+FILL FILL_1__4101_ (
+);
+
+FILL FILL_3__4867_ (
+);
+
+FILL FILL_3__4447_ (
+);
+
+FILL FILL_3__4027_ (
+);
+
+NAND2X1 _3591_ (
+    .A(RDY_bF$buf0),
+    .B(_451_),
+    .Y(_395_)
+);
+
+OAI21X1 _3171_ (
+    .A(_1196__bF$buf1),
+    .B(_76_),
+    .C(_79_),
+    .Y(_1358_)
+);
+
+FILL FILL_2__2444_ (
+);
+
+FILL FILL_4__3731_ (
+);
+
+FILL FILL_4__3311_ (
+);
+
+NAND2X1 _4796_ (
+    .A(\u_cpu.ADD [1]),
+    .B(_1681__bF$buf1),
+    .Y(_1847_)
+);
+
+NOR2X1 _4376_ (
+    .A(_1118_),
+    .B(_1120_),
+    .Y(_1117_)
+);
+
+FILL FILL_2__3649_ (
+);
+
+FILL FILL_0__3631_ (
+);
+
+FILL FILL_2__3229_ (
+);
+
+FILL FILL_0__3211_ (
+);
+
+FILL FILL_4__4936_ (
+);
+
+FILL FILL_4__4516_ (
+);
+
+FILL FILL_0__4836_ (
+);
+
+FILL FILL_3__2933_ (
+);
+
+FILL FILL_3__2513_ (
+);
+
+FILL FILL_0__4416_ (
+);
+
+FILL FILL_3__3718_ (
+);
+
+DFFPOSX1 _2862_ (
+    .D(_2346_[4]),
+    .CLK(clk_bF$buf6),
+    .Q(DO_woz[4])
+);
+
+NAND3X1 _2442_ (
+    .A(_29_),
+    .B(_32_),
+    .C(_30_),
+    .Y(_33_)
+);
+
+FILL FILL_2__4187_ (
+);
+
+AOI22X1 _3647_ (
+    .A(_1196__bF$buf3),
+    .B(_451_),
+    .C(_765_),
+    .D(_1129__bF$buf1),
+    .Y(_450_)
+);
+
+INVX1 _3227_ (
+    .A(_282_),
+    .Y(_114_)
+);
+
+FILL FILL_0__2902_ (
+);
+
+FILL FILL_3__3891_ (
+);
+
+FILL FILL_3__3471_ (
+);
+
+FILL FILL_1__3389_ (
+);
+
+FILL FILL_1__4750_ (
+);
+
+FILL FILL_1__4330_ (
+);
+
+FILL FILL_3__4676_ (
+);
+
+FILL FILL_3__4256_ (
+);
+
+FILL FILL_2__2673_ (
+);
+
+FILL FILL_4__2599_ (
+);
+
+FILL FILL_4__3960_ (
+);
+
+FILL FILL_4__3540_ (
+);
+
+FILL FILL_0__2499_ (
+);
+
+NAND2X1 _4185_ (
+    .A(\u_cpu.AXYS[0] [3]),
+    .B(_977_),
+    .Y(_942_)
+);
+
+FILL FILL_2__3878_ (
+);
+
+FILL FILL_0__3860_ (
+);
+
+FILL FILL_2__3458_ (
+);
+
+FILL FILL_0__3440_ (
+);
+
+FILL FILL_0__3020_ (
+);
+
+INVX1 _2918_ (
+    .A(\u_pia_dsp.state [2]),
+    .Y(_1548_)
+);
+
+FILL FILL_4__4745_ (
+);
+
+FILL FILL_4__4325_ (
+);
+
+FILL FILL_0__4645_ (
+);
+
+FILL FILL_3__2742_ (
+);
+
+FILL FILL_0__4225_ (
+);
+
+FILL FILL_1__3601_ (
+);
+
+FILL FILL_3__3947_ (
+);
+
+FILL FILL_3__3527_ (
+);
+
+AOI21X1 _2671_ (
+    .A(_1929_),
+    .B(_1665_),
+    .C(_2354__5_bF$buf3),
+    .Y(_2063_)
+);
+
+FILL FILL_1__4806_ (
+);
+
+FILL FILL_4__2811_ (
+);
+
+AOI22X1 _3876_ (
+    .A(_667_),
+    .B(_1344_),
+    .C(_828_),
+    .D(\u_cpu.shift ),
+    .Y(_666_)
+);
+
+OAI21X1 _3456_ (
+    .A(_1150_),
+    .B(_278_),
+    .C(_276_),
+    .Y(\u_cpu.BI [4])
+);
+
+DFFSR _3036_ (
+    .R(_1417__bF$buf0),
+    .S(vdd),
+    .D(_1460_),
+    .CLK(clk_bF$buf10),
+    .Q(\u_cpu.ABH [7])
+);
+
+FILL FILL_0__2711_ (
+);
+
+FILL FILL_2__2729_ (
+);
+
+FILL FILL_3__3280_ (
+);
+
+FILL FILL_1__3198_ (
+);
+
+FILL FILL_0__3916_ (
+);
+
+FILL FILL_3__4485_ (
+);
+
+FILL FILL_3__4065_ (
+);
+
+FILL FILL_2__2482_ (
+);
+
+FILL FILL_2__3687_ (
+);
+
+FILL FILL_2__3267_ (
+);
+
+AOI21X1 _2727_ (
+    .A(_2007_),
+    .B(_2001_),
+    .C(_1634__bF$buf2),
+    .Y(_2008_)
+);
+
+FILL FILL_4__4974_ (
+);
+
+FILL FILL_4__4554_ (
+);
+
+FILL FILL_4__4134_ (
+);
+
+FILL FILL_3__2971_ (
+);
+
+FILL FILL_3__2551_ (
+);
+
+FILL FILL_0__4454_ (
+);
+
+FILL FILL_0__4034_ (
+);
+
+FILL FILL_1__2889_ (
+);
+
+FILL FILL_1__2469_ (
+);
+
+FILL FILL_1__3830_ (
+);
+
+FILL FILL_1__3410_ (
+);
+
+FILL FILL_3__3756_ (
+);
+
+FILL FILL_3__3336_ (
+);
+
+OAI21X1 _2480_ (
+    .A(_2345_),
+    .B(_2343_),
+    .C(_1920__bF$buf2),
+    .Y(_2347_)
+);
+
+FILL FILL272850x64950 (
+);
+
+FILL FILL_1__4615_ (
+);
+
+FILL FILL_4__2620_ (
+);
+
+NAND2X1 _3685_ (
+    .A(_489_),
+    .B(_518_),
+    .Y(_488_)
+);
+
+OAI21X1 _3265_ (
+    .A(_1267_),
+    .B(_800__bF$buf1),
+    .C(_139_),
+    .Y(_1389_)
+);
+
+FILL FILL_0__2940_ (
+);
+
+FILL FILL_2__2538_ (
+);
+
+FILL FILL_0__2520_ (
+);
+
+FILL FILL_4__3825_ (
+);
+
+FILL FILL_4__3405_ (
+);
+
+FILL FILL_0__3725_ (
+);
+
+FILL FILL_0__3305_ (
+);
+
+FILL FILL_3__4294_ (
+);
+
+FILL FILL_3__2607_ (
+);
+
+FILL FILL_2__3496_ (
+);
+
+DFFSR _2956_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1494_),
+    .CLK(clk_bF$buf12),
+    .Q(DO_kbd[4])
+);
+
+NOR2X1 _2536_ (
+    .A(_1916_),
+    .B(_2254_),
+    .Y(_2291_)
+);
+
+FILL FILL_4__4783_ (
+);
+
+FILL FILL_4__4363_ (
+);
+
+FILL FILL_0__4683_ (
+);
+
+FILL FILL_3__2780_ (
+);
+
+FILL FILL_3__2360_ (
+);
+
+FILL FILL_0__4263_ (
+);
+
+FILL FILL_1__2698_ (
+);
+
+FILL FILL_3__3985_ (
+);
+
+FILL FILL_3__3565_ (
+);
+
+FILL FILL_1__4844_ (
+);
+
+FILL FILL_1__4424_ (
+);
+
+FILL FILL_1__4004_ (
+);
+
+OAI21X1 _3494_ (
+    .A(_318_),
+    .B(_308_),
+    .C(RDY_bF$buf5),
+    .Y(_307_)
+);
+
+DFFSR _3074_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1468_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[0] [4])
+);
+
+FILL FILL_2__2767_ (
+);
+
+FILL FILL_4__3634_ (
+);
+
+FILL FILL_4__3214_ (
+);
+
+OAI21X1 _4699_ (
+    .A(\u_cpu.alu_op [3]),
+    .B(_1699_),
+    .C(_1747_),
+    .Y(_1752_)
+);
+
+INVX2 _4279_ (
+    .A(_1126_),
+    .Y(_1027_)
+);
+
+FILL FILL_0__3954_ (
+);
+
+FILL FILL_0__3534_ (
+);
+
+FILL FILL_2__4913_ (
+);
+
+FILL FILL_4__4839_ (
+);
+
+FILL FILL_4__4419_ (
+);
+
+FILL FILL_1__2910_ (
+);
+
+FILL FILL_0__4739_ (
+);
+
+FILL FILL_3__2836_ (
+);
+
+FILL FILL_3__2416_ (
+);
+
+FILL FILL_0__4319_ (
+);
+
+AOI22X1 _2765_ (
+    .A(_1955_),
+    .B(_1970_),
+    .C(_1966_),
+    .D(_1920__bF$buf3),
+    .Y(_1971_)
+);
+
+FILL FILL_4__4592_ (
+);
+
+FILL FILL_4__4172_ (
+);
+
+FILL FILL_0__4492_ (
+);
+
+FILL FILL_0__4072_ (
+);
+
+FILL FILL_4__2905_ (
+);
+
+FILL FILL_0__2805_ (
+);
+
+NAND2X1 _4911_ (
+    .A(_2183_),
+    .B(_2186_),
+    .Y(_2187_)
+);
+
+FILL FILL_3__3794_ (
+);
+
+FILL FILL_3__3374_ (
+);
+
+FILL FILL_1__4653_ (
+);
+
+FILL FILL_1__4233_ (
+);
+
+FILL FILL_3__4579_ (
+);
+
+FILL FILL_3__4159_ (
+);
+
+FILL FILL_2__2996_ (
+);
+
+FILL FILL_2__2576_ (
+);
+
+FILL FILL_4__3863_ (
+);
+
+FILL FILL_4__3443_ (
+);
+
+FILL FILL_4__3023_ (
+);
+
+OAI21X1 _4088_ (
+    .A(\u_cpu.state [5]),
+    .B(_1239_),
+    .C(_856_),
+    .Y(_855_)
+);
+
+FILL FILL_0__3763_ (
+);
+
+FILL FILL_0__3343_ (
+);
+
+FILL FILL_2__4722_ (
+);
+
+FILL FILL_2__4302_ (
+);
+
+FILL FILL_4__4648_ (
+);
+
+FILL FILL_4__4228_ (
+);
+
+FILL FILL_0__4968_ (
+);
+
+FILL FILL_3__2645_ (
+);
+
+FILL FILL_0__4548_ (
+);
+
+FILL FILL_0__4128_ (
+);
+
+FILL FILL_1__3924_ (
+);
+
+FILL FILL_1__3504_ (
+);
+
+NOR2X1 _2994_ (
+    .A(_Addr_Bus[6]),
+    .B(_Addr_Bus[5]),
+    .Y(_1607_)
+);
+
+OAI21X1 _2574_ (
+    .A(_2354__1_bF$buf4),
+    .B(_1638__bF$buf3),
+    .C(_1634__bF$buf4),
+    .Y(_2254_)
+);
+
+FILL FILL_1__4709_ (
+);
+
+FILL FILL_4__2714_ (
+);
+
+AOI22X1 _3779_ (
+    .A(_1196__bF$buf3),
+    .B(_585_),
+    .C(_579_),
+    .D(_1129__bF$buf2),
+    .Y(_578_)
+);
+
+NOR2X1 _3359_ (
+    .A(_196_),
+    .B(_197_),
+    .Y(_195_)
+);
+
+FILL FILL_0__2614_ (
+);
+
+INVX1 _4720_ (
+    .A(\u_cpu.BI [3]),
+    .Y(_1773_)
+);
+
+NOR2X1 _4300_ (
+    .A(_1046_),
+    .B(_1047_),
+    .Y(_1045_)
+);
+
+FILL FILL_3__3183_ (
+);
+
+FILL FILL_4__3919_ (
+);
+
+FILL FILL_0__3819_ (
+);
+
+FILL FILL_1__4462_ (
+);
+
+FILL FILL_1__4042_ (
+);
+
+FILL FILL_3__4388_ (
+);
+
+FILL FILL_2__2385_ (
+);
+
+FILL FILL_4__3672_ (
+);
+
+FILL FILL_4__3252_ (
+);
+
+FILL FILL_0__3992_ (
+);
+
+FILL FILL_0__3572_ (
+);
+
+FILL FILL_2__4951_ (
+);
+
+FILL FILL_2__4531_ (
+);
+
+FILL FILL_2__4111_ (
+);
+
+FILL FILL_4__4457_ (
+);
+
+FILL FILL_4__4037_ (
+);
+
+FILL FILL_0__4777_ (
+);
+
+FILL FILL_0__4357_ (
+);
+
+FILL FILL_3__2454_ (
+);
+
+FILL FILL_1__3733_ (
+);
+
+FILL FILL_1__3313_ (
+);
+
+FILL FILL_3__3659_ (
+);
+
+FILL FILL_3__3239_ (
+);
+
+BUFX2 _2383_ (
+    .A(DO_dsp[6]),
+    .Y(dsp_data[6])
+);
+
+FILL FILL_3__4600_ (
+);
+
+FILL FILL_1__4938_ (
+);
+
+FILL FILL_1__4518_ (
+);
+
+FILL FILL_4__2943_ (
+);
+
+FILL FILL_4__2523_ (
+);
+
+AOI21X1 _3588_ (
+    .A(_429_),
+    .B(_393_),
+    .C(_394_),
+    .Y(_392_)
+);
+
+OAI22X1 _3168_ (
+    .A(RDY_bF$buf1),
+    .B(_615_),
+    .C(_75_),
+    .D(_74_),
+    .Y(_1357_)
+);
+
+FILL FILL_0__2843_ (
+);
+
+FILL FILL_0__2423_ (
+);
+
+FILL FILL_2__3802_ (
+);
+
+FILL FILL_4__3728_ (
+);
+
+FILL FILL_4__3308_ (
+);
+
+FILL FILL_0__3628_ (
+);
+
+FILL FILL_0__3208_ (
+);
+
+FILL FILL_1__4691_ (
+);
+
+FILL FILL_1__4271_ (
+);
+
+FILL FILL_3__4197_ (
+);
+
+FILL FILL_4__3481_ (
+);
+
+FILL FILL_0__3381_ (
+);
+
+FILL FILL_2__3399_ (
+);
+
+FILL FILL_2__4760_ (
+);
+
+FILL FILL_2__4340_ (
+);
+
+INVX8 _2859_ (
+    .A(_2354__2_bF$buf5),
+    .Y(_1636_)
+);
+
+NOR2X1 _2439_ (
+    .A(_1649_),
+    .B(_1651_),
+    .Y(_36_)
+);
+
+FILL FILL_4__4686_ (
+);
+
+FILL FILL_4__4266_ (
+);
+
+OR2X2 _3800_ (
+    .A(_598_),
+    .B(_601_),
+    .Y(_597_)
+);
+
+FILL FILL_3__2683_ (
+);
+
+FILL FILL_0__4586_ (
+);
+
+FILL FILL_0__4166_ (
+);
+
+FILL FILL_1__3962_ (
+);
+
+FILL FILL_1__3542_ (
+);
+
+FILL FILL_3__3888_ (
+);
+
+FILL FILL_3__3468_ (
+);
+
+FILL FILL_1__4747_ (
+);
+
+FILL FILL_1__4327_ (
+);
+
+FILL FILL_4__2752_ (
+);
+
+OAI21X1 _3397_ (
+    .A(_1154_),
+    .B(_864_),
+    .C(_230_),
+    .Y(_229_)
+);
+
+FILL FILL_0__2652_ (
+);
+
+FILL FILL_2__3611_ (
+);
+
+FILL FILL_4__3957_ (
+);
+
+FILL FILL_4__3537_ (
+);
+
+FILL FILL_0__3857_ (
+);
+
+FILL FILL_0__3437_ (
+);
+
+FILL FILL_0__3017_ (
+);
+
+FILL FILL_1__4080_ (
+);
+
+FILL FILL_2__4816_ (
+);
+
+FILL FILL_1__2813_ (
+);
+
+FILL FILL_3__2739_ (
+);
+
+FILL FILL_4__3290_ (
+);
+
+FILL FILL_0__3190_ (
+);
+
+INVX1 _2668_ (
+    .A(_2065_),
+    .Y(_2066_)
+);
+
+FILL FILL_4__4495_ (
+);
+
+FILL FILL_4__4075_ (
+);
+
+FILL FILL_3__2492_ (
+);
+
+FILL FILL_0__4395_ (
+);
+
+FILL FILL_4__2808_ (
+);
+
+FILL FILL_0__2708_ (
+);
+
+NAND3X1 _4814_ (
+    .A(_1857_),
+    .B(_1858_),
+    .C(_1859_),
+    .Y(_1860_)
+);
+
+FILL FILL_1__3771_ (
+);
+
+FILL FILL_1__3351_ (
+);
+
+FILL FILL_3__3697_ (
+);
+
+FILL FILL_3__3277_ (
+);
+
+FILL FILL_1__4976_ (
+);
+
+FILL FILL_1__4556_ (
+);
+
+FILL FILL_1__4136_ (
+);
+
+FILL FILL_4__2981_ (
+);
+
+FILL FILL_4__2561_ (
+);
+
+FILL FILL_2__2899_ (
+);
+
+FILL FILL_0__2881_ (
+);
+
+FILL FILL_2__2479_ (
+);
+
+FILL FILL_0__2461_ (
+);
+
+FILL FILL_2__3840_ (
+);
+
+FILL FILL_2__3420_ (
+);
+
+FILL FILL_2__3000_ (
+);
+
+FILL FILL_4__3766_ (
+);
+
+FILL FILL_0__3666_ (
+);
+
+FILL FILL_0__3246_ (
+);
+
+FILL FILL_2__4625_ (
+);
+
+FILL FILL_2__4205_ (
+);
+
+FILL FILL_1__2622_ (
+);
+
+FILL FILL_3__2968_ (
+);
+
+FILL FILL_3__2548_ (
+);
+
+FILL FILL_1__3827_ (
+);
+
+FILL FILL_1__3407_ (
+);
+
+OAI21X1 _2897_ (
+    .A(\u_pia_dsp.state [2]),
+    .B(\u_pia_dsp.state [3]),
+    .C(_1514_),
+    .Y(_1564_)
+);
+
+AOI21X1 _2477_ (
+    .A(_2349_),
+    .B(_1911_),
+    .C(_1920__bF$buf0),
+    .Y(_2355_)
+);
+
+FILL FILL_4__2617_ (
+);
+
+FILL FILL273450x90150 (
+);
+
+FILL FILL_0__2937_ (
+);
+
+FILL FILL_0__2517_ (
+);
+
+INVX1 _4623_ (
+    .A(_1352_),
+    .Y(_1351_)
+);
+
+OAI21X1 _4203_ (
+    .A(_1037__bF$buf0),
+    .B(_960_),
+    .C(_959_),
+    .Y(_1471_)
+);
+
+FILL FILL_1__3580_ (
+);
+
+FILL FILL_1__4785_ (
+);
+
+FILL FILL_1__4365_ (
+);
+
+FILL FILL_4__2790_ (
+);
+
+FILL FILL_4__2370_ (
+);
+
+FILL FILL_0__2690_ (
+);
+
+FILL FILL_4__3995_ (
+);
+
+FILL FILL_4__3575_ (
+);
+
+FILL FILL_0__3895_ (
+);
+
+FILL FILL_0__3475_ (
+);
+
+FILL FILL_2__4854_ (
+);
+
+FILL FILL_2__4434_ (
+);
+
+FILL FILL_2__4014_ (
+);
+
+FILL FILL_1__2851_ (
+);
+
+FILL FILL_1__2431_ (
+);
+
+FILL FILL_3__2777_ (
+);
+
+FILL FILL_3__2357_ (
+);
+
+FILL FILL_1__3636_ (
+);
+
+FILL FILL_1__3216_ (
+);
+
+FILL FILL_3__4923_ (
+);
+
+FILL FILL_3__4503_ (
+);
+
+FILL FILL_3_BUFX2_insert40 (
+);
+
+FILL FILL_3_BUFX2_insert41 (
+);
+
+FILL FILL_3_BUFX2_insert42 (
+);
+
+FILL FILL_3_BUFX2_insert43 (
+);
+
+FILL FILL_2__2920_ (
+);
+
+FILL FILL_2__2500_ (
+);
+
+FILL FILL_3_BUFX2_insert44 (
+);
+
+FILL FILL_3_BUFX2_insert45 (
+);
+
+FILL FILL_3_BUFX2_insert46 (
+);
+
+FILL FILL_3_BUFX2_insert47 (
+);
+
+FILL FILL_4__2846_ (
+);
+
+FILL FILL_3_BUFX2_insert48 (
+);
+
+FILL FILL_3_BUFX2_insert49 (
+);
+
+FILL FILL_4__2426_ (
+);
+
+FILL FILL_0__2746_ (
+);
+
+NAND3X1 _4852_ (
+    .A(_1826_),
+    .B(_1891_),
+    .C(_1829_),
+    .Y(_1894_)
+);
+
+INVX1 _4432_ (
+    .A(\u_cpu.DIHOLD [3]),
+    .Y(_1167_)
+);
+
+INVX4 _4012_ (
+    .A(_864_),
+    .Y(_782_)
+);
+
+FILL FILL_2__3705_ (
+);
+
+FILL FILL_1__4594_ (
+);
+
+FILL FILL_1__4174_ (
+);
+
+FILL FILL_1__2907_ (
+);
+
+FILL FILL_4__3384_ (
+);
+
+FILL FILL_4_BUFX2_insert110 (
+);
+
+FILL FILL_4_BUFX2_insert111 (
+);
+
+FILL FILL_4_BUFX2_insert112 (
+);
+
+FILL FILL_4_BUFX2_insert113 (
+);
+
+FILL FILL_4_BUFX2_insert114 (
+);
+
+FILL FILL_4_BUFX2_insert115 (
+);
+
+FILL FILL_4_BUFX2_insert116 (
+);
+
+FILL FILL_4_BUFX2_insert117 (
+);
+
+FILL FILL_4_BUFX2_insert118 (
+);
+
+FILL FILL_4_BUFX2_insert119 (
+);
+
+FILL FILL_0__3284_ (
+);
+
+FILL FILL_2__4663_ (
+);
+
+FILL FILL_2__4243_ (
+);
+
+FILL FILL_4__4589_ (
+);
+
+FILL FILL_4__4169_ (
+);
+
+OAI21X1 _3703_ (
+    .A(\u_cpu.state [5]),
+    .B(_1239_),
+    .C(_876_),
+    .Y(_503_)
+);
+
+FILL FILL_1__2660_ (
+);
+
+FILL FILL_3__2586_ (
+);
+
+FILL FILL_0__4489_ (
+);
+
+FILL FILL_0__4069_ (
+);
+
+INVX1 _4908_ (
+    .A(_2171_),
+    .Y(_2184_)
+);
+
+FILL FILL_1__3865_ (
+);
+
+FILL FILL_1__3445_ (
+);
+
+FILL FILL_1__3025_ (
+);
+
+FILL FILL_3_BUFX2_insert130 (
+);
+
+FILL FILL_3_BUFX2_insert131 (
+);
+
+FILL FILL_3_BUFX2_insert132 (
+);
+
+FILL FILL_3_BUFX2_insert133 (
+);
+
+FILL FILL_3_BUFX2_insert134 (
+);
+
+FILL FILL_3__4732_ (
+);
+
+FILL FILL_3_BUFX2_insert135 (
+);
+
+FILL FILL_3__4312_ (
+);
+
+FILL FILL_3_BUFX2_insert136 (
+);
+
+FILL FILL_3_BUFX2_insert137 (
+);
+
+FILL FILL_3_BUFX2_insert138 (
+);
+
+FILL FILL_3_BUFX2_insert139 (
+);
+
+FILL FILL_4__2655_ (
+);
+
+FILL FILL_0__2975_ (
+);
+
+FILL FILL_0__2555_ (
+);
+
+OAI21X1 _4661_ (
+    .A(_1696_),
+    .B(\u_cpu.alu_op [2]),
+    .C(_1713_),
+    .Y(_1714_)
+);
+
+NOR2X1 _4241_ (
+    .A(_1027_),
+    .B(_994_),
+    .Y(_993_)
+);
+
+FILL FILL_2__3934_ (
+);
+
+FILL FILL_2__3514_ (
+);
+
+FILL FILL_4__4801_ (
+);
+
+FILL FILL_2__4719_ (
+);
+
+FILL FILL_0__4701_ (
+);
+
+FILL FILL_1__2716_ (
+);
+
+FILL FILL_2__4892_ (
+);
+
+FILL FILL_2__4472_ (
+);
+
+FILL FILL_2__4052_ (
+);
+
+FILL FILL_4__4398_ (
+);
+
+OAI21X1 _3932_ (
+    .A(_760_),
+    .B(_713_),
+    .C(_712_),
+    .Y(_1449_)
+);
+
+AOI21X1 _3512_ (
+    .A(_359_),
+    .B(\u_cpu.ADD [1]),
+    .C(_324_),
+    .Y(_323_)
+);
+
+FILL FILL_3__2395_ (
+);
+
+FILL FILL_0__4298_ (
+);
+
+OAI21X1 _4717_ (
+    .A(_1696_),
+    .B(\u_cpu.alu_op [2]),
+    .C(_1725_),
+    .Y(_1770_)
+);
+
+FILL FILL_1__3674_ (
+);
+
+FILL FILL_1__3254_ (
+);
+
+FILL FILL_3__4961_ (
+);
+
+FILL FILL_3__4541_ (
+);
+
+FILL FILL_3__4121_ (
+);
+
+FILL FILL_1__4459_ (
+);
+
+FILL FILL_1__4039_ (
+);
+
+FILL FILL_4__2884_ (
+);
+
+FILL FILL_4__2464_ (
+);
+
+FILL FILL_0__2784_ (
+);
+
+FILL FILL_0__2364_ (
+);
+
+NOR2X1 _4890_ (
+    .A(_Addr_Bus[9]),
+    .B(_Addr_Bus[8]),
+    .Y(_2166_)
+);
+
+OAI21X1 _4470_ (
+    .A(_1293_),
+    .B(_1224_),
+    .C(_1201_),
+    .Y(_1200_)
+);
+
+OAI21X1 _4050_ (
+    .A(_1331_),
+    .B(_1325__bF$buf1),
+    .C(_1239_),
+    .Y(_817_)
+);
+
+FILL FILL_2__3743_ (
+);
+
+FILL FILL_2__3323_ (
+);
+
+FILL FILL_4__3669_ (
+);
+
+FILL FILL_4__3249_ (
+);
+
+FILL FILL_4__4610_ (
+);
+
+FILL FILL_0__3989_ (
+);
+
+FILL FILL_0__3569_ (
+);
+
+FILL FILL_4_BUFX2_insert90 (
+);
+
+FILL FILL_4_BUFX2_insert92 (
+);
+
+FILL FILL_4_BUFX2_insert93 (
+);
+
+FILL FILL_0__4930_ (
+);
+
+FILL FILL_4_BUFX2_insert94 (
+);
+
+FILL FILL_2__4948_ (
+);
+
+FILL FILL_2__4528_ (
+);
+
+FILL FILL_4_BUFX2_insert95 (
+);
+
+FILL FILL_0__4510_ (
+);
+
+FILL FILL_4_BUFX2_insert96 (
+);
+
+FILL FILL_2__4108_ (
+);
+
+FILL FILL_4_BUFX2_insert97 (
+);
+
+FILL FILL_4_BUFX2_insert98 (
+);
+
+FILL FILL_4_BUFX2_insert99 (
+);
+
+FILL FILL_1__2945_ (
+);
+
+FILL FILL_1__2525_ (
+);
+
+FILL FILL273750x10950 (
+);
+
+FILL FILL_3__3812_ (
+);
+
+FILL FILL_2__4281_ (
+);
+
+NOR2X1 _3741_ (
+    .A(_1325__bF$buf0),
+    .B(_911_),
+    .Y(_540_)
+);
+
+OAI21X1 _3321_ (
+    .A(_172_),
+    .B(_729_),
+    .C(_1129__bF$buf5),
+    .Y(_171_)
+);
+
+NAND3X1 _4946_ (
+    .A(_2216_),
+    .B(_2218_),
+    .C(_2182_),
+    .Y(_2219_)
+);
+
+AOI22X1 _4526_ (
+    .A(_1274_),
+    .B(_1255_),
+    .C(\u_cpu.ABL [1]),
+    .D(_1298_),
+    .Y(_1254_)
+);
+
+NOR2X1 _4106_ (
+    .A(_873_),
+    .B(_1073_),
+    .Y(_872_)
+);
+
+FILL FILL_1__3483_ (
+);
+
+FILL FILL_3__4770_ (
+);
+
+FILL FILL_3__4350_ (
+);
+
+FILL FILL_1__4688_ (
+);
+
+FILL FILL_1__4268_ (
+);
+
+FILL FILL_4__2693_ (
+);
+
+FILL FILL_0__2593_ (
+);
+
+FILL FILL_2__3972_ (
+);
+
+FILL FILL_2__3552_ (
+);
+
+FILL FILL_4__3898_ (
+);
+
+FILL FILL_4__3478_ (
+);
+
+FILL FILL_0__3798_ (
+);
+
+FILL FILL_0__3378_ (
+);
+
+FILL FILL_2__4757_ (
+);
+
+FILL FILL_2__4337_ (
+);
+
+FILL FILL_1__2754_ (
+);
+
+FILL FILL_3__3621_ (
+);
+
+FILL FILL_3__3201_ (
+);
+
+FILL FILL_1__3959_ (
+);
+
+FILL FILL_1__3539_ (
+);
+
+FILL FILL_2__4090_ (
+);
+
+FILL FILL_1__4900_ (
+);
+
+FILL FILL_3__4826_ (
+);
+
+FILL FILL_3__4406_ (
+);
+
+INVX1 _3970_ (
+    .A(_746_),
+    .Y(_745_)
+);
+
+OAI22X1 _3550_ (
+    .A(_358_),
+    .B(_1333_),
+    .C(_1150_),
+    .D(_356_),
+    .Y(_355_)
+);
+
+DFFSR _3130_ (
+    .R(vdd),
+    .S(_1417__bF$buf4),
+    .D(_1401_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.res )
+);
+
+FILL FILL_2__2823_ (
+);
+
+FILL FILL_2__2403_ (
+);
+
+FILL FILL_4__2749_ (
+);
+
+FILL FILL_0__2649_ (
+);
+
+INVX1 _4755_ (
+    .A(_1713_),
+    .Y(_1808_)
+);
+
+INVX1 _4335_ (
+    .A(_1081_),
+    .Y(_1080_)
+);
+
+FILL FILL_1__3292_ (
+);
+
+FILL FILL_2__3608_ (
+);
+
+FILL FILL_1__4497_ (
+);
+
+FILL FILL_1__4077_ (
+);
+
+FILL FILL_2__3781_ (
+);
+
+FILL FILL_2__3361_ (
+);
+
+FILL FILL_4__3287_ (
+);
+
+NOR2X1 _2821_ (
+    .A(_2354__3_bF$buf6),
+    .B(_2354__0_bF$buf3),
+    .Y(_1915_)
+);
+
+AOI21X1 _2401_ (
+    .A(_1644_),
+    .B(_2281_),
+    .C(_2354__5_bF$buf3),
+    .Y(_1420_)
+);
+
+FILL FILL_0__3187_ (
+);
+
+FILL FILL_2__4566_ (
+);
+
+FILL FILL_2__4146_ (
+);
+
+INVX1 _3606_ (
+    .A(\u_cpu.cond_code [0]),
+    .Y(_410_)
+);
+
+FILL FILL_1__2983_ (
+);
+
+FILL FILL_1__2563_ (
+);
+
+FILL FILL_3__2489_ (
+);
+
+FILL FILL_3__3850_ (
+);
+
+FILL FILL_3__3430_ (
+);
+
+FILL FILL_3__3010_ (
+);
+
+FILL FILL_1__3768_ (
+);
+
+FILL FILL_1__3348_ (
+);
+
+FILL FILL_3__4635_ (
+);
+
+FILL FILL_3__4215_ (
+);
+
+FILL FILL_2__2632_ (
+);
+
+FILL FILL_4__2978_ (
+);
+
+FILL FILL_4__2558_ (
+);
+
+FILL FILL_0__2878_ (
+);
+
+FILL FILL_0__2458_ (
+);
+
+INVX1 _4984_ (
+    .A(_2252_),
+    .Y(_2253_)
+);
+
+INVX1 _4564_ (
+    .A(\u_cpu.PC [6]),
+    .Y(_1292_)
+);
+
+NOR2X1 _4144_ (
+    .A(_1305__bF$buf3),
+    .B(_911_),
+    .Y(_910_)
+);
+
+FILL FILL_2__3837_ (
+);
+
+FILL FILL_2__3417_ (
+);
+
+FILL FILL_4__4704_ (
+);
+
+FILL FILL_3__2701_ (
+);
+
+FILL FILL_0__4604_ (
+);
+
+FILL FILL_1__2619_ (
+);
+
+FILL FILL_2__3590_ (
+);
+
+FILL FILL_2__3170_ (
+);
+
+FILL FILL_3__3906_ (
+);
+
+OAI21X1 _2630_ (
+    .A(_1647_),
+    .B(_2103_),
+    .C(_1634__bF$buf0),
+    .Y(_2104_)
+);
+
+FILL FILL_2__4795_ (
+);
+
+FILL FILL_2__4375_ (
+);
+
+NOR2X1 _3835_ (
+    .A(_709_),
+    .B(_843_),
+    .Y(_628_)
+);
+
+OAI21X1 _3415_ (
+    .A(_449_),
+    .B(_555_),
+    .C(\u_cpu.PC [10]),
+    .Y(_244_)
+);
+
+FILL FILL_1__2792_ (
+);
+
+FILL FILL_1__2372_ (
+);
+
+FILL FILL_1__3997_ (
+);
+
+FILL FILL_1__3577_ (
+);
+
+FILL FILL_3__4864_ (
+);
+
+FILL FILL_3__4444_ (
+);
+
+FILL FILL_3__4024_ (
+);
+
+FILL FILL_2__2861_ (
+);
+
+FILL FILL_2__2441_ (
+);
+
+FILL FILL_4__2787_ (
+);
+
+FILL FILL_4__2367_ (
+);
+
+FILL FILL_0__2687_ (
+);
+
+OAI21X1 _4793_ (
+    .A(_1751_),
+    .B(_1791_),
+    .C(_1792_),
+    .Y(_1845_)
+);
+
+NAND2X1 _4373_ (
+    .A(RDY_bF$buf2),
+    .B(Data_In[7]),
+    .Y(_1114_)
+);
+
+FILL FILL_2__3646_ (
+);
+
+FILL FILL_2__3226_ (
+);
+
+FILL FILL_4__4933_ (
+);
+
+FILL FILL_4__4513_ (
+);
+
+FILL FILL_0__4833_ (
+);
+
+FILL FILL_3__2930_ (
+);
+
+FILL FILL_3__2510_ (
+);
+
+FILL FILL_0__4413_ (
+);
+
+FILL FILL_1__2848_ (
+);
+
+FILL FILL_1__2428_ (
+);
+
+FILL FILL_3__3715_ (
+);
+
+FILL FILL_2__4184_ (
+);
+
+OAI21X1 _3644_ (
+    .A(_1196__bF$buf5),
+    .B(_449_),
+    .C(_448_),
+    .Y(_447_)
+);
+
+OAI21X1 _3224_ (
+    .A(_112_),
+    .B(_113_),
+    .C(_115_),
+    .Y(_1375_)
+);
+
+FILL FILL_2__2917_ (
+);
+
+NOR2X1 _4849_ (
+    .A(_1881_),
+    .B(_1890_),
+    .Y(_1891_)
+);
+
+INVX2 _4429_ (
+    .A(\u_cpu.DIMUX [3]),
+    .Y(_1165_)
+);
+
+AOI22X1 _4009_ (
+    .A(\u_cpu.DIMUX [7]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [7]),
+    .Y(_779_)
+);
+
+FILL FILL_1__3386_ (
+);
+
+FILL FILL_3__4673_ (
+);
+
+FILL FILL_3__4253_ (
+);
+
+FILL FILL_2__2670_ (
+);
+
+FILL FILL_4__2596_ (
+);
+
+FILL FILL_0__2496_ (
+);
+
+OAI21X1 _4182_ (
+    .A(_1039_),
+    .B(_977_),
+    .C(_941_),
+    .Y(_1468_)
+);
+
+FILL FILL_2__3875_ (
+);
+
+FILL FILL_2__3455_ (
+);
+
+INVX1 _2915_ (
+    .A(dsp_ack),
+    .Y(_1550_)
+);
+
+FILL FILL_4__4742_ (
+);
+
+FILL FILL_4__4322_ (
+);
+
+FILL FILL_0__4642_ (
+);
+
+FILL FILL_0__4222_ (
+);
+
+FILL FILL_1__2657_ (
+);
+
+FILL FILL_3__3944_ (
+);
+
+FILL FILL_3__3524_ (
+);
+
+FILL FILL_1__4803_ (
+);
+
+FILL FILL_3__4729_ (
+);
+
+FILL FILL_3__4309_ (
+);
+
+NAND2X1 _3873_ (
+    .A(\u_cpu.CO ),
+    .B(_670_),
+    .Y(_663_)
+);
+
+NAND2X1 _3453_ (
+    .A(\u_cpu.PC [1]),
+    .B(_826_),
+    .Y(_274_)
+);
+
+DFFPOSX1 _3033_ (
+    .D(_2346_[5]),
+    .CLK(clk_bF$buf3),
+    .Q(DO_woz[5])
+);
+
+FILL FILL_2__2726_ (
+);
+
+OAI21X1 _4658_ (
+    .A(_1684_),
+    .B(_1690_),
+    .C(_1710_),
+    .Y(_1711_)
+);
+
+NAND2X1 _4238_ (
+    .A(_991_),
+    .B(_1013_),
+    .Y(_990_)
+);
+
+FILL FILL_1__3195_ (
+);
+
+FILL FILL_0__3913_ (
+);
+
+FILL FILL_3__4482_ (
+);
+
+FILL FILL_3__4062_ (
+);
+
+FILL FILL_2__3684_ (
+);
+
+FILL FILL_2__3264_ (
+);
+
+NAND3X1 _2724_ (
+    .A(_1634__bF$buf3),
+    .B(_2007_),
+    .C(_2010_),
+    .Y(_2011_)
+);
+
+FILL FILL_4__4551_ (
+);
+
+FILL FILL_4__4131_ (
+);
+
+FILL FILL_2__4889_ (
+);
+
+FILL FILL_2__4469_ (
+);
+
+FILL FILL_0__4451_ (
+);
+
+FILL FILL_0__4031_ (
+);
+
+FILL FILL_2__4049_ (
+);
+
+NAND2X1 _3929_ (
+    .A(\u_cpu.AXYS[2] [2]),
+    .B(_760_),
+    .Y(_710_)
+);
+
+NAND2X1 _3509_ (
+    .A(\u_cpu.ADD [0]),
+    .B(_359_),
+    .Y(_321_)
+);
+
+FILL FILL_1__2886_ (
+);
+
+FILL FILL_1__2466_ (
+);
+
+FILL FILL_3__3753_ (
+);
+
+FILL FILL_3__3333_ (
+);
+
+FILL FILL_1__4612_ (
+);
+
+FILL FILL_3__4958_ (
+);
+
+FILL FILL_3__4538_ (
+);
+
+FILL FILL_3__4118_ (
+);
+
+AND2X2 _3682_ (
+    .A(_757_),
+    .B(_1025_),
+    .Y(_485_)
+);
+
+OAI21X1 _3262_ (
+    .A(_138_),
+    .B(_800__bF$buf2),
+    .C(_137_),
+    .Y(_1388_)
+);
+
+FILL FILL_2__2535_ (
+);
+
+FILL FILL_4__3822_ (
+);
+
+FILL FILL_4__3402_ (
+);
+
+NAND3X1 _4887_ (
+    .A(_Addr_Bus[12]),
+    .B(_2161_),
+    .C(_2162_),
+    .Y(_2163_)
+);
+
+NAND3X1 _4467_ (
+    .A(RDY_bF$buf4),
+    .B(_1200_),
+    .C(_1198_),
+    .Y(_1197_)
+);
+
+OAI21X1 _4047_ (
+    .A(_822_),
+    .B(_819_),
+    .C(_815_),
+    .Y(_814_)
+);
+
+FILL FILL_0__3722_ (
+);
+
+FILL FILL_0__3302_ (
+);
+
+FILL FILL_3__4291_ (
+);
+
+FILL FILL_4__4607_ (
+);
+
+FILL FILL_0__4927_ (
+);
+
+FILL FILL_3__2604_ (
+);
+
+FILL FILL_0__4507_ (
+);
+
+FILL FILL_2__3493_ (
+);
+
+FILL FILL_3__3809_ (
+);
+
+DFFSR _2953_ (
+    .R(_1491_),
+    .S(vdd),
+    .D(_1631_),
+    .CLK(clk_bF$buf12),
+    .Q(\u_pia_kbd.state [2])
+);
+
+OAI21X1 _2533_ (
+    .A(_1649_),
+    .B(_1651_),
+    .C(_2007_),
+    .Y(_2294_)
+);
+
+FILL FILL_4__4780_ (
+);
+
+FILL FILL_4__4360_ (
+);
+
+FILL FILL_2__4698_ (
+);
+
+FILL FILL_0__4680_ (
+);
+
+FILL FILL_2__4278_ (
+);
+
+FILL FILL_0__4260_ (
+);
+
+AOI22X1 _3738_ (
+    .A(_1196__bF$buf2),
+    .B(_913_),
+    .C(_540_),
+    .D(_538_),
+    .Y(_537_)
+);
+
+NOR2X1 _3318_ (
+    .A(_907_),
+    .B(_1183_),
+    .Y(_169_)
+);
+
+FILL FILL_1__2695_ (
+);
+
+FILL FILL_3__3982_ (
+);
+
+FILL FILL_3__3562_ (
+);
+
+FILL FILL272550x7350 (
+);
+
+FILL FILL_1__4841_ (
+);
+
+FILL FILL_1__4421_ (
+);
+
+FILL FILL_1__4001_ (
+);
+
+FILL FILL_3__4767_ (
+);
+
+FILL FILL_3__4347_ (
+);
+
+NAND3X1 _3491_ (
+    .A(_915_),
+    .B(_847_),
+    .C(_305_),
+    .Y(_304_)
+);
+
+DFFSR _3071_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1372_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.AXYS[1] [7])
+);
+
+FILL FILL_2__2764_ (
+);
+
+FILL FILL_4__3631_ (
+);
+
+FILL FILL_4__3211_ (
+);
+
+OAI21X1 _4696_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1747_),
+    .C(_1748_),
+    .Y(_1749_)
+);
+
+INVX1 _4276_ (
+    .A(_1100_),
+    .Y(_1025_)
+);
+
+FILL FILL_0__3951_ (
+);
+
+FILL FILL_2__3969_ (
+);
+
+FILL FILL_0__3531_ (
+);
+
+FILL FILL_2__3549_ (
+);
+
+FILL FILL_2__4910_ (
+);
+
+FILL FILL_4__4836_ (
+);
+
+FILL FILL_4__4416_ (
+);
+
+FILL FILL_0__4736_ (
+);
+
+FILL FILL_3__2833_ (
+);
+
+FILL FILL_3__2413_ (
+);
+
+FILL FILL_0__4316_ (
+);
+
+FILL FILL_3__3618_ (
+);
+
+INVX2 _2762_ (
+    .A(_2354__7_bF$buf1),
+    .Y(_1973_)
+);
+
+FILL FILL_2__4087_ (
+);
+
+FILL FILL_4__2902_ (
+);
+
+OAI21X1 _3967_ (
+    .A(_747_),
+    .B(_745_),
+    .C(_743_),
+    .Y(_742_)
+);
+
+INVX1 _3547_ (
+    .A(_597_),
+    .Y(_353_)
+);
+
+DFFSR _3127_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [1]),
+    .CLK(clk_bF$buf3),
+    .Q(\u_cpu.DIHOLD [1])
+);
+
+FILL FILL_0__2802_ (
+);
+
+FILL FILL_3__3791_ (
+);
+
+FILL FILL_3__3371_ (
+);
+
+FILL FILL_1__3289_ (
+);
+
+FILL FILL_1__4650_ (
+);
+
+FILL FILL_1__4230_ (
+);
+
+FILL FILL_3__4576_ (
+);
+
+FILL FILL_3__4156_ (
+);
+
+FILL FILL272550x97350 (
+);
+
+FILL FILL_2__2993_ (
+);
+
+FILL FILL_2__2573_ (
+);
+
+FILL FILL_4__2499_ (
+);
+
+FILL FILL_4__3860_ (
+);
+
+FILL FILL_4__3440_ (
+);
+
+FILL FILL_4__3020_ (
+);
+
+FILL FILL_0__2399_ (
+);
+
+NOR2X1 _4085_ (
+    .A(_1083_),
+    .B(_853_),
+    .Y(_852_)
+);
+
+FILL FILL_0__3760_ (
+);
+
+FILL FILL_2__3778_ (
+);
+
+FILL FILL_0__3340_ (
+);
+
+FILL FILL_2__3358_ (
+);
+
+NOR2X1 _2818_ (
+    .A(_1916_),
+    .B(_1917_),
+    .Y(_1918_)
+);
+
+FILL FILL_4__4645_ (
+);
+
+FILL FILL_4__4225_ (
+);
+
+FILL FILL_0__4965_ (
+);
+
+FILL FILL_3__2642_ (
+);
+
+FILL FILL_0__4545_ (
+);
+
+FILL FILL_0__4125_ (
+);
+
+FILL FILL_1__3921_ (
+);
+
+FILL FILL_1__3501_ (
+);
+
+FILL FILL_3__3847_ (
+);
+
+FILL FILL_3__3427_ (
+);
+
+FILL FILL_3__3007_ (
+);
+
+NOR2X1 _2991_ (
+    .A(_1609_),
+    .B(_1598_),
+    .Y(_1610_)
+);
+
+OAI21X1 _2571_ (
+    .A(_2157_),
+    .B(_2158_),
+    .C(_2256_),
+    .Y(_2257_)
+);
+
+FILL FILL_1__4706_ (
+);
+
+FILL FILL_4__2711_ (
+);
+
+OAI21X1 _3776_ (
+    .A(_1325__bF$buf0),
+    .B(_888_),
+    .C(_576_),
+    .Y(_575_)
+);
+
+NAND2X1 _3356_ (
+    .A(_193_),
+    .B(_200_),
+    .Y(_192_)
+);
+
+FILL FILL_0__2611_ (
+);
+
+FILL FILL_2__2629_ (
+);
+
+FILL FILL_3__3180_ (
+);
+
+FILL FILL_4__3916_ (
+);
+
+FILL FILL_0__3816_ (
+);
+
+FILL FILL_3__4385_ (
+);
+
+CLKBUF1 CLKBUF1_insert30 (
+    .A(clk),
+    .Y(clk_bF$buf8)
+);
+
+CLKBUF1 CLKBUF1_insert31 (
+    .A(clk),
+    .Y(clk_bF$buf7)
+);
+
+CLKBUF1 CLKBUF1_insert32 (
+    .A(clk),
+    .Y(clk_bF$buf6)
+);
+
+CLKBUF1 CLKBUF1_insert33 (
+    .A(clk),
+    .Y(clk_bF$buf5)
+);
+
+CLKBUF1 CLKBUF1_insert34 (
+    .A(clk),
+    .Y(clk_bF$buf4)
+);
+
+CLKBUF1 CLKBUF1_insert35 (
+    .A(clk),
+    .Y(clk_bF$buf3)
+);
+
+CLKBUF1 CLKBUF1_insert36 (
+    .A(clk),
+    .Y(clk_bF$buf2)
+);
+
+CLKBUF1 CLKBUF1_insert37 (
+    .A(clk),
+    .Y(clk_bF$buf1)
+);
+
+CLKBUF1 CLKBUF1_insert38 (
+    .A(clk),
+    .Y(clk_bF$buf0)
+);
+
+FILL FILL_2__2382_ (
+);
+
+FILL FILL_2__3587_ (
+);
+
+FILL FILL_2__3167_ (
+);
+
+NAND3X1 _2627_ (
+    .A(_1923__bF$buf2),
+    .B(_2106_),
+    .C(_2102_),
+    .Y(_2107_)
+);
+
+FILL FILL_4__4454_ (
+);
+
+FILL FILL_4__4034_ (
+);
+
+FILL FILL_0__4774_ (
+);
+
+FILL FILL_0__4354_ (
+);
+
+FILL FILL_3__2451_ (
+);
+
+FILL FILL_1__2789_ (
+);
+
+FILL FILL_1__2369_ (
+);
+
+FILL FILL_1__3730_ (
+);
+
+FILL FILL_1__3310_ (
+);
+
+FILL FILL_3__3656_ (
+);
+
+FILL FILL_3__3236_ (
+);
+
+BUFX2 _2380_ (
+    .A(_2352_),
+    .Y(WE)
+);
+
+FILL FILL_1__4935_ (
+);
+
+FILL FILL_1__4515_ (
+);
+
+FILL FILL_4__2940_ (
+);
+
+FILL FILL_4__2520_ (
+);
+
+NOR2X1 _3585_ (
+    .A(_430_),
+    .B(_390_),
+    .Y(_389_)
+);
+
+OAI22X1 _3165_ (
+    .A(RDY_bF$buf7),
+    .B(_1292_),
+    .C(_73_),
+    .D(_72_),
+    .Y(_1356_)
+);
+
+FILL FILL_2__2858_ (
+);
+
+FILL FILL_0__2840_ (
+);
+
+FILL FILL_0__2420_ (
+);
+
+FILL FILL_2__2438_ (
+);
+
+FILL FILL_4__3725_ (
+);
+
+FILL FILL_4__3305_ (
+);
+
+FILL FILL_0__3625_ (
+);
+
+FILL FILL_0__3205_ (
+);
+
+FILL FILL_3__4194_ (
+);
+
+FILL FILL_3__2927_ (
+);
+
+FILL FILL_3__2507_ (
+);
+
+FILL FILL_2__3396_ (
+);
+
+OAI21X1 _2856_ (
+    .A(_2354__1_bF$buf5),
+    .B(_1638__bF$buf2),
+    .C(_2354__3_bF$buf5),
+    .Y(_1639_)
+);
+
+OAI21X1 _2436_ (
+    .A(_2354__4_bF$buf0),
+    .B(_35_),
+    .C(_38_),
+    .Y(_39_)
+);
+
+FILL FILL_4__4683_ (
+);
+
+FILL FILL_4__4263_ (
+);
+
+FILL FILL_3__2680_ (
+);
+
+FILL FILL_0__4583_ (
+);
+
+FILL FILL_0__4163_ (
+);
+
+FILL FILL_1__2598_ (
+);
+
+FILL FILL_3__3885_ (
+);
+
+FILL FILL_3__3465_ (
+);
+
+FILL FILL_1__4744_ (
+);
+
+FILL FILL_1__4324_ (
+);
+
+OAI21X1 _3394_ (
+    .A(_1073_),
+    .B(_873_),
+    .C(_607_),
+    .Y(_227_)
+);
+
+FILL FILL_2__2667_ (
+);
+
+FILL FILL_4__3954_ (
+);
+
+FILL FILL_4__3534_ (
+);
+
+INVX2 _4599_ (
+    .A(\u_cpu.state [4]),
+    .Y(_1327_)
+);
+
+INVX1 _4179_ (
+    .A(_939_),
+    .Y(_938_)
+);
+
+FILL FILL_0__3854_ (
+);
+
+FILL FILL_0__3434_ (
+);
+
+FILL FILL_0__3014_ (
+);
+
+FILL FILL_2__4813_ (
+);
+
+FILL FILL_4__4739_ (
+);
+
+FILL FILL_4__4319_ (
+);
+
+FILL FILL_1__2810_ (
+);
+
+FILL FILL_3__2736_ (
+);
+
+FILL FILL_0__4639_ (
+);
+
+FILL FILL_0__4219_ (
+);
+
+FILL FILL272850x50550 (
+);
+
+OAI21X1 _2665_ (
+    .A(_1935_),
+    .B(_1936_),
+    .C(_1634__bF$buf2),
+    .Y(_2069_)
+);
+
+FILL FILL_4__4492_ (
+);
+
+FILL FILL_4__4072_ (
+);
+
+FILL FILL_0__4392_ (
+);
+
+FILL FILL_0__2705_ (
+);
+
+NOR2X1 _4811_ (
+    .A(\u_cpu.ADD [3]),
+    .B(\u_cpu.ADD [4]),
+    .Y(_1857_)
+);
+
+FILL FILL_3__3694_ (
+);
+
+FILL FILL_3__3274_ (
+);
+
+FILL FILL_1__4973_ (
+);
+
+FILL FILL_1__4553_ (
+);
+
+FILL FILL_1__4133_ (
+);
+
+FILL FILL_3__4899_ (
+);
+
+FILL FILL_3__4479_ (
+);
+
+FILL FILL_3__4059_ (
+);
+
+FILL FILL_2__2896_ (
+);
+
+FILL FILL_2__2476_ (
+);
+
+FILL FILL_4__3763_ (
+);
+
+FILL FILL_4__3343_ (
+);
+
+FILL FILL_0__3663_ (
+);
+
+FILL FILL_0__3243_ (
+);
+
+FILL FILL_2__4622_ (
+);
+
+FILL FILL_2__4202_ (
+);
+
+FILL FILL_4__4968_ (
+);
+
+FILL FILL_4__4548_ (
+);
+
+FILL FILL_4__4128_ (
+);
+
+FILL FILL_0__4868_ (
+);
+
+FILL FILL_3__2965_ (
+);
+
+FILL FILL_3__2545_ (
+);
+
+FILL FILL_0__4448_ (
+);
+
+FILL FILL_0__4028_ (
+);
+
+FILL FILL_1__3824_ (
+);
+
+FILL FILL_1__3404_ (
+);
+
+INVX1 _2894_ (
+    .A(DO_dsp[7]),
+    .Y(_1566_)
+);
+
+AOI22X1 _2474_ (
+    .A(_1_),
+    .B(_2340_),
+    .C(_2317_),
+    .D(_2329_),
+    .Y(_2346_[1])
+);
+
+FILL FILL_1__4609_ (
+);
+
+FILL FILL_4__2614_ (
+);
+
+AOI21X1 _3679_ (
+    .A(_491_),
+    .B(RDY_bF$buf5),
+    .C(_483_),
+    .Y(_482_)
+);
+
+NAND2X1 _3259_ (
+    .A(_800__bF$buf3),
+    .B(_2354__6_bF$buf4),
+    .Y(_135_)
+);
+
+FILL FILL_0__2934_ (
+);
+
+FILL FILL_0__2514_ (
+);
+
+NAND2X1 _4620_ (
+    .A(\u_cpu.state [2]),
+    .B(\u_cpu.state [3]),
+    .Y(_1348_)
+);
+
+NAND2X1 _4200_ (
+    .A(_957_),
+    .B(_958_),
+    .Y(_956_)
+);
+
+FILL FILL_4__3819_ (
+);
+
+FILL FILL_0__3719_ (
+);
+
+FILL FILL_1__4782_ (
+);
+
+FILL FILL_1__4362_ (
+);
+
+FILL FILL_3__4288_ (
+);
+
+FILL FILL_4__3992_ (
+);
+
+FILL FILL_4__3572_ (
+);
+
+FILL FILL_0__3892_ (
+);
+
+FILL FILL_0__3472_ (
+);
+
+FILL FILL_2__4851_ (
+);
+
+FILL FILL_2__4431_ (
+);
+
+FILL FILL_2__4011_ (
+);
+
+FILL FILL_4__4777_ (
+);
+
+FILL FILL_4__4357_ (
+);
+
+FILL FILL_0__4677_ (
+);
+
+FILL FILL_3__2774_ (
+);
+
+FILL FILL_0__4257_ (
+);
+
+FILL FILL_1__3633_ (
+);
+
+FILL FILL_1__3213_ (
+);
+
+FILL FILL_3__3979_ (
+);
+
+FILL FILL_3__3559_ (
+);
+
+FILL FILL_3__4920_ (
+);
+
+FILL FILL_3__4500_ (
+);
+
+FILL FILL_3_BUFX2_insert10 (
+);
+
+FILL FILL_3_BUFX2_insert11 (
+);
+
+FILL FILL_3_BUFX2_insert12 (
+);
+
+FILL FILL_1__4838_ (
+);
+
+FILL FILL_3_BUFX2_insert13 (
+);
+
+FILL FILL_3_BUFX2_insert14 (
+);
+
+FILL FILL_1__4418_ (
+);
+
+FILL FILL_3_BUFX2_insert15 (
+);
+
+FILL FILL_3_BUFX2_insert16 (
+);
+
+FILL FILL_3_BUFX2_insert17 (
+);
+
+FILL FILL_4__2843_ (
+);
+
+FILL FILL_3_BUFX2_insert18 (
+);
+
+FILL FILL_4__2423_ (
+);
+
+FILL FILL_3_BUFX2_insert19 (
+);
+
+AOI21X1 _3488_ (
+    .A(_403_),
+    .B(_402_),
+    .C(_1250_),
+    .Y(_301_)
+);
+
+DFFSR _3068_ (
+    .R(_1417__bF$buf7),
+    .S(vdd),
+    .D(_1467_),
+    .CLK(clk_bF$buf1),
+    .Q(\u_cpu.AXYS[0] [5])
+);
+
+FILL FILL_0__2743_ (
+);
+
+FILL FILL_2__3702_ (
+);
+
+FILL FILL_4__3628_ (
+);
+
+FILL FILL_4__3208_ (
+);
+
+FILL FILL_0__3948_ (
+);
+
+FILL FILL_0__3528_ (
+);
+
+FILL FILL_1__4591_ (
+);
+
+FILL FILL_1__4171_ (
+);
+
+FILL FILL_3__4097_ (
+);
+
+FILL FILL_2__4907_ (
+);
+
+FILL FILL_1__2904_ (
+);
+
+FILL FILL_4__3381_ (
+);
+
+FILL FILL_0__3281_ (
+);
+
+FILL FILL_2__3299_ (
+);
+
+FILL FILL_2__4660_ (
+);
+
+FILL FILL_2__4240_ (
+);
+
+OAI21X1 _2759_ (
+    .A(_2354__1_bF$buf5),
+    .B(_1638__bF$buf2),
+    .C(_1636__bF$buf3),
+    .Y(_1976_)
+);
+
+FILL FILL_4__4586_ (
+);
+
+FILL FILL_4__4166_ (
+);
+
+NOR2X1 _3700_ (
+    .A(_501_),
+    .B(_634_),
+    .Y(_500_)
+);
+
+FILL FILL_3__2583_ (
+);
+
+FILL FILL_0__4486_ (
+);
+
+FILL FILL_0__4066_ (
+);
+
+NOR2X1 _4905_ (
+    .A(_2180_),
+    .B(_2178_),
+    .Y(_2181_)
+);
+
+FILL FILL_1__3862_ (
+);
+
+FILL FILL_1__3442_ (
+);
+
+FILL FILL_1__3022_ (
+);
+
+FILL FILL_3__3788_ (
+);
+
+FILL FILL_3__3368_ (
+);
+
+FILL FILL_3_BUFX2_insert100 (
+);
+
+FILL FILL_3_BUFX2_insert101 (
+);
+
+FILL FILL_3_BUFX2_insert102 (
+);
+
+FILL FILL_3_BUFX2_insert103 (
+);
+
+FILL FILL_3_BUFX2_insert104 (
+);
+
+FILL FILL_3_BUFX2_insert105 (
+);
+
+FILL FILL_3_BUFX2_insert106 (
+);
+
+FILL FILL_3_BUFX2_insert107 (
+);
+
+FILL FILL_3_BUFX2_insert108 (
+);
+
+FILL FILL_3_BUFX2_insert109 (
+);
+
+FILL FILL_1__4647_ (
+);
+
+FILL FILL_1__4227_ (
+);
+
+FILL FILL_4__2652_ (
+);
+
+OAI21X1 _3297_ (
+    .A(_1196__bF$buf0),
+    .B(_1345__bF$buf2),
+    .C(\u_cpu.clv ),
+    .Y(_155_)
+);
+
+FILL FILL_0__2972_ (
+);
+
+FILL FILL_0__2552_ (
+);
+
+FILL FILL_2__3931_ (
+);
+
+FILL FILL_2__3511_ (
+);
+
+FILL FILL_4__3857_ (
+);
+
+FILL FILL_4__3437_ (
+);
+
+FILL FILL_4__3017_ (
+);
+
+FILL FILL_0__3757_ (
+);
+
+FILL FILL_0__3337_ (
+);
+
+FILL FILL_2__4716_ (
+);
+
+FILL FILL_1__2713_ (
+);
+
+FILL FILL_3__2639_ (
+);
+
+FILL FILL_4__3190_ (
+);
+
+FILL FILL_1__3918_ (
+);
+
+OAI21X1 _2988_ (
+    .A(_1498_),
+    .B(_1499_),
+    .C(_1612_),
+    .Y(_1631_)
+);
+
+AOI21X1 _2568_ (
+    .A(_1954_),
+    .B(_2259_),
+    .C(_1973_),
+    .Y(_2260_)
+);
+
+FILL FILL_4__4395_ (
+);
+
+FILL FILL_0__4295_ (
+);
+
+FILL FILL_4__2708_ (
+);
+
+FILL FILL_0__2608_ (
+);
+
+NAND3X1 _4714_ (
+    .A(_1765_),
+    .B(_1738_),
+    .C(_1766_),
+    .Y(_1767_)
+);
+
+FILL FILL_1__3671_ (
+);
+
+FILL FILL_1__3251_ (
+);
+
+FILL FILL_3__3597_ (
+);
+
+FILL FILL_3__3177_ (
+);
+
+FILL FILL_1__4456_ (
+);
+
+FILL FILL_1__4036_ (
+);
+
+FILL FILL_4__2881_ (
+);
+
+FILL FILL_4__2461_ (
+);
+
+FILL FILL_2__2799_ (
+);
+
+FILL FILL_0__2781_ (
+);
+
+FILL FILL_0__2361_ (
+);
+
+FILL FILL_2__2379_ (
+);
+
+FILL FILL_2__3740_ (
+);
+
+FILL FILL_2__3320_ (
+);
+
+FILL FILL_4__3666_ (
+);
+
+FILL FILL_4__3246_ (
+);
+
+FILL FILL_0__3986_ (
+);
+
+FILL FILL_0__3566_ (
+);
+
+FILL FILL_4_BUFX2_insert60 (
+);
+
+FILL FILL_4_BUFX2_insert61 (
+);
+
+FILL FILL_4_BUFX2_insert62 (
+);
+
+FILL FILL_4_BUFX2_insert63 (
+);
+
+FILL FILL_4_BUFX2_insert64 (
+);
+
+FILL FILL_2__4945_ (
+);
+
+FILL FILL_4_BUFX2_insert65 (
+);
+
+FILL FILL_2__4525_ (
+);
+
+FILL FILL_4_BUFX2_insert66 (
+);
+
+FILL FILL_2__4105_ (
+);
+
+FILL FILL_4_BUFX2_insert67 (
+);
+
+FILL FILL_4_BUFX2_insert68 (
+);
+
+FILL FILL_4_BUFX2_insert69 (
+);
+
+FILL FILL_1__2942_ (
+);
+
+FILL FILL_1__2522_ (
+);
+
+FILL FILL_3__2448_ (
+);
+
+FILL FILL_1__3727_ (
+);
+
+FILL FILL_1__3307_ (
+);
+
+NOR2X1 _2797_ (
+    .A(_2354__1_bF$buf0),
+    .B(_1641_),
+    .Y(_1939_)
+);
+
+BUFX2 _2377_ (
+    .A(_2353_[2]),
+    .Y(DO[2])
+);
+
+FILL FILL_4__2937_ (
+);
+
+FILL FILL_4__2517_ (
+);
+
+FILL FILL_0__2837_ (
+);
+
+FILL FILL_0__2417_ (
+);
+
+NAND3X1 _4943_ (
+    .A(_Addr_Bus[1]),
+    .B(_2215_),
+    .C(_2173_),
+    .Y(_2216_)
+);
+
+NOR2X1 _4523_ (
+    .A(_1337_),
+    .B(_1309_),
+    .Y(_1251_)
+);
+
+NOR2X1 _4103_ (
+    .A(_1325__bF$buf0),
+    .B(_1076_),
+    .Y(_869_)
+);
+
+FILL FILL_1__3480_ (
+);
+
+FILL FILL_1__4685_ (
+);
+
+FILL FILL_1__4265_ (
+);
+
+FILL FILL_4__2690_ (
+);
+
+FILL FILL_0__2590_ (
+);
+
+FILL FILL_4__3895_ (
+);
+
+FILL FILL_4__3475_ (
+);
+
+FILL FILL_0__3795_ (
+);
+
+FILL FILL_0__3375_ (
+);
+
+FILL FILL_2__4754_ (
+);
+
+FILL FILL_2__4334_ (
+);
+
+FILL FILL_1__2751_ (
+);
+
+FILL FILL_3__2677_ (
+);
+
+FILL FILL_1__3956_ (
+);
+
+FILL FILL_1__3536_ (
+);
+
+FILL FILL_3__4823_ (
+);
+
+FILL FILL_3__4403_ (
+);
+
+FILL FILL_2__2820_ (
+);
+
+FILL FILL_2__2400_ (
+);
+
+FILL FILL_4__2746_ (
+);
+
+FILL FILL_0__2646_ (
+);
+
+NAND3X1 _4752_ (
+    .A(_1727_),
+    .B(_1804_),
+    .C(_1788_),
+    .Y(_1805_)
+);
+
+NOR2X1 _4332_ (
+    .A(_1083_),
+    .B(_1078_),
+    .Y(_1077_)
+);
+
+FILL FILL_2__3605_ (
+);
+
+FILL FILL_1__4494_ (
+);
+
+FILL FILL_1__4074_ (
+);
+
+FILL FILL_2_BUFX2_insert140 (
+);
+
+FILL FILL_2_BUFX2_insert141 (
+);
+
+FILL FILL_2_BUFX2_insert142 (
+);
+
+FILL FILL_2_BUFX2_insert143 (
+);
+
+FILL FILL_2_BUFX2_insert144 (
+);
+
+FILL FILL_2_BUFX2_insert145 (
+);
+
+FILL FILL_2_BUFX2_insert146 (
+);
+
+FILL FILL_2_BUFX2_insert147 (
+);
+
+FILL FILL_2_BUFX2_insert148 (
+);
+
+FILL FILL_2_BUFX2_insert149 (
+);
+
+FILL FILL_1__2807_ (
+);
+
+FILL FILL_4__3284_ (
+);
+
+FILL FILL_0__3184_ (
+);
+
+FILL FILL_2__4983_ (
+);
+
+FILL FILL_2__4563_ (
+);
+
+FILL FILL_2__4143_ (
+);
+
+FILL FILL_4__4489_ (
+);
+
+FILL FILL_4__4069_ (
+);
+
+NAND2X1 _3603_ (
+    .A(\u_cpu.V ),
+    .B(\u_cpu.cond_code [1]),
+    .Y(_407_)
+);
+
+FILL FILL_1__2980_ (
+);
+
+FILL FILL_1__2560_ (
+);
+
+FILL FILL_0__4389_ (
+);
+
+FILL FILL_3__2486_ (
+);
+
+FILL FILL_1_BUFX2_insert160 (
+);
+
+FILL FILL_1_BUFX2_insert161 (
+);
+
+FILL FILL_1_BUFX2_insert162 (
+);
+
+FILL FILL_1_BUFX2_insert163 (
+);
+
+FILL FILL_1_BUFX2_insert164 (
+);
+
+FILL FILL_1_BUFX2_insert165 (
+);
+
+FILL FILL_1_BUFX2_insert166 (
+);
+
+FILL FILL_1_BUFX2_insert167 (
+);
+
+NAND2X1 _4808_ (
+    .A(_1840_),
+    .B(_1854_),
+    .Y(_1855_)
+);
+
+FILL FILL_1__3765_ (
+);
+
+FILL FILL_1__3345_ (
+);
+
+FILL FILL_3__4632_ (
+);
+
+FILL FILL_3__4212_ (
+);
+
+FILL FILL_4__2975_ (
+);
+
+FILL FILL_4__2555_ (
+);
+
+FILL FILL_0__2875_ (
+);
+
+FILL FILL_0__2455_ (
+);
+
+NAND2X1 _4981_ (
+    .A(_2248_),
+    .B(_2249_),
+    .Y(_2250_)
+);
+
+AOI21X1 _4561_ (
+    .A(_1300_),
+    .B(\u_cpu.ADD [6]),
+    .C(_1290_),
+    .Y(_1289_)
+);
+
+INVX1 _4141_ (
+    .A(\u_cpu.PC [15]),
+    .Y(_907_)
+);
+
+FILL FILL_2__3834_ (
+);
+
+FILL FILL_2__3414_ (
+);
+
+FILL FILL_4__4701_ (
+);
+
+FILL FILL_0__4601_ (
+);
+
+FILL FILL_2__4619_ (
+);
+
+FILL FILL_1__2616_ (
+);
+
+FILL FILL_3__3903_ (
+);
+
+FILL FILL_2__4792_ (
+);
+
+FILL FILL_2__4372_ (
+);
+
+FILL FILL_4__4298_ (
+);
+
+OAI21X1 _3832_ (
+    .A(\u_cpu.php ),
+    .B(_843_),
+    .C(_827_),
+    .Y(_625_)
+);
+
+INVX1 _3412_ (
+    .A(_242_),
+    .Y(_241_)
+);
+
+FILL FILL_0__4198_ (
+);
+
+NAND3X1 _4617_ (
+    .A(_1350_),
+    .B(_1346_),
+    .C(_1347_),
+    .Y(_1345_)
+);
+
+FILL FILL_1__3994_ (
+);
+
+FILL FILL_1__3574_ (
+);
+
+FILL FILL_3__4861_ (
+);
+
+FILL FILL_3__4441_ (
+);
+
+FILL FILL_3__4021_ (
+);
+
+FILL FILL_1__4779_ (
+);
+
+FILL FILL_1__4359_ (
+);
+
+FILL FILL_4__2784_ (
+);
+
+FILL FILL_4__2364_ (
+);
+
+FILL FILL_0__2684_ (
+);
+
+OAI21X1 _4790_ (
+    .A(_1681__bF$buf2),
+    .B(_1842_),
+    .C(_1682_),
+    .Y(_1666_)
+);
+
+OAI21X1 _4370_ (
+    .A(_1125_),
+    .B(\u_cpu.IRHOLD [7]),
+    .C(_1340_),
+    .Y(_1112_)
+);
+
+FILL FILL_2__3643_ (
+);
+
+FILL FILL_2__3223_ (
+);
+
+FILL FILL_4__3989_ (
+);
+
+FILL FILL_4__3569_ (
+);
+
+FILL FILL_4__4930_ (
+);
+
+FILL FILL_4__4510_ (
+);
+
+FILL FILL_0__3889_ (
+);
+
+FILL FILL_0__3469_ (
+);
+
+FILL FILL_2__4848_ (
+);
+
+FILL FILL_0__4830_ (
+);
+
+FILL FILL_2__4428_ (
+);
+
+FILL FILL_0__4410_ (
+);
+
+FILL FILL_2__4008_ (
+);
+
+FILL FILL_1__2845_ (
+);
+
+FILL FILL_1__2425_ (
+);
+
+FILL FILL_3__3712_ (
+);
+
+FILL FILL_2__4181_ (
+);
+
+FILL FILL_3__4917_ (
+);
+
+NAND2X1 _3641_ (
+    .A(_445_),
+    .B(_446_),
+    .Y(_444_)
+);
+
+NAND2X1 _3221_ (
+    .A(_2354_[14]),
+    .B(_800__bF$buf1),
+    .Y(_110_)
+);
+
+FILL FILL_2__2914_ (
+);
+
+INVX1 _4846_ (
+    .A(_1877_),
+    .Y(_1888_)
+);
+
+AOI21X1 _4426_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [3]),
+    .C(_1163_),
+    .Y(_1162_)
+);
+
+AND2X2 _4006_ (
+    .A(_783_),
+    .B(_777_),
+    .Y(_776_)
+);
+
+FILL FILL_1__3383_ (
+);
+
+FILL FILL_3__4670_ (
+);
+
+FILL FILL_3__4250_ (
+);
+
+FILL FILL_1__4588_ (
+);
+
+FILL FILL_1__4168_ (
+);
+
+FILL FILL_4__2593_ (
+);
+
+FILL FILL_0__2493_ (
+);
+
+FILL FILL_2__3872_ (
+);
+
+FILL FILL_2__3452_ (
+);
+
+FILL FILL_2__3032_ (
+);
+
+FILL FILL_4__3798_ (
+);
+
+FILL FILL_4__3378_ (
+);
+
+AND2X2 _2912_ (
+    .A(_1520_),
+    .B(_2354_[12]),
+    .Y(_1552_)
+);
+
+FILL FILL_0__3698_ (
+);
+
+FILL FILL_0__3278_ (
+);
+
+FILL FILL_2__4657_ (
+);
+
+FILL FILL_2__4237_ (
+);
+
+FILL FILL_1__2654_ (
+);
+
+FILL FILL_3__3941_ (
+);
+
+FILL FILL_3__3521_ (
+);
+
+FILL FILL_1__3859_ (
+);
+
+FILL FILL_1__3439_ (
+);
+
+FILL FILL_1__3019_ (
+);
+
+FILL FILL273750x86550 (
+);
+
+FILL FILL_1__4800_ (
+);
+
+FILL FILL_3__4726_ (
+);
+
+FILL FILL_3__4306_ (
+);
+
+OAI21X1 _3870_ (
+    .A(_898_),
+    .B(_662_),
+    .C(_661_),
+    .Y(_660_)
+);
+
+AOI22X1 _3450_ (
+    .A(\u_cpu.DIMUX [2]),
+    .B(_867_),
+    .C(_780_),
+    .D(\u_cpu.ABL [2]),
+    .Y(_273_)
+);
+
+INVX1 _3030_ (
+    .A(kbd_rdy),
+    .Y(_1499_)
+);
+
+FILL FILL_2__2723_ (
+);
+
+FILL FILL_4__2649_ (
+);
+
+FILL FILL_0__2969_ (
+);
+
+FILL FILL_0__2549_ (
+);
+
+OAI21X1 _4655_ (
+    .A(_1688_),
+    .B(_1705_),
+    .C(_1707_),
+    .Y(_1708_)
+);
+
+NOR2X1 _4235_ (
+    .A(_990_),
+    .B(_988_),
+    .Y(_987_)
+);
+
+FILL FILL_1__3192_ (
+);
+
+FILL FILL_0__3910_ (
+);
+
+FILL FILL_2__3928_ (
+);
+
+FILL FILL_2__3508_ (
+);
+
+FILL FILL_1__4397_ (
+);
+
+FILL FILL_2__3681_ (
+);
+
+FILL FILL_2__3261_ (
+);
+
+FILL FILL_4__3187_ (
+);
+
+NAND3X1 _2721_ (
+    .A(_1973_),
+    .B(_1990_),
+    .C(_2013_),
+    .Y(_2014_)
+);
+
+FILL FILL_2__4886_ (
+);
+
+FILL FILL_2__4466_ (
+);
+
+FILL FILL_2__4046_ (
+);
+
+NAND3X1 _3926_ (
+    .A(_1129__bF$buf1),
+    .B(_1105_),
+    .C(_765_),
+    .Y(_708_)
+);
+
+OAI21X1 _3506_ (
+    .A(_322_),
+    .B(_1333_),
+    .C(_319_),
+    .Y(\u_cpu.AI [0])
+);
+
+FILL FILL_1__2883_ (
+);
+
+FILL FILL_1__2463_ (
+);
+
+FILL FILL_3__2389_ (
+);
+
+FILL FILL_3__3750_ (
+);
+
+FILL FILL_3__3330_ (
+);
+
+FILL FILL_1__3668_ (
+);
+
+FILL FILL_1__3248_ (
+);
+
+FILL FILL_3__4955_ (
+);
+
+FILL FILL_3__4535_ (
+);
+
+FILL FILL_3__4115_ (
+);
+
+FILL FILL_2__2532_ (
+);
+
+FILL FILL_4__2878_ (
+);
+
+FILL FILL_4__2458_ (
+);
+
+FILL FILL_0__2778_ (
+);
+
+FILL FILL_0__2358_ (
+);
+
+INVX1 _4884_ (
+    .A(DO_dsp[6]),
+    .Y(_2160_)
+);
+
+NAND2X1 _4464_ (
+    .A(\u_cpu.PC [9]),
+    .B(_1196__bF$buf1),
+    .Y(_1195_)
+);
+
+OAI21X1 _4044_ (
+    .A(_1329_),
+    .B(_1326_),
+    .C(_1075_),
+    .Y(_811_)
+);
+
+FILL FILL_2__3737_ (
+);
+
+FILL FILL_2__3317_ (
+);
+
+FILL FILL_4__4604_ (
+);
+
+FILL FILL_0__4924_ (
+);
+
+FILL FILL_3__2601_ (
+);
+
+FILL FILL_0__4504_ (
+);
+
+FILL FILL_1__2939_ (
+);
+
+FILL FILL_1__2519_ (
+);
+
+FILL FILL_2__3490_ (
+);
+
+FILL FILL_3__3806_ (
+);
+
+NAND2X1 _2950_ (
+    .A(_2354_[12]),
+    .B(_1520_),
+    .Y(_1521_)
+);
+
+AOI22X1 _2530_ (
+    .A(_2295_),
+    .B(_2296_),
+    .C(_1997_),
+    .D(_2294_),
+    .Y(_2297_)
+);
+
+FILL FILL_2__4695_ (
+);
+
+FILL FILL_2__4275_ (
+);
+
+OAI21X1 _3735_ (
+    .A(_1196__bF$buf2),
+    .B(_869_),
+    .C(_535_),
+    .Y(_534_)
+);
+
+OAI21X1 _3315_ (
+    .A(_1318_),
+    .B(_1113_),
+    .C(_167_),
+    .Y(_166_)
+);
+
+FILL FILL_1__2692_ (
+);
+
+FILL FILL_1__3897_ (
+);
+
+FILL FILL_1__3477_ (
+);
+
+FILL FILL_3__4764_ (
+);
+
+FILL FILL_3__4344_ (
+);
+
+FILL FILL_2__2761_ (
+);
+
+FILL FILL_4__2687_ (
+);
+
+FILL FILL_0__2587_ (
+);
+
+AOI22X1 _4693_ (
+    .A(\u_cpu.BI [0]),
+    .B(_1745_),
+    .C(_1743_),
+    .D(_1744_),
+    .Y(_1746_)
+);
+
+OAI21X1 _4273_ (
+    .A(_1111_),
+    .B(_1023_),
+    .C(_1031_),
+    .Y(_1022_)
+);
+
+FILL FILL_2__3966_ (
+);
+
+FILL FILL_2__3546_ (
+);
+
+FILL FILL_4__4833_ (
+);
+
+FILL FILL_4__4413_ (
+);
+
+FILL FILL_0__4733_ (
+);
+
+FILL FILL_3__2830_ (
+);
+
+FILL FILL_3__2410_ (
+);
+
+FILL FILL_0__4313_ (
+);
+
+FILL FILL_1__2748_ (
+);
+
+FILL FILL_3__3615_ (
+);
+
+FILL FILL_2__4084_ (
+);
+
+OAI22X1 _3964_ (
+    .A(_1344_),
+    .B(\u_cpu.DIMUX [7]),
+    .C(\u_cpu.AN ),
+    .D(_740_),
+    .Y(_739_)
+);
+
+AOI21X1 _3544_ (
+    .A(_359_),
+    .B(\u_cpu.ADD [3]),
+    .C(_351_),
+    .Y(_350_)
+);
+
+DFFSR _3124_ (
+    .R(_1417__bF$buf8),
+    .S(vdd),
+    .D(\u_cpu.DIMUX [3]),
+    .CLK(clk_bF$buf3),
+    .Q(\u_cpu.DIHOLD [3])
+);
+
+FILL FILL_2__2817_ (
+);
+
+NAND3X1 _4749_ (
+    .A(_1799_),
+    .B(_1801_),
+    .C(_1797_),
+    .Y(_1802_)
+);
+
+OAI21X1 _4329_ (
+    .A(_1075_),
+    .B(_1251_),
+    .C(_1329_),
+    .Y(_1074_)
+);
+
+FILL FILL_1__3286_ (
+);
+
+FILL FILL_3__4573_ (
+);
+
+FILL FILL_3__4153_ (
+);
+
+FILL FILL_2__2990_ (
+);
+
+FILL FILL_2__2570_ (
+);
+
+FILL FILL_4__2496_ (
+);
+
+FILL FILL_0__2396_ (
+);
+
+OAI21X1 _4082_ (
+    .A(\u_cpu.state [5]),
+    .B(_911_),
+    .C(_850_),
+    .Y(_849_)
+);
+
+FILL FILL_2__3775_ (
+);
+
+FILL FILL_2__3355_ (
+);
+
+AOI21X1 _2815_ (
+    .A(_1648_),
+    .B(_1659_),
+    .C(_1920__bF$buf0),
+    .Y(_1921_)
+);
+
+FILL FILL_4__4642_ (
+);
+
+FILL FILL_4__4222_ (
+);
+
+FILL FILL_0__4962_ (
+);
+
+FILL FILL_0__4542_ (
+);
+
+FILL FILL_0__4122_ (
+);
+
+FILL FILL_1__2977_ (
+);
+
+FILL FILL_1__2557_ (
+);
+
+FILL FILL_3__3844_ (
+);
+
+FILL FILL_3__3424_ (
+);
+
+FILL FILL_3__3004_ (
+);
+
+FILL FILL_1__4703_ (
+);
+
+FILL FILL_3__4629_ (
+);
+
+FILL FILL_3__4209_ (
+);
+
+OAI21X1 _3773_ (
+    .A(_1328__bF$buf5),
+    .B(_870_),
+    .C(_573_),
+    .Y(_572_)
+);
+
+OAI21X1 _3353_ (
+    .A(_784_),
+    .B(_788_),
+    .C(_630_),
+    .Y(_190_)
+);
+
+FILL FILL_2__2626_ (
+);
+
+FILL FILL_4__3913_ (
+);
+
+NAND3X1 _4978_ (
+    .A(_2196_),
+    .B(_2244_),
+    .C(_2246_),
+    .Y(_2247_)
+);
+
+INVX4 _4558_ (
+    .A(_1333_),
+    .Y(_1286_)
+);
+
+INVX2 _4138_ (
+    .A(_1285_),
+    .Y(_904_)
+);
+
+FILL FILL_0__3813_ (
+);
+
+FILL FILL274050x36150 (
+);
+
+FILL FILL_3__4382_ (
+);
+
+FILL FILL_2__3584_ (
+);
+
+NAND3X1 _2624_ (
+    .A(_2354__3_bF$buf5),
+    .B(_2354__0_bF$buf1),
+    .C(_1944_),
+    .Y(_2109_)
+);
+
+FILL FILL_4__4451_ (
+);
+
+FILL FILL_4__4031_ (
+);
+
+FILL FILL_2__4789_ (
+);
+
+FILL FILL_0__4771_ (
+);
+
+FILL FILL_2__4369_ (
+);
+
+FILL FILL_0__4351_ (
+);
+
+INVX1 _3829_ (
+    .A(_623_),
+    .Y(_622_)
+);
+
+OAI21X1 _3409_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [1]),
+    .Y(_239_)
+);
+
+FILL FILL_1__2786_ (
+);
+
+FILL FILL_1__2366_ (
+);
+
+FILL FILL_3__3653_ (
+);
+
+FILL FILL_3__3233_ (
+);
+
+FILL FILL_1__4932_ (
+);
+
+FILL FILL_1__4512_ (
+);
+
+FILL FILL_3__4858_ (
+);
+
+FILL FILL_3__4438_ (
+);
+
+FILL FILL_3__4018_ (
+);
+
+OAI21X1 _3582_ (
+    .A(_991_),
+    .B(_1032_),
+    .C(_387_),
+    .Y(_386_)
+);
+
+DFFPOSX1 _3162_ (
+    .D(_1418_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.IRHOLD [7])
+);
+
+FILL FILL_2__2855_ (
+);
+
+FILL FILL_2__2435_ (
+);
+
+FILL FILL273750x18150 (
+);
+
+FILL FILL_4__3722_ (
+);
+
+FILL FILL_4__3302_ (
+);
+
+NAND2X1 _4787_ (
+    .A(_1839_),
+    .B(_1838_),
+    .Y(_1840_)
+);
+
+NAND2X1 _4367_ (
+    .A(RDY_bF$buf3),
+    .B(Data_In[6]),
+    .Y(_1109_)
+);
+
+FILL FILL_0__3622_ (
+);
+
+FILL FILL_0__3202_ (
+);
+
+FILL FILL_3__4191_ (
+);
+
+FILL FILL_4__4927_ (
+);
+
+FILL FILL_4__4507_ (
+);
+
+FILL FILL_0__4827_ (
+);
+
+FILL FILL_3__2924_ (
+);
+
+FILL FILL_3__2504_ (
+);
+
+FILL FILL_0__4407_ (
+);
+
+FILL FILL_2__3393_ (
+);
+
+FILL FILL_3__3709_ (
+);
+
+OAI21X1 _2853_ (
+    .A(_2354__1_bF$buf5),
+    .B(_1641_),
+    .C(_2354__3_bF$buf1),
+    .Y(_1642_)
+);
+
+AOI21X1 _2433_ (
+    .A(_41_),
+    .B(_2111_),
+    .C(_1923__bF$buf3),
+    .Y(_42_)
+);
+
+FILL FILL_4__4680_ (
+);
+
+FILL FILL_4__4260_ (
+);
+
+FILL FILL_0_BUFX2_insert0 (
+);
+
+FILL FILL_0_BUFX2_insert1 (
+);
+
+FILL FILL_0_BUFX2_insert2 (
+);
+
+FILL FILL_0_BUFX2_insert3 (
+);
+
+FILL FILL_0_BUFX2_insert4 (
+);
+
+FILL FILL_0_BUFX2_insert5 (
+);
+
+FILL FILL_0_BUFX2_insert6 (
+);
+
+FILL FILL_0_BUFX2_insert7 (
+);
+
+FILL FILL_0_BUFX2_insert8 (
+);
+
+FILL FILL_2__4598_ (
+);
+
+FILL FILL_0__4580_ (
+);
+
+FILL FILL_0_BUFX2_insert9 (
+);
+
+FILL FILL_2__4178_ (
+);
+
+FILL FILL_0__4160_ (
+);
+
+INVX1 _3638_ (
+    .A(_1232_),
+    .Y(_441_)
+);
+
+OAI21X1 _3218_ (
+    .A(_1041_),
+    .B(_713_),
+    .C(_109_),
+    .Y(_1372_)
+);
+
+FILL FILL_1__2595_ (
+);
+
+FILL FILL_3__3882_ (
+);
+
+FILL FILL_3__3462_ (
+);
+
+FILL FILL_1__4741_ (
+);
+
+FILL FILL_1__4321_ (
+);
+
+FILL FILL_3__4667_ (
+);
+
+FILL FILL_3__4247_ (
+);
+
+AOI21X1 _3391_ (
+    .A(_782_),
+    .B(\u_cpu.PC [0]),
+    .C(_225_),
+    .Y(_224_)
+);
+
+FILL FILL_2__2664_ (
+);
+
+FILL FILL_4__3951_ (
+);
+
+FILL FILL_4__3531_ (
+);
+
+AOI21X1 _4596_ (
+    .A(_1328__bF$buf3),
+    .B(_1325__bF$buf1),
+    .C(_1331_),
+    .Y(_1324_)
+);
+
+NAND3X1 _4176_ (
+    .A(_1287_),
+    .B(_939_),
+    .C(_936_),
+    .Y(_935_)
+);
+
+FILL FILL_2__3869_ (
+);
+
+FILL FILL_0__3851_ (
+);
+
+FILL FILL_0__3431_ (
+);
+
+FILL FILL_2__3449_ (
+);
+
+FILL FILL_0__3011_ (
+);
+
+FILL FILL_2__3029_ (
+);
+
+FILL FILL_2__4810_ (
+);
+
+AND2X2 _2909_ (
+    .A(_1528_),
+    .B(_2354__1_bF$buf3),
+    .Y(_1555_)
+);
+
+FILL FILL_4__4736_ (
+);
+
+FILL FILL_4__4316_ (
+);
+
+FILL FILL_3__2733_ (
+);
+
+FILL FILL_0__4636_ (
+);
+
+FILL FILL_0__4216_ (
+);
+
+FILL FILL_3__3938_ (
+);
+
+FILL FILL_3__3518_ (
+);
+
+OAI21X1 _2662_ (
+    .A(_1917_),
+    .B(_1651_),
+    .C(_1641_),
+    .Y(_2072_)
+);
+
+FILL FILL_4__2802_ (
+);
+
+AOI22X1 _3867_ (
+    .A(\u_cpu.AXYS[1] [4]),
+    .B(_1050_),
+    .C(_790_),
+    .D(\u_cpu.AXYS[2] [4]),
+    .Y(_658_)
+);
+
+OAI21X1 _3447_ (
+    .A(_872_),
+    .B(_346_),
+    .C(_271_),
+    .Y(_2354_[2])
+);
+
+OAI21X1 _3027_ (
+    .A(_1497_),
+    .B(_1500_),
+    .C(_1501_),
+    .Y(_1434_)
+);
+
+FILL FILL_0__2702_ (
+);
+
+FILL FILL_3__3691_ (
+);
+
+FILL FILL_3__3271_ (
+);
+
+FILL FILL_1__3189_ (
+);
+
+FILL FILL_0__3907_ (
+);
+
+FILL FILL_1__4970_ (
+);
+
+FILL FILL_1__4550_ (
+);
+
+FILL FILL_1__4130_ (
+);
+
+FILL FILL_3__4896_ (
+);
+
+FILL FILL_3__4476_ (
+);
+
+FILL FILL_3__4056_ (
+);
+
+FILL FILL_2__2893_ (
+);
+
+FILL FILL_2__2473_ (
+);
+
+FILL FILL_4__2399_ (
+);
+
+FILL FILL_4__3760_ (
+);
+
+FILL FILL_4__3340_ (
+);
+
+FILL FILL_0__3660_ (
+);
+
+FILL FILL_2__3678_ (
+);
+
+FILL FILL_2__3258_ (
+);
+
+FILL FILL_0__3240_ (
+);
+
+OAI21X1 _2718_ (
+    .A(_2016_),
+    .B(_2015_),
+    .C(_1634__bF$buf2),
+    .Y(_2017_)
+);
+
+FILL FILL_4__4965_ (
+);
+
+FILL FILL_4__4545_ (
+);
+
+FILL FILL_4__4125_ (
+);
+
+FILL FILL_0__4865_ (
+);
+
+FILL FILL_3__2542_ (
+);
+
+FILL FILL_0__4445_ (
+);
+
+FILL FILL_0__4025_ (
+);
+
+FILL FILL_1__3821_ (
+);
+
+FILL FILL_1__3401_ (
+);
+
+FILL FILL_3__3747_ (
+);
+
+FILL FILL_3__3327_ (
+);
+
+NOR2X1 _2891_ (
+    .A(_1567_),
+    .B(_1568_),
+    .Y(_1569_)
+);
+
+OAI21X1 _2471_ (
+    .A(_2354__3_bF$buf0),
+    .B(_1924_),
+    .C(_1634__bF$buf5),
+    .Y(_4_)
+);
+
+FILL FILL_1__4606_ (
+);
+
+FILL FILL_4__2611_ (
+);
+
+NAND3X1 _3676_ (
+    .A(_1196__bF$buf7),
+    .B(_1329_),
+    .C(_1072_),
+    .Y(_479_)
+);
+
+OAI21X1 _3256_ (
+    .A(_1116_),
+    .B(_794_),
+    .C(_134_),
+    .Y(_1385_)
+);
+
+FILL FILL_0__2931_ (
+);
+
+FILL FILL_2__2949_ (
+);
+
+FILL FILL_2__2529_ (
+);
+
+FILL FILL_0__2511_ (
+);
+
+FILL FILL_4__3816_ (
+);
+
+FILL FILL_0__3716_ (
+);
+
+FILL FILL_3__4285_ (
+);
+
+FILL FILL_0_BUFX2_insert80 (
+);
+
+FILL FILL_0_BUFX2_insert81 (
+);
+
+FILL FILL_0_BUFX2_insert82 (
+);
+
+FILL FILL_2__3487_ (
+);
+
+FILL FILL_0_BUFX2_insert83 (
+);
+
+FILL FILL_0_BUFX2_insert84 (
+);
+
+FILL FILL_0_BUFX2_insert85 (
+);
+
+FILL FILL_0_BUFX2_insert86 (
+);
+
+FILL FILL_0_BUFX2_insert87 (
+);
+
+FILL FILL_0_BUFX2_insert88 (
+);
+
+FILL FILL_0_BUFX2_insert89 (
+);
+
+NAND3X1 _2947_ (
+    .A(_2354__4_bF$buf2),
+    .B(_1522_),
+    .C(_1523_),
+    .Y(_1524_)
+);
+
+NAND2X1 _2527_ (
+    .A(_2279_),
+    .B(_2299_),
+    .Y(_2300_)
+);
+
+FILL FILL_4__4774_ (
+);
+
+FILL FILL_4__4354_ (
+);
+
+FILL FILL_0__4674_ (
+);
+
+FILL FILL_3__2771_ (
+);
+
+FILL FILL_0__4254_ (
+);
+
+FILL FILL_1__2689_ (
+);
+
+FILL FILL_1__3630_ (
+);
+
+FILL FILL_1__3210_ (
+);
+
+FILL FILL_3__3976_ (
+);
+
+FILL FILL_3__3556_ (
+);
+
+FILL FILL_1__4835_ (
+);
+
+FILL FILL_1__4415_ (
+);
+
+FILL FILL_4__2840_ (
+);
+
+FILL FILL_4__2420_ (
+);
+
+OAI21X1 _3485_ (
+    .A(RDY_bF$buf6),
+    .B(_1082_),
+    .C(_299_),
+    .Y(_298_)
+);
+
+DFFSR _3065_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1428_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.state [0])
+);
+
+FILL FILL_0__2740_ (
+);
+
+FILL FILL_2__2758_ (
+);
+
+FILL FILL_4__3625_ (
+);
+
+FILL FILL_4__3205_ (
+);
+
+FILL FILL_0__3945_ (
+);
+
+FILL FILL_0__3525_ (
+);
+
+FILL FILL_3__4094_ (
+);
+
+FILL FILL_2__4904_ (
+);
+
+FILL FILL_1__2901_ (
+);
+
+FILL FILL_3__2827_ (
+);
+
+FILL FILL_3__2407_ (
+);
+
+FILL FILL_2__3296_ (
+);
+
+AOI21X1 _2756_ (
+    .A(_1651_),
+    .B(_1643__bF$buf5),
+    .C(_1634__bF$buf2),
+    .Y(_1979_)
+);
+
+FILL FILL_4__4583_ (
+);
+
+FILL FILL_4__4163_ (
+);
+
+FILL FILL_3__2580_ (
+);
+
+FILL FILL_0__4483_ (
+);
+
+FILL FILL_0__4063_ (
+);
+
+FILL FILL_2_BUFX2_insert0 (
+);
+
+FILL FILL_1__2498_ (
+);
+
+FILL FILL_2_BUFX2_insert1 (
+);
+
+FILL FILL_2_BUFX2_insert2 (
+);
+
+FILL FILL_2_BUFX2_insert3 (
+);
+
+FILL FILL_2_BUFX2_insert4 (
+);
+
+FILL FILL_2_BUFX2_insert5 (
+);
+
+FILL FILL_2_BUFX2_insert6 (
+);
+
+FILL FILL_2_BUFX2_insert7 (
+);
+
+FILL FILL_2_BUFX2_insert8 (
+);
+
+FILL FILL_2_BUFX2_insert9 (
+);
+
+NAND3X1 _4902_ (
+    .A(_Addr_Bus[4]),
+    .B(_2177_),
+    .C(_2168_),
+    .Y(_2178_)
+);
+
+FILL FILL_3__3785_ (
+);
+
+FILL FILL_3__3365_ (
+);
+
+FILL FILL_1__4644_ (
+);
+
+FILL FILL_1__4224_ (
+);
+
+OAI21X1 _3294_ (
+    .A(_1041_),
+    .B(_932_),
+    .C(_154_),
+    .Y(_1403_)
+);
+
+FILL FILL_2__2987_ (
+);
+
+FILL FILL_2__2567_ (
+);
+
+FILL FILL_4__3854_ (
+);
+
+FILL FILL_4__3434_ (
+);
+
+FILL FILL_4__3014_ (
+);
+
+AOI22X1 _4499_ (
+    .A(_1243_),
+    .B(_1230_),
+    .C(_1229_),
+    .D(_1228_),
+    .Y(_1227_)
+);
+
+NAND3X1 _4079_ (
+    .A(_1235_),
+    .B(_881_),
+    .C(_847_),
+    .Y(_846_)
+);
+
+FILL FILL_0__3754_ (
+);
+
+FILL FILL_0__3334_ (
+);
+
+FILL FILL_2__4713_ (
+);
+
+FILL FILL_4__4639_ (
+);
+
+FILL FILL_4__4219_ (
+);
+
+FILL FILL_1__2710_ (
+);
+
+FILL FILL_0__4959_ (
+);
+
+FILL FILL_3__2636_ (
+);
+
+FILL FILL_0__4539_ (
+);
+
+FILL FILL_0__4119_ (
+);
+
+FILL FILL_1__3915_ (
+);
+
+INVX4 _2985_ (
+    .A(reset),
+    .Y(_1491_)
+);
+
+AOI22X1 _2565_ (
+    .A(_2155_),
+    .B(_2262_),
+    .C(_2127_),
+    .D(_2142_),
+    .Y(_2346_[3])
+);
+
+FILL FILL_4__4392_ (
+);
+
+FILL FILL_0__4292_ (
+);
+
+FILL FILL_4__2705_ (
+);
+
+FILL FILL_0__2605_ (
+);
+
+AOI22X1 _4711_ (
+    .A(_1751_),
+    .B(_1754_),
+    .C(_1763_),
+    .D(_1757_),
+    .Y(_1764_)
+);
+
+FILL FILL_3__3594_ (
+);
+
+FILL FILL_3__3174_ (
+);
+
+FILL FILL_1__4453_ (
+);
+
+FILL FILL_1__4033_ (
+);
+
+FILL FILL_3__4799_ (
+);
+
+FILL FILL_3__4379_ (
+);
+
+FILL FILL_2__2796_ (
+);
+
+FILL FILL_2__2376_ (
+);
+
+FILL FILL_4__3663_ (
+);
+
+FILL FILL_4__3243_ (
+);
+
+FILL FILL_0__3983_ (
+);
+
+FILL FILL_0__3563_ (
+);
+
+FILL FILL_2__4942_ (
+);
+
+FILL FILL_2__4522_ (
+);
+
+FILL FILL_2__4102_ (
+);
+
+FILL FILL_4__4868_ (
+);
+
+FILL FILL_4_BUFX2_insert39 (
+);
+
+FILL FILL_4__4448_ (
+);
+
+FILL FILL_4__4028_ (
+);
+
+FILL FILL273150x21750 (
+);
+
+FILL FILL_0__4768_ (
+);
+
+FILL FILL_3__2445_ (
+);
+
+FILL FILL_0__4348_ (
+);
+
+BUFX2 BUFX2_insert90 (
+    .A(_2354_[0]),
+    .Y(_2354__0_bF$buf1)
+);
+
+BUFX2 BUFX2_insert91 (
+    .A(_2354_[0]),
+    .Y(_2354__0_bF$buf0)
+);
+
+BUFX2 BUFX2_insert92 (
+    .A(_1417_),
+    .Y(_1417__bF$buf10)
+);
+
+BUFX2 BUFX2_insert93 (
+    .A(_1417_),
+    .Y(_1417__bF$buf9)
+);
+
+BUFX2 BUFX2_insert94 (
+    .A(_1417_),
+    .Y(_1417__bF$buf8)
+);
+
+FILL FILL_1__3724_ (
+);
+
+FILL FILL_1__3304_ (
+);
+
+BUFX2 BUFX2_insert95 (
+    .A(_1417_),
+    .Y(_1417__bF$buf7)
+);
+
+BUFX2 BUFX2_insert96 (
+    .A(_1417_),
+    .Y(_1417__bF$buf6)
+);
+
+BUFX2 BUFX2_insert97 (
+    .A(_1417_),
+    .Y(_1417__bF$buf5)
+);
+
+BUFX2 BUFX2_insert98 (
+    .A(_1417_),
+    .Y(_1417__bF$buf4)
+);
+
+BUFX2 BUFX2_insert99 (
+    .A(_1417_),
+    .Y(_1417__bF$buf3)
+);
+
+OR2X2 _2794_ (
+    .A(_1941_),
+    .B(_1937_),
+    .Y(_1942_)
+);
+
+BUFX2 _2374_ (
+    .A(_2353_[5]),
+    .Y(DO[5])
+);
+
+FILL FILL_1__4929_ (
+);
+
+FILL FILL_1__4509_ (
+);
+
+FILL FILL_4__2934_ (
+);
+
+FILL FILL_4__2514_ (
+);
+
+INVX1 _3999_ (
+    .A(_772_),
+    .Y(_771_)
+);
+
+AND2X2 _3579_ (
+    .A(_386_),
+    .B(_384_),
+    .Y(_383_)
+);
+
+DFFPOSX1 _3159_ (
+    .D(_1397_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.IRHOLD [4])
+);
+
+FILL FILL_0__2834_ (
+);
+
+FILL FILL_0__2414_ (
+);
+
+AOI22X1 _4940_ (
+    .A(_2207_),
+    .B(_2195_),
+    .C(_2212_),
+    .D(_2213_),
+    .Y(Data_In[4])
+);
+
+NAND2X1 _4520_ (
+    .A(\u_cpu.backwards ),
+    .B(\u_cpu.CO ),
+    .Y(_1248_)
+);
+
+NOR2X1 _4100_ (
+    .A(_867_),
+    .B(_871_),
+    .Y(_866_)
+);
+
+FILL FILL_4__3719_ (
+);
+
+FILL FILL_0__3619_ (
+);
+
+FILL FILL_1__4682_ (
+);
+
+FILL FILL_1__4262_ (
+);
+
+FILL FILL_3__4188_ (
+);
+
+FILL FILL_4__3892_ (
+);
+
+FILL FILL_4__3472_ (
+);
+
+FILL FILL_0__3792_ (
+);
+
+FILL FILL_0__3372_ (
+);
+
+FILL FILL_2__4751_ (
+);
+
+FILL FILL_2__4331_ (
+);
+
+FILL FILL_4__4677_ (
+);
+
+FILL FILL_4__4257_ (
+);
+
+FILL FILL_3__2674_ (
+);
+
+FILL FILL_0__4577_ (
+);
+
+FILL FILL_0__4157_ (
+);
+
+FILL FILL_1__3953_ (
+);
+
+FILL FILL_1__3533_ (
+);
+
+FILL FILL_3__3879_ (
+);
+
+FILL FILL_3__3459_ (
+);
+
+FILL FILL_3__4820_ (
+);
+
+FILL FILL_3__4400_ (
+);
+
+FILL FILL_1__4738_ (
+);
+
+FILL FILL_1__4318_ (
+);
+
+FILL FILL_4__2743_ (
+);
+
+OAI21X1 _3388_ (
+    .A(_1327_),
+    .B(_888_),
+    .C(_909_),
+    .Y(_222_)
+);
+
+FILL FILL_0__2643_ (
+);
+
+FILL FILL_2__3602_ (
+);
+
+FILL FILL_4__3948_ (
+);
+
+FILL FILL_4__3528_ (
+);
+
+FILL FILL_0__3848_ (
+);
+
+FILL FILL_0__3428_ (
+);
+
+FILL FILL_0__3008_ (
+);
+
+FILL FILL_1__4491_ (
+);
+
+FILL FILL_1__4071_ (
+);
+
+FILL FILL_2__4807_ (
+);
+
+FILL FILL_2_BUFX2_insert110 (
+);
+
+FILL FILL_2_BUFX2_insert111 (
+);
+
+FILL FILL_2_BUFX2_insert112 (
+);
+
+FILL FILL_2_BUFX2_insert113 (
+);
+
+FILL FILL_2_BUFX2_insert114 (
+);
+
+FILL FILL_2_BUFX2_insert115 (
+);
+
+FILL FILL_2_BUFX2_insert116 (
+);
+
+FILL FILL_2_BUFX2_insert117 (
+);
+
+FILL FILL_2_BUFX2_insert118 (
+);
+
+FILL FILL_2_BUFX2_insert119 (
+);
+
+FILL FILL_1__2804_ (
+);
+
+FILL FILL_4__3281_ (
+);
+
+FILL FILL_2__3199_ (
+);
+
+FILL FILL_0__3181_ (
+);
+
+FILL FILL_2__4980_ (
+);
+
+FILL FILL_2__4560_ (
+);
+
+FILL FILL_2__4140_ (
+);
+
+AOI21X1 _2659_ (
+    .A(_2074_),
+    .B(_2034_),
+    .C(_2354__4_bF$buf6),
+    .Y(_2075_)
+);
+
+FILL FILL_4__4486_ (
+);
+
+FILL FILL_4__4066_ (
+);
+
+OAI21X1 _3600_ (
+    .A(_735_),
+    .B(_408_),
+    .C(_405_),
+    .Y(_404_)
+);
+
+FILL FILL_0__4386_ (
+);
+
+FILL FILL_3__2483_ (
+);
+
+FILL FILL_1_BUFX2_insert130 (
+);
+
+FILL FILL_1_BUFX2_insert131 (
+);
+
+FILL FILL_1_BUFX2_insert132 (
+);
+
+FILL FILL_1_BUFX2_insert133 (
+);
+
+FILL FILL_1_BUFX2_insert134 (
+);
+
+FILL FILL_1_BUFX2_insert135 (
+);
+
+FILL FILL_1_BUFX2_insert136 (
+);
+
+FILL FILL_1_BUFX2_insert137 (
+);
+
+FILL FILL_1_BUFX2_insert138 (
+);
+
+FILL FILL_1_BUFX2_insert139 (
+);
+
+OAI21X1 _4805_ (
+    .A(_1852_),
+    .B(_1851_),
+    .C(_1850_),
+    .Y(_1671_)
+);
+
+FILL FILL_1__3762_ (
+);
+
+FILL FILL_1__3342_ (
+);
+
+FILL FILL_3__3688_ (
+);
+
+FILL FILL_3__3268_ (
+);
+
+FILL FILL_4_BUFX2_insert0 (
+);
+
+FILL FILL_4_BUFX2_insert1 (
+);
+
+FILL FILL_4_BUFX2_insert2 (
+);
+
+FILL FILL_4_BUFX2_insert3 (
+);
+
+FILL FILL_4_BUFX2_insert4 (
+);
+
+FILL FILL_4_BUFX2_insert5 (
+);
+
+FILL FILL_4_BUFX2_insert6 (
+);
+
+FILL FILL_4_BUFX2_insert7 (
+);
+
+FILL FILL_4_BUFX2_insert8 (
+);
+
+FILL FILL_4_BUFX2_insert9 (
+);
+
+FILL FILL_1__4967_ (
+);
+
+FILL FILL_1__4547_ (
+);
+
+FILL FILL_1__4127_ (
+);
+
+FILL FILL_4__2972_ (
+);
+
+FILL FILL_4__2552_ (
+);
+
+OAI21X1 _3197_ (
+    .A(_921_),
+    .B(_713_),
+    .C(_95_),
+    .Y(_1365_)
+);
+
+FILL FILL_0__2452_ (
+);
+
+FILL FILL_2__3831_ (
+);
+
+FILL FILL_2__3411_ (
+);
+
+FILL FILL_4__3757_ (
+);
+
+FILL FILL_4__3337_ (
+);
+
+FILL FILL_0__3657_ (
+);
+
+FILL FILL_0__3237_ (
+);
+
+FILL FILL_2__4616_ (
+);
+
+FILL FILL_1__2613_ (
+);
+
+FILL FILL_3__2539_ (
+);
+
+FILL FILL273450x64950 (
+);
+
+FILL FILL_3__3900_ (
+);
+
+FILL FILL_1__3818_ (
+);
+
+NAND3X1 _2888_ (
+    .A(_1531_),
+    .B(_1570_),
+    .C(_1571_),
+    .Y(_1572_)
+);
+
+AOI21X1 _2468_ (
+    .A(_1664_),
+    .B(_1976_),
+    .C(_2354__3_bF$buf0),
+    .Y(_7_)
+);
+
+FILL FILL_4__4295_ (
+);
+
+FILL FILL273150x150 (
+);
+
+FILL FILL_0__4195_ (
+);
+
+FILL FILL_4__2608_ (
+);
+
+FILL FILL_0__2928_ (
+);
+
+FILL FILL_0__2508_ (
+);
+
+INVX1 _4614_ (
+    .A(IRQ),
+    .Y(_1342_)
+);
+
+FILL FILL_1__3991_ (
+);
+
+FILL FILL_1__3571_ (
+);
+
+FILL FILL_3__3497_ (
+);
+
+FILL FILL_1__4776_ (
+);
+
+FILL FILL_1__4356_ (
+);
+
+FILL FILL_4__2781_ (
+);
+
+FILL FILL_4__2361_ (
+);
+
+FILL FILL_0__2681_ (
+);
+
+FILL FILL_2__2699_ (
+);
+
+FILL FILL_2__3640_ (
+);
+
+FILL FILL_2__3220_ (
+);
+
+FILL FILL_4__3986_ (
+);
+
+FILL FILL_4__3566_ (
+);
+
+FILL FILL_0__3886_ (
+);
+
+FILL FILL_0__3466_ (
+);
+
+FILL FILL_2__4845_ (
+);
+
+FILL FILL_2__4425_ (
+);
+
+FILL FILL_2__4005_ (
+);
+
+FILL FILL_1__2842_ (
+);
+
+FILL FILL_1__2422_ (
+);
+
+FILL FILL_3__2768_ (
+);
+
+FILL FILL_1__3627_ (
+);
+
+FILL FILL_1__3207_ (
+);
+
+OAI21X1 _2697_ (
+    .A(_2354__0_bF$buf2),
+    .B(_2037_),
+    .C(_1644_),
+    .Y(_2038_)
+);
+
+FILL FILL_3__4914_ (
+);
+
+FILL FILL_2__2911_ (
+);
+
+FILL FILL_4__2837_ (
+);
+
+FILL FILL_4__2417_ (
+);
+
+FILL FILL271950x61350 (
+);
+
+FILL FILL_0__2737_ (
+);
+
+OAI21X1 _4843_ (
+    .A(_1696_),
+    .B(\u_cpu.alu_op [2]),
+    .C(_1701_),
+    .Y(_1885_)
+);
+
+NAND2X1 _4423_ (
+    .A(_1160_),
+    .B(_1171_),
+    .Y(_1159_)
+);
+
+OAI21X1 _4003_ (
+    .A(_1299_),
+    .B(_800__bF$buf3),
+    .C(_775_),
+    .Y(_1457_)
+);
+
+FILL FILL_1__3380_ (
+);
+
+FILL FILL_1__4585_ (
+);
+
+FILL FILL_1__4165_ (
+);
+
+FILL FILL_4__2590_ (
+);
+
+FILL FILL_0__2490_ (
+);
+
+FILL FILL_4__3795_ (
+);
+
+FILL FILL_4__3375_ (
+);
+
+FILL FILL_0__3695_ (
+);
+
+FILL FILL_0__3275_ (
+);
+
+FILL FILL_2__4654_ (
+);
+
+FILL FILL_2__4234_ (
+);
+
+FILL FILL_1__2651_ (
+);
+
+FILL FILL_3__2997_ (
+);
+
+FILL FILL_3__2577_ (
+);
+
+FILL FILL_1__3856_ (
+);
+
+FILL FILL_1__3436_ (
+);
+
+FILL FILL_1__3016_ (
+);
+
+FILL FILL_3__4723_ (
+);
+
+FILL FILL_3__4303_ (
+);
+
+FILL FILL_2__2720_ (
+);
+
+FILL FILL_4__2646_ (
+);
+
+FILL FILL_0__2966_ (
+);
+
+FILL FILL_0__2546_ (
+);
+
+NOR2X1 _4652_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1704_),
+    .Y(_1705_)
+);
+
+NOR2X1 _4232_ (
+    .A(_1123_),
+    .B(_1117_),
+    .Y(_984_)
+);
+
+FILL FILL_2__3925_ (
+);
+
+FILL FILL_2__3505_ (
+);
+
+FILL FILL_1__4394_ (
+);
+
+FILL FILL_1__2707_ (
+);
+
+FILL FILL_4__3184_ (
+);
+
+FILL FILL_2__4883_ (
+);
+
+FILL FILL_2__4463_ (
+);
+
+FILL FILL_2__4043_ (
+);
+
+FILL FILL_4__4389_ (
+);
+
+AOI21X1 _3923_ (
+    .A(_1019_),
+    .B(_772_),
+    .C(_987_),
+    .Y(_706_)
+);
+
+NAND2X1 _3503_ (
+    .A(_387_),
+    .B(_565_),
+    .Y(_316_)
+);
+
+FILL FILL_1__2880_ (
+);
+
+FILL FILL_1__2460_ (
+);
+
+FILL FILL_0__4289_ (
+);
+
+FILL FILL_3__2386_ (
+);
+
+AOI21X1 _4708_ (
+    .A(_1744_),
+    .B(_1748_),
+    .C(\u_cpu.alu_shift_right ),
+    .Y(_1761_)
+);
+
+FILL FILL_1__3665_ (
+);
+
+FILL FILL_1__3245_ (
+);
+
+FILL FILL_3__4952_ (
+);
+
+FILL FILL_3__4532_ (
+);
+
+FILL FILL_3__4112_ (
+);
+
+FILL FILL_4__2875_ (
+);
+
+FILL FILL_4__2455_ (
+);
+
+FILL FILL_0__2775_ (
+);
+
+DFFSR _4881_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1671_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.ADD [4])
+);
+
+OAI21X1 _4461_ (
+    .A(RDY_bF$buf3),
+    .B(_1194_),
+    .C(_1193_),
+    .Y(\u_cpu.DIMUX [1])
+);
+
+NAND2X1 _4041_ (
+    .A(_1350_),
+    .B(_1085_),
+    .Y(_808_)
+);
+
+FILL FILL_2__3734_ (
+);
+
+FILL FILL_2__3314_ (
+);
+
+FILL FILL_4__4601_ (
+);
+
+FILL FILL_0__4921_ (
+);
+
+FILL FILL_2__4939_ (
+);
+
+FILL FILL_2__4519_ (
+);
+
+FILL FILL_0__4501_ (
+);
+
+FILL FILL_1__2936_ (
+);
+
+FILL FILL_1__2516_ (
+);
+
+FILL FILL_3__3803_ (
+);
+
+FILL FILL_2__4692_ (
+);
+
+FILL FILL_2__4272_ (
+);
+
+FILL FILL_4__4198_ (
+);
+
+NAND2X1 _3732_ (
+    .A(_1196__bF$buf2),
+    .B(_540_),
+    .Y(_531_)
+);
+
+INVX1 _3312_ (
+    .A(_165_),
+    .Y(_163_)
+);
+
+FILL FILL_0__4098_ (
+);
+
+NAND2X1 _4937_ (
+    .A(_2210_),
+    .B(_2186_),
+    .Y(_2211_)
+);
+
+NAND3X1 _4517_ (
+    .A(_1350_),
+    .B(_1246_),
+    .C(_1334_),
+    .Y(_1245_)
+);
+
+FILL FILL_1__3894_ (
+);
+
+FILL FILL_1__3474_ (
+);
+
+FILL FILL_3__4761_ (
+);
+
+FILL FILL_3__4341_ (
+);
+
+FILL FILL_1__4679_ (
+);
+
+FILL FILL_1__4259_ (
+);
+
+FILL FILL_4__2684_ (
+);
+
+FILL FILL_0__2584_ (
+);
+
+NAND2X1 _4690_ (
+    .A(\u_cpu.alu_op [0]),
+    .B(_1689_),
+    .Y(_1743_)
+);
+
+INVX1 _4270_ (
+    .A(_1020_),
+    .Y(_1019_)
+);
+
+FILL FILL_2__3963_ (
+);
+
+FILL FILL_2__3543_ (
+);
+
+FILL FILL_4__3889_ (
+);
+
+FILL FILL_4__3469_ (
+);
+
+FILL FILL_4__4830_ (
+);
+
+FILL FILL_4__4410_ (
+);
+
+FILL FILL_0__3789_ (
+);
+
+FILL FILL_0__3369_ (
+);
+
+FILL FILL_0__4730_ (
+);
+
+FILL FILL_2__4748_ (
+);
+
+FILL FILL_0__4310_ (
+);
+
+FILL FILL_2__4328_ (
+);
+
+FILL FILL_1__2745_ (
+);
+
+FILL FILL_3__3612_ (
+);
+
+FILL FILL_2__4081_ (
+);
+
+FILL FILL_3__4817_ (
+);
+
+OAI21X1 _3961_ (
+    .A(\u_cpu.AN ),
+    .B(_737_),
+    .C(_738_),
+    .Y(_736_)
+);
+
+AOI22X1 _3541_ (
+    .A(_922_),
+    .B(\u_cpu.AXYS[3] [2]),
+    .C(\u_cpu.AXYS[0] [2]),
+    .D(_978_),
+    .Y(_348_)
+);
+
+DFFSR _3121_ (
+    .R(_1417__bF$buf1),
+    .S(vdd),
+    .D(_1490_),
+    .CLK(clk_bF$buf5),
+    .Q(\u_cpu.PC [7])
+);
+
+FILL FILL_2__2814_ (
+);
+
+NAND2X1 _4746_ (
+    .A(_1798_),
+    .B(_1769_),
+    .Y(_1799_)
+);
+
+NAND2X1 _4326_ (
+    .A(_1326_),
+    .B(_1072_),
+    .Y(_1071_)
+);
+
+FILL FILL_1__3283_ (
+);
+
+FILL FILL_3__4570_ (
+);
+
+FILL FILL_3__4150_ (
+);
+
+FILL FILL_1__4488_ (
+);
+
+FILL FILL_1__4068_ (
+);
+
+FILL FILL_4__2493_ (
+);
+
+FILL FILL_0__2393_ (
+);
+
+FILL FILL_2__3772_ (
+);
+
+FILL FILL_2__3352_ (
+);
+
+FILL FILL_4__3698_ (
+);
+
+FILL FILL_4__3278_ (
+);
+
+NAND2X1 _2812_ (
+    .A(_2354__1_bF$buf0),
+    .B(_2354__0_bF$buf5),
+    .Y(_1924_)
+);
+
+FILL FILL_0__3598_ (
+);
+
+FILL FILL_0__3178_ (
+);
+
+FILL FILL_2__4977_ (
+);
+
+FILL FILL_2__4557_ (
+);
+
+FILL FILL_2__4137_ (
+);
+
+FILL FILL_1__2974_ (
+);
+
+FILL FILL_1__2554_ (
+);
+
+FILL FILL_3__3841_ (
+);
+
+FILL FILL_3__3421_ (
+);
+
+FILL FILL_3__3001_ (
+);
+
+FILL FILL_1__3759_ (
+);
+
+FILL FILL_1__3339_ (
+);
+
+FILL FILL_1__4700_ (
+);
+
+FILL FILL_3__4626_ (
+);
+
+FILL FILL_3__4206_ (
+);
+
+INVX1 _3770_ (
+    .A(_570_),
+    .Y(_569_)
+);
+
+AOI21X1 _3350_ (
+    .A(\u_cpu.N ),
+    .B(_613_),
+    .C(_188_),
+    .Y(_187_)
+);
+
+FILL FILL_2__2623_ (
+);
+
+FILL FILL_4__2969_ (
+);
+
+FILL FILL_4__2549_ (
+);
+
+FILL FILL_4__3910_ (
+);
+
+FILL FILL_0__2449_ (
+);
+
+NAND2X1 _4975_ (
+    .A(_2243_),
+    .B(_2186_),
+    .Y(_2244_)
+);
+
+NAND3X1 _4555_ (
+    .A(_1323_),
+    .B(_1307_),
+    .C(_1284_),
+    .Y(_1283_)
+);
+
+NOR2X1 _4135_ (
+    .A(_1274_),
+    .B(_902_),
+    .Y(_901_)
+);
+
+FILL FILL_2__3828_ (
+);
+
+FILL FILL_0__3810_ (
+);
+
+FILL FILL_2__3408_ (
+);
+
+FILL FILL_1__4297_ (
+);
+
+FILL FILL_2__3581_ (
+);
+
+NOR2X1 _2621_ (
+    .A(_1651_),
+    .B(_1652_),
+    .Y(_2112_)
+);
+
+FILL FILL_2__4786_ (
+);
+
+FILL FILL_2__4366_ (
+);
+
+FILL FILL274050x90150 (
+);
+
+OAI21X1 _3826_ (
+    .A(_1286_),
+    .B(_875_),
+    .C(\u_cpu.ABH [2]),
+    .Y(_620_)
+);
+
+AOI21X1 _3406_ (
+    .A(_782_),
+    .B(\u_cpu.PC [9]),
+    .C(_237_),
+    .Y(_236_)
+);
+
+FILL FILL_1__2783_ (
+);
+
+FILL FILL_1__2363_ (
+);
+
+FILL FILL_3__3650_ (
+);
+
+FILL FILL_3__3230_ (
+);
+
+FILL FILL274050x57750 (
+);
+
+FILL FILL_1__3988_ (
+);
+
+FILL FILL_1__3568_ (
+);
+
+FILL FILL_3__4855_ (
+);
+
+FILL FILL_3__4435_ (
+);
+
+FILL FILL_3__4015_ (
+);
+
+FILL FILL_2__2852_ (
+);
+
+FILL FILL_2__2432_ (
+);
+
+FILL FILL_4__2778_ (
+);
+
+FILL FILL_4__2358_ (
+);
+
+FILL FILL_0__2678_ (
+);
+
+AOI22X1 _4784_ (
+    .A(_1784_),
+    .B(_1805_),
+    .C(_1832_),
+    .D(_1836_),
+    .Y(_1837_)
+);
+
+OAI21X1 _4364_ (
+    .A(_1125_),
+    .B(\u_cpu.IRHOLD [6]),
+    .C(_1340_),
+    .Y(_1107_)
+);
+
+FILL FILL_2__3637_ (
+);
+
+FILL FILL_2__3217_ (
+);
+
+FILL FILL_4__4924_ (
+);
+
+FILL FILL_4__4504_ (
+);
+
+FILL FILL_0__4824_ (
+);
+
+FILL FILL_3__2921_ (
+);
+
+FILL FILL_3__2501_ (
+);
+
+FILL FILL_0__4404_ (
+);
+
+FILL FILL_1__2839_ (
+);
+
+FILL FILL_1__2419_ (
+);
+
+FILL FILL_2__3390_ (
+);
+
+FILL FILL273750x72150 (
+);
+
+FILL FILL_3__3706_ (
+);
+
+AND2X2 _2850_ (
+    .A(_1642_),
+    .B(_1644_),
+    .Y(_1645_)
+);
+
+OAI21X1 _2430_ (
+    .A(_1649_),
+    .B(_1651_),
+    .C(_1637_),
+    .Y(_44_)
+);
+
+FILL FILL_2__4595_ (
+);
+
+FILL FILL_2__4175_ (
+);
+
+FILL FILL273750x39750 (
+);
+
+NOR2X1 _3635_ (
+    .A(_443_),
+    .B(_439_),
+    .Y(_438_)
+);
+
+NAND2X1 _3215_ (
+    .A(_1130_),
+    .B(_220_),
+    .Y(_107_)
+);
+
+FILL FILL_1__2592_ (
+);
+
+FILL FILL_2__2908_ (
+);
+
+FILL FILL_1__3797_ (
+);
+
+FILL FILL_1__3377_ (
+);
+
+FILL FILL_3__4664_ (
+);
+
+FILL FILL_3__4244_ (
+);
+
+BUFX2 BUFX2_insert150 (
+    .A(_1328_),
+    .Y(_1328__bF$buf2)
+);
+
+BUFX2 BUFX2_insert151 (
+    .A(_1328_),
+    .Y(_1328__bF$buf1)
+);
+
+BUFX2 BUFX2_insert152 (
+    .A(_1328_),
+    .Y(_1328__bF$buf0)
+);
+
+BUFX2 BUFX2_insert153 (
+    .A(_2354_[2]),
+    .Y(_2354__2_bF$buf5)
+);
+
+FILL FILL_2__2661_ (
+);
+
+BUFX2 BUFX2_insert154 (
+    .A(_2354_[2]),
+    .Y(_2354__2_bF$buf4)
+);
+
+BUFX2 BUFX2_insert155 (
+    .A(_2354_[2]),
+    .Y(_2354__2_bF$buf3)
+);
+
+BUFX2 BUFX2_insert156 (
+    .A(_2354_[2]),
+    .Y(_2354__2_bF$buf2)
+);
+
+BUFX2 BUFX2_insert157 (
+    .A(_2354_[2]),
+    .Y(_2354__2_bF$buf1)
+);
+
+BUFX2 BUFX2_insert158 (
+    .A(_2354_[2]),
+    .Y(_2354__2_bF$buf0)
+);
+
+FILL FILL_4__2587_ (
+);
+
+BUFX2 BUFX2_insert159 (
+    .A(_1325_),
+    .Y(_1325__bF$buf4)
+);
+
+FILL FILL_0__2487_ (
+);
+
+NAND2X1 _4593_ (
+    .A(\u_cpu.state [4]),
+    .B(\u_cpu.state [5]),
+    .Y(_1321_)
+);
+
+OAI21X1 _4173_ (
+    .A(\u_cpu.DIMUX [5]),
+    .B(_1070__bF$buf0),
+    .C(_933_),
+    .Y(_932_)
+);
+
+FILL FILL_2__3866_ (
+);
+
+FILL FILL_2__3446_ (
+);
+
+FILL FILL_2__3026_ (
+);
+
+AND2X2 _2906_ (
+    .A(_2354_[14]),
+    .B(_2354_[15]),
+    .Y(_1558_)
+);
+
+FILL FILL_4__4733_ (
+);
+
+FILL FILL_4__4313_ (
+);
+
+FILL FILL_3__2730_ (
+);
+
+FILL FILL_0__4633_ (
+);
+
+FILL FILL_0__4213_ (
+);
+
+FILL FILL272250x61350 (
+);
+
+FILL FILL_1__2648_ (
+);
+
+FILL FILL_3__3935_ (
+);
+
+FILL FILL_3__3515_ (
+);
+
+OAI21X1 _3864_ (
+    .A(_1275_),
+    .B(_877_),
+    .C(_656_),
+    .Y(_655_)
+);
+
+AND2X2 _3444_ (
+    .A(_270_),
+    .B(_269_),
+    .Y(_268_)
+);
+
+OAI21X1 _3024_ (
+    .A(_1502_),
+    .B(_1500_),
+    .C(_1503_),
+    .Y(_1435_)
+);
+
+FILL FILL_2__2717_ (
+);
+
+INVX1 _4649_ (
+    .A(_1701_),
+    .Y(_1702_)
+);
+
+NAND3X1 _4229_ (
+    .A(_983_),
+    .B(_982_),
+    .C(_986_),
+    .Y(_981_)
+);
+
+FILL FILL_1__3186_ (
+);
+
+FILL FILL_0__3904_ (
+);
+
+FILL FILL_3__4893_ (
+);
+
+FILL FILL_3__4473_ (
+);
+
+FILL FILL_3__4053_ (
+);
+
+FILL FILL_2__2890_ (
+);
+
+FILL FILL_2__2470_ (
+);
+
+FILL FILL_4__2396_ (
+);
+
+FILL FILL_2__3675_ (
+);
+
+FILL FILL_2__3255_ (
+);
+
+INVX1 _2715_ (
+    .A(_1653_),
+    .Y(_2020_)
+);
+
+FILL FILL_4__4962_ (
+);
+
+FILL FILL_4__4542_ (
+);
+
+FILL FILL_4__4122_ (
+);
+
+FILL FILL_0__4862_ (
+);
+
+FILL FILL_0__4442_ (
+);
+
+FILL FILL_0__4022_ (
+);
+
+FILL FILL_1__2877_ (
+);
+
+FILL FILL_1__2457_ (
+);
+
+FILL FILL_3__3744_ (
+);
+
+FILL FILL_3__3324_ (
+);
+
+FILL FILL_4_CLKBUF1_insert30 (
+);
+
+FILL FILL_4_CLKBUF1_insert31 (
+);
+
+FILL FILL_4_CLKBUF1_insert32 (
+);
+
+FILL FILL_4_CLKBUF1_insert33 (
+);
+
+FILL FILL_4_CLKBUF1_insert34 (
+);
+
+FILL FILL_4_CLKBUF1_insert35 (
+);
+
+FILL FILL_4_CLKBUF1_insert36 (
+);
+
+FILL FILL_4_CLKBUF1_insert37 (
+);
+
+FILL FILL_4_CLKBUF1_insert38 (
+);
+
+FILL FILL_1__4603_ (
+);
+
+FILL FILL_3__4949_ (
+);
+
+FILL FILL_3__4529_ (
+);
+
+FILL FILL_3__4109_ (
+);
+
+OAI21X1 _3673_ (
+    .A(_1196__bF$buf2),
+    .B(_808_),
+    .C(_477_),
+    .Y(_476_)
+);
+
+OAI21X1 _3253_ (
+    .A(_322_),
+    .B(_800__bF$buf4),
+    .C(_133_),
+    .Y(_1383_)
+);
+
+FILL FILL_2__2946_ (
+);
+
+FILL FILL_2__2526_ (
+);
+
+FILL FILL_4__3813_ (
+);
+
+DFFSR _4878_ (
+    .R(_1675_),
+    .S(vdd),
+    .D(_1678_),
+    .CLK(clk_bF$buf0),
+    .Q(\u_cpu.HC )
+);
+
+AOI21X1 _4458_ (
+    .A(_1206_),
+    .B(\u_cpu.ABH [1]),
+    .C(_1191_),
+    .Y(_1190_)
+);
+
+NOR2X1 _4038_ (
+    .A(_1325__bF$buf3),
+    .B(_906_),
+    .Y(_805_)
+);
+
+FILL FILL_0__3713_ (
+);
+
+FILL FILL_3__4282_ (
+);
+
+FILL FILL_0__4918_ (
+);
+
+FILL FILL_0_BUFX2_insert50 (
+);
+
+FILL FILL_0_BUFX2_insert51 (
+);
+
+FILL FILL_0_BUFX2_insert52 (
+);
+
+FILL FILL_2__3484_ (
+);
+
+FILL FILL_0_BUFX2_insert53 (
+);
+
+FILL FILL_0_BUFX2_insert54 (
+);
+
+FILL FILL_0_BUFX2_insert55 (
+);
+
+FILL FILL_0_BUFX2_insert56 (
+);
+
+FILL FILL_0_BUFX2_insert57 (
+);
+
+FILL FILL_0_BUFX2_insert58 (
+);
+
+FILL FILL_0_BUFX2_insert59 (
+);
+
+NAND3X1 _2944_ (
+    .A(_2354_[14]),
+    .B(_2352_),
+    .C(_1526_),
+    .Y(_1527_)
+);
+
+OAI22X1 _2524_ (
+    .A(_2354__6_bF$buf2),
+    .B(_2297_),
+    .C(_2302_),
+    .D(_2300_),
+    .Y(_2303_)
+);
+
+FILL FILL_4__4771_ (
+);
+
+FILL FILL_4__4351_ (
+);
+
+FILL FILL_0__4671_ (
+);
+
+FILL FILL_2__4689_ (
+);
+
+FILL FILL_2__4269_ (
+);
+
+FILL FILL_0__4251_ (
+);
+
+NAND3X1 _3729_ (
+    .A(_537_),
+    .B(_534_),
+    .C(_529_),
+    .Y(_528_)
+);
+
+NAND2X1 _3309_ (
+    .A(\u_cpu.cond_code [0]),
+    .B(_1196__bF$buf8),
+    .Y(_161_)
+);
+
+FILL FILL_1__2686_ (
+);
+
+FILL FILL_3__3973_ (
+);
+
+FILL FILL_3__3553_ (
+);
+
+FILL FILL_1__4832_ (
+);
+
+FILL FILL_1__4412_ (
+);
+
+FILL FILL_3__4758_ (
+);
+
+FILL FILL_3__4338_ (
+);
+
+OAI21X1 _3482_ (
+    .A(_303_),
+    .B(_567_),
+    .C(_296_),
+    .Y(_295_)
+);
+
+DFFSR _3062_ (
+    .R(_1417__bF$buf4),
+    .S(vdd),
+    .D(_1370_),
+    .CLK(clk_bF$buf9),
+    .Q(\u_cpu.I )
+);
+
+FILL FILL_2__2755_ (
+);
+
+FILL FILL_4__3622_ (
+);
+
+FILL FILL_4__3202_ (
+);
+
+INVX1 _4687_ (
+    .A(_1739_),
+    .Y(_1740_)
+);
+
+NAND2X1 _4267_ (
+    .A(_1017_),
+    .B(_1021_),
+    .Y(_1477_)
+);
+
+FILL FILL_0__3942_ (
+);
+
+FILL FILL_0__3522_ (
+);
+
+FILL FILL_3__4091_ (
+);
+
+FILL FILL_2__4901_ (
+);
+
+FILL FILL_4__4827_ (
+);
+
+FILL FILL_4__4407_ (
+);
+
+FILL FILL_0__4727_ (
+);
+
+FILL FILL_3__2824_ (
+);
+
+FILL FILL_3__2404_ (
+);
+
+FILL FILL_0__4307_ (
+);
+
+FILL FILL_2__3293_ (
+);
+
+FILL FILL_3__3609_ (
+);
+
+AOI21X1 _2753_ (
+    .A(_1981_),
+    .B(_1979_),
+    .C(_1923__bF$buf1),
+    .Y(_1982_)
+);
+
+FILL FILL_4__4580_ (
+);
+
+FILL FILL_4__4160_ (
+);
+
+FILL FILL_0__4480_ (
+);
+
+FILL FILL_2__4498_ (
+);
+
+FILL FILL_0__4060_ (
+);
+
+FILL FILL_2__4078_ (
+);
+
+NAND2X1 _3958_ (
+    .A(RDY_bF$buf0),
+    .B(_1111_),
+    .Y(_734_)
+);
+
+INVX1 _3538_ (
+    .A(\u_cpu.ABH [2]),
+    .Y(_345_)
+);
+
+DFFSR _3118_ (
+    .R(_1417__bF$buf10),
+    .S(vdd),
+    .D(_1399_),
+    .CLK(clk_bF$buf4),
+    .Q(\u_cpu.store )
+);
+
+FILL FILL_1__2495_ (
+);
+
+FILL FILL_3__3782_ (
+);
+
+FILL FILL_3__3362_ (
+);
+
+FILL FILL_1__4641_ (
+);
+
+FILL FILL_1__4221_ (
+);
+
+FILL FILL_3__4567_ (
+);
+
+FILL FILL_3__4147_ (
+);
+
+NOR2X1 _3291_ (
+    .A(_1255_),
+    .B(_1344_),
+    .Y(_1401_)
+);
+
+FILL FILL_2__2984_ (
+);
+
+FILL FILL_2__2564_ (
+);
+
+FILL FILL_4__3851_ (
+);
+
+FILL FILL_4__3431_ (
+);
+
+FILL FILL_4__3011_ (
+);
+
+NAND3X1 _4496_ (
+    .A(_1288_),
+    .B(_1276_),
+    .C(_1225_),
+    .Y(_1224_)
+);
+
+NAND2X1 _4076_ (
+    .A(_1329_),
+    .B(_1236_),
+    .Y(_843_)
+);
+
+FILL FILL_2__3769_ (
+);
+
+FILL FILL_0__3751_ (
+);
+
+FILL FILL_2__3349_ (
+);
+
+FILL FILL_0__3331_ (
+);
+
+FILL FILL_2__4710_ (
+);
+
+NAND2X1 _2809_ (
+    .A(_1634__bF$buf0),
+    .B(_1926_),
+    .Y(_1927_)
+);
+
+FILL FILL_4__4636_ (
+);
+
+FILL FILL_4__4216_ (
+);
+
+FILL FILL_0__4956_ (
+);
+
+FILL FILL_3__2633_ (
+);
+
+FILL FILL_0__4536_ (
+);
+
+FILL FILL_0__4116_ (
+);
+
+FILL FILL_1__3912_ (
+);
+
+FILL FILL_3__3838_ (
+);
+
+FILL FILL_3__3418_ (
+);
+
+OAI21X1 _2982_ (
+    .A(_1614_),
+    .B(_1500_),
+    .C(_1615_),
+    .Y(_1492_)
+);
+
+NAND2X1 _2562_ (
+    .A(_2264_),
+    .B(_2158_),
+    .Y(_2265_)
+);
+
+FILL FILL_4__2702_ (
+);
+
+INVX1 _3767_ (
+    .A(_567_),
+    .Y(_566_)
+);
+
+AND2X2 _3347_ (
+    .A(_503_),
+    .B(\u_cpu.op [3]),
+    .Y(\u_cpu.alu_op [3])
+);
+
+FILL FILL_0__2602_ (
+);
+
+FILL FILL_3__3591_ (
+);
+
+FILL FILL_3__3171_ (
+);
+
+FILL FILL_4__3907_ (
+);
+
+FILL FILL_0__3807_ (
+);
+
+FILL FILL_1__4870_ (
+);
+
+FILL FILL_1__4450_ (
+);
+
+FILL FILL_1__4030_ (
+);
+
+FILL FILL_3__4796_ (
+);
+
+FILL FILL_3__4376_ (
+);
+
+FILL FILL_2__2793_ (
+);
+
+FILL FILL_2__2373_ (
+);
+
+FILL FILL_4__3660_ (
+);
+
+FILL FILL_4__3240_ (
+);
+
+FILL FILL_0__3980_ (
+);
+
+FILL FILL_2__3998_ (
+);
+
+FILL FILL_2__3578_ (
+);
+
+FILL FILL_0__3560_ (
+);
+
+NAND3X1 _2618_ (
+    .A(_2354__6_bF$buf0),
+    .B(_2111_),
+    .C(_2114_),
+    .Y(_2115_)
+);
+
+FILL FILL_4__4865_ (
+);
+
+FILL FILL_4__4445_ (
+);
+
+FILL FILL_4__4025_ (
+);
+
+FILL FILL_0__4765_ (
+);
+
+FILL FILL_3__2442_ (
+);
+
+FILL FILL_0__4345_ (
+);
+
+BUFX2 BUFX2_insert60 (
+    .A(_1923_),
+    .Y(_1923__bF$buf3)
+);
+
+BUFX2 BUFX2_insert61 (
+    .A(_1923_),
+    .Y(_1923__bF$buf2)
+);
+
+BUFX2 BUFX2_insert62 (
+    .A(_1923_),
+    .Y(_1923__bF$buf1)
+);
+
+BUFX2 BUFX2_insert63 (
+    .A(_1923_),
+    .Y(_1923__bF$buf0)
+);
+
+BUFX2 BUFX2_insert64 (
+    .A(_1635_),
+    .Y(_1635__bF$buf4)
+);
+
+FILL FILL_1__3721_ (
+);
+
+BUFX2 BUFX2_insert65 (
+    .A(_1635_),
+    .Y(_1635__bF$buf3)
+);
+
+FILL FILL_1__3301_ (
+);
+
+BUFX2 BUFX2_insert66 (
+    .A(_1635_),
+    .Y(_1635__bF$buf2)
+);
+
+BUFX2 BUFX2_insert67 (
+    .A(_1635_),
+    .Y(_1635__bF$buf1)
+);
+
+BUFX2 BUFX2_insert68 (
+    .A(_1635_),
+    .Y(_1635__bF$buf0)
+);
+
+BUFX2 BUFX2_insert69 (
+    .A(_1920_),
+    .Y(_1920__bF$buf4)
+);
+
+FILL FILL_3__3647_ (
+);
+
+FILL FILL_3__3227_ (
+);
+
+OAI21X1 _2791_ (
+    .A(_1643__bF$buf3),
+    .B(_1944_),
+    .C(_1634__bF$buf1),
+    .Y(_1945_)
+);
+
+BUFX2 _2371_ (
+    .A(_2354__0_bF$buf4),
+    .Y(AB[0])
+);
+
+FILL FILL_1__4926_ (
+);
+
+FILL FILL_1__4506_ (
+);
+
+FILL FILL_4__2931_ (
+);
+
+FILL FILL_4__2511_ (
+);
+
+INVX1 _3996_ (
+    .A(_998_),
+    .Y(_768_)
+);
+
+OAI22X1 _3576_ (
+    .A(RDY_bF$buf5),
+    .B(_847_),
+    .C(_1037__bF$buf2),
+    .D(_381_),
+    .Y(_380_)
+);
+
+DFFSR _3156_ (
+    .R(_1417__bF$buf6),
+    .S(vdd),
+    .D(_1414_),
+    .CLK(clk_bF$buf2),
+    .Q(\u_cpu.AXYS[2] [6])
+);
+
+FILL FILL_0__2831_ (
+);
+
+FILL FILL_2__2849_ (
+);
+
+FILL FILL_2__2429_ (
+);
+
+FILL FILL_0__2411_ (
+);
+
+FILL FILL_4__3716_ (
+);
+
+FILL FILL_0__3616_ (
+);
+
+FILL FILL_3__4185_ (
+);
+
+FILL FILL_3__2918_ (
+);
+
+FILL FILL_2__3387_ (
+);
+
+NAND2X1 _2847_ (
+    .A(_1636__bF$buf3),
+    .B(_1647_),
+    .Y(_1648_)
+);
+
+AOI21X1 _2427_ (
+    .A(_46_),
+    .B(_2082_),
+    .C(_2354__6_bF$buf3),
+    .Y(_47_)
+);
+
+FILL FILL_4__4674_ (
+);
+
+FILL FILL_4__4254_ (
+);
+
+FILL FILL_3__2671_ (
+);
+
+FILL FILL_0__4574_ (
+);
+
+FILL FILL_0__4154_ (
+);
+
+FILL FILL_1__2589_ (
+);
+
+FILL FILL_1__3950_ (
+);
+
+FILL FILL_1__3530_ (
+);
+
+FILL FILL_3__3876_ (
+);
+
+FILL FILL_3__3456_ (
+);
+
+FILL FILL_1__4735_ (
+);
+
+FILL FILL_1__4315_ (
+);
+
+FILL FILL_4__2740_ (
+);
+
+INVX1 _3385_ (
+    .A(_847_),
+    .Y(_220_)
+);
+
+FILL FILL_2__2658_ (
+);
+
+FILL FILL_0__2640_ (
+);
+
+FILL FILL_4__3945_ (
+);
+
+FILL FILL_4__3525_ (
+);
+
+FILL FILL_0__3845_ (
+);
+
+FILL FILL_0__3425_ (
+);
+
+FILL FILL_0__3005_ (
+);
+
+FILL FILL_2__4804_ (
+);
+
+FILL FILL_1__2801_ (
+);
+
+FILL FILL_3__2727_ (
+);
+
+FILL FILL_2__3196_ (
+);
+
+AOI21X1 _2656_ (
+    .A(_1918_),
+    .B(_2077_),
+    .C(_1920__bF$buf0),
+    .Y(_2078_)
+);
+
+FILL FILL_4__4483_ (
+);
+
+FILL FILL_4__4063_ (
+);
+
+FILL FILL_3__2480_ (
+);
+
+FILL FILL_0__4383_ (
+);
+
+FILL FILL_1_BUFX2_insert100 (
+);
+
+FILL FILL_1_BUFX2_insert101 (
+);
+
+FILL FILL_1_BUFX2_insert102 (
+);
+
+FILL FILL_1_BUFX2_insert103 (
+);
+
+FILL FILL_1_BUFX2_insert104 (
+);
+
+FILL FILL_1_BUFX2_insert105 (
+);
+
+FILL FILL_1_BUFX2_insert106 (
+);
+
+FILL FILL_1_BUFX2_insert107 (
+);
+
+FILL FILL_1_BUFX2_insert108 (
+);
+
+FILL FILL_1_BUFX2_insert109 (
+);
+
+FILL FILL_1__2398_ (
+);
+
+NAND2X1 _4802_ (
+    .A(\u_cpu.ADD [4]),
+    .B(_1681__bF$buf0),
+    .Y(_1850_)
+);
+
+FILL FILL_3__3685_ (
+);
+
+FILL FILL_3__3265_ (
+);
+
+FILL FILL_1__4964_ (
+);
+
+FILL FILL_1__4544_ (
+);
+
+FILL FILL_1__4124_ (
+);
+
+NAND2X1 _3194_ (
+    .A(_1218_),
+    .B(_1216_),
+    .Y(_92_)
+);
+
+FILL FILL_2__2887_ (
+);
+
+FILL FILL_2__2467_ (
+);
+
+FILL FILL_4__3754_ (
+);
+
+FILL FILL_4__3334_ (
+);
+
+OAI21X1 _4399_ (
+    .A(RDY_bF$buf3),
+    .B(_1140_),
+    .C(_1139_),
+    .Y(\u_cpu.DIMUX [5])
+);
+
+FILL FILL_0__3654_ (
+);
+
+FILL FILL_0__3234_ (
+);
+
+FILL FILL_2__4613_ (
+);
+
+FILL FILL_4__4959_ (
+);
+
+FILL FILL_4__4539_ (
+);
+
+FILL FILL_4__4119_ (
+);
+
+FILL FILL_1__2610_ (
+);
+
+FILL FILL_0__4859_ (
+);
+
+FILL FILL_3__2536_ (
+);
+
+FILL FILL_0__4439_ (
+);
+
+FILL FILL_0__4019_ (
+);
+
+FILL FILL_1__3815_ (
+);
+
+NAND3X1 _2885_ (
+    .A(_1569_),
+    .B(_1574_),
+    .C(_1525_),
+    .Y(_1575_)
+);
+
+AOI21X1 _2465_ (
+    .A(_2119_),
+    .B(_1659_),
+    .C(_1920__bF$buf1),
+    .Y(_10_)
+);
+
+FILL FILL_4__4292_ (
+);
+
+FILL FILL272550x36150 (
+);
+
+FILL FILL_0__4192_ (
+);
+
+FILL FILL_4__2605_ (
+);
+
+FILL FILL_0__2925_ (
+);
+
+FILL FILL_0__2505_ (
+);
+
+NAND2X1 _4611_ (
+    .A(_1340_),
+    .B(_1344_),
+    .Y(_1339_)
+);
+
+FILL FILL_3__3494_ (
+);
+
+FILL FILL_1__4773_ (
+);
+
+FILL FILL_1__4353_ (
+);
+
+FILL FILL_3__4699_ (
+);
+
+FILL FILL_3__4279_ (
+);
+
+FILL FILL_2__2696_ (
+);
+
+FILL FILL_4__3983_ (
+);
+
+FILL FILL_4__3563_ (
+);
+
+FILL FILL_0__3883_ (
+);
+
+FILL FILL_0__3463_ (
+);
+
+FILL FILL_2__4842_ (
+);
+
+FILL FILL_2__4422_ (
+);
+
+FILL FILL_2__4002_ (
+);
+
+FILL FILL_4__4768_ (
+);
+
+FILL FILL_4__4348_ (
+);
+
+FILL FILL_3__2765_ (
+);
+
+FILL FILL_0__4668_ (
+);
+
+FILL FILL_0__4248_ (
+);
+
+FILL FILL_1__3624_ (
+);
+
+FILL FILL_1__3204_ (
+);
+
+AND2X2 _2694_ (
+    .A(_1940_),
+    .B(_1987_),
+    .Y(_2041_)
+);
+
+FILL FILL_3__4911_ (
+);
+
+FILL FILL_1__4829_ (
+);
+
+FILL FILL_1__4409_ (
+);
+
+FILL FILL_4__2834_ (
+);
+
+FILL FILL_4__2414_ (
+);
+
+NAND2X1 _3899_ (
+    .A(_1025_),
+    .B(_1117_),
+    .Y(_687_)
+);
+
+NOR2X1 _3479_ (
+    .A(_293_),
+    .B(_376_),
+    .Y(_292_)
+);
+
+DFFSR _3059_ (
+    .R(_1417__bF$buf3),
+    .S(vdd),
+    .D(_1369_),
+    .CLK(clk_bF$buf7),
+    .Q(\u_cpu.AXYS[1] [0])
+);
+
+FILL FILL_0__2734_ (
+);
+
+OAI21X1 _4840_ (
+    .A(_1696_),
+    .B(\u_cpu.alu_op [2]),
+    .C(_1879_),
+    .Y(_1883_)
+);
+
+NAND3X1 _4420_ (
+    .A(_1172_),
+    .B(_1157_),
+    .C(_1158_),
+    .Y(_1156_)
+);
+
+NOR2X1 _4000_ (
+    .A(_1126_),
+    .B(_994_),
+    .Y(_772_)
+);
+
+FILL FILL_4__3619_ (
+);
+
+FILL FILL_0__3939_ (
+);
+
+FILL FILL_0__3519_ (
+);
+
+FILL FILL_1__4582_ (
+);
+
+FILL FILL_1__4162_ (
+);
+
+FILL FILL_3__4088_ (
+);
+
+FILL FILL_4__3792_ (
+);
+
+FILL FILL_4__3372_ (
+);
+
+FILL FILL_0__3692_ (
+);
+
+FILL FILL_0__3272_ (
+);
+
+FILL FILL_2__4651_ (
+);
+
+FILL FILL_2__4231_ (
+);
+
+FILL FILL_4__4577_ (
+);
+
+FILL FILL_4__4157_ (
+);
+
+FILL FILL_0__4897_ (
+);
+
+FILL FILL_3__2994_ (
+);
+
+FILL FILL_3__2574_ (
+);
+
+FILL FILL_0__4477_ (
+);
+
+FILL FILL_0__4057_ (
+);
+
+FILL FILL_1__3853_ (
+);
+
+FILL FILL_1__3433_ (
+);
+
+FILL FILL273150x97350 (
+);
+
+FILL FILL_1__3013_ (
+);
+
+FILL FILL_3__3779_ (
+);
+
+FILL FILL_3__3359_ (
+);
+
+FILL FILL_3__4720_ (
+);
+
+FILL FILL_3__4300_ (
+);
+
+FILL FILL_1__4638_ (
+);
+
+FILL FILL_1__4218_ (
+);
+
+FILL FILL_4__2643_ (
+);
+
+OAI21X1 _3288_ (
+    .A(_1024_),
+    .B(_682_),
+    .C(_993_),
+    .Y(_151_)
+);
+
+FILL FILL_0__2543_ (
+);
+
+FILL FILL_2__3922_ (
+);
+
+FILL FILL_2__3502_ (
+);
+
+FILL FILL_0_BUFX2_insert140 (
+);
+
+FILL FILL_0_BUFX2_insert141 (
+);
+
+FILL FILL_0_BUFX2_insert142 (
+);
+
+FILL FILL_0_BUFX2_insert143 (
+);
+
+FILL FILL_4__3848_ (
+);
+
+FILL FILL_0_BUFX2_insert144 (
+);
+
+FILL FILL_0_BUFX2_insert145 (
+);
+
+FILL FILL_4__3428_ (
+);
+
+FILL FILL_4__3008_ (
+);
+
+FILL FILL_0_BUFX2_insert146 (
+);
+
+FILL FILL_0_BUFX2_insert147 (
+);
+
+FILL FILL_0_BUFX2_insert148 (
+);
+
+FILL FILL_0_BUFX2_insert149 (
+);
+
+FILL FILL_0__3748_ (
+);
+
+FILL FILL_0__3328_ (
+);
+
+FILL FILL_1__4391_ (
+);
+
+FILL FILL_2__4707_ (
+);
+
+FILL FILL_1__2704_ (
+);
+
+FILL FILL_4__3181_ (
+);
+
+FILL FILL_1__3909_ (
+);
+
+FILL FILL_2__4460_ (
+);
+
+FILL FILL_2__4040_ (
+);
+
+AOI21X1 _2979_ (
+    .A(_1617_),
+    .B(_1513_),
+    .C(_1583_),
+    .Y(_1618_)
+);
+
+INVX1 _2559_ (
+    .A(_2267_),
+    .Y(_2268_)
+);
+
+FILL FILL_4__4386_ (
+);
+
+OAI21X1 _3920_ (
+    .A(_707_),
+    .B(_1129__bF$buf4),
+    .C(_704_),
+    .Y(_1445_)
+);
+
+NOR2X1 _3500_ (
+    .A(_314_),
+    .B(_317_),
+    .Y(_313_)
+);
+
+FILL FILL272850x79350 (
+);
+
+FILL FILL_0__4286_ (
+);
+
+FILL FILL_3__2383_ (
+);
+
+MUX2X1 _4705_ (
+    .A(\u_cpu.alu_op [1]),
+    .B(_1747_),
+    .S(\u_cpu.alu_op [0]),
+    .Y(_1758_)
+);
+
+FILL FILL_1__3662_ (
+);
+
+FILL FILL_1__3242_ (
+);
+
+FILL FILL_3__3588_ (
+);
+
+FILL FILL_3__3168_ (
+);
+
+FILL FILL_1__4867_ (
+);
+
+FILL FILL_1__4447_ (
+);
+
+FILL FILL_1__4027_ (
+);
+
+FILL FILL_4__2452_ (
+);
+
+DFFSR _3097_ (
+    .R(_1417__bF$buf9),
+    .S(vdd),
+    .D(_1471_),
+    .CLK(clk_bF$buf8),
+    .Q(\u_cpu.inc )
+);
+
+FILL FILL_0__2772_ (
+);
+
+FILL FILL_2__3731_ (
+);
+
+FILL FILL_2__3311_ (
+);
+
+FILL FILL_4__3657_ (
+);
+
+FILL FILL_4__3237_ (
+);
+
+FILL FILL_0__3977_ (
+);
+
+FILL FILL_0__3557_ (
+);
+
+FILL FILL_2__4936_ (
+);
+
+FILL FILL_2__4516_ (
+);
+
+FILL FILL_1__2933_ (
+);
+
+FILL FILL_1__2513_ (
+);
+
+FILL FILL_3__2859_ (
+);
+
+FILL FILL_3__2439_ (
+);
+
+FILL FILL_3__3800_ (
+);
+
+FILL FILL_1__3718_ (
+);
+
+AND2X2 _2788_ (
+    .A(_1650_),
+    .B(_2354__4_bF$buf3),
+    .Y(_1948_)
+);
+
+BUFX2 _2368_ (
+    .A(_2354__3_bF$buf2),
+    .Y(AB[3])
+);
+
+FILL FILL_4__4195_ (
+);
+
+FILL FILL_0__4095_ (
+);
+
+FILL FILL_4__2928_ (
+);
+
+FILL FILL_4__2508_ (
+);
+
+FILL FILL_0__2828_ (
+);
+
+FILL FILL_0__2408_ (
+);
+
+INVX1 _4934_ (
+    .A(DO_dsp[4]),
+    .Y(_2208_)
+);
+
+NOR2X1 _4514_ (
+    .A(_1352_),
+    .B(_1304_),
+    .Y(_1242_)
+);
+
+FILL FILL_1__3891_ (
+);
+
+FILL FILL_1__3471_ (
+);
+
+FILL FILL_3__3397_ (
+);
+
+FILL FILL_1__4676_ (
+);
+
+FILL FILL_1__4256_ (
+);
+
+FILL FILL_4__2681_ (
+);
+
+FILL FILL_0__2581_ (
+);
+
+FILL FILL_2__2599_ (
+);
+
+FILL FILL_2__3960_ (
+);
+
+FILL FILL_2__3540_ (
+);
+
+FILL FILL_4__3886_ (
+);
+
+FILL FILL_4__3466_ (
+);
+
+FILL FILL_0__3786_ (
+);
+
+FILL FILL_0__3366_ (
+);
+
+FILL FILL_2__4745_ (
+);
+
+FILL FILL_2__4325_ (
+);
+
+FILL FILL_1__2742_ (
+);
+
+FILL FILL_3__2668_ (
+);
+
+FILL FILL_1__3947_ (
+);
+
+FILL FILL_1__3527_ (
+);
+
+OAI21X1 _2597_ (
+    .A(_1994_),
+    .B(_1964_),
+    .C(_1925_),
+    .Y(_2136_)
+);
+
+FILL FILL_3__4814_ (
+);
+
+FILL FILL_2__2811_ (
+);
+
+FILL FILL_4__2737_ (
+);
+
+FILL FILL_0__2637_ (
+);
+
+NAND2X1 _4743_ (
+    .A(_1795_),
+    .B(_1794_),
+    .Y(_1796_)
+);
+
+NOR2X1 _4323_ (
+    .A(_1069_),
+    .B(_1073_),
+    .Y(_1068_)
+);
+
+FILL FILL_1__3280_ (
+);
+
+FILL FILL273450x50550 (
+);
+
+FILL FILL_1__4485_ (
+);
+
+FILL FILL_1__4065_ (
+);
+
+FILL FILL_4__2490_ (
+);
+
+FILL FILL_4__3695_ (
+);
+
+FILL FILL_4__3275_ (
+);
+
+FILL FILL_0__3595_ (
+);
+
+FILL FILL_0__3175_ (
+);
+
+FILL FILL_2__4974_ (
+);
+
+FILL FILL_2__4554_ (
+);
+
+FILL FILL_2__4134_ (
+);
+
+FILL FILL_1__2971_ (
+);
+
+FILL FILL_1__2551_ (
+);
+
+FILL FILL_3__2897_ (
+);
+
+FILL FILL_3__2477_ (
+);
+
+FILL FILL_1__3756_ (
+);
+
+FILL FILL_1__3336_ (
+);
+
+FILL FILL_3__4623_ (
+);
+
+FILL FILL_3__4203_ (
+);
+
+endmodule

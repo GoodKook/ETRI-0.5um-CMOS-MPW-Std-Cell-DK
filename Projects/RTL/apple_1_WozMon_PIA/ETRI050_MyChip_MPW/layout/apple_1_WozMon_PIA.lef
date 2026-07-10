@@ -1,0 +1,70 @@
+MACRO INVX8
+  CLASS CORE ;
+  FOREIGN INVX8 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 18.000 BY 36.000 ;
+  SYMMETRY X Y ;
+  SITE core ;
+  PIN A
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER metal2 ;
+        RECT 3.450 12.450 5.550 14.550 ;
+    END
+  END A
+  PIN Y
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER metal2 ;
+        RECT 9.450 12.450 11.550 14.550 ;
+    END
+  END Y
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER metal1 ;
+        RECT -0.900 34.800 18.900 37.200 ;
+    END
+  END vdd
+  PIN gnd
+    DIRECTION INOUT ;
+    USE GROUND ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER metal1 ;
+        RECT -0.900 -1.200 18.900 1.200 ;
+    END
+  END gnd
+  OBS
+      LAYER metal1 ;
+        RECT 1.050 21.900 2.850 33.750 ;
+        RECT 4.050 21.000 5.850 33.750 ;
+        RECT 7.050 21.900 8.850 33.750 ;
+        RECT 10.050 21.900 11.850 33.750 ;
+        RECT 13.050 21.900 14.850 33.750 ;
+        RECT 10.050 21.000 11.250 21.900 ;
+        RECT 4.050 20.100 11.250 21.000 ;
+        RECT 3.600 16.650 5.400 18.450 ;
+        RECT 10.050 16.650 11.250 20.100 ;
+        RECT 3.450 14.550 5.550 16.650 ;
+        RECT 9.450 14.550 11.550 16.650 ;
+        RECT 10.050 10.200 11.250 14.550 ;
+        RECT 4.050 9.000 11.250 10.200 ;
+        RECT 4.050 8.100 5.250 9.000 ;
+        RECT 10.050 8.100 11.250 9.000 ;
+        RECT 1.050 2.250 2.850 8.100 ;
+        RECT 4.050 2.250 5.850 8.100 ;
+        RECT 7.050 2.250 8.850 8.100 ;
+        RECT 10.050 2.250 11.850 8.100 ;
+        RECT 13.050 2.250 14.850 8.100 ;
+      LAYER metal2 ;
+        RECT 3.450 15.750 5.550 16.650 ;
+        RECT 9.450 15.750 11.550 16.650 ;
+  END
+END INVX8
+END LIBRARY
+
