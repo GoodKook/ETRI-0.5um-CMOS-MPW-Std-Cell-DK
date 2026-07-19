@@ -24,6 +24,9 @@ unsigned char TableBMP[SCREEN_W_BYTE*SCREEN_HEIGHT];
 #define PIN_HSYNC   15
 #define PIN_P_TICK  14
 
+#define PIN_RESET   7
+#define PIN_ENABLE  8
+
 #define DRAW_BITMAP() { \
     u8g2.firstPage();  \
     do { \
@@ -54,10 +57,16 @@ int xPos = 0, yPos = 0;
 
 void setup(void)
 {
+  pinMode(PIN_ENABLE, OUTPUT);
+  pinMode(PIN_RESET, OUTPUT);
+
   pinMode(PIN_P_TICK, INPUT);
   pinMode(PIN_HSYNC, INPUT);
   pinMode(PIN_VSYNC, INPUT);
   pinMode(PIN_RGB, INPUT);
+
+  digitalWrite(PIN_ENABLE, HIGH);
+  digitalWrite(PIN_RESET, HIGH);
 
   u8g2.begin();
   delay(1000);
@@ -87,6 +96,8 @@ void setup(void)
 
   // PWM for Clock generator----------------------------
   PWM_Instance = new RP2040_PWM(PIN_CLK_OUT, frequency, dutyCycle);
+
+  digitalWrite(PIN_RESET, LOW);
 }
 
 //-------------------------------------------------------------------
