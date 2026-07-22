@@ -1,25 +1,26 @@
 #!/usr/bin/bash
 
 #./z3_build.sh
-./sdl_install.sh
-./sdl2_install.sh
-./python_libs.sh
-./gsl_build.sh
-./graywolf_build.sh
-./irsim_build.sh
-./magic_build.sh
-./klayout_install.sh
-./netgen_build.sh
-./qrouter_build.sh
-./ngspice46_build.sh
-./xschem_build.sh
-./opensta_build.sh
-./gtkwave_install.sh
-./yosys_build.sh
-./systemc_build.sh
-./iverilog_build.sh
-./verilator_build.sh
-./qflow-1.4.100_etri050_build.sh
+../sdl_install.sh
+../sdl2_install.sh
+../python_libs.sh
+../gsl_build.sh
+../graywolf_build.sh
+../irsim_build.sh
+../magic_build.sh
+../klayout_install.sh
+../netgen_build.sh
+../qrouter_build.sh
+../ngspice46_build.sh
+../xschem_build.sh
+../iverilog_build.sh
+../opensta_build.sh
+../gtkwave_install.sh
+../yosys_build.sh
+../systemc_build.sh
+../verilator_build.sh
+../qflow-1.4.100_etri050_build.sh
+../openFPGALoader_build.sh
 
 echo ""
 echo "Installed Tools are ....."
