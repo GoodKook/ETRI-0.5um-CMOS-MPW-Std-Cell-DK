@@ -1,6 +1,6 @@
 //
 // pong_pt1_Test / ATmega328p(Arduino Super Mini V.3)
-// Step 04: Test 'pong_pt1'
+// Step 03: Test IRQ for P_TICK of 'pong_pt1'
 //
 
 #include <Wire.h>
@@ -37,8 +37,6 @@ void setup()
   pinMode(BLINK_LED, OUTPUT);
   pinMode(TEST_OUT, OUTPUT);
 
-  digitalWrite(BLINK_LED, LOW);
-
   pinMode(DUT_CLK, OUTPUT);
   pinMode(DUT_P_TICK, INPUT);
   pinMode(DUT_HSYNC, INPUT);
@@ -47,7 +45,7 @@ void setup()
 
   //-------------------------------------------------------------------------
   // Set the timer to tick every N-microseconds
-  Timer1.initialize(30);  // 30us=33Khz
+  Timer1.initialize(20);  // 20us=50Khz
   // Tell the timer to run the 'triggerClock' function every tick
   Timer1.attachInterrupt(triggerClock);
 
@@ -63,32 +61,9 @@ void setup()
 void loop()
 {
   digitalWrite(BLINK_LED, HIGH);
-
-  while(!digitalRead(DUT_VSYNC));
-  while(digitalRead(DUT_VSYNC));
-
-  char szBuff[8];
-
-  while(true)
-  {
-    if (digitalRead(DUT_HSYNC))
-    {
-      X_pos = 0;
-      Y_pos++;
-      while(digitalRead(DUT_HSYNC));
-    }
-    if (digitalRead(DUT_VSYNC))
-    {
-      oled.setCursor(100, 0);
-      sprintf(szBuff, "%03d", Y_pos);
-      oled.print(szBuff);
-
-      oled.display(); // send screen buffer to OLED (37ms)
-      X_pos = 0;
-      Y_pos = 0;
-      while(digitalRead(DUT_VSYNC));
-    }
-  }
+  delay(500);
+  digitalWrite(BLINK_LED, LOW);
+  delay(500);
 }
 
 void startScreen()
@@ -96,15 +71,17 @@ void startScreen()
   oled.clearDisplay();
   oled.setTextSize(1);                    // at double size character
   oled.setTextColor(WHITE);
-  oled.setCursor(55, 0);
+  oled.setCursor(55, 10);
   oled.println(F("Test"));  
   oled.setCursor(40, 20);
   oled.println(F("pong_pt1")); 
-  oled.setCursor(55, 42);            
-  oled.println(F("v1.0"));                
-  oled.display();                         
+  oled.setCursor(30, 35);
+  oled.println(F("03_P_Tick_IRQ")); 
+  oled.setCursor(40, 45);
+  oled.println(F("See Pin D4")); 
+  oled.display();
   delay(1500);
-  oled.clearDisplay();
+  //oled.clearDisplay();
   oled.setTextSize(1);                    // After this, standard font size
 }
 
@@ -118,11 +95,5 @@ void triggerClock()
 void PixelIRQ() // IRQ pin interrupr handler
 {
   // Flip the state of the pin
-  //digitalWrite(TEST_OUT, !digitalRead(TEST_OUT)); 
-
-  //delayMicroseconds(50);
-  if (digitalRead(DUT_RGB))
-    oled.drawPixel((uint16_t)X_pos++, (uint16_t)Y_pos, (uint16_t)WHITE);
-  else
-    oled.drawPixel((uint16_t)X_pos++, (uint16_t)Y_pos, (uint16_t)BLACK);
+  digitalWrite(TEST_OUT, !digitalRead(TEST_OUT)); 
 }

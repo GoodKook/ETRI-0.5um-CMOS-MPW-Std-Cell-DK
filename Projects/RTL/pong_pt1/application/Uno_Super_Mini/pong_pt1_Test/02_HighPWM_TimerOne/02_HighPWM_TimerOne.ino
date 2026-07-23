@@ -55,15 +55,15 @@ void startScreen()
   oled.clearDisplay();
   oled.setTextSize(1);                    // at double size character
   oled.setTextColor(WHITE);
-  oled.setCursor(55, 0);
+  oled.setCursor(55, 10);
   oled.println(F("Test"));  
   oled.setCursor(40, 20);
   oled.println(F("pong_pt1")); 
-  oled.setCursor(55, 42);            
-  oled.println(F("v1.0"));                
-  oled.display();                         
+  oled.setCursor(10, 35);
+  oled.println(F("02_HighPWM_TimerOne")); 
+  oled.display();
   delay(1500);
-  oled.clearDisplay();
+  //oled.clearDisplay();
   oled.setTextSize(1);                    // After this, standard font size
 }
 

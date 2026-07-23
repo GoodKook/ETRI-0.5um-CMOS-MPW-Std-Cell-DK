@@ -1,13 +1,12 @@
 //
 // pong_pt1_Test / ATmega328p(Arduino Super Mini V.3)
-// Step 05: Test 'pong_pt1' with digitalFastWrite Lib.
+// Step 04: Test 'pong_pt1'
 //
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <TimerOne.h> // for high-freq. PWM
-#include <digitalWriteFast.h>
 
 // DUT(pong_pt1)
 #define DUT_CLK     5   // PWM
@@ -38,7 +37,7 @@ void setup()
   pinMode(BLINK_LED, OUTPUT);
   pinMode(TEST_OUT, OUTPUT);
 
-  digitalWriteFast(BLINK_LED, LOW);
+  digitalWrite(BLINK_LED, LOW);
 
   pinMode(DUT_CLK, OUTPUT);
   pinMode(DUT_P_TICK, INPUT);
@@ -48,7 +47,7 @@ void setup()
 
   //-------------------------------------------------------------------------
   // Set the timer to tick every N-microseconds
-  Timer1.initialize(25);  // 25us=40Khz
+  Timer1.initialize(30);  // 30us=33Khz
   // Tell the timer to run the 'triggerClock' function every tick
   Timer1.attachInterrupt(triggerClock);
 
@@ -63,22 +62,22 @@ void setup()
 
 void loop()
 {
-  digitalWriteFast(BLINK_LED, HIGH);
+  digitalWrite(BLINK_LED, HIGH);
 
-  while(!digitalReadFast(DUT_VSYNC));
-  while(digitalReadFast(DUT_VSYNC));
+  while(!digitalRead(DUT_VSYNC));
+  while(digitalRead(DUT_VSYNC));
 
   char szBuff[8];
 
   while(true)
   {
-    if (digitalReadFast(DUT_HSYNC))
+    if (digitalRead(DUT_HSYNC))
     {
       X_pos = 0;
       Y_pos++;
-      while(digitalReadFast(DUT_HSYNC));
+      while(digitalRead(DUT_HSYNC));
     }
-    if (digitalReadFast(DUT_VSYNC))
+    if (digitalRead(DUT_VSYNC))
     {
       oled.setCursor(100, 0);
       sprintf(szBuff, "%03d", Y_pos);
@@ -87,7 +86,7 @@ void loop()
       oled.display(); // send screen buffer to OLED (37ms)
       X_pos = 0;
       Y_pos = 0;
-      while(digitalReadFast(DUT_VSYNC));
+      while(digitalRead(DUT_VSYNC));
     }
   }
 }
@@ -97,13 +96,13 @@ void startScreen()
   oled.clearDisplay();
   oled.setTextSize(1);                    // at double size character
   oled.setTextColor(WHITE);
-  oled.setCursor(55, 0);
+  oled.setCursor(55, 10);
   oled.println(F("Test"));  
   oled.setCursor(40, 20);
   oled.println(F("pong_pt1")); 
-  oled.setCursor(55, 42);            
-  oled.println(F("v1.0"));                
-  oled.display();                         
+  oled.setCursor(15, 35);
+  oled.println(F("04_pong_pt1_Test")); 
+  oled.display();
   delay(1500);
   oled.clearDisplay();
   oled.setTextSize(1);                    // After this, standard font size
@@ -113,8 +112,7 @@ void startScreen()
 void triggerClock()
 {
   // Flip the state of the pin
-  //digitalWriteFast(DUT_CLK, !digitalReadFast(DUT_CLK));
-  digitalToggleFast(DUT_CLK);
+  digitalWrite(DUT_CLK, !digitalRead(DUT_CLK)); 
 }
 //- Capture pixel output ----------------------------------------------------
 void PixelIRQ() // IRQ pin interrupr handler
@@ -123,7 +121,7 @@ void PixelIRQ() // IRQ pin interrupr handler
   //digitalWrite(TEST_OUT, !digitalRead(TEST_OUT)); 
 
   //delayMicroseconds(50);
-  if (digitalReadFast(DUT_RGB))
+  if (digitalRead(DUT_RGB))
     oled.drawPixel((uint16_t)X_pos++, (uint16_t)Y_pos, (uint16_t)WHITE);
   else
     oled.drawPixel((uint16_t)X_pos++, (uint16_t)Y_pos, (uint16_t)BLACK);
