@@ -1,6 +1,7 @@
 /*
 
-  Disp_SH1106.ino
+  Epong_pt1_U8G2_IRQ.ino
+  for SH1106(1.3")
 
   Using Universal 8bit Graphics Library (https://github.com/olikraus/u8g2/)
   Copyright (c) 2016, olikraus@gmail.com
@@ -38,7 +39,7 @@ unsigned char TableBMP[SCREEN_W_BYTE*SCREEN_HEIGHT];
 #define _PWM_LOGLEVEL_    3
 #include "RP2040_PWM.h"
 RP2040_PWM* PWM_Instance; //creates pwm instance
-float frequency = 300000; //  Freq
+float frequency = 600000; //  Freq
 float dutyCycle = 50;     //  Duty in %
 #define PIN_CLK_OUT   29  //  PWM out pin
 //------------------------------------------------
@@ -57,20 +58,24 @@ int xPos = 0, yPos = 0;
 
 void setup(void)
 {
+  // Pin Mode setup --------------------------------------
   pinMode(PIN_ENABLE, OUTPUT);
   pinMode(PIN_RESET, OUTPUT);
 
-  pinMode(PIN_P_TICK, INPUT);
-  pinMode(PIN_HSYNC, INPUT);
-  pinMode(PIN_VSYNC, INPUT);
-  pinMode(PIN_RGB, INPUT);
+  pinMode(PIN_P_TICK, INPUT_PULLDOWN);
+  pinMode(PIN_HSYNC, INPUT_PULLDOWN);
+  pinMode(PIN_VSYNC, INPUT_PULLDOWN);
+  pinMode(PIN_RGB, INPUT_PULLDOWN);
 
-  digitalWrite(PIN_ENABLE, HIGH);
-  digitalWrite(PIN_RESET, HIGH);
+  // Initial value -----------------------------------------
+  digitalWrite(PIN_ENABLE, HIGH); // Always Enable
+  digitalWrite(PIN_RESET, HIGH);  // Reset
 
+  // OLED Driver -------------------------------------------
   u8g2.begin();
   delay(1000);
 
+  // Splash ------------------------------------------------
   for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
     TableBMP[i] = 0xAA;
   DRAW_BITMAP();
@@ -90,14 +95,19 @@ void setup(void)
   do {
     u8g2_prepare();
     //u8g2->drawStr((u8g2_uint_t)x, (u8g2_uint_t)y, (const char*)(szMsg+nIdx));
-    u8g2.drawStr(0,0, "SH1106 Display");
+    u8g2.drawStr(0, 0, "SH1106 Display");
     u8g2.drawStr(0,12, "    Controller");
   } while( u8g2.nextPage() );
 
   // PWM for Clock generator----------------------------
   PWM_Instance = new RP2040_PWM(PIN_CLK_OUT, frequency, dutyCycle);
 
-  digitalWrite(PIN_RESET, LOW);
+  // Attach the interrupt to the pin
+  attachInterrupt(digitalPinToInterrupt(PIN_P_TICK), handlerP_TICK, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_HSYNC),  handlerHSYNC,  RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_VSYNC),  handlerVSYNC,  RISING);
+
+  digitalWrite(PIN_RESET, LOW); // Release Reset
 }
 
 //-------------------------------------------------------------------
@@ -120,41 +130,31 @@ void loop(void)
 {
   PWM_Instance->setPWM(PIN_CLK_OUT, frequency, dutyCycle);
 
-  while(true)
-  {
-    if (digitalRead(PIN_VSYNC))
-    {
-      xPos = yPos = 0;
-      bUpdateBuffer = true;
-//      DRAW_BITMAP();
-
-      while(digitalRead(PIN_VSYNC));  // Wait for End of VSYNC
-
-      // Following Two lines for Skip a frame
-      //while(!digitalRead(PIN_VSYNC));  // Wait for Start of VSYNC
-      //while(digitalRead(PIN_VSYNC));  // Wait for End of VSYNC
-    }
-    else if (digitalRead(PIN_HSYNC))
-    {
-      xPos = 0;
-      yPos++;
-      if (yPos>=SCREEN_HEIGHT) yPos = SCREEN_HEIGHT-1;
-      while(digitalRead(PIN_HSYNC));  // Wait for End of HSYNC
-    }
-    else if (digitalRead(PIN_P_TICK))
-    {
-      int address = (yPos*SCREEN_W_BYTE)+xPos/8;
-      if(!(xPos%8))  TableBMP[address] = 0x00;
-
-      if (digitalRead(PIN_RGB))
-        TableBMP[address] |= (uint8_t)(0x80>>(xPos%8));
-      else
-        TableBMP[address] &= ~(0x80>>(xPos%8));
-
-      xPos++;
-      if (xPos>=SCREEN_WIDTH) xPos = SCREEN_WIDTH-1;
-
-      while(digitalRead(PIN_P_TICK));  // Wait for End of P_TICK
-    }
-  }
+  while(true);
 }
+
+// Interrupt Handlers -----------------------------------------------------
+void handlerP_TICK()
+{
+  int address = (yPos*SCREEN_W_BYTE)+xPos/8;
+  if(!(xPos%8))  TableBMP[address] = 0x00;
+
+  if (digitalRead(PIN_RGB))
+    TableBMP[address] |= (uint8_t)(0x80>>(xPos%8));
+  else
+    TableBMP[address] &= ~(0x80>>(xPos%8));
+
+  xPos++;
+  if (xPos>=SCREEN_WIDTH) xPos = SCREEN_WIDTH-1;
+}
+void handlerHSYNC()
+{
+  xPos = 0;
+  yPos++;
+}
+void handlerVSYNC()
+{
+  xPos = yPos = 0;
+  bUpdateBuffer = true;
+}
+

@@ -1,6 +1,7 @@
 /*
 
-  Disp_SH1106.ino
+  Epong_pt1_U8G2_IRQ_dBuff.ino
+  for SH1106(1.3")
 
   Using Universal 8bit Graphics Library (https://github.com/olikraus/u8g2/)
   Copyright (c) 2016, olikraus@gmail.com
@@ -41,7 +42,7 @@ bool  bEven = true;
 #define _PWM_LOGLEVEL_    3
 #include "RP2040_PWM.h"
 RP2040_PWM* PWM_Instance; //creates pwm instance
-float frequency = 800000; //  Freq
+float frequency = 600000; //  Freq
 float dutyCycle = 50;     //  Duty in %
 #define PIN_CLK_OUT   29  //  PWM out pin
 //------------------------------------------------
@@ -76,7 +77,7 @@ void setup(void)
 
   // OLED Driver -------------------------------------------
   u8g2.begin();
-  delay(1000);
+  delay(100);
 
   // Splash ------------------------------------------------
   for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
@@ -98,7 +99,7 @@ void setup(void)
   do {
     u8g2_prepare();
     u8g2.drawStr(0, 0, "MyChip-on-MyDesk");
-    u8g2.drawStr(0,12, "Pong Game");
+    u8g2.drawStr(0,12, "Pong Game/U8G2");
   } while( u8g2.nextPage() );
   delay(1000);
 
@@ -132,13 +133,15 @@ void loop1()
       {
         u8g2.firstPage();
         do {
-          u8g2_prepare();
-          u8g2.drawStr(0,12, "Game Over");
+          u8g2.drawBitmap(0, 0, SCREEN_W_BYTE, SCREEN_HEIGHT, bEven? TableBMP_Odd:TableBMP_Even);
+          u8g2.drawStr(15,12, "Game Over");
           sprintf(szBuffer,"Your Score is %d", Score/64);
-          u8g2.drawStr(0,24, szBuffer);
+          u8g2.drawStr(15,24, szBuffer);
         } while( u8g2.nextPage());
         delay(2000);
+        bUpdateBuffer = false;
         Score = 0;
+        return;
       }
     }
 
