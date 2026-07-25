@@ -16,7 +16,7 @@ U8G2_SH1106_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
 #define SCREEN_WIDTH  128
 #define SCREEN_HEIGHT 64
-#define SCREEN_W_BYTE (SCREEN_WIDTH/8)
+#define SCREEN_W_BYTE (SCREEN_WIDTH/8)  // 16
 unsigned char *TableBMP;
 unsigned char TableBMP_Even[SCREEN_W_BYTE*SCREEN_HEIGHT];
 unsigned char TableBMP_Odd[SCREEN_W_BYTE*SCREEN_HEIGHT];
@@ -57,6 +57,7 @@ void u8g2_prepare(void)
 
 //---------------------------------------------------------------
 int xPos = 0, yPos = 0;
+int Score = 0;
 
 void setup(void)
 {
@@ -96,10 +97,10 @@ void setup(void)
   u8g2.firstPage();  
   do {
     u8g2_prepare();
-    //u8g2->drawStr((u8g2_uint_t)x, (u8g2_uint_t)y, (const char*)(szMsg+nIdx));
-    u8g2.drawStr(0, 0, "SH1106 Display");
-    u8g2.drawStr(0,12, "    Controller");
+    u8g2.drawStr(0, 0, "MyChip-on-MyDesk");
+    u8g2.drawStr(0,12, "Pong Game");
   } while( u8g2.nextPage() );
+  delay(1000);
 
   // PWM for Clock generator----------------------------
   PWM_Instance = new RP2040_PWM(PIN_CLK_OUT, frequency, dutyCycle);
@@ -121,10 +122,29 @@ void setup1(void)
 
 void loop1()
 {
+  char szBuffer[32];
+
   if (bUpdateBuffer)
   {
+    for (int y=0; y<64; y++)
+    {
+      if(TableBMP[y*SCREEN_W_BYTE] & 0x40)
+      {
+        u8g2.firstPage();
+        do {
+          u8g2_prepare();
+          u8g2.drawStr(0,12, "Game Over");
+          sprintf(szBuffer,"Your Score is %d", Score/64);
+          u8g2.drawStr(0,24, szBuffer);
+        } while( u8g2.nextPage());
+        delay(2000);
+        Score = 0;
+      }
+    }
+
     DRAW_BITMAP();
     bUpdateBuffer = false;
+    Score++;
   }
 }
 
@@ -132,7 +152,8 @@ void loop(void)
 {
   PWM_Instance->setPWM(PIN_CLK_OUT, frequency, dutyCycle);
 
-  while(true);
+  while(true)
+  {}
 }
 
 // Interrupt Handlers -----------------------------------------------------
