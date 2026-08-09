@@ -356,9 +356,13 @@ bool PSCE::disp_init()
 #elif defined(DUE_OVERCLOCK) || defined(DUE_NORMAL)
   u8g2 = new U8G2_SSD1306_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE);   // Display Reset Pine: NONE
   //u8g2 = new U8G2_SH1106_128X64_NONAME_F_HW_I2C(U8G2_R0, U8X8_PIN_NONE);  // Display Reset Pine: NONE
-#elif defined(PI_PICO)
+#elif defined(PI_PICO) || defined(PI_PICO_V3)
+#if defined(PI_PICO)
   // PICO Software I2C: Rotation(R0), SDA(GPIO28/#34), SCL(GPIO27/#32), Address(0x3C)
   u8g2 = new U8G2_SSD1306_128X64_NONAME_F_SW_I2C(U8G2_R0, /* clock=*/ 27, /* data=*/ 28, /* reset=*/ U8X8_PIN_NONE);
+#elif defined(PI_PICO_V3)
+  u8g2 = new U8G2_SSD1306_128X64_NONAME_F_HW_I2C(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+#endif
 #endif
 
     u8g2->begin();

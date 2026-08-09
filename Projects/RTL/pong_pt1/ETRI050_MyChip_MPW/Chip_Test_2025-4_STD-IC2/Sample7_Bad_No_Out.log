@@ -1,0 +1,24 @@
+make -C ./emulation clean
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/RTL/pong_pt1/emulation'
+rm -f sc_pong_pt1_TB
+rm -f *.vcd
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/RTL/pong_pt1/emulation'
+VCD_TRACE=YES HW_STYLE=NONE make -C emulation build
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/RTL/pong_pt1/emulation'
+clang++ -I/opt/systemc/include -L/opt/systemc/lib \
+	-I../emulation \
+	-I../simulation \
+	-I../c_untimed \
+	-DCA \
+	-DEMULATED_CO_SIM \
+	-DVCD_TRACE_TEST_TB \
+	-lsystemc -lSDL2 \
+	-osc_pong_pt1_TB ../simulation/sc_pong_pt1_TB.cpp ../simulation/sc_main.cpp
+make[1]: Leaving directory '/home/mychip/ETRI050_DesignKit/devel/Projects/RTL/pong_pt1/emulation'
+VCD_TRACE=YES HW_STYLE=NONE make -C emulation run
+make[1]: Entering directory '/home/mychip/ETRI050_DesignKit/devel/Projects/RTL/pong_pt1/emulation'
+./sc_pong_pt1_TB
+
+Info: (I703) tracing timescale unit set: 100 ps (Epong_pt1.vcd)
+
+Info: (I703) tracing timescale unit set: 100 ps (sc_pong_pt1_TB.vcd)

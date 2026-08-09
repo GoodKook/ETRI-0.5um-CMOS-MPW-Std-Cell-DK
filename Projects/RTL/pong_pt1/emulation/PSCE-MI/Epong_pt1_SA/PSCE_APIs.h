@@ -89,9 +89,13 @@ public:
   // DUE Default I2C: Rotation(R0), SDA(20), SCL(21), Address(0x3C)
   U8G2_SSD1306_128X64_NONAME_F_HW_I2C*  u8g2;
   //U8G2_SH1106_128X64_NONAME_F_HW_I2C* u8g2;
-#elif defined(PI_PICO)
+#elif defined(PI_PICO)||defined(PI_PICO_V3)
+#if defined(PI_PICO)
   // PICO Software I2C: Rotation(R0), SDA(GPIO28/#34), SCL(GPIO27/#32), Address(0x3C)
   U8G2_SSD1306_128X64_NONAME_F_SW_I2C*  u8g2;
+#elif defined(PI_PICO_V3)
+  U8G2_SSD1306_128X64_NONAME_F_HW_I2C*  u8g2;
+#endif
 #endif
 
   void disp_prepare(void);

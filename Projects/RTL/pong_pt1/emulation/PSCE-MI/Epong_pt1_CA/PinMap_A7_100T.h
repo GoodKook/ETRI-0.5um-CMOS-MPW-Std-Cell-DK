@@ -36,14 +36,22 @@
 #define PIN_ADDR_EMU_1  25  // JD-9     |JD-9
 #define PIN_ADDR_EMU_2  23  // JD-10    |JD-10
 
-#elif defined(PI_PICO)	///////////////////////////////////////////////////////
+#elif defined(PI_PICO) || defined(PI_PICO_V3)	///////////////////////////////////////////////////////
 //           RP2040 GPIO# 
-#define PIN_DOUT_EMU_7  7 
+#define PIN_DOUT_EMU_7  7
+#if defined(PI_PICO)
 #define PIN_DOUT_EMU_6  5 
+#elif defined(PI_PICO_V3)
+#define PIN_DOUT_EMU_6  28
+#endif
 #define PIN_DOUT_EMU_5  3 
 #define PIN_DOUT_EMU_4  1 
-#define PIN_DOUT_EMU_3  6 
+#define PIN_DOUT_EMU_3  6
+#if defined(PI_PICO) 
 #define PIN_DOUT_EMU_2  4 
+#elif defined(PI_PICO_V3)
+#define PIN_DOUT_EMU_2  27
+#endif
 #define PIN_DOUT_EMU_1  2 
 #define PIN_DOUT_EMU_0  0 
 
