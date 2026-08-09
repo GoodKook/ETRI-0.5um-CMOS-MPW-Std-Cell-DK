@@ -44,7 +44,11 @@ bool  bEven = true;
 RP2040_PWM* PWM_Instance; //creates pwm instance
 float frequency = 600000; //  Freq
 float dutyCycle = 50;     //  Duty in %
-#define PIN_CLK_OUT   29  //  PWM out pin
+#ifdef PWM_PI_PICO
+#define PIN_CLK_OUT   28  //  PWM out pin for Pi Pico
+#else
+#define PIN_CLK_OUT   29  //  PWM out pin for RP2040-Zero Board
+#endif
 //------------------------------------------------
 
 void u8g2_prepare(void)
