@@ -31,9 +31,9 @@ input   right;
         end
         else
         begin
-            if (up && paddle_v > 0 && v_sync)
+            if (!up && paddle_v > 0 && v_sync)
                 paddle_v <= paddle_v - 1;
-            if (down && paddle_v < (`TABLE_HEIGHT-`PADDLE_SIZE) && v_sync)
+            if (!down && paddle_v < (`TABLE_HEIGHT-`PADDLE_SIZE) && v_sync)
                 paddle_v <= paddle_v + 1;
         end
     end
@@ -51,10 +51,10 @@ input   right;
         end
         else
         begin
-            if (left && paddle_h > 0 && v_sync)
-                paddle_h <= paddle_h - 1;
-            if (right && paddle_h < (`TABLE_WIDTH-`PADDLE_SIZE) && v_sync)
-                paddle_h <= paddle_h + 1;
+            if (!left && paddle_h > 0 && v_sync)
+                paddle_h <= paddle_h - 2;
+            if (!right && paddle_h < (`TABLE_WIDTH-`PADDLE_SIZE) && v_sync)
+                paddle_h <= paddle_h + 2;
         end
     end
 

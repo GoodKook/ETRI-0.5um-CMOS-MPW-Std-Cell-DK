@@ -10,10 +10,10 @@ void sc_glcd128x64_TLM::Button_Thread(void)
     SDL_Event event;
     bool quit = false;
 
-    up.write(false);
-    dn.write(false);
-    lt.write(false);
-    rt.write(false);
+    up.write(true);
+    dn.write(true);
+    lt.write(true);
+    rt.write(true);
 
     while(!quit)
     {
@@ -29,16 +29,16 @@ void sc_glcd128x64_TLM::Button_Thread(void)
                 switch( event.key.keysym.sym )
                 {
                     case SDLK_UP:
-                        up.write(true);
+                        up.write(false);
                         break;
                     case SDLK_DOWN:
-                        dn.write(true);
+                        dn.write(false);
                         break;
                     case SDLK_LEFT:
-                        lt.write(true);
+                        lt.write(false);
                         break;
                     case SDLK_RIGHT:
-                        rt.write(true);
+                        rt.write(false);
                         break;
                     case SDLK_r:
                         goto EXIT;
@@ -53,16 +53,16 @@ void sc_glcd128x64_TLM::Button_Thread(void)
                 switch( event.key.keysym.sym )
                 {
                     case SDLK_UP:
-                        up.write(false);
+                        up.write(true);
                         break;
                     case SDLK_DOWN:
-                        dn.write(false);
+                        dn.write(true);
                         break;
                     case SDLK_LEFT:
-                        lt.write(false);
+                        lt.write(true);
                         break;
                     case SDLK_RIGHT:
-                        rt.write(false);
+                        rt.write(true);
                         break;
                     default:
                         break;

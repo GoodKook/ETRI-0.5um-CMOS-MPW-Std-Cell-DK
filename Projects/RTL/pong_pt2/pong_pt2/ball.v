@@ -48,12 +48,12 @@ output      game_over;
         end
         else if (v_sync)
         begin
-            if ((x_ball==(`TABLE_WIDTH-`PADDLE_THICK-`BALL_SIZE)) && (y_ball>=paddle_v) && (y_ball<=(paddle_v+`PADDLE_SIZE)))
+            if ((x_ball>=(`TABLE_WIDTH-`PADDLE_THICK-`BALL_SIZE)) && (y_ball>=paddle_v) && (y_ball<=(paddle_v+`PADDLE_SIZE)))
                 sign_x <= 1;
             else if (x_ball==1)
                 sign_x <= 0;
 
-            if ((y_ball==(`TABLE_HEIGHT-`PADDLE_THICK-`BALL_SIZE)) && (x_ball>=paddle_h) && (x_ball<=(paddle_h+`PADDLE_SIZE)))
+            if ((y_ball>=(`TABLE_HEIGHT-`PADDLE_THICK-`BALL_SIZE)) && (x_ball>=paddle_h) && (x_ball<=(paddle_h+`PADDLE_SIZE)))
                 sign_y <= 1;
             else if (y_ball==1)
                 sign_y <= 0;
