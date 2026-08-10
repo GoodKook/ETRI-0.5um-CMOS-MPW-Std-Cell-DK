@@ -86,30 +86,33 @@ void sc_glcd128x64_TLM::Button_Thread(void)
 
 void sc_glcd128x64_TLM::Display_Thread(void)
 {
-    int x, y;
-
-    busy.write(false);
-
     while(true)
     {
         wait(p_tick.posedge_event());
-
-        busy.write(true);
-
         wait(p_tick.negedge_event());
 
-        x = x_pos.read();
-        y = y_pos.read();
         if (pixel.read())
             SDL_SetRenderDrawColor(renderer,255,255,255,SDL_ALPHA_OPAQUE);
         else
             SDL_SetRenderDrawColor(renderer,0,0,0,SDL_ALPHA_OPAQUE);
 
-        SDL_RenderDrawPoint(renderer, x, y);
+        SDL_RenderDrawPoint(renderer, cnt_p_tick%128, cnt_p_tick/128);
 
-        if (x==127 && y==63)
-            SDL_RenderPresent(renderer);                
+        cnt_p_tick++;
+    }
+}
 
-        busy.write(false);
+void sc_glcd128x64_TLM::V_Sync_Thread(void)
+{
+    int nFrame = 0;
+
+    while(true)
+    {
+        wait(v_sync.posedge_event());
+
+        SDL_RenderPresent(renderer);
+        cnt_p_tick = 0;
+
+        fprintf(stderr, "Frame[%d]\r", nFrame++);
     }
 }

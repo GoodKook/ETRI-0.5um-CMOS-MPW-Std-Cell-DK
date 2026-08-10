@@ -3,21 +3,20 @@
 // Purpose:
 //
 
-module pong_pt2(clk, reset, x_pos, y_pos, v_sync, pixel, p_tick, busy, up, down, left, right, game_over);
+module pong_pt2(clk, reset, v_sync, pixel, p_tick, up, down, left, right, game_over);
 input           clk;
 input           reset;
-output [6:0]    x_pos;
-output [5:0]    y_pos;
 output          v_sync;
 output          pixel;
 output          p_tick;
-input           busy;
 input           up;
 input           down;
 input           left;
 input           right;
 output          game_over;
 
+    wire [6:0] x_pos;
+    wire [5:0] y_pos;
     wire [6:0] paddle_h;
     wire [5:0] paddle_v;
     wire _v_sync, pixel_ball, pixel_paddle, game_over;
@@ -28,7 +27,6 @@ output          game_over;
         .reset(reset),
         .x_pos(x_pos),
         .y_pos(y_pos),
-        .busy(busy),
         .p_tick(p_tick),
         .v_sync(_v_sync),
         .pixel_ball(pixel_ball),

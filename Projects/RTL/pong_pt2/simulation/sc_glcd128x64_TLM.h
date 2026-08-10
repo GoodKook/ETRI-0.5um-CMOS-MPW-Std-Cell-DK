@@ -11,18 +11,19 @@
 SC_MODULE(sc_glcd128x64_TLM)
 {
     sc_in<bool>             reset;
-    sc_in<sc_uint<7> >      x_pos;
-    sc_in<sc_uint<6> >      y_pos;
+    sc_in<bool>             v_sync;
     sc_in<bool>             pixel;
     sc_in<bool>             p_tick;
-    sc_out<bool>            busy;
     sc_out<bool>            up;
     sc_out<bool>            dn;
     sc_out<bool>            lt;
     sc_out<bool>            rt;
 
     void Display_Thread(void);
+    void V_Sync_Thread(void);
     void Button_Thread(void);
+
+    int cnt_p_tick;
 
     // SDL2--------------------------
     SDL_Window* window;
@@ -34,7 +35,12 @@ SC_MODULE(sc_glcd128x64_TLM)
         SC_THREAD(Display_Thread);
         sensitive << p_tick;
 
+        SC_THREAD(V_Sync_Thread);
+        sensitive << v_sync;
+
         SC_THREAD(Button_Thread);
+
+        cnt_p_tick = 0;
 
         // SDL2--------------------------
         window = NULL;
