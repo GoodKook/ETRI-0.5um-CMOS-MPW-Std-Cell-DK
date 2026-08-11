@@ -7,7 +7,7 @@ export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 export CXX				= clang++
 
 #---------------------------------------------------------------
-TOP_MODULE = pong_pt2
+TOP_MODULE = dino_run
 
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS =  \
@@ -22,22 +22,22 @@ RTL_PATH = \
 	../$(TOP_MODULE)
 
 lint: VERILOG_SRCS =  \
-	$(RTL_PATH)/paddle.v \
-	$(RTL_PATH)/ball.v \
+	$(RTL_PATH)/dino.v \
+	$(RTL_PATH)/cactus.v \
 	$(RTL_PATH)/ctrl.v \
-	$(RTL_PATH)/pong_pt2.v
+	$(RTL_PATH)/$(TOP_MODULE).v
 
 build: VERILOG_SRCS =  \
-	$(RTL_PATH)/paddle.v \
-	$(RTL_PATH)/ball.v \
+	$(RTL_PATH)/dino.v \
+	$(RTL_PATH)/cactus.v \
 	$(RTL_PATH)/ctrl.v \
-	$(RTL_PATH)/pong_pt2.v
+	$(RTL_PATH)/$(TOP_MODULE).v
 
 run: VERILOG_SRCS =  \
-	$(RTL_PATH)/paddle.v \
-	$(RTL_PATH)/ball.v \
+	$(RTL_PATH)/dino.v \
+	$(RTL_PATH)/cactus.v \
 	$(RTL_PATH)/ctrl.v \
-	$(RTL_PATH)/pong_pt2.v
+	$(RTL_PATH)/$(TOP_MODULE).v
 
 #-------------------------------------------------------------------------------
 VERILATOR    = verilator
