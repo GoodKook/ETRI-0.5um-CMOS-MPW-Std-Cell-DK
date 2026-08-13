@@ -1,0 +1,30 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+read_verilog  /home/mychip/ETRI050_DesignKit/devel/Projects/MyChip_Games/dino_run/ETRI050/source/dino_run.v
+read_verilog  health.v
+read_verilog  lfsr_4bit.v
+read_verilog  cloud.v
+read_verilog  cactus.v
+read_verilog  dino.v
+read_verilog  ctrl.v
+
+# High-level synthesis
+synth -top dino_run
+# Map register flops
+dfflibmap -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+opt
+
+# Map combinatorial cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+
+clean -purge
+# Output buffering
+iopadmap -outpad BUFX2 A:Y -bits
+# Cleanup
+opt
+clean
+rename -enumerate
+write_verilog  dino_run_mapped.v
+stat
