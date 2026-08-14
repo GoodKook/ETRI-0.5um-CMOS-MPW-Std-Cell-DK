@@ -7,7 +7,7 @@
 # -------------------------------------------
 # set synthesis_tool = yosys
 # set placement_tool = graywolf
-# set sta_tool = vesta
+set sta_tool = opensta
 # set router_tool = qrouter
 # set migrate_tool = magic_db
 # set lvs_tool = netgen_lvs

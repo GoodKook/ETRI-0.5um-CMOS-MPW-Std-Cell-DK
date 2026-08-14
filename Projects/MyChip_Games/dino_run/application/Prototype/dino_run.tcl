@@ -34,6 +34,7 @@ if {$make_assignments} {
 	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/dino.v
 	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/cloud.v
 	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/lfsr_4bit.v
+	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/health.v
 	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/ctrl.v
 	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/cactus.v
 	set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files

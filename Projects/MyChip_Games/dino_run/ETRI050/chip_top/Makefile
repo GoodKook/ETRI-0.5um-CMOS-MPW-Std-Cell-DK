@@ -6,7 +6,7 @@ export DK_PAD_LIB=$(DK_HOME)/pads_ETRI050
 export DK_TECH=$(DK_HOME)/tech
 export DK_SCRIPT=$(DK_HOME)/scripts
 
-TOP_MODULE = pong_SbS
+TOP_MODULE = dino_run
 
 SCRIPTS_PATH = ~/ETRI050_DesignKit/scripts
 PAD_PATH =  ~/ETRI050_DesignKit/pads_ETRI

@@ -3,18 +3,18 @@
 // Filename: vpi_stub.cpp
 // Pirpose: VPI stub, Define interface to Verilog, Register Call-Back
 // Author: GoodKook, goodkook@gmail.com
-// History: 2024, Aug., 31
+// History: 2026, Jul., 31
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <vpi_user.h>
 #include <veriuser.h>
 
-#include "vpi_pong_SbS_tb_ports.h"
-#include "vpi_pong_SbS_tb_exports.h"
+#include "vpi_dino_run_tb_ports.h"
+#include "vpi_dino_run_tb_exports.h"
 
 // RTL-SystemC communitation data
-typedef struct pong_SbS
+typedef struct dino_run
 {
     // Simulation control from SC-TB
     vpiHandle   sync_sc; // Trigger SystemC TB
@@ -22,22 +22,21 @@ typedef struct pong_SbS
     // from SystemC TB to DUT's input ports
     vpiHandle   clk;
     vpiHandle   reset;
-    vpiHandle   busy;
-    vpiHandle   up;
-    vpiHandle   down;
+    vpiHandle   option;
+    vpiHandle   jump;
     // from DUT's output ports to SystemC TB
-    vpiHandle   x_pos;
-    vpiHandle   y_pos;
+    vpiHandle   v_sync;
     vpiHandle   pixel;
     vpiHandle   p_tick;
+    vpiHandle   game_over;
 } t_if;
 
-int sc_pong_SbS_tb_tf(char *user_data);
+int sc_dino_run_tb_tf(char *user_data);
 int sc_sync_callback(p_cb_data cb_data);
 
 static void my_task(void);
 
-int sc_pong_SbS_tb_tf(char *user_data)
+int sc_dino_run_tb_tf(char *user_data)
 {
     vpiHandle   inst_h, args;
     s_vpi_value value_s;
@@ -59,16 +58,15 @@ int sc_pong_SbS_tb_tf(char *user_data)
     ip->sync_sc     = vpi_scan(args);    // Trigger SystemC TB
     ip->end_of_sim  = vpi_scan(args);
     // from SystemC TB to DUT's input ports
-    ip->clk     = vpi_scan(args);
-    ip->reset   = vpi_scan(args);
-    ip->busy    = vpi_scan(args);
-    ip->up      = vpi_scan(args);
-    ip->down    = vpi_scan(args);
+    ip->clk         = vpi_scan(args);
+    ip->reset       = vpi_scan(args);
+    ip->option      = vpi_scan(args);
+    ip->jump        = vpi_scan(args);
     // from DUT's output ports to SystemC TB
-    ip->x_pos   = vpi_scan(args);
-    ip->y_pos   = vpi_scan(args);
-    ip->pixel   = vpi_scan(args);
-    ip->p_tick  = vpi_scan(args);
+    ip->v_sync      = vpi_scan(args);
+    ip->pixel       = vpi_scan(args);
+    ip->p_tick      = vpi_scan(args);
+    ip->game_over   = vpi_scan(args);
 
     vpi_free_object(args);
   
@@ -111,11 +109,8 @@ int sc_sync_callback(p_cb_data cb_data)
     invector.sync_sc = value_s.value.integer;
     if (!invector.sync_sc)  return(0);  // if NOT pos-edge,
 
-    vpi_get_value(ip->x_pos, &value_s);
-    invector.x_pos = value_s.value.integer;
-
-    vpi_get_value(ip->y_pos, &value_s);
-    invector.y_pos = value_s.value.integer;
+    vpi_get_value(ip->v_sync, &value_s);
+    invector.v_sync = value_s.value.integer;
 
     vpi_get_value(ip->pixel, &value_s);
     invector.pixel = value_s.value.integer;
@@ -123,13 +118,16 @@ int sc_sync_callback(p_cb_data cb_data)
     vpi_get_value(ip->p_tick, &value_s);
     invector.p_tick = value_s.value.integer;
 
+    vpi_get_value(ip->game_over, &value_s);
+    invector.game_over = value_s.value.integer;
+
     //---------------------------------------------------------------
     // SystemC Execution
     exec_sc(&invector, &outvector);
 
     //---------------------------------------------------------------
     // Write to Verilog TB(DUT's input ports)
-    value_s.value.integer = outvector.clk;   // pong_SbS generator from SC
+    value_s.value.integer = outvector.clk;   // dino_run generator from SC
     vpi_put_value(ip->clk, &value_s, NULL, vpiNoDelay); // NO-Delay!!!
 
     s_vpi_time delay = {vpiSimTime, 0, 10, 0.0}; // Now all inputs to DUT have delay
@@ -137,14 +135,11 @@ int sc_sync_callback(p_cb_data cb_data)
     value_s.value.integer = outvector.reset;
     vpi_put_value(ip->reset, &value_s, &delay, vpiTransportDelay);
 
-    value_s.value.integer = outvector.busy;
-    vpi_put_value(ip->busy, &value_s, &delay, vpiTransportDelay);
+    value_s.value.integer = outvector.option;
+    vpi_put_value(ip->option, &value_s, &delay, vpiTransportDelay);
 
-    value_s.value.integer = outvector.up;
-    vpi_put_value(ip->up, &value_s, &delay, vpiTransportDelay);
-
-    value_s.value.integer = outvector.down;
-    vpi_put_value(ip->down, &value_s, &delay, vpiTransportDelay);
+    value_s.value.integer = outvector.jump;
+    vpi_put_value(ip->jump, &value_s, &delay, vpiTransportDelay);
 
     value_s.value.integer = outvector.end_of_sim;   // Ends Simulation
     vpi_put_value(ip->end_of_sim, &value_s, NULL, vpiNoDelay);
@@ -158,8 +153,8 @@ static void my_task()
       s_vpi_systf_data tf_data;
 
       tf_data.type      = vpiSysTask;
-      tf_data.tfname    = (PLI_BYTE8 *)"$sc_pong_SbS_tb";    // Verilog TB view
-      tf_data.calltf    = sc_pong_SbS_tb_tf;
+      tf_data.tfname    = (PLI_BYTE8 *)"$sc_dino_run_tb";    // Verilog TB view
+      tf_data.calltf    = sc_dino_run_tb_tf;
       tf_data.compiletf = 0;
       tf_data.sizetf    = 0;
       vpi_register_systf(&tf_data);

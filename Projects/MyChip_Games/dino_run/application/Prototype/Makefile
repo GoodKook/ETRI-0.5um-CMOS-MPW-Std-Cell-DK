@@ -1,7 +1,7 @@
 #--------------------------------------------------------------------------
 export LD_LIBRARY_PATH :=/usr/bin:$(LD_LIBRARY_PATH)
-#export PATH :=/opt/intelFPGA_standard/24.1std/quartus/bin:/opt/intelFPGA_standard/24.1std/questa_fse/bin:$(PATH)
-export PATH :=/opt/altera_standard/25.1std/quartus/bin:$(PATH)
+export PATH :=/opt/intelFPGA_standard/24.1std/quartus/bin:/opt/intelFPGA_standard/24.1std/questa_fse/bin:$(PATH)
+#export PATH :=/opt/altera_standard/25.1std/quartus/bin:$(PATH)
 export LM_LICENSE_FILE :=/home/goodkook/.altera.quartus/quartus2_lic.dat
 
 PROJECT = dino_run
