@@ -2,30 +2,35 @@
 // Filename: ctrl.v
 // Purpose:
 //
-`include "dino_run.vh"
+`include "pong_vh.vh"
 
-module ctrl(clk, reset, x_pos, y_pos, p_tick, v_sync, game_init, game_new, game_over);
+module ctrl(clk, reset, x_pos, y_pos, p_tick, v_sync, pixel_ball, pixel_paddle, pixel, game_new, game_over, load_option);
 input           clk;
 input           reset;
 output [6:0]    x_pos;
 output [5:0]    y_pos;
+
+input           game_over;
+input           game_new;
 output          p_tick;
 output          v_sync;
-input           game_new;
-input           game_over;
-output          game_init;
+output          load_option;
+
+input           pixel_ball;
+input           pixel_paddle;
+output          pixel;
 
     reg [6:0]   x_pos;
     reg [5:0]   y_pos;
-    reg         pixel;
+    //reg         pixel;
     reg         p_tick;
 
     reg         v_sync;
+    reg         load_option;
 
     // FSM //////////////////////////////////////////////////////////
     reg [4:0]   State;
     reg [2:0]   cnt_v_sync;
-    reg         game_init;
     parameter sGame   = 5'b00001;
     parameter sLoad   = 5'b00010;
     parameter sWait   = 5'b00100;
@@ -41,7 +46,7 @@ output          game_init;
             p_tick <= 0;
             v_sync <= 0;
             cnt_v_sync <= 0;
-            game_init <= 0;
+            load_option <= 0;
             State <= sGame;
         end
         else
@@ -53,18 +58,19 @@ output          game_init;
                 p_tick <= 0;
                 v_sync <= 0;
                 cnt_v_sync <= 0;
-                if (!game_new)
+                load_option <= 0;
+                if (!game_new)  // Button Down
                 begin
-                    game_init <= 1;
+                    load_option <= 1;
                     State <= sLoad;
                 end
             end
 
             sLoad:
             begin
-                if (game_new)
+                if (game_new)   // Button Up
                 begin
-                    game_init <= 0;
+                    load_option <= 0;
                     State <= sWait;
                 end
             end
@@ -74,10 +80,10 @@ output          game_init;
                 x_pos <= x_pos + 1;
                 if (game_over)
                     State <= sGame;
-                else if (x_pos==(`SCREEN_WIDTH-1))
+                else if (x_pos==(`TABLE_WIDTH-1))
                 begin
                     y_pos <= y_pos + 1;
-                    if(y_pos==(`SCREEN_HEIGHT-1))
+                    if(y_pos==(`TABLE_HEIGHT-1))
                     begin
                         v_sync <= 1;
                         cnt_v_sync <= {3{1'b1}};
@@ -121,5 +127,11 @@ output          game_init;
                 State <= sWait;
             endcase
     end
+
+    // Wall ---------------------------------------------------------
+    wire pixel_wall;
+    assign pixel_wall = ((x_pos<`PADDLE_THICK)? 1:0) || ((y_pos<`PADDLE_THICK)? 1:0);
+    // Pixel --------------------------------------------------------
+    assign pixel = pixel_ball | pixel_paddle | pixel_wall;
 
 endmodule

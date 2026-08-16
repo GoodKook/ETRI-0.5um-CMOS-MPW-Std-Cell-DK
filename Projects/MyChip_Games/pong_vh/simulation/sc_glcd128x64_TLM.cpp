@@ -10,9 +10,12 @@ void sc_glcd128x64_TLM::Button_Thread(void)
     SDL_Event event;
     bool quit = false;
 
-    fprintf(stderr, "\nPress [ENTER] to Start Game\n");
-
-    jump.write(true);
+    up.write(true);
+    dn.write(true);
+    lt.write(true);
+    rt.write(true);
+    option.write(rand()%50);
+    game_new.write(1);
 
     while(!quit)
     {
@@ -27,17 +30,20 @@ void sc_glcd128x64_TLM::Button_Thread(void)
                 //std::cout << "Key pressed: " << SDL_GetKeyName(event.key.keysym.sym) << std::endl;
                 switch( event.key.keysym.sym )
                 {
-                    case SDLK_SPACE:
                     case SDLK_UP:
-                        jump.write(false);
+                        up.write(false);
                         break;
                     case SDLK_DOWN:
+                        dn.write(false);
                         break;
                     case SDLK_LEFT:
+                        lt.write(false);
                         break;
                     case SDLK_RIGHT:
+                        rt.write(false);
                         break;
                     case SDLK_RETURN:
+                        option.write(rand()%50);
                         game_new.write(0);
                         break;
                     case SDLK_r:
@@ -52,19 +58,21 @@ void sc_glcd128x64_TLM::Button_Thread(void)
                 //std::cout << "Key released: " << SDL_GetKeyName(event.key.keysym.sym) << std::endl;
                 switch( event.key.keysym.sym )
                 {
-                    case SDLK_SPACE:
                     case SDLK_UP:
-                        jump.write(true);
+                        up.write(true);
                         break;
                     case SDLK_DOWN:
+                        dn.write(true);
                         break;
                     case SDLK_LEFT:
+                        lt.write(true);
                         break;
                     case SDLK_RIGHT:
+                        rt.write(true);
                         break;
                     case SDLK_RETURN:
+                        option.write(rand()%50);
                         game_new.write(1);
-                        break;
                     default:
                         break;
                 }
@@ -112,13 +120,7 @@ void sc_glcd128x64_TLM::V_Sync_Thread(void)
         SDL_RenderPresent(renderer);
         cnt_p_tick = 0;
 
-        fprintf(stderr, "Frame[%ld]\r", nFrame++);
-
-        if (nFrame<500L)
-            option.write(0x00);
-        else
-            option.write(rand()%256);
-            //option.write((rand()%2|rand()%5<<2|(rand()%8)<<5));
+        fprintf(stderr, "Frame[%d]\r", nFrame++);
     }
 }
 
@@ -126,11 +128,10 @@ void sc_glcd128x64_TLM::Game_Over_Thread(void)
 {
     while(true)
     {
-        //fprintf(stderr, "Press [ENTER] to Start Game\n");
         wait(game_over.posedge_event());
 
-        fprintf(stderr, "*** Game Over[%ld] ***\r", nFrame);
-        fprintf(stderr, "\nPress [ENTER] to Start Game\n");
+        fprintf(stderr, "\n*** Game Over[%d] ***\n", nFrame);
+        fprintf(stderr, "Press [ENTER] for New Game\n");
         nFrame = 0;
     }
 }

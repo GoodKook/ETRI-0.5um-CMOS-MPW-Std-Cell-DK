@@ -3,7 +3,7 @@
 // Purpose:
 //
 
-module dino_run(clk, reset, v_sync, pixel, p_tick, option, jump, game_over);
+module dino_run(clk, reset, v_sync, pixel, p_tick, option, jump, game_over, game_new);
 input           clk;
 input           reset;
 output          v_sync;
@@ -11,11 +11,13 @@ output          pixel;
 output          p_tick;
 input           jump;
 input [7:0]     option;
+input           game_new;
 output          game_over;
 
     wire [6:0] x_pos;
     wire [5:0] y_pos;
-
+    wire       game_init;
+    
     wire _v_sync;
     assign v_sync = _v_sync;
 
@@ -25,12 +27,16 @@ output          game_over;
         .x_pos(x_pos),
         .y_pos(y_pos),
         .p_tick(p_tick),
-        .v_sync(_v_sync));
+        .v_sync(_v_sync),
+        .game_new(game_new),
+        .game_over(game_over),
+        .game_init(game_init));
 
     wire pixel_dino;
     dino u_dino(
         .clk(clk),
         .reset(reset),
+        .game_init(game_init),
         .x_pos(x_pos),
         .y_pos(y_pos),
         .v_sync(_v_sync),
@@ -41,6 +47,7 @@ output          game_over;
     cactus u_cactus(
         .clk(clk),
         .reset(reset),
+        .game_init(game_init),
         .x_pos(x_pos),
         .y_pos(y_pos),
         .v_sync(v_sync),
@@ -51,6 +58,7 @@ output          game_over;
     cloud u_cloud(
         .clk(clk),
         .reset(reset),
+        .game_init(game_init),
         .x_pos(x_pos),
         .y_pos(y_pos),
         .v_sync(v_sync),
@@ -70,6 +78,7 @@ output          game_over;
     health u_health(
         .clk(clk),
         .reset(reset),
+        .game_init(game_init),
         .v_sync(v_sync),
         .x_pos(x_pos),
         .y_pos(y_pos),

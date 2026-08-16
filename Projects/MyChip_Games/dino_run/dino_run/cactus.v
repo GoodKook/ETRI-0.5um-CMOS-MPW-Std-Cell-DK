@@ -4,9 +4,10 @@
 //
 `include "dino_run.vh"
 
-module cactus(clk, reset, x_pos, y_pos, delay, v_sync, pixel);
+module cactus(clk, reset, x_pos, y_pos, delay, v_sync, pixel, game_init);
 input       clk;
 input       reset;
+input       game_init;
 input [6:0] x_pos;
 input [5:0] y_pos;
 input       v_sync;
@@ -15,41 +16,63 @@ output      pixel;
 
     // Update Cactus position -----------------------------------------
     reg [6:0] x_cactus[3];
-    reg [3:0] cactus_delay[2];
+    reg [2:0] cactus_delay2;
+    reg [2:0] cactus_delay1;
+    reg [1:0] cactus_delay0;
     always @(posedge clk or posedge reset)
     begin
         if (reset)
         begin
-            cactus_delay[0] <= 0;
-            cactus_delay[1] <= 0;
+            cactus_delay0 <= 0;
+            cactus_delay1 <= 0;
+            cactus_delay2 <= 0;
             x_cactus[0] <= 0;
             x_cactus[1] <= 6;
-            x_cactus[2] <= 75;
+            x_cactus[2] <= 70;
         end
         else
         begin
-            if (v_sync)
+            if (game_init)
+            begin
+                cactus_delay0 <= 0;
+                cactus_delay1 <= 0;
+                cactus_delay2 <= 0;
+                x_cactus[0] <= 0;
+                x_cactus[1] <= 6;
+                x_cactus[2] <= 70;
+            end
+            else if (v_sync)
             begin
                 // Cactus 0
-                x_cactus[0] <= x_cactus[0] + 1;
+                if (x_cactus[0]==7'b1111111)
+                begin
+                    cactus_delay0 <= delay[1:0];
+                    x_cactus[0] <= 0;
+                end
+                else if (cactus_delay0)
+                    cactus_delay0 <= cactus_delay0 - 1;
+                else
+                    x_cactus[0] <= x_cactus[0] + 1;
 
                 // Cactus 1
-                //x_cactus[1] <= x_cactus[1] + 1;
                 if (x_cactus[1]==7'b1111111)
-                    cactus_delay[0] <= delay[7:4];
-
-                if (cactus_delay[0])
-                    cactus_delay[0] <= cactus_delay[0] - 1;
+                begin
+                    cactus_delay1 <= delay[4:2];
+                    x_cactus[1] <= 0;
+                end
+                else if (cactus_delay1)
+                    cactus_delay1 <= cactus_delay1 - 1;
                 else
                     x_cactus[1] <= x_cactus[1] + 1;
 
                 // Cactus 2
-                //x_cactus[1] <= x_cactus[1] + 1;
                 if (x_cactus[2]==7'b1111111)
-                    cactus_delay[1] <= delay[3:0];
-
-                if (cactus_delay[1])
-                    cactus_delay[1] <= cactus_delay[1] - 1;
+                begin
+                    cactus_delay2 <= delay[7:5];
+                    x_cactus[2] <= 0;
+                end
+                else if (cactus_delay2)
+                    cactus_delay2 <= cactus_delay2 - 1;
                 else
                     x_cactus[2] <= x_cactus[2] + 1;
             end

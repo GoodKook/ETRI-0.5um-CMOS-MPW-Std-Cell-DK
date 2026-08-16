@@ -4,9 +4,10 @@
 //
 `include "dino_run.vh"
 
-module health(clk, reset, x_pos, y_pos, v_sync, pixel_dino, pixel_cactus, pixel_cloud, pixel, game_over);
+module health(clk, reset, x_pos, y_pos, v_sync, pixel_dino, pixel_cactus, pixel_cloud, pixel, game_over, game_init);
 input       clk;
 input       reset;
+input       game_init;
 input [6:0] x_pos;
 input [5:0] y_pos;
 input       v_sync;
@@ -24,15 +25,18 @@ output      game_over;
             Health_plus <= 0;
             Health_minus <= 0;
         end
-        else if (v_sync)
-        begin
-            Health_plus <= 0;
-            Health_minus <= 0;
-        end
         else
         begin
-            Health_plus  <= Health_plus  | (pixel_dino & pixel_cloud);
-            Health_minus <= Health_minus | (pixel_dino & pixel_cactus);
+            if (v_sync || game_init)
+            begin
+                Health_plus <= 0;
+                Health_minus <= 0;
+            end
+            else
+            begin
+                Health_plus  <= Health_plus  | (pixel_dino & pixel_cloud);
+                Health_minus <= Health_minus | (pixel_dino & pixel_cactus);
+            end
         end
     end
 
@@ -41,12 +45,17 @@ output      game_over;
     begin
         if (reset)
             nHealth <= 3;
-        else if (v_sync)
+        else
         begin
-            if ((nHealth!=7'b1111111) && (Health_plus))
-                nHealth <= nHealth + 1;
-            else if ((nHealth>0) && Health_minus)
-                nHealth <= nHealth - 1;
+            if (game_init)
+                nHealth <= 3;
+            else if (v_sync)
+            begin
+                if ((nHealth!=7'b1111111) && (Health_plus))
+                    nHealth <= nHealth + 1;
+                else if ((nHealth>0) && Health_minus)
+                    nHealth <= nHealth - 1;
+            end
         end
     end
 

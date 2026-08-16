@@ -4,9 +4,10 @@
 //
 `include "dino_run.vh"
 
-module cloud(clk, reset, x_pos, y_pos, v_sync, alt, en_alt, pixel);
+module cloud(clk, reset, game_init, x_pos, y_pos, v_sync, alt, en_alt, pixel);
 input       clk;
 input       reset;
+input       game_init;
 input [6:0] x_pos;
 input [5:0] y_pos;
 input       v_sync;
@@ -30,7 +31,15 @@ output      pixel;
         end
         else
         begin
-            if (v_sync)
+            if (game_init)
+            begin
+                x_cloud[0] <= 0;
+                x_cloud[1] <= 0;
+                en_alt <= 1;
+                alt_cloud[0] <= 0;
+                alt_cloud[1] <= 0;
+            end
+            else if (v_sync)
             begin
                 if (x_cloud[0]==0)
                 begin

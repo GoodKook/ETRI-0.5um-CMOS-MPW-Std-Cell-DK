@@ -1,12 +1,12 @@
 //==================================================================
 // Co-Simulation of SystemC VPI+iVerilog
-// Filename: vpi_dino_run_tb_ports.h
+// Filename: vpi_pong_vh_tb_ports.h
 // Author: GoodKook, goodkook@gmail.com
 // History: 2026, Jul. 31
 //
 
-#ifndef VPI_dino_run_TB_PORTS_H
-#define VPI_dino_run_TB_PORTS_H
+#ifndef VPI_pong_vh_TB_PORTS_H
+#define VPI_pong_vh_TB_PORTS_H
 
 // from Verilog TB (DUT's output ports)
 typedef struct tag_Input
@@ -24,8 +24,10 @@ typedef struct tag_Output
     unsigned long   clk;
     unsigned long   reset;
     unsigned long   option;
-    unsigned long   jump;
-    unsigned long   game_new;
+    unsigned long   btn_up;
+    unsigned long   btn_down;
+    unsigned long   btn_left;
+    unsigned long   btn_right;
     unsigned long   end_of_sim;
 } OUT_VECTOR;
 

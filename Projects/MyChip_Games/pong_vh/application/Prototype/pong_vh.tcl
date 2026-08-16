@@ -1,4 +1,4 @@
-# File: dino_run.tcl
+# File: pong_vh.tcl
 
 # Load Quartus Prime Tcl Project package
 package require ::quartus::project
@@ -9,16 +9,16 @@ set make_assignments 1
 
 # Check that the right project is open
 if {[is_project_open]} {
-	if {[string compare $quartus(project) "dino_run"]} {
-		puts "Project dino_run is not open"
+	if {[string compare $quartus(project) "pong_vh"]} {
+		puts "Project pong_vh is not open"
 		set make_assignments 0
 	}
 } else {
 	# Only open if not already open
-	if {[project_exists dino_run]} {
-		project_open -revision dino_run dino_run
+	if {[project_exists pong_vh]} {
+		project_open -revision pong_vh pong_vh
 	} else {
-		project_new -revision dino_run dino_run
+		project_new -revision pong_vh pong_vh
 	}
 	set need_to_close_project 1
 }
@@ -30,13 +30,10 @@ if {$make_assignments} {
 	set_global_assignment -name ORIGINAL_QUARTUS_VERSION 24.1STD.0
 	set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:09:03  APRIL 25, 2025"
 	set_global_assignment -name LAST_QUARTUS_VERSION "24.1std.0 Standard Edition"
-	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/dino_run.v
-	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/dino.v
-	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/cloud.v
-	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/lfsr_4bit.v
-	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/health.v
-	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/ctrl.v
-	set_global_assignment -name SYSTEMVERILOG_FILE ../../dino_run/cactus.v
+	set_global_assignment -name SYSTEMVERILOG_FILE ../../pong_vh/pong_vh.v
+	set_global_assignment -name SYSTEMVERILOG_FILE ../../pong_vh/ball.v
+	set_global_assignment -name SYSTEMVERILOG_FILE ../../pong_vh/ctrl.v
+	set_global_assignment -name SYSTEMVERILOG_FILE ../../pong_vh/paddle.v
 	set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 	set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 	set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -60,11 +57,11 @@ if {$make_assignments} {
     set_location_assignment PIN_136 -to pixel
     set_location_assignment PIN_121 -to p_tick
     set_location_assignment PIN_120 -to game_over
-    set_location_assignment PIN_98  -to jump
-#    set_location_assignment PIN_99  -to down
-#    set_location_assignment PIN_86  -to left
-#    set_location_assignment PIN_85  -to right
-    set_location_assignment PIN_77 -to game_new
+    set_location_assignment PIN_98  -to btn_up
+    set_location_assignment PIN_99  -to btn_down
+    set_location_assignment PIN_86  -to btn_left
+    set_location_assignment PIN_85  -to btn_right
+    set_location_assignment PIN_77  -to game_new
     set_location_assignment PIN_142 -to option[7]
     set_location_assignment PIN_141 -to option[6]
     set_location_assignment PIN_138 -to option[5]
@@ -79,10 +76,10 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to v_sync
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to pixel
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to p_tick
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to jump
-#	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to down
-#	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to left
-#	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to right
+	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_up
+	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_down
+	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_left
+	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_right
 	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to game_new
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_over
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to option[7]

@@ -1,5 +1,5 @@
 #------------------------------------------------------------------
-SKETCH=Epong_pt1_U8G2_IRQ_dBuff
+SKETCH=Epong_pt1_U8G2_IRQ
 
 #export FQBN=rp2040:rp2040:rpipico
 export FQBN=rp2040:rp2040:waveshare_rp2040_zero

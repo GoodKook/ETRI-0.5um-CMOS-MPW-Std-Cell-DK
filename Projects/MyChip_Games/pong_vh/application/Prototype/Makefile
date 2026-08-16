@@ -4,9 +4,9 @@ export PATH :=/opt/intelFPGA_standard/24.1std/quartus/bin:/opt/intelFPGA_standar
 #export PATH :=/opt/altera_standard/25.1std/quartus/bin:$(PATH)
 export LM_LICENSE_FILE :=/home/goodkook/.altera.quartus/quartus2_lic.dat
 
-PROJECT = dino_run
+PROJECT = pong_vh
 
-SKETCH=$(PROJECT)_U8G2_IRQ
+SKETCH=$(PROJECT)_U8G2_IRQ_dBuff
 export FQBN=rp2040:rp2040:rpipico
 export PORT=/dev/ttyACM0
 

@@ -4,9 +4,10 @@
 //
 `include "dino_run.vh"
 
-module dino(clk, reset, x_pos, y_pos, v_sync, jump, pixel);
+module dino(clk, reset, game_init, x_pos, y_pos, v_sync, jump, pixel);
 input       clk;
 input       reset;
+input       game_init;
 input [6:0] x_pos;
 input [5:0] y_pos;
 input       v_sync;
@@ -23,7 +24,9 @@ output      pixel;
         end
         else
         begin
-            if (v_sync && jump_on)
+            if (game_init)
+                y_dino <= (`SCREEN_HEIGHT-`DINO_SIZE-`DINO_BASE);
+            else if (v_sync && jump_on)
             begin
                 if (sign_y) y_dino <= y_dino - 1;
                 else        y_dino <= y_dino + 1;
@@ -36,12 +39,17 @@ output      pixel;
     begin
         if (reset)
             sign_y <= 1;
-        else if (v_sync)
+        else
         begin
-            if (y_dino<=(`DINO_BASE*2))
-                sign_y <= 0;
-            else if (y_dino>=(`SCREEN_HEIGHT-`DINO_SIZE-`DINO_BASE))
+            if (game_init)
                 sign_y <= 1;
+            else if (v_sync)
+            begin
+                if (y_dino<=(`DINO_BASE*2))
+                    sign_y <= 0;
+                else if (y_dino>=(`SCREEN_HEIGHT-`DINO_SIZE-`DINO_BASE))
+                    sign_y <= 1;
+            end
         end
     end
 
@@ -50,12 +58,17 @@ output      pixel;
     begin
         if (reset)
             jump_on <= 0;
-        else if (v_sync)
+        else
         begin
-            if (!jump)
-                jump_on <= 1;
-            else if (jump_on && (y_dino==(`SCREEN_HEIGHT-`DINO_SIZE-`DINO_BASE)))
-                jump_on <= 0;
+            if (game_init)
+              jump_on <= 0;
+            else if (v_sync)
+            begin
+                if (!jump)
+                    jump_on <= 1;
+                else if (jump_on && (y_dino==(`SCREEN_HEIGHT-`DINO_SIZE-`DINO_BASE)))
+                    jump_on <= 0;
+            end
         end
     end
 

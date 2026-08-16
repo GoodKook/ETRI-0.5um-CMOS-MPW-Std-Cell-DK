@@ -14,19 +14,22 @@ SC_MODULE(sc_glcd128x64_TLM)
     sc_in<bool>             v_sync;
     sc_in<bool>             pixel;
     sc_in<bool>             p_tick;
-    sc_out<bool>            jump;
+    sc_out<bool>            up;
+    sc_out<bool>            dn;
+    sc_out<bool>            lt;
+    sc_out<bool>            rt;
 
-    sc_out<sc_uint<8> >     option;
-    sc_in<bool>             game_over;
-    sc_out<bool>            game_new;
-    
+    sc_in<bool>            game_over;
+    sc_out<bool>           game_new;
+    sc_out<sc_uint<8> >    option;
+
     void Display_Thread(void);
     void V_Sync_Thread(void);
     void Button_Thread(void);
     void Game_Over_Thread(void);
 
     int cnt_p_tick;
-    long int nFrame;
+    int nFrame;
 
     // SDL2--------------------------
     SDL_Window* window;
@@ -41,10 +44,10 @@ SC_MODULE(sc_glcd128x64_TLM)
         SC_THREAD(V_Sync_Thread);
         sensitive << v_sync;
 
-        SC_THREAD(Button_Thread);
-
         SC_THREAD(Game_Over_Thread);
         sensitive << game_over;
+
+        SC_THREAD(Button_Thread);
 
         cnt_p_tick = 0;
         nFrame = 0;
