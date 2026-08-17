@@ -28,14 +28,14 @@ output          game_over;
         if (reset)
         begin
             x_ball <= 0;
-            y_ball <= 30;
+            y_ball <= 20;
         end
         else
         begin
             if (game_init)
             begin
                 x_ball <= 0;
-                y_ball <= 30;
+                y_ball <= 20;
             end
             else if (v_sync)
             begin

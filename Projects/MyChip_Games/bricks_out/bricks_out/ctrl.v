@@ -59,6 +59,8 @@ output          game_init;
                     game_init <= 1;
                     State <= sLoad;
                 end
+                else
+                    State <= sGame;
             end
 
             sLoad:
@@ -66,6 +68,8 @@ output          game_init;
                 game_init <= 0;
                 if (game_new)
                     State <= sWait;
+                else
+                    State <= sLoad;
             end
 
             sWait:
@@ -116,6 +120,8 @@ output          game_init;
                     p_tick <= 1'b1;
                     State <= sPixel;
                 end
+                else
+                    State <= sV_Sync;
             end
 
             default:

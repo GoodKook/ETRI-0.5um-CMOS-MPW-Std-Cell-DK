@@ -64,6 +64,8 @@ output          pixel;
                     load_option <= 1;
                     State <= sLoad;
                 end
+                else
+                    State <= sGame;
             end
 
             sLoad:
@@ -73,6 +75,8 @@ output          pixel;
                     load_option <= 0;
                     State <= sWait;
                 end
+                else
+                    State <= sLoad;
             end
 
             sWait:
@@ -123,6 +127,8 @@ output          pixel;
                     p_tick <= 1'b1;
                     State <= sPixel;
                 end
+                else
+                    State <= sV_Sync;
             end
 
             default:
