@@ -40,7 +40,7 @@ unsigned char TableBMP[SCREEN_W_BYTE*SCREEN_HEIGHT];
 #define _PWM_LOGLEVEL_    3
 #include "RP2040_PWM.h"
 RP2040_PWM* PWM_Instance; //creates pwm instance
-float frequency = 400000; //  Freq
+float frequency = 600000; //  Freq
 float dutyCycle = 50;     //  Duty in %
 #ifdef PWM_PI_PICO
 #define PIN_CLK_OUT   28  //  PWM out pin for Pi Pico
@@ -79,27 +79,24 @@ void setup(void)
 
   // OLED Driver -------------------------------------------
   u8g2.begin();
-  //delay(100);
 
   // Splash ------------------------------------------------
-  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
-    TableBMP[i] = 0xAA;
-  DRAW_BITMAP();
-  //delay(500);
+//  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+//    TableBMP[i] = 0xAA;
+//  DRAW_BITMAP();
 
-  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
-    TableBMP[i] = 0x55;
-  DRAW_BITMAP();
-  //delay(500);
+//  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+//    TableBMP[i] = 0x55;
+//  DRAW_BITMAP();
 
   u8g2.firstPage();  
   do {
     u8g2_prepare();
     u8g2.drawStr(0, 0, "MyChip-on-MyDesk");
     u8g2.drawStr(0,12, "MyChip Games");
-    u8g2.drawStr(0,24, "Bricks Out/U8G2");
+    u8g2.drawStr(0,24, "Bricks Out");
+    u8g2.drawStr(0,36, ">> Press Start Button");
   } while( u8g2.nextPage() );
-  //delay(2000);
 
   // PWM for Clock generator----------------------------
   PWM_Instance = new RP2040_PWM(PIN_CLK_OUT, frequency, dutyCycle);

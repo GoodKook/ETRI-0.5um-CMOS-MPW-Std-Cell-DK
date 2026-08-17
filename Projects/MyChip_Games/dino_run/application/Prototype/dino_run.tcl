@@ -61,9 +61,6 @@ if {$make_assignments} {
     set_location_assignment PIN_121 -to p_tick
     set_location_assignment PIN_120 -to game_over
     set_location_assignment PIN_98  -to jump
-#    set_location_assignment PIN_99  -to down
-#    set_location_assignment PIN_86  -to left
-#    set_location_assignment PIN_85  -to right
     set_location_assignment PIN_77 -to game_new
     set_location_assignment PIN_142 -to option[7]
     set_location_assignment PIN_141 -to option[6]
@@ -79,11 +76,8 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to v_sync
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to pixel
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to p_tick
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to jump
-#	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to down
-#	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to left
-#	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to right
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to game_new
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to jump
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_new
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_over
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to option[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to option[6]

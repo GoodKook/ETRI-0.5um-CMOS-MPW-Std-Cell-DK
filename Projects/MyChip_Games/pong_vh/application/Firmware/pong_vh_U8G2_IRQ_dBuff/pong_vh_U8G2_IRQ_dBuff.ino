@@ -52,7 +52,7 @@ bool  bEven = true;
 #define _PWM_LOGLEVEL_    3
 #include "RP2040_PWM.h"
 RP2040_PWM* PWM_Instance; //creates pwm instance
-float frequency = 600000; //  Freq
+float frequency = 450000; //  Freq
 float dutyCycle = 50;     //  Duty in %
 #ifdef PWM_PI_PICO
 #define PIN_CLK_OUT   28  //  PWM out pin for Pi Pico
@@ -72,7 +72,7 @@ void u8g2_prepare(void)
 
 //---------------------------------------------------------------
 int cnt_p_tick = 0;
-int Score = 0;
+int nFrame = 0;
 
 void setup(void)
 {
@@ -107,20 +107,17 @@ void setup(void)
 
   // OLED Driver -------------------------------------------
   u8g2.begin();
-  delay(100);
 
   // Splash ------------------------------------------------
-  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
-    TableBMP_Odd[i] = 0xAA;
-  bEven = true;
-  DRAW_BITMAP();
-  delay(500);
+//  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+//    TableBMP_Odd[i] = 0xAA;
+//  bEven = true;
+//  DRAW_BITMAP();
 
-  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
-    TableBMP_Even[i] = 0x55;
-  bEven = false;
-  DRAW_BITMAP();
-  delay(500);
+//  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+//    TableBMP_Even[i] = 0x55;
+//  bEven = false;
+//  DRAW_BITMAP();
 
   bEven = true;
   TableBMP = TableBMP_Even;
@@ -130,10 +127,10 @@ void setup(void)
     u8g2_prepare();
     u8g2.drawStr(0, 0, "MyChip-on-MyDesk");
     u8g2.drawStr(0,12, "MyChip Games");
-    u8g2.drawStr(0,24, "pong_vh/U8G2");
+    u8g2.drawStr(0,24, "pong_vh");
+    u8g2.drawStr(0,36, ">> Press Start Button");
   } while( u8g2.nextPage() );
-  delay(1000);
-
+  
   // PWM for Clock generator----------------------------
   PWM_Instance = new RP2040_PWM(PIN_CLK_OUT, frequency, dutyCycle);
 
@@ -158,7 +155,7 @@ void loop1()
   {
     DRAW_BITMAP();
     bUpdateBuffer = false;
-    Score++;
+    nFrame++;
   }
 }
 
@@ -207,15 +204,14 @@ void handlerGame_Over()
   u8g2.firstPage();
   do {
     u8g2.drawStr(15,12, "Game Over");
-    sprintf(szBuffer,"Your Score is %d", Score/64);
+    sprintf(szBuffer,"Your Score is %d", nFrame);
     u8g2.drawStr(15,24, szBuffer);
+    u8g2.drawStr(0,36, ">> Press Start Button");
   } while( u8g2.nextPage());
-
-  delay(500);
 
   bEven = true;
   bUpdateBuffer = false;
-  Score = 0;
+  nFrame = 0;
   cnt_p_tick = 0;
 
   digitalWrite(PIN_RESET, LOW);

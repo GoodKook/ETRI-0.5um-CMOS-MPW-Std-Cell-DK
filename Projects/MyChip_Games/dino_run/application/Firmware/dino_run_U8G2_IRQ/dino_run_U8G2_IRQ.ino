@@ -103,27 +103,24 @@ void setup(void)
 
   // OLED Driver -------------------------------------------
   u8g2.begin();
-  delay(100);
 
   // Splash ------------------------------------------------
-  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
-    TableBMP[i] = 0xAA;
-  DRAW_BITMAP();
-  delay(500);
+//  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+//    TableBMP[i] = 0xAA;
+//  DRAW_BITMAP();
 
-  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
-    TableBMP[i] = 0x55;
-  DRAW_BITMAP();
-  delay(500);
+//  for (int i=0; i<SCREEN_W_BYTE*SCREEN_HEIGHT; i++)
+//    TableBMP[i] = 0x55;
+//  DRAW_BITMAP();
 
   u8g2.firstPage();  
   do {
     u8g2_prepare();
     u8g2.drawStr(0, 0, "MyChip-on-MyDesk");
     u8g2.drawStr(0,12, "MyChip Games");
-    u8g2.drawStr(0,24, "Dino_Run/U8G2");
+    u8g2.drawStr(0,24, "Dino Run");
+    u8g2.drawStr(0,36, ">> Press Start Button");
   } while( u8g2.nextPage() );
-  delay(1000);
 
   // PWM for Clock generator----------------------------
   PWM_Instance = new RP2040_PWM(PIN_CLK_OUT, frequency, dutyCycle);
@@ -191,9 +188,8 @@ void handlerGame_Over()
     u8g2.drawStr(15,12, "Game Over");
     sprintf(szBuffer,"Your Score is %d", Score);
     u8g2.drawStr(15,24, szBuffer);
+    u8g2.drawStr(0,36, ">> Press Start Button");
   } while( u8g2.nextPage());
-
-  delay(2000);
 
   bUpdateBuffer = false;
   Score = 0;

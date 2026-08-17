@@ -78,7 +78,7 @@ output          pixel;
             sWait:
             begin
                 x_pos <= x_pos + 1;
-                if (game_over)
+                if (game_over || !game_new)
                     State <= sGame;
                 else if (x_pos==(`TABLE_WIDTH-1))
                 begin
@@ -106,7 +106,7 @@ output          pixel;
             begin
                 v_sync <= 0;
                 p_tick <= 1'b0;
-                if (game_over)
+                if (game_over || !game_new)
                     State <= sGame;
                 else
                     State <= sWait;
@@ -116,7 +116,9 @@ output          pixel;
             begin
                 v_sync <= 0;
                 cnt_v_sync <= cnt_v_sync - 1;
-                if (cnt_v_sync==0)
+                if (game_over || !game_new)
+                    State <= sGame;
+                else if (cnt_v_sync==0)
                 begin
                     p_tick <= 1'b1;
                     State <= sPixel;

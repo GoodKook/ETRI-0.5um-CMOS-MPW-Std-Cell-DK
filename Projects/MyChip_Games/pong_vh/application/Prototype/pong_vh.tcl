@@ -76,11 +76,11 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to v_sync
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to pixel
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to p_tick
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_up
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_down
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_left
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_right
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to game_new
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_up
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_down
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_left
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_right
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_new
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_over
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to option[7]
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to option[6]

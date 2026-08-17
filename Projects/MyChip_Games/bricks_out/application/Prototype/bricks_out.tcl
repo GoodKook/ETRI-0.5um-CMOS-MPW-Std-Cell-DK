@@ -59,10 +59,7 @@ if {$make_assignments} {
     set_location_assignment PIN_121 -to p_tick
     set_location_assignment PIN_120 -to game_over
     set_location_assignment PIN_125 -to game_complete
-
-#    set_location_assignment PIN_124 -to game_new
     set_location_assignment PIN_77 -to game_new
-
     set_location_assignment PIN_85  -to btn_right
     set_location_assignment PIN_86  -to btn_left
 
@@ -73,11 +70,9 @@ if {$make_assignments} {
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to p_tick
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_over
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_complete
-
-#	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_new
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to game_new
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_left
-	set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to btn_right
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_new
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_left
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_right
 
 	set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 
