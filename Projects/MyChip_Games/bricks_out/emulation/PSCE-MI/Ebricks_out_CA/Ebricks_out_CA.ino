@@ -35,7 +35,7 @@ void setup()
 {
   psce.init();  // BPS=115200
 
-  attachInterrupt(digitalPinToInterrupt(PIN_IO_REQ), handlerIO_Req, RISING);
+  //attachInterrupt(digitalPinToInterrupt(PIN_IO_REQ), handlerIO_Req, RISING);
 }
 
 void loop()
@@ -43,6 +43,7 @@ void loop()
   psce.EMU_Blinker(0x40);   // Blinker speed
   psce.RxPacket(N_RX, DUT_CLK_BYTE, DUT_CLK_BITMAP);  // CLK position
   psce.TxPacket(N_TX);
+  handlerIO_Req();
 }
 
 //---------------------------------------------------------------------------
@@ -74,6 +75,8 @@ void handlerIO_Req(void)
 // Interrupt Handlers -----------------------------------------------------
 void handlerP_TICK()
 {
+  //psce.disp_print(0,0,(char*)"handler P_Tick");
+
   int xPos = cnt_p_tick%SCREEN_WIDTH;
   int yPos = cnt_p_tick/SCREEN_WIDTH;
   int address = (yPos*SCREEN_W_BYTE)+xPos/8;
@@ -122,6 +125,7 @@ void Render()
 
 void handlerV_SYNC()
 {
+  //psce.disp_print(0, 12,(char*)"handler V_Sync");
   Render();
 }
 
@@ -134,10 +138,16 @@ void loop1()
 {
   if (bUpdateBuffer)
   {
-    psce.u8g2->clearBuffer();
-    psce.u8g2->setBitmapMode(false);  // Solid
-    psce.u8g2->drawBitmap(0, 0, SCREEN_WIDTH/8, SCREEN_HEIGHT, TableBMP); // 8-pixels per a byte
-    psce.u8g2->sendBuffer();
+    //psce.u8g2->begin();
+    //psce.u8g2->clearBuffer();
+    //psce.u8g2->setBitmapMode(false);  // Solid
+    //psce.u8g2->drawBitmap(0, 0, SCREEN_WIDTH/8, SCREEN_HEIGHT, TableBMP); // 8-pixels per a byte
+    //psce.u8g2->sendBuffer();
+
+    psce.u8g2->firstPage();
+    do {
+      psce.u8g2->drawBitmap(0, 0, SCREEN_W_BYTE, SCREEN_HEIGHT, TableBMP);
+    } while( psce.u8g2->nextPage() );
 
     bUpdateBuffer = false;
     nFrame++;

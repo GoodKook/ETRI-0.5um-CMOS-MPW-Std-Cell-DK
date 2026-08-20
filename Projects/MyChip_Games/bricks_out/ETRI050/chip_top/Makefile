@@ -42,7 +42,7 @@ all:
 copy_pad_frame: $(CHIP_NAME)_Top.mag
 
 $(CHIP_NAME)_Top.mag:
-	cp $(PAD_PATH)/MPW_PAD_28Pin_IO.mag ./$(CHIP_NAME)_Top.mag
+	cp $(PAD_PATH)/MPW_PAD_28Pin_IO_Games.mag ./$(CHIP_NAME)_Top.mag
 
 copy_core:  $(CHIP_NAME)_Core.mag
 

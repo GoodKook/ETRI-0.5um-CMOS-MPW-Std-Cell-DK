@@ -42,12 +42,13 @@ synthesize : ./log/synth.log
 place : ./log/place.log
 
 ./log/place.log : \
-	./layout/$(TOP_MODULE).par \
 	./layout/$(TOP_MODULE).cel2 \
 	./log/synth.log \
 	project_vars.sh
 	qflow place -T etri050 $(TOP_MODULE)
 
+./layout/$(TOP_MODULE).cel2 :
+	cp /home/mychip/ETRI050_DesignKit/pads_ETRI/games.cel2 ./layout/$(TOP_MODULE).cel2
 # -----------------------------------------------------
 sta : ./log/sta.log
 
