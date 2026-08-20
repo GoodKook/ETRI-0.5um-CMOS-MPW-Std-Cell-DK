@@ -10,7 +10,11 @@
 #include <verilated_vcd_sc.h>
 #endif
 
+#ifdef EMULATED_CO_SIM
+#include "Ebricks_out.h"
+#else
 #include "Vbricks_out.h"
+#endif
 #include "sc_glcd128x64_TLM.h"
 
 SC_MODULE(sc_bricks_out_TB)
@@ -28,7 +32,11 @@ SC_MODULE(sc_bricks_out_TB)
     sc_signal<bool>         game_complete;
     sc_signal<bool>         game_new;
 
+#ifdef EMULATED_CO_SIM
+    Ebricks_out*              u_bricks_out;
+#else
     Vbricks_out*              u_bricks_out;
+#endif
     sc_glcd128x64_TLM*      u_sc_glcd128x64_TLM;
 
 #ifdef  VCD_TRACE_TEST_TB
@@ -47,7 +55,11 @@ SC_MODULE(sc_bricks_out_TB)
         sensitive << clk;
 
         // Instantiate DUT --------------------------------
+        #ifdef EMULATED_CO_SIM
+        u_bricks_out = new Ebricks_out("u_bricks_out");
+        #else
         u_bricks_out = new Vbricks_out("u_bricks_out");
+        #endif
         u_bricks_out->clk(clk);
         u_bricks_out->reset(reset);
         u_bricks_out->v_sync(v_sync);

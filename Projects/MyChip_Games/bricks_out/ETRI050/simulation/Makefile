@@ -5,7 +5,7 @@ export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
 export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 
-DUT_MODULE = dino_run
+DUT_MODULE = bricks_out
 TOP_MODULE = $(DUT_MODULE)
 
 # Build Rules --------------------------------------------------

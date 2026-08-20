@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 # Targetting ETRI050 node
 
-TOP_MODULE = dino_run
+TOP_MODULE = bricks_out
 VERILOG_SRCS =	./source/$(TOP_MODULE).v
 
 all :

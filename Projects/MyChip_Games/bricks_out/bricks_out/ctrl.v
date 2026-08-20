@@ -75,7 +75,7 @@ output          game_init;
             sWait:
             begin
                 x_pos <= x_pos + 1;
-                if (game_over || game_complete || !game_new)
+                if (game_over || game_complete)
                     State <= sGame;
                 else if (x_pos==(`SCREEN_WIDTH-1))
                 begin
@@ -103,7 +103,7 @@ output          game_init;
             begin
                 v_sync <= 0;
                 p_tick <= 1'b0;
-                if (game_over || game_complete || !game_new)
+                if (game_over || game_complete)
                     State <= sGame;
                 else
                     State <= sWait;
@@ -113,7 +113,7 @@ output          game_init;
             begin
                 v_sync <= 0;
                 cnt_v_sync <= cnt_v_sync - 1;
-                if (game_over || game_complete || !game_new)
+                if (game_over || game_complete)
                     State <= sGame;
                 else if (cnt_v_sync==0)
                 begin

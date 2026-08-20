@@ -22,13 +22,6 @@ U8G2_SH1106_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 #define SCREEN_W_BYTE (SCREEN_WIDTH/8)  // 16
 unsigned char TableBMP[SCREEN_W_BYTE*SCREEN_HEIGHT];
 
-#define PIN_RESET         7
-#define PIN_PIXEL         27
-#define PIN_V_SYNC        26
-#define PIN_P_TICK        14
-#define PIN_GAME_COMPLETE 12
-#define PIN_GAME_OVER     15
-
 #define DRAW_BITMAP() { \
     u8g2.firstPage();  \
     do { \
@@ -40,14 +33,23 @@ unsigned char TableBMP[SCREEN_W_BYTE*SCREEN_HEIGHT];
 #define _PWM_LOGLEVEL_    3
 #include "RP2040_PWM.h"
 RP2040_PWM* PWM_Instance; //creates pwm instance
-float frequency = 600000; //  Freq
+float frequency = 500000; //  Freq
 float dutyCycle = 50;     //  Duty in %
-#ifdef PWM_PI_PICO
 #define PIN_CLK_OUT   28  //  PWM out pin for Pi Pico
-#else
-#define PIN_CLK_OUT   29  //  PWM out pin for RP2040-Zero Board
-#endif
 //------------------------------------------------
+#define PIN_RESET         6
+#define PIN_V_SYNC        7
+#define PIN_PIXEL         8
+#define PIN_P_TICK        9
+#define PIN_BTN_LEFT      10
+#define PIN_BTN_RIGHT     11
+#define PIN_GAME_NEW      12
+#define PIN_GAME_OVER     13
+#define PIN_GAME_COMPLETE 14
+//------------------------------------------------
+#define PIN_SW_F          0
+#define PIN_SW_B          1
+#define PIN_SW_M          2
 
 void u8g2_prepare(void)
 {
@@ -66,16 +68,27 @@ int nTry = 0;
 void setup(void)
 {
   // Pin Mode setup --------------------------------------
-  pinMode(PIN_RESET, OUTPUT);
+  pinMode(PIN_SW_F, INPUT);
+  pinMode(PIN_SW_B, INPUT);
+  pinMode(PIN_SW_M, INPUT);
 
-  pinMode(PIN_P_TICK, INPUT_PULLDOWN);
+  pinMode(PIN_RESET, OUTPUT);
+  pinMode(PIN_BTN_LEFT, OUTPUT);
+  pinMode(PIN_BTN_RIGHT, OUTPUT);
+  pinMode(PIN_GAME_NEW, OUTPUT);
+
   pinMode(PIN_V_SYNC, INPUT_PULLDOWN);
   pinMode(PIN_PIXEL, INPUT_PULLDOWN);
+  pinMode(PIN_P_TICK, INPUT_PULLDOWN);
   pinMode(PIN_GAME_OVER, INPUT_PULLDOWN);
   pinMode(PIN_GAME_COMPLETE, INPUT_PULLDOWN);
 
   // Initial value -----------------------------------------
   digitalWrite(PIN_RESET, HIGH);  // Reset
+  digitalWrite(PIN_RESET, HIGH);
+  digitalWrite(PIN_BTN_LEFT, HIGH);
+  digitalWrite(PIN_BTN_RIGHT, HIGH);
+  digitalWrite(PIN_GAME_NEW, HIGH);
 
   // OLED Driver -------------------------------------------
   u8g2.begin();
@@ -127,12 +140,50 @@ void loop1()
   }
 }
 
+#define DEBOUNCE_DELAY  20
+
 void loop(void)
 {
   PWM_Instance->setPWM(PIN_CLK_OUT, frequency, dutyCycle);
 
   while(true)
-  {}
+  {
+    if (!digitalRead(PIN_SW_F))
+    {
+      delay(DEBOUNCE_DELAY);  // Delay 20ms
+      digitalWrite(PIN_BTN_LEFT, LOW);
+    }
+    else
+    {
+      delay(DEBOUNCE_DELAY);  // Delay 20ms
+      digitalWrite(PIN_BTN_LEFT, HIGH);
+    }
+
+    if (!digitalRead(PIN_SW_B))
+    {
+      delay(DEBOUNCE_DELAY);  // Delay 20ms
+      digitalWrite(PIN_BTN_RIGHT, LOW);
+    }
+    else
+    {
+      delay(DEBOUNCE_DELAY);  // Delay 20ms
+      digitalWrite(PIN_BTN_RIGHT, HIGH);
+    }
+
+    if (!digitalRead(PIN_SW_M))
+    {
+      delay(DEBOUNCE_DELAY);  // Delay 20ms
+      if (digitalRead(PIN_GAME_COMPLETE))
+        digitalWrite(PIN_RESET, HIGH);
+      digitalWrite(PIN_GAME_NEW, LOW);
+    }
+    else
+    {
+      delay(DEBOUNCE_DELAY);  // Delay 20ms
+      digitalWrite(PIN_RESET, LOW);
+      digitalWrite(PIN_GAME_NEW, HIGH);
+    }
+  }
 }
 
 // Interrupt Handlers -----------------------------------------------------

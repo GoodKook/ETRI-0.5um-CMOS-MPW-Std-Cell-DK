@@ -53,26 +53,26 @@ if {$make_assignments} {
 	set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
     set_location_assignment PIN_135 -to clk
-    set_location_assignment PIN_132 -to reset
-    set_location_assignment PIN_111 -to v_sync
-    set_location_assignment PIN_136 -to pixel
-    set_location_assignment PIN_121 -to p_tick
-    set_location_assignment PIN_120 -to game_over
-    set_location_assignment PIN_125 -to game_complete
-    set_location_assignment PIN_77 -to game_new
-    set_location_assignment PIN_85  -to btn_right
-    set_location_assignment PIN_86  -to btn_left
+    set_location_assignment PIN_133 -to reset
+    set_location_assignment PIN_132 -to v_sync
+    set_location_assignment PIN_129 -to pixel
+    set_location_assignment PIN_128 -to p_tick
+    set_location_assignment PIN_127 -to btn_left
+    set_location_assignment PIN_126 -to btn_right
+    set_location_assignment PIN_125 -to game_new
+    set_location_assignment PIN_124 -to game_over
+    set_location_assignment PIN_121 -to game_complete
 
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to reset
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to v_sync
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to pixel
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to p_tick
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_over
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_complete
-	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_new
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_left
 	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to btn_right
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_new
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_over
+	set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to game_complete
 
 	set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 

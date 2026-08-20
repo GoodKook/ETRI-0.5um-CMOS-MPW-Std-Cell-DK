@@ -6,7 +6,7 @@ export DK_PAD_LIB=$(DK_HOME)/pads_ETRI050
 export DK_TECH=$(DK_HOME)/tech
 export DK_SCRIPT=$(DK_HOME)/scripts
 
-TOP_MODULE = dino_run
+TOP_MODULE = bricks_out
 
 SCRIPTS_PATH = ~/ETRI050_DesignKit/scripts
 PAD_PATH =  ~/ETRI050_DesignKit/pads_ETRI
@@ -16,10 +16,10 @@ CHIP_NAME = $(TOP_MODULE)
 
 PAD_X = 97.5
 PAD_Y = 97.5
-PIN_ROUTE_X =
-PIN_ROUTE_Y =
-CORE_X =
-CORE_Y =
+PIN_ROUTE_X = 441
+PIN_ROUTE_Y = 441
+CORE_X = 566
+CORE_Y = 589
 
 all:
 	@echo

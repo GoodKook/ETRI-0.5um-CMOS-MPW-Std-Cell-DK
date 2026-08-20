@@ -1,0 +1,54 @@
+Project: "Bricks Out"
+
+Application Board Setup
+
+RTL             PI PICO     FPGA(Cyclone-IV)
+Port            GPIO#       Pin#
+--------------- ----------- ----------------
+clk             28          135
+reset           6           133
+v_sync          7           132
+pixel           8           129
+p_tick          9           128
+btn_left        10          127
+btn_right       11          126
+game_new        12          125
+game_over       13          124
+game_complete   14          121
+
+5-Way SW        GPIO#
+-----------     -----------
+PIN_SW_F        0
+PIN_SW_B        1
+PIN_SW_M        2
+
+Emulation Board Setup
+
+FPGA(Cyclone-IV)    Emulation
+Pin#                Ports
+-------------       --------------
+132                 Dout_emu[7]
+135                 Dout_emu[6]
+137                 Dout_emu[5]
+141                 Dout_emu[4]
+133                 Dout_emu[3]
+136                 Dout_emu[2]
+138                 Dout_emu[1]
+142                 Dout_emu[0]
+120                 Din_emu[7]
+124                 Din_emu[6]
+126                 Din_emu[5]
+128                 Din_emu[4]
+121                 Din_emu[3]
+125                 Din_emu[2]
+127                 Din_emu[1]
+129                 Din_emu[0]
+119                 get_emu
+113                 load_emu
+24                  clk_dut
+23                  clk_emu
+111                 Addr_emu[2]
+114                 Addr_emu[1]
+115                 Addr_emu[0]
+112                 io_req          (Loopback of clk_dut)
+

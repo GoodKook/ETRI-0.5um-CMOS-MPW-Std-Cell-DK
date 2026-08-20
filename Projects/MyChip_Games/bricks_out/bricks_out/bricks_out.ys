@@ -1,0 +1,28 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+read_verilog  /home/mychip/MyChip_Work/Projects/MyChip_Games/bricks_out/ETRI050/source/bricks_out.v
+read_verilog  ball.v
+read_verilog  bricks.v
+read_verilog  paddle.v
+read_verilog  ctrl.v
+
+# High-level synthesis
+synth -top bricks_out
+# Map register flops
+dfflibmap -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib
+opt
+
+# Map combinatorial cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty /usr/local/share/qflow/tech/etri050/etri05_stdcells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+
+clean -purge
+# Output buffering
+iopadmap -outpad BUFX2 A:Y -bits
+# Cleanup
+opt
+clean
+rename -enumerate
+write_verilog  bricks_out_mapped.v
+stat

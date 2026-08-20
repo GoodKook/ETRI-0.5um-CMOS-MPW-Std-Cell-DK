@@ -7,7 +7,7 @@ export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
 export CXX				= clang++
 
 #---------------------------------------------------------------
-TOP_MODULE = bricks_out
+#TOP_MODULE = bricks_out
 
 # SystemC testbench Reuse --------------------------------------
 SC_SRCS =  \
