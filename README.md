@@ -6,6 +6,11 @@ Visit following blog page for more information,
 
 https://fun-teaching-goodkook.blogspot.com/2024/07/mpw.html
 
+Join MyChip Open-Source Design Kit User Group,
+
+https://groups.google.com/g/mychip-on-mydesk
+
+
 * Note: Blog page is written in Korean. You may read via machine translation.
 
 ![Design Kit Flow](https://github.com/GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/blob/main/OpenSource_DK_Flow.jpg)
