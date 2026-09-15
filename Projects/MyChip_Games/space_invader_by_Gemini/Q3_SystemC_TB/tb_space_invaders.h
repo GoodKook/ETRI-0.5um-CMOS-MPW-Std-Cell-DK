@@ -1,3 +1,7 @@
+//
+// Filename: tb_space_invaders.h
+//
+//-----------------------------------------------------------------------------
 #ifndef TB_SPACE_INVADERS_H
 #define TB_SPACE_INVADERS_H
 #include <systemc.h>

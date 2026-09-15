@@ -1,7 +1,10 @@
-// space_invaders_engine_glcd.v
+//
+// Filename: space_invaders_engine_glcd.v
 // 128x64 Graphic LCD Bus Interface를 탑재한 아케이드 게임 엔진
+//
+//----------------------------------------------------------------------
 
-module space_invaders_engine (
+module space_invaders_engine_glcd (
     input wire clk,           // 시스템 클럭 (예: 50MHz)
     input wire rst_n,         // Active-low 리셋
     input wire btn_left,      // 플레이어 왼쪽 이동

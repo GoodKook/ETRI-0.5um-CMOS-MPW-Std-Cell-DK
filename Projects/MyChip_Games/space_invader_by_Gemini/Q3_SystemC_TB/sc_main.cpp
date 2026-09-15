@@ -1,3 +1,7 @@
+//
+// Filename: sc_main.cpp
+//
+//-----------------------------------------------------------------------------
 #include <systemc.h>
 #include "tb_space_invaders.h"
 

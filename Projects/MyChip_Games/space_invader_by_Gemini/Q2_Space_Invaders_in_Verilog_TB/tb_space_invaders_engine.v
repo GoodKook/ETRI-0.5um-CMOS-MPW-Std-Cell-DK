@@ -1,6 +1,6 @@
-// Gemini generate testbench,
-//  $ iverilog -o tb_space_invaders_engine tb_space_invaders_engine.v ../space_invaders_engine/space_invaders_engine.v
-//  $ ./tb_space_invaders_engine
+//
+// Filename: tb_space_invaders_engine.v
+//
 // ------------------------------------------------------------------
 
 `timescale 1ns / 1ps

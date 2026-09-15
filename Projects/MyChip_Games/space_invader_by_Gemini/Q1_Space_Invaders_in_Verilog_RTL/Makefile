@@ -7,22 +7,15 @@ all :
 	@echo
 	@echo '"$(DUT_MODULE)" with Gemini AI'
 	@echo
-	@echo 'Q5. space_invaders_engine의 베릴로그 테스트벤치에 SDL을 사용하여 시각화 할 수 있도록 할 것'
-	@echo -n "Gemini: [Y/n]: "
+	@echo 'Q1: Write Space Invader game in Verilog RTL?'
+	@echo -n "AI: [Y/n] "
 	@read answer; : $${answer:=y}; \
 	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
-		clear;less ./Q5_Visualize_with_SDL2.txt; \
-		clear;less ./space_invaders_engine_glcd.v; \
-		clear;less ./sim_display.cpp; \
-		clear;less ./tb_space_invaders.v; \
+		clear;less ./Q1_Can_you_write_Space_Invader_game_in_Verilog_RTL.txt; \
 	fi
 	@echo '-----------------------------------------------------------'
-	@echo -n "Build & Run ? [Y/n]: "
+	@echo -n "See AI generated RTL? [Y/n] "
 	@read answer; : $${answer:=y}; \
 	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
-		bash run.sh; \
+		clear;less ./space_invaders_engine.v; \
 	fi
-
-# Cleaning ----------------------------------------------------------------
-clean :
-	rm -rf ./obj_dir

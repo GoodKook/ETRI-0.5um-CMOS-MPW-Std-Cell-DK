@@ -1,7 +1,7 @@
-// Gemini generated to order,
-//  "Can you write Space Invader game in Verilog RTL?"
-//--------------------------------------------------------------------------
-// space_invaders_engine.v
+//
+// Filename: space_invaders_engine.v
+//
+//----------------------------------------------------------------------------
 // Core Game Logic and Display Matrix for Space Invaders
 
 module space_invaders_engine (

@@ -11,21 +11,15 @@ all :
 	@echo -n "Gemini: [Y/n]: "
 	@read answer; : $${answer:=y}; \
 	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
-		more ../Talks/3_Write_Testbench_in_SystemC.txt; \
+		clear;less ./Q3_Write_Testbench_in_SystemC.txt; \
 	fi
 	@echo
-
-# Build --------------------------------------------------------
-run: tb_$(DUT_MODULE)
-	./tb_$(DUT_MODULE)
-
-tb_$(DUT_MODULE): tb_$(DUT_MODULE).v $(DUT_MODULE).v
-	$(IVERILOG) -o tb_$(DUT_MODULE) tb_$(DUT_MODULE).v $(DUT_MODULE).v
-
-wave :
-	gtkwave tb_$(DUT_MODULE).vcd --save=tb_$(DUT_MODULE).gtkw &
-
-# Cleaning ----------------------------------------------------------------
-clean :
-	rm -f *.vcd
-	rm -f tb_$(DUT_MODULE)
+	@echo '-----------------------------------------------------------'
+	@echo -n "See AI generated Testbench? [Y/n] "
+	@read answer; : $${answer:=y}; \
+	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
+		clear;less ./tb_space_invaders.h; \
+		clear;less ./tb_space_invaders.cpp; \
+		clear;less ./sc_main.cpp; \
+	fi
+	@echo

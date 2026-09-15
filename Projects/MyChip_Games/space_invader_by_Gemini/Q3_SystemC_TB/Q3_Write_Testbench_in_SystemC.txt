@@ -1,0 +1,21 @@
+Q3. Write testbench in SystemC
+==============================
+
+space_invaders_engine Verilog RTL 모듈을 검증하기 위한 SystemC 기반의 테스트벤치 구조입니다.
+ModelSim, QuestaSim, Xcelium 등 최신 EDA 시뮬레이터는 **Verilog-SystemC Co-Simulation(혼합 시뮬레이션)**을 지원합니다. 아래 코드는 하드웨어 신호 구동을 위한 tb_space_invaders 모듈과 테스트 시나리오를 주도하는 SC_THREAD 기반의 소스 코드로 구성되어 있습니다.
+------------------------------
+## 💻 SystemC Testbench Header
+tb_space_invaders.h
+
+------------------------------
+## 💻 SystemC Testbench Source
+tb_space_invaders.cpp
+
+------------------------------
+## 💻 최상위 시뮬레이션 엔트리
+sc_main.cpp
+
+------------------------------
+이 SystemC 소스코드를 컴파일하고 Verilog와 묶어서 검증하기 위해 **현재 사용 중이신 EDA 시뮬레이터(예: ModelSim/Questa, Vivado, Xcelium 등)**가 무엇인지 알려주시면, 컴파일 및 혼합 시뮬레이션을 실행하기 위한 Makefile이나 스크립트 작성 예시를 맞춤형으로 안내해 드릴 수 있습니다. 어떤 환경을 사용 중이신가요?
+
+

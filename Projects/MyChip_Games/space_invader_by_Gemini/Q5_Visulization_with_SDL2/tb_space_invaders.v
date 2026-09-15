@@ -1,3 +1,8 @@
+//
+// Filename: tb_space_invaders.v
+//
+//----------------------------------------------------------------------
+
 `timescale 1ns / 1ps
 
 module tb_space_invaders();
@@ -21,7 +26,7 @@ module tb_space_invaders();
     wire lcd_data;
 
     // UUT 인스턴스화
-    space_invaders_engine uut (
+    space_invaders_engine_glcd uut (
         .clk(clk),
         .rst_n(rst_n),
         .btn_left(btn_left),

@@ -1,0 +1,27 @@
+Q6b. 이 테스트벤치와 연동되는 sim_display.cpp 전체 통합 소스 코드가 필요하다
+=================================================================
+
+Verilog 테스트벤치(tb_space_invaders.v)와 완벽하게 기계적으로 맞물려 돌아가는 sim_display.cpp 전체 통합 소스 코드입니다.
+이 코드는 실시간으로 화면을 그려주는 그래픽 엔진 역할과 동시에, 호스트 PC의 키보드 입력(좌/우 방향키, 스페이스바) 상태를 낚채어 Verilog의 btn_left, btn_right, btn_fire 신호선으로 실시간 피드백해 주는 양방향 DPI-C 매커니즘이 구현되어 있습니다.
+------------------------------
+## 💻 sim_display.cpp 전체 통합 소스 코드
+
+------------------------------
+## 🚀 컴파일 및 구동 최종 점검 명령어
+이제 프로젝트 디렉터리에 space_invaders_engine_glcd.v, tb_space_invaders.v, sim_display.cpp 파일 3개가 한 곳에 완비되었습니다.
+리눅스 터미널(Ubuntu/WSL)에서 아래 명령어 묶음을 실행하면, C++ 컴파일러 플래그와 SDL2 동적 라이브러리가 Verilator 실행 파일 빌드 아티팩트에 하나로 묶여 컴파일되며 아케이드 에뮬레이터 바이너리가 완성됩니다.
+
+# Verilator 빌드 환경 가동 및 단독 타깃 컴파일
+verilator --binary -Wall -Wno-fatal \
+    space_invaders_engine_glcd.v \
+    tb_space_invaders.v \
+    sim_display.cpp \
+    -LDFLAGS "$(sdl2-config --libs)" \
+    -CFLAGS "$(sdl2-config --cflags) -std=c++17" \
+    --top-module tb_space_invaders \
+    --Mdir obj_dir
+# 최종 생성된 시뮬레이션 바이너리 구동 (오락실 게임 창 팝업!)
+./obj_dir/Vtb_space_invaders
+
+모든 설계 인프라가 구현되었습니다. 구동 중 환경 상의 문제로 빌드 에러가 나거나, 외계인 레이아웃의 마리 수 및 대형을 아케이드판 규격 수준인 5행 11열 격자로 대대적으로 확장하고 싶다면 어떤 방향으로 개선을 도와드릴까요?
+

@@ -1,0 +1,16 @@
+Q2. wrute testbench
+===================
+
+다음은 위에서 설계한 space_invaders_engine 모듈을 검증하기 위한 Verilog 테스트벤치(Testbench) 코드입니다.
+실제 하드웨어 환경처럼 클럭(Clock)과 리셋(Reset)을 공급하고, 플레이어가 왼쪽/오른쪽으로 움직이거나 미사일을 발사하는 상황을 시뮬레이션합니다. 또한 VGA 컨트롤러가 화면을 스캔하듯 vga_x와 vga_y를 순차적으로 증가시켜 픽셀 출력이 정상적으로 나오는지 확인합니다.
+------------------------------
+## 💻 Space Invaders Testbench Code
+tb_space_invaders_engine.v
+------------------------------
+## 🔍 시뮬레이션 확인 포인트
+
+   1. 상태 천이(State Transition): 리셋이 해제되면 rgb가 파란색(3'b001)을 출력하다가, btn_fire가 입력된 직후 다음 화면 스캔부터 검은색 배경(3'b000)과 오브젝트들이 렌더링되는지 확인합니다.
+   2. 미사일 이동: btn_fire를 누르면 bullet_active 신호(내부 레지스터)가 올라가고, 매 프레임마다 bullet_y 좌표가 감소하며 위로 올라가는지 파형(Waveform)으로 검증합니다.
+   3. 픽셀 멀티플렉서: vga_x, vga_y가 외계인 좌표(invader_x, invader_y)나 플레이어 좌표(cannon_x)와 일치하는 구간에서 rgb 신호가 각각 빨간색(3'b100) 또는 초록색(3'b010)으로 정확히 변하는지 봅니다.
+
+이 테스트벤치를 구동하기 위해 ModelSim, Vivado Simulator, 또는 EDA Playground 중 어떤 툴을 사용하고 계신가요? 툴에 맞는 시뮬레이션 실행 방법이나 파형(Waveform) 분석에서 확인하고 싶은 특정 신호가 있다면 말씀해 주세요.

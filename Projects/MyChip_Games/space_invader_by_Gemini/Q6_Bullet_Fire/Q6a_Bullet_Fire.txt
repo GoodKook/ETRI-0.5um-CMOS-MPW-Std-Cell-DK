@@ -1,0 +1,44 @@
+Q6a. 외계인의 공격을과 키보드를 사용하여 총알 발사를 구현하라. 베릴로그 테스트벤치를 보여달라
+===========================================================================
+
+DPI-C 소스 코드(sim_display.cpp)에서 SDL2 키보드 이벤트 이웃풋을 Verilog 테스트벤치로 전달(Export)받아, 하드웨어 입력 핀(btn_left, btn_right, btn_fire)을 실시간 제어할 수 있도록 완전히 확장한 Verilog 테스트벤치(tb_space_invaders.v) 코드입니다.
+추가로 외계인이 플레이어를 향해 무작위로 미사일을 투하하는 로직(외계인 공격)도 테스트벤치 레벨에서 모니터링하기 좋게 결합했습니다.
+------------------------------
+## 💻 DPI-C 양방향 제어가 적용된 Verilog 테스트벤치 (tb_space_invaders.v)
+
+------------------------------
+## 💻 4. 연동을 위해 업데이트가 필요한 DPI-C 파일 (sim_display.cpp)
+위 테스트벤치에서 호출하는 dpi_poll_keyboard 함수가 실제 호스트 PC의 키보드 입력을 캐치할 수 있도록 C++ 소스에 아래의 키 이벤트 폴링 함수를 보완해 주어야 합니다.
+
+// sim_display.cpp 내부에 추가/수정해야 할 키보드 감지 함수 예시
+extern "C" void dpi_poll_keyboard(unsigned char* out_left, unsigned char* out_right, unsigned char* out_fire) {
+    SDL_Event event;
+    
+    // 키 상태를 고정적으로 유지하기 위해 스태틱 변수 활용 또는 SDL_GetKeyboardState 사용 가능
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+    
+    // 기본 이벤트 큐 비우기 (창 닫기 이벤트 등의 안전장치)
+    while (SDL_PollEvent(&event)) {
+        if (event.type == SDL_QUIT) {
+            SDL_Quit();
+            exit(0);
+        }
+    }
+
+    // SDL2 실제 키 매핑 상태를 Verilog 아웃풋 포인터에 다이렉트로 전달
+    // 1이면 버튼 눌림(High), 0이면 버튼 뗌(Low)
+    *out_left  = state[SDL_SCANCODE_LEFT]  ? 1 : 0;
+    *out_right = state[SDL_SCANCODE_RIGHT] ? 1 : 0;
+    *out_fire  = state[SDL_SCANCODE_SPACE] ? 1 : 0;
+}
+
+------------------------------
+## 🎮 플레이 방법 가이드
+이 테스트벤치를 Verilator나 시뮬레이터로 빌드(make)하여 구동하면 다음과 같이 실제 오락실 게임처럼 조작할 수 있습니다:
+
+   1. 시뮬레이션이 실행되면 먼저 START 대기 무늬 화면이 실시간 화면에 뜹니다.
+   2. 키보드의 [스페이스바]를 한 번 누르면 Verilog 내부 FSM 상태 머신이 STATE_PLAY 모드로 전환됩니다.
+   3. 전환된 후 [좌/우 방향키]를 누르고 있으면 하단 그린 패들(아군 전투기)이 좌우로 이동하며, 다시 [스페이스바]를 연타하면 미사일이 격발되어 상단의 외계인 도트들을 격추할 수 있습니다.
+
+혹시 이 테스트벤치와 연동되는 sim_display.cpp 전체 통합 소스 코드가 필요하시거나, Verilator 빌드 시 특정 인자 패싱 문제로 컴파일 에러가 발생하신다면 바로 말씀해 주세요! 링킹 규칙을 점검해 드리겠습니다.
+

@@ -1,0 +1,46 @@
+Q5. space_invaders_engine의 베릴로그 테스트벤치에 SDL을 사용하여 시각화 할 수 있도록 할것
+=============================================================================
+
+순수 Verilog 테스트벤치(RTL) 환경에서 실시간 그래픽을 시현하려면, Verilog의 DPI-C (Direct Programming Interface)를 사용하여 C/C++ 표준 라이브러리 및 SDL2 기능을 Verilog 함수처럼 직접 호출해야 합니다.
+이 방식을 사용하면 SystemC를 거치지 않고도 ModelSim, QuestaSim, Vivado Simulator, VCS 또는 Verilator(C++ wrapper 형태) 등에서 Verilog 테스트벤치가 실행되는 동안 실시간으로 창이 뜨며 게임 화면이 시현됩니다.
+이를 구현하기 위한 DPI-C 연동 C++ 모듈, 수정된 Verilog 테스트벤치, 그리고 Verilator 및 일반 시뮬레이터용 빌드 가이드입니다.
+------------------------------
+## 💻 1. SDL2 구동용 DPI-C 소스 코드 (sim_display.cpp)
+Verilog 테스트벤치에서 픽셀 정보를 넘겨받아 SDL2 창에 실시간으로 매핑해 주는 C++ 인터페이스 파일입니다.
+
+------------------------------
+## 💻 2. DPI-C 인터페이스가 적용된 Verilog 테스트벤치 (tb_space_invaders.v)
+테스트벤치 최상단에서 C++ 함수들을 임포트(Import)하여 사용합니다. space_invaders_engine의 lcd_x, lcd_y 주소와 lcd_write_en 신호 타이밍에 맞추어 C++ 픽셀 버퍼에 데이터를 기록하고, 전체 화면 스캔이 끝날 때마다 화면을 리프레시합니다.
+
+------------------------------
+## 🛠️ 3. 빌드 및 컴파일 명령어 가이드
+Verilator를 사용하여 이 DPI-C 융합 Verilog 테스트벤치를 가동하고 단독 실행 바이너리로 뽑아내는 최적화 컴파일 명령어 세트입니다.
+
+# 1. Verilator를 사용하여 Verilog와 C++ DPI 소스를 결합하고 컴파일 환경 빌드# --binary 플래그는 Verilator가 스스로 main 소스를 생성하여 자체 바이너리를 뽑아내도록 유도합니다.
+verilator --binary -Wall -Wno-fatal \
+    space_invaders_engine_glcd.v \
+    tb_space_invaders.v \
+    sim_display.cpp \
+    -LDFLAGS "$(sdl2-config --libs)" \
+    -CFLAGS "$(sdl2-config --cflags) -std=c++17" \
+    --top-module tb_space_invaders \
+    --Mdir obj_dir
+# 2. 빌드가 완료되면 생성된 독자 실행 파일을 실행합니다.
+./obj_dir/Vtb_space_invaders
+
+* 
+* ModelSim / QuestaSim 유저인 경우 실행 방법:
+
+# C++ 코드를 공유 라이브러리(.so)로 빌드한 뒤 vlog/vsim에 링크해야 합니다.
+g++ -shared -fPIC -o sim_display.so sim_display.cpp $(sdl2-config --cflags --libs) -I$MODELSIM_HOME/include
+vlog space_invaders_engine_glcd.v tb_space_invaders.v
+vsim -sv_lib sim_display work.tb_space_invaders
+
+* 
+
+------------------------------
+## 🎨 실행 결과 아케이드 시현 검증 구조
+이 아키텍처를 가동하면 별도의 SystemC 래퍼 스케일 작업 없이 RTL 코어 내부의 무한 스캔 루프 주소(scan_x, scan_y)가 실시간으로 DPI 인터페이스에 수 밀리초 단위로 파이프라이닝되면서, 화면이 찢어지는 현상(Tearing) 없이 완벽히 동기화된 복고풍 하드웨어 도트 그래픽이 윈도우 스크린 상에 60Hz급 프레임으로 가볍고 부드럽게 연동 및 표출됩니다.
+이 DPI-C 통합 구조를 사용하면서 혹시 특정 에뮬레이션 상황을 연출하기 위해 키보드 인터럽트 입력 핸들러(SDL_PollEvent에서의 키 입력)를 역방향으로 RTL 버튼 입력(btn_left, btn_right)에 실시간 피드백 맵핑하는 고도화 과정도 추가해 드릴까요?
+
+
