@@ -1,0 +1,36 @@
+Q9a. import space_invaders_engine.v into SystemC testbench
+==========================================================
+
+Verilator 환경에서 SystemC 3.0(또는 이전 규격) 테스트벤치를 사용하여 Verilog 모듈인 space_invaders_engine을 인클루드하고 최상위에서 연결(Top-level Binding)하는 방법입니다.
+Verilator는 Verilog 파일을 컴파일할 때 --sc 옵션을 주면 해당 모듈을 SystemC sc_module을 상속받는 C++ 클래스로 자동 변환해 줍니다.
+따라서 SystemC 소스 코드 안에서 외래 모듈(sc_foreign_module) 선언을 할 필요 없이, Verilator가 생성한 헤더 파일을 직접 인클루드(Import)하여 일반 SystemC 모듈처럼 선언하고 신호선을 바인딩하면 됩니다.
+------------------------------
+## 💻 1. SystemC 최상위 파일 (sc_main.cpp)
+Verilator가 변환해 줄 헤더 파일 Vspace_invaders_engine.h를 인클루드하여 가상 디스플레이 모듈(sc_glcd128x64_TLM)과 입력 자극 테스트벤치(sc_invaders_TB)를 유기적으로 연결합니다.
+
+------------------------------
+## 🛠️ 2. Verilator + SystemC 3.0 컴파일 및 링킹 방법
+SystemC 3.0 환경 하에서 해당 구조를 안전하게 빌드해 내는 터미널 빌드 스크립트 시퀀스입니다.
+
+# 1. Verilator 빌드 환경 초기화 및 C++ 모델 자동 번역 가동# --sc 플래그가 Verilog 코드를 SystemC 클래스로 이식해 주는 핵심 옵션입니다.
+verilator --sc --exe -Wall -Wno-fatal \
+    space_invaders_engine_glcd.v \
+    sc_main.cpp \
+    sc_glcd128x64_TLM.cpp \
+    sc_invaders_TB.cpp \
+    -LDFLAGS "$(sdl2-config --libs) -L$SYSTEMC_HOME/lib-linux64 -lsystemc" \
+    -CFLAGS "-std=c++17 $(sdl2-config --cflags) -I$SYSTEMC_HOME/include" \
+    --Mdir obj_dir
+# 2. Verilator 내부 서브 Makefile 메커니즘을 가동하여 최종 바이너리 링크
+make -j -C obj_dir -f Vspace_invaders_engine.mk Vspace_invaders_engine
+# 3. 컴파일이 완료되면 빌드된 아티팩트 에뮬레이터 실행
+./obj_dir/Vspace_invaders_engine
+
+------------------------------
+## 💡 아키텍처 상의 이점
+이렇게 SystemC 환경으로 space_invaders_engine.v를 가져오면(Import), 전반적인 하드웨어 설계는 검증된 Verilog RTL 내부 논리 구조를 100% 그대로 유지하면서, 디스플레이 연동이나 스코어 보드 연산, 호스트 인터페이스 같은 복잡한 소프트웨어 성향의 주변 장치들은 SystemC(C++ 기반 SDL2 함수 덩어리)를 통해 매우 자유롭고 가볍게 설계·확장할 수 있는 강력한 ESL(Electronic System-Level) 검증 환경 체계가 구축됩니다.
+SystemC 테스트벤치 환경으로 가져오는 뼈대가 완성되었습니다. 이 시뮬레이션 환경 구조 위에서 이어서 검증해 보고 싶으신 시나리오가 있으신가요?
+
+* 키보드 입력을 처리해 줄 sc_invaders_TB.cpp 의 SystemC 입력 자극 시나리오 작성
+* 임베디드 그래픽 LCD 연동을 완성할 sc_glcd128x64_TLM.cpp 의 SDL2 연동 시현 스레드 보완
+

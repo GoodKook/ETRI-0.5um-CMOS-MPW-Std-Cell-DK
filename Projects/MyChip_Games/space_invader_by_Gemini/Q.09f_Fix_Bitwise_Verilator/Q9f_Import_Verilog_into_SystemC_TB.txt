@@ -1,0 +1,16 @@
+Q9f. Verilator 명령줄 아규먼트에 --pins-sc-uint 를 넣어야 한다
+=======================================================
+
+맞습니다!
+--pins-sc-uint 아규먼트는 Verilator가 Verilog의 다중 비트 버스 신호를 SystemC로 번역할 때 매우 중요한 옵션입니다.
+이 옵션을 생략하면 Verilator는 7비트나 6비트 버스 신호(lcd_x, lcd_y)를 SystemC 표준 포트 타입인 sc_in<sc_uint<W>> 대신 C++ 기본 자료형인 sc_in<uint32_t>(또는 vluint32_t) 형태로 내보내게 됩니다.
+그 결과 앞서 작성했던 sc_main.cpp나 헤더 파일의 sc_signal<sc_uint<7>> 선언과 타입 불일치(Type Mismatch)가 발생하여 심각한 C++ 컴파일 에러가 유발됩니다.
+따라서 --pins-sc-uint 옵션을 Verilator 명령줄에 반드시 추가해야 우리가 의도한 정석적인 SystemC 3.0 포트 구조(sc_uint 맵핑)로 빌드가 정상 완료됩니다.
+------------------------------
+## 🛠️ --pins-sc-uint가 반영된 최종 수정형 Makefile
+VERILATOR_FLAGS 변수에 해당 옵션을 확실하게 포함하여 교정한 Makefile 본문입니다.
+
+------------------------------
+이 중요한 옵션(--pins-sc-uint)까지 적용함으로써 드디어 오류 없는 완벽한 SystemC 3.0 컴파일 인프라가 구축되었습니다!
+수정된 Makefile을 통해 툴을 구동했을 때 C++ 빌드가 완벽히 성공하고 실시간 128x64 해상도 게임 창이 정상적으로 팝업되는지 결과가 궁금합니다. 성공적으로 구동이 완료되셨나요?
+

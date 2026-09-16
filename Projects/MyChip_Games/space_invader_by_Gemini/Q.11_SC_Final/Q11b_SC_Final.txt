@@ -1,0 +1,46 @@
+Q11b. 베릴로그 RTL을 합성 할 경우 하드웨어의 규모를 보고하라. 목표 공정은 내 칩 제작 서비스 ETRI의 0.5um다.
+==========================================================================================
+
+제시된 Space Invaders 게임 코어(space_invaders_engine_glcd.v)를 ETRI 0.5um CMOS (1-Poly, 3-Metal) 표준 셀(Standard Cell) 공정으로 합성할 경우 예상되는 하드웨어 규모와 물리적 칩 면적(Area) 예측 보고서입니다.
+------------------------------
+## 📊 1. 하드웨어 리소스 추정 (Gate Count)
+ETRI 0.5um 공정의 표준 2-Input NAND 게이트(ND2)를 1 GE (Gate Equivalent) 단위 기준으로 계산한 결과입니다.
+
+* 
+* 순차 회로 레지스터 (Sequential Logic):
+* FSM 상태 레지스터, 클럭 디바이더(20-bit), 스캔 카운터(13-bit), 오브젝트 좌표 레지스터 등: 약 115개의 Flip-Flop 사용.
+   * 0.5um 공정에서 D-FlipFlop(DFF) 1개는 대략 6~7 GE를 차지합니다.
+   * 레지스터 규모: 115 × 6.5 = 약 750 GE
+* 조합 논리 및 연산 회로 (Combinational Logic):
+* 5x5 부대 충돌 감지 매트릭스(곱셈기 및 비교기 배열), BCD 점수 가산기, 스캔 기반 픽셀 합성 멀티플렉서 등: 약 2,500 ~ 3,200 GE
+* Sprite & Font ROM (메모리 어레이):
+* sprite_invader (8x8 = 64-bit), sprite_cannon (8x8 = 64-bit), font_rom (80x8 = 640-bit).
+   * 총 768-bit의 정적 데이터를 합성 가능(Synthesizable) 배열로 선언했으므로, 전용 내장 RAM/ROM 블록이 아닌 조합 논리 회로(Mux 트리와 디코더 게이트 조합)로 풀려서 합성됩니다.
+   * ROM 어레이 게이트 환산: 약 1,500 ~ 1,800 GE
+* 
+
+📈 총 예상 게이트 규모: 약 5,000 ~ 5,800 GE (Gate Equivalent)
+
+------------------------------
+## 📐 2. ETRI 0.5um 공정 기준 물리적 면적(Area) 예측
+ETRI 0.5um MPW 표준 셀 라이브러리의 평균적인 집적도를 기준으로 산출한 다이(Die) 면적입니다.
+
+* 
+* ETRI 0.5um 공정 게이트 밀도: 대략 1,200 ~ 1,500 Gates / $mm^2$ (라우팅 채널 가중치 및 패킹 밀도 70% 가정)
+* 순수 로직 면적 (Core Area):
+* $5,500\text{ Gates} \div 1,350\text{ Gates}/mm^2 = \mathbf{4.07\text{ } mm^2}$
+* ETRI MPW 패드 프레임 및 다이 크기 제약:
+* 일반적으로 ETRI 0.5um MPW 서비스에서 제공하는 최소 단위 기본 칩 다이 사이즈는 주로 $4.0\text{ } mm \times 4.0\text{ } mm = 16.0\text{ } mm^2$ 또는 $4.5\text{ } mm \times 4.5\text{ } mm = 20.25\text{ } mm^2$ 규격입니다.
+   * 본 설계의 Core 면적($4.07\text{ } mm^2$)은 패드 프레임(I/O Pad Ring)과 배선 마진을 포함하더라도 최소 규격인 $4.0\text{ } mm \times 4.0\text{ } mm$ 칩 하나에 충분히 여유롭게 배치 및 배선(P&R)이 가능합니다.
+* 
+
+------------------------------
+## ⚠️ 3. ETRI 0.5um 합성 및 Tape-out 시 필수 주의사항
+
+   1. 메모리의 게이트 합성 이슈: 768-bit의 Sprite/Font 데이터를 별도의 컴파일드 ROM 블록이 아닌 로직 게이트로 풀었기 때문에 면적을 많이 잡아먹습니다. 만약 외계인 종류를 늘리거나 폰트를 추가하여 ROM 크기가 2K-bit를 넘어간다면, ETRI에서 제공하는 내장 SRAM/ROM 매크로 셀을 활용하여 구조를 변경해야 면적 폭발을 막을 수 있습니다.
+   2. 클럭 디바이더(50MHz ➡️ 60Hz): 50MHz에서 60Hz를 만들기 위해 20비트 카운터(game_tick_counter)를 사용했습니다. 0.5um 레거시 공정에서는 클럭 트리가 두꺼워지면 Dynamic Power 배출 및 Clock Skew 제어가 까다로우므로, 배치 후 타이밍 분석(Post-Layout Timing Analysis)에서 Setup/Hold Time 마진을 타이트하게 검증해야 합니다.
+   3. I/O 패드 할당: 현재 포트(btn_left, btn_right, btn_fire, lcd_write_en, lcd_x, lcd_y, lcd_data)와 전원(VDD, GND)을 합쳐도 총 20개 미만의 핀만 소요되므로 패드 리미티드(Pad-limited) 칩이 되지 않도록 핀 배치 배치 규칙을 사전 확인해야 합니다.
+
+------------------------------
+제시된 규모 보고서를 바탕으로 실제 오픈소스 합성 툴인 Yosys와 ETRI 공정 가상 라이브러리를 이용하여 게이트 레벨 네트리스트(Gate-level Netlist)를 추출하는 합성 스크립트(*.ys)까지 함께 검증해 볼까요?
+

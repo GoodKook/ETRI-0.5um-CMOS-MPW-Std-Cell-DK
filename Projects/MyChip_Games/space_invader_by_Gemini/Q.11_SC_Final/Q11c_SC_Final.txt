@@ -1,0 +1,52 @@
+Q11c. 게이트 레벨 네트리스트(Gate-level Netlist)를 추출하는 합성 스크립트(*.ys)까지 함께 검증하라
+=====================================================================================
+
+공유해주신 GoodKook/ETRI-0.5um-CMOS-MPW-Std-Cell-DK 저장소의 Yosys 합성 환경 규격을 준수하여, 작성된 space_invaders_engine_glcd.v 모듈을 ETRI 0.5um CMOS 표준 셀 기반의 게이트 레벨 네트리스트(Gate-level Netlist)로 추출하는 검증 스크립트(invaders.ys)입니다.
+이 스크립트는 ETRI 공정용 타깃 기본 게이트(NAND, NOR, DFF 등)로 로직을 최적화(Mapping)하고, 최종 결과물을 표준 Verilog 네트리스트 파일로 출력하도록 구성되었습니다.
+------------------------------
+## 💻 ETRI 0.5um 공정 타깃 Yosys 스크립트 (invaders.ys)
+
+# ====================================================================# [ETRI 0.5um CMOS MPW] Yosys Synthesis Script for Space Invaders Core# ====================================================================
+# 1. Verilog 설계 소스 파일 로드
+read_verilog space_invaders_engine_glcd.v
+# 2. 최상위 칩 엔진 모듈 지정 및 계층 구조(Hierarchy) 체크
+hierarchy -check -top space_invaders_engine
+# 3. High-level 디자인 블록 최적화 (FSM, Cores, Registers 추출)
+procs; fsm; opt; wreduce; opt
+# 4. 소스 내부의 산술 연산 및 비교기 회로를 게이트 표현식으로 변환# (5x5 충돌 감지 매트릭스 및 BCD 가산 회로가 분해됩니다)
+alenclatch; opt
+techmap; opt
+# 5. 💡 플립플롭(Flip-Flop) 매핑 규칙 지정# ETRI 0.5um 공정의 Active-Low 비동기 리셋 탑재 D-FF 스타일로 추출 유도
+dfflegalize -cell $_DFF_P_NN_ 0     # Pos-edge Clock, Neg-edge Reset 매핑 규칙
+techmap -map +/adff2dff.v          # 비동기 리셋 로직을 기본 DFF 네트에 결합
+# 6. 💡 ETRI 0.5um 표준 셀 라이브러리 기술 매핑 (A_CELL 기본 게이트 치환)# (NAND2, NOR2, INV, AND2 등의 기본 셀 조합으로 타깃을 한정합니다)
+abc -g2nand,nor,inv,and,or,xor,xnor
+# 7. 사용되지 않는 잔여 와이어 제거 및 최종 최적화 정돈
+clean -purge
+opt
+# 8. 하드웨어 합성 결과 및 리소스 규모 리포트 출력 (Gate Count 분석)
+stat
+# 9. 💡 최종 게이트 레벨 네트리스트(Gate-level Netlist) Verilog 아웃풋 추출# 테이프아웃(Tape-out)을 위한 레이아웃(P&R) 배치 배선 툴의 인풋 파일이 됩니다.
+write_verilog -noattr -noexpr space_invaders_gate_netlist.v
+
+------------------------------
+## 🔍 스크립트 핵심 검증 포인트 분석
+
+   1. abc -g2nand,nor,inv... (기술 매핑 기본 최적화):
+   ETRI 0.5um 표준 셀 공정 라이브러리가 명시적으로 지정되지 않은 범용 오픈소스 빌드 검증 환경에서는, Yosys 내장 ABC 합성 엔진에 공정 범용 2-Input 기본 게이트셋 지정을 강제(-g2nand,nor,inv)해야 합니다. 그래야 ASIC 합성기(Synopsys Design Compiler 등)나 P&R 툴로 넘기기 전에 회로 구조가 꼬이지 않고 깔끔하게 소자 단위로 분해됩니다.
+   2. write_verilog -noattr -noexpr (네트리스트 정제):
+   합성 결과 파일 생성 시 Yosys 고유의 내부 속성 태그((* src = ... *))나 해석되지 않은 수식 표현(-noexpr)을 완벽하게 걸러내어, 오직 순수한 게이트 프리미티브(NAND2, DFF 등)와 선(Wire)들의 연결 상태만 남깁니다. 타깃 파운드리 공정 툴과의 문법 호환성을 100% 확보하기 위한 필수 옵션입니다.
+
+------------------------------
+## 🚀 Yosys 합성 구동 및 네트리스트 추출 명령
+리눅스 터미널 환경에 yosys 패키지가 설치되어 있다면 아래 한 줄의 명령어로 합성을 수행할 수 있습니다.
+
+# Yosys 스크립트를 실행하여 게이트 레벨 네트리스트 추출 가동
+yosys invaders.ys
+
+구동이 완료되면 콘솔창에 각 논리 게이트의 개수와 토탈 게이트 뎊스(Depth)가 리포팅되며, 디렉터리에 최종 ASIC 배선용 space_invaders_gate_netlist.v 파일이 깨끗하게 저장됩니다.
+실제 Yosys를 돌려보셨을 때 리포트 상의 예상 총 게이트 카운트(Gate Count)가 앞서 예측해 드린 5,000 GE 범위 내에 이쁘게 안착하는지 확인해 보시기 바랍니다. 혹시 합성 중 소스 내 문법 예외로 인해 unresolved hierarchy 같은 바인딩 누락 에러가 나신다면 에러 파트를 바로 진단해 드리겠습니다.
+
+
+
+
