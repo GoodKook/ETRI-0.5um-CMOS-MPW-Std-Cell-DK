@@ -1,0 +1,1609 @@
+//-----------------------------------------------------------------------------------------------------
+//  Rule file name: ETRI 0.5um Analog CMOS 2P3M 5V NSPL Design Rule                                 
+//  FOR 0.5um Analog CMOS(2-poly/3-Metal)
+//  Recommand Calibre DRC version: v2017.4_26.19, v2019.3_15.11
+//  Rule Version: 1.1                                                                          
+//
+//-----------------------------------------------------------------------------------------------------
+//  Ver  |    date    |       File History                                                                              
+//-----------------------------------------------------------------------------------------------------
+//  1.0  | 2023/08/01 | Modify the format.                                                           
+//-----------------------------------------------------------------------------------------------------
+//       | 2023/08/25 | Changed Rule  : 13.PAD.A (Fixed Rule --> Minimum Rule) 
+//-----------------------------------------------------------------------------------------------------
+//       | 2023/09/06 | Add Comment   : 7.CONT.W  (@ DRC Error Waive : Sealing Region)
+//       |            |               : 9.VIA1.W  (@ DRC Error Waive : Sealing Region)
+//       |            |               : 11.VIA2.W (@ DRC Error Waive : Sealing Region)
+//-----------------------------------------------------------------------------------------------------
+//  1.1  | 2023/10/29 | Modify the format.  
+//-----------------------------------------------------------------------------------------------------                 
+//       | 2023/10/29 | Add Layer            : CHIPBOUNDARY - Layer Define,  Add OFFGRD Rule  
+//       |            | Changed Layer Number : ESDI 109 --> 26  
+//       |            |                      : ESD  26  --> 52
+//-----------------------------------------------------------------------------------------------------
+//       | 2023/11/11 | Added Rule    : 15.CAP.W2 : Poly2 Maximum Width Rule                         
+//-----------------------------------------------------------------------------------------------------
+//       | 2023/11/15 | Delete Rule   : ALL N-Type Poly Resister (14.PL2NR.*)
+//       |            | Modified Rule : 14.PL2PR.L    (Exception : Interact PSD)
+//       |            |               : 14.PL2PR.S2   (0.8um --> 0.0um)
+//       |            |               : 14.PL2PR.bad1 (Exception : Interact NSD/PSD)
+//       |            | Delete Rule   : 14.PL2PR.E1   (Poly2 to PSD)
+//       |            | Changed Rule Check Name : 14.PL2PR.E2 --> 14.PL2PR.E1
+//       |            |                         : 14.PL2PR.E3 --> 14.PL2PR.E2
+//-----------------------------------------------------------------------------------------------------
+//       | 2023/11/23 | Modifed Rule : Antenna Rule Comment (8.MET1.ANT, 10.MET2.ANT, 12.MET3.ANT)   
+//-----------------------------------------------------------------------------------------------------
+//       | 2024/01/16 | Modified Rule : 14.PL2PR.S2 (Exception : Interact CAP)
+//-----------------------------------------------------------------------------------------------------
+//       | 2025/03/10 | Delete Rule   : 9.VIA1.bad2 & 11.VIA2.bad2 (Commented out)  
+//       |            | Modified Rule : 16.PNP.E1 & 17.NPN.E1  (Excluded BJT Array Pattern From Error)
+//       |            | Modified Rule : 1.PWL.bad1 (PW Region Reassignment)    
+//-----------------------------------------------------------------------------------------------------
+
+
+//
+//LAYOUT PATH "test.gds"
+//LAYOUT PRIMARY "test"
+//LAYOUT SYSTEM GDSII 
+//DRC RESULTS DATABASE "TOPCELL.db" ASCII
+//DRC MAXIMUM RESULTS ALL 
+//DRC SUMMARY REPORT "TOPCELL.rep"
+
+//DRC SELECT CHECK rulename or groupname
+//DRC UNSELECT CHECK rulename or groupname
+//Groups -> 1.NWL, 2.ACT, 3.PL1, 4.PL2, 5.NSD, 6.PSD, 7.CONT, 8.MET1, 9.VIA1, 10.MET2, 11.VIA2, 12.MET3, 13.PAD, 14.PLN2R, 15.CAP, 16.PNP, 17.NPN, 19.IO, 20.LU
+//EXCLUDE CELL cellName1 cellName2
+
+//-----Do not change blow rules----------
+
+DRC CHECK TEXT COMMENTS
+DRC KEEP EMPTY NO
+PRECISION 1000
+RESOLUTION 10
+UNIT LENGTH u
+TEXT DEPTH PRIMARY
+
+FLAG NONSIMPLE YES
+FLAG OFFGRID YES
+FLAG ACUTE YES
+FLAG SKEW YES
+ 
+OFFGRID_CHIPBOUNDARY{
+    OFFGRID CHIPBOUNDARY 10 
+}
+
+OFFGRID_KEY{
+    OFFGRID KEY 10 
+}
+
+OFFGRID_NWELL{
+    OFFGRID NWELL 10 
+}
+
+OFFGRID_PWELL{
+    OFFGRID PWELL 10 
+}
+OFFGRID_HNWELL{
+    OFFGRID HNWELL 10 
+}
+OFFGRID_HPWELL{
+    OFFGRID HPWELL 10 
+}
+OFFGRID_DWELL{
+    OFFGRID DWELL 10 
+}
+OFFGRID_DNWELL{
+    OFFGRID DNWELL 10 
+}
+OFFGRID_DPWELL{
+    OFFGRID DPWELL 10 
+}
+OFFGRID_ACT{
+    OFFGRID ACT 10 
+}
+OFFGRID_POLY1{
+    OFFGRID POLY1 10 
+}
+OFFGRID_POLY2{
+    OFFGRID POLY2 10 
+}
+OFFGRID_NSD{
+    OFFGRID NSD 10 
+}
+OFFGRID_PSD{
+    OFFGRID PSD 10 
+}
+OFFGRID_FVTN{
+    OFFGRID FVTP 10 
+}
+OFFGRID_VTN{
+    OFFGRID VTN 10 
+}
+OFFGRID_VTP{
+    OFFGRID VTP 10 
+}
+OFFGRID_NHRI{
+    OFFGRID NHRI 10 
+}
+OFFGRID_NPI{
+    OFFGRID NPI 10 
+}
+OFFGRID_PPI{
+    OFFGRID PPI 10 
+}
+OFFGRID_NDRIFT{
+    OFFGRID NDRIFT 10 
+}
+OFFGRID_PDRIFT{
+    OFFGRID PDRIFT 10 
+}
+OFFGRID_TGOX{
+    OFFGRID TGOX 10 
+}
+OFFGRID_JISO{
+    OFFGRID JISO 10 
+}
+OFFGRID_TISO{
+    OFFGRID TISO 10 
+}
+OFFGRID_ESD{
+    OFFGRID ESD 10 
+}
+OFFGRID_ESDI{
+    OFFGRID ESDI 10 
+}
+OFFGRID_CONT{
+    OFFGRID CONT 10 
+}
+OFFGRID_MET1{
+    OFFGRID MET1 10 
+}
+OFFGRID_VIA1{
+    OFFGRID VIA1 10 
+}
+OFFGRID_MET2{
+    OFFGRID MET2 10 
+}
+OFFGRID_VIA2{
+    OFFGRID VIA2 10 
+}
+OFFGRID_MET3{
+    OFFGRID MET3 10 
+}
+OFFGRID_PAD{
+    OFFGRID PAD 10 
+}
+OFFGRID_RES{
+    OFFGRID RES 10 
+}
+OFFGRID_CAP{
+    OFFGRID CAP 10 
+}
+OFFGRID_HVMS{
+    OFFGRID HVMS 10 
+}
+OFFGRID_HVMA{
+    OFFGRID HVMA 10 
+}
+OFFGRID_BJT{
+    OFFGRID BJT 10 
+}
+OFFGRID_DIODE{
+    OFFGRID DIODE 10 
+}
+OFFGRID_ESDD{
+    OFFGRID ESDD 10 
+}
+OFFGRID_LVSD{
+    OFFGRID LVSD 10
+}
+
+
+SKEW { @ DRAWN SKEW
+    DRAWN SKEW
+}
+
+//---   Layer     LayerNumber
+LAYER   CHIPBOUNDARY 0
+LAYER   KEY       1               
+LAYER   NWELLi    2               
+LAYER   PWELLi    3               
+LAYER   HNWELLi   4 
+LAYER   HPWELLi   5 
+LAYER   DWELLi    6 
+LAYER   DNWELLi   7 
+LAYER   DPWELLi   8 
+LAYER   ACTi      11              
+LAYER   POLY1i    12              
+LAYER   POLY2i    13              
+LAYER   NSDi      14              
+LAYER   PSDi      15              
+LAYER   FVTNi     16              
+LAYER   FVTPi     17              
+LAYER   VTNi      18              
+LAYER   VTPi      19              
+LAYER   NHRIi     20              
+LAYER   PHRIi     21              
+LAYER   NPIi      22              
+LAYER   PPIi      23              
+LAYER   NDRIFTi   24              
+LAYER   PDRIFTi   25              
+LAYER   ESDI      26              
+LAYER   TGOXi     27              
+LAYER   JISOi     28              
+LAYER   TISOi     29             
+LAYER   CONTi     31              
+LAYER   MET1i     32              
+LAYER   VIA1i     33              
+LAYER   MET2i     34              
+LAYER   VIA2i     35              
+LAYER   MET3i     36              
+LAYER   PADi      37
+LAYER   POLY1TXT  41              
+LAYER   MET1TXT   42
+LAYER   MET2TXT   44
+LAYER   MET3TXT   46
+LAYER   RES       51
+LAYER   ESD       52
+LAYER   CAP       53              
+LAYER   HVMS      54              
+LAYER   HVMA      55              
+LAYER   BJT       56              
+LAYER   DIODE     57              
+LAYER   NODRC     58              
+LAYER   ESDD      59              
+LAYER   LVSD      60
+
+ALLNWELL = NWELL OR (HNWELL OR DNWELL)
+ALLPWELL = PWELLi OR (HPWELL OR DPWELL)
+PSUB = ((BULK NOT ALLNWELL) NOT ALLPWELL) NOT DWELL
+NWELL = NWELLi NOT NODRC                  
+PWELL = (PWELLi OR PSUB) NOT NODRC                  
+HNWELL = HNWELLi NOT NODRC   
+HPWELL = HPWELLi NOT NODRC   
+DWELL = DWELLi NOT NODRC    
+DNWELL = DNWELLi NOT NODRC    
+DPWELL = DPWELLi NOT NODRC  
+ACT = ACTi NOT NODRC  
+EACT = (ACTi AND ESD) NOT NODRC  
+BACT = (ACTi AND BJT) NOT NODRC  
+POLY1 = POLY1i NOT NODRC                 
+POLY2 = POLY2i NOT NODRC                 
+NSD = NSDi NOT NODRC                   
+PSD = PSDi NOT NODRC                   
+FVTN = FVTNi NOT NODRC                  
+FVTP = FVTPi NOT NODRC                  
+VTN = VTNi NOT NODRC                   
+VTP = VTPi NOT NODRC                   
+NHRI = NHRIi NOT NODRC                   
+PHRI = PHRIi NOT NODRC                   
+NPI = NPIi NOT NODRC                   
+PPI = PPIi NOT NODRC                   
+NDRIFT = NDRIFTi NOT NODRC                
+PDRIFT = PDRIFTi NOT NODRC                
+TGOX = TGOXi NOT NODRC                  
+JISO = JISOi NOT NODRC                  
+TISO = TISOi NOT NODRC                 
+CONT = CONTi NOT NODRC                  
+MET1 = MET1i NOT NODRC                  
+VIA1 = VIA1i NOT NODRC                  
+MET2 = MET2i NOT NODRC                  
+VIA2 = VIA2i NOT NODRC                  
+MET3 = MET3i NOT NODRC                  
+PAD = PADi NOT NODRC     
+             
+BULK:1 = EXTENT
+BULK = SIZE BULK:1 BY 0.01
+
+RESNW = NWELL AND RES
+
+NACT = ACT AND NSD
+PACT = ACT AND PSD
+
+NTAP = NOT INTERACT (NACT AND NWELL) POLY1
+PTAP = NOT INTERACT (PACT NOT NWELL) POLY1
+
+NTAP_ON_CONT = CONT INTERACT NTAP 
+PTAP_ON_CONT = CONT INTERACT PTAP 
+
+GATE = ACT AND POLY1
+NGATE = NOT (NACT AND POLY1) NWELL
+PGATE = AND (PACT AND POLY1) NWELL
+
+NGATE_W = NGATE COINCIDENT EDGE POLY1
+PGATE_W = PGATE COINCIDENT EDGE POLY1
+
+ALLGATE = NGATE OR PGATE
+
+NISD = (NACT NOT NGATE) TOUCH NGATE
+PISD = (PACT NOT PGATE) TOUCH PGATE
+
+NMOS = NACT INTERACT POLY1
+PMOS = PACT INTERACT POLY1
+
+POLY1_ON_ACT = POLY1 INTERACT (POLY1 AND ACT)
+POLY1_NOT_ACT = POLY1 NOT POLY1_ON_ACT 
+
+POLY1_FIELD = POLY1 NOT ALLGATE 
+PAREA = POLY1 INTERACT PGATE
+NAREA = POLY1 INTERACT NGATE
+
+ACT_ON_CONT = CONT INTERACT ACT
+POLY1_ON_CONT = CONT INTERACT POLY1
+POLY2_ON_CONT = CONT INTERACT POLY2
+POLY2_ON_CONT_RES = POLY2_ON_CONT INTERACT RES 
+PL2_ONLY = POLY2 NOT INTERACT POLY1
+PL1_ONLY = POLY1 NOT INTERACT POLY2
+PL2_INT_PL1 = POLY2 INTERACT POLY1
+PL1_INT_PL2 = POLY1 INTERACT POLY2
+CONT_ON_PL2_ONLY = CONT INTERACT PL2_ONLY
+CONT_ON_PL1_ONLY = CONT INTERACT PL1_ONLY
+CONT_ON_PL2_INT_PL1 = CONT INTERACT PL2_INT_PL1
+CONT_ON_PL1_INT_PL2 = CONT INTERACT PL1_INT_PL2
+
+POLY1_CAP = POLY1 INTERACT CAP
+PL2_CAP_LVSD = LVSD AND POLY2_CAP 
+POLY2_CAP = POLY2 INTERACT CAP
+
+PPRES       = POLY2 AND (LVSD AND RES) 
+POLY2_RES   = POLY2 INTERACT PPRES  
+RES_DEF     = LVSD INSIDE RES
+PRES_DEF    = COPY RES_DEF 
+HRES_DEF    = (LVSD AND NHRI) INSIDE RES
+PHRES_DEF   = COPY HRES_DEF
+PL2ANDPRES  = (POLY2 AND RES) INSIDE PRES_DEF
+PL2ANDPHRES = (POLY2 AND RES) INSIDE PHRES_DEF
+
+NWDIO_WELL = DIODE AND NWELL
+NWDIO_NCAT = NWDIO_WELL AND NACT
+NWDIO_PANO = NWDIO_WELL AND PACT 
+
+PWDIO_WELL = DIODE AND PWELL
+PWDIO_PCAT = PWDIO_WELL AND PACT
+PWDIO_NANO = PWDIO_WELL AND NACT
+
+DIODE_ACT = ACT INTERACT DIODE
+DIODE_PSD = PSD INTERACT DIODE
+DIODE_NSD = NSD INTERACT DIODE
+
+PNP_WELL = BJT AND NWELL
+PNP_PWELL = ( BJT AND PWELL ) INTERACT PNP_C
+BJT_PSD = PSD AND BJT
+BJT_NSD = NSD AND BJT
+PBACT = BACT AND PSD
+NBACT = BACT AND NSD
+PNP_E = PNP_WELL AND PBACT
+PNP_B_base = PNP_WELL INTERACT PNP_E
+PNP_B = (PNP_WELL AND NBACT) INSIDE PNP_B_base
+PNP_C_base = (HOLES (PBACT NOT PNP_WELL)) INTERACT PNP_E
+PNP_C = (DONUT (PBACT NOT PNP_WELL)) INTERACT PNP_C_base 
+PNP_2x2 = RECTANGLE PNP_E == 2 BY == 2
+PNP_5x5 = RECTANGLE PNP_E == 5 BY == 5
+PNP_10x10 = RECTANGLE PNP_E == 10 BY == 10
+PNP_E_ALL = (PNP_2x2 OR PNP_5x5) OR PNP_10x10
+NPN_WELL = BJT AND PWELL  
+NPN_E = NPN_WELL AND NBACT
+NPN_B_base = NPN_WELL INTERACT NPN_E
+NPN_B = (NPN_WELL AND PBACT) INSIDE NPN_B_base
+NPN_C_base = (HOLES (NACT NOT NPN_WELL)) INTERACT NPN_E
+NPN_C = (DONUT (NBACT NOT NPN_WELL)) INTERACT NPN_C_base
+NPN_C_WELL =( BJT AND NWELL ) INTERACT NPN_C
+NPN_2x2 = RECTANGLE NPN_E == 2 BY == 2
+NPN_5x5 = RECTANGLE NPN_E == 5 BY == 5  
+NPN_10x10 = RECTANGLE NPN_E == 10 BY == 10
+NPN_E_ALL = (NPN_2x2 OR NPN_5x5) OR NPN_10x10
+
+
+ESD_PL1 = POLY1 AND ESD
+ESD_GATE = ALLGATE AND ESD
+ESD_ACT = ACT AND ESD
+PEACT = EACT AND PSD
+NEACT = EACT AND NSD
+ESD_NWELL = ESD AND NWELL
+ESD_TAP_ACT = EACT NOT INTERACT POLY1
+ESD_TAP_PACT = PEACT NOT INTERACT POLY1
+ESD_TAP_NACT = NEACT NOT INTERACT POLY1
+ESD_TAP_NWELL = ESD_NWELL INTERACT ESD_TAP_ACT
+ESD_S = (ESD_ACT INTERACT ESD_GATE) NOT ESDD
+ESD_D = (ESD_ACT INTERACT ESD_GATE) AND ESDD
+
+
+
+ENCPOLY2 = POLY2 INTERACT POLY1
+ENCPOLY1 = POLY1 INTERACT POLY2
+
+MET1UN10 = WITH WIDTH MET1 < 10
+MET1UP10 = WITH WIDTH MET1 >= 10
+
+MET2UN10 = WITH WIDTH MET2 < 10
+MET2UP10 = WITH WIDTH MET2 >= 10
+
+MET3UN10 = WITH WIDTH MET3 < 10
+MET3UP10 = WITH WIDTH MET3 >= 10
+
+
+CONNECT MET3 MET2 BY VIA2
+CONNECT MET2 MET1 BY VIA1
+CONNECT MET1 NISD BY CONT
+CONNECT MET1 PISD BY CONT
+CONNECT MET1 NTAP BY CONT
+CONNECT MET1 PTAP BY CONT
+//CONNECT MET1 NGATE BY CONT
+//CONNECT MET1 PGATE BY CONT
+CONNECT MET1 PAREA BY CONT
+CONNECT MET1 NAREA BY CONT
+CONNECT ESD_GATE ESD_ACT
+CONNECT PAREA PGATE
+CONNECT NAREA NGATE
+SCONNECT NTAP NWELL BY CONT
+SCONNECT PTAP PWELL BY CONT
+
+////////////////////////////////////////////////////////////////////////////////////////////     
+DMACRO Ant_PLY_check layername1 layername2 value {
+NET AREA RATIO layername1 layername2 > value 
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+DMACRO Ant_MET_check layername1 layername2 value {
+NET AREA RATIO layername1 layername2 > value  
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+DMACRO Width_check layername value {
+INT layername < value ABUT < 90 SINGULAR REGION
+}
+
+DMACRO OneSpace_check layername value {
+EXT layername < value ABUT < 90 SINGULAR REGION 
+}
+
+DMACRO TwoSpace_check layername1 layername2 value {
+EXT layername1 layername2 < value ABUT < 90 SINGULAR REGION 
+}
+
+DMACRO ContactSize_check layername value {
+NOT RECTANGLE layername == value BY == value
+}
+
+DMACRO Enc_check layername1 layername2 value {
+ENC layername1 layername2 < value ABUT < 90 SINGULAR OVERLAP REGION
+}
+
+DMACRO Overlap_check layername1 layername2 value {
+EXT layername1 layername2 < value ABUT < 90 SINGULAR REGION
+}
+
+DMACRO NotExist_check layername1 layername2 {
+NOT INTERACT layername1 layername2
+}
+
+DMACRO Nothave_check layername1 layername2 {
+NOT INTERACT layername1 layername2
+NOT layername1 layername2
+}
+
+
+GROUP 1.NWL 1.NWL.?
+
+1.NWL.W {
+    @ Minimum NWELL width is 2.5um
+    CMACRO Width_check NWELL 2.5 
+}
+
+1.NWL.S.1 {
+    @ Minimum NWELL space for same potential is 1.25um
+    EXT NWELL < 1.25 REGION SINGULAR CONNECTED
+}
+
+1.NWL.S.2 {
+    @ Minimum NWELL space for different potential or NWELL resistor is 4um
+    EXT NWELL < 4 REGION NOT CONNECTED SINGULAR ABUT>0<90
+    CMACRO OneSpace_check RESNW 4
+}
+
+1.NWL.R {
+    @ Minimum NWELL resistor width is 5um
+    CMACRO Width_check RESNW 5
+}
+
+1.NWL.bad1 {
+    @ NWELL must have tap.
+    A = NTAP INTERACT CONT
+    CMACRO NotExist_check NWELL A
+}   
+
+1.NWL.bad2 {
+    @ NWELL must have not ptap.
+    AND NWELL (((PACT NOT INTERACT POLY1) NOT BJT ) NOT DIODE )
+}
+
+1.PWL.bad1 {
+    @ PWELL must have tap.
+    A = ( PWELL NOT (BJT NOT INTERACT PNP_E)) NOT DIODE
+    B = PTAP INTERACT CONT
+    CMACRO NotExist_check A B
+}
+
+1.PWL.bad2 {
+    @ PWELL must have not ntap.
+    A = ( PWELL NOT BJT ) NOT DIODE
+    AND A (NACT NOT INTERACT POLY1)
+}
+
+
+GROUP 2.ACT 2.ACT.?
+
+2.ACT.W1 {
+    @ Minimum ACT width for transistor is 1.6um
+     CMACRO Width_check NMOS 1.6
+     CMACRO Width_check PMOS 1.6
+}
+
+2.ACT.W2 {
+    @ Maximum ACT width for transistor is 100um
+    PN_TR = ( NACT OR PACT ) INTERACT ALLGATE
+    PN_ACT = PN_TR AND ( NACT OR PACT ) 
+    LENGTH (PN_ACT NOT GATE)  > 100 
+}
+
+2.ACT.W3 {
+    @ Minimum ACT width for interconnect is 0.7um
+    CMACRO Width_check NTAP 0.7 
+    CMACRO Width_check PTAP 0.7 
+}
+
+2.ACT.S {
+    @ Minimum ACT space is 1.0um
+    CMACRO OneSpace_check ACT 1.0
+}
+
+2.ACT.E1 {
+    @ Minimum ACT extension over gate is 0.85um
+    ENC PGATE_W ACT < 0.85
+    ENC NGATE_W ACT < 0.85
+}
+
+2.ACT.E2 {
+    @ Minimum NWELL overlap of ACT(P-type) 1.4um
+    CMACRO Enc_check PMOS NWELL 1.4 
+}
+
+2.ACT.E3 {
+    @ Minimum NWELL overlap of ACT(N-type) 0.5um
+    CMACRO Enc_check NTAP NWELL 0.5 
+}
+
+2.ACT.E4 {
+    @ Minimum PWELL overlap of ACT(N-type) 1.4um
+    CMACRO Enc_check NMOS PWELL 1.4 
+}
+
+2.ACT.E5 {
+    @ Minimum PWELL overlap of ACT(N-type) 0.5um
+    CMACRO Enc_check PTAP PWELL 0.5 
+}
+
+
+2.ACT.T1 {
+    @ The maximum distance from any point in a N-tab to the nearest NWELL in the same NWELL is 60um
+    NTAP_A = (NACT NOT PWELL) NOT INTERACT PWELL
+    SD_ACT = (PACT INTERACT PGATE) AND NWELL
+    A_1 = SIZE NTAP_A BY 2.0 INSIDE OF NWELL STEP 0.3 TRUNCATE 0.3 BEVEL 4
+    A_2 = SIZE A_1 BY 29.0 INSIDE OF NWELL STEP 0.3 TRUNCATE 0.3 BEVEL 4
+    A_3 = SIZE A_2 BY 29.0 INSIDE OF NWELL STEP 0.3 TRUNCATE 0.3 BEVEL 4
+    SD_ACT NOT A_3
+}
+
+2.ACT.T2 {
+    @ The maximum distance from any point in a P-tab to the nearest PWELL in the same PWELL is 60um
+    PTAP_A = (PACT NOT NWELL) NOT INTERACT NWELL
+    SD_ACT = (NACT INTERACT ALLGATE ) AND PWELL
+    A_1 = SIZE PTAP_A BY 2.0 INSIDE OF PWELL STEP 0.3 TRUNCATE 0.3 BEVEL 4    
+    A_2 = SIZE A_1 BY 29.0 INSIDE OF PWELL STEP 0.3 TRUNCATE 0.3 BEVEL 4    
+    A_3 = SIZE A_2 BY 29.0 INSIDE OF PWELL STEP 0.3 TRUNCATE 0.3 BEVEL 4    
+    SD_ACT NOT A_3 
+}
+        
+2.ACT.bad1 {
+    @ ACT must have NSD or PSD
+    ALLIMP = NSD OR PSD 
+    PNACT =  PACT OR NACT
+    CMACRO Nothave_check ACT PNACT
+}
+
+2.ACT.bad2 {
+    @ NMOS is not allow NWELL
+    AND NMOS NWELL
+}
+
+2.ACT.bad3 {
+    @ PMOS is not allow PWELL  
+    AND PMOS PWELL
+}
+
+2.ACT.bad4 {
+    @ ACT must exist with CONT layer
+    CMACRO NotExist_check ACT CONT
+}
+
+
+GROUP 3.PL1 3.PL1.?
+
+3.PL1.W1 {
+    @ Minimum POLY1 width for pmos/nmos gate is 0.5um
+    CMACRO Width_check POLY1_ON_ACT 0.5
+}
+
+3.PL1.W2 {
+    @ Maximun POLY1 width for pmos/nmos gate is 100um
+    A = POLY1 INSIDE EDGE ACT
+    B = INT A <= 100 REGION 
+    NOT ALLGATE B
+}
+
+3.PL1.W3 {
+    @ Minimum POLY1 width for interconnect is 0.5um
+    CMACRO Width_check POLY1_NOT_ACT 0.5
+}
+
+3.PL1.S1 {
+    @ Minimum POLY1 to POLY1 space in field is 0.6um 
+    A = CMACRO OneSpace_check POLY1 0.6
+    NOT INTERACT A ACT  
+}
+
+3.PL1.S2 {
+    @ Minimum POLY1 to POLY1 space on ACT is 0.6um
+    CMACRO OneSpace_check NGATE 0.6
+    CMACRO OneSpace_check PGATE 0.6
+}
+
+3.PL1.S3 {
+    @ Minimum POLY1 in field space to ACT is 0.5um
+    CMACRO TwoSpace_check ACT POLY1 0.5 
+}
+
+3.PL1.S4 {
+    @ Minimum poly/ACT intercept to opposite ACT space 0.5um
+    POLY1_TR = POLY1 INTERACT ACT
+    TR_POLY1 = ACT INTERACT POLY1_TR
+    CMACRO TwoSpace_check POLY1_TR TR_POLY1 0.5
+}
+
+3.PL1.O {
+    @ Minimum POLY1 end cap(gate extension into field oxide) is 0.5um
+    INT (NOT POLY1_ON_ACT ACT) < 0.5 ABUT < 90 
+    B = COIN EDGE POLY1_ON_ACT ACT
+    COPY B
+}
+
+
+3.PL1.ANT {
+    @ Maximum ratio of field poly area to gate poly for a given transistor is 200 (antenna rule)
+    CMACRO Ant_PLY_check PAREA PGATE 200
+    CMACRO Ant_PLY_check NAREA NGATE 200
+}
+
+
+3.PL1.bad1 {
+    @ POLY1 must exist with CONT layer.
+    A = POLY1 NOT POLY2    
+    CMACRO NotExist_check A CONT
+}   
+
+//3.PL1.bad2 {
+//    @ POLY1 two edge must exist over ACT
+//    A = POLY1 INTERACT ACT 
+//    B = ACT INTERACT POLY1 
+//    C = INT A B < 100 REGION
+//    COPY C 
+//}
+
+3.PL1.bad3 {
+    @ POLY1 can't overlap POLY2.(except fot PIPCAP)
+    (POLY1 AND POLY2) NOT CAP
+}
+
+
+GROUP 4.PL2 4.PL2.?
+
+4.PL2.W {
+    @ Minimum POLY2 width is 0.6um
+    CMACRO Width_check POLY2 0.6
+}
+
+4.PL2.S1 {
+    @ Minimum POLY2 space is 0.75um
+    CMACRO OneSpace_check POLY2 0.75
+}
+
+4.PL2.S2 {
+    @ Minimum POLY2 to POLY1 space is 0.75um
+    CMACRO TwoSpace_check POLY2 POLY1 0.75
+}
+
+4.PL2.S3 {
+    @ Minimum POLY2 to ACT space is 0.5um
+    CMACRO TwoSpace_check POLY2 ACT 0.5
+}
+
+4.PL2.bad1 {
+    @ POLY2 must exist with CONT layer.
+    CMACRO NotExist_check POLY2 CONT
+} 
+
+4.PL2.bad2 {
+    @ POLY2 can't overlap POLY1.(except fot PIPCAP)
+    (POLY1 AND POLY2) NOT CAP    
+}
+
+
+GROUP 5.NSD 5.NSD.?
+
+5.NSD.W {
+    @ Minimum NSD width is 0.75um
+    CMACRO Width_check NSD 0.75
+}
+
+5.NSD.S1 {
+    @ Minimum NSD space is 0.75um (Merge if the space is less than 0.75um)
+    CMACRO OneSpace_check NSD 0.75
+}
+
+5.NSD.E {
+    @ Minimum NSD to ACT extension is 0.5um
+    A = EXPAND EDGE NSD INSIDE BY 0.5
+    B = ACT INTERACT NSD
+    B AND A 
+}
+
+5.NSD.O {
+    @ NSD overlapping with PSD is not allowed
+    AND NSD PSD
+}
+
+5.NSD.bad1 {
+    @ Find where NSD should not be used and floating NSD , ACT must exist inside NSD
+    A = (( POLY1 AND POLY2 ) AND NSD ) AND CAP 
+    B = ( POLY2 AND NSD ) AND RES
+    C = ( A OR B ) OR ACT
+    CMACRO NotExist_check NSD C
+}
+
+
+GROUP 6.PSD 6.PSD.?
+
+6.PSD.W {
+    @ Minimum PSD width is 0.75um
+    CMACRO Width_check PSD 0.75
+}
+
+6.PSD.S1 {
+    @ Minimum PSD space is 0.75um (Merge if the space is less than 0.75um)
+    CMACRO OneSpace_check PSD 0.75
+}
+
+6.PSD.E {
+    @ Minimum PSD to ACT extension is 0.5um
+    A = EXPAND EDGE PSD INSIDE BY 0.5
+    B = ACT INTERACT PSD
+    B AND A
+}
+
+6.PSD.O {
+    @ PSD overlapping with NSD is not allowed
+    AND PSD NSD
+}
+
+6.PSD.bad1 {
+    @ Find where PSD should not be used and floating NSD , ACT must exist inside PSD
+    A = (( POLY1 AND POLY2 ) AND PSD ) AND CAP 
+    B = ( POLY2 AND PSD ) AND RES
+    C = ( A OR B ) OR ACT
+    CMACRO NotExist_check PSD C
+}
+
+
+GROUP 7.CONT 7.CONT.?
+
+7.CONT.W {
+    @ Min/Max CONT Size is 0.6um x 0.6um or 0.6um x 1.2um
+    @ DRC Error Waive : Sealing Region
+    ONECONT = RECTANGLE CONT == 0.6 BY == 0.6
+    BARCONT = RECTANGLE CONT == 0.6 BY == 1.2
+    NOT CONT (ONECONT OR BARCONT)   
+}
+
+7.CONT.S1 {
+    @ Minimum CONT space is 0.6um 
+    CMACRO OneSpace_check CONT 0.6
+}
+
+7.CONT.S2 {
+    @ Minimum CONT in POLY1 to ACT space is 1.0um 
+    CMACRO TwoSpace_check POLY1_ON_CONT ACT 1.0
+}
+
+7.CONT.S3 {
+    @ Minimum CONT in ACT to POLY1 in ACT is 0.75um
+    
+    CMACRO TwoSpace_check NGATE ACT_ON_CONT 0.75
+    CMACRO TwoSpace_check PGATE ACT_ON_CONT 0.75
+}
+
+7.CONT.S4 {
+    @ Minimum CONT in ACT to POLY1 in field space is 0.75um 
+    CMACRO TwoSpace_check POLY1_FIELD ACT_ON_CONT 0.75
+}
+
+7.CONT.S5 {
+    @ Minimum CONT in POLY2 to ACT space is 1.0um 
+    CMACRO TwoSpace_check POLY2_ON_CONT ACT 1.0
+}
+
+7.CONT.S6 {
+    @ Minimum CONT in ACT to POLY2 in field space is 1.0um 
+    CMACRO TwoSpace_check POLY2 ACT_ON_CONT 1.00
+}
+
+7.CONT.S7 {
+    @ Minimum CONT in POLY1 to POLY2 for resistor is 1.25um 
+    CMACRO TwoSpace_check POLY1_ON_CONT POLY2_RES 1.25
+}
+
+7.CONT.S8 {
+    @ Minimum CONT in POLY2 to POLY1 is 1.25um 
+    PL2_ONLY = POLY2 NOT INTERACT POLY1
+    CONT_ON_PL2_ONLY = CONT INTERACT PL2_ONLY
+    CMACRO TwoSpace_check CONT_ON_PL2_ONLY POLY1 1.25
+}
+
+7.CONT.E1 {
+    @ Minimum CONT to ACT extension is 0.5um
+    CMACRO Enc_check CONT ACT 0.5
+}
+    
+7.CONT.E2 {
+    @ Minimum CONT to POLY1 extension is 0.5um
+    CMACRO Enc_check CONT POLY1 0.5
+}
+    
+7.CONT.E3 {
+    @ Minimum CONT to MET1 extension is 0.6um
+    CMACRO Enc_check CONT MET1 0.6
+}
+
+7.CONT.E4 {
+    @ Minimum CONT to POLY2 extension is 0.5um
+    A = CONT NOT INTERACT (POLY2 AND POLY1)
+    B = POLY2 NOT RES
+    CMACRO Enc_check A B 0.5
+}
+
+7.CONT.bad1 {
+    @ CONT must be in METAL1
+    CMACRO NotExist_check CONT MET1
+    NOT CONT (AND CONT MET1)
+}
+
+7.CONT.bad2 {
+    @ CONT must be in POLY1 or POLY2 or ACT
+    ALL = ACT OR (POLY1 OR POLY2)
+    CMACRO NotExist_check CONT ALL
+
+}
+
+7.CONT.bad3 {
+    @ CONT on gate region is forbidden
+    AND CONT PGATE
+    AND CONT NGATE
+}
+
+
+GROUP 8.MET1 8.MET1.?
+
+8.MET1.W {
+    @ Minimum MET1 width is 0.8um
+    CMACRO Width_check MET1 0.8 
+}
+
+8.MET1.S1 {
+    @ Minimum space of MET1(both line < 10um) is 0.8um
+    CMACRO OneSpace_check MET1UN10 0.8
+}
+    
+8.MET1.S2 {
+    @ Minimum space of wide MET1(one or both line >=10um) space is 1um
+      CMACRO TwoSpace_check MET1UP10 MET1 1.0
+}
+
+
+//8.MET1.ANT {
+//    @ Maximum ratio of field poly area to gate poly for a given transistor (antenna rule)
+//    CMACRO Ant_MET_check MET1 NGATE 400
+//    CMACRO Ant_MET_check MET1 PGATE 400
+//}
+    
+
+8.MET1.bad1 {
+    @ MET1 must exist with CONT or VIA1 layer.
+    CONT_VIA1 = CONT OR VIA1
+    CMACRO NotExist_check MET1 CONT_VIA1
+}
+
+GROUP 9.VIA1 9.VIA1.?
+
+9.VIA1.W {
+    @ Min/Max VIA1 Size is 0.8um x 0.8um
+    @ DRC Error Waive : Sealing Region
+    CMACRO ContactSize_check VIA1 0.8   
+}
+
+9.VIA1.S1 {
+    @ Minimum VIA1 space is 0.8um 
+    CMACRO OneSpace_check VIA1 0.8 
+}
+
+9.VIA1.S2 {
+    @ Minimum Array 3x3 VIA1 space is 0.8um
+    ARRAY_VIA1 = SIZE (SIZE VIA1 BY 0.8) BY 2.4 UNDEROVER
+    ARRAY1 = VIA1 AND ARRAY_VIA1
+    CMACRO OneSpace_check ARRAY1 0.8 
+}
+
+9.VIA1.E1 {
+    @ Minimum VIA1 to MET1 width < 10 of extention is 0.6um
+    CMACRO Enc_check VIA1 MET1UN10 0.6 
+}
+    
+9.VIA1.E2 {
+    @ Minimum VIA1 to MET1 width >= 10 of extention is 0.6um
+    CMACRO Enc_check VIA1 MET1UP10 0.6 
+}
+    
+9.VIA1.E3 {
+    @ Minimum VIA1 to MET2 width < 10 of extention is 0.6um
+    CMACRO Enc_check VIA1 MET2UN10 0.6 
+}
+    
+9.VIA1.E4 {
+    @ Minimum VIA1 to MET2 width >= 10 of extention is 0.6um
+    CMACRO Enc_check VIA1 MET2UP10 0.6 
+}
+
+9.VIA1.S {
+    @ Minimum VIA1 to CONT space is 0.6um
+    @ VIA1 can not be stacked on CONT. 
+    CMACRO TwoSpace_check VIA1 CONT 0.6 
+    VIA1 AND CONT
+}
+
+9.VIA1.bad1 {
+    @ VIA1 is must exist with MET1 or MET2.
+    MET1_MET2 = MET1 AND MET2 
+    NOT VIA1 MET1_MET2 
+}
+
+//9.VIA1.bad2 {
+//    @ Single VIA1 is not allowed
+//      SINGLEVIA1 = VIA1 NOT OUTSIDE ((MET1 AND MET2) INTERACT VIA1 == 1)
+//      COPY SINGLEVIA1
+//}
+
+GROUP 10.MET2 10.MET2.?
+
+10.MET2.W {
+    @ Minimum MET2 width is 1.0um
+    CMACRO Width_check MET2 1.0 
+}
+
+10.MET2.S1 {
+    @ Minimum MET2 both line < 10 um space is 1.0um
+    CMACRO OneSpace_check MET2UN10 1.0
+}
+    
+10.MET2.S2 {
+    @ Minimum MET2 one or both line >= 10 um space is 1.2um
+    CMACRO TwoSpace_check MET2UP10 MET2 1.2
+}
+
+
+//10.MET2.ANT {
+//    @ Maximum ratio of MET2 area to associated gate poly for a given transistor (antenna rule)
+//    CMACRO Ant_MET_check MET2 PGATE 400
+//    CMACRO Ant_MET_check MET2 NGATE 400
+//}
+
+
+10.MET2.bad1 {
+    @ MET2 must exist with VIA1 or VIA2 layer.
+    VIA1_VIA2 = VIA1 OR VIA2
+    CMACRO NotExist_check MET2 VIA1_VIA2
+}
+
+GROUP 11.VIA2 11.VIA2.?
+
+11.VIA2.W {
+    @ Min/Max VIA2 Size is 0.8um x 0.8um
+    @ DRC Error Waive : Sealing Region
+    CMACRO ContactSize_check VIA2 0.8   
+}
+
+11.VIA2.S1 {
+    @ Minimum VIA2 space is 0.8um 
+    CMACRO OneSpace_check VIA2 0.8 
+}
+
+11.VIA2.S2 {
+    @ Minimum Array 3x3 VIA1 space is 0.8um
+    ARRAY_VIA2 = SIZE (SIZE VIA2 BY 0.8) BY 2.4 UNDEROVER
+    ARRAY2 = VIA2 AND ARRAY_VIA2
+    CMACRO OneSpace_check ARRAY2 0.8 
+}
+
+11.VIA2.E1 {
+    @ Minimum VIA2 to MET2 width < 10 of extention is 0.6um
+    CMACRO Enc_check VIA2 MET2UN10 0.6 
+}
+    
+11.VIA2.E2 {
+    @ Minimum VIA2 to MET2 width >= 10 of extention is 0.6um
+    CMACRO Enc_check VIA2 MET2UP10 0.6 
+}
+    
+11.VIA2.E3 {
+    @ Minimum VIA2 to MET3 width < 10 of extention is 0.6um
+    CMACRO Enc_check VIA2 MET3UN10 0.6 
+}
+    
+11.VIA2.E4 {
+    @ Minimum VIA2 to MET3 width >= 10 of extention is 0.6um
+    CMACRO Enc_check VIA2 MET3UP10 0.6 
+}
+
+11.VIA2.S {
+    @ Minimum VIA2 to VIA1 space is 0.6um
+    @ VIA2 can not be stacked on VIA1. 
+    CMACRO TwoSpace_check VIA2 VIA1 0.6 
+    VIA2 AND VIA1
+}
+
+11.VIA2.bad1 {
+    @ VIA1 is must exist with MET2 and MET3.
+    MET2_MET3 = MET2 AND MET3 
+    CMACRO NotExist_check VIA2 MET2_MET3
+}
+
+//11.VIA2.bad2 {
+//    @ Single VIA2 is not allowed
+//      SINGLEVIA2 = VIA2 NOT OUTSIDE ((MET2 AND MET3) INTERACT VIA2 == 1)
+//      COPY SINGLEVIA2
+//}
+
+
+GROUP 12.MET3 12.MET3.?
+
+12.MET3.W {
+    @ Minimum MET3 width is 1.2um
+    CMACRO Width_check MET3 1.2 
+}
+
+12.MET3.S1 {
+    @ Minimum MET3 both line < 10 um space is 1.0um
+    CMACRO OneSpace_check MET3UN10 1.0
+}
+    
+12.MET3.S2 {
+    @ Minimum MET3 one or both line >=10 um space is 1.2um
+    CMACRO TwoSpace_check MET3UP10 MET3 1.2
+}
+
+
+//12.MET3.ANT {
+//    @ Maximum ratio of MET3 area to associated gate poly area for a given transistor (antenna rule)
+//    CMACRO Ant_MET_check MET3 PGATE 400
+//    CMACRO Ant_MET_check MET3 NGATE 400
+//}
+
+
+12.MET3.bad1 {
+    @ MET3 is not exist without VIA1 or VIA2
+    CMACRO NotExist_check MET3 VIA2
+}
+
+GROUP 13.PAD 13.PAD.?
+
+13.PAD.P {
+    @ Minimum PAD pitch is 120um
+    PITCHPAD = SIZE PAD BY 19.99 OVERUNDER
+    A = PITCHPAD NOT PAD
+    B = COINCIDENT OUTSIDE EDGE A PAD 
+    PAD INTERACT A 
+}
+
+13.PAD.A {
+    @ Min/Max PAD size is 80um x 80um
+    CMACRO Width_check PAD 80   
+}
+
+13.PAD.E {
+    @ Minimum MET1/2/3 to pad of extension is 2.5um
+    CMACRO Enc_check PAD MET1 2.5
+    CMACRO Enc_check PAD MET2 2.5
+    CMACRO Enc_check PAD MET3 2.5
+}
+
+13.PAD.S {
+    @ Minimum PAD to PAD Space is 40um 
+    CMACRO OneSpace_check PAD 40
+}
+    
+
+
+GROUP 14.PL2PR 14.PL2PR.?
+
+14.PL2PR.W {
+    @ Minimum POLY2 resistor width is 2um
+    WITH WIDTH PPRES < 2 
+}
+
+14.PL2PR.L {
+    @ Minimum POLY2 resistor Length is 4um
+    A = POLY2 AND RES 
+    B = NOT COIN INSIDE EDGE PPRES LVSD
+    C = COIN EDGE PPRES LVSD
+    D = PPRES INTERACT A
+    E = WITH EDGE D B
+    F = COIN EDGE E LVSD 
+    INT F < 4.0 ABUT < 90 REGION 
+}
+
+14.PL2PR.S1 {
+    @ Minimum CONT on POLY2 space is 0.6um
+    A = RES INTERACT PRES_DEF
+    B = POLY2_ON_CONT AND A
+    CMACRO OneSpace_check B 0.6
+}
+
+14.PL2PR.S2 {
+    @ Minimum CONT on POLY2 to LVSD space is 0.0um
+    A =  LVSD INTERACT PRES_DEF
+    B =  COIN EDGE POLY2_ON_CONT_RES A
+    AND POLY2_ON_CONT_RES A
+    NOT WITH EDGE POLY2_ON_CONT_RES B 
+}
+
+14.PL2PR.E1 {
+    @ Minimum extention of PL2 to PHRI is 1.0um
+    AA = (POLY2 AND  RES ) AND PHRI  
+    CMACRO Enc_check AA PHRI 1.0
+}
+
+14.PL2PR.E2 {
+    @ Minimum CONT to POLY2 of extention is 0.5um
+    A = POLY2_RES INTERACT ( PRES_DEF OR PHRES_DEF )
+    CMACRO Enc_check CONT A 0.5
+}
+
+14.PL2PR.bad1 {
+    @ POLY2 layer for resistor must exist inside of RES(and NHRI for high resistance)
+    A = RES INTERACT POLY2_RES
+    (POLY2 INTERACT A) NOT RES
+    (POLY2 INTERACT (A AND PHRI)) NOT PHRI
+}
+
+14.PL2PR.bad2 {
+    @ POLY1 can't exist inside of RES
+    POLY1 AND (RES INTERACT (PRES_DEF OR PHRES_DEF))
+}
+
+14.PL2PR.bad3 {
+    @ ACT can't exist inside of RES
+    ACT AND (RES INTERACT (PRES_DEF OR PHRES_DEF))
+}
+
+14.PL2PR.bad4 {
+   @ PSD/NSD can't exist inside of RES
+     (PSD OR NSD) AND RES
+}
+
+
+GROUP 15.CAP 15.CAP.?
+
+15.CAP.W1 { 
+    @ POLY1 minimum width for PIP capacitor is 4.6um
+    CMACRO Width_check POLY1_CAP 4.6 
+}
+
+15.CAP.W2 {
+    @ POLY2 minimum width for PIP capacitor is 2.6um
+    @ POLY2 maximum width for PIP capacitor is 50.0um
+    CMACRO Width_check POLY2_CAP 2.6
+    WITH WIDTH POLY2_CAP > 50
+    LENGTH POLY2_CAP > 50
+}
+
+15.CAP.S1 {
+    @ Space from CONT in POLY1 to POLY2 is 1.0um
+    POLY1_CAP_ON_CONT = POLY1_ON_CONT AND CAP 
+    CMACRO TwoSpace_check POLY2_CAP POLY1_CAP_ON_CONT 1
+}
+
+15.CAP.S2 {
+    @ Space from POLY2(CAP) to POLY2(RES) is 2.0um
+    CMACRO TwoSpace_check POLY2_CAP POLY2_RES 2
+}
+
+
+15.CAP.S3 {
+    @ Space from POLY2(CAP) to POLY2(interconnect) is 2.0um
+    A = POLY2 NOT ( RES OR CAP ) 
+    CMACRO TwoSpace_check POLY2_CAP A 2
+}
+
+15.CAP.S4 {
+    @ Space from POLY1(CAP) to POLY1(interconnect) is 1um
+    POLY1_EXT = (POLY1 NOT CAP) NOT ESD
+    CMACRO TwoSpace_check POLY1_CAP POLY1_EXT 1
+}
+
+15.CAP.S5 {
+    @ Space from POLY1(CAP) to POLY1(CAP) is 1.0um
+    CMACRO OneSpace_check POLY1_CAP 1.0
+}
+
+
+15.CAP.E1 {
+    @ Extension of CONT to POLY1(CAP) is 1um
+    CMACRO Enc_check CONT POLY1_CAP 1
+}
+
+15.CAP.E2 {
+    @ Extension of CONT to POLY2(CAP) is 1um
+    CMACRO Enc_check CONT POLY2_CAP 1
+}
+
+15.CAP.E3 {
+    @ Extension of POLY2(CAP) to POLY1(CAP) is 1um
+    CMACRO Enc_check POLY2_CAP POLY1_CAP 1
+}
+
+15.CAP.bad1 {
+    @ Capacitor must be formed on field oxide
+    INTERACT CAP ACT 
+}
+
+15.CAP.bad2 {
+    @ In cap layer, POLY1 and POLY2 must be interacted
+    NOT INTERACT POLY2_CAP POLY1_CAP
+    NOT INTERACT POLY1_CAP POLY2_CAP
+}
+
+15.CAP.bad3 {
+    @ LVSD layer(in CAP layer) length is must 0.2um.
+    SIZE PL2_CAP_LVSD BY 0.1 UNDEROVER 
+    INT PL2_CAP_LVSD < 0.2 ABUT < 90 SINGULAR REGION
+}
+
+15.CAP.bad4 {
+    @ LVSD layer(in CAP layer) must coincident with POLY2 layer on CAP layer and have same width.
+    A =  COIN EDGE  POLY2_CAP (LVSD INTERACT PL2_CAP_LVSD)
+    B = CONVEX EDGE A ANGLE1 != 90 ANGLE2 != 90
+    TOUCH EDGE (LVSD INTERACT PL2_CAP_LVSD) B
+}   
+
+15.CAP.bad5 {
+    @ LVSD layer(in CAP layer) must exist on (POLY2 AND CAP) layer.
+    (LVSD INTERACT PL2_CAP_LVSD) NOT POLY2_CAP
+}
+
+
+
+GROUP 16.PNP 16.PNP.?
+
+16.PNP.W1 {
+    @ Emitter width/length size must 2x2 or 5x5 or 10x10(um) 
+    PNP_E  NOT PNP_E_ALL
+}
+
+16.PNP.W2 {
+    @ BJT collector, base width is 2.0um
+    INT (PNP_C OR PNP_B )  < 2 ABUT>0<90 SINGULAR REGION
+    WITH WIDTH (PNP_C OR PNP_B) > 2
+}
+
+16.PNP.S {
+    @ Space of two ACT (emitter, base) is 4.5um
+    A = EXT [PNP_E] PNP_B == 4.5 OPPOSITE
+    PNP_E NOT COIN INSIDE EDGE A
+}
+
+16.PNP.E1 {
+    @ Extension ACT(Collector) to PWELL is 4.5um
+    EXT PNP_C PNP_WELL < 4.5 ABUT < 90 SINGULAR REGION 
+    //A = (PWELL AND BJT) INTERACT PNP_PWELL
+    //WITH WIDTH (A INTERACT PNP_C) > 11
+}
+
+
+16.PNP.E2 {
+    @ Extension of ACT(base) to NWELL is 2um
+    A = SIZE PNP_B BY 2 
+    B = HOLES A
+    C = A OR B
+    C NOT COIN EDGE PNP_PWELL
+}
+
+16.PNP.E3 {
+    @ extension of ACT(Collector) to BJT is 4.5um
+    A = SIZE PNP_C BY 4.5 
+    B = HOLES A
+    C = A OR B
+    C NOT ( BJT INTERACT PNP_E )
+    ( BJT INTERACT PNP_E ) NOT C
+}
+
+16.PNP.E4 {
+    @ Extension of ACT to NSD/PSD is 1um
+    IMP_PNP_E = BJT_PSD INTERACT PNP_E
+    IMP_PNP_B = BJT_NSD INTERACT PNP_B
+    IMP_PNP_C = BJT_PSD INTERACT PNP_C
+    CMACRO Enc_check PNP_E IMP_PNP_E 1
+    CMACRO Enc_check PNP_B IMP_PNP_B 1
+    CMACRO Enc_check PNP_C IMP_PNP_C 1
+}
+
+
+
+GROUP 17.NPN 17.NPN.?
+
+17.NPN.W1 {
+    @ Emitter width/length size must 2x2 or 5x5 or 10x10(um) 
+    NPN_E NOT NPN_E_ALL
+}
+
+17.NPN.W2 {
+    @ BJT collector, base minimum width is 2.0um
+    INT (NPN_C OR NPN_B ) < 2 ABUT>0<90 SINGULAR REGION
+    WITH WIDTH (NPN_C OR NPN_B) > 2
+}
+
+17.NPN.S {
+    @ Space of two ACT (Base, Emitter) is 4.5um
+    A = EXT [NPN_E] NPN_B == 4.5 OPPOSITE
+    NPN_E NOT COIN INSIDE EDGE A
+}
+
+17.NPN.E1 {
+    @ Extension of ACT (Collector) to NWELL is 4.5um
+    EXT NPN_C NPN_WELL < 4.5 ABUT < 90 SINGULAR REGION
+    //A = ( NWELL AND BJT ) INTERACT NPN_C_WELL
+    //WITH WIDTH (A INTERACT NPN_C) > 11
+}
+
+
+17.NPN.E2 {
+    @ Extension of ACT (Base) to PWELL is 2.0um
+    A = SIZE NPN_B BY 2 
+    B = HOLES A 
+    C = A OR B
+    C NOT COIN EDGE NPN_C_WELL
+}
+
+17.NPN.E3 {
+    @ Extension of NWELL to BJT is 1.0um
+    A = HOLES NPN_C_WELL
+    B = NPN_C_WELL OR A
+    //( BJT INTERACT NPN_E ) NOT B
+    //B NOT ( BJT INTERACT NPN_E )
+   CMACRO Enc_check NPN_C_WELL BJT 1.0
+
+}
+
+17.NPN.E4 {
+    @ Extension of ACT to NSD/PSD is 1um
+    IMP_NPN_E = BJT_NSD INTERACT NPN_E
+    IMP_NPN_B = BJT_PSD INTERACT NPN_B
+    IMP_NPN_C = BJT_NSD INTERACT NPN_C
+    CMACRO Enc_check NPN_E IMP_NPN_E 1
+    CMACRO Enc_check NPN_B IMP_NPN_B 1
+    CMACRO Enc_check NPN_C IMP_NPN_C 1
+}
+
+
+
+GROUP 19.IO 19.IO.?
+
+//19.IO.F {
+//    @ ESD protection devices follow finger design with unique finger dimension and layout style 
+//}
+
+19.IO.W1 {
+    @ Minimum total finger width for ESD protection is 720um 
+    A = NET AREA RATIO ESD_GATE ESD_ACT > 0
+    GATE_W = A COIN INSIDE EDGE ESD_PL1
+    TR_ACT = ESD_ACT INTERACT A
+    DFM PROPERTY TR_ACT GATE_W overlap abut also multi region
+        [gate_total_w = length(GATE_W)/2] < 720 
+}
+
+19.IO.W2 {
+    @ Minimum unit finger width for ESD protection is 60um
+    PN_ACT = PEACT OR NEACT
+    ESD_SD_AREA = PN_ACT NOT POLY1
+    A = LENGTH ESD_SD_AREA >= 60
+    ESD_SD_AREA NOT WITH EDGE A 
+}
+
+19.IO.W3 {
+    @ Minimum n/p-channel gate length is 0.7um
+    A = POLY1_ON_ACT AND ESD
+    CMACRO Width_check A 0.7
+}
+
+19.IO.W4 {
+    @ Metal width on drain side is 6.0um
+    ESD_D_CON = CONT AND ESD_D
+    M1_ESD_D = MET1 INTERACT ESD_D_CON
+    CMACRO Width_check M1_ESD_D 6
+}
+
+19.IO.S1 {
+    @ Minimum drain contact to gate space(DCGS) is 4.0um 
+    ESD_D_CON = CONT AND ESD_D
+    CMACRO TwoSpace_check ESD_GATE ESD_D_CON 4
+}
+
+19.IO.S2 {
+    @ Minimum source contact to gate space(SCGS) is 1.0um 
+    ESD_S_CON = CONT AND ESD_S
+    CMACRO TwoSpace_check ESD_S_CON ESD_GATE 1
+}
+
+19.IO.S3 {
+    @ Space of two CONT is 0.8um
+    ESD_CON = CONT AND ESD 
+    CMACRO OneSpace_check ESD_CON 0.8
+}
+
+
+19.IO.E1 {
+    @ Minimum extension of CONT to ACT for ESD protection is 1.0um
+    EACT_TR = EACT INTERACT POLY1 
+    A = INSIDE ACT_ON_CONT EACT_TR
+    CMACRO Enc_check A EACT 1.0
+}
+
+
+19.IO.E2 {
+    @ Extension of ACT to NSD/PSD minimum is 1.0um
+    CMACRO Enc_check ESD_ACT NSD 1.0
+    CMACRO Enc_check ESD_ACT PSD 1.0
+}
+
+
+
+GROUP 20.LU 20.LU.?
+
+20.LU.W1 {
+    @ Minimum NWELL width is 12.0um
+    WITH WIDTH ESD_TAP_NWELL < 12 
+}
+
+20.LU.W2 {
+    @ Minimum dummy collector width is 10.0um
+    WITH WIDTH ESD_TAP_ACT < 10
+}
+
+20.LU.S1 {
+    @ Minimum guard ring to dummy collector space is 5.0um
+    A = ESD_TAP_NWELL INTERACT PGATE
+    B = A AND ESD_TAP_NACT
+    CMACRO TwoSpace_check ESD_TAP_PACT B 5
+}
+
+20.LU.S2 {
+    @ Minimum dummy collector to NWELL space is 5.0um
+    A = ESD_TAP_NWELL NOT INTERACT ALLGATE
+    CMACRO TwoSpace_check ESD_TAP_PACT A 5
+}
+
+20.LU.S3 {
+    @ Space of P+ to N+ guard ring minimum is 1.0um
+    CMACRO TwoSpace_check PEACT ESD_TAP_NACT 1
+}
+
+20.LU.S4 {
+    @ Space of N+ to P+ guard ring minimum is 1.0um
+    CMACRO TwoSpace_check NEACT ESD_TAP_PACT 1
+}
+
+
+20.LU.E1 {
+    @ Extension of dummy collector to NWELL minimum is 2.0um
+    CMACRO Enc_check ESD_TAP_NACT ESD_TAP_NWELL 2
+}
+ 
+20.LU.E2 {
+    @ Extesnsion of N+ Guard ring to NWELL minimum is 2.0um
+    CMACRO Enc_check ESD_TAP_NACT ESD_TAP_NWELL 2
+}
+
+
+
+GROUP 22.PNW 22.PNW.?
+
+22.PNW.W1 { 
+    @ Minimum PACT Diode (inside NW) Width/Length is "2um > PACT < 20um"
+    A = LENGTH NWDIO_PANO < 2  
+    WITH EDGE NWDIO_PANO A  
+    B = LENGTH NWDIO_PANO > 20
+    WITH EDGE NWDIO_PANO B
+}
+
+22.PNW.W2 {
+   @ PNW_Diode Ntype ACT width is 2.0um (Fixed Value)
+   INT NWDIO_NCAT < 2 ABUT>0<90 SINGULAR REGION
+   WITH WIDTH NWDIO_NCAT > 2  
+}
+
+22.PNW.S  {
+  @ PNW Diode Space of Two ACT is 4.5um (Fixed Value)
+    A = EXT [NWDIO_PANO] NWDIO_NCAT  == 4.5 OPPOSITE
+    NWDIO_PANO NOT COIN INSIDE EDGE A
+}
+
+22.PNW.E1 {
+  @ PNW Diode Extension of ACT(N-Type) to NWELL is 2.0um (Fixed Value)
+     A = NWELL AND DIODE
+     B = SIZE  NWDIO_NCAT BY 2    
+     C = HOLES B
+     D = B OR C  
+     D NOT COIN EDGE A
+}
+
+22.PNW.E2 {
+  @ PNW Diode Extension of ACT to NSD/PSD is 1.0um (Fixed Value)
+    NWDIODE_ACT = DIODE_ACT AND NWELL      
+//  CMACRO Enc_check NWDIODE_ACT DIODE_PSD 1  //Minimum Value       
+//  CMACRO Enc_check NWDIODE_ACT DIODE_NSD 1  //Minimum Value
+    A = SIZE  NWDIODE_ACT BY 1
+    NOT COIN EDGE A (DIODE_PSD OR DIODE_NSD)      
+}
+
+22.PNW.bad1 {
+  @ PNW Diode - NW must completely straddle DIODE 
+    A = INTERACT NWELL DIODE
+    NOT COIN EDGE A DIODE    
+}
+
+GROUP 23.NPW 23.NPW.?
+
+23.NPW.W1 { 
+    @ Minimum NACT Diode (inside PW) Width/Length is "2um > NACT < 20um" 
+    A = LENGTH PWDIO_NANO < 2 
+    WITH EDGE PWDIO_NANO A
+    B = LENGTH PWDIO_NANO > 20
+    WITH EDGE PWDIO_NANO B  
+}
+
+23.NPW.W2 {
+    @ NPW_Diode Ptype ACT width is 2.0um (Fixed Value)
+    INT  PWDIO_PCAT < 2 ABUT>0<90 SINGULAR REGION
+    WITH WIDTH PWDIO_PCAT > 2
+}
+
+23.NPW.S {
+    @ NPW Diode Space of Two ACT is 4.5um (Fixed Value)
+    A = EXT [PWDIO_NANO] PWDIO_PCAT  == 4.5 OPPOSITE 
+    PWDIO_NANO NOT COIN INSIDE EDGE A   
+}
+
+23.NPW.E {
+  @ NPW Diode Extension of ACT to NSD/PSD is 1.0um ((Fixed Value)  
+    PWDIODE_ACT = DIODE_ACT NOT NWELL   
+//  CMACRO Enc_check PWDIODE_ACT DIODE_PSD 1 // Minimum Value       
+//  CMACRO Enc_check PWDIODE_ACT DIODE_NSD 1 // Minimum Value 
+    A = SIZE  PWDIODE_ACT BY 1
+    NOT COIN EDGE A (DIODE_PSD OR DIODE_NSD)      
+}
+
+          

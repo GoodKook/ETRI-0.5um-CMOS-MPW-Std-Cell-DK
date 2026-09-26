@@ -1,0 +1,1451 @@
+;-----------------------------------------------------------------------------------------------------
+;  Rule file name: NSPL 0.5um Analog CMOS 2P3M 5V Design Rule                                 
+;  FOR 0.5um Analog CMOS(2-poly/3-Metal)
+;  Recommand Assura DRC version: Assura 4.1 USR5 (CDBA)
+;  Rule Version: 1.1 
+;-----------------------------------------------------------------------------------------------------
+
+;-----------------------------------------------------------------------------------------------------
+;  Ver  |    date    |       File History                                                                              
+;-----------------------------------------------------------------------------------------------------
+;  1.1  | 2024/01/09 | Modified Rule : 14.PL2PR.S2 (Exception : Interact CAP)
+;  1.1  | 2024/01/09 | Modified Rule : 14.PL2PR.bad1 (Exception : Interact CAP)
+;-----------------------------------------------------------------------------------------------------
+;  1.1  | 2024/01/15 | Modified Rule : 16.PNP.E1 (Exception : Interact NPN BJT)
+;  1.1  | 2024/01/15 | Modified Rule : 16.PNP.E3 (Exception : Interact NPN BJT)
+;  1.1  | 2024/01/15 | Modified Rule : 17.NPN.E3123 (Delete Rule) 
+;  1.1  | 2024/01/15 | Modified Rule : 17.NPN.E3 (Exception : Interact PNP BJT)
+;  1.1  | 2024/01/15 | Modified Rule : 1.NWL.bad2 (Exception : Interact PDIODE)
+;  1.1  | 2024/01/15 | Modified Rule : 1.PWL.bad2 (Changed Error Ouptput Pattern)
+;  1.1  | 2024/01/15 | Modified Rule : 22.PNW.E2 (Exception : Interact NDIODE)
+;  1.1  | 2024/01/15 | Modified Rule : 23.NPW.E (Exception : Interact PDIODE)
+;  1.1  | 2025/03/10 | Delete Rule   : 9.VIA1.bad2 & 11.VIA2.bad2 (Commented out)
+;  1.1  | 2025/03/10 | Modified Rule : 1.PWL.bad1 (PW Region Reassignment)
+;  1.1  | 2025/03/10 | Modified Layer Define : Redefine to Metal Width
+;  1.1  | 2025/03/10 |                       : MET1UN10,MET1UP10,MET2UN10,MET2UP10,MET3UN10,MET3UP10
+;-----------------------------------------------------------------------------------------------------
+
+drcExtractRules(
+
+layerDefs( "GDS2"
+  
+    CHIPBOUNDARY=layer( 0 type(0) )
+ 
+    KEY=layer( 1 type(0) )
+
+    NWELLi=layer(2 type(0) )
+
+    PWELLi=layer(3 type(0) )
+
+    HNWELLi=layer(4 type(0) )
+   
+    HPWELLi=layer(5 type(0) )
+
+    DWELLi=layer(6 type(0) )
+
+    DNWELLi=layer(7 type(0) )
+    
+    DPWELLi=layer(8 type(0) )
+
+    ACTi=layer(11 type(0) )
+
+    POLY1i=layer(12 type(0) )
+
+    POLY2i=layer(13 type(0) )
+
+    NSDi=layer(14 type(0) )
+
+    PSDi=layer(15 type(0) )
+
+    FVTNi=layer(16 type(0) )
+
+    FVTPi=layer(17 type(0) )
+
+    VTNi=layer(18 type(0) )
+
+    VTPi=layer(19 type(0) )
+
+    NHRIi=layer(20 type(0) )
+
+    PHRIi=layer(21 type(0) )
+
+    NPIi=layer(22 type(0) )
+
+    PPIi=layer(23 type(0) )
+
+    NDRIFTi=layer(24 type(0) )
+
+    PDRIFTi=layer(25 type(0) )
+
+    ESDI=layer(26 type(0) )
+
+    TGOXi=layer(27 type(0) )
+
+    JISOi=layer(28 type(0) )
+
+    TISOi=layer(29 type(0) )
+
+    CONTi=layer(31 type(0) )
+
+    MET1i=layer(32 type(0) )
+
+    VIA1i=layer(33 type(0) )
+
+    MET2i=layer(34 type(0) )
+
+    VIA2i=layer(35 type(0) )
+
+    MET3i=layer(36 type(0) )
+
+    PADi=layer(37 type(0) )
+
+    POLY1TXT=text(41 type(0) )
+
+    MET1TXT=text(42 type(0) )
+
+    MET2TXT=text(44 type(0) )
+
+    MET3TXT=text(46 type(0) )
+   
+    PADTXT=text(47 type(0) )
+
+    TEXT=text(48 type(0) )
+
+    RES=layer(51 type(0) )
+
+    ESD=layer(52 type(0) )
+
+    CAP=layer(53 type(0) )
+
+    HVMS=layer(54 type(0) )
+
+    HVMA=layer(55 type(0) )
+
+    BJT=layer(56 type(0) )
+
+    DIODE=layer(57 type(0) )
+
+    NODRC=layer(58 type(0) )
+    
+    ESDD=layer(59 type(0) )
+
+    LVSD=layer(60 type(0) )
+
+    BULK=cellBoundary(root)
+
+    );end of layerDefs_GDSII
+
+layerDefs( "df2"
+
+    CHIPBOUNDARY=layer("CHIPBOUNDARY" type("drawing"))
+
+    KEY=layer("KEY" type("drawing"))
+
+    NWELLi=layer("NWELL" type("drawing"))
+
+    PWELLi=layer("PWELL" type("drawing"))
+
+    HNWELLi=layer("HNWELL" type("drawing"))
+
+    HPWELLi=layer("HPWELL" type("drawing"))
+
+    DWELLi=layer("DWELL" type("drawing"))
+
+    DNWELLi=layer("DNWELL" type("drawing"))
+
+    DPWELLi=layer("DPWELL" type("drawing"))
+
+    ACTi=layer("ACT" type("drawing"))
+
+    POLY1i=layer("POLY1" type("drawing"))
+
+    POLY2i=layer("POLY2" type("drawing"))
+
+    NSDi=layer("NSD" type("drawing"))
+    
+    PSDi=layer("PSD" type("drawing"))
+
+    FVTNi=layer("FVTN" type("drawing"))
+
+    FVTPi=layer("FVTP" type("drawing"))
+
+    VTNi=layer("VTN" type("drawing"))
+
+    VTPi=layer("VTP" type("drawing"))
+
+    NHRIi=layer("NHRI" type("drawing"))
+
+    PHRIi=layer("PHRI" type("drawing"))
+
+    NPIi=layer("NPI" type("drawing"))
+
+    PPIi=layer("PPI" type("drawing"))
+
+    NDRIFTi=layer("NDRIFT" type("drawing"))
+
+    PDRIFTi=layer("PDRIFT" type("drawing"))
+
+    ESDI=layer("ESDI" type("drawing"))
+
+    TGOXi=layer("TGOX" type("drawing"))
+
+    JISOi=layer("JISO" type("drawing"))
+
+    TISOi=layer("TISO" type("drawing"))
+
+    CONTi=layer("CONT" type("drawing"))
+
+    MET1i=layer("MET1" type("drawing"))
+
+    VIA1i=layer("VIA1" type("drawing"))
+
+    MET2i=layer("MET2" type("drawing"))
+
+    VIA2i=layer("VIA2" type("drawing"))
+
+    MET3i=layer("MET3" type("drawing"))
+
+    PADi=layer("PAD" type("drawing"))
+
+    POLY1TXT=layer("POLY1TXT" type("drawing"))
+
+    MET1TXT=layer("MET1TXT" type("drawing"))
+
+    MET2TXT=layer("MET2TXT" type("drawing"))
+
+    MET3TXT=layer("MET3TXT" type("drawing"))
+
+    PADTXT=layer("PADTXT" type("drawing"))
+
+    TEXT=layer("TEXT" type("drawing"))
+
+    RES=layer("RES" type("drawing"))
+
+    CAP=layer("CAP" type("drawing"))
+
+    ESD=layer("ESD" type("drawing"))
+
+    HVMS=layer("HVMS" type("drawing"))
+
+    HVMA=layer("HVMA" type("drawing"))
+
+    BJT=layer("BJT" type("drawing"))
+
+    DIODE=layer("DIODE" type("drawing"))
+
+    NODRC=layer("NODRC" type("drawing"))
+
+    ESDD=layer("ESDD" type("drawing"))
+
+    LVSD=layer("LVSD" type("drawing"))
+
+    BULK=cellBoundary(root)
+
+    );end of layerDef_df2
+
+;offGrid check
+offGrid(CHIPBOUNDARY 0.01 "off grid on layer CHIPBOUNDARY")
+offGrid(KEY 0.01 "off grid on layer KEY")
+offGrid(NWELLi 0.01 "off grid on layer NWELL")
+offGrid(PWELLi 0.01 "off grid on layer PWELL")
+offGrid(HNWELLi 0.01 "off grid on layer HNWELL")
+offGrid(HPWELLi 0.01 "off grid on layer HPWELL")
+offGrid(DWELLi 0.01 "off grid on layer DWELL")
+offGrid(DNWELLi 0.01 "off grid on layer DNWELL")
+offGrid(DPWELLi 0.01 "off grid on layer DPWELL")
+offGrid(ACTi 0.01 "off grid on layer ACT")
+offGrid(POLY1i 0.01 "off grid on layer POLY1")
+offGrid(POLY2i 0.01 "off grid on layer POLY2")
+offGrid(NSDi 0.01 "off grid on layer NSD")
+offGrid(PSDi 0.01 "off grid on layer PSD")
+offGrid(FVTNi 0.01 "off grid on layer FVTN")
+offGrid(FVTPi 0.01 "off grid on layer FVTP")
+offGrid(VTNi 0.01 "off grid on layer VTN")
+offGrid(VTPi 0.01 "off grid on layer VTP")
+offGrid(NHRIi 0.01 "off grid on layer NHRI")
+offGrid(PHRIi 0.01 "off grid on layer PHRI")
+offGrid(NPIi 0.01 "off grid on layer NPI")
+offGrid(PPIi 0.01 "off grid on layer PPI")
+offGrid(NDRIFTi 0.01 "off grid on layer NDRIFT")
+offGrid(PDRIFTi 0.01 "off grid on layer PDRIFT")
+offGrid(ESDI 0.01 "off grid on layer ESDI")
+offGrid(TGOXi 0.01 "off grid on layer TGOX")
+offGrid(JISOi 0.01 "off grid on layer JISO")
+offGrid(TISOi 0.01 "off grid on layer TISO")
+offGrid(CONTi 0.01 "off grid on layer CONT")
+offGrid(MET1i 0.01 "off grid on layer MET1")
+offGrid(VIA1i 0.01 "off grid on layer VIA1")
+offGrid(MET2i 0.01 "off grid on layer MET2")
+offGrid(VIA2i 0.01 "off grid on layer VIA2")
+offGrid(MET3i 0.01 "off grid on layer MET3")
+offGrid(PADi 0.01 "off grid on layer PAD")
+offGrid(POLY1TXT 0.01 "off grid on layer POLY1TXT")
+offGrid(MET1TXT 0.01 "off grid on layer MET1TXT")
+offGrid(MET2TXT 0.01 "off grid on layer MET2TXT")
+offGrid(MET3TXT 0.01 "off grid on layer MET3TXT")
+offGrid(PADTXT 0.01 "off grid on layer PADTXT")
+offGrid(TEXT 0.01 "off grid on layer PADTXT")
+offGrid(RES 0.01 "off grid on layer RES")
+offGrid(ESD 0.01 "off grid on layer ESD")
+offGrid(CAP 0.01 "off grid on layer CAP")
+offGrid(HVMS 0.01 "off grid on layer HVMS")
+offGrid(HVMA 0.01 "off grid on layer HVMA")
+offGrid(BJT 0.01 "off grid on layer BJT")
+offGrid(DIODE 0.01 "off grid on layer DIODE")
+offGrid(NODRC 0.01 "off grid on layer NODRC")
+offGrid(ESDD 0.01 "off grid on layer ESDD")
+offGrid(LVSD 0.01 "off grid on layer LVSD")
+
+
+;45degree check
+errorLayer(geomGetNon45(CHIPBOUNDARY) "non 45 degree on layer CHIPBOUNDARY")
+errorLayer(geomGetNon45(KEY) "non 45 degree on layer KEY")
+errorLayer(geomGetNon45(NWELLi) "non 45 degree on layer NWELL")
+errorLayer(geomGetNon45(PWELLi) "non 45 degree on layer PWELL")
+errorLayer(geomGetNon45(HNWELLi) "non 45 degree on layer HNWELL")
+errorLayer(geomGetNon45(HPWELLi) "non 45 degree on layer HPWELL")
+errorLayer(geomGetNon45(DWELLi) "non 45 degree on layer DWELL")
+errorLayer(geomGetNon45(DNWELLi) "non 45 degree on layer DNWELL")
+errorLayer(geomGetNon45(DPWELLi) "non 45 degree on layer DPWELL")
+errorLayer(geomGetNon45(ACTi) "non 45 degree on layer ACT")
+errorLayer(geomGetNon45(POLY1i) "non 45 degree on layer POLY1")
+errorLayer(geomGetNon45(POLY2i) "non 45 degree on layer POLY2")
+errorLayer(geomGetNon45(NSDi) "non 45 degree on layer NSD")
+errorLayer(geomGetNon45(PSDi) "non 45 degree on layer PSD")
+errorLayer(geomGetNon45(FVTNi) "non 45 degree on layer FVTN")
+errorLayer(geomGetNon45(FVTPi) "non 45 degree on layer FVTP")
+errorLayer(geomGetNon45(VTNi) "non 45 degree on layer VTN")
+errorLayer(geomGetNon45(VTPi) "non 45 degree on layer VTP")
+errorLayer(geomGetNon45(NHRIi) "non 45 degree on layer NHRI")
+errorLayer(geomGetNon45(PHRIi) "non 45 degree on layer PHRI")
+errorLayer(geomGetNon45(NPIi) "non 45 degree on layer NPI")
+errorLayer(geomGetNon45(PPIi) "non 45 degree on layer PPI")
+errorLayer(geomGetNon45(NDRIFTi) "non 45 degree on layer NDRIFT")
+errorLayer(geomGetNon45(PDRIFTi) "non 45 degree on layer PDRIFT")
+errorLayer(geomGetNon45(ESDI) "non 45 degree on layer ESDI")
+errorLayer(geomGetNon45(TGOXi) "non 45 degree on layer TGOX")
+errorLayer(geomGetNon45(JISOi) "non 45 degree on layer JISO")
+errorLayer(geomGetNon45(TISOi) "non 45 degree on layer TISO")
+errorLayer(geomGetNon45(CONTi) "non 45 degree on layer CONT")
+errorLayer(geomGetNon45(MET1i) "non 45 degree on layer MET1")
+errorLayer(geomGetNon45(VIA1i) "non 45 degree on layer VIA1")
+errorLayer(geomGetNon45(MET2i) "non 45 degree on layer MET2")
+errorLayer(geomGetNon45(VIA2i) "non 45 degree on layer VIA2")
+errorLayer(geomGetNon45(MET3i) "non 45 degree on layer MET3")
+errorLayer(geomGetNon45(PADi) "non 45 degree on layer PAD")
+errorLayer(geomGetNon45(POLY1TXT) "non 45 degree on layer POLY1TXT")
+errorLayer(geomGetNon45(MET1TXT) "non 45 degree on layer MET1TXT")
+errorLayer(geomGetNon45(MET2TXT) "non 45 degree on layer MET2TXT")
+errorLayer(geomGetNon45(MET3TXT) "non 45 degree on layer MET3TXT")
+errorLayer(geomGetNon45(PADTXT) "non 45 degree on layer PADTXT")
+errorLayer(geomGetNon45(TEXT) "non 45 degree on layer TEXT")
+errorLayer(geomGetNon45(RES) "non 45 degree on layer RES")
+errorLayer(geomGetNon45(ESD) "non 45 degree on layer ESD")
+errorLayer(geomGetNon45(CAP) "non 45 degree on layer CAP")
+errorLayer(geomGetNon45(HVMS) "non 45 degree on layer HVMS")
+errorLayer(geomGetNon45(HVMA) "non 45 degree on layer HVMA")
+errorLayer(geomGetNon45(BJT) "non 45 degree on layer BJT")
+errorLayer(geomGetNon45(DIODE) "non 45 degree on layer DIODE")
+errorLayer(geomGetNon45(NODRC) "non 45 degree on layer NODRC")
+errorLayer(geomGetNon45(ESDD) "non 45 degree on layer ESDD")
+errorLayer(geomGetNon45(LVSD) "non 45 degree on layer LVSD")
+
+;define derived layer
+;NODRC_layers
+NWELL=geomAndNot(NWELLi NODRC)
+HNWELL=geomAndNot(HNWELLi NODRC)
+HPWELL=geomAndNot(HPWELLi NODRC)
+DWELL=geomAndNot(DWELLi NODRC)
+DNWELL=geomAndNot(DNWELLi NODRC)
+DPWELL=geomAndNot(DPWELLi NODRC)
+ACT=geomAndNot(ACTi NODRC)
+EACT=geomAndNot(geomAnd(ACTi ESD) NODRC)
+BACT=geomAndNot(geomAnd(ACTi BJT) NODRC)
+POLY1=geomAndNot(POLY1i NODRC)
+POLY2=geomAndNot(POLY2i NODRC)
+NSD=geomAndNot(NSDi NODRC)
+PSD=geomAndNot(PSDi NODRC)
+FVTN=geomAndNot(FVTNi NODRC)
+FVTP=geomAndNot(FVTPi NODRC)
+VTN=geomAndNot(VTNi NODRC)
+VTP=geomAndNot(VTPi NODRC)
+NHRI=geomAndNot(NHRIi NODRC)
+PHRI=geomAndNot(PHRIi NODRC)
+NPI=geomAndNot(NPIi NODRC)
+PPI=geomAndNot(PPIi NODRC)
+NDRIFT=geomAndNot(NDRIFTi NODRC)
+PDRIFT=geomAndNot(PDRIFTi NODRC)
+TGOX=geomAndNot(TGOXi NODRC)
+JISO=geomAndNot(JISOi NODRC)
+TISO=geomAndNot(TISOi NODRC)
+CONT=geomAndNot(CONTi NODRC)
+MET1=geomAndNot(MET1i NODRC)
+VIA1=geomAndNot(VIA1i NODRC)
+MET2=geomAndNot(MET2i NODRC)
+VIA2=geomAndNot(VIA2i NODRC)
+MET3=geomAndNot(MET3i NODRC)
+PAD=geomAndNot(PADi NODRC)
+;derived layer
+ALLNWELL = geomOr(NWELL geomOr(HNWELL DNWELL))
+ALLPWELL = geomOr(PWELLi geomOr(HPWELL DPWELL))
+PSUB=geomAndNot(geomAndNot(geomAndNot(BULK ALLNWELL) ALLPWELL) DWELL)
+PWELL=geomAndNot(geomOr(PWELLi PSUB) NODRC)
+PNSD = geomOr(PSD NSD)
+
+RESNW = geomAnd(NWELL RES)
+
+NACT = geomAnd(ACT NSD)
+PACT = geomAnd(ACT PSD)
+
+NTAP = geomAvoiding(geomAnd(NACT NWELL) POLY1)
+PTAP = geomAvoiding(geomAvoiding(PACT NWELL) POLY1)
+
+NACT_NOT_POLY_AND_NWELL = geomAvoiding(geomAvoiding(NACT NWELL) geomOr(POLY1 POLY2))
+PACT_NOT_POLY_AND_PWELL = geomAvoiding(geomAvoiding(PACT PWELL) geomOr(POLY1 POLY2))
+NTAP_ON_CONT = geomButtOrOver(CONT NTAP)
+PTAP_ON_CONT = geomButtOrOver(CONT PTAP)
+CONT_VIA1 = geomOr(CONT VIA1)
+
+GATE = geomAnd(ACT POLY1)
+NGATE = geomAvoiding(geomAnd(NACT POLY1) NWELL)
+PGATE = geomAnd(geomAnd(PACT POLY1) NWELL)
+
+NGATE_W = geomCoincident(NGATE POLY1 onlyEven)
+PGATE_W = geomCoincident(PGATE POLY1 onlyEven)
+;;NGATE_W = geomGetEdge(NGATE coincident POLY1)
+PGATE_W = geomGetEdge(PGATE inside ACT)
+
+ALLGATE = geomOr(NGATE PGATE)
+
+NISD = geomButtOnly(geomAndNot(NACT NGATE) NGATE)
+PISD = geomButtOnly(geomAndNot(PACT PGATE) PGATE)
+
+NMOS = geomButtOrOver(NACT POLY1)
+PMOS = geomButtOrOver(PACT POLY1)
+NPMOS = geomOr(NMOS PMOS)
+
+POLY1_ON_ACT = geomButtOrOver(POLY1 geomAnd(POLY1 ACT))
+POLY1_NOT_ACT = geomAndNot(POLY1 POLY1_ON_ACT)
+
+POLY1_FIELD = geomAndNot(POLY1 ALLGATE)
+POLY1_ANT = geomButtOrOver(POLY1_FIELD GATE)
+POLY1_TAP = geomAnd(POLY1 POLY1_FIELD)
+PAREA = geomButtOrOver(POLY1 PGATE)
+NAREA = geomButtOrOver(POLY1 NGATE)
+
+ACT_ON_CONT = geomButtOrOver(CONT ACT)
+POLY1_ON_CONT = geomButtOrOver(CONT POLY1)
+POLY2_ON_CONT = geomButtOrOver(CONT POLY2)
+PL2_ONLY = geomAvoiding(POLY2 POLY1)
+PL1_ONLY = geomAvoiding(POLY1 POLY2)
+PL1_PL2 = geomAnd(POLY1 POLY2)
+PL2_INT_PL1 = geomButtOrOver(POLY2 POLY1)
+PL1_INT_PL2 = geomButtOrOver(POLY1 POLY2)
+CONT_ON_PL2_ONLY = geomButtOrOver(CONT PL2_ONLY)
+CONT_ON_PL1_ONLY = geomButtOrOver(CONT PL1_ONLY)
+CONT_ON_PL2_INT_PL1 = geomButtOrOver(CONT PL2_INT_PL1)
+CONT_ON_PL1_INT_PL2 = geomButtOrOver(CONT PL1_INT_PL2)
+
+POLY1_CAP = geomButtOrOver(POLY1 CAP)
+POLY2_CAP = geomButtOrOver(POLY2 CAP)
+
+;;NPRES = geomAnd(POLY2 geomButtOrOver(geomAnd(LVSD RES) NSD))
+;PPRES = geomAnd(POLY2 geomButtOrOver(geomAnd(LVSD RES) PSD))
+PPRES = geomAnd(POLY2 geomAvoiding(geomAnd(LVSD RES) PSD))
+;POLY2_RES = geomButtOrOver(POLY2 geomOr(NPRES PPRES))
+POLY2_RES = geomButtOrOver(POLY2 PPRES)
+;RES_DEF = geomInside(geomOr(LVSD geomOr(NSD PSD)) RES)
+RES_DEF = geomInside(geomAvoiding(LVSD geomOr(NSD PSD)) RES)
+;;NRES_DEF = geomInside(geomOr(NSD geomButtOrOver(LVSD NSD)) RES)
+;PRES_DEF = geomInside(geomOr(PSD geomButtOrOver(LVSD PSD)) RES)
+PRES_DEF = geomInside(geomAvoiding(LVSD PSD) RES)
+;;HRES_DEF = geomInside(geomOr(PSD geomButtOrOver(NSD PSD)) RES)
+;;HRES_DEF = geomInside(geomOr(PSD geomButtOrOver(NSD PSD)) RES)
+;NHRES_DEF = geomInside(geomAnd(geomOr(NSD geomButtOrOver(LVSD NSD)) NHRI) RES)
+;PHRES_DEF = geomInside(geomAnd(geomOr(PSD geomButtOrOver(LVSD PSD)) PHRI) RES)
+PHRES_DEF = geomInside(geomAnd(geomAvoiding(LVSD PSD) PHRI) RES)
+;;PL2ANDNRES = geomInside(geomAnd(POLY2 RES) NRES_DEF)
+PL2ANDPRES = geomInside(geomAnd(POLY2 RES) PRES_DEF)
+;;PL2ANDNHRES = geomInside(geomAnd(POLY2 RES) NHRES_DEF)
+PL2ANDPHRES = geomInside(geomAnd(POLY2 RES) PHRES_DEF)
+
+POLY1_CAP_ON_CONT = geomAnd(POLY1_ON_CONT CAP)
+POLY1_EXT = geomAndNot(geomAndNot(POLY1 CAP) ESD)
+
+NWDIO_WELL = geomAnd(DIODE NWELL)
+NWDIO_NCAT = geomAnd(NWDIO_WELL NACT)
+NWDIO_PANO = geomAnd(NWDIO_WELL PACT)
+
+PWDIO_WELL = geomAnd(DIODE PWELL)
+PWDIO_PCAT = geomAnd(PWDIO_WELL PACT)
+PWDIO_NANO = geomAnd(PWDIO_WELL NACT)
+
+DIODE_ACT = geomAnd(ACT DIODE)
+DIODE_PSD = geomAnd(PSD DIODE)
+DIODE_NSD = geomAnd(NSD DIODE)
+
+
+PNP_WELL = geomAnd(BJT NWELL)
+;PNP = geomAnd(PNP_WELL PNP_C)
+BJT_PSD = geomAnd(PSD BJT)
+BJT_NSD = geomAnd(NSD BJT)
+PBACT = geomAnd(BACT PSD)
+NBACT = geomAnd(BACT NSD)
+PNP_E = geomAnd(PNP_WELL PBACT)
+PNP_B_base = geomButtOrOver(PNP_WELL PNP_E)
+PNP_B = geomInside(geomAnd(PNP_WELL NBACT) PNP_B_base)
+PNP_NWELL = geomButtOrOver(PNP_B_base PNP_B)
+PNP_C_base = geomButtOrOver(geomHoles(geomAndNot(PBACT PNP_WELL)) PNP_E)
+PNP_C = geomButtOrOver(geomGetHoled(geomAndNot(PBACT PNP_WELL)) PNP_C_base)
+PNP_PWELL = geomButtOrOver(geomAnd(BJT PWELL) PNP_C)
+PNP_2x2 = geomGetRectangle( PNP_E length==2 width==2 )
+PNP_5x5 = geomGetRectangle( PNP_E length==5 width==5 )
+PNP_10x10 = geomGetRectangle( PNP_E length==10 width==10 )
+PNP_E_ALL = geomOr(PNP_2x2 PNP_5x5 PNP_10x10)
+NPN_WELL = geomAnd(BJT PWELL)
+NPN_E = geomAnd(NPN_WELL NBACT)
+NPN_B_base = geomButtOrOver(NPN_WELL NPN_E)
+NPN_B = geomInside(geomAnd(NPN_WELL PBACT) NPN_B_base)
+NPN_C_base = geomButtOrOver(geomHoles(geomAndNot(NBACT NPN_WELL)) NPN_E)
+NPN_C = geomButtOrOver(geomGetHoled(geomAndNot(NBACT NPN_WELL)) NPN_C_base)
+NPN_C_WELL = geomButtOrOver(geomAnd(BJT NWELL) NPN_C)
+NPN_2x2 = geomGetRectangle( NPN_E length==2 width==2 )
+NPN_5x5 = geomGetRectangle( NPN_E length==5 width==5 )
+NPN_10x10 = geomGetRectangle( NPN_E length==10 width==10 )
+NPN_E_ALL = geomOr( NPN_2x2 NPN_5x5 NPN_10x10 )
+BJT_PNP =  geomEnclose(BJT PNP_E)
+BJT_NPN =  geomEnclose(BJT NPN_E)
+ 
+PWELL_NOT_BJT = geomAndNot(PWELL BJT)
+PWELL_NOT_BJT_PNP = geomAndNot(PWELL BJT_PNP)
+PWELL_NOT_BJT_NPN = geomAndNot(PWELL BJT_NPN)
+
+NWELL_NOT_BJT = geomAndNot(NWELL BJT)
+NWDIO_WELL = geomAnd(DIODE NWELL)
+NWELL_NOT_BJT_DIODE = geomOr(NWELL_NOT_BJT NWDIO_WELL)
+
+ESD_PL1 = geomAnd( POLY1 ESD )
+ESD_GATE = geomAnd( ALLGATE ESD )
+ESD_ACT = geomAnd( ACT ESD )
+PEACT = geomAnd( EACT PSD )
+NEACT = geomAnd( EACT NSD )
+ESD_CON = geomAnd(CONT ESD)
+ESD_VIA1 = geomAnd(VIA1 ESD)
+ESD_VIA2 = geomAnd(VIA2 ESD)
+ESD_NWELL = geomAnd( ESD NWELL )
+ESD_TAP_ACT = geomAvoiding( EACT POLY1 )
+ESD_TAP_PACT = geomAvoiding( PEACT POLY1 )
+ESD_TAP_NACT = geomAvoiding( NEACT POLY1 )
+ESD_TAP_NWELL = geomButtOrOver( ESD_NWELL ESD_TAP_ACT )
+ESD_S = geomAndNot( geomButtOrOver( ESD_ACT ESD_GATE ) ESDD )
+ESD_D = geomAnd( geomButtOrOver( ESD_ACT ESD_GATE ) ESDD ) 
+ESD_SD = geomAndNot(geomOr(ESD_S ESD_D) ESD_PL1)
+ESD_D_CON = geomAnd(CONT ESD_D)
+ESD_S_CON = geomAnd(CONT ESD_S)
+
+ENCPOLY2 = geomButtOrOver( POLY2 POLY1 )
+ENCPOLY1 = geomButtOrOver( POLY1 POLY2 )
+
+MET1UP10 = geomSize( geomSize( MET1 -4.99 ) 4.99)
+MET1UN10 = geomAndNot(MET1 MET1UP10) 
+
+MET2UP10 = geomSize( geomSize( MET2 -4.99 ) 4.99)
+MET2UN10 = geomAndNot(MET2 MET2UP10)
+
+MET3UP10 = geomSize( geomSize( MET3 -4.99 ) 4.99)
+MET3UN10 = geomAndNot(MET3 MET3UP10)
+
+
+MET1_2 = geomAnd(MET1 MET2) 
+MET2_3 = geomAnd(MET2 MET3)
+VIA1_2 = geomOr(VIA1 VIA2)
+
+geomConnect(
+    via(CONT MET1 POLY1)
+    via(CONT MET1 POLY2)
+    via(CONT MET1 PACT )
+    via(CONT MET1 NACT)
+    via(VIA1 MET2 MET1)
+    via(VIA2 MET3 MET2)
+    via(POLY1_TAP POLY1_ANT POLY1)
+    buttOrOver(ESD_GATE ESD_ACT)
+    buttOrOver(PAREA PGATE)
+    buttOrOver(NAREA NGATE)
+    buttOrOver(POLY1_ANT GATE)
+)
+    geomStamp(PWELL PACT error)
+    geomStamp(NWELL NACT error)
+procedure( procWidth_check( layername value comment)
+        let( (tmp)
+            sprintf( tmp
+                "drc( %s width < %L opposite \"%s\" )"
+                layername value comment
+            )
+            evalstring(tmp)
+            ) ;** let **
+        ) ; ** procedure procWidth_check **
+
+procedure( procOneSpace_check( layername value comment)
+        let( (tmp)
+            sprintf( tmp
+                "drc( %s sepNotch < %L \"%s\" )"
+                layername value comment
+            )
+            evalstring(tmp)
+            );let
+        );procedure procOneSpace_check
+
+procedure( procTwoSpace_check( layername1 layername2 value comment)
+            let( (tmp)
+                sprintf( tmp
+                        "drc( %s %s sep < %L \"%s\")"
+                        layername1 layername2 value comment
+                        )
+                evalstring(tmp)
+                );let
+         );procedure
+
+procedure( procContactSize_check( layername value comment)
+            let( (tmp)
+                BadContacts = geomContactCheck(layername width==value length==value ignore)
+                sprintf( tmp
+                        "errorLayer( BadContacts \"%s\")"
+                        comment 
+                        )
+                evalstring(tmp)
+                );let
+         );procedure
+
+procedure( procEnc_check( layername1 layername2 value comment)
+            let( (tmp)
+               sprintf(tmp
+                       "drc(%s %s enc < %L lessShielded \"%s\")"
+                        layername2 layername1 value comment
+                      )
+                evalstring(tmp)
+               );let
+         );procedure
+
+
+
+
+procedure( procOverlap_check( layername1 layername2 value commnet)
+            let( (tmp)
+                sprintf(tmp
+                       "drc(%s %s ovlp < %L \"%s\")"
+                        layername1 layername2 value comment
+                        )
+                evalstring(tmp)
+                );
+         );
+
+procedure( procNotExist_check( layername1 layername2 comment)
+                let( (tmp)
+                    NotExist_layer = geomAvoiding(layername1 layername2)
+                    sprintf(tmp
+                            "errorLayer(NotExist_layer \"%s\" )"
+                            comment
+                            )
+                    evalstring(tmp)
+                    );let
+         );procedure
+
+procedure( procNothave_check( layername1 layername2 comment)
+                let( (tmp)
+                    NotExist_layer = geomAvoiding(layername1 layername2)
+                    Not_layer = geomAndNot(layername1 layername2)
+                    Bad_layer = geomOr(NotExist_layer Not_layer) 
+                    sprintf(tmp
+                            "errorLayer(Bad_layer \"%s\")"
+                             comment
+                            )
+                    evalstring(tmp)
+                    );let
+);procedure
+
+procedure( procExist_check( layername1 layername2 comment)
+                let( (tmp)
+                    Bad_layer = geomButtOrOver(layername1 layername2)
+                    sprintf(tmp
+                           "errorLayer(Bad_layer \"%s\")"
+                            comment
+                            )
+                    evalstring(tmp)
+                 );let
+);procedure
+
+
+;1.NWELL Rules 
+;if( avSwitch("1.NWL") || avSwitch("all")then
+
+;1.NWL.W
+procWidth_check( NWELL 2.5 "1.NWL.W: NWELL minimum width >= 2.5um.")
+;1.NWL.S1
+NWELL_SAME_POT = drc(NWELL sep<1.25 sameNet)
+NWELL_NOTCH = drc(NWELL notch<1.25)
+errorLayer(geomOr(NWELL_SAME_POT NWELL_NOTCH) "1.NWL.S.1: NWELL minimum space and notch for same potential >= 1.25.")
+;1.NWL.S2
+drc(NWELL sep<4 diffNet "1.NWL.S.2: NWELL minimum space for different potential >= 4.")
+;1.NWL.R
+procWidth_check(RESNW 5 "1.NWL.R: NWELL minimum resistor width >= 5um.")
+;1.NWL.bad1
+procNotExist_check(NWELL NTAP_ON_CONT "1.NWL.bad1 NWELL must have tap.")
+;1.NWL.bad2
+;procExist_check(NWELL_NOT_BJT PACT_NOT_POLY_AND_PWELL "1.NWL.bad2: NWELL must have not ptap.")
+NWL_bad2_1 = geomAnd(PACT_NOT_POLY_AND_PWELL NWELL)
+NWL_bad2_2 = geomAnd(NWL_bad2_1 NWELL_NOT_BJT)
+NWL_bad2_3 = geomAndNot(NWL_bad2_1 DIODE)
+NWL_bad2_4 = geomAnd(NWL_bad2_2 NWL_bad2_3)
+errorLayer(NWL_bad2_4  "1.NWL.bad2: NWELL must have not ptap.")
+;1.PWL.bad1
+procNotExist_check(PWELL_NOT_BJT_NPN PTAP_ON_CONT "1.PWL.bad1: PWELL must have tap.")
+;1.PWL.bad2
+;procExist_check(PWELL_NOT_BJT NACT_NOT_POLY_AND_NWELL "1.PWL.bad2: PWELL must have not ntap.")
+PWL_bad2_1 = geomAnd(NACT_NOT_POLY_AND_NWELL PWELL)
+PWL_bad2_2 = geomAnd(PWL_bad2_1 PWELL_NOT_BJT)
+PWL_bad2_3 = geomAndNot(PWL_bad2_1 DIODE)
+PWL_bad2_4 = geomAnd(PWL_bad2_2 PWL_bad2_3)
+errorLayer(PWL_bad2_4 "1.PWL.bad2: PWELL must have not ntap.")
+
+;);end 1.NWELL Rules
+
+
+;2.ACT Rules
+;if( avSwitch("2.ACT") || avSwitch("all")then
+
+;2.ACT.W1
+pmos_width = procWidth_check(PMOS 1.6 "")
+nmos_width = procWidth_check(NMOS 1.6 "")
+errorLayer(geomOr(pmos_width nmos_width) "2.ACT.W1: Minimum Transistor(N/PMOS) width >= 1.6um.")
+;2.ACT.W2
+TR_width_area = geomAndNot(NPMOS POLY1)
+TR_width_check = drc(TR_width_area width < 100) 
+TR_bad_width_area = geomAndNot(TR_width_area TR_width_check)
+TR_width_over_100 = drc(TR_width_check width < 100 length > 100)
+errorLayer(geomOr(TR_bad_width_area TR_width_over_100) "2.ACT.W2: Maximum Transistor(N/PMOS) width <= 100um.")
+;2.ACT.W3
+NPTAP = geomOr(PTAP NTAP)
+procWidth_check(NPTAP 0.7 "2.ACT.W3: Width of ACT region for interconnect >= 0.7um.")
+;2.ACT.S
+procOneSpace_check( ACT 1.0 "2.ACT.S: space of two ACT >= 1.0um.")
+;2.ACT.E1
+ACT_E1_1 = geomButtOrOver(POLY1 PGATE)
+ACT_E1_2 = geomButtOrOver(POLY1 NGATE)
+ACT_E1_3 = geomOr(ACT_E1_1 ACT_E1_2)
+;;ERROR_PGATE2 = geomStraddle(PGATE_W ACT keep > 0.15)
+drc(ACT ACT_E1_3 enc < 0.85 "2.ACT.E1: Extension of ACT beyond POLY1 >= 0.85um.")
+;2.ACT.E2
+procEnc_check(PMOS NWELL 1.4 "2.ACT.E2: Extension of NWELL beyond ACT(P-type) >= 1.4um.")
+;2.ACT.E3
+procEnc_check(NTAP NWELL 0.5 "2.ACT.E3: Extension of NWELL beyond ACT(N-type) >= 0.5um.")
+;2.ACT.E4
+procEnc_check(NMOS PWELL 1.4 "2.ACT.E4: Extension of PWELL beyond ACT(N-type) >= 1.4um.")
+;2.ACT.E5
+procEnc_check(PTAP PWELL 0.5 "2.ACT.E5: Extension of PWELL beyond ACT(P-type) >= 0.5um.")
+;2.ACT.T1
+ACT_T1_1 = geomAnd(NWELL NTAP)
+ACT_T1_2 = geomAnd(NWELL PMOS)
+ACT_T1_3 = geomSizeAnd(ACT_T1_1 NWELL 0.3 60) 
+ACT_T1_4 = geomAndNot(ACT_T1_2 ACT_T1_3)
+errorLayer(ACT_T1_4 "2.ACT.T1: The maximum distance from any point in a N-tab to the nearest NWELL in the same NWELL <= 60um.")
+;2.ACT.T2
+ACT_T2_1 = geomAnd(PWELL PTAP)
+ACT_T2_2 = geomAnd(PWELL NMOS)
+ACT_T2_3 = geomSizeAnd(ACT_T2_1 PWELL 0.3 60)
+ACT_T2_4 = geomAndNot(ACT_T2_2 ACT_T2_3)
+errorLayer(ACT_T2_4 "2.ACT.T2: The maximum distance from any point in a P-tab to the nearest PWELL in the same PWELL <= 60um.")
+;2.ACT.bad1
+procNothave_check(ACT PNSD "2.ACT.bad1: ACT must have NSD or PSD.")
+;2.ACT.bad2
+errorLayer(geomAnd(NMOS NWELL) "2.ACT.bad2: NMOS is not allow NWELL.")
+;2.ACT.bad3
+errorLayer(geomAnd(PMOS PWELL) "2.ACT.bad3: PMOS is not allow PWELL.")
+;2.ACT.bad4
+procNotExist_check(ACT CONT "2.ACT.bad:4 ACT must exist with CONT layer.") 
+
+;);end 2.ACT.Rules
+
+;3.PL1.Rules
+;if( avSwitch("3_PL1") || avSwitch("all")then
+;3.PL1.W1
+procWidth_check(POLY1_ON_ACT 0.5 "3.PL1.W1: POLY1 width over ACT(NMOS or PMOS) >= 0.5um")
+;3.PL1.W2
+PL1_W2_1 = geomAnd(POLY1 NPMOS)
+PL1_W2_2 = drc(PL1_W2_1 width < 100) 
+PL1_W2_3 = geomAndNot(PL1_W2_1 PL1_W2_2)
+PL1_W2_4 = drc(PL1_W2_2 width < 100 length > 100)
+errorLayer(geomOr(PL1_W2_3 PL1_W2_4) "3.PL1.W2: Maximum POLY1 width (Transistor Channel Length) <= 100um.")
+;3.PL1.W3
+procWidth_check(POLY1_NOT_ACT 0.5 "3.PL1.W3: POLY1 width for interconnect >= 0.5um.")
+;3.PL1.S1
+PL1_S1_1 = procOneSpace_check(POLY1 0.6 "")
+PL1_S1_2 = drc(POLY1 notch < 0.6)
+PL1_S1_3 = geomOr(PL1_S1_1 PL1_S1_2)
+PL1_S1_4 = geomAvoiding(PL1_S1_3 ACT)
+errorLayer(PL1_S1_4 "3.PL1.S1: POLY1 to POLY1 space in field >= 0.6um.")
+;3.PL1.S2
+PL1_S2_1 = procOneSpace_check(NGATE 0.6 "")
+PL1_S2_2 = procOneSpace_check(PGATE 0.6 "")
+PL1_S2_3 = geomOr(PL1_S2_1 PL1_S2_2)
+errorLayer(PL1_S2_3 "3.PL1.S2 Minimum POLY1 to POLY1 space on ACT is 0.6um.")
+;3.PL1.S3
+procTwoSpace_check(ACT POLY1 0.5 "3.PL1.S3: Minimum space from POLY1 in field to ACT is 0.5um.")
+;3.PL1.S4
+PL1_S4_1 = geomButtOrOver(POLY1 ACT)
+PL1_S4_2 = geomButtOrOver(ACT PL1_S4_1)
+procTwoSpace_check(PL1_S4_1 PL1_S4_2 0.5 "3.PL1.S4: ACT space to POLY1 in field 0.5um.")
+;3.PL1.O
+PL1_O_1 = geomStraddle(POLY1_ON_ACT ACT)
+PL1_O_2 = geomAndNot(PL1_O_1 ACT)
+procWidth_check(PL1_O_2 0.5 "3.PL1.O: Minimum Overlap of POLY1 extended into field oxide is 0.5um.")
+;3.PL1.ANT
+processAntenna(
+        gate(min (GATE POLY1))
+        antenna(POLY1_ANT POLY1_TAP GATE)
+        ratio=(POLY1_ANT.area/GATE.area)
+        drcAntenna(POLY1_ANT (POLY1_ANT) ratio keep>200.0
+            "3.PL1.ANT: Maximum ratio of field poly area to gate poly for a given transistor is 200(antenna rule).")
+    )
+
+;3.PL1.bad1
+PL1_bad1_1 = geomAndNot(POLY1 POLY2)
+procNotExist_check(PL1_bad1_1 CONT "3.PL1.bad1: POLY1 must exist with CONT layer.")
+;3.PL1.bad3
+errorLayer(geomAndNot(geomAnd(POLY1 POLY2) CAP) "3.PL1.bad3: POLY1 can't overlap POLY2.(except fot PIPCAP)")
+;);end 3.PL1.Rules
+
+;4.PL1.Rules
+;if(avSwitch("4_PL2") || avSwitch("all")then
+;4.PL2.W
+procWidth_check(POLY2 0.6 "4.PL2.W: Minimum POLY2 width is 0.6um.")
+;4.PL2.S1
+procOneSpace_check(POLY2 0.75 "4.PL2.S1: Minimum POLY2 space is 0.75um.")
+;4.PL2.S2
+procTwoSpace_check(POLY2 POLY1 0.75 "4.PL2.S2: Minimum POLY2 to POLY1 space is 0.75um.")
+;4.PL2.S3
+procTwoSpace_check(POLY2 ACT 0.5 "4.PL2.S3: Minimum POLY2 to ACT space is 0.5um.")
+;4.PL2.bad1
+procNotExist_check(POLY2 CONT "4.PL2.bad1: POLY2 must exist with CONT layer." )
+;4.PL2.bad2
+PL2_bad2_1 = geomAnd(POLY1 POLY2)
+PL2_bad2_2 = geomAndNot(PL2_bad2_1 CAP)
+errorLayer(PL2_bad2_2 "4.PL2.bad2: POLY2 can't overlap POLY1.(except fot PIPCAP)")
+;);endif
+
+;5.NSD.Rules
+;if(avSwitch("5_NSD") || avSwitch("all")then
+;5.NSD.W
+procWidth_check(NSD 0.75 "5.NSD.W: Minimum NSD width is 0.75um.")
+;5.NSD.S1
+procOneSpace_check(NSD 0.75 "5.NSD.S1: Minimum NSD space is 0.75um (Merge if the space is less than 0.75um).")
+;5.NSD.E
+NSD_E_1 = geomSize(NSD -0.5)
+errorLayer(geomAndNot(NACT NSD_E_1) "5.NSD.E:Minimum NSD to ACT extension is 0.5um")
+;5.NSD.O
+errorLayer(geomAnd(NSD PSD) "5.NSD.O: NSD overlapping with PSD is not allowed.")
+;5.NSD.bad1
+NSD_bad1_1 = geomAnd(CAP geomAnd(NSD geomAnd(POLY1 POLY2)))
+NSD_bad1_2 = geomAnd(RES geomAnd(POLY2 NSD))
+NSD_bad1_3 = geomOr(ACT geomOr(NSD_bad1_1 NSD_bad1_2))
+procNotExist_check(NSD NSD_bad1_3 "5.NSD.bad1: Find where NSD should not be used and floating NSD , ACT must exist inside NSD.")
+;);endif
+
+;6.PSD.Rules
+;if(avSwitch("5_PSD") || avSwitch("all")then
+;5.PSD.W
+procWidth_check(PSD 0.75 "5.PSD.W: Minimum PSD width is 0.75um.")
+;5.PSD.S1
+procOneSpace_check(PSD 0.75 "5.PSD.S1: Minimum PSD space is 0.75um (Merge if the space is less than 0.75um).")
+;5.PSD.E
+PSD_E_1 = geomSize(PSD -0.5)
+errorLayer(geomAndNot(PACT PSD_E_1) "5.PSD.E:Minimum PSD to ACT extension is 0.5um")
+;5.PSD.O
+errorLayer(geomAnd(PSD NSD) "5.PSD.O: PSD overlapping with NSD is not allowed.")
+;5.PSD.bad1
+PSD_bad1_1 = geomAnd(CAP geomAnd(PSD geomAnd(POLY1 POLY2)))
+PSD_bad1_2 = geomAnd(RES geomAnd(POLY2 PSD))
+PSD_bad1_3 = geomOr(ACT geomOr(PSD_bad1_1 PSD_bad1_2))
+procNotExist_check(PSD PSD_bad1_3 "5.PSD.bad1: Find where PSD should not be used and floating PSD , ACT must exist inside PSD.")
+;);endif
+
+;7.CONT.Rules
+;7.CONT.W
+;if(avSwitch("7.CONT") || avSwitch("all")then
+CONT_W_1 = geomGetRectangle(CONT length ==0.6 width ==0.6)
+CONT_W_2 = geomGetRectangle(CONT length ==1.2 width ==0.6)
+CONT_W_3 = geomOr(CONT_W_1 CONT_W_2)
+CONT_W_4 = geomAndNot(CONT CONT_W_3)
+errorLayer(CONT_W_4 "7.CONT.W: Min/Max CONT Size is 0.6um x 0.6um or 0.6um x 1.2um.")
+;7.CONT.S1
+procOneSpace_check(CONT 0.6 "7.CONT.S1: Minimum space of two CONT is 0.6um.")
+;7.CONT.S2
+procTwoSpace_check(POLY1_ON_CONT ACT 1.0 "7.CONT.S2: Minimum space from CONT in POLY1 to ACT is 1.0um.")
+;7.CONT.S3
+CONT_S3_1 = geomOr(NGATE PGATE)
+procTwoSpace_check(CONT_S3_1 ACT_ON_CONT 0.75 "7.CONT.S3: Minimum space from CONT in ACT to POLY1 in ACT 0.75um.")
+;7.CONT.S4
+procTwoSpace_check(POLY1_FIELD ACT_ON_CONT 0.75 "7.CONT.S4: Minimum space from CONT in ACT to POLY1 in field is 0.75um.")
+;7.CONT.S5
+procTwoSpace_check(POLY2_ON_CONT ACT 1.0 "7.CONT.S5: Minimum space from CONT in POLY2 to ACT is 1.0um.")
+;7.CONT.S6
+procTwoSpace_check(POLY2 ACT_ON_CONT 1.0 "7.CONT.S6: Minimum space from CONT in ACT to POLY2 is 1.0um.")
+;7.CONT.S7
+procTwoSpace_check(POLY1_ON_CONT POLY2_RES 1.25 "7.CONT.S7: Minimum space from CONT in POLY1 to POLY2 for resistor is 1.25um.")
+;7.CONT.S8
+CONT_S8_1 = geomButtOrOver(CONT PL2_ONLY)
+procTwoSpace_check(CONT_S8_1 POLY1 1.25 "7.SONT.S8: Minimum space from CONT in POLY2 to POLY1 1.25um.")
+;7.CONT.E.1
+procEnc_check(CONT ACT 0.5 "7.CONT.E.1: Minimum extension of CONT to ACT is 0.5um.")
+;7.CONT.E.2
+procEnc_check(CONT POLY1 0.5 "7.CONT.E.2: Minimum extension of CONT to POLY1 is 0.5um.")
+;7.CONT.E.3
+procEnc_check(CONT MET1 0.6 "7.CONT.E.3: Minimum extension of CONT to MET1 is 0.6um.")
+;7.CONT.E.4
+CONT_E4_1 = geomAvoiding(CONT PL1_PL2)
+CONT_E4_2 = geomAndNot(POLY2 RES)
+procEnc_check(CONT_E4_1 CONT_E4_2 0.5 "7.CONT.E.4: Minimum extension of CONT to POLY2 is 0.5um.")
+;7.CONT.bad1
+CONT_bad1_1 = geomAvoiding(CONT MET1)
+CONT_bad1_2 = geomAndNot(CONT geomAnd(CONT MET1))
+CONT_bad1_3 = geomOr(CONT_bad1_1 CONT_bad1_2)
+errorLayer(CONT_bad1_3 "7.CONT.bad1: CONT must be in METAL1.")
+;7.CONT.bad2
+CONT_bad2_1 = geomOr(ACT geomOr(POLY1 POLY2))
+procNotExist_check(CONT CONT_bad2_1 "7.CONT.bad2: CONT must be in POLY1 or POLY2 or ACT.")
+;7.CONT.bad3
+errorLayer(geomAnd(CONT ALLGATE) "7.CONT.bad3: CONT on gate region is forbidden.")
+;);endif
+
+;8.MET1.Rules
+;if(avSwitch("MET1") || avSwitch("all")then
+;8.MET1.W
+procWidth_check(MET1 0.8 "8.MET1.W: Minimum MET1 width is 0.8um.")
+;8.MET1.S1
+procOneSpace_check(MET1UN10 0.8 "8.MET1.S1: Minimum space of MET1(both MET1 width < 10um) is 0.8um.")
+;8.MET1.S2
+procTwoSpace_check(MET1UP10 MET1 1 "8.MET1.S2: Minimum space of wide MET1(one or both MET1 width >=10um) space is 1um.")
+;8.MET1.ANT
+processAntenna(
+        gate((GATE POLY1))
+        antenna(MET1)
+        ratio=(MET1.area/GATE.area)
+        drcAntenna(MET1 (MET1) ratio keep>400.0
+            "8.MET1.ANT: Maximum ratio of field MET1 area to gate poly for a given transistor is 400(antenna rule).")
+    )
+;8.MET1.bad1
+procNotExist_check(MET1 CONT_VIA1 "8.MET.bad1: MET1 must exist with CONT or VIA1 layer.")
+;);endif
+
+;9.VIA1.Rules
+;if(avSwitch("VIA1") || avSwitch("all")then
+;9.VIA1.W
+procContactSize_check(VIA1 0.8 "9.VIA1.W: Min/Max VIA1 Size is 0.8um x 0.8um.")
+;9.VIA1.S1
+procOneSpace_check(VIA1 0.8 "9.VIA1.S1: Minimum VIA1 space is 0.8um.")
+;9.VIA1.S2
+VIA1_S2_1 = geomSize(geomSize(VIA1 0.8) -2.4 downUp)
+VIA1_S2_2 = geomAnd(VIA1 VIA1_S2_1)
+procOneSpace_check(VIA1_S2_2 0.8 "9.VIA1.S2: Minimum Array 3x3 VIA1 space is 0.8um.")
+;9.VIA1.E1 
+procEnc_check(VIA1 MET1UN10 0.6 "9.VIA1.E1: Minimum extension of VIA1 to MET1(width < 10um) is 0.6um")
+;9.VIA1.E2
+procEnc_check(VIA1 MET1UP10 0.6 "9.VIA1.E2: Minimum extension of VIA1 to MET1(width >= 10um) is 0.6um")
+;9.VIA1.E3
+procEnc_check(VIA1 MET2UN10 0.6 "9.VIA1.E3: Minimum extension of VIA1 to MET2(width < 10um) is 0.6um")
+;9.VIA1.E4
+procEnc_check(VIA1 MET2UP10 0.6 "9.VIA1.E4: Minimum extension of VIA1 to MET2(width >= 10um) is 0.6um")
+;9.VIA1.S
+VIA1_S_1 = procTwoSpace_check(VIA1 CONT 0.6 "")
+VIA1_S_2 = geomAnd(VIA1 CONT)
+errorLayer(geomOr(VIA1_S_1 VIA1_S_2) "9.VIA1.S: Minimum VIA1 to CONT space is 0.6um, VIA1 can not be stacked on CONT.")
+;9.VIA1.bad1
+errorLayer(geomAndNot(VIA1 MET1_2) "9.VIA1.bad1: VIA1 is must exist with MET1 or MET2.")
+;9.VIA1.bad2
+;VIA1_bad1_1 = geomEnclose(MET1_2 VIA1 keep==1)
+;errorLayer(VIA1_bad1_1 "9.VIA1.bad2: Single VIA1 is not allowed.")
+;);endif
+
+;10.MET2.Rules
+;if(avSwitch("MET2") || avSwitch("all"))then
+;10.MET2.W
+procWidth_check(MET2 1.0 "10.MET2.W: Minimum MET2 width is 1.0um.")
+;10.MET2.S1
+procOneSpace_check(MET2UN10 1 "10.MET2.S1: Minimum MET2 both line < 10 um space is 1.0um")
+;10.MET2.S2
+procTwoSpace_check(MET2UP10 MET2 1.2 "10.MET2.S2: Minimum MET2 one or both line >= 10 um space is 1.2um")
+;10.MET2.bad1
+procNotExist_check(MET2 VIA1_2 "10.MET2.bad1: MET2 must exist with VIA1 or VIA2 layer.")
+;10.MET2.ANT
+processAntenna(
+        gate((GATE POLY1))
+        antenna(MET2)
+        ratio=(MET2.area/GATE.area)
+        drcAntenna(MET2 (MET2) ratio keep>400.0
+            "10.MET2.ANT: Maximum ratio of field MET2 area to gate poly for a given transistor is 400(antenna rule).")
+    )
+
+
+;11.VIA2.Rules
+;if(avSwitch("VIA2") || avSwitch("all")then
+;11.VIA2.W
+procContactSize_check(VIA2 0.8 "11.VIA2.W: Min/Max VIA2 Size is 0.8um x 0.8um.")
+;11.VIA2.S1
+procOneSpace_check(VIA2 0.8 "11.VIA2.S1: Minimum space of two VIA2 is 0.8um.")
+;11.VIA2.S2
+VIA2_S2_1 = geomSize(geomSize(VIA2 0.8) -2.4 downUp)
+VIA2_S2_2 = geomAnd(VIA2 VIA2_S2_1)
+procOneSpace_check(VIA2_S2_2 0.8 "11.VIA2.S2: Minimum space in VIA2 array[via2 number >= 3 x 3] is 0.8um.")
+;11.VIA2.E1 
+procEnc_check(VIA2 MET2UN10 0.6 "11.VIA2.E1: Minimum extension of VIA2 to MET2(width < 10) is 0.6um")
+;11.VIA2.E2
+procEnc_check(VIA2 MET2UP10 0.6 "11.VIA2.E2: Minimum extension of VIA2 to MET2(width >= 10) is 0.6um")
+;11.VIA2.E3
+procEnc_check(VIA2 MET3UN10 0.6 "11.VIA2.E3: Minimum extension of VIA2 to MET3(width < 10) is 0.6um")
+;11.VIA2.E4
+procEnc_check(VIA2 MET3UP10 0.6 "11.VIA2.E4: Minimum extension of VIA2 to MET3i(width >= 10) is 0.6um")
+;11.VIA2.S
+VIA2_S_1 = procTwoSpace_check(VIA2 VIA1 0.6 "")
+VIA2_S_2 = geomAnd(VIA2 VIA1)
+errorLayer(geomOr(VIA2_S_1 VIA2_S_2) "11.VIA2.S: Minimum space from VIA2 to VIA1 is 0.6um, VIA2 can not be stacked on VIA1.")
+;11.VIA2.bad1
+errorLayer(geomAndNot(VIA2 MET2_3) "11.VIA2.bad1: VIA2 is must exist with MET2 and MET3.")
+;11.VIA2.bad2
+;VIA2_bad1_1 = geomEnclose(MET2_3 VIA2 keep==1)
+;errorLayer(VIA2_bad1_1 "11.VIA2.bad2: Single VIA2 is not allowed.")
+;);endif
+
+;12.MET3.Rules
+;if(avSwitch("MET3") || avSwitch("all"))then
+;12.MET3.W
+procWidth_check(MET3 1.2 "12.MET3.W: Minimum MET3 width is 1.2um.")
+;12.MET3.S1
+procOneSpace_check(MET3UN10 1 "12.MET3.S1: Minimum MET3 both line < 10 um space is 1.0um")
+;12.MET3.S2
+procTwoSpace_check(MET3UP10 MET3 1.2 "12.MET3.S2: Minimum MET3 one or both line >= 10 um space is 1.2um")
+;12.MET3.bad1
+procNotExist_check(MET3 VIA2 "12.MET3.bad1: MET3 is not exist without VIA2.")
+;);endif
+;12.MET3.ANT
+processAntenna(
+        gate((GATE POLY1))
+        antenna(MET3)
+        ratio=(MET3.area/GATE.area)
+        drcAntenna(MET3 (MET3) ratio keep>400.0
+            "12.MET3.ANT: Maximum ratio of field MET3 area to gate poly for a given transistor is 400(antenna rule).")
+    )
+
+
+;13.PAD.Rules
+;if(avSwitch("PAD") || avSwitch("all"))then
+;13.PAD.P
+;;PAD_P_1 = geomGetCorner(PAD)
+;;PAD_P_2 = geomGrowCorner(PAD_P_1 1 80.01 inner manhattanOnly)
+;;PAD_P_3 = geomAndNot(PAD_P_2 PAD)
+;;PAD_P_4 = geomGetCorner(PAD_P_3)
+;;PAD_P_5 = geomGrowCorner(PAD_P_4 39.99 outer )
+;;PAD_P_6 = geomButtOrOver(PAD PAD_P_5)
+;;
+;;errorLayer(PAD_P_6 "13.PAD.P: Minimum PAD pitch is 120um.")
+
+;13.PAD.A
+procContactSize_check(PAD 80 "13.PAD.A: PAD size >= 80um x 80um.")
+;13.PAD.E
+PAD_E_1 = procEnc_check(PAD MET1 2.5 "")
+PAD_E_2 = procEnc_check(PAD MET2 2.5 "")
+PAD_E_3 = procEnc_check(PAD MET3 2.5 "")
+PAD_E_4 = geomOr(PAD_E_1 geomOr(PAD_E_2 PAD_E_3))
+errorLayer(PAD_E_4 "Extension of PAD to MET1/2/3 >= 2.5um.")
+;13.PAD.S 
+procOneSpace_check(PAD 40 "Space of two PAD >= 40um.")
+;);endif
+
+;14.PL2PR.Rules
+;if(avSwitch("PL2PR") || avSwitch("all"))then
+;14.PL2PR.W
+PL2PR_W_1 = geomButtOrOver(POLY2 PPRES)
+procWidth_check(PL2PR_W_1 2 "14.PL2PR.W: Minimum POLY2 resistor width is 2um.")
+;14.PL2PR.L
+;PL2PR_L_1 = geomAnd(LVSD geomButtOrOver(RES PSD))
+PL2PR_L_1 = geomAnd(LVSD geomAvoiding(RES PSD))
+PL2PR_L_2 = geomGetEdge(PL2PR_L_1 inside POLY2)
+PL2PR_L_3 = drc(PL2PR_L_2 width < 4)
+errorLayer(PL2PR_L_3 "14.PL2PR.L: Minimum POLY2 resistor Length is 4um.")
+;14.PL2PR.S1
+PL2PR_S1_1 = geomButtOrOver(RES PRES_DEF)
+PL2PR_S1_2 = geomAnd(POLY2_ON_CONT PL2PR_S1_1)
+procOneSpace_check(PL2PR_S1_2 0.6 "14.PL2PR.S1: Minimum space of two CONT on POLY2 is 0.6um.")
+;14.PL2PR.S2
+;PL2PR_S2_1 = geomButtOrOver(geomButtOrOver(PRES_DEF RES) PSD)
+;PL2PR_S2_2 = procTwoSpace_check(POLY2_ON_CONT PL2PR_S2_1 0.0 "");yhk 
+;PL2PR_S2_0 = geomAnd(POLY2 PPRES)
+
+PL2PR_S2_1 = geomAnd(POLY2_ON_CONT LVSD)
+PL2PR_S2_2 = geomAvoiding(POLY2_ON_CONT LVSD)
+PL2PR_S2_3 = geomOr(PL2PR_S2_1 PL2PR_S2_2)
+
+PL2PR_S2_4 = geomAnd(PL2PR_S2_3 RES)
+
+;PL2PR_S2_4 = geomOr(PL2PR_S2_3 PL2PR_S2_0)
+
+;PL2PR_S2_4 = geomOr(POLY1_CAP POLY2_CAP)
+;PL2PR_S2_5 = geomAndNot(PL2PR_S2_4 PL2PR_S2_3)
+;PL2PR_S2_3 = geomButtOrOver(CONT geomButtOrOver(LVSD PSD))
+;PL2PR_S2_3 = geomButtOrOver(CONT geomAvoiding(LVSD PSD))
+;PL2PR_S2_4 = geomOr(PL2PR_S2_2 PL2PR_S2_3)
+errorLayer(PL2PR_S2_4 "14.PL2PR.S2: Minimum space of CONT on POLY2 to LVSD space is 0.0um.")
+;14.PL2PR.E1
+PL2PR_E1_1 = geomAnd(PHRI RES)
+;PL2PR_E1_2 = geomSize(PL2ANDPHRES 0.1)
+;PL2PR_E1_3 = geomAndNot(geomButtOrOver(PL2PR_E1_2 PL2PR_E1_1) PL2PR_E1_1)
+PL2PR_E1_2 = procEnc_check(POLY2_RES PL2PR_E1_1 1 "")
+errorLayer(PL2PR_E1_2 "14.PL2PR.E1: Minimum extension of PL2 to PHRI is 1.0um.")
+;14.PL2PR.E2
+PL2PR_E2_1 = geomButtOrOver(POLY2_RES geomOr(PRES_DEF PHRES_DEF))
+procEnc_check(CONT PL2PR_E2_1 0.5 "14.PL2PR.E2: Minimum extension of CONT to POLY2 is 0.5um.")
+
+;14.PL2PR.bad1
+PL2PR_bad1_1 = geomButtOrOver(RES geomOr(PRES_DEF PHRES_DEF))
+PL2PR_bad1_2 = geomAndNot(geomButtOrOver(POLY2 PL2PR_bad1_1) RES)
+PL2PR_bad1_3 = geomAndNot(geomButtOrOver(POLY2 geomAnd(PL2PR_bad1_1 PHRI)) PHRI)
+;PL2PR_bad1_4 = geomAndNot(geomAndNot(geomButtOrOver(POLY2 geomAnd(PL2PR_bad1_1 PSD)) LVSD) PSD)
+PL2PR_bad1_4 = geomAndNot(geomAndNot(geomAvoiding(POLY2 PL2PR_bad1_1) LVSD) PSD)
+PL2PR_bad1_5 = geomOr(geomOr(PL2PR_bad1_2 PL2PR_bad1_3) PL2PR_bad1_4)
+
+PL2PR_bad1_6 = geomAndNot(PL2PR_bad1_5 POLY2_CAP)
+
+errorLayer(PL2PR_bad1_6 "14.PL2PR.bad1.1: POLY2 layer for resistor must exist inside of RES(and PHRI for high resistance).")
+
+;14.PL2PR.bad2
+PL2PR_bad2_1 = geomAnd(POLY1 geomButtOrOver(RES geomOr(PRES_DEF PHRES_DEF)))
+errorLayer(PL2PR_bad2_1 "14.PL2PR.bad2: POLY1 can't exist inside of RES.")
+;14.PL2PR.bad3
+PL2PR_bad3_1 = geomAnd(ACT geomButtOrOver(RES geomOr(PRES_DEF PHRES_DEF)))
+errorLayer(PL2PR_bad3_1 "14.PL2PR.bad3: ACT can't exist inside of RES.")
+;14.PL2PR.bad4
+procExist_check(RES PNSD "14.PL2PR.bad4: PL2 Resistor with P/NSD is not allowed")
+;);endif
+
+;15.CAP.Rules
+;if(avSwitch("CAP") || avSwitch("all"))then
+;15.CAP.W1
+procWidth_check(POLY1_CAP 4.6 "15.CAP.W1: POLY1 minimum width for PIP capacitor is 4.6um.")
+;15.CAP.W2
+procWidth_check(POLY2_CAP 2.6 "15.CAP.W2: POLY2 minimum width for PIP capacitor is 2.6um.")
+CAP_W2_1 = drc(POLY2_CAP width < 2.6 withNoAngledEdgeTolerance)
+CAP_W2_2 = drc(POLY2_CAP width <= 50 ) 
+CAP_W2_3 = geomAndNot(POLY2_CAP CAP_W2_2)
+CAP_W2_4 = drc(CAP_W2_2 width <= 2.6 length > 50)
+CAP_W2_5 = geomOr(CAP_W2_1 geomOr(CAP_W2_4 CAP_W2_3))
+errorLayer(CAP_W2_5 "15.CAP.W2: POLY2 width for PIP capacitor Min.=2.6um, Max.=50um.")
+;15.CAP.S1
+procTwoSpace_check(POLY2_CAP POLY1_CAP_ON_CONT 1 "15.CAP.S1: Space from CONT in POLY1 to POLY2 is 1.0um.")
+;15.CAP.S2
+procTwoSpace_check(POLY2_CAP POLY2_RES 2 "15.CAP.S2: Space from POLY2(CAP) to POLY2(RES) is 2.0um.")
+;15.CAP.S3
+CAP_S3_1 = geomAndNot(POLY2 geomOr(RES CAP))
+procTwoSpace_check(POLY2_CAP CAP_S3_1 2 "15.CAP.S3: Space from POLY2(CAP) to POLY2(interconnect) is 2.0um.")
+;15.CAP.S4
+procTwoSpace_check(POLY1_CAP POLY1_EXT 1 "15.CAP.S4: Space from POLY1(CAP) to POLY1(interconnect) is 1.0um.")
+;15.CAP.S5
+procOneSpace_check(POLY1_CAP 1.0 "15.CAP.S5: Space from POLY1(CAP) to POLY1(CAP) is 1.0um.")
+;15.CAP.E1
+procEnc_check(CONT POLY1_CAP 1.0 "15.CAP.E1: Extension of CONT to POLY1(CAP) is 1.0um.")
+;15.CAP.E2
+procEnc_check(CONT POLY2_CAP 1.0 "15.CAP.E2: Extension of CONT to POLY2(CAP) is 1.0um.")
+;15.CAP.E3;
+procEnc_check(POLY2_CAP POLY1_CAP 1 "15.CAP.E3: Extension of POLY2(CAP) to POLY1(CAP) is 1.0um.")
+;15.CAP.bad1
+CAP_bad1_1 = geomButtOrOver(CAP ACT)
+errorLayer(CAP_bad1_1 "15.CAP.bad1: Capacitor must be formed on field oxide.")
+;15.CAP.bad2
+CAP_bad2_1 = geomAvoiding(POLY2_CAP POLY1_CAP) 
+CAP_bad2_2 = geomAvoiding(POLY1_CAP POLY2_CAP)
+CAP_bad2_3 = geomOr(CAP_bad2_1 CAP_bad2_2)
+errorLayer(CAP_bad2_3 "15.CAP.bad2: In cap layer, POLY1 and POLY2 must be interacted.")
+;);endif
+
+;16.PNP.Rules
+;if(avSwitch("PNP") || avSwitch("all"))then
+;16.PNP.W1
+PNP_W1_1 = geomAndNot(PNP_E PNP_E_ALL)
+errorLayer(PNP_W1_1 "16.PNP.W1: Emitter width/length size must 2x2 or 5x5 or 10x10(um).")
+;16.PNP.W2
+PNP_W2_1 = geomOr(PNP_C PNP_B)
+PNP_W2_2 = drc(PNP_W2_1 width< 2 "")
+PNP_W2_3 = drc(PNP_W2_1 width < 2 length > 2)
+PNP_W2_4 = geomOr(PNP_W2_2 PNP_W2_3)
+errorLayer(PNP_W2_4 "16.PNP.W2: BJT collector, base width is 2.0um.")
+;16.PNP.S
+;PNP_S_1 = drc(PNP_E PNP_B 4.49 < sep < 4.51)
+PNP_S_1 = geomSize(PNP_E 4.5)
+;PNP_S_2 = geomButtOnly( geomOr(PNP_B PNP_E) PNP_S_1 )
+;PNP_S_3 = geomAndNot(geomOr(PNP_B PNP_E) PNP_S_2)
+PNP_S_2 = geomHoles(PNP_B)
+PNP_S_3 = geomAndNot(PNP_S_1 PNP_S_2)
+PNP_S_4 = geomAndNot(PNP_S_2 PNP_S_1)
+PNP_S_5 = geomOr(PNP_S_3 PNP_S_4)
+errorLayer(PNP_S_5 "16.PNP.S: Space of two ACT (emitter, base) is 4.5um.")
+;16.PNP.E1
+;PNP_E1_1 = procTwoSpace_check(PNP_C PNP_WELL 4.5 "")
+;PNP_E1_2 = geomButtOrOver(geomAnd(PWELL BJT) PNP_PWELL)
+;PNP_E1_3 = geomButtOrOver(PNP_E1_2 PNP_C)
+;PNP_E1_4 = drc(PNP_E1_3 width < 11) 
+;PNP_E1_5 = geomAndNot(PNP_E1_3 PNP_E1_4)
+;PNP_E1_6 = drc(PNP_E1_2 width < 11 length > 11)
+;PNP_E1_7 = geomOr(geomOr(PNP_E1_1 PNP_E1_4) PNP_E1_6)
+PNP_E1_1 = geomSize(PNP_C 4.5)
+PNP_E1_2 = geomAndNot(BJT PNP_NWELL)
+PNP_E1_3 = geomAndNot(PNP_E1_1 PNP_E1_2)
+PNP_E1_4 = geomAndNot(PNP_E1_2 PNP_E1_1)
+PNP_E1_5 = geomOr(PNP_E1_3 PNP_E1_4)
+PNP_E1_6 = geomAnd(PNP_E1_5 PNP_NWELL)
+
+errorLayer(PNP_E1_6 "16.PNP.E1: Extension of ACT(Collector) to PWELL is 4.5um.")
+;16.PNP.E2
+PNP_E2_1 = geomSize(PNP_B 2)
+PNP_E2_2 = geomNoHoles(PNP_E2_1)
+PNP_E2_3 = geomAndNot(PNP_NWELL PNP_E2_2)
+PNP_E2_4 = geomAndNot(PNP_E2_2 PNP_NWELL)
+PNP_E2_5 = geomOr(PNP_E2_3 PNP_E2_4)
+errorLayer(PNP_E2_5 "16.PNP.E2: Extension of ACT(base) to NWELL is 2um.")
+;16.PNP.E3
+;PNP_E3_1 = drc(BJT PNP_C enc == 4.5)
+;PNP_E3_2 = geomAvoiding(PNP_C PNP_E3_1)
+;PNP_E3_3 = geomSize(PNP_E3_2 4.5)
+;PNP_E3_4 = geomAndNot(PNP_E3_3 BJT)
+PNP_E3_1 = geomSize(PNP_C 4.5)
+PNP_E3_2 = geomNoHoles(PNP_E3_1)
+PNP_E3_3 = geomAndNot(PNP_E3_2 BJT)
+PNP_E3_4 = geomAndNot(BJT PNP_E3_2)
+PNP_E3_5 = geomOr(PNP_E3_3 PNP_E3_4)
+errorLayer(PNP_E3_3 "16.PNP.E3: extension of ACT(Collector) to BJT is 4.5um.")
+;16.PNP.E4
+PNP_E4_E = geomButtOrOver(BJT_PSD PNP_E)
+PNP_E4_B = geomButtOrOver(BJT_NSD PNP_B)
+PNP_E4_C = geomButtOrOver(BJT_PSD PNP_C)
+PNP_E4_1 = procEnc_check(PNP_E PNP_E4_E 1 "")
+PNP_E4_2 = procEnc_check(PNP_B PNP_E4_B 1 "")
+PNP_E4_3 = procEnc_check(PNP_C PNP_E4_C 1 "")
+PNP_E4_4 = geomOr(PNP_E4_1 geomOr(PNP_E4_2 PNP_E4_3))
+errorLayer(PNP_E4_4 "16.PNP.E4: Extension of ACT to NSD/PSD is 1um")
+;16.PNP.bad1
+PNP_bad1_1 = geomHoles(PNP_C)
+PNP_bad1_2 = geomNoHoles(PNP_C)
+PNP_bad1_3 = geomEnclose(PNP_bad1_2 PNP_bad1_1 ignore==1)
+errorLayer(PNP_bad1_3 "16.PNP.bad1: BJT's collector electroide cannot be shared.")
+;);endif
+
+;17.NPN.Rules
+;if(avSwitch("NPN") || avSwitch("all"))then
+;17.NPN.W1
+NPN_W1_1 = geomAndNot(NPN_E NPN_E_ALL)
+errorLayer(NPN_W1_1 "17.NPN.W1: Emitter width/length size must 2x2 or 5x5 or 10x10(um).")
+;17.NPN.W2
+NPN_W2_1 = geomOr(NPN_C NPN_B)
+NPN_W2_2 = drc(NPN_W2_1 width< 2 "")
+NPN_W2_3 = drc(NPN_W2_1 width < 2 length > 2)
+NPN_W2_4 = geomOr(NPN_W2_2 NPN_W2_3)
+errorLayer(NPN_W2_4 "17.NPN.W2: BJT collector, base width is 2.0um.")
+;17.NPN.S
+;NPN_S_1 = drc(NPN_E NPN_B 4.49 < sep < 4.51)
+;NPN_S_2 = geomButtOnly( geomOr(NPN_B NPN_E) NPN_S_1 )
+;NPN_S_3 = geomAndNot(geomOr(NPN_B NPN_E) NPN_S_2)
+NPN_S_1 = geomSize(NPN_E 4.5)
+NPN_S_2 = geomHoles(NPN_B)
+NPN_S_3 = geomAndNot(NPN_S_1 NPN_S_2)
+NPN_S_4 = geomAndNot(NPN_S_2 NPN_S_1)
+NPN_S_5 = geomOr(NPN_S_3 NPN_S_4)
+errorLayer(NPN_S_5 "17.NPN.S: Space of two ACT (emitter, base) is 4.5um.")
+;17.NPN.E1
+;NPN_E1_1 = procTwoSpace_check(NPN_C NPN_WELL 4.5 "")
+;NPN_E1_2 = geomButtOrOver(geomAnd(NWELL BJT) NPN_C_WELL)
+;NPN_E1_3 = geomButtOrOver(NPN_E1_2 NPN_C)
+;NPN_E1_4 = drc(NPN_E1_3 width < 11) 
+;NPN_E1_5 = geomAndNot(NPN_E1_3 NPN_E1_4)
+;NPN_E1_6 = drc(NPN_E1_2 width < 11 length > 11)
+;NPN_E1_7 = geomOr(geomOr(NPN_E1_1 NPN_E1_4) NPN_E1_6)
+NPN_E1_1 = geomSize(NPN_C 4.5)
+NPN_E1_2 = geomAndNot(NPN_E1_1 NPN_C_WELL)
+NPN_E1_3 = geomAndNot(NPN_C_WELL NPN_E1_1)
+NPN_E1_4 = geomOr(NPN_E1_2 NPN_E1_3)
+errorLayer(NPN_E1_4 "17.NPN.E1: Extension ACT(Collector) to PWELL is 4.5um.")
+;17.NPN.E2
+;NPN_E2_1 = geomHoles(NPN_C_WELL);npn_collector_well
+;NPN_E2_1_1 = geomNoHoles(geomSize(NPN_B 2))
+;NPN_E2_2 = drc(NPN_E2_1 NPN_B enc == 2)
+;NPN_E2_3 = geomAndNot(NPN_E2_1 NPN_E2_1_1)
+;NPN_E2_3_1 = geomAndNot(NPN_E2_1 NPN_E2_2)
+;NPN_E2_4 = geomAvoiding(NPN_B NPN_E2_2)
+;NPN_E2_5 = geomSize(NPN_E2_4 2)
+;NPN_E2_6 = geomNoHoles(NPN_E2_5);sized error layer
+;NPN_E2_7 = geomAndNot(NPN_E2_3 NPN_E2_6)
+;NPN_E2_8 = geomOverlap(NPN_E2_6 NPN_E2_3_1)
+;NPN_E2_9 = geomOr(NPN_E2_7 NPN_E2_8)
+NPN_E2_1 = geomSize(NPN_B 2)
+NPN_E2_2 = geomNoHoles(NPN_E2_1)
+NPN_E2_3 = geomAndNot(NPN_B_base NPN_E2_2)
+NPN_E2_4 = geomAndNot(NPN_E2_2 NPN_B_base)
+NPN_E2_5 = geomOr(NPN_E2_3 NPN_E2_4)
+errorLayer(NPN_E2_5 "17.NPN.E2: Extension of ACT(base) to NWELL is 2um.")
+;17.NPN.E3
+;NPN_E3_1 = drc(BJT NPN_C enc == 4.5)
+;NPN_E3_2 = geomAvoiding(NPN_C NPN_E3_1)
+;NPN_E3_3 = geomSize(NPN_E3_2 4.5)
+;NPN_E3_4 = geomAndNot(NPN_E3_3 BJT)
+NPN_E3_1 = geomNoHoles(geomButtOrOver(NWELL NPN_C_WELL))
+NPN_E3_2 = geomSize(NPN_E3_1 1)
+NPN_E3_3 = geomAndNot(NPN_E3_2 BJT)
+NPN_E3_4 = geomAndNot(BJT NPN_E3_2)
+NPN_E3_5 = geomOr(NPN_E3_3 NPN_E3_4)
+errorLayer(NPN_E3_3 "17.NPN.E3: Extension of NWELL to BJT is 1um.")
+;errorLayer(NPN_E3_2 "17.NPN.E3123: Extension of NWELL to BJT is 1um.")
+;17.NPN.E4
+NPN_E4_E = geomButtOrOver(BJT_NSD NPN_E)
+NPN_E4_B = geomButtOrOver(BJT_PSD NPN_B)
+NPN_E4_C = geomButtOrOver(BJT_NSD NPN_C)
+NPN_E4_1 = procEnc_check(NPN_E NPN_E4_E 1 "")
+NPN_E4_2 = procEnc_check(NPN_B NPN_E4_B 1 "")
+NPN_E4_3 = procEnc_check(NPN_C NPN_E4_C 1 "")
+NPN_E4_4 = geomOr(NPN_E4_1 geomOr(NPN_E4_2 NPN_E4_3))
+errorLayer(NPN_E4_4 "17.NPN.E4: Extension of ACT to NSD/PSD is 1um")
+;17.NPN.bad1
+NPN_bad1_1 = geomHoles(NPN_C)
+NPN_bad1_2 = geomNoHoles(NPN_C)
+NPN_bad1_3 = geomEnclose(NPN_bad1_2 NPN_bad1_1 ignore==1)
+errorLayer(NPN_bad1_3 "17.NPN.bad1: BJT's collector electroide cannot be shared.")
+;);endif
+
+;19.IO.Rules
+;if(avSwitch("IO") || avSwitch("all"))then
+;19.IO.F
+;; ESD protection devices follow finger design with unique finger dimension and layout style 
+;19.IO.W1
+;;NEED TO UPDATE("19.IO.W1: Minimum total finger width for ESD protection is 720um.") 
+;19.IO.W2
+IO_W2_1 = geomGetEdge(ESD_SD butting ESD_PL1)
+IO_W2_2 = geomGetLength(IO_W2_1 keep <60)
+IO_W2_3 = geomWithEdge(ESD_SD IO_W2_2)
+errorLayer(IO_W2_3 "19.IO.W2: Minimum unit finger width for ESD protection is 60um.")
+;19.IO.W3
+procWidth_check(ESD_GATE 0.7 "19.IO.W3: Minimum n/p-channel gate length is 0.7um.")
+;19.IO.W4
+IO_W4_1 = geomButtOrOver(MET1 ESD_D_CON)
+procWidth_check(IO_W4_1 6 "19.IO.W4: Metal width on drain side is 6.0um.")
+;19.IO.S1
+procTwoSpace_check(ESD_D_CON ESD_GATE 4 "19.IO.S1: Minimum drain contact to gate space(DCGS) is 4.0um.")
+;19.IO.S2
+procTwoSpace_check(ESD_S_CON ESD_GATE 1 "19.IO.S2: Minimum source contact to gate space(SCGS) is 1.0um.")
+;19.IO.S3
+IO_S3_1 = procOneSpace_check(ESD_CON 0.8 "")
+IO_S3_2 = procOneSpace_check(ESD_VIA1 0.8 "")
+IO_S3_3 = procOneSpace_check(ESD_VIA2 0.8 "")
+IO_S3_4 = geomOr(geomOr(IO_S3_1 IO_S3_2) IO_S3_3)
+errorLayer(IO_S3_4 "19.IO.S3: Space of two CONT/VIA is 0.8um.")
+;19.IO.E1
+IO_E1_1 = geomAnd(EACT ESD_CON)
+procEnc_check(IO_E1_1 EACT 1.0 "19.IO.E1: Minimum extension of CONT to ACT for ESD protection is 1.0um.")
+;19.IO.E2
+IO_E2_1 = geomAnd(PNSD ESD)
+IO_E2_2 = procEnc_check(EACT IO_E2_1 1 "")
+errorLayer(IO_E2_2 "19.IO.E2: Extension of ACT to NSD/PSD is 1.0um.")
+;);endif
+;20.LU.Rules
+;if(avSwitch("LU") || avSwitch("all"))then
+;20.LU.W1
+procWidth_check(ESD_NWELL 12 "20.LU.W1: Minimum NWELL width is 12.0um.")
+;20.LU.W2
+procWidth_check(ESD_TAP_ACT 10 "20.LU.W2: Minimum dummy collector width is 10.0um.")
+;20.LU.S1
+LU_S1_1 = geomButtOrOver(ESD_TAP_NWELL PGATE)
+LU_S1_2 = geomAnd(LU_S1_1 ESD_TAP_NACT)
+LU_S1_3 = procTwoSpace_check(ESD_TAP_PACT LU_S1_2 5 "")
+LU_S1_4 = geomAvoiding(ESD_TAP_NWELL PGATE)
+LU_S1_5 = geomAnd(LU_S1_4 ESD_TAP_NACT)
+LU_S1_6 = procTwoSpace_check(ESD_TAP_PACT LU_S1_5 5 "")
+LU_S1_7 = geomOr(LU_S1_3 LU_S1_6)
+errorLayer(LU_S1_7 "20.LU.S1: Minimum space of guard ring to dummy collector is 5.0um.")
+pr
+;20.LU.S2
+LU_S2_1 = geomAvoiding(ESD_TAP_NWELL ALLGATE)
+procTwoSpace_check(ESD_TAP_PACT LU_S2_1 5 "20.LU.S2: Minimum space of dummy collector to NWELL is 5.0um.")
+;20.LU.S3
+LU_S3_1 = geomAnd(PMOS ESD)
+procTwoSpace_check(LU_S3_1 ESD_TAP_NACT 1 "20.LU.S3: Minimum Space of P+ to N+ guard ring is 1.0um")
+;20.LU.S4
+LU_S4_1 = geomAnd(NMOS ESD)
+procTwoSpace_check(LU_S4_1 ESD_TAP_PACT 1 "20.LU.S4: Minimum Space of N+ to P+ guard ring is 1.0um")
+;20.LU.E1
+procEnc_check(ESD_TAP_NACT ESD_TAP_NWELL 2 "20.LU.E1: Minimum extension of dummy collectror to NWELL is 2.0um")
+;20.LU.E2
+procEnc_check(ESD_TAP_NACT ESD_TAP_NWELL 2 "20.LU.E2: Minimum extension of N+ guard ring to NWELL is 2.0um")
+;);endif
+;22.PNW.Rules
+;if(avSwitch("PNW") || avSwitch("all"))then
+;22.PNW.W1
+PNW_W1_1 = drc(NWDIO_PANO width < 2)
+PNW_W1_2 = drc(NWDIO_PANO width <= 20) 
+PNW_W1_3 = geomAndNot(NWDIO_PANO PNW_W1_2)
+PNW_W1_4 = drc(PNW_W1_2 width <= 20 length > 20)
+PNW_W1_5 = geomOr(PNW_W1_1 geomOr(PNW_W1_4 PNW_W1_3))
+errorLayer(PNW_W1_5 "22.PNW.W1: PACT Diode(inside NW) Width/Length is over 2.0um, under 20.0um.")
+;22.PNW.W2
+PNW_W2_1 = drc(NWDIO_NCAT width < 2.0 )
+PNW_W2_2 = geomWidth(NWDIO_NCAT keep > 2)
+PNW_W2_3 = geomOr(PNW_W2_1 PNW_W2_2)
+errorLayer(PNW_W2_3 "22.PNW.W2: PNW Diode Ntype ACT width is 2.0um(fixed value)")
+;22.PNW.S
+PNW_S_1 = geomSize(NWDIO_PANO 4.5)
+PNW_S_2 = geomHoles(NWDIO_NCAT)
+PNW_S_3 = geomAndNot(PNW_S_1 PNW_S_2)
+PNW_S_4 = geomAndNot(PNW_S_2 PNW_S_1)
+PNW_S_5 = geomOr(PNW_S_3 PNW_S_4)
+errorLayer(PNW_S_5 "22.PNW.S: PNW Diode Space of Two ACT is 4.5um.(Fixed Value)")
+;22.PNW.E1
+PNW_E1_1 = geomSize(NWDIO_NCAT 2)
+PNW_E1_2 = geomNoHoles(PNW_E1_1)
+PNW_E1_3 = geomAndNot(PNW_E1_2 NWDIO_WELL)
+PNW_E1_4 = geomAndNot(NWDIO_WELL PNW_E1_2)
+PNW_E1_5 = geomOr(PNW_E1_3 PNW_E1_4)
+errorLayer(PNW_E1_5 "22.PNW.E1: PNW Diode Extension of ACT(N-Type) to NWELL is 2.0um. (Fixed Value)")
+;22.PNW.E2
+PNW_E2_1 = geomSize(NWDIO_NCAT 1)
+PNW_E2_2 = geomSize(NWDIO_PANO 1)
+PNW_E2_3 = geomOr(geomAndNot(PNW_E2_1 DIODE_NSD) geomAndNot(DIODE_NSD PNW_E2_1))
+PNW_E2_4 = geomOr(geomAndNot(PNW_E2_2 DIODE_PSD) geomAndNot(DIODE_PSD PNW_E2_2))
+PNW_E2_5 = geomOr(PNW_E2_3 PNW_E2_4)
+PNW_E2_6 = geomAndNot(PNW_E2_5 PWELL)
+errorLayer(PNW_E2_6 "22.PNW.E2: PNW Diode Extension of ACT to NSD/PSD is 1.0um (Fixed Value)")
+;);endif
+;23.NPW.Rules
+;if(avSwitch("NWP") || avSwitch("all"))then
+;23.NPW.W1
+NWP_W1_1 = drc(PWDIO_NANO   width < 2)
+NWP_W1_2 = drc(PWDIO_NANO width <= 20) 
+NWP_W1_3 = geomAndNot(PWDIO_NANO NWP_W1_2)
+NWP_W1_4 = drc(NWP_W1_2 width <= 20 length > 20)
+NWP_W1_5 = geomOr(NWP_W1_1 geomOr(NWP_W1_4 NWP_W1_3))
+errorLayer(NWP_W1_5 "23.NPW.W1: NACT Diode(inside PW) Width/Length is over 2.0um, under 20.0um.")
+;23.NPW.W2
+NWP_W2_1 = drc(PWDIO_PCAT width < 2.0 )
+NWP_W2_2 = geomWidth(PWDIO_PCAT keep > 2)
+NWP_W2_3 = geomOr(NWP_W2_1 NWP_W2_2)
+errorLayer(NWP_W2_3 "23.NPW.W2: NWP Diode Ptype ACT width is 2.0um(fixed value)")
+;23.NPW.S
+NWP_S_1 = geomSize(PWDIO_NANO 4.5)
+NWP_S_2 = geomHoles(PWDIO_PCAT)
+NWP_S_3 = geomAndNot(NWP_S_1 NWP_S_2)
+NWP_S_4 = geomAndNot(NWP_S_2 NWP_S_1)
+NWP_S_5 = geomOr(NWP_S_3 NWP_S_4)
+errorLayer(NWP_S_5 "23.NPW.S: NPW Diode Space of Two ACT is 4.5um (Fixed Value)")
+;23.NPW.E
+NWP_E_1 = geomSize(PWDIO_PCAT 1)
+NWP_E_2 = geomSize(PWDIO_NANO 1)
+NWP_E_3 = geomOr(geomAndNot(NWP_E_1 DIODE_PSD) geomAndNot(DIODE_PSD NWP_E_1))
+NWP_E_4 = geomOr(geomAndNot(NWP_E_2 DIODE_NSD) geomAndNot(DIODE_NSD NWP_E_2))
+NWP_E_5 = geomOr(NWP_E_3 NWP_E_4)
+NWP_E_6 = geomAndNot(NWP_E_5 NWELL)
+errorLayer(NWP_E_6 "23.NPW.E: NPW Diode Extension of ACT to NSD/PSD is 1.0um ((Fixed Value)")
+;);endif
+;keepLayer(NTAP)
+;keepLayer(PTAP)
+)

@@ -1,0 +1,393 @@
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  Rule Version: 1.1 / Fully Extended & Bug Fixed Final Release
+#   Usage: klayout -b -r etri_05um.drc -rd gdsfile=mydesign.gds -rd resultsfile=drc_output.lyrdb
+# =======================================================================
+source($gdsfile ? $gdsfile : "layout.gds")
+report("ETRI NSPL 0.5um DRC Violations", $resultsfile ? $resultsfile : "etri_drc_report.lyrdb")
+
+# -----------------------------------------------------------------------
+# 1. Layer Definitions (Assura/GDS 레이어 배정 매핑 반영)
+# -----------------------------------------------------------------------
+CHIPBOUNDARY = input(0, 0)
+KEY          = input(1, 0)
+NWELLi       = input(2, 0)
+PWELLi       = input(3, 0)
+HNWELLi      = input(4, 0)
+HPWELLi      = input(5, 0)
+DWELLi       = input(6, 0)
+DNWELLi      = input(7, 0)
+DPWELLi      = input(8, 0)
+ACTi         = input(11, 0)
+POLY1i       = input(12, 0)
+POLY2i       = input(13, 0)
+NSDi         = input(14, 0)
+PSDi         = input(15, 0)
+FVTNi        = input(16, 0)
+FVTPi        = input(17, 0)
+VTNi         = input(18, 0)
+VTPi         = input(19, 0)
+NHRIi        = input(20, 0)
+PHRIi        = input(21, 0)
+NPIi         = input(22, 0)
+PPIi         = input(23, 0)
+NDRIFTi      = input(24, 0)
+PDRIFTi      = input(25, 0)
+ESDI         = input(26, 0)
+TGOXi        = input(27, 0)
+JISOi        = input(28, 0)
+TISOi        = input(29, 0)
+CONTi        = input(31, 0)
+MET1i        = input(32, 0)
+VIA1i        = input(33, 0)
+MET2i        = input(34, 0)
+VIA2i        = input(35, 0)
+MET3i        = input(36, 0)
+PADi         = input(37, 0)
+RES          = input(51, 0)
+ESD          = input(52, 0)
+CAP          = input(53, 0)
+HVMS         = input(54, 0)
+HVMA         = input(55, 0)
+BJT          = input(56, 0)
+DIODE        = input(57, 0)
+NODRC        = input(58, 0)
+ESDD         = input(59, 0)
+LVSD         = input(60, 0)
+
+# -----------------------------------------------------------------------
+# 2. Derived Base Layers (Assura 유도 레이어 연산 매핑)
+# -----------------------------------------------------------------------
+NWELL  = NWELLi.not(NODRC)
+HNWELL = HNWELLi.not(NODRC)
+HPWELL = HPWELLi.not(NODRC)
+DWELL  = DWELLi.not(NODRC)
+DNWELL = DNWELLi.not(NODRC)
+DPWELL = DPWELLi.not(NODRC)
+ACT    = ACTi.not(NODRC)
+POLY1  = POLY1i.not(NODRC)
+POLY2  = POLY2i.not(NODRC)
+NSD    = NSDi.not(NODRC)
+PSD    = PSDi.not(NODRC)
+PHRI   = PHRIi.not(NODRC)
+CONT   = CONTi.not(NODRC)
+MET1   = MET1i.not(NODRC)
+VIA1   = VIA1i.not(NODRC)
+MET2   = MET2i.not(NODRC)
+VIA2   = VIA2i.not(NODRC)
+MET3   = MET3i.not(NODRC)
+PAD    = PADi.not(NODRC)
+
+ALLNWELL = NWELL.or(HNWELL.or(DNWELL))
+ALLPWELL = PWELLi.or(HPWELL.or(DPWELL))
+
+RESNW = NWELL.and(RES)
+NACT  = ACT.and(NSD)
+PACT  = ACT.and(PSD)
+PNSD  = PSD.or(NSD)
+
+PPRES       = POLY2.and(LVSD.and(RES)).not(PSD)
+POLY2_RES   = POLY2.and(RES)
+BJT_PSD     = PSD.and(BJT)
+BJT_NSD     = NSD.and(BJT)
+PBACT       = ACT.and(BJT).and(PSD)
+NBACT       = ACT.and(BJT).and(NSD)
+
+# BJT 소자 정의
+PNP_E       = NWELL.and(PBACT)
+PNP_B_BASE  = NWELL.interacting(PNP_E)
+PNP_B       = NWELL.and(NBACT).inside(PNP_B_BASE)
+PNP_C       = PBACT.not(NWELL)
+
+NPN_E       = ALLPWELL.and(NBACT)
+NPN_B_BASE  = ALLPWELL.interacting(NPN_E)
+NPN_B       = ALLPWELL.and(PBACT).inside(NPN_B_BASE)
+NPN_C       = NBACT.not(ALLPWELL)
+NPN_C_WELL  = NWELL.and(BJT).interacting(NPN_C)
+
+# 가드링용 ESD 보호 영역 소자 정의
+EACT          = ACT.and(ESD)
+PEACT         = EACT.and(PSD)
+NEACT         = EACT.and(NSD)
+ESD_GATE      = (ACT.and(POLY1)).and(ESD)
+ESD_NWELL     = NWELL.and(ESD)
+ESD_TAP_ACT   = EACT.not(POLY1)
+ESD_TAP_PACT  = PEACT.not(POLY1)
+ESD_TAP_NACT  = NEACT.not(POLY1)
+ESD_TAP_NWELL = ESD_NWELL.interacting(ESD_TAP_ACT)
+
+# 실오링 구역 정의 및 분리 기법 (CHIPBOUNDARY 크기를 축소 차분하여 가이드 폭 분리)
+SEALRING_REGION = CHIPBOUNDARY.sized(-30.0.um)
+SEALRING_ZONE   = CHIPBOUNDARY.not(SEALRING_REGION)
+
+NTAP = NACT.and(NWELL).not(POLY1)
+PTAP = PACT.not(NWELL).not(POLY1)
+
+GATE        = ACT.and(POLY1)
+NGATE       = NACT.and(POLY1).not(NWELL)
+PGATE       = PACT.and(POLY1).and(NWELL)
+ALLGATE     = NGATE.or(PGATE)
+POLY1_FIELD = POLY1.not(ALLGATE)
+
+GATE_MOS    = ACT.and(POLY1)
+PIPCAP_AREA = POLY1.and(POLY2)
+
+NMOS  = NACT.and(POLY1)
+PMOS  = PACT.and(POLY1)
+NPMOS = NMOS.or(PMOS)
+
+POLY1_ON_ACT  = POLY1.and(POLY1.and(ACT))
+POLY1_NOT_ACT = POLY1.not(POLY1_ON_ACT)
+
+ACT_ON_CONT   = CONT.and(ACT)
+POLY1_ON_CONT = CONT.and(POLY1)
+POLY2_ON_CONT = CONT.and(POLY2)
+PL2_ONLY      = POLY2.not(POLY1)
+PL1_PL2       = POLY1.and(POLY2)
+
+POLY1_CAP = POLY1.and(CAP)
+POLY2_CAP = POLY2.and(CAP)
+
+# 실오링 영역을 제외한 순수 내부 코어 영역 정의 (일반 배선용 필터)
+MET1_CORE = MET1.not(SEALRING_ZONE)
+MET2_CORE = MET2.not(SEALRING_ZONE)
+MET3_CORE = MET3.not(SEALRING_ZONE)
+
+#MET1UP10 = MET1_CORE.sized(-4.99.um).sized(4.99.um)
+#MET1UN10 = MET1_CORE.not(MET1UP10)
+#MET2UP10 = MET2_CORE.sized(-4.99.um).sized(4.99.um)
+#MET2UN10 = MET2_CORE.not(MET2UP10)
+#MET3UP10 = MET3_CORE.sized(-4.99.um).sized(4.99.um)
+#MET3UN10 = MET3_CORE.not(MET3UP10)
+# [1부의 최하단부 마감 블록] 
+# Wide Metal 분리 필터 구현
+MET1UP10 = MET1.sized(-4.99.um).sized(4.99.um)
+MET1UN10 = MET1.not(MET1UP10)
+MET2UP10 = MET2.sized(-4.99.um).sized(4.99.um)
+MET2UN10 = MET2.not(MET2UP10)
+MET3UP10 = MET3.sized(-4.99.um).sized(4.99.um)
+MET3UN10 = MET3.not(MET3UP10)
+
+# (※ NMOS_W_EDGES 및 PMOS_W_EDGES 선언문은 경고 방지를 위해 여기서 삭제하고 2부 상단에서만 단 한번 선언합니다.)
+
+# -----------------------------------------------------------------------
+# 3. DRC Rule Evaluation 
+# -----------------------------------------------------------------------
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 2/3] Standard Mask Design Rule Checks (NWELL to PAD) - Warning Fixed
+# =======================================================================
+
+# === 4.1 NWELL Rules ===
+NWELL.width(2.5.um).output("1.NWL.W", "1.NWL.W: NWELL minimum width >= 2.5um.")
+NWELL.space(1.25.um).output("1.NWL.S.1", "1.NWL.S.1: NWELL minimum space for same potential >= 1.25um.")
+NWELL.space(4.0.um).output("1.NWL.S.2", "1.NWL.S.2: NWELL minimum space for different potential >= 4.0um.")
+RESNW.width(5.0.um).output("1.NWL.R", "1.NWL.R: NWELL minimum resistor width >= 5.0um.")
+NWELL.not(NWELL.interacting(NTAP.and(CONT))).output("1.NWL.bad1", "1.NWL.bad1: NWELL must have tap.")
+
+# === 4.2 ACT Rules ===
+# 중복 선언 경고를 방지하기 위해 2부의 이 위치에서만 변수를 단 한번 정의합니다.
+NMOS_W_EDGES = NMOS.edges.and(NACT.edges)
+PMOS_W_EDGES = PMOS.edges.and(PACT.edges)
+
+NMOS_W_EDGES.space(1.6.um).output("2.ACT.W1_NMOS", "2.ACT.W1: Minimum NMOS Transistor Width must be >= 1.6um.")
+PMOS_W_EDGES.space(1.6.um).output("2.ACT.W1_PMOS", "2.ACT.W1: Minimum PMOS Transistor Width must be >= 1.6um.")
+
+TR_width_area = NPMOS.not(POLY1)
+TR_width_area.width(100.0.um).output("2.ACT.W2", "2.ACT.W2: Maximum Transistor width <= 100um.")
+PTAP.or(NTAP).width(0.7.um).output("2.ACT.W3", "2.ACT.W3: Width of ACT region for interconnect >= 0.7um.")
+ACT.not(SEALRING_ZONE).space(1.0.um).output("2.ACT.S", "2.ACT.S: space of two ACT >= 1.0um.")
+NWELL.enclosing(PMOS, 1.4.um).output("2.ACT.E2", "2.ACT.E2: Extension of NWELL beyond ACT (P-type) >= 1.4um.")
+NWELL.enclosing(NTAP, 0.5.um).output("2.ACT.E3", "2.ACT.E3: Extension of NWELL beyond ACT (N-type) >= 0.5um.")
+ACT.not(SEALRING_ZONE).not(ACT.interacting(PNSD)).output("2.ACT.bad1", "2.ACT.bad1: ACT must have NSD or PSD.")
+NMOS.and(NWELL).output("2.ACT.bad2", "2.ACT.bad2: NMOS is not allowed in NWELL.")
+PMOS.not(NWELL).output("2.ACT.bad3", "2.ACT.bad3: PMOS is not allowed in PWELL.")
+ACT.not(SEALRING_ZONE).not(ACT.interacting(CONT)).output("2.ACT.bad4", "2.ACT.bad4: ACT must exist with CONT layer.")
+
+# === 4.3 POLY1 Rules ===
+POLY1_ON_ACT.width(0.5.um).output("3.PL1.W1", "3.PL1.W1: POLY1 width over ACT >= 0.5um")
+POLY1_NOT_ACT.not(SEALRING_ZONE).width(0.5.um).output("3.PL1.W3", "3.PL1.W3: POLY1 width for interconnect >= 0.5um.")
+POLY1.not(SEALRING_ZONE).space(0.6.um).output("3.PL1.S1", "3.PL1.S1: POLY1 to POLY1 space in field >= 0.6um.")
+NGATE.space(0.6.um).output("3.PL1.S2_N", "3.PL1.S2: Minimum POLY1 space on N-ACT is 0.6um.")
+PGATE.space(0.6.um).output("3.PL1.S2_P", "3.PL1.S2: Minimum POLY1 space on P-ACT is 0.6um.")
+POLY1_no_pl2 = POLY1.not(POLY2).not(SEALRING_ZONE)
+POLY1_no_pl2.not(POLY1_no_pl2.interacting(CONT)).output("3.PL1.bad1", "3.PL1.bad1: POLY1 must exist with CONT layer.")
+PL1_PL2.not(CAP).output("3.PL1.bad3", "3.PL1.bad3: POLY1 can't overlap POLY2 (except for PIPCAP).")
+
+# === 4.4 POLY2 Rules ===
+POLY2.width(0.6.um).output("4.PL2.W", "4.PL2.W: Minimum POLY2 width is 0.6um.")
+POLY2.space(0.75.um).output("4.PL2.S1", "4.PL2.S1: Minimum POLY2 space is 0.75um.")
+POLY2.separation(POLY1, 0.75.um).output("4.PL2.S2", "4.PL2.S2: Minimum POLY2 to POLY1 space is 0.75um.")
+POLY2.separation(ACT, 0.5.um).output("4.PL2.S3", "4.PL2.S3: Minimum POLY2 to ACT space is 0.5um.")
+POLY2.not(POLY2.interacting(CONT)).output("4.PL2.bad1", "4.PL2.bad1: POLY2 must exist with CONT layer.")
+
+# === 5 & 6. Implant Rules (NSD / PSD) ===
+NSD.not(SEALRING_ZONE).width(0.75.um).output("5.NSD.W", "5.NSD.W: Minimum NSD width is 0.75um.")
+NSD.not(SEALRING_ZONE).space(0.75.um).output("5.NSD.S1", "5.NSD.S1: Minimum NSD space is 0.75um.")
+PSD.not(SEALRING_ZONE).width(0.75.um).output("6.PSD.W", "6.PSD.W: Minimum PSD width is 0.75um.")
+PSD.not(SEALRING_ZONE).space(0.75.um).output("6.PSD.S1", "6.PSD.S1: Minimum PSD space is 0.75um.")
+NSD.and(PSD).output("5.NSD.O", "5.NSD.O: NSD overlapping with PSD is not allowed.")
+
+# === 4.7 Contact Rules ===
+CONT.not(SEALRING_ZONE).drc(width != 0.6.um).output("7.CONT.W", "7.CONT.W: Min/Max CONT Size must be 0.6um x 0.6um or 0.6um x 1.2um.")
+CONT.not(SEALRING_ZONE).space(0.6.um).output("7.CONT.S1", "7.CONT.S1: Minimum space of two CONT is 0.6um.")
+POLY1_ON_CONT.separation(ACT, 1.0.um).output("7.CONT.S2", "7.CONT.S2: Minimum space from CONT in POLY1 to ACT is 1.0um.")
+POLY2_ON_CONT.separation(ACT, 1.0.um).output("7.CONT.S5", "7.CONT.S5: Minimum space from CONT in POLY2 to ACT is 1.0um.")
+ACT.not(SEALRING_ZONE).enclosing(CONT, 0.5.um).output("7.CONT.E.1", "7.CONT.E.1: Minimum extension of CONT to ACT is 0.5um.")
+POLY1.not(SEALRING_ZONE).enclosing(CONT, 0.5.um).output("7.CONT.E.2", "7.CONT.E.2: Minimum extension of CONT to POLY1 is 0.5um.")
+MET1.not(SEALRING_ZONE).enclosing(CONT, 0.6.um).output("7.CONT.E.3", "7.CONT.E.3: Minimum extension of CONT to MET1 is 0.6um.")
+CONT.not(SEALRING_ZONE).not(MET1).output("7.CONT.bad1", "7.CONT.bad1: CONT must be in METAL1.")
+CONT.and(ALLGATE).output("7.CONT.bad3", "7.CONT.bad3: CONT on gate region is forbidden.")
+
+# === 4.8 Metal 1 Rules ===
+MET1_CORE.width(0.8.um).output("8.MET1.W", "8.MET1.W: Minimum MET1 width is 0.8um.")
+MET1UN10.space(0.8.um).output("8.MET1.S1", "8.MET1.S1: Minimum space of MET1 (<10um) is 0.8um.")
+MET1UP10.separation(MET1, 1.0.um).output("8.MET1.S2", "8.MET1.S2: Minimum space of wide MET1 (>=10um) is 1.0um.")
+MET1_CORE.not(MET1_CORE.interacting(CONT.or(VIA1))).output("8.MET1.bad1", "8.MET.bad1: MET1 must exist with CONT or VIA1 layer.")
+
+# === 4.9 VIA1 Rules ===
+VIA1.not(SEALRING_ZONE).drc(width != 0.8.um).output("9.VIA1.W", "9.VIA1.W: VIA1 Size Error: must be exactly 0.8 um x 0.8 um square.")
+VIA1.not(SEALRING_ZONE).space(0.5.um).output("9.VIA1.S1", "9.VIA1.S1: Minimum VIA1 space is 0.5um.")
+MET1UN10.enclosing(VIA1, 0.6.um).output("9.VIA1.E1", "9.VIA1.E1: Minimum extension of VIA1 to MET1 (<10um) is 0.6um")
+MET2UN10.enclosing(VIA1, 0.6.um).output("9.VIA1.E3", "9.VIA1.E3: Minimum extension of VIA1 to MET2 (<10um) is 0.6um")
+VIA1.separation(CONT, 0.6.um).output("9.VIA1.S_Check", "9.VIA1.S: Minimum VIA1 to CONT space is 0.6um.")
+VIA1.and(CONT).output("9.VIA1.S_Stack", "9.VIA1.S: VIA1 can not be stacked on CONT.")
+VIA1.not(SEALRING_ZONE).not(VIA1.interacting(MET1.and(MET2))).output("9.VIA1.bad1", "9.VIA1.bad1: VIA1 must exist with MET1 and MET2.")
+
+# === 10. Metal 2 Rules ===
+MET2_CORE.width(1.0.um).output("10.MET2.W", "10.MET2.W: Minimum MET2 width is 1.0um.")
+MET2UN10.space(1.0.um).output("10.MET2.S1", "10.MET2.S1: Minimum MET2 (<10um) space is 1.0um")
+MET2UP10.separation(MET2, 1.2.um).output("10.MET2.S2", "10.MET2.S2: Minimum MET2 (>=10um) space is 1.2um.")
+MET2_CORE.not(MET2_CORE.interacting(VIA1.or(VIA2))).output("10.MET2.bad1", "10.MET2.bad1: MET2 must exist with VIA1 or VIA2 layer.")
+
+# === 4.11 VIA2 Rules ===
+VIA2.not(SEALRING_ZONE).drc(width != 0.8.um).output("11.VIA2.W", "11.VIA2.W: VIA2 Size Error: must be exactly 0.8 um x 0.8 um square.")
+VIA2.not(SEALRING_ZONE).space(0.5.um).output("11.VIA2.S1", "11.VIA2.S1: Minimum space of two VIA2 is 0.8um.")
+MET2UN10.enclosing(VIA2, 0.6.um).output("11.VIA2.E1", "11.VIA2.E1: Minimum extension of VIA2 to MET2 (<10um) is 0.6um")
+MET3UN10.enclosing(VIA2, 0.6.um).output("11.VIA2.E3", "11.VIA2.E3: Minimum extension of VIA2 to MET3 (<10um) is 0.6um")
+VIA2.separation(VIA1, 0.6.um).output("11.VIA2.S_Check", "11.VIA2.S: Minimum space from VIA2 to VIA1 is 0.6um.")
+VIA2.and(VIA1).output("11.VIA2.S_Stack", "11.VIA2.S: VIA2 can not be stacked on VIA1.")
+VIA2.not(SEALRING_ZONE).not(VIA2.interacting(MET2.and(MET3))).output("11.VIA2.bad1", "11.VIA2.bad1: VIA2 must exist with MET2 and MET3.")
+
+# === 4.12 Metal 3 Rules ===
+MET3_CORE.width(1.2.um).output("12.MET3.W", "12.MET3.W: Minimum MET3 width is 1.2um.")
+MET3UN10.space(1.0.um).output("12.MET3.S1", "12.MET3.S1: Minimum MET3 (<10um) space is 1.0um")
+MET3UP10.separation(MET3, 1.2.um).output("12.MET3.S2", "12.MET3.S2: Minimum MET3 (>=10um) space is 1.2um")
+MET3_CORE.not(MET3_CORE.interacting(VIA2)).output("12.MET3.bad1", "12.MET3.bad1: MET3 is not exist without VIA2.")
+
+# === 4.13 PAD Rules ===
+PAD.width(80.0.um).output("13.PAD.A", "13.PAD.A: PAD size >= 80um x 80um.")
+PAD.space(40.0.um).output("13.PAD.S", "Space of two PAD >= 40um.")
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# =======================================================================
+#  KLayout DRC Runset for ETRI NSPL 0.5um Analog CMOS 2P3M 5V Process
+#  [PART 3/3] Advanced Special Devices & Seal-Ring Integration Rules (Fixed)
+# =======================================================================
+
+# === 4.14 Poly2 Resistor Rules (PL2PR) ===
+POLY2.and(RES).width(2.0.um).output("14.PL2PR.W", "14.PL2PR.W: Minimum POLY2 resistor width must be >= 2.0um.")
+res_l_edges = PPRES.edges.and(LVSD.edges)
+res_l_edges.space(4.0.um).output("14.PL2PR.L", "14.PL2PR.L: Minimum POLY2 resistor length must be >= 4.0um.")
+CONT.and(POLY2_RES).space(0.6.um).output("14.PL2PR.S1", "14.PL2PR.S1: Minimum CONT space on Poly2 resistor >= 0.6um.")
+POLY2_RES.enclosing(PHRI, 1.0.um).output("14.PL2PR.E1", "14.PL2PR.E1: Minimum extension of Poly2 to PHRI >= 1.0um.")
+POLY2_RES.enclosing(CONT, 0.5.um).output("14.PL2PR.E2", "14.PL2PR.E2: Minimum extension of CONT to Poly2 resistor >= 0.5um.")
+POLY2_RES.not(RES).output("14.PL2PR.bad1", "14.PL2PR.bad1: POLY2 for resistor must exist inside RES layer.")
+POLY1.and(RES).output("14.PL2PR.bad2", "14.PL2PR.bad2: POLY1 cannot exist inside RES oxide region.")
+ACT.and(RES).output("14.PL2PR.bad3", "14.PL2PR.bad3: ACT cannot exist inside RES oxide region.")
+PNSD.and(RES).output("14.PL2PR.bad4", "14.PL2PR.bad4: S/D Implant (NSD/PSD) is not allowed inside RES region.")
+
+# === 4.15 PIP Capacitor Rules ===
+POLY1_CAP.width(4.6.um).output("15.CAP.W1", "15.CAP.W1: POLY1 minimum width for PIP capacitor is 4.6um.")
+POLY2_CAP.width(2.6.um).output("15.CAP.W2", "15.CAP.W2: POLY2 minimum width for PIP capacitor is 2.6um.")
+POLY2_CAP.drc(width > 50.0.um).output("15.CAP.W2_max", "15.CAP.W2: POLY2 maximum width for PIP capacitor is 50um.")
+POLY2_CAP.enclosing(POLY1_CAP, 1.0.um).output("15.CAP.E3", "15.CAP.E3: Extension of POLY2(CAP) to POLY1(CAP) is 1.0um.")
+CAP.and(ACT).output("15.CAP.bad1", "15.CAP.bad1: Capacitor must be formed on field oxide.")
+
+# === 4.16 PNP BJT Rules ===
+# [오류 해결 완결] 면적단위를 .um2로 정합화하여 2x2, 5x5, 10x10 um 규격의 정사각형 에미터만 정확하게 추출하고 예외 처리합니다.
+pnp_e_good_2  = PNP_E.drc(area == 4.0.um2 && perimeter == 8.0.um)
+pnp_e_good_5  = PNP_E.drc(area == 25.0.um2 && perimeter == 20.0.um)
+pnp_e_good_10 = PNP_E.drc(area == 100.0.um2 && perimeter == 40.0.um)
+pnp_e_bad     = PNP_E.not(pnp_e_good_2.or(pnp_e_good_5).or(pnp_e_good_10))
+pnp_e_bad.output("16.PNP.W1", "16.PNP.W1: Emitter square size must be exactly 2x2, 5x5, or 10x10 um.")
+
+PNP_C.width(2.0.um).output("16.PNP.W2_C", "16.PNP.W2: Collector Ring width must be exactly 2.0um.")
+PNP_B.width(2.0.um).output("16.PNP.W2_B", "16.PNP.W2: Base Ring width must be exactly 2.0um.")
+PNP_E.separation(PNP_B, 4.5.um).output("16.PNP.S", "16.PNP.S: Space between Base and Emitter ACT must be exactly 4.5um.")
+PNP_C.separation(ALLNWELL, 4.5.um).output("16.PNP.E1", "16.PNP.E1: Extension of ACT (Collector) to PWELL (NWELL edge) must be 4.5um.")
+PNP_B.separation(ALLNWELL, 2.0.um).output("16.PNP.E2", "16.PNP.E2: Extension of ACT (Base) to NWELL edge must be 2.0um.")
+PNP_C.separation(BJT, 4.5.um).output("16.PNP.E3", "16.PNP.E3: Extension of ACT (Collector) to BJT marker boundary must be >= 4.5um.")
+ACT.and(BJT).enclosing(BJT_PSD.or(BJT_NSD), 1.0.um).output("16.PNP.E4", "16.PNP.E4: Extension of ACT to NSD/PSD implant layers inside BJT must be >= 1.0um.")
+
+# === 4.17 NPN BJT Rules ===
+# [오류 해결 완결] NPN 에미터 스퀘어 조건도 공식 면적 단위 메서드(.um2)로 보정 마감 완료
+npn_e_good_2  = NPN_E.drc(area == 4.0.um2 && perimeter == 8.0.um)
+npn_e_good_5  = NPN_E.drc(area == 25.0.um2 && perimeter == 20.0.um)
+npn_e_good_10 = NPN_E.drc(area == 100.0.um2 && perimeter == 40.0.um)
+npn_e_bad     = NPN_E.not(npn_e_good_2.or(npn_e_good_5).or(npn_e_good_10))
+npn_e_bad.output("17.NPN.W1", "17.NPN.W1: Emitter square size must be exactly 2x2, 5x5, or 10x10 um.")
+
+NPN_C.width(2.0.um).output("17.NPN.W2_C", "17.NPN.W2: Collector Ring width must be exactly 2.0um.")
+NPN_B.width(2.0.um).output("17.NPN.W2_B", "17.NPN.W2: Base Ring width must be exactly 2.0um.")
+NPN_E.separation(NPN_B, 4.5.um).output("17.NPN.S", "17.NPN.S: Space between Base and Emitter ACT must be exactly 4.5um.")
+NPN_C.separation(ALLNWELL, 4.5.um).output("17.NPN.E1", "17.NPN.E1: Extension of ACT (Collector) to PWELL (NWELL edge) must be 4.5um.")
+NPN_B.separation(ALLPWELL, 2.0.um).output("17.NPN.E2", "17.NPN.E2: Extension of ACT (Base) to PWELL edge must be 2.0um.")
+NPN_C_WELL.enclosing(BJT, 1.0.um).output("17.NPN.E3", "17.NPN.E3: Extension of NWELL to BJT marker boundary must be >= 1.0um.")
+ACT.and(BJT).enclosing(BJT_PSD.or(BJT_NSD), 1.0.um).output("17.NPN.E4", "17.NPN.E4: Extension of ACT to NSD/PSD implant layers inside BJT must be >= 1.0um.")
+
+# === 4.20 Guard-ring & Latch-up Design Guidelines ===
+ESD_NWELL.width(12.0.um).output("20.LU.W1", "20.LU.W1: Width of NWELL for ESD Latch-up protection must be >= 12.0um.")
+ESD_TAP_ACT.width(10.0.um).output("20.LU.W2", "20.LU.W2: Width of dummy collector (N/P-type) must be >= 10.0um.")
+ESD_TAP_PACT.separation(ESD_TAP_NWELL.interacting(ESD_GATE).and(ESD_TAP_NACT), 5.0.um).output("20.LU.S1", "20.LU.S1: Space of guard ring to dummy collector must be >= 5.0um.")
+ESD_TAP_PACT.separation(ESD_TAP_NWELL.not(ESD_TAP_NWELL.interacting(ALLGATE)), 5.0.um).output("20.LU.S2", "20.LU.S2: Space of dummy collector to NWELL edge must be >= 5.0um.")
+PMOS.and(ESD).separation(ESD_TAP_NACT, 1.0.um).output("20.LU.S3", "20.LU.S3: Space of P+ to N+ guard ring must be >= 1.0um.")
+NMOS.and(ESD).separation(ESD_TAP_PACT, 1.0.um).output("20.LU.S4", "20.LU.S4: Space of N+ to P+ guard ring must be >= 1.0um.")
+ESD_NWELL.enclosing(ESD_TAP_NACT, 2.0.um).output("20.LU.E1", "20.LU.E1: Extension of dummy collector to NWELL must be >= 2.0um.")
+ESD_NWELL.enclosing(ESD_TAP_NACT, 2.0.um).output("20.LU.E2", "20.LU.E2: Extension of N+ guard ring to NWELL must be >= 2.0um.")
+
+# === 4.21 Seal-Ring Rules ===
+MET1.and(SEALRING_ZONE).width(12.0.um).output("21.SEAL.W_M1", "21.SEAL.W: Seal-Ring MET1 width must be exactly 12.0um.")
+MET2.and(SEALRING_ZONE).width(12.0.um).output("21.SEAL.W_M2", "21.SEAL.W: Seal-Ring MET2 width must be exactly 12.0um.")
+MET3.and(SEALRING_ZONE).width(12.0.um).output("21.SEAL.W_M3", "21.SEAL.W: Seal-Ring MET3 width must be exactly 12.0um.")
+
+CONT.and(SEALRING_ZONE).width(4.1.um).output("21.SEAL.W_CONT", "21.SEAL: Seal-Ring Contact line width must be 4.1um.")
+VIA1.and(SEALRING_ZONE).width(6.5.um).output("21.SEAL.W_VIA1", "21.SEAL: Seal-Ring VIA1 line width must be 6.5um.")
+VIA2.and(SEALRING_ZONE).width(4.0.um).output("21.SEAL.W_VIA2", "21.SEAL: Seal-Ring VIA2 line width must be 4.0um.")
+
+CHIPBOUNDARY.width(30.0.um).output("21.SEAL.Width_Total", "21.SEAL: Total Seal-Ring structure zone width must be exactly 30.0um.")
