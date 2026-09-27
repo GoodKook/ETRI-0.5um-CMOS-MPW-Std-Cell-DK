@@ -12,12 +12,9 @@ fi
 cd z3
 git pull         # Make sure git repository is up-to-date
 
-source ../SC_env
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel $(nproc)
+sudo cmake --install build
 
-python3 scripts/mk_make.py
-cd build
-make
-sudo make install
 cd ..
-rm -rf build
 
