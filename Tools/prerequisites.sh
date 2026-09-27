@@ -44,7 +44,8 @@ sudo apt install -y \
     libglew-dev glew-utils libglfw3-dev \
     uuid uuid-dev libsecret-1-dev libyaml-dev \
     net-tools \
-    ddd mc xfe doxygen nemo gedit gedit-plugin-multi-edit libfuse2 gparted gnuplot ufw arp-scan openssh-server
+    ddd mc xfe doxygen nemo gedit gedit-plugin-multi-edit \
+    dos2unix libfuse2 gparted gnuplot ufw arp-scan openssh-server
 
 #sudo pip3 install sphinx sphinx_rtd_theme sphinxcontrib-spelling breathe ruff
 #
