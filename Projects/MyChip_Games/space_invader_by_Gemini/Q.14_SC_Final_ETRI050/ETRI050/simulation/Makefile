@@ -4,99 +4,102 @@ export SYSTEMC_HOME		= $(SYSTEMC)
 export SYSTEMC_INCLUDE	= $(SYSTEMC_HOME)/include
 export SYSTEMC_LIBDIR	= $(SYSTEMC_HOME)/lib
 export LD_LIBRARY_PATH	:=$(LD_LIBRARY_PATH):$(SYSTEMC_LIBDIR)
+export CXX				= clang++
 
-DUT_MODULE = space_invaders_engine_glcd
-TOP_MODULE = $(DUT_MODULE)
+#---------------------------------------------------------------
+TOP_MODULE = space_invaders_engine_glcd
+
+# SystemC testbench Reuse --------------------------------------
+SC_SRCS =  \
+	../../simulation/sc_main.cpp \
+	../../simulation/sc_glcd128x64_TLM.cpp \
+	../../simulation/sc_$(TOP_MODULE)_TB.cpp
+SC_HDRS = \
+	../../simulation/sc_$(TOP_MODULE)_TB.h
+
+# Verilator vars -----------------------------------------------
+DK_PATH = ~/ETRI050_DesignKit
+SYN_PATH = ../synthesis
+
+lint: VERILOG_SRCS =  \
+	$(DK_PATH)/digital_ETRI/khu_etri05_stdcells.v \
+	$(SYN_PATH)/$(TOP_MODULE)_mapped.v
+
+build: VERILOG_SRCS =  \
+	$(DK_PATH)/digital_ETRI/khu_etri05_stdcells.v \
+	$(SYN_PATH)/$(TOP_MODULE)_mapped.v
+
+run: VERILOG_SRCS =  \
+	$(DK_PATH)/digital_ETRI/khu_etri05_stdcells.v \
+	$(SYN_PATH)/$(TOP_MODULE)_mapped.v
+
+#-------------------------------------------------------------------------------
+VERILATOR    = verilator
+VL_WARNING   = -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND -Wno-UNSIGNED -Wno-fatal --timescale-override 1ns/1ps
+VCFLAGS		+= -CFLAGS -g
+VCFLAGS		+= -CFLAGS -I../../c_untimed
+VCFLAGS		+= -CFLAGS -I$(SYSTEMC_INCLUDE)
+ifeq ($(VCD_TRACE),)
+VCFLAGS		+= -CFLAGS -DVCD_TRACE_TEST_TB
+VCFLAGS		+= -CFLAGS -DVCD_TRACE_DUT_VERILOG
+VCFLAGS		+= -CFLAGS -DVCD_TRACE_GLCD
+endif
+VCFLAGS		+= -LDFLAGS -lm
+VCFLAGS		+= -LDFLAGS -lgsl
+VCFLAGS		+= -LDFLAGS -lSDL2
+#VCFLAGS		+= -CFLAGS -fPIC
+#VCFLAGS		+= -LDFLAGS -shared
+
+# Targets ------------------------------------------------------
+#TOP_MODULE   = $(TOP_MODULE)
+TARGET       = V$(TOP_MODULE)
+TARGET_DIR   = obj_dir
 
 # Build Rules --------------------------------------------------
 all :
 	@clear
-	@if [ ! -e "./sc_$(TOP_MODULE)_TB.cpp" ]; then \
-		echo "Symbolic link './sc_$(TOP_MODULE)_TB.cpp' ..."; \
-		ln -s ../../simulation/sc_$(TOP_MODULE)_TB.cpp ./sc_$(TOP_MODULE)_TB.cpp; \
-	fi
-	@if [ ! -e "./sc_glcd128x64_TLM.cpp" ]; then \
-		echo "Symbolic link './sc_glcd128x64_TLM.cpp' ..."; \
-		ln -s ../../simulation/sc_glcd128x64_TLM.cpp ./sc_glcd128x64_TLM.cpp; \
-	fi
-	@if [ ! -e "./sc_glcd128x64_TLM.h" ]; then \
-		echo "Symbolic link './sc_glcd128x64_TLM.h' ..."; \
-		ln -s ../../simulation/sc_glcd128x64_TLM.h ./sc_glcd128x64_TLM.h; \
+	@if [ ! -n "$(TOP_MODULE)" ];  then \
+		echo "*********************************"; \
+		echo "!!! TOP_MODULE not declared !!!"; \
+		echo "*********************************"; \
+		exit 1; \
 	fi
 	@echo
-	@echo 'Netlist timing simulation using iVerilog-VPI:$(TOP_MODULE)'
+	@echo 'Makefile for Co-Simulation of Verilog-RTL example, $(TOP_MODULE)'
 	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) make build'
-	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
-	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) make wave'
-	@echo
-	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
+	@echo '    TOP_MODULE=$(TOP_MODULE) make lint'
+	@echo '    TOP_MODULE=$(TOP_MODULE) VCD_TRACE=[YES]|NO make build'
+	@echo '    make run'
+	@echo '    make wave'
+	@echo '    make clean'
 	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
-# Build VPI -----------------------------------------------------
-VPI_TARGET 	= vpi_stub.vpi
-VPI_SRCS 	= \
-    ./vpi_stub.cpp \
-	./sc_glcd128x64_TLM.cpp \
-    ./vpi_$(DUT_MODULE)_tb.cpp \
-    ./sc_$(DUT_MODULE)_TB.cpp
-VPI_HDRS 	= \
-	./sc_glcd128x64_TLM.h \
-	./sc_$(DUT_MODULE)_TB.h  \
-	./vpi_$(DUT_MODULE)_tb_exports.h  \
-	./vpi_$(DUT_MODULE)_tb_ports.h
-VPI_INC_PATH = \
-    -I/usr/local/include/iverilog \
-    -I${SYSTEMC_INCLUDE} \
-    -I..
-VPI_LIB_PATH = \
-    -L${SYSTEMC_LIBDIR}
-VPI_CFLAGS = \
-    -g -fPIC
-VPI_LFLAGS = \
-	-shared \
-	-latomic \
-    -lsystemc \
-	-lgsl \
-	-lSDL2
+	@echo
 
-$(VPI_TARGET) : $(VPI_SRCS) $(VPI_HDRS)
-	$(CXX) $(CXXFLAGS) -DVPI_SIM \
-			$(VPI_INC_PATH) $(VPI_LIB_PATH) \
-			$(VPI_CFLAGS) \
-			$(VPI_SRCS) \
-    		-o $(VPI_TARGET) \
-			 $(VPI_LFLAGS)
+lint :
+	$(VERILATOR) --sc --timing $(VL_WARNING) --pins-sc-uint \
+				--top-module $(TOP_MODULE) $(VERILOG_SRCS)
 
-# iVerilog ---------------------------------------------------------------
-IVL_TARGET = $(DUT_MODULE)_TB
-IVL_SRCS   = $(IVL_TARGET).v \
-			~/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v \
-			../synthesis/$(DUT_MODULE)_mapped.v
+build : $(TARGET_DIR)/$(TARGET)
 
-$(IVL_TARGET) : $(IVL_SRCS) $(VPI_TARGET) $(VLT_TARGET)
-	iverilog -g2005-sv -Tmin -gspecify -o $(IVL_TARGET) $(IVL_SRCS)
+$(TARGET_DIR)/$(TARGET) : $(VERILOG_SRCS) $(SC_SRCS) $(SC_HDRS)
+	$(VERILATOR) --sc $(VL_WARNING) --trace --timing --pins-sc-uint \
+				--top-module $(TOP_MODULE) $(VERILOG_DEF) --exe --build \
+				$(VCFLAGS) $(VERILOG_SRCS) $(SC_SRCS)
 
-# Cleaning ----------------------------------------------------------------
+run : $(TARGET_DIR)/$(TARGET)
+	./$(TARGET_DIR)/$(TARGET)
+
+wave : V$(TOP_MODULE).vcd sc_$(TOP_MODULE)_TB.vcd
+	gtkwave V$(TOP_MODULE).vcd --save=V$(TOP_MODULE).gtkw &
+	gtkwave sc_$(TOP_MODULE)_TB.vcd --save=sc_$(TOP_MODULE)_TB.gtkw &
+
 clean :
-	rm -rf $(VLT_DIR)
-	rm -f vpi_stub.vpi
-	rm -f sc_$(DUT_MODULE)_TB.txt
-	rm -f sc_$(DUT_MODULE)_TB.cpp
+	rm -rf $(TARGET_DIR)
 	rm -f *.vcd
-	rm -f $(VPI_TARGET)
-	rm -f $(IVL_TARGET)
-	rm -f sc_glcd128x64_TLM.cpp
-	rm -f sc_glcd128x64_TLM.h
+	rm -f $(TOP_MODULE)
+	rm -f ../$(TOP_MODULE)/$(TOP_MODULE).v
+	rm -f sc_$(TOP_MODULE)_TB.txt
 
-# Build --------------------------------------------------------
-build : $(IVL_TARGET)
-
-run : $(IVL_TARGET) $(VPI_TARGET)
-	vvp -M. -mvpi_stub ${IVL_TARGET} -v
-
-wave :
-	gtkwave $(DUT_MODULE)_TB.vcd --save=$(DUT_MODULE)_TB.gtkw &
-	gtkwave sc_$(DUT_MODULE)_TB.vcd --save=sc_$(DUT_MODULE)_TB.gtkw &
-
+debug : $(TARGET_DIR)/$(TARGET)
+	ddd $(TARGET_DIR)/$(TARGET)
