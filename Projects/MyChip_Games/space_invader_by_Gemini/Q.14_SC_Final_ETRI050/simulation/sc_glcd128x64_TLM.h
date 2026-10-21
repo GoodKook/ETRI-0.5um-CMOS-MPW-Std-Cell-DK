@@ -47,7 +47,7 @@ SC_MODULE(sc_glcd128x64_TLM)
                               SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED,
                               128, 64,
-                              SDL_WINDOW_SHOWN);
+                              SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
         if (!window)
         {
             fprintf(stderr, "SDL Initialization Fail: %s\n", SDL_GetError());
@@ -58,9 +58,10 @@ SC_MODULE(sc_glcd128x64_TLM)
         SDL_SetWindowTitle(window, "GLCD 128x64");
         //SDL_SetWindowMinimumSize(window, 64, 128);
         //SDL_SetWindowMaximumSize(window, 64, 128);
-        SDL_SetWindowResizable(window, SDL_FALSE);
+        //SDL_SetWindowResizable(window, SDL_FALSE);
         //SDL_SetWindowBordered(window, SDL_TRUE);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        SDL_RenderSetLogicalSize(renderer, 128, 64);
     }
 };
 
