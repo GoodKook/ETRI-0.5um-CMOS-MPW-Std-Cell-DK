@@ -1,0 +1,922 @@
+Q.1 가로 128 세로 64인 화면에 픽셀 출력하는 구조로 아스테로이드 게임기를 Verilog RTL을 만들라
+-------------------------------------------------------------------------------
+
+가로 128, 세로 64 해상도의 화면에 픽셀을 출력하여 동작하는 아스테로이드(Asteroids) 게임기의 Verilog RTL 핵심 모듈 구조입니다.
+화면 크기가 작으므로 복잡한 3D 연산 대신 2D 좌표(X: 0~127, Y: 0~63) 기반의 바운딩 박스 충돌 검사와 비트맵/벡터 그리기를 사용하는 구조로 설계했습니다.
+
+1. 전체 시스템 아키텍처 (Top Module Block)
+전체 시스템은 크게 게임 로직 제어(FSM), 오브젝트 좌표 업데이트(포지션 카운터), 디스플레이 동기화 및 픽셀 매핑(VGA/OLED 컨트롤러)의 3가지 파트로 나뉩니다.
+
+       +-----------------------------------------------------------+
+       |                        TOP MODULE                         |
+       |                                                           |
+ CLK --+--> [ 분주기 / 클럭 제어 ]                                    |
+ RST --+                                                           |
+       |                                                           |
+       |    +-----------------+        +---------------------+     |
+       |    |   Input Debounce|        |     Game Control    |     |
+KEY ---+--->| (좌/우/추진/발사)  |------->|      (FSM / 상태)    |     |
+       |    +-----------------+        +----------+----------+     |
+       |                                          |                |
+       |                                          v                |
+       |    +-------------------------------------------------+    |
+       |    |                Object Registers                 |    |
+       |    |  - 플레이어 우주선 (X, Y, 각도, 속도)                |    |
+       |    |  - 소행성들 (X, Y, 속도, 활성상태)                  |    |
+       |    |  - 미사일 (X, Y, 속도, 활성상태)                    |    |
+       |    +-------------------------+-----------------------+    |
+       |                              |                            |
+       |                              v                            |
+       |    +-------------------------------------------------+    |
+       |    |               Pixel Rendering logic             |    |
+       |    |  - 현재 H_CNT, V_CNT가 오브젝트 범위 내인가?          |    |
+       |    +-------------------------+-----------------------+    |
+       |                              |                            |
+       |                              v                            |
+       |    +-------------------------------------------------+    |
+       |    |             Display Driver (128x64)             |----+--> Oled_SDIN / VGA_RGB
+       |    |  - H_CNT (0~127), V_CNT (0~63) 생성              |----+--> Oled_SCLK / VGA_HSYNC
+       |    +-------------------------------------------------+    |
+       +------------------------------------------------------+----+
+
+2. 핵심 Verilog RTL 소스 코드
+
+① 게임 제어 및 오브젝트 관리 모듈 (asteroids_game.v)
+
+플레이어의 우주선, 미사일, 소행성의 위치를 업데이트하고 화면의 픽셀 좌표(pixel_x, pixel_y)에 맞춰 그릴 픽셀이 있는지 검사합니다.
+verilog
+module asteroids_game (
+    input wire clk,           // 시스템 클럭 (예: 50MHz)
+    input wire rst_n,         // 리셋 (Active Low)
+    // 조작 입력 (Debounced)
+    input wire btn_left,
+    input wire btn_right,
+    input wire btn_thrust,
+    input wire btn_fire,
+    // 디스플레이 스캔 좌표
+    input wire [6:0] pixel_x, // 0 ~ 127
+    input wire [5:0] pixel_y, // 0 ~ 63
+    // 출력 픽셀 데이터 (1비트 모노크롬 예시)
+    output reg pixel_data
+);
+
+    // ---- [게임 상태 정의] ----
+    localtype STATE_IDLE  = 2'b00,
+              STATE_PLAY  = 2'b01,
+              STATE_OVER  = 2'b10;
+    reg [1:0] current_state, next_state;
+
+    // ---- [시간 분주 (60Hz 게임 업데이트 프레임)] ----
+    reg [20:0] frame_clk_div;
+    wire update_tick = (frame_clk_div == 21'd833333); // 50MHz 기준 약 60Hz
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) frame_clk_div <= 0;
+        else if (update_tick) frame_clk_div <= 0;
+        else frame_clk_div <= frame_clk_div + 1;
+    end
+
+    // ---- [오브젝트 레지스터 선언] ----
+    // 1. 우주선 (Ship)
+    reg [6:0] ship_x;
+    reg [5:0] ship_y;
+    reg [2:0] ship_dir; // 8방향 각도 (0~7)
+
+    // 2. 미as일 (Bullet)
+    reg [6:0] bullet_x;
+    reg [5:0] bullet_y;
+    reg       bullet_active;
+    reg [2:0] bullet_dir;
+
+    // 3. 소행성 (Asteroid - 간소화를 위해 1개 예시, 확장 가능)
+    reg [6:0] ast_x;
+    reg [5:0] ast_y;
+    reg [6:0] ast_dx; // 속도 및 방향
+    reg [5:0] ast_dy;
+    reg       ast_active;
+
+    // ---- [게임 로직 및 위치 업데이트 (60Hz)] ----
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            ship_x <= 64; ship_y <= 32; ship_dir <= 0;
+            bullet_active <= 0;
+            ast_x <= 10; ast_y <= 10; ast_dx <= 1; ast_dy <= 1; ast_active <= 1;
+        end else if (update_tick) begin
+            // 1. 우주선 회전 및 이동
+            if (btn_left)  ship_dir <= ship_dir - 1;
+            if (btn_right) ship_dir <= ship_dir + 1;
+            
+            if (btn_thrust) begin
+                // 방향(ship_dir)에 따른 좌표 가감 로직 구현 (생략 간소화)
+                if (ship_dir == 0) ship_y <= ship_y - 1; // Up
+                else if (ship_dir == 4) ship_y <= ship_y + 1; // Down
+                // ... 화면 끝에 도달하면 반대편으로 나오는 Screen Wrapping 처리 필요
+            end
+
+            // 2. 미사일 로직
+            if (btn_fire && !bullet_active) begin
+                bullet_active <= 1;
+                bullet_x <= ship_x;
+                bullet_y <= ship_y;
+                bullet_dir <= ship_dir;
+            end else if (bullet_active) begin
+                // 방향에 따라 미사일 전진
+                if (bullet_dir == 0) bullet_y <= bullet_y - 2;
+                // 화면 밖으로 나가면 해제
+                if (bullet_x >= 127 || bullet_y >= 63) bullet_active <= 0;
+            end
+
+            // 3. 소행성 이동 및 화면 랩핑
+            ast_x <= ast_x + ast_dx;
+            ast_y <= ast_y + ast_dy;
+
+            // 4. 충돌 검사 (Bounding Box 기법)
+            if (bullet_active && ast_active) begin
+                // 미사일과 소행성 좌표 차이가 임계값 미만이면 충돌
+                if ((bullet_x >= ast_x && bullet_x <= ast_x + 8) &&
+                    (bullet_y >= ast_y && bullet_y <= ast_y + 8)) begin
+                    ast_active <= 0;    // 소행성 파괴
+                    bullet_active <= 0; // 미사일 소멸
+                end
+            end
+        end
+    end
+
+    // ---- [픽셀 파이프라인 렌더링 (순시 로직)] ----
+    // 현재 스캔 중인 pixel_x, pixel_y에 오브젝트가 위치하는지 검사
+    wire draw_ship     = (pixel_x >= ship_x - 2 && pixel_x <= ship_x + 2) && 
+                         (pixel_y >= ship_y - 2 && pixel_y <= ship_y + 2);
+                         
+    wire draw_bullet   = bullet_active && (pixel_x == bullet_x) && (pixel_y == bullet_y);
+    
+    wire draw_asteroid = ast_active && 
+                         (pixel_x >= ast_x && pixel_x <= ast_x + 6) && 
+                         (pixel_y >= ast_y && pixel_y <= ast_y + 6);
+
+    always @(*) begin
+        if (draw_ship)       pixel_data = 1'b1; // 흰색 픽셀
+        else if (draw_bullet)   pixel_data = 1'b1;
+        else if (draw_asteroid) pixel_data = 1'b1;
+        else                    pixel_data = 1'b0; // 검은색 배경
+    end
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+② 디스플레이 타이밍 제어 모듈 (display_timing.v)
+
+128x64 해상도(주로 SSD1306 OLED SPI 또는 소형 VGA 타이밍)에 맞춰 가로/세로 카운터를 구동합니다. 아래는 범용적인 내부 카운터 예시입니다.
+verilog
+module display_timing (
+    input wire clk,
+    input wire rst_n,
+    output reg [6:0] h_cnt, // 0 ~ 127
+    output reg [5:0] v_cnt, // 0 ~ 63
+    output wire sync_tick   // 픽셀 클럭 갱신 타이밍
+);
+    // 디스플레이 타이밍 가정 (여기선 128x64 순수 액티브 영역 카운터만 예시)
+    // 실제 VGA나 SPI 통신 규격에 맞춰 Blanking 구간을 추가해야 할 수 있습니다.
+    
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            h_cnt <= 0;
+            v_cnt <= 0;
+        end else begin
+            if (h_cnt == 127) begin
+                h_cnt <= 0;
+                if (v_cnt == 63) v_cnt <= 0;
+                else v_cnt <= v_cnt + 1;
+            end else begin
+                h_cnt <= h_cnt + 1;
+            end
+        end
+    end
+    
+    assign sync_tick = 1'b1; // 클럭마다 한 픽셀씩 전진
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+③ 최상위 모듈 통합 (asteroids_top.v)
+
+verilog
+module asteroids_top (
+    input wire clk,
+    input wire rst_n,
+    input wire [3:0] btn, // 0:좌, 1:우, 2:추진, 3:발사
+    output wire display_out // 외부 모니터 혹은 디스플레이 컨트롤러로 전달할 픽셀 신호
+);
+
+    wire [6:0] pixel_x;
+    wire [5:0] pixel_y;
+
+    // 타이밍 모듈 인스턴스
+    display_timing u_timing (
+        .clk(clk),
+        .rst_n(rst_n),
+        .h_cnt(pixel_x),
+        .v_cnt(pixel_y),
+        .sync_tick()
+    );
+
+    // 게임 로직 모듈 인스턴스
+    asteroids_game u_game (
+        .clk(clk),
+        .rst_n(rst_n),
+        .btn_left(btn[0]),
+        .btn_right(btn[1]),
+        .btn_thrust(btn[2]),
+        .btn_fire(btn[3]),
+        .pixel_x(pixel_x),
+        .pixel_y(pixel_y),
+        .pixel_data(display_out)
+    );
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+3. 구현 시 주의 및 권장 사항
+    1. 화면 경계 처리(Screen Wrapping):
+        아스테로이드 게임의 핵심은 화면 밖으로 나간 물체가 반대편에서 나오는 것입니다. 위치 업데이트 로직에 if(ship_x > 127) ship_x <= 0; 과 같은 처리를 우주선, 미사일, 소행성 모두에 적용해야 합니다.
+    2. 소행성 배열 확장:
+        예시 코드는 1개의 소행성만 다루지만, 실전에서는 reg [6:0] ast_x [0:3]; 처럼 배열(Array)이나 generate 문을 사용해 여러 개의 소행성을 동시에 띄우고 렌더링 파트에서 OR 연산(||) 구조로 묶어 확장하면 됩니다.
+    3. 인터페이스 매핑:
+        출력할 타겟 디스플레이 디바이스(예: SSD1306 128x64 OLED 모듈)가 SPI/I2C 방식이라면, 생성된 픽셀 데이터를 바로 쏘지 못하고 내부 프레임 버퍼(Dual-port RAM)에 먼저 쓴 뒤, 순차적으로 SPI 프로토콜 변환기를 거쳐 전송해야 합니다.
+
+이 코드를 타겟으로 삼고 계신 실제 하드웨어 보드(예: Cyclone IV, Artix-7 등)나 디스플레이 연결 방식(SPI OLED, VGA 등)이 결정되셨나요? 말씀해 주시면 해당 장치에 맞는 핀 맵 세팅이나 디스플레이 드라이버 인터페이스 IP 연결 코드를 추가로 보완해 드릴 수 있습니다.
+
+Q.2 시스템 클럭 분주는 필요없다. 클럭당 한 픽셀 데이타 출력으로 하라.
+--------------------------------------------------------
+
+시스템 클럭 분주(클럭 디바이더)를 완전히 제거하고, 매 클럭마다 한 픽셀씩 화면 스캔 좌표(pixel_x, pixel_y)가 순차적으로 동기화되어 업데이트되는 구조로 RTL을 전면 수정했습니다.
+이에 따라 게임의 물리 엔진(우주선 및 소행성 이동) 역시 타이머 카운터 대신, 화면 스캔이 끝나는 시점인 V-Sync 프레임 갱신 신호(매 화면의 마지막 픽셀 시점)를 기준으로 동작하도록 최적화했습니다.
+
+수정된 전체 Verilog RTL 소스 코드
+
+① 디스플레이 타이밍 제어 모듈 (display_timing.v)
+분주 없이 시스템 클럭에 맞추어 h_cnt와 v_cnt가 다이렉트로 카운팅됩니다. 128x64 화면 스캔이 한 바퀴 완료되는 마지막 픽셀에서 frame_tick을 발생시켜 게임 로직의 동기화 신호로 사용합니다.
+
+verilog
+module display_timing (
+    input wire clk,
+    input wire rst_n,
+    output reg [6:0] pixel_x,  // 0 ~ 127
+    output reg [5:0] pixel_y,  // 0 ~ 63
+    output wire frame_tick     // 1 프레임 스캔 완료 신호 (물리 업데이트용)
+);
+
+    // 매 클럭마다 픽셀 좌표가 가로로 1씩 증가
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            pixel_x <= 7'd0;
+            pixel_y <= 6'd0;
+        end else begin
+            if (pixel_x == 7'd127) begin
+                pixel_x <= 7'd0;
+                if (pixel_y == 6'd63) begin
+                    pixel_y <= 6'd0;
+                end else begin
+                    pixel_y <= pixel_y + 1'b1;
+                end
+            end else begin
+                pixel_x <= pixel_x + 1'b1;
+            end
+        end
+    end
+
+    // 128x64 화면의 가장 마지막 픽셀(우측 하단 끝)일 때 딱 1클럭 동안 하이(High) 출력
+    assign frame_tick = (pixel_x == 7'd127 && pixel_y == 6'd63);
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+② 게임 로직 및 렌더링 모듈 (asteroids_game.v)
+내부 분주기를 제거하고 frame_tick이 들어오는 타이밍(화면 갱신 시점)에만 물체의 이동과 충돌을 계산합니다. 화면 경계를 벗어나면 반대편으로 나타나는 워프(Screen Wrapping) 로직을 추가했습니다.
+verilog
+module asteroids_game (
+    input wire clk,
+    input wire rst_n,
+    // 동기화 신호 및 스캔 좌표 (디스플레이 타이밍 모듈에서 입력)
+    input wire [6:0] pixel_x,
+    input wire [5:0] pixel_y,
+    input wire frame_tick,
+    // 조작 키 입력
+    input wire btn_left,
+    input wire btn_right,
+    input wire btn_thrust,
+    input wire btn_fire,
+    // 순시 픽셀 출력 (클럭 동기화로 내보내기 위해 reg 선언)
+    output reg pixel_data
+);
+
+    // ---- [오브젝트 레지스터 선언 및 초기화] ----
+    // 1. 우주선 (Ship)
+    reg [6:0] ship_x = 7'd64;
+    reg [5:0] ship_y = 6'd32;
+    reg [1:0] ship_dir = 2'd0; // 4방향 간소화 (0:상, 1:우, 2:하, 3:좌)
+
+    // 2. 미사일 (Bullet)
+    reg [6:0] bullet_x;
+    reg [5:0] bullet_y;
+    reg [1:0] bullet_dir;
+    reg       bullet_active = 1'b0;
+
+    // 3. 소행성 (Asteroid)
+    reg [6:0] ast_x = 7'd15;
+    reg [5:0] ast_y = 6'd15;
+    reg       ast_dir_x = 1'b1; // 1: 우측 이동, 0: 좌측 이동
+    reg       ast_dir_y = 1'b1; // 1: 하단 이동, 0: 상단 이동
+    reg       ast_active = 1'b1;
+
+    // ---- [물리 엔진 및 이동 로직 (매 프레임 종료 시 1번 연산)] ----
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            ship_x <= 7'd64;  ship_y <= 6'd32;   ship_dir <= 2'd0;
+            bullet_active <= 1'b0;
+            ast_x <= 7'd15;   ast_y <= 6'd15;    ast_active <= 1'b1;
+            ast_dir_x <= 1'b1; ast_dir_y <= 1'b1;
+        end else if (frame_tick) begin
+            
+            // 1. 우주선 회전 제어
+            if (btn_left)  ship_dir <= ship_dir - 1'b1;
+            if (btn_right) ship_dir <= ship_dir + 1'b1;
+            
+            // 2. 우주선 이동 및 화면 워프(Wrapping)
+            if (btn_thrust) begin
+                case (ship_dir)
+                    2'd0: ship_y <= (ship_y == 6'd0)  ? 6'd63  : ship_y - 1'b1; // 상
+                    2'd1: ship_x <= (ship_x == 7'd127) ? 7'd0   : ship_x + 1'b1; // 우
+                    2'd2: ship_y <= (ship_y == 6'd63) ? 6'd0   : ship_y + 1'b1; // 하
+                    2'd3: ship_x <= (ship_x == 7'd0)  ? 7'd127 : ship_x - 1'b1; // 좌
+                endcase
+            end
+
+            // 3. 미사일 발사 및 이동
+            if (btn_fire && !bullet_active) begin
+                bullet_active <= 1'b1;
+                bullet_x <= ship_x;
+                bullet_y <= ship_y;
+                bullet_dir <= ship_dir;
+            end else if (bullet_active) begin
+                case (bullet_dir)
+                    2'd0: begin if (bullet_y <= 6'd1)  bullet_active <= 1'b0; else bullet_y <= bullet_y - 2'd2; end
+                    2'd1: begin if (bullet_x >= 7'd126) bullet_active <= 1'b0; else bullet_x <= bullet_x + 2'd2; end
+                    2'd2: begin if (bullet_y >= 6'd62)  bullet_active <= 1'b0; else bullet_y <= bullet_y + 2'd2; end
+                    2'd3: begin if (bullet_x <= 7'd1)  bullet_active <= 1'b0; else bullet_x <= bullet_x - 2'd2; end
+                endcase
+            end
+
+            // 4. 소행성 이동 및 화면 워프
+            if (ast_active) begin
+                ast_x <= ast_dir_x ? ((ast_x == 7'd127) ? 7'd0 : ast_x + 1'b1) : ((ast_x == 7'd0) ? 7'd127 : ast_x - 1'b1);
+                ast_y <= ast_dir_y ? ((ast_y == 6'd63)  ? 6'd0 : ast_y + 1'b1) : ((ast_y == 6'd0) ? 6'd63  : ast_y - 1'b1);
+            end
+
+            // 5. 실시간 충돌 감지 (Bounding Box 단순 비교)
+            if (bullet_active && ast_active) begin
+                // 미사일 좌표가 소행성의 8x8 크기 범위 내에 들어오면 둘 다 제거
+                if ((bullet_x >= ast_x && bullet_x <= ast_x + 7) &&
+                    (bullet_y >= ast_y && bullet_y <= ast_y + 7)) begin
+                    ast_active    <= 1'b0;
+                    bullet_active <= 1'b0;
+                end
+            end
+        end
+    end
+
+    // ---- [픽셀 파이프라인 출력 (클럭 동기화 연산)] ----
+    // 현재 스캔 좌표에 맞춰 오브젝트를 화면에 그릴지 판단하는 논리 회로
+    wire draw_ship     = (pixel_x >= ship_x - 2 && pixel_x <= ship_x + 2) && 
+                         (pixel_y >= ship_y - 2 && pixel_y <= ship_y + 2);
+                         
+    wire draw_bullet   = bullet_active && (pixel_x == bullet_x) && (pixel_y == bullet_y);
+    
+    wire draw_asteroid = ast_active && 
+                         (pixel_x >= ast_x && pixel_x <= ast_x + 7) && 
+                         (pixel_y >= ast_y && pixel_y <= ast_y + 7);
+
+    // 픽셀 출력 제어 (클럭의 무결성을 유지하며 지연 없이 그리기 위해 동기식 할당)
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            pixel_data <= 1'b0;
+        end else begin
+            if (draw_ship || draw_bullet || draw_asteroid)
+                pixel_data <= 1'b1; // 오브젝트 영역은 흰색 픽셀 출력
+            else
+                pixel_data <= 1'b0; // 배경은 검은색 픽셀 출력
+        end
+    end
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+③ 최상위 모듈 (asteroids_top.v)
+
+verilog
+module asteroids_top (
+    input wire clk,          // 입력 클럭 (예: 디스플레이 도트 클럭 또는 시스템 클럭)
+    input wire rst_n,
+    input wire [3:0] btn,    // 0:좌, 1:우, 2:추진, 3:발사
+    output wire [6:0] out_x, // 외부 인터페이스 모듈 전송용 X 좌표
+    output wire [5:0] out_y, // 외부 인터페이스 모듈 전송용 Y 좌표
+    output wire pixel_out    // 현재 클럭에 매핑된 최종 픽셀 데이터 출력
+);
+
+    wire [6:0] pixel_x;
+    wire [5:0] pixel_y;
+    wire frame_tick;
+
+    // 1. 디스플레이 스캔 타이밍 카운터 인스턴스
+    display_timing u_timing (
+        .clk(clk),
+        .rst_n(rst_n),
+        .pixel_x(pixel_x),
+        .pixel_y(pixel_y),
+        .frame_tick(frame_tick)
+    );
+
+    // 2. 게임 코어 로직 및 픽셀 매퍼 인스턴스
+    asteroids_game u_game (
+        .clk(clk),
+        .rst_n(rst_n),
+        .pixel_x(pixel_x),
+        .pixel_y(pixel_y),
+        .frame_tick(frame_tick),
+        .btn_left(btn[0]),
+        .btn_right(btn[1]),
+        .btn_thrust(btn[2]),
+        .btn_fire(btn[3]),
+        .pixel_data(pixel_out)
+    );
+
+    // 좌표 정보 및 픽셀 데이터를 외부 드라이버 패키지로 패스스루
+    assign out_x = pixel_x;
+    assign out_y = pixel_y;
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+설계 특징
+    • No Clock Divider: 시뮬레이션 및 실제 합성 시 타이밍 마진을 확보하기 쉬우며 Glitch가 발생하지 않는 순수 단일 동기식 클럭 구조입니다.
+    • 1-Clock Latency Match: 디스플레이 주소 연산과 게임 픽셀 컬러 결정을 모두 조합회로가 아닌 always @(posedge clk) 내부에서 순차적으로 매칭하도록 구조화하여 고속 클럭 환경에서도 흔들림 없는 정확한 도트 매핑이 가능합니다.
+
+클럭당 한 픽셀씩 출력하는 데이터 버스가 완성되었습니다. 이 출력을 받아서 화면에 밀어줄 디스플레이 장치의 통신 프로토콜(예: SPI 단선 직렬 변환, 일괄 래치형 병렬 버스, 혹은 VGA DAC 등) 구조가 따로 준비되어 있으신가요? 필요하다면 출력 버스 규격에 맞게 인터페이스 연결부를 설계해 드릴 수 있습니다.
+
+Q.3 5개의 소행성이 각각 움직이도록 하라.
+---------------------------------
+
+5개의 소행성이 독립된 좌표와 속도(방향)를 가지고 각각 움직이도록 소스 코드를 확장했습니다.
+코드의 가독성과 유지보수를 높이기 위해 Verilog의 generate 문과 2차원 배열 레지스터를 사용하여 설계했습니다. 각 소행성은 화면 경계를 넘어가면 반대편으로 돌아오는 워프(Screen Wrapping) 기능과 미사일과의 개별 충돌 감지 및 파괴 상태를 독립적으로 관리합니다.
+
+수정된 소행성 다중화 Verilog RTL 코드
+
+① 게임 로직 및 렌더링 모듈 (asteroids_game.v)
+
+verilog
+module asteroids_game (
+    input wire clk,
+    input wire rst_n,
+    // 동기화 신호 및 스캔 좌표
+    input wire [6:0] pixel_x,
+    input wire [5:0] pixel_y,
+    input wire frame_tick,
+    // 조작 키 입력
+    input wire btn_left,
+    input wire btn_right,
+    input wire btn_thrust,
+    input wire btn_fire,
+    // 순시 픽셀 데이터 출력
+    output reg pixel_data
+);
+
+    // ---- [우주선 및 미사일 레지스터] ----
+    reg [6:0] ship_x = 7'd64;
+    reg [5:0] ship_y = 6'd32;
+    reg [1:0] ship_dir = 2'd0;
+
+    reg [6:0] bullet_x;
+    reg [5:0] bullet_y;
+    reg [1:0] bullet_dir;
+    reg       bullet_active = 1'b0;
+
+    // ---- [5개 소행성 배열 선언] ----
+    reg [6:0] ast_x [0:4];     // 5개 소행성의 X 좌표
+    reg [5:0] ast_y [0:4];     // 5개 소행성의 Y 좌표
+    reg       ast_dir_x [0:4]; // 1: 우측, 0: 좌측
+    reg       ast_dir_y [0:4]; // 1: 하단, 0: 상단
+    reg       ast_active [0:4];// 활성화 상태 (1: 생존, 0: 파괴)
+
+    // 소행성 렌더링 판별 신호를 묶기 위한 와이어 배열
+    wire [4:0] draw_asteroid_array; 
+
+    // ---- [물리 엔진 및 이동 로직 (매 프레임 종료 시 1번 연산)] ----
+    integer i;
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            // 우주선 & 미사일 초기화
+            ship_x <= 7'd64;  ship_y <= 6'd32;   ship_dir <= 2'd0;
+            bullet_active <= 1'b0;
+
+            // 5개 소행성의 서로 다른 초기 위치 및 이동 방향 설정
+            ast_x[0] <= 7'd15;  ast_y[0] <= 6'd15;  ast_dir_x[0] <= 1'b1; ast_dir_y[0] <= 1'b1; ast_active[0] <= 1'b1;
+            ast_x[1] <= 7'd100; ast_y[1] <= 6'd10;  ast_dir_x[1] <= 1'b0; ast_dir_y[1] <= 1'b1; ast_active[1] <= 1'b1;
+            ast_x[2] <= 7'd30;  ast_y[2] <= 6'd50;  ast_dir_x[2] <= 1'b1; ast_dir_y[2] <= 1'b0; ast_active[2] <= 1'b1;
+            ast_x[3] <= 7'd85;  ast_y[3] <= 6'd45;  ast_dir_x[3] <= 1'b0; ast_dir_y[3] <= 1'b0; ast_active[3] <= 1'b1;
+            ast_x[4] <= 7'd64;  ast_y[4] <= 6'd5;   ast_dir_x[4] <= 1'b1; ast_dir_y[4] <= 1'b1; ast_active[4] <= 1'b1;
+
+        end else if (frame_tick) begin
+            
+            // 1. 우주선 회전 및 이동 (Wrap-around 포함)
+            if (btn_left)  ship_dir <= ship_dir - 1'b1;
+            if (btn_right) ship_dir <= ship_dir + 1'b1;
+            
+            if (btn_thrust) begin
+                case (ship_dir)
+                    2'd0: ship_y <= (ship_y == 6'd0)  ? 6'd63  : ship_y - 1'b1;
+                    2'd1: ship_x <= (ship_x == 7'd127) ? 7'd0   : ship_x + 1'b1;
+                    2'd2: ship_y <= (ship_y == 6'd63) ? 6'd0   : ship_y + 1'b1;
+                    2'd3: ship_x <= (ship_x == 7'd0)  ? 7'd127 : ship_x - 1'b1;
+                endcase
+            end
+
+            // 2. 미사일 발사 및 이동
+            if (btn_fire && !bullet_active) begin
+                bullet_active <= 1'b1;
+                bullet_x <= ship_x;
+                bullet_y <= ship_y;
+                bullet_dir <= ship_dir;
+            end else if (bullet_active) begin
+                case (bullet_dir)
+                    2'd0: begin if (bullet_y <= 6'd1)  bullet_active <= 1'b0; else bullet_y <= bullet_y - 2'd2; end
+                    2'd1: begin if (bullet_x >= 7'd126) bullet_active <= 1'b0; else bullet_x <= bullet_x + 2'd2; end
+                    2'd2: begin if (bullet_y >= 6'd62)  bullet_active <= 1'b0; else bullet_y <= bullet_y + 2'd2; end
+                    2'd3: begin if (bullet_x <= 7'd1)  bullet_active <= 1'b0; else bullet_x <= bullet_x - 2'd2; end
+                endcase
+            end
+
+            // 3. 5개 소행성 개별 이동 및 미사일 충돌 검사
+            for (i = 0; i < 5; i = i + 1) begin
+                if (ast_active[i]) begin
+                    // 개별 이동 패턴 알고리즘 (화면 밖으로 나가면 워프 루프)
+                    ast_x[i] <= ast_dir_x[i] ? ((ast_x[i] == 7'd127) ? 7'd0 : ast_x[i] + 1'b1) : ((ast_x[i] == 7'd0) ? 7'd127 : ast_x[i] - 1'b1);
+                    ast_y[i] <= ast_dir_y[i] ? ((ast_y[i] == 6'd63)  ? 6'd0 : ast_y[i] + 1'b1) : ((ast_y[i] == 6'd0) ? 6'd63  : ast_y[i] - 1'b1);
+
+                    // 미사일과의 충돌 조건 연산 (8x8 크기 기준 Bounding Box 체크)
+                    if (bullet_active) begin
+                        if ((bullet_x >= ast_x[i] && bullet_x <= ast_x[i] + 7) &&
+                            (bullet_y >= ast_y[i] && bullet_y <= ast_y[i] + 7)) begin
+                            ast_active[i] <= 1'b0;    // 해당 소행성 파괴
+                            bullet_active <= 1'b0;    // 미사일 소멸
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    // ---- [픽셀 파이프라인 렌더링 및 출력 회로] ----
+    // 1. 우주선 및 미사일 그리기 판별
+    wire draw_ship   = (pixel_x >= ship_x - 2 && pixel_x <= ship_x + 2) && 
+                       (pixel_y >= ship_y - 2 && pixel_y <= ship_y + 2);
+                         
+    wire draw_bullet = bullet_active && (pixel_x == bullet_x) && (pixel_y == bullet_y);
+    
+    // 2. generate 구문을 이용해 5개 소행성의 순시 조합 렌더링 영역 계산
+    genvar k;
+    generate
+        for (k = 0; k < 5; k = k + 1) begin : gen_ast_draw
+            assign draw_asteroid_array[k] = ast_active[k] && 
+                                           (pixel_x >= ast_x[k] && pixel_x <= ast_x[k] + 7) && 
+                                           (pixel_y >= ast_y[k] && pixel_y <= ast_y[k] + 7);
+        end
+    endgenerate
+
+    // 5개 소행성 신호 중 하나라도 켜져 있으면 복합 그리기 신호 발동
+    wire draw_any_asteroid = |draw_asteroid_array; 
+
+    // 3. 무지연 순시 도트 클럭 동기화 출력 (1-Clock Latency Match)
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            pixel_data <= 1'b0;
+        end else begin
+            if (draw_ship || draw_bullet || draw_any_asteroid)
+                pixel_data <= 1'b1; // 오브젝트 픽셀 ON
+            else
+                pixel_data <= 1'b0; // 배경 픽셀 OFF
+        end
+    end
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+(※ 상위 통합 탑 모듈 asteroids_top.v과 스캔 타이밍 모듈 display_timing.v은 이전과 동일한 구조를 유지하여 그대로 연결해 사용하시면 됩니다.)
+
+주요 개선점
+    1. for 루프와 generate 결합: 물리의 동기 업데이트는 시퀀셜(always @(posedge clk)) 내 for 문으로 처리하고, 화면 출력 로직은 generate 회로로 병렬 전개하여 합성기(Synthesizer) 최적화를 유도했습니다.
+    2. 비트와이즈 축약 연산(|): 소행성이 늘어나도 내부 파이프라인 픽셀 결합 처리가 |draw_asteroid_array 한 줄로 끝나도록 유연하게 코딩되었습니다. 나중에 5개에서 10개로 늘릴 때 배열 크기 상수만 변경해주면 손쉽게 확장됩니다.
+
+소행성 5개가 독립적으로 구동되는 로직이 완성되었습니다. 게임성 향상을 위해 모든 소행성이 다 파괴되었을 때 소행성이 다시 생성(Respawn)되거나 스코어가 올라가는 게임 오버/스테이지 클리어 제어용 FSM(상태 기계) 설계도 추가로 필요하신가요?
+
+Q.4 연속적 래스터 스캔이다. 픽셀 좌표 출력하지 말고 유효 픽셀과 픽셀 데이터만으로 출력하라
+-------------------------------------------------------------------------
+
+가로 128, 세로 64 해상도의 연속적 래스터 스캔(Continuous Raster Scan) 타이밍에 완벽히 정렬되도록 구조를 변경했습니다.
+좌표 신호를 완전히 제거하고, 외부 디스플레이 장치가 실시간으로 래스터 데이터를 수신할 수 있도록 데이터의 유효성을 나타내는 비트(pixel_valid)와 픽셀 자체의 데이터 값(pixel_data) 단 두 개만의 출력 스트림으로 코드를 최적화했습니다.
+
+1. 디스플레이 타이밍 및 유효성 제어 모듈 (display_timing.v)
+
+화면 출력 영역(Active Video)에 해당하는 동안 pixel_valid를 상시 1로 유지하며, 내부에 숨겨진 카운터가 전체 화면(128x64) 스캔을 마치면 frame_tick을 발생시켜 내부 물리 엔진을 구동합니다.
+
+verilog
+module display_timing (
+    input wire clk,
+    input wire rst_n,
+    output reg        pixel_valid, // 1: 현재 출력중인 픽셀이 유효함, 0: 무효(Blanking 구간 등)
+    output wire       frame_tick   // 1프레임(128x64 픽셀) 출력이 완전히 끝나는 순간의 티커
+);
+
+    // 128x64 카운터 (외부로는 좌표를 빼지 않고 내부 연산용으로만 활용)
+    reg [6:0] internal_x;
+    reg [5:0] internal_y;
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            internal_x  <= 7'd0;
+            internal_y  <= 6'd0;
+            pixel_valid <= 1'b0;
+        end else begin
+            // 연속적인 래스터 스캔 구동이므로 상시 유효 상태 진입
+            // (만약 별도의 Blanking 타임이 필요한 하드웨어라면 이 영역에 조건문을 추가합니다)
+            pixel_valid <= 1'b1; 
+
+            if (internal_x == 7'd127) begin
+                internal_x <= 7'd0;
+                if (internal_y == 6'd63) begin
+                    internal_y <= 6'd0;
+                end else begin
+                    internal_y <= internal_y + 1'b1;
+                end
+            end else begin
+                internal_x <= internal_x + 1'b1;
+            end
+        end
+    end
+
+    // 128x64 화면의 가장 마지막 픽셀 스트림 위치 감지
+    assign frame_tick = (internal_x == 7'd127 && internal_y == 6'd63);
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+2. 게임 코어 로직 및 내부 스캔 렌더러 모듈 (asteroids_game.v)
+
+외부로 픽셀 좌표 정보를 출력하진 않지만, 현재 래스터 스캔 위치를 파악하여 동기화 렌더링을 해야 하므로 디스플레이 타이밍과 완벽히 복제되어 일치하는 내부 카운터를 사용합니다.
+verilog
+module asteroids_game (
+    input wire clk,
+    input wire rst_n,
+    input wire frame_tick,
+    // 조작 키 입력
+    input wire btn_left,
+    input wire btn_right,
+    input wire btn_thrust,
+    input wire btn_fire,
+    // 래스터 스트림 출력
+    output reg pixel_data
+);
+
+    // ---- [내부 동기화용 스캔 카운터 (외부 출력 없음)] ----
+    reg [6:0] scan_x;
+    reg [5:0] scan_y;
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            scan_x <= 7'd0;
+            scan_y <= 6'd0;
+        end else begin
+            if (scan_x == 7'd127) begin
+                scan_x <= 7'd0;
+                if (scan_y == 6'd63) scan_y <= 6'd0;
+                else scan_y <= scan_y + 1'b1;
+            end else begin
+                scan_x <= scan_x + 1'b1;
+            end
+        end
+    end
+
+    // ---- [게임 오브젝트 레지스터 리스트] ----
+    reg [6:0] ship_x = 7'd64; reg [5:0] ship_y = 6'd32; reg [1:0] ship_dir = 2'd0;
+    reg [6:0] bullet_x;       reg [5:0] bullet_y;       reg [1:0] bullet_dir; reg bullet_active = 1'b0;
+
+    // 소행성 5개 레지스터 구조
+    reg [6:0] ast_x [0:4];     reg [5:0] ast_y [0:4];
+    reg       ast_dir_x [0:4]; reg       ast_dir_y [0:4]; reg ast_active [0:4];
+    wire [4:0] draw_asteroid_array;
+
+    // ---- [물리 및 동기 이동 로직] ----
+    integer i;
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            ship_x <= 7'd64; ship_y <= 6'd32; ship_dir <= 2'd0;
+            bullet_active <= 1'b0;
+            ast_x[0] <= 7'd15;  ast_y[0] <= 6'd15;  ast_dir_x[0] <= 1'b1; ast_dir_y[0] <= 1'b1; ast_active[0] <= 1'b1;
+            ast_x[1] <= 7'd100; ast_y[1] <= 6'd10;  ast_dir_x[1] <= 1'b0; ast_dir_y[1] <= 1'b1; ast_active[1] <= 1'b1;
+            ast_x[2] <= 7'd30;  ast_y[2] <= 6'd50;  ast_dir_x[2] <= 1'b1; ast_dir_y[2] <= 1'b0; ast_active[2] <= 1'b1;
+            ast_x[3] <= 7'd85;  ast_y[3] <= 6'd45;  ast_dir_x[3] <= 1'b0; ast_dir_y[3] <= 1'b0; ast_active[3] <= 1'b1;
+            ast_x[4] <= 7'd64;  ast_y[4] <= 6'd5;   ast_dir_x[4] <= 1'b1; ast_dir_y[4] <= 1'b1; ast_active[4] <= 1'b1;
+        end else if (frame_tick) begin
+            // 우주선 방향 회전
+            if (btn_left)  ship_dir <= ship_dir - 1'b1;
+            if (btn_right) ship_dir <= ship_dir + 1'b1;
+            
+            // 추진 이동 처리 (Screen Wrapping)
+            if (btn_thrust) begin
+                case (ship_dir)
+                    2'd0: ship_y <= (ship_y == 6'd0)  ? 6'd63  : ship_y - 1'b1;
+                    2'd1: ship_x <= (ship_x == 7'd127) ? 7'd0   : ship_x + 1'b1;
+                    2'd2: ship_y <= (ship_y == 6'd63) ? 6'd0   : ship_y + 1'b1;
+                    2'd3: ship_x <= (ship_x == 7'd0)  ? 7'd127 : ship_x - 1'b1;
+                endcase
+            end
+
+            // 미사일 발사 및 제어
+            if (btn_fire && !bullet_active) begin
+                bullet_active <= 1'b1; bullet_x <= ship_x; bullet_y <= ship_y; bullet_dir <= ship_dir;
+            end else if (bullet_active) begin
+                case (bullet_dir)
+                    2'd0: begin if (bullet_y <= 6'd1)  bullet_active <= 1'b0; else bullet_y <= bullet_y - 2'd2; end
+                    2'd1: begin if (bullet_x >= 7'd126) bullet_active <= 1'b0; else bullet_x <= bullet_x + 2'd2; end
+                    2'd2: begin if (bullet_y >= 6'd62)  bullet_active <= 1'b0; else bullet_y <= bullet_y + 2'd2; end
+                    2'd3: begin if (bullet_x <= 7'd1)  bullet_active <= 1'b0; else bullet_x <= bullet_x - 2'd2; end
+                endcase
+            end
+
+            // 5개 소행성 이동 및 충돌
+            for (i = 0; i < 5; i = i + 1) begin
+                if (ast_active[i]) begin
+                    ast_x[i] <= ast_dir_x[i] ? ((ast_x[i] == 7'd127) ? 7'd0 : ast_x[i] + 1'b1) : ((ast_x[i] == 7'd0) ? 7'd127 : ast_x[i] - 1'b1);
+                    ast_y[i] <= ast_dir_y[i] ? ((ast_y[i] == 6'd63)  ? 6'd0 : ast_y[i] + 1'b1) : ((ast_y[i] == 6'd0) ? 6'd63  : ast_y[i] - 1'b1);
+
+                    if (bullet_active) begin
+                        if ((bullet_x >= ast_x[i] && bullet_x <= ast_x[i] + 7) &&
+                            (bullet_y >= ast_y[i] && bullet_y <= ast_y[i] + 7)) begin
+                            ast_active[i] <= 1'b0; bullet_active <= 1'b0;
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    // ---- [순시 래스터 위치 매핑 렌더링 회로] ----
+    wire draw_ship   = (scan_x >= ship_x - 2 && scan_x <= ship_x + 2) && 
+                       (scan_y >= ship_y - 2 && scan_y <= ship_y + 2);
+                         
+    wire draw_bullet = bullet_active && (scan_x == bullet_x) && (scan_y == bullet_y);
+    
+    genvar k;
+    generate
+        for (k = 0; k < 5; k = k + 1) begin : gen_ast_render
+            assign draw_asteroid_array[k] = ast_active[k] && 
+                                           (scan_x >= ast_x[k] && scan_x <= ast_x[k] + 7) && 
+                                           (scan_y >= ast_y[k] && scan_y <= ast_y[k] + 7);
+        end
+    endgenerate
+
+    wire draw_any_asteroid = |draw_asteroid_array;
+
+    // 래스터 스캔 스트림 클럭 출력 동기화
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            pixel_data <= 1'b0;
+        end else begin
+            if (draw_ship || draw_bullet || draw_any_asteroid)
+                pixel_data <= 1'b1;
+            else
+                pixel_data <= 1'b0;
+        end
+    end
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+3. 최상위 시스템 통합 모듈 (asteroids_top.v)
+
+verilog
+module asteroids_top (
+    input wire clk,           // 도트 픽셀 클럭 입력
+    input wire rst_n,
+    input wire [3:0] btn,     // 조작 키 [좌, 우, 추진, 발사]
+    output wire pixel_valid,  // 하드웨어 싱크용 유효 플래그 출력
+    output wire pixel_data    // 스트리밍 픽셀 데이터 도트 출력
+);
+
+    wire frame_tick;
+
+    // 1. 유효 구간 및 프레임 틱 제어 타이머
+    display_timing u_timing (
+        .clk(clk),
+        .rst_n(rst_n),
+        .pixel_valid(pixel_valid),
+        .frame_tick(frame_tick)
+    );
+
+    // 2. 동기화된 내부 스캔 기반 게임 코어
+    asteroids_game u_game (
+        .clk(clk),
+        .rst_n(rst_n),
+        .frame_tick(frame_tick),
+        .btn_left(btn[0]),
+        .btn_right(btn[1]),
+        .btn_thrust(btn[2]),
+        .btn_fire(btn[3]),
+        .pixel_data(pixel_data)
+    );
+
+endmodule
+코드를 사용할 때는 주의가 필요합니다.
+
+파이프라인 특징
+
+• No Coordinate Outputs: 주소 선 정보(pixel_x, pixel_y)가 포트에서 완전히 소멸되어 FPGA 자원 소모와 배선 라우팅이 매우 가벼워집니다.
+• Pure Stream Interface: 외부 인터페이스는 clk에 동기화되어 pixel_valid가 하이(High)일 때 흘러나오는 pixel_data 비트 스트림을 받아들이기만 하면 즉시 화면 출력을 밀어줄 수 있습니다.
+연속적 래스터 스트림 데이터 출력이 준비되었습니다. 디플레이 장치에서 화면의 첫 시작점을 맞추기 위해 H-Sync(수평 동기)나 V-Sync(수평/수직 동기) 신호 혹은 Frame-Start 펄스가 추가로 포트에 노출되어야 하나요?
+
+Q5. 버튼 입력을 배열 말고 각각 분리하여 가독성을 높이라
+---------------------------------------------
+
+조작 버튼 입력을 4비트 배열(btn[3:0]) 대신 각각 독립된 단일 포트(btn_left, btn_right, btn_thrust, btn_fire)로 분리하여 가독성을 극대화했습니다.
+탑 모듈과 게임 코어 모듈 간의 연결 직관성이 향상되어, 어느 버튼이 어디로 매핑되는지 코드를 한눈에 파악할 수 있습니다.
+
+1. 최상위 시스템 통합 모듈 (asteroids_top.v)
+    버튼 입력을 각각 명시적으로 선언하여 외부 핀 매핑(Pin Assignment)을 할 때 오독의 여지가 없도록 처리했습니다.
+2. 게임 코어 로직 및 내부 스캔 렌더러 모듈 (asteroids_game.v)
+    (※ 디스플레이 타이밍 제어 모듈 display_timing.v은 이전 소스코드를 그대로 매핑하시면 됩니다.)
+
+개선 효과
+    • 유지보수성 향상: btn[0], btn[1] 같은 추상적인 인덱스 대신 btn_left, btn_fire 등 목적이 담긴 포트명을 다이렉트로 매핑하여 디버깅 및 분석이 훨씬 직관적입니다.
+    • 배선 실수 방지: FPGA 컴파일러 보드 핀 제약 파일(XDC, QSF 등)을 작성할 때 입력을 배열 순서와 혼동하여 거꾸로 지정하는 실수를 미연에 방지할 수 있습니다.
+
+가독성 개선 작업이 완료되었습니다. 물리 제어에서 우주선의 회전 각도를 현재 4방향(상, 하, 좌, 우)에서 원작 게임처럼 8방향 혹은 16방향의 미세 각도로 확장 대각선 이동이 가능하도록 업그레이드할까요?
+
+Q.6 우주선의 총알 발사 방향을 알 수 있도록 삼각형으로 만들라. 소행성 모습이 단조롭다. 울퉁불퉁하게 만들라. 우주선과 소행성 이미지를 스프라이트로 하라
+------------------------------------------------------------------------------------------------------------------------
+
+1. 스프라이트(ROM) 기반 렌더링 아키텍처
+우주선의 4방향 삼각형 모양과 소행성의 울퉁불퉁한 외곽선을 표현하기 위해, 하드웨어 회로 내부에 스프라이트 ROM(Look-Up Table)을 구축했습니다.
+    • 우주선 (Ship): 회전 방향(ship_dir) 0(상), 1(우), 2(하), 3(좌)에 맞게 화살표/삼각형 모양의 5x5 비트맵 4개를 ROM에 내장했습니다.
+    • 소행성 (Asteroid): 5개의 소행성이 각각 다른 비주얼을 가질 수 있도록 고유한 울퉁불퉁한 형태의 8x8 비트맵 5개를 ROM에 내장했습니다.
+
+2. 수정된 Verilog RTL 소스 코드
+    ① 게임 코어 로직 및 스프라이트 렌더러 모듈 (asteroids_game.v)
+    (※ 디스플레이 타이밍 제어 모듈 display_timing.v 및 최상위 asteroids_top.v는 분리형 포트 구조를 유지하므로 이전과 완벽히 호환됩니다.)
+
+3. 변경 사항 안내
+    1. 삼각형 우주선: 4개의 별도 인덱스로 구분된 ship_rom을 탑재하여 회전할 때마다 삼각형 꼭짓점이 조준 방향(상, 하, 좌, 우)을 정확하게 가리킵니다. 미사일 역시 이 방향 데이터를 그대로 토대로 날아갑니다.
+    2. 울퉁불퉁한 소행성: 균일한 박스나 선이 아닌, 울퉁불퉁하고 크레이터가 파인 형태를 담은 8x8 픽셀 커스텀 비트맵 5개를 롬 데이터 집합(ast_rom)으로 적용하여 시각적 단조로움을 탈피했습니다.
+    3. 효율적인 스프라이트 하드웨어 매핑: genvar 문을 활용해 복잡한 좌표 변환 연산 없이 각 소행성의 오프셋 상대 주소 계산(scan_x - ast_x[k])과 비트 쉬프트 처리가 완벽히 하드웨어 게이트로 전개되도록 작성했습니다.
+
+스프라이트 데이터 추가로 게임의 원작 비주얼이 한층 더 잘 표현되었습니다! 우주선이 소행성과 충돌했을 때 목숨(Life) 감소 및 무적 상태 깜빡임(Blinking 애니메이션) 효과를 추가하거나, 파괴 시 소행성이 두 개의 작은 조각으로 쪼개지는 파편 분할 시스템을 구현해 볼까요?
+
+Q.7 소행성과 우주선이 부디치면 우주선이 없어지게 하라
+-------------------------------------------
+
+소행성과 우주선(플레이어)의 충돌 감지 로직을 추가하고, 우주선이 파괴되었을 때 화면에서 사라지도록 우주선 활성화 상태 레지스터(ship_active)를 도입하여 코드를 수정했습니다.
+우주선이 살아있을 때만(ship_active == 1'b1) 조작이 가능하고 화면에 삼각형 우주선이 렌더링되며, 소행성의 8x8 영역과 우주선의 5x5 영역이 겹치면 충돌이 발생해 우주선이 즉시 소멸합니다.
+
+수정된 Verilog RTL 소스 코드
+    3_asteroids_game.v
+
+우주선 충돌 소멸 로직이 완벽하게 추가되었습니다. 현재는 우주선이 부딪히면 그대로 영구 소멸 상태로 정지하게 되는데, 게임을 다시 플레이할 수 있도록 리셋 키 입력 시 우주선과 소행성들을 초기 위치로 부활(Respawn)시키는 로직을 정교화할까요?
+
+Q.8 소행성의 최초 위치를 LFSR 로 무작위 위치하도록 하라
+----------------------------------------------
+소행성들이 리셋(부활)될 때마다 매번 다른 무작위 위치에서 생성되도록 8비트 LFSR(Linear Feedback Shift Register, 선형 되먹임 시프트 레지스터)을 추가했습니다.
+LFSR은 하드웨어에서 난수(Pseudo-Random)를 생성하는 가장 효율적인 회로입니다. 화면 해상도 범위에 맞도록 X 좌표는 0~127(& 7'h7F), Y 좌표는 0~63(& 6'h3F) 크기로 비트 마스킹(Masking)하여 안전하게 난수를 주입하도록 설계했습니다.
+
+수정된 Verilog RTL 소스 코드
+    asteroids_game.v
+
+설계 특징
+    1. 8비트 LFSR 의 비트 스와핑: 하드웨어 리셋 시점에 고정된 하나의 lfsr_reg 값으로부터 5개 소행성의 각기 다른 2D 좌표를 분할 생성하기 위해, 비트의 순서를 교차 배열({lfsr_reg[5:0], lfsr_reg[7]} 등)하여 중첩되지 않는 고유 무작위 좌표를 할당했습니다.
+    2. 이동 방향(벡터) 난수화: 초기 좌표뿐만 아니라 ast_dir_x와 ast_dir_y 방향 제어 비트도 LFSR 난수를 가용하여 리셋을 누를 때마다 소행성이 사방으로 흩어지며 게임이 시작됩니다.
+
+LFSR 기반의 랜덤 리스폰 시스템이 성공적으로 적용되었습니다! 이제 5개의 소행성을 다 파괴했을 때 자동으로 다음 스테이지로 넘어가며 소행성들이 무작위 위치로 리스폰되거나, 혹은 우주선 파괴 시 화면에 GAME OVER 문구를 비트맵으로 띄우는 연출을 설계해 볼까요?
+
+Q.9 스프라이트 롬에 색인이 빠졌다. 수정하라
+-----------------------------------
+제공된 초기화 문(initial block) 내에서 ship_rom과 ast_rom 배열의 메모리 주소 색인(Index)이 누락되어 구문 오류(Syntax Error)가 발생했던 부분을 수정했습니다.
+Verilog에서 메모리 배열을 initial 블록으로 초기화할 때는 각 행마다 반드시 명시적인 인덱스(예: [0], [1])를 지정해야 합성기 및 시뮬레이터가 메모리 맵을 올바르게 생성합니다.
+
+수정된 Verilog RTL 소스 코드
+    4_asteroids_game.v
+
+Q.10 소행성의 움직임이 단조롭다. LSFR 난수를 써서 상하좌우로 각각 움직이게 하라.
+------------------------------------------------------------------
+
+소행성들이 단순히 대각선으로만 단조롭게 움직이지 않고, 리셋 시 LFSR 난수를 활용해 상/하/좌/우/대각선을 포함한 총 8가지 방향의 독립적인 벡터(속도 조합)를 갖도록 수정했습니다.
+각 소행성의 X축 이동 여부 및 방향(ast_dx, ast_dir_x), Y축 이동 여부 및 방향(ast_dy, ast_dir_y)을 결정하는 속도 변수를 세분화하여 난수를 주입했습니다. 이로 인해 어떤 소행성은 좌우로만, 어떤 소행성은 상하로만, 또 어떤 소행성은 대각선으로 각기 다른 속도감을 갖고 움직이게 됩니다.
+
+수정된 Verilog RTL 소스 코드 (asteroids_game.v)
+    5_asteroids_game.v
+
+소행성들의 8방향 무작위 운동 패턴이 완벽히 구성되었습니다. 이제 이 고유 벡터 연산을 응용해, 미사일에 맞은 **소행성이 파괴될 때 더 빠른 속도를 가진 2개의 작은 파편(4x4 비트맵 크기 등)으로 쪼개져 튕겨 나가는 분열 기능**을 결합해 볼까요?
+
