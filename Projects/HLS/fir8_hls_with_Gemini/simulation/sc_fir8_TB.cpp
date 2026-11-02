@@ -25,7 +25,7 @@ Revision History: Aprr. 2025
 data_t gen_signal(int level_denom, int freq, int t, int phase_shift)
 {
     return((data_t)
-        ((AMPLITUDE/(float)level_denom) * cos((2.0 * M_PI/F_SAMPLE) * (float)freq * (float)t + (2.0 * M_PI/360.0 * (float)phase_shift)) + 1.0));
+        ((AMPLITUDE/(float)level_denom) * (cos((2.0 * M_PI/F_SAMPLE) * (float)freq * (float)t + (2.0 * M_PI/360.0 * (float)phase_shift)) + 1.0)));
 }
 //------------------------------------------------------------------------------
 
