@@ -87,9 +87,9 @@ def plotDFT(x, y, Ref_y):
     plt.xlabel('Freq (Hz)')
     plt.ylabel('DFT Amplitude log10(|Y(f)|)')
     
-    # Plot ReferenceOutput
+    # Plot Reference Output
     plt.subplot(3,2,5)
-    plt.plot(np.arange(0, N, 1), y)
+    plt.plot(np.arange(0, N, 1), Ref_y)
     #plt.ylim(10000, max(y))
     plt.title('Ref. Output y(t)')
     plt.xlabel('Time')
