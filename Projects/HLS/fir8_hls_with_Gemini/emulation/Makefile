@@ -47,6 +47,8 @@ all :
 	@echo '    TOP_MODULE=$(TOP_MODULE) make run'
 	@echo '    TOP_MODULE=$(TOP_MODULE) make clean'
 	@echo
+	@echo '    * Env. OUTPUT_LATENCY=N & FIX_SATURATION=YES|NO must be set before build'
+	@echo
 	@echo 'CC BY-NC, by GoodKook, goodkook@gmail.com'
 	@echo
 
@@ -56,6 +58,22 @@ $(SC_TARGET): $(SC_SRCS) $(SC_HDRS)
 ifeq ($(OUTPUT_LATENCY), )
 		$(error OUTPUT_LATENCY is NOT set.)
 endif
+ifeq ($(FIX_SATURATION), )
+	$(error FIX_SATURATION is NOT set.)
+endif
+ifeq ($(FIX_SATURATION), YES)
+	$(CXX) -I$(SYSTEMC_INCLUDE) -L$(SYSTEMC_LIBDIR) \
+		-I$(SC_EMU_PATH) \
+		-I$(SC_SIM_PATH) \
+		-I$(C_UNTIMED_PATH) \
+		-D$(MODE) \
+		-DEMULATED_CO_SIM \
+		-DOUTPUT_LATENCY=$(OUTPUT_LATENCY) \
+		-DFIX_SATURATION \
+		-DVCD_TRACE_TEST_TB \
+		-lsystemc -lSDL2 -lgsl \
+		-o$(SC_TARGET) $(SC_SRCS)
+else if ($(FIX_SATURATION), NO)
 	$(CXX) -I$(SYSTEMC_INCLUDE) -L$(SYSTEMC_LIBDIR) \
 		-I$(SC_EMU_PATH) \
 		-I$(SC_SIM_PATH) \
@@ -66,6 +84,9 @@ endif
 		-DVCD_TRACE_TEST_TB \
 		-lsystemc -lSDL2 -lgsl \
 		-o$(SC_TARGET) $(SC_SRCS)
+else
+	$(error FIX_SATURATION must be YES or NO.)
+endif
 
 wave : sc_$(DUT_NAME)_TB.vcd
 	gtkwave sc_$(DUT_NAME)_TB.vcd --save=sc_$(DUT_NAME)_TB.gtkw &
