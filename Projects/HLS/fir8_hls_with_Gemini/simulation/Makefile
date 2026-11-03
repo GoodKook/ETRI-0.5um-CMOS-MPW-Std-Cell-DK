@@ -73,7 +73,7 @@ all :
 		else \
 			echo "Selection out of range"; \
 		fi; \
-		exit 1; \
+		exit; \
 	fi
 	@echo
 	@echo 'Makefile for Co-Simulation of "$(TOP_MODULE)"'
