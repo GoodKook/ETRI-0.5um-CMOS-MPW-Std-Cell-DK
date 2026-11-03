@@ -66,11 +66,16 @@ int main(int argc, char** argv)
         fir8(&y[t], x[t]); // FIR Filter
     }
 
+//    unsigned short _x, _y;
     for (int i=0; i<F_SAMPLE; i++)
     {
         printf("%d %d %d\n", i, x[i], y[i]);
         write(fir8_fifo, &x[i], sizeof(short));
         write(fir8_fifo, &y[i], sizeof(short));
+//        _x = (unsigned short)x(i];
+//        _y = (unsigned_short)y[i];
+//        write(fir8_fifo, &_x, sizeof(short));
+//        write(fir8_fifo, &_y, sizeof(short));
     }
 
     close(fir8_fifo);
