@@ -1,0 +1,103 @@
+# Local workspace configuration and credentials.
+/.agents/
+/.aws/
+/.codex/
+
+# Downloaded tool repositories and extracted build trees (Tools/*.sh).
+# Keep build scripts, environment files, and bundled source archives visible.
+/Tools/GDS3D/
+/Tools/OpenSTA/
+/Tools/SDL/
+/Tools/SDL2/SDL2-*/
+/Tools/graywolf/
+/Tools/gsl-*/
+/Tools/gtkwave-*/
+/Tools/irsim/
+/Tools/iverilog/
+/Tools/magic/
+/Tools/netgen/
+/Tools/ngspice-*/
+/Tools/openFPGALoader/
+/Tools/qflow-*_etri050/
+/Tools/qrouter/
+/Tools/riscv-gnu-toolchain-rv32i/
+/Tools/sdcc-*/
+/Tools/systemc/
+/Tools/verilator/
+/Tools/xschem/
+/Tools/yosys/
+/Tools/z3/
+
+# Installer downloads; do not ignore the bundled QFlow and SDCC archives.
+/Tools/gsl-*.tar.gz
+/Tools/gtkwave-*.tar.gz
+/Tools/ngspice-*.tar.gz
+/Tools/klayout_*.deb
+
+# Compiler and Python output.
+obj_dir/
+*.o
+__pycache__/
+*.py[cod]
+
+# FIR8 installation-check simulation output (see the tutorial Makefiles).
+/Tutorials/2-5_Lab3_FIR8/c_untimed/fir8_tb
+/Tutorials/2-5_Lab3_FIR8/c_untimed/fir8_tb_out.txt
+/Tutorials/2-5_Lab3_FIR8/sc_timed/sc_fir8_tb
+/Tutorials/2-5_Lab3_FIR8/sc_timed/*.vcd
+/Tutorials/2-5_Lab3_FIR8/sc_timed/sc_fir8_tb_out.txt
+/Tutorials/2-5_Lab3_FIR8/rtl_verilog/*.vcd
+/Tutorials/2-5_Lab3_FIR8/rtl_verilog/sc_fir8_tb_out.txt
+
+# FIR_PE QFlow outputs. Keep RTL, project settings, .par/.cel2 placement
+# inputs, layout Makefiles, and the manually assembled chip_top layouts.
+/Tutorials/2-9_Lab7_FIR_PE/qflow_exec.sh
+/Tutorials/2-9_Lab7_FIR_PE/qflow_vars.sh
+/Tutorials/2-9_Lab7_FIR_PE/source/fir_pe.ys
+/Tutorials/2-9_Lab7_FIR_PE/synthesis/*
+!/Tutorials/2-9_Lab7_FIR_PE/synthesis/.do_not_remove
+/Tutorials/2-9_Lab7_FIR_PE/log/*.log
+/Tutorials/2-9_Lab7_FIR_PE/layout/comp.json
+/Tutorials/2-9_Lab7_FIR_PE/layout/comp.out
+/Tutorials/2-9_Lab7_FIR_PE/layout/drc.out
+/Tutorials/2-9_Lab7_FIR_PE/layout/fillcells.txt
+/Tutorials/2-9_Lab7_FIR_PE/layout/DRC_fir_pe*.txt
+/Tutorials/2-9_Lab7_FIR_PE/layout/LVS_fir_pe*.txt
+/Tutorials/2-9_Lab7_FIR_PE/layout/*.log
+/Tutorials/2-9_Lab7_FIR_PE/layout/*.ext
+/Tutorials/2-9_Lab7_FIR_PE/layout/*.spice
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.cel
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.cfg
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.def
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.gds
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.info
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.lef
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.mag
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.obs
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.pin
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.pl1
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.pl2
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe.rc
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe_unroute.def
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe_DRC.mag
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe_LVS.mag
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe_Stacked.mag
+/Tutorials/2-9_Lab7_FIR_PE/layout/migrate_fir_pe.tcl
+/Tutorials/2-9_Lab7_FIR_PE/layout/*.orig
+/Tutorials/2-9_Lab7_FIR_PE/layout/*.bak
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe_F.gds
+/Tutorials/2-9_Lab7_FIR_PE/layout/fir_pe_F.mag
+
+# Vitis HLS intermediates and language-server caches. Preserve HLS source,
+# configuration, exported RTL, project metadata, and hardware test recordings.
+/Tutorials/7-*/Vitis-HLS/hls_component/**/.autopilot/
+/Tutorials/7-*/Vitis-HLS/hls_component/.cache/
+/Tutorials/7-*/Vitis-HLS/hls_component/compile_commands.json
+
+# Editor and desktop temporary files.
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Ignoring/untracking files does not delete local copies or reclaim disk space.

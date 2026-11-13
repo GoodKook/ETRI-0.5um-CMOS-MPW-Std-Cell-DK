@@ -94,6 +94,43 @@ gtkWave, digital waveform viewer, https://gtkwave.sourceforge.net/
 
     ./gtkwave_install.sh
 
+Generated files and Git
+-----------------------
+
+The root `.gitignore` excludes downloaded tool source/build directories,
+installer downloads, compiler output, and the FIR8 installation-check results.
+The bundled QFlow and SDCC source archives remain tracked because they are
+installation inputs.
+
+Reproducible FIR_PE QFlow results are kept locally but are no longer tracked:
+generated QFlow/Yosys/Magic scripts, synthesis netlists, placement/routing
+outputs, extracted circuits, and verification reports. The RTL, Makefiles,
+`project_vars.sh`, `.magicrc`, `.par` placement parameters, `.cel2` pin hints,
+directory placeholders, and manually assembled `chip_top` layouts remain tracked.
+From `Tutorials/2-9_Lab7_FIR_PE`, regenerate the flow outputs with:
+
+    make synthesize
+    make place
+    make route
+    make migrate
+    make lvs
+    make -C layout stack drc lvs mag2gds
+
+Compiler objects with corresponding source files, generated Verilator
+`obj_dir` files, and Vitis HLS intermediate/language-server caches are also
+untracked. Rebuild objects using their local Makefiles; regenerate Verilator
+output with the simulation Makefile's build/lint targets, and Vitis caches by
+rerunning HLS using the retained sources and configuration in Vitis. These
+flows require their respective toolchains and environment settings. Bundled
+toolchain objects without a verified rebuild recipe, exported HLS RTL,
+technology libraries, and hardware test recordings remain tracked.
+
+This cleanup changes Git tracking only: existing local artifacts and installed
+tools are preserved, and existing repository history is unchanged. Avoid a
+repository-wide `git clean -fdX`: ignored paths also include local workspace
+configuration and credentials. Review and clean specific generated paths when
+disk space needs to be reclaimed.
+
 Example/Reference Design
 ------------------------
 The example includes synthesis, P&R, layout generation, LVS and RTL simulation at system-level using Verilated SystemC testbench.
