@@ -1,0 +1,145 @@
+{
+  "cadence_grid_declaration": [
+    "0.01000"
+  ],
+  "icc2_label_map": "text 34:0 44:0\ntext 36:0 46:0\n",
+  "icc2_tf_units": {
+    "capacitancePrecision": "10000000",
+    "currentPrecision": "100",
+    "gridResolution": "10",
+    "inductancePrecision": "100",
+    "lengthPrecision": "1000",
+    "powerPrecision": "100",
+    "resistancePrecision": "10000000",
+    "timePrecision": "1000",
+    "unitCapacitanceName": "\"pf\"",
+    "unitCurrentName": "\"A\"",
+    "unitInductanceName": "\"nh\"",
+    "unitLengthName": "\"micron\"",
+    "unitPowerName": "\"pw\"",
+    "unitResistanceName": "\"kohm\"",
+    "unitTimeName": "\"ns\"",
+    "unitVoltageName": "\"V\"",
+    "voltagePrecision": "1000"
+  },
+  "itf": {
+    "CONDUCTOR": {
+      "ACT": {
+        "RPSQ": "65",
+        "SMIN": "1.0",
+        "THICKNESS": "0.25",
+        "WMIN": "1.6"
+      },
+      "MET1": {
+        "CAPACITIVE_ONLY_ETCH": "-0",
+        "RPSQ": "0.08",
+        "SMIN": "1.0",
+        "THICKNESS": "0.6",
+        "WMIN": "1.0"
+      },
+      "MET2": {
+        "CAPACITIVE_ONLY_ETCH": "-0",
+        "RPSQ": "0.08",
+        "SMIN": "1.0",
+        "THICKNESS": "0.68",
+        "WMIN": "1.0"
+      },
+      "MET3": {
+        "CAPACITIVE_ONLY_ETCH": "-0",
+        "RPSQ": "0.05",
+        "SMIN": "1.0",
+        "THICKNESS": "0.88",
+        "WMIN": "1.2"
+      },
+      "POLY1": {
+        "CAPACITIVE_ONLY_ETCH": "0.01",
+        "RPSQ": "40",
+        "SMIN": "0.6",
+        "THICKNESS": "0.3",
+        "WMIN": "0.5"
+      }
+    },
+    "DIELECTRIC": {
+      "FOX": {
+        "ER": "4.0",
+        "THICKNESS": "0.35"
+      },
+      "GOX": {
+        "ER": "4.0",
+        "THICKNESS": "0.01"
+      },
+      "ILD1": {
+        "ER": "4.0",
+        "THICKNESS": "0.1"
+      },
+      "ILD2": {
+        "ER": "4.0",
+        "THICKNESS": "0.4"
+      },
+      "ILD3": {
+        "ER": "4.0",
+        "THICKNESS": "0.1"
+      },
+      "IMD11": {
+        "ER": "4.0",
+        "THICKNESS": "0.3"
+      },
+      "IMD12": {
+        "ER": "4.0",
+        "THICKNESS": "0.2"
+      },
+      "IMD13": {
+        "ER": "4.0",
+        "THICKNESS": "0.6"
+      },
+      "IMD21": {
+        "ER": "4.0",
+        "THICKNESS": "0.3"
+      },
+      "IMD22": {
+        "ER": "4.0",
+        "THICKNESS": "0.2"
+      },
+      "IMD23": {
+        "ER": "4.0",
+        "THICKNESS": "0.6"
+      },
+      "PASS1": {
+        "ER": "4.0",
+        "THICKNESS": "0.8"
+      },
+      "PASS2": {
+        "ER": "7.0",
+        "THICKNESS": "0.6"
+      }
+    },
+    "VIA": {
+      "VIA1": {
+        "AREA": "0.064",
+        "FROM": "MET1",
+        "RPV": "1.5",
+        "TO": "MET2"
+      },
+      "VIA2": {
+        "AREA": "0.064",
+        "FROM": "MET2",
+        "RPV": "1.5",
+        "TO": "MET3"
+      },
+      "actCont": {
+        "AREA": "0.036",
+        "FROM": "ACT",
+        "RPV": "35",
+        "TO": "MET1"
+      },
+      "polyCont": {
+        "AREA": "0.036",
+        "FROM": "POLY1",
+        "RPV": "50",
+        "TO": "MET1"
+      }
+    }
+  },
+  "itf_units": "No explicit unit declarations; values retained verbatim; conversion unverified",
+  "stream_map": {}
+}

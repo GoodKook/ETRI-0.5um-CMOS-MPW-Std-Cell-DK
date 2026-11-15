@@ -1,0 +1,5 @@
+# Preserve CSV writer bytes for byte-for-byte replay checks after checkout.
+/results/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Tool version output may intentionally end with a blank line; keep raw logs.
+/results/*.log whitespace=-blank-at-eof
