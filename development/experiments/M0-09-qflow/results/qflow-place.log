@@ -1,0 +1,49 @@
+
+--------------------------------
+Qflow project setup
+--------------------------------
+
+Technology set to nspl12t
+Regenerating files for existing project shift_reg_8bit
+Qrouter detail maze router version 1.4.90.T
+Reading LEF data from file /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/technology.lef.
+LEF file:  Defines site core (ignored)
+LEF read: Processed 132 lines.
+Running vlog2Cel to generate input files for graywolf
+vlog2Cel -l /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/technology.lef -l  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.lef -u 100 -o /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/layout/shift_reg_8bit.cel /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit.rtlnopwr.v
+No shift_reg_8bit.cel1 file found for project. . . no partial blockages to apply to layout.
+No shift_reg_8bit.cel2 file found for project. . . continuing without pin placement hints
+Running GrayWolf placement
+graywolf -n shift_reg_8bit
+Running getantennacell to determine cell to use for antenna anchors.
+getantennacell.tcl shift_reg_8bit  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.lef 
+Running getfillcell to determine cell to use for fill.
+getfillcell.tcl shift_reg_8bit  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.lef FILLX1
+Using cell FILLX1 for fill
+Running place2def to translate graywolf output to DEF format.
+place2def.tcl shift_reg_8bit FILLX1 3 
+Running addspacers to generate power stripes and align cell right edge
+addspacers -stripe 8 100 PG  -p VDD -g VSS -f FILLX1 -O  -l /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/technology.lef -l  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.lef -o shift_reg_8bit_filled.def shift_reg_8bit
+Running arrangepins to adjust pin positions for optimal routing.
+arrangepins.tcl  shift_reg_8bit
+Reading info file shift_reg_8bit.info. . .
+Reading DEF file shift_reg_8bit.def. . .
+Recalculating pin positions
+Writing DEF file shift_reg_8bit_mod.def. . .
+Done with arrangepins.tcl
+DEF2Verilog -v /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit.rtlnopwr.v -o /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit_anno.v
+-p VDD -g VSS -l /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/technology.lef -l  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.lef shift_reg_8bit.def
+Generating RTL verilog and SPICE netlist file in directory
+   /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis
+Files:
+   Verilog: /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit.rtl.v
+   Verilog: /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit.rtlnopwr.v
+   Verilog: /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit.rtlbb.v
+   Spice:   /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit.spc
+Copying shift_reg_8bit.rtl.v, shift_reg_8bit.rtlnopwr.v, and shift_reg_8bit.rtlbb.v to backups
+Running vlog2Verilog.
+vlog2Verilog -c -v VDD -g VSS -o shift_reg_8bit.rtl.v shift_reg_8bit_anno.v
+vlog2Verilog -c -p -v VDD -g VSS -o shift_reg_8bit.rtlnopwr.v shift_reg_8bit_anno.v
+vlog2Verilog -c -b -p -n -v VDD -g VSS -o shift_reg_8bit.rtlbb.v shift_reg_8bit_anno.v
+Running vlog2Spice.
+vlog2Spice -i -l  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.cdl -o shift_reg_8bit.spc shift_reg_8bit.rtl.v

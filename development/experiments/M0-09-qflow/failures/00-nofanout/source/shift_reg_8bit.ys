@@ -1,0 +1,24 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/repro-first-failure/tech/cells.lib
+read_verilog  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/repro-first-failure/source/shift_reg_8bit.v
+
+# High-level synthesis
+synth -top shift_reg_8bit
+# Map register flops
+dfflibmap -liberty /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/repro-first-failure/tech/cells.lib
+opt
+
+# Map combinatorial cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/repro-first-failure/tech/cells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+
+clean -purge
+hilomap -hicell TIEHIX1 Y
+hilomap -locell TIELOX1 Y
+# Cleanup
+opt
+clean
+rename -enumerate
+write_verilog  shift_reg_8bit_mapped.v
+stat

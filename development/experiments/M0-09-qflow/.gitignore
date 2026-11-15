@@ -1,0 +1,43 @@
+# Local exploratory runs remain on disk; selected failure evidence is in failures/.
+/attempt-*/
+/repro-first-failure/
+/repro-raw-def-failure/
+/validation-attempt-*/
+__pycache__/
+*.vvp
+# Generated PDK derivatives and absolute-path links are recreated from external PDK.
+/results/tech/
+/results/repro-source/
+/results/source/tb.v
+/results/synthesis/*
+!/results/synthesis/*.json
+!/results/synthesis/*.ys
+!/results/synthesis/synthesize.v
+!/results/synthesis/place.v
+!/results/synthesis/route.v
+!/results/synthesis/*-canonical.v
+!/results/synthesis/shift_reg_8bit.rtl.v
+/results/layout/*
+!/results/layout/handoff.def
+!/results/layout/shift_reg_8bit.def
+!/results/layout/shift_reg_8bit_unroute.def
+!/results/layout/shift_reg_8bit.cfg
+!/results/layout/shift_reg_8bit.info
+!/results/layout/shift_reg_8bit.par
+/validation/*.gds
+/validation/*/layout/
+/validation/*/tech
+/validation/*/synthesis
+# GDS is available locally; hash, size and reproduction command are recorded.
+
+# Recreated launchers/scripts and canonical copies add no independent evidence.
+/results/qflow_exec.sh
+/results/qflow_vars.sh
+/results/source/*.ys
+/results/synthesis/*.ys
+/results/synthesis/*-canonical.v
+# Successful compiler output is empty; commands.json records exit status.
+/results/*-compile.log
+/validation/mutate.log
+# This repeats results/log/synth.log; keep the full stage log there.
+/results/qflow-synthesize.log

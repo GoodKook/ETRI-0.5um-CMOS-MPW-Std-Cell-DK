@@ -1,0 +1,7 @@
+read_liberty -lib /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech/cells.lib
+read_verilog /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/route.v
+hierarchy -check -top shift_reg_8bit
+check -assert
+select shift_reg_8bit
+write_json -selected /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/route.json
+write_verilog -selected -noattr /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/route-canonical.v

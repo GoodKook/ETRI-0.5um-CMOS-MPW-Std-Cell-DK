@@ -1,0 +1,339 @@
+VERSION 5.6 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN shift_reg_8bit ;
+UNITS DISTANCE MICRONS 100 ;
+
+DIEAREA ( -640 -600 ) ( 14080 15300 ) ;
+
+TRACKS Y -600 DO 54 STEP 300 LAYER MET1 ;
+TRACKS X -640 DO 47 STEP 320 LAYER MET2 ;
+TRACKS Y -600 DO 54 STEP 300 LAYER MET3 ;
+
+VIAS 2 ;
+- V12_0
++ RECT VIA1 ( -40 -40 ) ( 40 40 )
++ RECT MET2 ( -100 -100 ) ( 100 100 )
++ RECT MET1 ( -100 -100 ) ( 100 100 ) ;
+- V23_0
++ RECT VIA2 ( -40 -40 ) ( 40 40 )
++ RECT MET3 ( -100 -100 ) ( 100 100 )
++ RECT MET2 ( -100 -100 ) ( 100 100 ) ;
+END VIAS
+
+COMPONENTS 16 ;
+- _19_ DFFSRX1 + PLACED ( 160 150 ) FS ;
+- _12_ TIEHIX1 + PLACED ( 6240 150 ) S ;
+- _18_ DFFSRX1 + PLACED ( 6880 150 ) FS ;
+- _13_ TIEHIX1 + PLACED ( 12960 150 ) S ;
+- _11_ TIEHIX1 + PLACED ( 160 3750 ) N ;
+- _20_ DFFSRX1 + PLACED ( 800 3750 ) FN ;
+- _14_ TIEHIX1 + PLACED ( 6880 3750 ) N ;
+- _17_ DFFSRX1 + PLACED ( 7520 3750 ) FN ;
+- _23_ DFFSRX1 + PLACED ( 160 7350 ) FS ;
+- _8_ TIEHIX1 + PLACED ( 6240 7350 ) S ;
+- _10_ TIEHIX1 + PLACED ( 6880 7350 ) FS ;
+- _21_ DFFSRX1 + PLACED ( 7520 7350 ) S ;
+- _15_ TIEHIX1 + PLACED ( 160 10950 ) N ;
+- _16_ DFFSRX1 + PLACED ( 800 10950 ) FN ;
+- _22_ DFFSRX1 + PLACED ( 6880 10950 ) N ;
+- _9_ TIEHIX1 + PLACED ( 12960 10950 ) FN ;
+END COMPONENTS
+
+PINS 13 ;
+- VSS + NET VSS
+  + LAYER MET1 ( -480 -100 ) ( 480 100 )
+  + PLACED ( 14270 50 ) N ;
+- VDD + NET VDD
+  + LAYER MET1 ( -480 -100 ) ( 480 100 )
+  + PLACED ( -510 50 ) N ;
+- clk + NET clk
+  + LAYER MET3 ( -60 -60 ) ( 60 60 )
+  + PLACED ( -320 9000 ) N ;
+- rst_n + NET rst_n
+  + LAYER MET3 ( -60 -60 ) ( 60 60 )
+  + PLACED ( -320 9900 ) N ;
+- din + NET din
+  + LAYER MET2 ( -50 -50 ) ( 50 50 )
+  + PLACED ( 3840 15300 ) N ;
+- dout[7] + NET dout[7]
+  + LAYER MET2 ( -50 -50 ) ( 50 50 )
+  + PLACED ( 7680 -300 ) N ;
+- dout[6] + NET dout[6]
+  + LAYER MET3 ( -60 -60 ) ( 60 60 )
+  + PLACED ( 14080 3000 ) N ;
+- dout[5] + NET dout[5]
+  + LAYER MET2 ( -50 -50 ) ( 50 50 )
+  + PLACED ( 8320 -300 ) N ;
+- dout[4] + NET dout[4]
+  + LAYER MET3 ( -60 -60 ) ( 60 60 )
+  + PLACED ( -320 4500 ) N ;
+- dout[3] + NET dout[3]
+  + LAYER MET2 ( -50 -50 ) ( 50 50 )
+  + PLACED ( 7680 15300 ) N ;
+- dout[2] + NET dout[2]
+  + LAYER MET3 ( -60 -60 ) ( 60 60 )
+  + PLACED ( 14080 11700 ) N ;
+- dout[1] + NET dout[1]
+  + LAYER MET2 ( -50 -50 ) ( 50 50 )
+  + PLACED ( 8320 15300 ) N ;
+- dout[0] + NET dout[0]
+  + LAYER MET3 ( -60 -60 ) ( 60 60 )
+  + PLACED ( -320 11700 ) N ;
+END PINS
+
+NETS 19 ;
+- _2_
+  ( _21_ S ) 
+  ( _10_ Y ) 
++ ROUTED MET1 ( 8960 9000 ) V12_0 
+  NEW MET2 ( 8960 9000 ) V23_0 
+  NEW MET3 ( 8960 9000 ) ( 7360 * ) V23_0 
+  NEW MET1 ( 7360 9000 ) V12_0 ;
+- _3_
+  ( _20_ S ) 
+  ( _11_ Y ) 
++ ROUTED MET1 ( 2240 5700 ) V12_0 
+  NEW MET2 ( 2240 5700 ) V23_0 
+  NEW MET3 ( 2240 5700 ) ( 640 * ) V23_0 
+  NEW MET1 ( 640 5700 ) V12_0 ;
+- _4_
+  ( _19_ S ) 
+  ( _12_ Y ) 
++ ROUTED MET1 ( 4800 1800 ) V12_0 
+  NEW MET2 ( 4800 1800 ) V23_0 
+  NEW MET3 ( 4800 1800 ) ( 6400 * ) V23_0 
+  NEW MET1 ( 6400 1800 ) V12_0 ;
+- _5_
+  ( _18_ S ) 
+  ( _13_ Y ) 
++ ROUTED MET1 ( 11520 1800 ) V12_0 
+  NEW MET2 ( 11520 1800 ) V23_0 
+  NEW MET3 ( 11520 1800 ) ( 13120 * ) V23_0 
+  NEW MET1 ( 13120 1800 ) V12_0 ;
+- _6_
+  ( _17_ S ) 
+  ( _14_ Y ) 
++ ROUTED MET1 ( 8960 5700 ) V12_0 
+  NEW MET2 ( 8960 5700 ) V23_0 
+  NEW MET3 ( 8960 5700 ) ( 7360 * ) V23_0 
+  NEW MET1 ( 7360 5700 ) V12_0 ;
+- _7_
+  ( _16_ S ) 
+  ( _15_ Y ) 
++ ROUTED MET1 ( 2240 12900 ) V12_0 
+  NEW MET2 ( 2240 12900 ) V23_0 
+  NEW MET3 ( 2240 12900 ) ( 640 * ) V23_0 
+  NEW MET1 ( 640 12900 ) V12_0 ;
+- clk
+  ( PIN clk ) 
+  ( _23_ CLK ) 
+  ( _22_ CLK ) 
+  ( _21_ CLK ) 
+  ( _20_ CLK ) 
+  ( _19_ CLK ) 
+  ( _18_ CLK ) 
+  ( _17_ CLK ) 
+  ( _16_ CLK ) 
++ ROUTED MET1 ( 7360 12900 ) V12_0 
+  NEW MET2 ( 7360 12900 ) V23_0 
+  NEW MET3 ( 7360 12900 ) ( 6400 * ) V23_0 
+  NEW MET1 ( 6400 12900 ) V12_0 
+  NEW MET1 ( 6400 5700 ) V12_0 
+  NEW MET2 ( 6400 5700 ) ( 6720 * ) ( * 12900 ) V23_0 
+  NEW MET1 ( 7360 1800 ) V12_0 
+  NEW MET2 ( 7360 1800 ) V23_0 
+  NEW MET3 ( 7360 1800 ) ( 6720 * ) V23_0 
+  NEW MET2 ( 6720 1800 ) ( * 5700 ) 
+  NEW MET3 ( -319 9000 ) ( * 9300 ) ( 6720 * ) V23_0 
+  NEW MET1 ( 640 9000 ) V12_0 
+  NEW MET2 ( 640 9000 ) ( * 9290 ) ( * 9290 ) V23_0 
+  NEW MET1 ( 13120 9000 ) V12_0 
+  NEW MET2 ( 13120 9000 ) ( * 9300 ) V23_0 
+  NEW MET3 ( 13120 9300 ) ( 6720 * ) 
+  NEW MET1 ( 13120 5700 ) V12_0 
+  NEW MET2 ( 13120 5700 ) ( * 9000 ) 
+  NEW MET1 ( 640 1800 ) V12_0 
+  NEW MET2 ( 640 1800 ) ( * 1500 ) V23_0 
+  NEW MET3 ( 640 1500 ) ( 6720 * ) ( * 1800 ) ;
+- din
+  ( PIN din ) 
+  ( _16_ D ) 
++ ROUTED MET2 ( 3840 15300 ) ( * 13200 ) V23_0 
+  NEW MET3 ( 3840 13200 ) ( 5760 * ) V23_0 
+  NEW MET2 ( 5760 13200 ) ( * 12300 ) V12_0 ;
+- dout[0]
+  ( PIN dout[0] ) 
+  ( _23_ D ) 
+  ( _16_ Q ) 
++ ROUTED MET3 ( -319 11700 ) ( 640 * ) V23_0 
+  NEW MET2 ( 640 11700 ) ( * 12000 ) V12_0 
+  NEW MET1 ( 640 12000 ) ( 960 * ) 
+  NEW MET1 ( 1280 9600 ) V12_0 
+  NEW MET2 ( 1280 9600 ) V23_0 
+  NEW MET3 ( 1280 9600 ) ( 640 * ) ( * 9610 ) V23_0 
+  NEW MET2 ( 640 9610 ) ( * 11700 ) ;
+- rst_n
+  ( PIN rst_n ) 
+  ( _23_ R ) 
+  ( _22_ R ) 
+  ( _21_ R ) 
+  ( _20_ R ) 
+  ( _19_ R ) 
+  ( _18_ R ) 
+  ( _17_ R ) 
+  ( _16_ R ) 
++ ROUTED MET1 ( 2560 9920 ) V12_0 
+  NEW MET2 ( 2560 9920 ) ( * 11400 ) V12_0 
+  NEW MET1 ( 2560 11400 ) ( * 11280 ) 
+  NEW MET3 ( -319 9900 ) ( 2560 * ) V23_0 
+  NEW MET1 ( 2560 4500 ) V12_0 
+  NEW MET2 ( 2560 4500 ) ( * 9900 ) 
+  NEW MET1 ( 2560 2720 ) V12_0 
+  NEW MET2 ( 2560 2720 ) ( 2560 * ) ( * 4500 ) 
+  NEW MET1 ( 9280 2720 ) V12_0 
+  NEW MET2 ( 9280 2700 ) V23_0 
+  NEW MET3 ( 9280 2700 ) ( 5120 * ) V23_0 
+  NEW MET1 ( 5120 2700 ) V12_0 
+  NEW MET1 ( 5120 2700 ) ( 5345 * ) 
+  NEW MET1 ( 9280 4500 ) V12_0 
+  NEW MET2 ( 9280 4500 ) ( * 2700 ) 
+  NEW MET1 ( 9280 10200 ) V12_0 
+  NEW MET2 ( 9280 10200 ) ( * 4500 ) 
+  NEW MET1 ( 9280 11980 ) V12_0 
+  NEW MET2 ( 9280 11980 ) ( 9280 * ) ( * 10200 ) ;
+- dout[6]
+  ( PIN dout[6] ) 
+  ( _18_ Q ) 
+  ( _17_ D ) 
++ ROUTED MET3 ( 14080 3000 ) ( 12480 * ) V23_0 
+  NEW MET2 ( 12480 3000 ) ( * 5100 ) V12_0 
+  NEW MET1 ( 12800 2700 ) V12_0 
+  NEW MET2 ( 12800 2700 ) ( * 3000 ) V23_0 ;
+- dout[7]
+  ( PIN dout[7] ) 
+  ( _17_ Q ) 
++ ROUTED MET2 ( 7680 -299 ) ( * 4800 ) V12_0 ;
+- dout[5]
+  ( PIN dout[5] ) 
+  ( _19_ Q ) 
+  ( _18_ D ) 
++ ROUTED MET2 ( 8320 -299 ) ( 8000 * ) ( * 2400 ) V12_0 
+  NEW MET1 ( 6080 900 ) V12_0 
+  NEW MET2 ( 6080 900 ) V23_0 
+  NEW MET3 ( 6080 900 ) ( 8000 * ) V23_0 ;
+- dout[4]
+  ( PIN dout[4] ) 
+  ( _20_ Q ) 
+  ( _19_ D ) 
++ ROUTED MET3 ( -319 4500 ) ( 1280 * ) V23_0 
+  NEW MET2 ( 1280 4500 ) ( * 2400 ) V12_0 
+  NEW MET1 ( 960 4800 ) V12_0 
+  NEW MET2 ( 960 4800 ) ( * 4500 ) V23_0 ;
+- dout[3]
+  ( PIN dout[3] ) 
+  ( _21_ Q ) 
+  ( _20_ D ) 
++ ROUTED MET1 ( 7680 8100 ) V12_0 
+  NEW MET2 ( 7680 8100 ) ( * 7200 ) V23_0 
+  NEW MET3 ( 7680 7200 ) ( 6080 * ) V23_0 
+  NEW MET2 ( 6080 7200 ) ( * 5100 ) ( 5760 * ) V12_0 
+  NEW MET2 ( 7680 15300 ) ( * 9900 ) V12_0 ;
+- dout[2]
+  ( PIN dout[2] ) 
+  ( _22_ Q ) 
+  ( _21_ D ) 
++ ROUTED MET3 ( 14080 11700 ) ( 12480 * ) V23_0 
+  NEW MET2 ( 12480 11700 ) ( * 9600 ) V12_0 
+  NEW MET1 ( 12800 12000 ) V12_0 
+  NEW MET2 ( 12800 12000 ) ( * 11700 ) V23_0 ;
+- dout[1]
+  ( PIN dout[1] ) 
+  ( _23_ Q ) 
+  ( _22_ D ) 
++ ROUTED MET2 ( 8320 15300 ) ( 8000 * ) ( * 12300 ) V12_0 
+  NEW MET1 ( 6080 9900 ) ( 6400 * ) V12_0 
+  NEW MET2 ( 6400 9900 ) V23_0 
+  NEW MET3 ( 6400 9900 ) ( 8000 * ) V23_0 
+  NEW MET2 ( 8000 9900 ) ( * 12300 ) ;
+- _1_
+  ( _9_ Y ) 
+  ( _22_ S ) 
++ ROUTED MET1 ( 13120 12900 ) V12_0 
+  NEW MET2 ( 13120 12900 ) V23_0 
+  NEW MET3 ( 13120 12900 ) ( 11520 * ) V23_0 
+  NEW MET1 ( 11520 12900 ) V12_0 ;
+- _0_
+  ( _8_ Y ) 
+  ( _23_ S ) 
++ ROUTED MET1 ( 6400 9000 ) V12_0 
+  NEW MET2 ( 6400 9000 ) V23_0 
+  NEW MET3 ( 6400 9000 ) ( 4800 * ) V23_0 
+  NEW MET1 ( 4800 9000 ) V12_0 ;
+END NETS
+
+SPECIALNETS 8 ;
+- clk
++ ROUTED MET2 200 ( 640 9000 ) ( * 9300 ) 
+  NEW MET2 200 ( 13120 9000 ) ( * 9300 ) 
+  NEW MET2 200 ( 640 1800 ) ( * 1500 ) ;
+- rst_n
++ ROUTED MET1 200 ( 2560 11450 ) ( * 11230 ) 
+  NEW MET1 200 ( 5070 2700 ) ( 5395 * ) ;
+- dout[0]
++ ROUTED MET2 200 ( 640 11700 ) ( * 12000 ) ;
+- dout[6]
++ ROUTED MET2 200 ( 12800 2700 ) ( * 3000 ) ;
+- dout[4]
++ ROUTED MET2 200 ( 960 4800 ) ( * 4500 ) ;
+- dout[2]
++ ROUTED MET2 200 ( 12800 12000 ) ( * 11700 ) ;
+
+- VSS
+  ( PIN VSS )
+  ( _19_ VSS )
+  ( _12_ VSS )
+  ( _18_ VSS )
+  ( _13_ VSS )
+  ( _11_ VSS )
+  ( _20_ VSS )
+  ( _14_ VSS )
+  ( _17_ VSS )
+  ( _23_ VSS )
+  ( _8_ VSS )
+  ( _10_ VSS )
+  ( _21_ VSS )
+  ( _15_ VSS )
+  ( _16_ VSS )
+  ( _22_ VSS )
+  ( _9_ VSS )
++ USE GROUND
++ FIXED MET1 200 ( 13280 10950 ) ( 14270 * )
+  NEW MET1 200 ( 13280 3750 ) ( 14270 * )
+  NEW MET1 960 ( 14270 50 ) ( * 14650 ) ;
+- VDD
+  ( PIN VDD )
+  ( _19_ VDD )
+  ( _12_ VDD )
+  ( _18_ VDD )
+  ( _13_ VDD )
+  ( _11_ VDD )
+  ( _20_ VDD )
+  ( _14_ VDD )
+  ( _17_ VDD )
+  ( _23_ VDD )
+  ( _8_ VDD )
+  ( _10_ VDD )
+  ( _21_ VDD )
+  ( _15_ VDD )
+  ( _16_ VDD )
+  ( _22_ VDD )
+  ( _9_ VDD )
++ USE POWER
++ FIXED MET1 200 ( -510 14550 ) ( 480 * )
+  NEW MET1 200 ( -510 7350 ) ( 480 * )
+  NEW MET1 200 ( -510 150 ) ( 480 * )
+  NEW MET1 960 ( -510 50 ) ( * 14650 ) ;
+END SPECIALNETS
+
+END DESIGN

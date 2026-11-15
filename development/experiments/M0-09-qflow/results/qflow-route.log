@@ -1,0 +1,60 @@
+
+--------------------------------
+Qflow project setup
+--------------------------------
+
+Technology set to nspl12t
+Regenerating files for existing project shift_reg_8bit
+Running qrouter 1.4.90.T
+qrouter -nog  -s shift_reg_8bit.cfg
+*** Running stage1 routing with defaults
+Nets remaining: 20
+Nets remaining: 10
+Nets remaining: 9
+Nets remaining: 8
+Nets remaining: 7
+Nets remaining: 6
+Nets remaining: 5
+Nets remaining: 4
+Nets remaining: 3
+Nets remaining: 2
+Progress: Stage 1 total routes completed: 40
+No failed routes!
+*** Running stage3 routing with defaults, 1st round
+Nets remaining: 20
+Nets remaining: 10
+Nets remaining: 9
+Nets remaining: 8
+Nets remaining: 7
+Nets remaining: 6
+Nets remaining: 5
+Nets remaining: 4
+Nets remaining: 3
+Nets remaining: 2
+Progress: Stage 3 total routes completed: 80
+No failed routes!
+*** Running stage3 routing with defaults, 2nd round
+Nets remaining: 20
+Nets remaining: 10
+Nets remaining: 9
+Nets remaining: 8
+Nets remaining: 7
+Nets remaining: 6
+Nets remaining: 5
+Nets remaining: 3
+Nets remaining: 2
+Progress: Stage 3 total routes completed: 119
+No failed routes!
+*** Writing DEF file shift_reg_8bit_route.def
+Final: No failed routes!
+*** Writing RC file shift_reg_8bit_route.rc
+DEF2Verilog -v /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit.rtlnopwr.v -o /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis/shift_reg_8bit_postroute.v
+-p VDD -g VSS -l /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/technology.lef -l  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.lef shift_reg_8bit_route.def
+Generating RTL verilog and SPICE netlist file in directory
+   /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/synthesis
+Running vlog2Verilog.
+vlog2Verilog -c -v VDD -g VSS -o shift_reg_8bit.rtl.anno.v shift_reg_8bit_postroute.v
+vlog2Verilog -c -p -v VDD -g VSS -o shift_reg_8bit.rtlnopwr.anno.v shift_reg_8bit_postroute.v
+/usr/local/share/qflow/bin/vlog2Verilog -c -b -p -n -v VDD -g VSS -o shift_reg_8bit.rtlbb.anno.v shift_reg_8bit_postroute.v
+Running vlog2Spice.
+vlog2Spice -i -l  /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/results/tech/cells.cdl -o shift_reg_8bit.anno.spc shift_reg_8bit.rtl.anno.v

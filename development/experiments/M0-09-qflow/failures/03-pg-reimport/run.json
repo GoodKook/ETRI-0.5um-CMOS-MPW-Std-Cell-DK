@@ -1,0 +1,492 @@
+{
+  "argv": [
+    "development/experiments/M0-09-qflow/run.py",
+    "--out",
+    "development/experiments/M0-09-qflow/attempt-03"
+  ],
+  "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK",
+  "date": "2026-11-15",
+  "timezone": "Asia/Seoul",
+  "source_hashes": {
+    "adapter.py": "296172ff4291245dfbe78b5b5445e250598f44412b566b0a3a0720cbd0ed3f2b",
+    "gds_check.py": "81e6cb79484bbd32add9b63f825f7125f9398fc6dcc13d366e9889f5f75a2c03",
+    "run.py": "13dfe44fa0ff2cfd0a329bd6a0877190d6301aad7f6950d9bf1af99d353f2661"
+  },
+  "tools": {
+    "qflow": {
+      "path": "/usr/local/bin/qflow",
+      "sha256": "77b5b9e5df8456ec02df525dcca225dfef3e40ce672fc07f5ce9decf45dd3b7b"
+    },
+    "yosys": {
+      "path": "/usr/local/bin/yosys",
+      "sha256": "cdea6e9b1cec7eaee0c0d1c01d5db50c44bd617fc4bd186737df8af3f29076d1"
+    },
+    "graywolf": {
+      "path": "/usr/local/bin/graywolf",
+      "sha256": "e785fa0345d5b38cdda6aae9f4df7ed48e9681708b1bf9debe2a8b3da46b47e1"
+    },
+    "qrouter": {
+      "path": "/usr/local/bin/qrouter",
+      "sha256": "94291acf8bc981104f8e038b2dbe7e78bf0dd7e8fb041253d59d4a57a662ffc1"
+    },
+    "magic": {
+      "path": "/usr/local/bin/magic",
+      "sha256": "11745f384484d6827e1b5911603091cc953b64566ea70e971b8abeb27c0c7d43"
+    },
+    "klayout": {
+      "path": "/usr/bin/klayout",
+      "sha256": "6797c9fb3134d6a22e486dcf647b645dfbaed75db4e65fd067f346c0503c789f"
+    },
+    "iverilog": {
+      "path": "/usr/local/bin/iverilog",
+      "sha256": "099fc2a9119be33235ec058fa1e4c477fdb92a957f71f04ce61bfd699e449fc8"
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "qflow",
+        "--version"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "version-qflow.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "yosys",
+        "-V"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "version-yosys.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "qrouter",
+        "-v",
+        "0",
+        "-h"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "version-qrouter.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "magic",
+        "--version"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "version-magic.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "klayout",
+        "-v"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "version-klayout.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "version-iverilog.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "yosys",
+        "-Q",
+        "-T",
+        "-p",
+        "read_liberty -lib /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech/cells.lib; stat"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "read-cells.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "qflow",
+        "-T",
+        "nspl12t",
+        "synthesize",
+        "shift_reg_8bit"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "qflow-synthesize.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/synthesize.ys"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-synthesize-read.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/synthesize-derived.vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/source/tb.v",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/synthesize-canonical.v",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-08-sequential/scope-review/results/functional-assembled.v"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-synthesize-derived-compile.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/synthesize-derived.vvp"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-synthesize-derived.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/synthesize-vendor.vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/source/tb.v",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/synthesize-canonical.v",
+        "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.v"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-synthesize-vendor-compile.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/synthesize-vendor.vvp"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 1,
+      "log": "verify-synthesize-vendor.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/rtl.vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/source/tb.v",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/source/shift_reg_8bit.v"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-rtl-compile.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/rtl.vvp"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-rtl.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "qflow",
+        "-T",
+        "nspl12t",
+        "place",
+        "shift_reg_8bit"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "qflow-place.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/place.ys"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-place-read.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/place-derived.vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/source/tb.v",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/place-canonical.v",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-08-sequential/scope-review/results/functional-assembled.v"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-place-derived-compile.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/place-derived.vvp"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-place-derived.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/place-vendor.vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/source/tb.v",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/place-canonical.v",
+        "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.v"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "verify-place-vendor-compile.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/place-vendor.vvp"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 1,
+      "log": "verify-place-vendor.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "qflow",
+        "-T",
+        "nspl12t",
+        "route",
+        "shift_reg_8bit"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 0,
+      "log": "qflow-route.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    },
+    {
+      "argv": [
+        "yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/synthesis/route.ys"
+      ],
+      "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03",
+      "exit_code": 1,
+      "log": "verify-route-read.log",
+      "environment": {
+        "QFLOW_TECH_DIR": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-09-qflow/attempt-03/tech",
+        "QT_QPA_PLATFORM": "offscreen"
+      }
+    }
+  ],
+  "artifacts": {
+    "version-qrouter.log": "8980ca9746cb590297ea7a461b5c0d53ae9b50d6c90f5da47a2314cdbf97eaa6",
+    "read-cells.log": "55a800aea00329143f45c46516c023943a5def728e214b606bc7e1ec1b5d7714",
+    "verify-synthesize-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qflow_exec.sh": "64f86f9e4443b0f462cb0ccd3c7122ad47051b6f650d600f4ec3e38b5a777188",
+    "verify-place-derived-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preservation-before.json": "967937b5c9ef288c4498d82c5d9ee2ff305382cacf3b098a63f66026e9ff194c",
+    "qflow-place.log": "19d00da90c8166ebfed11e716c103c7011e4114efd6d8588954925d314d79c5b",
+    "verify-place-derived.log": "e60c0def9612603ef8835b5bf46d9dfc4d0ad4b7bbc1baf4b0e0ec915f1fe81e",
+    "version-qflow.log": "5679c89bae1f149495923745aae04e8100401c4878a8975393919025f1015df5",
+    "verify-synthesize-derived-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands.json": "0fc52edf31c05511627b6451f4c598957edba65562e85540d87ef2f52dd81606",
+    "project_vars.sh": "7054d54a6fd5d8d7ec5e973f994c6342459b2544b05a55b7c8e10de3ff51f0e3",
+    "verify-place-read.log": "f64a081eb322cb775c4705c2ba54663c8fe6bd28e3a290c16cdfed104d0c7044",
+    "qflow-synthesize.log": "1cb6fb9f0ac8f5980e7e9e2da38cd4c954d120555c9494f667abfe1fd9cb5989",
+    "version-iverilog.log": "a582be4fcdc2f7ec3d3b5072b93da57355a0b57f10ea66e313737e8c74319746",
+    "verify-place-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verify-synthesize-read.log": "3b14d7c677a5c3c226cef2fe8733055de54f6ec0345d317182a5a68db6b4974e",
+    "lef-adapter.json": "fccb6d58c763bc5b1ea27b91e31553d98a6dc27d44bf931a4fa79a6b707cc321",
+    "verify-route-read.log": "a5ca7f093d6ae411a283e1270185df8f6c0ec529722e6125c8bd7260ac7ec79f",
+    "power-adapter.json": "6caccf8747a455ba6f3463c6aa90a31d470065efee4751c8dbd8146f964cc633",
+    "result.json": "f1177ea0f30114fd157260f7742e6f1419b0392ce1c340f3a35f13b2dc48999e",
+    "qflow-route.log": "10abbbcf2167d356840a217a8191b4d271823f68d6957dc4d349b3e2ac1863e4",
+    "verify-synthesize-vendor.log": "3401c952a77f60d7549a2c23f80661dbe4082779fd99b431dea575b02a15fe9c",
+    "qflow_vars.sh": "f780f470aed40adadeb95e02eb59cf029b65ccdfcf118d1ec8169a60fe00a353",
+    "verify-rtl.log": "e60c0def9612603ef8835b5bf46d9dfc4d0ad4b7bbc1baf4b0e0ec915f1fe81e",
+    "verify-synthesize-derived.log": "e60c0def9612603ef8835b5bf46d9dfc4d0ad4b7bbc1baf4b0e0ec915f1fe81e",
+    "verify-rtl-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verify-place-vendor.log": "3401c952a77f60d7549a2c23f80661dbe4082779fd99b431dea575b02a15fe9c",
+    "version-klayout.log": "b56428ec6a4c9dfe1dfb24f1bb33c37bd5f137c1d1557f4744f50354b37262c6",
+    "version-magic.log": "b8e309bbabfed501c4fd88186a45303d01d727605e672da2987c7816a59bd599",
+    "version-yosys.log": "fc80896f15a74d879dd694c9b0e6f1c096e80a7b0b84a0dcfeeaa26013f9450d",
+    "preservation.json": "9bc5bcb327a46f0dd91a2833c419976977a9ed528affcf991270356fc0a27d1c",
+    "source/shift_reg_8bit.ys": "58b538f41b2b9833dcd90852ee326f3cb21bdeef09eb0637dd5f0ccf2c39746a",
+    "source/shift_reg_8bit.v": "6930ac0ef2d58ab4e89fbecd8a433b0c7c62989f1df85300da15a0c14f5fb1ff",
+    "source/tb.v": "32f3fdcd9e364ba12ef387e052be8dee1712fa7e266453c3900f89b7b184e95d",
+    "log/route.log": "9183be27495cc516e04d0f5dfb9f030b9dea196549b206d8b337279501ce13fd",
+    "log/synth.log": "426766568f205158517aeb4e2e4a37252a348b13d115099d43d5df3a2f87f467",
+    "log/place.log": "1f1dd6f8ee125cca96ba79b86c1fa8facabc48744e609121135e08394e517f8b",
+    "layout/shift_reg_8bit_unroute.def": "6e6763ca5d6992705b9fa733eb3e60c67898112dac7adeb37a696c75f96d5ae9",
+    "layout/shift_reg_8bit.obs": "57b0adaaaefb9e6934485ed76b59f84760f966b736e4b1d399eb541810d05850",
+    "layout/shift_reg_8bit.def": "a521d5f97cb03d4f09ae3cfbe72edb70da655ce7c685413ef3d8142b67c7ab67",
+    "layout/shift_reg_8bit.rc": "336b0ca72b2bb22127577f04db3368fcb2fc04a601d52a712be5197d71d9ecfa",
+    "layout/shift_reg_8bit.pl2": "b1356ae89a30f6e6e0e309d7e20b1196c0082c3cd5e44f69b7c7418022049fb1",
+    "layout/.magicrc": "12f5ebb71b2abe666cf45665390b77f5fcfeaa5ecd6bfaef24dc2b88bece0a42",
+    "layout/fillcells.txt": "a79eb00c74700ccb26ddc00e119917d2aafd54f5215762d4f6c9d0f35f6ee23c",
+    "layout/shift_reg_8bit.cel": "e08fac289db91945db3b567599bb667f2704264fcaf75b5d6619e2438c20cc49",
+    "layout/shift_reg_8bit.par": "467f520a9be6b14ec767577637d09d2b3bc21091d7cc65c6498fa9d9384d90ed",
+    "layout/placement-raw.def": "eef3b7a0bd5867c2a6f5dc9d00bc54a2b838b1722dcb26a83260fa371d5caf2f",
+    "layout/shift_reg_8bit.pin": "7d0ac069250c77586cda7e8b6d7ab613debe94c5d0d8396bd1106568b8c923f1",
+    "layout/shift_reg_8bit.pl1": "4bc4949b83ff1ff1127013250b86a5b22d103ffd0474dafdb0a7e70709a41406",
+    "layout/shift_reg_8bit.info": "e6ace89687bddf81ac98bd8231fbf3bbbc8aac4e661a96555a6d25a94b6797be",
+    "layout/shift_reg_8bit.cfg": "87d72ab6642701f97e9d67d47a66009922e932ce69c85a4e8c7d238f641a9216",
+    "tech/nspl12t.par": "467f520a9be6b14ec767577637d09d2b3bc21091d7cc65c6498fa9d9384d90ed",
+    "tech/cells.lef": "282a1f2474507eeb7f52e50e2ceb6c88191855dbbf1df30cba5a42b9b88c6786",
+    "tech/technology.lef": "230fc734539302b5c7fff7f36ddf741cca97b554f906c5f9984bd65ab6e574be",
+    "tech/nspl12t.sh": "708f3d8d9bc3888f8868e8b88a62eef84ec1b987d59cfc2c8696a06ea24593a4",
+    "tech/nspl12t.magicrc": "12f5ebb71b2abe666cf45665390b77f5fcfeaa5ecd6bfaef24dc2b88bece0a42",
+    "synthesis/place-derived.vvp": "4d02cbc961bf7af543f78eba5f9e74a3352bac8c0a6408448c6619ba3ce6a483",
+    "synthesis/shift_reg_8bit_mapped.v": "09bd19e2c2fa7e464585054c6c0eafe0c4bacfdf9cf709de84fa39572605d6f8",
+    "synthesis/route.v": "94fdf39f7b35a979187fb371e6ace42bddc81c4f54ca10af5a3614cfd1e4405c",
+    "synthesis/shift_reg_8bit.spc": "72c80dd1ed5a24fe6fd2bac84208794382f864f6b5bd709adc5915a0af52c819",
+    "synthesis/shift_reg_8bit_nofanout": "e129dced2f5dbc29fdd2651edb82545db8970750d45d4b9e2532d69f4eed6ff5",
+    "synthesis/place-canonical.v": "990e7a6ac4ccc40f53fdcd8e8bafa5ad49c29c775715273f6119966b66d81eeb",
+    "synthesis/route.ys": "3f0676d208d90928c7100b2d30d312d5a89fcc42dfcd2faeb42eed97b9f0f1b1",
+    "synthesis/shift_reg_8bit.v": "6de7520dd2a99aeac6e577ee363419ecd3aca9be7006aa5bd0439f9ef9e5054a",
+    "synthesis/shift_reg_8bit_postroute.v": "2f952f3f45cc3ce53e59114cdbc30de00bc4bf56965fcba14818930c95450333",
+    "synthesis/shift_reg_8bit_synth.rtl.v": "22cca6f0525a817a71bef4a6247a46ab310bc1724352590ae42728c385e00916",
+    "synthesis/synthesize-canonical.v": "990e7a6ac4ccc40f53fdcd8e8bafa5ad49c29c775715273f6119966b66d81eeb",
+    "synthesis/synthesize.ys": "52240954decf4d49b6105502b8a48669ac4ee93fa9f5b84ece88c01739d388c2",
+    "synthesis/place.v": "fd0208a1e84ba34e9650c10c29e9fadce612bc73299fa9b0bcb36238c1fe9bbc",
+    "synthesis/shift_reg_8bit.rtl.v": "c8b2147fb1cf6beb6330a63aadfc1e1ffb0baa98724486434e94dac4248ece58",
+    "synthesis/shift_reg_8bit.xspice": "e6475bc580e05266a435fcdaa8fd487d6513ab4b3233d0fdbf64599604b34eb7",
+    "synthesis/synthesize.v": "6de7520dd2a99aeac6e577ee363419ecd3aca9be7006aa5bd0439f9ef9e5054a",
+    "synthesis/shift_reg_8bit_powerground": "f0d400e58987839acd523d2c7204e03c787a6711267070f074b237bef0430cc8",
+    "synthesis/shift_reg_8bit_synth.rtlnopwr.v": "6de7520dd2a99aeac6e577ee363419ecd3aca9be7006aa5bd0439f9ef9e5054a",
+    "synthesis/place.json": "cf7640baf9ade9cc1727b2dc31a64f41cc13540a16a1c42640c0808bc5409d00",
+    "synthesis/place-vendor.vvp": "0eb55b4855c58b6a558f9393506fd6f847773c8f26e454852caf78e3cdb32b28",
+    "synthesis/synthesize-vendor.vvp": "0b9bd311773a24fca1dea847c3285b419a934ec59f92344c3eac9c35f426ba25",
+    "synthesis/shift_reg_8bit_synth.rtlbb.v": "f057b93641e963d65dc251eaebff06928ab49420b029b1dbe4d68e482c381864",
+    "synthesis/shift_reg_8bit_anno.v": "dc3dd4bcde6019696b4f07ff112d46d392dc75a115cd836a09552e404b6c7a88",
+    "synthesis/shift_reg_8bit_sized.v": "17397bea418f98268cabf7c6d0c715988f7a615f40944bab77ad2f08b0eb24c6",
+    "synthesis/shift_reg_8bit.rtlnopwr.v": "94fdf39f7b35a979187fb371e6ace42bddc81c4f54ca10af5a3614cfd1e4405c",
+    "synthesis/synthesize.json": "ea375316ae5b8edf8a34d05bc29a02d9b2cf7236bd9a35cf9a317babd6e2cc3a",
+    "synthesis/place.ys": "29ea9a931fcc0dff8537a7b2c02cb9f04c0c61c56e95e0aec0ac15c1df5e39e8",
+    "synthesis/synthesize-derived.vvp": "d2fe8622d07764aff0cc1aa84e32331db8ff7fca96573e2787f18fc4b9db2ec4",
+    "synthesis/rtl.vvp": "caf09673b3eb1fa9b115fd336803bc0c279c01681bc6cd0e86c3c0be73ca685b",
+    "synthesis/shift_reg_8bit.rtlbb.v": "7ca02a6d825dc6b0a112c43d3f9f560ff939ae3dcb1c4419d950a17beb86f02b"
+  }
+}

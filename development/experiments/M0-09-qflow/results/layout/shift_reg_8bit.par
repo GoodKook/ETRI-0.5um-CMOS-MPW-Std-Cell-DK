@@ -1,0 +1,42 @@
+# GrayWolf distances: centimicrons. RC zero = unavailable, NOT a timing model.
+RULES
+ layer MET1 0 0 horizontal
+ layer MET2 0 0 vertical
+ layer MET3 0 0 horizontal
+ via VIA12 MET1 MET2
+ via VIA23 MET2 MET3
+ width MET1 100
+ width MET2 100
+ width MET3 120
+ width VIA12 200
+ width VIA23 200
+ spacing MET1 MET1 200
+ spacing MET2 MET2 220
+ spacing MET3 MET3 180
+ spacing VIA12 VIA23 120
+ overhang VIA12 MET1 60
+ overhang VIA12 MET2 60
+ overhang VIA23 MET2 60
+ overhang VIA23 MET3 60
+ENDRULES
+*vertical_wire_weight : 1.0
+*vertical_path_weight : 1.0
+*padspacing : variable
+*rowSep : 0.0 0
+*track.pitch : 0.0
+*minimum_pad_space : 360
+*gridX : 320
+*gridY : 300
+*gridOffsetX : 0
+*gridOffsetY : 0
+*graphics.wait : off
+*last_chance.wait : off
+*random.seed : 12345
+TWMC*chip.aspect.ratio : 1.0
+TWSC*feedThruWidth : 320 layer 1
+TWSC*do.global.route : on
+TWSC*ignore_feeds : true
+TWSC*call_row_evener : true
+TWSC*even_rows_maximally : true
+GENR*row_to_tile_spacing: 1
+GENR*flip_alternate_rows : 1
