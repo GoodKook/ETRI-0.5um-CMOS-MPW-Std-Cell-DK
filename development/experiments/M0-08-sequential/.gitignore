@@ -1,0 +1,21 @@
+__pycache__/
+results/*.vvp
+results/*-assembled.v
+results/mutant-*.v
+results/spice-*.cir
+results/spice-*.dat
+results/collision-*.cir
+results/collision-*.dat
+results/skew-*.cir
+results/skew-*.dat
+
+# Generated drivers/decks are reproduced from the runner and saved stimuli.
+/results/tb-*.v
+/attempt-01/tb-*.v
+/attempt-01/spice-*.cir
+
+# Successful compile logs are empty; retain the canonical-port failure.
+/results/*-compile.log
+!/results/vendor-canonical-compile.log
+/attempt-01/*-compile.log
+!/attempt-01/vendor-canonical-compile.log

@@ -1,0 +1,553 @@
+{
+  "DFFPOSX1": {
+    "liberty": {
+      "attributes": {
+        "cell_footprint": "dffpos",
+        "area": "1267.2",
+        "cell_leakage_power": "0.409"
+      },
+      "pins": {
+        "CLK": {
+          "direction": "input",
+          "clock": "true",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.07946",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.07488",
+          "min_pulse_width_high": "0.5459",
+          "min_pulse_width_low": "1.123",
+          "rise_capacitance": "0.07946"
+        },
+        "D": {
+          "direction": "input",
+          "related_power_pin": "VDD",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.04063",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.0412",
+          "rise_capacitance": "0.0412"
+        },
+        "Q": {
+          "direction": "output",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0",
+          "rise_capacitance": "0",
+          "fall_capacitance": "0",
+          "max_capacitance": "1.2",
+          "function": "IQ"
+        }
+      },
+      "power": {
+        "VDD": {
+          "voltage_name": "VDD",
+          "pg_type": "primary_power"
+        },
+        "VSS": {
+          "voltage_name": "VSS",
+          "pg_type": "primary_ground"
+        }
+      },
+      "sequential": {
+        "ff": [
+          {
+            "state": "IQ,NIQ",
+            "next_state": "D",
+            "clocked_on": "CLK"
+          }
+        ]
+      }
+    },
+    "timing_arcs": [
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "setup_rising",
+        "table_min": 0.8082,
+        "table_max": 1.017
+      },
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "hold_rising",
+        "table_min": -0.3079,
+        "table_max": -0.03204
+      },
+      {
+        "pin": "Q",
+        "related_pin": "CLK",
+        "timing_sense": "non_unate",
+        "timing_type": "rising_edge",
+        "table_min": 0.3569,
+        "table_max": 3.576
+      }
+    ],
+    "circuit": {
+      "cdl": {
+        "ports_in_order": [
+          "CLK",
+          "D",
+          "Q",
+          "VDD",
+          "VSS"
+        ],
+        "line": 134
+      },
+      "pex": {
+        "ports_in_order": [
+          "D",
+          "CLK",
+          "VSS",
+          "VDD",
+          "Q"
+        ],
+        "line": 665
+      }
+    },
+    "vendor_module_sha256": "826a223096abe2d5fb0d773ca94b475fdf2b46962506852bbcf35808dbbc1c1c"
+  },
+  "DFFNEGX1": {
+    "liberty": {
+      "attributes": {
+        "cell_footprint": "dffneg",
+        "area": "1267.2",
+        "cell_leakage_power": "0.409"
+      },
+      "pins": {
+        "CLK": {
+          "direction": "input",
+          "clock": "true",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.08144",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.08144",
+          "min_pulse_width_high": "0.5658",
+          "min_pulse_width_low": "0.6952",
+          "rise_capacitance": "0.07512"
+        },
+        "D": {
+          "direction": "input",
+          "related_power_pin": "VDD",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.03836",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.03836",
+          "rise_capacitance": "0.03796"
+        },
+        "Q": {
+          "direction": "output",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0",
+          "rise_capacitance": "0",
+          "fall_capacitance": "0",
+          "max_capacitance": "1.2",
+          "function": "IQ"
+        }
+      },
+      "power": {
+        "VDD": {
+          "voltage_name": "VDD",
+          "pg_type": "primary_power"
+        },
+        "VSS": {
+          "voltage_name": "VSS",
+          "pg_type": "primary_ground"
+        }
+      },
+      "sequential": {
+        "ff": [
+          {
+            "state": "IQ,NIQ",
+            "next_state": "D",
+            "clocked_on": "!CLK"
+          }
+        ]
+      }
+    },
+    "timing_arcs": [
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "setup_falling",
+        "table_min": 0.6621,
+        "table_max": 0.8269
+      },
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "hold_falling",
+        "table_min": -0.7441,
+        "table_max": -0.5525
+      },
+      {
+        "pin": "Q",
+        "related_pin": "CLK",
+        "timing_sense": "non_unate",
+        "timing_type": "falling_edge",
+        "table_min": 0.3517,
+        "table_max": 3.576
+      }
+    ],
+    "circuit": {
+      "cdl": {
+        "ports_in_order": [
+          "CLK",
+          "D",
+          "Q",
+          "VDD",
+          "VSS"
+        ],
+        "line": 108
+      },
+      "pex": {
+        "ports_in_order": [
+          "D",
+          "CLK",
+          "VSS",
+          "VDD",
+          "Q"
+        ],
+        "line": 656
+      }
+    },
+    "vendor_module_sha256": "310600df4d7c710c688aaff9d34a7c21865b0cdc8d2c10ae47f2cb3b7e20dc01"
+  },
+  "DFFSRX1": {
+    "liberty": {
+      "attributes": {
+        "cell_footprint": "dffsr",
+        "area": "2188.8",
+        "cell_leakage_power": "0.5447"
+      },
+      "pins": {
+        "CLK": {
+          "direction": "input",
+          "clock": "true",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.02467",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.02462",
+          "min_pulse_width_high": "0.7947",
+          "min_pulse_width_low": "1.64",
+          "rise_capacitance": "0.02467"
+        },
+        "D": {
+          "direction": "input",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.03794",
+          "nextstate_type": "data",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.03888",
+          "rise_capacitance": "0.03888"
+        },
+        "Q": {
+          "direction": "output",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0",
+          "rise_capacitance": "0",
+          "fall_capacitance": "0",
+          "max_capacitance": "1.2",
+          "function": "IQ"
+        },
+        "R": {
+          "direction": "input",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.06093",
+          "rise_capacitance": "0.06093",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.06074",
+          "min_pulse_width_low": "1.242"
+        },
+        "S": {
+          "direction": "input",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.05776",
+          "rise_capacitance": "0.05776",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.05639",
+          "min_pulse_width_low": "1.014"
+        }
+      },
+      "power": {
+        "VDD": {
+          "voltage_name": "VDD",
+          "pg_type": "primary_power"
+        },
+        "VSS": {
+          "voltage_name": "VSS",
+          "pg_type": "primary_ground"
+        }
+      },
+      "sequential": {
+        "ff": [
+          {
+            "state": "IQ,IQN",
+            "next_state": "D",
+            "clocked_on": "CLK",
+            "clear": "!R",
+            "preset": "!S",
+            "clear_preset_var1": "L",
+            "clear_preset_var2": "H"
+          }
+        ]
+      }
+    },
+    "timing_arcs": [
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "setup_rising",
+        "table_min": 0.5536,
+        "table_max": 1.592
+      },
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "hold_rising",
+        "table_min": -0.508,
+        "table_max": 0.2665
+      },
+      {
+        "pin": "Q",
+        "related_pin": "CLK",
+        "timing_sense": "non_unate",
+        "timing_type": "rising_edge",
+        "table_min": 0.2945,
+        "table_max": 4.194
+      },
+      {
+        "pin": "Q",
+        "related_pin": "R",
+        "timing_sense": "positive_unate",
+        "timing_type": "clear",
+        "table_min": 0.2628,
+        "table_max": 3.385
+      },
+      {
+        "pin": "Q",
+        "related_pin": "S",
+        "timing_sense": "negative_unate",
+        "timing_type": "preset",
+        "table_min": 0.2968,
+        "table_max": 4.032
+      },
+      {
+        "pin": "R",
+        "related_pin": "CLK",
+        "timing_type": "recovery_rising",
+        "table_min": -1.239,
+        "table_max": -0.3899
+      },
+      {
+        "pin": "R",
+        "related_pin": "CLK",
+        "timing_type": "removal_rising",
+        "table_min": 1.503,
+        "table_max": 1.939
+      },
+      {
+        "pin": "R",
+        "related_pin": "S",
+        "timing_type": "non_seq_hold_rising",
+        "table_min": 0.8386,
+        "table_max": 0.9953
+      },
+      {
+        "pin": "R",
+        "related_pin": "S",
+        "timing_type": "non_seq_setup_rising",
+        "table_min": -0.5591,
+        "table_max": -0.4709
+      },
+      {
+        "pin": "S",
+        "related_pin": "CLK",
+        "timing_type": "recovery_rising",
+        "table_min": -0.3707,
+        "table_max": 0.3437
+      },
+      {
+        "pin": "S",
+        "related_pin": "CLK",
+        "timing_type": "removal_rising",
+        "table_min": 1.217,
+        "table_max": 1.663
+      },
+      {
+        "pin": "S",
+        "related_pin": "R",
+        "timing_type": "non_seq_hold_rising",
+        "table_min": -0.5591,
+        "table_max": -0.4709
+      },
+      {
+        "pin": "S",
+        "related_pin": "R",
+        "timing_type": "non_seq_setup_rising",
+        "table_min": 0.8386,
+        "table_max": 0.9953
+      }
+    ],
+    "circuit": {
+      "cdl": {
+        "ports_in_order": [
+          "D",
+          "CLK",
+          "R",
+          "S",
+          "Q",
+          "VDD",
+          "VSS"
+        ],
+        "line": 160
+      },
+      "pex": {
+        "ports_in_order": [
+          "CLK",
+          "D",
+          "S",
+          "R",
+          "VDD",
+          "VSS",
+          "Q"
+        ],
+        "line": 983
+      }
+    },
+    "vendor_module_sha256": "25299506abcd2070ac0e4e58488de6526d4772367ba73b7964eaabfc7f5b84d1"
+  },
+  "LATCHX1": {
+    "liberty": {
+      "attributes": {
+        "cell_footprint": "latch",
+        "area": "691.2",
+        "cell_leakage_power": "0.2265"
+      },
+      "pins": {
+        "CLK": {
+          "direction": "input",
+          "clock": "true",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.05911",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.04858",
+          "min_pulse_width_high": "0.5857",
+          "min_pulse_width_low": "0.333",
+          "rise_capacitance": "0.05911"
+        },
+        "D": {
+          "direction": "input",
+          "related_power_pin": "VDD",
+          "driver_waveform_rise": "driver_waveform_default_rise",
+          "driver_waveform_fall": "driver_waveform_default_fall",
+          "fall_capacitance": "0.0411",
+          "related_ground_pin": "VSS",
+          "capacitance": "0.04154",
+          "rise_capacitance": "0.04154"
+        },
+        "Q": {
+          "direction": "output",
+          "related_power_pin": "VDD",
+          "related_ground_pin": "VSS",
+          "capacitance": "0",
+          "rise_capacitance": "0",
+          "fall_capacitance": "0",
+          "max_capacitance": "1.2",
+          "function": "IQ"
+        }
+      },
+      "power": {
+        "VDD": {
+          "voltage_name": "VDD",
+          "pg_type": "primary_power"
+        },
+        "VSS": {
+          "voltage_name": "VSS",
+          "pg_type": "primary_ground"
+        }
+      },
+      "sequential": {
+        "latch": [
+          {
+            "state": "IQ,NIQ",
+            "enable": "CLK",
+            "data_in": "D"
+          }
+        ]
+      }
+    },
+    "timing_arcs": [
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "setup_falling",
+        "table_min": 0.6621,
+        "table_max": 0.9594
+      },
+      {
+        "pin": "D",
+        "related_pin": "CLK",
+        "timing_type": "hold_falling",
+        "table_min": -0.7358,
+        "table_max": -0.5354
+      },
+      {
+        "pin": "Q",
+        "related_pin": "CLK",
+        "timing_sense": "non_unate",
+        "timing_type": "rising_edge",
+        "table_min": 0.3769,
+        "table_max": 3.532
+      },
+      {
+        "pin": "Q",
+        "related_pin": "D",
+        "timing_sense": "positive_unate",
+        "timing_type": "combinational",
+        "table_min": 0.37,
+        "table_max": 3.598
+      }
+    ],
+    "circuit": {
+      "cdl": {
+        "ports_in_order": [
+          "CLK",
+          "D",
+          "Q",
+          "VDD",
+          "VSS"
+        ],
+        "line": 270
+      },
+      "pex": {
+        "ports_in_order": [
+          "D",
+          "CLK",
+          "Q",
+          "VSS",
+          "VDD"
+        ],
+        "line": 393
+      }
+    },
+    "vendor_module_sha256": "de748a836cefcc78861f8de2bc8863f19d95594a92d7159db50a39ce4cf813d5"
+  }
+}

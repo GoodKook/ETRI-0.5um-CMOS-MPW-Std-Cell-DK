@@ -1,0 +1,477 @@
+{
+  "date": "2026-11-15",
+  "timezone": "Asia/Seoul",
+  "cwd": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK",
+  "argv": [
+    "development/experiments/M0-08-sequential/materials/collect.py"
+  ],
+  "script_sha256": "825f66dc996808dae755c81a34da20e26cdb939318029688b2d8423a7fdb9a16",
+  "public": [
+    {
+      "id": "ngspice47",
+      "landing_url": "https://ngspice.sourceforge.io/docs.html",
+      "url": "https://ngspice.sourceforge.io/docs/ngspice-47-manual.pdf",
+      "filename": "ngspice-47-manual.pdf",
+      "sha256": "6be9ad36be99dc3234dc44464cce6a38ba2e98266539dda5bae3212752e036ca",
+      "role": "ngspice 47: BSIM3 versions and HSPICE compatibility syntax; not an NSPL qualification",
+      "license_note": "Manual page 2: CC-BY-SA 4.0; retain authors and original document.",
+      "bytes": 2717143,
+      "acquired_date": "2026-11-15"
+    },
+    {
+      "id": "berkeley-bsim32",
+      "landing_url": "https://bsim.berkeley.edu/models/bsim3/",
+      "url": "https://www.bsim.berkeley.edu/BSIM4/BSIM3/ftpv32.zip",
+      "filename": "berkeley-bsim32.zip",
+      "sha256": "82cc8ee562706383af678ef48daae9270bf92b7ae239e54d5de4d5d1c420bd4f",
+      "role": "Original BSIM3 3.2 distribution, manual in Mod_doc/b3v32manu.tar.Z, junction diode update note",
+      "license_note": "Keep unmodified archive and ftpv32/license/licen; UC Berkeley copyright.",
+      "bytes": 2129251,
+      "acquired_date": "2026-11-15"
+    },
+    {
+      "id": "berkeley-bsim324",
+      "landing_url": "https://bsim.berkeley.edu/models/bsim3/",
+      "url": "https://www.bsim.berkeley.edu/BSIM4/BSIM3/ftpv324.zip",
+      "filename": "berkeley-bsim324.zip",
+      "sha256": "1813911a2fbec597e59bc3753a59a1923fb097198c3a256c9994362b933cf839",
+      "role": "Original 3.2.4 corrections/technical note, comparison only; does not authorize changing PDK VERSION=3.2",
+      "license_note": "Keep unmodified archive, Readme and attribution.",
+      "bytes": 136267,
+      "acquired_date": "2026-11-15"
+    }
+  ],
+  "legacy_bsim": {
+    "manual": "bsim32-manual-derived.pdf",
+    "sha256": "807f7420545c0461e04ee260bfad378be9da15be14c91563ece1cf56e4fcbf9f",
+    "original_manual_members": [
+      {
+        "member": "cover.prn",
+        "sha256": "c244faf5a44eb8cb81df5923e68151b685aa95f72d2ad764770fcdb149d12829"
+      },
+      {
+        "member": "b3v32_toc.prn",
+        "sha256": "92c62cb1592b6bd0e9b6bd3567238322255e856da8c4f6074b74c594be04050c"
+      },
+      {
+        "member": "chapter1.prn",
+        "sha256": "ba62bf287563932a0dcf28a57279d7fa80bd0813f57cb24d04cdd8316ff25a95"
+      },
+      {
+        "member": "chapter2.prn",
+        "sha256": "2dde5ec04ba0fafa0abca188cb62aa1138c19364992d9cf0f60111644fc09ff3"
+      },
+      {
+        "member": "chapter3.prn",
+        "sha256": "5b948c297ff5a0ad6804525c4081dfe90c2c9845a1b6c5f5a1d302069e36155d"
+      },
+      {
+        "member": "chapter4.prn",
+        "sha256": "c2e9ab90f5c769691ea418203b45c3283316465acf60549311ae215091e00b25"
+      },
+      {
+        "member": "chapter5.prn",
+        "sha256": "015aa4c45ddd0535db09e540eb97b0890241e5bef0b53dfe74ca86f5d3c334d7"
+      },
+      {
+        "member": "chapter6.prn",
+        "sha256": "8578a1bd8bce0e2b429fd89848a237e4819a2202b69b4dfc97764ba7b1a403fa"
+      },
+      {
+        "member": "chapter7.prn",
+        "sha256": "fc0a3eb86673fbcb8611852b18a6a070bc3c0d4d78ccc4426bbbb2d927b90f44"
+      },
+      {
+        "member": "chapter8.prn",
+        "sha256": "b21dbb588f4421eb391402e80b1eac4972758f7e1d72b03b4aac92f2b533c780"
+      },
+      {
+        "member": "chapter9.prn",
+        "sha256": "81280c5e1c3e22d00d5eb9cc6ac39de179b8c3800b988fcbe247a2a9b6969dea"
+      },
+      {
+        "member": "appd_a.prn",
+        "sha256": "14bc99367359fcda257ced60f0f532ab3ba23b239996abc43833454bdb66e25a"
+      },
+      {
+        "member": "appd_b.prn",
+        "sha256": "4217f2ce6e68d65159cf4c53d4f9c484ffe8a4c1b6afcc4d01da7d4b9793ee10"
+      },
+      {
+        "member": "appd_c.prn",
+        "sha256": "c7a81176e5463d6b435334f14ec23394c1f85e50153180774b71ed11f8dfd351"
+      },
+      {
+        "member": "appd_d.prn",
+        "sha256": "9b733b1587762318f76c6789bee1071cd278d1333682e0ced4f8dfb18770492f"
+      }
+    ],
+    "scope": "Reference equations; no replacement of NSPL process card or VERSION value",
+    "source_archive": "berkeley-bsim32.zip",
+    "diode_update_note": "\nDescriptions and recommended use of the junction diode model\n(Item 8 in the \"b3v32doc.ps\" file) were updated on July 1, 1998.\n\n--\nWeidong Liu   liuwd@fermi.eecs.berkeley.edu\n",
+    "conversion": "gzip -dc; named tar members; Ghostscript pdfwrite, original archives intact"
+  },
+  "local_sources": {
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LIB/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std_tt.lib": {
+      "sha256": "0c84f0d970d374ba5c9c4cf7aec22fec96e306f8be373bda9ef20ce2bb48de51",
+      "bytes": 305144
+    },
+    "PDK/Model_Parameter/05cmos_model_241213.lib~": {
+      "sha256": "223e1bf024cb529fbe94c3feff3d7ef8e0c093bc043b905d75ffea4fe9e3a42e",
+      "bytes": 16143
+    },
+    "PDK/Model_Parameter/05cmos_model_241213.scs": {
+      "sha256": "a9d8f089d5af30eec5040c9f4c5b5f0c62e4ffe37b4e7821746e55be69adaced",
+      "bytes": 14901
+    },
+    "PDK/Model_Parameter/05cmos_model_260210.lib": {
+      "sha256": "802eeb6430647432151b31feb7e67f55293889208928a961d9b3195ccc4cf88b",
+      "bytes": 16248
+    },
+    "PDK/Model_Parameter/05cmos_model_260210.lib~": {
+      "sha256": "5cd10b2db383e57237e565e8922ff3e5c803d2218dda5753476279788442d035",
+      "bytes": 16264
+    },
+    "PDK/Model_Parameter/05cmos_mosfet_corner.lib": {
+      "sha256": "8fbf2e23bc84d88a5220b24cc3489239eabb6ca7a7acc223a8fe8adc93187444",
+      "bytes": 12004
+    },
+    "PDK/Model_Parameter/05cmos_mosfet_corner.lib~": {
+      "sha256": "8fbf2e23bc84d88a5220b24cc3489239eabb6ca7a7acc223a8fe8adc93187444",
+      "bytes": 12004
+    },
+    "PDK/Model_Parameter/05cmos_mosfet_corner.scs": {
+      "sha256": "612867d794ffcc94f240b9f39cc1782de8cda2d2a79a5d937698b239ec8df139",
+      "bytes": 11212
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/PEX/DFFPOSX1.pex.netlist": {
+      "sha256": "e350d2971b786c7304331d4433f6c1ff45309a8071da323c2df8530851b1b0e4",
+      "bytes": 29717
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/data.dm": {
+      "sha256": "ba76059497188b630259a76842ae47f010a92eb6c4b83ff77abecc355814d648",
+      "bytes": 3932
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/layout/layout.oa": {
+      "sha256": "b353c8546b7e20110acf56ac9ed19f99456c5b158cc3962f706d954a394abac1",
+      "bytes": 16124
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/layout/master.tag": {
+      "sha256": "0547da475c6495aab98e43894e8e330ed09303a205699e8413c35388b6906a05",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/layout/thumbnail_128x128.png": {
+      "sha256": "3e409826e232771e918e114fd41075df54a356afa98f682ecbadcd4d16d39e67",
+      "bytes": 3241
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/schematic/data.dm": {
+      "sha256": "b6d036146b14d60d3b5e63e84aee73587da3cb8f233e66abb091cb8546f24a11",
+      "bytes": 3380
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/schematic/master.tag": {
+      "sha256": "754d948d84456304dc9c92190e19089b4156a194ac7f002aad93b7d91a110099",
+      "bytes": 35
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/schematic/sch.oa": {
+      "sha256": "2012700b018f0f534c57e4c0e169bf30a862f670592b1992eb8563a734697941",
+      "bytes": 42308
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/schematic/thumbnail_128x128.png": {
+      "sha256": "e1afbd96171da64e6b98cb8aac7a4cb64873574bb1f9c18a07e9cea6c9f7986b",
+      "bytes": 1381
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/symbol/master.tag": {
+      "sha256": "14f73fc67b1fd48a1d040157c35b5361471e38eaed0e71114fdc831cf4150da7",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/symbol/symbol.oa": {
+      "sha256": "4b9e8315019aa40f273f2c0e6bd328845fc7fa098ae48be05aace232c59ac05a",
+      "bytes": 25380
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFPOSX1/symbol/thumbnail_128x128.png": {
+      "sha256": "1907fec41ebd5eca849c32b7fc3485cbe709623b9dcbf5709566f8b2afea590c",
+      "bytes": 633
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/PEX/DFFNEGX1.pex.netlist": {
+      "sha256": "6727387914d8d66304a0d45ec8c39ffecb66d5deb0d2d86d6e55c672b849e4f0",
+      "bytes": 29808
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/data.dm": {
+      "sha256": "ba76059497188b630259a76842ae47f010a92eb6c4b83ff77abecc355814d648",
+      "bytes": 3932
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/layout/layout.oa": {
+      "sha256": "64930a879ad32984dce083eb05a2173110548bfb3601d19f37e58175af84cd22",
+      "bytes": 16180
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/layout/master.tag": {
+      "sha256": "0547da475c6495aab98e43894e8e330ed09303a205699e8413c35388b6906a05",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/layout/thumbnail_128x128.png": {
+      "sha256": "23fbe356c4943eaa60d9a7ee83ae2efbed944574dbe12ef0e1eaa2cc856e728b",
+      "bytes": 3202
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/schematic/data.dm": {
+      "sha256": "67f183cbf64ec62da44229d88b4fbf42a54b01c0c31f7687d3fe60d7635432d3",
+      "bytes": 3500
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/schematic/master.tag": {
+      "sha256": "754d948d84456304dc9c92190e19089b4156a194ac7f002aad93b7d91a110099",
+      "bytes": 35
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/schematic/sch.oa": {
+      "sha256": "4c305b787eb38507e88ee8c5e43843526d3bc721b4a6c7f865ac6a67fad8a9cd",
+      "bytes": 45500
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/schematic/thumbnail_128x128.png": {
+      "sha256": "7ec7f6e247b8ca9d4c0f3a886699b0f258cb8e34b962e90e083ef610e31e8b0e",
+      "bytes": 1386
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/symbol/master.tag": {
+      "sha256": "14f73fc67b1fd48a1d040157c35b5361471e38eaed0e71114fdc831cf4150da7",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/symbol/symbol.oa": {
+      "sha256": "e4d88f7e70f4551978fc6b415b7d15bc075c758a288f910a33c552211be47840",
+      "bytes": 25412
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFNEGX1/symbol/thumbnail_128x128.png": {
+      "sha256": "87c04f239c4877b5c8fd74579c1c3bee0dcfb415e6d4bad011f1f571f901d4ae",
+      "bytes": 664
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/PEX/DFFSRX1.pex.netlist": {
+      "sha256": "acd4119a4dc7a80af7e2ff8d99d9e277c3ea5efe236acdd49520d1d2d829b033",
+      "bytes": 46601
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/data.dm": {
+      "sha256": "ba76059497188b630259a76842ae47f010a92eb6c4b83ff77abecc355814d648",
+      "bytes": 3932
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/layout/layout.oa": {
+      "sha256": "fa9a22009fffbd2beb9cd5ba40f2e00cb81432bf79061c44388217310b5c0ba6",
+      "bytes": 17828
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/layout/master.tag": {
+      "sha256": "0547da475c6495aab98e43894e8e330ed09303a205699e8413c35388b6906a05",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/layout/thumbnail_128x128.png": {
+      "sha256": "e9b572b3476c725dd96285e3ef1cc1f721defc65d854b5a8bcc3951c525a855a",
+      "bytes": 3038
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/schematic/data.dm": {
+      "sha256": "7867393b7c50f36766a0da6224b07572cd2b787a3b74c66620ac047eb2f4c493",
+      "bytes": 3380
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/schematic/master.tag": {
+      "sha256": "754d948d84456304dc9c92190e19089b4156a194ac7f002aad93b7d91a110099",
+      "bytes": 35
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/schematic/sch.oa": {
+      "sha256": "020384f448b7c30d96d62a57dcc9fadee8989bb989cc1ac442fc187df94ff3cf",
+      "bytes": 52668
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/schematic/thumbnail_128x128.png": {
+      "sha256": "c48823f4b05a31a5e188798ec0bb4554982f964d71c65b0f8dddd6e12e8054d1",
+      "bytes": 1412
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/symbol/master.tag": {
+      "sha256": "14f73fc67b1fd48a1d040157c35b5361471e38eaed0e71114fdc831cf4150da7",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/symbol/symbol.oa": {
+      "sha256": "5804bb448c3f565b57d08322e582b2d7e74bcbddb3c47b1edb7214079f055f9d",
+      "bytes": 24484
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/DFFSRX1/symbol/thumbnail_128x128.png": {
+      "sha256": "e2fa731c972c405fedfbddc8c423f9d81b11b1087699df7af0d7da0d98529601",
+      "bytes": 637
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/PEX/LATCHX1.pex.netlist": {
+      "sha256": "4ebb312cb31f7123f2b037b4f06211bca58ff3f2c2e2ce9662d7f7419aafad15",
+      "bytes": 17089
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/data.dm": {
+      "sha256": "ba76059497188b630259a76842ae47f010a92eb6c4b83ff77abecc355814d648",
+      "bytes": 3932
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/layout/layout.oa": {
+      "sha256": "feacede5d43bf2a47fe4376051174f22533841ff1e1d49d0e951f0a95e30470b",
+      "bytes": 14924
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/layout/master.tag": {
+      "sha256": "0547da475c6495aab98e43894e8e330ed09303a205699e8413c35388b6906a05",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/layout/thumbnail_128x128.png": {
+      "sha256": "78426b625e6de8f4eac406fa3604c44cc2d21bed25243ed2b77dda4b2577a2a9",
+      "bytes": 2335
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/schematic/data.dm": {
+      "sha256": "7da84a2db4ad2f30ef29188fb1b55e5f55bf59872be8724fe9d370439de012e9",
+      "bytes": 3380
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/schematic/master.tag": {
+      "sha256": "754d948d84456304dc9c92190e19089b4156a194ac7f002aad93b7d91a110099",
+      "bytes": 35
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/schematic/sch.oa": {
+      "sha256": "ded8bc6c154207e2616d1efc4d0da8ed15386f54e04be6ce425ea33d44fb95d5",
+      "bytes": 41164
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/schematic/thumbnail_128x128.png": {
+      "sha256": "6663fd9f15ee049b0c41921f1845d88fd658c4a69c7b4c84013825fae2759bc8",
+      "bytes": 1384
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/symbol/master.tag": {
+      "sha256": "14f73fc67b1fd48a1d040157c35b5361471e38eaed0e71114fdc831cf4150da7",
+      "bytes": 38
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/symbol/symbol.oa": {
+      "sha256": "e72c22a08a89eab2ec2d264258ff0508da3f5bcbe8d5dfaa3d2c04e74725ae6c",
+      "bytes": 25340
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/LATCHX1/symbol/thumbnail_128x128.png": {
+      "sha256": "1907fec41ebd5eca849c32b7fc3485cbe709623b9dcbf5709566f8b2afea590c",
+      "bytes": 633
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/CDL/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.cdl": {
+      "sha256": "281efca41e93e7f88cf59e18e64159f9772111cfee1f86647cbd6ac3703e9f11",
+      "bytes": 15978
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.v": {
+      "sha256": "846c7085348384851c9f787caf17635e6e3633ddb8014ce0b71dbf8fbb05f0b5",
+      "bytes": 3117
+    },
+    "PDK/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/GDS/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.gds": {
+      "sha256": "e42dc1fb4c9a31aaa669e8e4c3b93a4b0d6eea40a463f5eaef5dbd17b432618e",
+      "bytes": 188416
+    },
+    "PDK/Calibre/LVS/lvs_header.cal": {
+      "sha256": "59617401426050047494e0ef64976e463ea97a809832a0d5bde8de24fdbf05f2",
+      "bytes": 375
+    },
+    "PDK/Calibre/LVS/NSPL_0p5um_Analog_CMOS_2P3M_5V_V1.1_LVS.cal": {
+      "sha256": "4cebfddc77ab6b4fb20e869281a895be9933a900670c98ff792ed5204c6366e0",
+      "bytes": 11160
+    },
+    "PDK/Calibre/PEX/pex_header.cal": {
+      "sha256": "459d78dd9a8fd08ae66c3fd3b9b3ee755a3ab684df657580e17bc970f5254278",
+      "bytes": 442
+    },
+    "PDK/Calibre/PEX/NSPL_0p5um_Analog_CMOS_2P3M_5V_V1.1_PEX.cal": {
+      "sha256": "bd605b58e450ad173a32afebbde067a37a85562501b4b0e26680f7a87bbf57cc",
+      "bytes": 12773
+    },
+    "REPO/Tools/ngspice-47.tar.gz": {
+      "sha256": "894e649651f1838a14095e5a5439e7d3aa63e87ede14d283173fda4fcdef675f",
+      "bytes": 13105136
+    },
+    "REPO/Tools/ngspice-47/src/spicelib/devices/bsim3v32/b3v32.c": {
+      "sha256": "ddff0df4d1436ee006b1e709d94431bc05beb491a87fd7b1a733bf96cb27e42a",
+      "bytes": 36031
+    },
+    "REPO/Tools/ngspice-47/src/spicelib/devices/bsim3v32/b3v32set.c": {
+      "sha256": "59495397698c7cf21d2a4e839b4173f3ae34d8764d2c68b4161cce0877f74921",
+      "bytes": 48149
+    },
+    "REPO/Tools/ngspice-47/src/spicelib/parser/inpdomod.c": {
+      "sha256": "f4e89a26273234803c5fc96321eb55b68d997ccf5c17a19036f8b0b7da748963",
+      "bytes": 17276
+    },
+    "REPO/Tutorials/_References_/liberty07_03.pdf": {
+      "sha256": "25314f43b71066eb11a6fa2062916a3461a74f9a7651eeb846c3e9f7111a0ba7",
+      "bytes": 1926988
+    },
+    "REPO/docs/ETRI_0p5um_NSPL_260820/01_NSPL 0.5um Analog CMOS 2P3M 5V Design Rule_Electrical Target_v1.1.pdf": {
+      "sha256": "a9cd3ab8e11b7c535eb17fe38a8dc3d72258d88b2f40d24a4f5aeec6bfab1ae3",
+      "bytes": 959262
+    },
+    "REPO/docs/ETRI_0p5um_NSPL_260820/02_ETRI_5V_GPIO_260615.pdf": {
+      "sha256": "b768740e6e09de755a4e55570af7ae5e30f5726f7505220a9bf6e80fa9b01bf8",
+      "bytes": 486729
+    },
+    "REPO/docs/ETRI_0p5um_NSPL_260820/03_NSPL 0.5um Analog CMOS 2P3M 5V Design Guide V1.1.pdf": {
+      "sha256": "1b320af11436b50ed12a4768cc977fc5673818dc44c030724abc8776bbec31c7",
+      "bytes": 4222652
+    },
+    "REPO/docs/ETRI_0p5um_NSPL_260820/04_NSPL 0.5um Analog CMOS 2P3M 5V Design Tutorial v1.4.pdf": {
+      "sha256": "2ae0d740259d3260434f3923ed7f02061e630826ac1e99ed4bd775a611a6c8a9",
+      "bytes": 17936886
+    },
+    "REPO/docs/ETRI_0p5um_NSPL_260820/05_NSPL 0.5um Digital CMOS 2P3M 5V Design Tutorial(PnR)_V1.0.pdf": {
+      "sha256": "0c84b85d426213d37a551cf00834de4a0300442b5b22f7ccd82a0ae2980a191b",
+      "bytes": 5990812
+    },
+    "REPO/development/experiments/M0-08-sequential/results/stimulus.json": {
+      "sha256": "3f17c0ce3be0b94d449c9dabdd01713e2a68b78280e80127886169ff31f2b780",
+      "bytes": 169234
+    },
+    "REPO/development/experiments/M0-08-sequential/results/spice-cdl-checks.csv": {
+      "sha256": "d0b0d7a5bddcfc57cc62db62b1961493c843357cf7f50db7b293f6ad90e7d869",
+      "bytes": 186249
+    },
+    "REPO/development/experiments/M0-08-sequential/results/spice-pex-checks.csv": {
+      "sha256": "d553ced53121d589ec823d35818db82f0d4cf9162e1aabce6c0c173d36d00e1d",
+      "bytes": 187365
+    }
+  },
+  "tools": {
+    "ngspice": {
+      "path": "/usr/local/bin/ngspice",
+      "sha256": "0b06762ea05a6618475edbcb0b37fd31c73e3c33bb98989b24e2b76923efd26d",
+      "version": [
+        "******",
+        "** ngspice-47 : Circuit level simulation program",
+        "** Compiled with KLU Direct Linear Solver",
+        "** The U. C. Berkeley CAD Group",
+        "** Copyright 1985-1994, Regents of the University of California.",
+        "** Copyright 2001-2026, The ngspice team.",
+        "** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html",
+        "** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html",
+        "** Creation Date: Thu Nov 12 12:08:04 UTC 2026",
+        "******"
+      ]
+    },
+    "gs": {
+      "path": "/usr/bin/gs",
+      "sha256": "1d8daa2b1616f6fa074d268579ca94923496291e9b4b3379040c2370f98d63d4",
+      "version": [
+        "10.02.1"
+      ]
+    },
+    "pdftotext": {
+      "path": "/usr/bin/pdftotext",
+      "sha256": "46e5639c4096edd4bb06963cc7219401f9b91e0390fe40b3ba1482d1b5386c63",
+      "version": [
+        "pdftotext version 24.02.0",
+        "Copyright 2005-2024 The Poppler Developers - http://poppler.freedesktop.org",
+        "Copyright 1996-2011, 2022 Glyph & Cog, LLC"
+      ]
+    }
+  },
+  "original_M0_08_inputs_unchanged": true,
+  "artifacts": {
+    ".gitignore": "7f4e91503e85941c210270468bbc7a409da118ca4c6b02ba2de4cdeda4f80373",
+    "bsim32-convert.log": "2dd590063eff625ce65f1524f66badecc8985ccf90b4a3b295314d62756d4494",
+    "bsim32-update-convert.log": "e472d60f6fc460b113d9c8dad4655259d74c1561d8b83e819962859d6d0202f8",
+    "collect.py": "825f66dc996808dae755c81a34da20e26cdb939318029688b2d8423a7fdb9a16",
+    "dffsr-constraints.csv": "93d21855261eaee37dfc5f3539fa2a21c3d02e8ab53787f9282456e2170d5770",
+    "document-index.json": "6f8e4829a8627ba65e967fc695c3281d09e03d5263c8bda08c445c3433463952",
+    "liberty-tables.json": "d9313590f21ce8c9e593b85770619534ded11504c42963de93fea963de153fdb",
+    "mos-reader-default.log": "f24126f97e89b7bdf87a89c18e73b99a7ed12e93de1a3e41640b657d7119aa1c",
+    "mos-reader-hsa.log": "db9594164f726bc537fd9f325f0a31a61a097ee4b095a2f26cde7206d5aa33a1",
+    "mos-reader.json": "1e5daedfb65e3db5807a4f6e256225272143d6210a04d72900befae75bf68cd0",
+    "ngspice-source.json": "892dfcf6c0a1ea0754c84a40deea0d80123e0879e5ea5b4439bc82cb4f97e0a7",
+    "pdftotext.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pdk-search.json": "860a073399c1cf1f98551cb56c9da632ad6e571127cf8fffde785ec3dc53f177",
+    "process-model-files.json": "ca80e3fc585357f74df2a05cbddcef414bdd18ae541c6d1cc7cef5ac0ffbaa90",
+    "public-sources.json": "86d53746bee74dee1e4c88745df758514f353c761e4b6197764dc3708fa2781e",
+    "request-state-cases.csv": "8b4a6c773b79d60356a2e0a88f6ee90a13f050756cefc69698c626a0a1f67abb",
+    "version-gs.log": "4d04ccea4c5b331409b38a636d93f0f5c0b18f37ae726c901ebbaf3d097eafc4",
+    "version-ngspice.log": "28d9f1d4ebcaf2278f7df4dba01707916aa2b787732ea2d81ecf93e95d8470ae",
+    "version-pdftotext.log": "e120219f19a713ea1177591426efeea7cd700c463fd2b903286141de8c47307c",
+    "web-search.json": "60de5fff77e81b1507adedee692586657f72cf5b4010cd1b6d1878f2ea72f470"
+  }
+}

@@ -1,0 +1,497 @@
+[
+  {
+    "id": 0,
+    "time_ns": 0,
+    "label": "undefined_start",
+    "c": 0,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": null,
+      "DFFNEGX1": null,
+      "DFFSRX1": null,
+      "LATCHX1": null
+    }
+  },
+  {
+    "id": 1,
+    "time_ns": 40,
+    "label": "initialize_rise",
+    "c": 1,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": null,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 2,
+    "time_ns": 80,
+    "label": "initialize_fall",
+    "c": 0,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 3,
+    "time_ns": 120,
+    "label": "r_collision_prepare_data",
+    "c": 0,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 4,
+    "time_ns": 160,
+    "label": "r_collision_prepare_clock",
+    "c": 1,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 5,
+    "time_ns": 200,
+    "label": "r_assert_at_edge",
+    "c": 0,
+    "d": 0,
+    "r": 0,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 6,
+    "time_ns": 240,
+    "label": "r_held_other_edge_data",
+    "c": 0,
+    "d": 1,
+    "r": 0,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 7,
+    "time_ns": 280,
+    "label": "r_held_other_edge",
+    "c": 1,
+    "d": 1,
+    "r": 0,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 8,
+    "time_ns": 320,
+    "label": "r_release_at_edge",
+    "c": 0,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 0,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 9,
+    "time_ns": 360,
+    "label": "r_collision_prepare_data",
+    "c": 0,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 0,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 10,
+    "time_ns": 400,
+    "label": "r_collision_prepare_clock",
+    "c": 0,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 0,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 11,
+    "time_ns": 440,
+    "label": "r_assert_at_edge",
+    "c": 1,
+    "d": 1,
+    "r": 0,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 0,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 12,
+    "time_ns": 480,
+    "label": "r_held_other_edge_data",
+    "c": 1,
+    "d": 0,
+    "r": 0,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 13,
+    "time_ns": 520,
+    "label": "r_held_other_edge",
+    "c": 0,
+    "d": 0,
+    "r": 0,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 14,
+    "time_ns": 560,
+    "label": "r_release_at_edge",
+    "c": 1,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 15,
+    "time_ns": 600,
+    "label": "s_collision_prepare_data",
+    "c": 1,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 16,
+    "time_ns": 640,
+    "label": "s_collision_prepare_clock",
+    "c": 1,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 17,
+    "time_ns": 680,
+    "label": "s_assert_at_edge",
+    "c": 0,
+    "d": 0,
+    "r": 1,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 1,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 18,
+    "time_ns": 720,
+    "label": "s_held_other_edge_data",
+    "c": 0,
+    "d": 1,
+    "r": 1,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 1,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 19,
+    "time_ns": 760,
+    "label": "s_held_other_edge",
+    "c": 1,
+    "d": 1,
+    "r": 1,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 20,
+    "time_ns": 800,
+    "label": "s_release_at_edge",
+    "c": 0,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 21,
+    "time_ns": 840,
+    "label": "s_collision_prepare_data",
+    "c": 0,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 22,
+    "time_ns": 880,
+    "label": "s_collision_prepare_clock",
+    "c": 0,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 23,
+    "time_ns": 920,
+    "label": "s_assert_at_edge",
+    "c": 1,
+    "d": 1,
+    "r": 1,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 24,
+    "time_ns": 960,
+    "label": "s_held_other_edge_data",
+    "c": 1,
+    "d": 0,
+    "r": 1,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 1,
+      "DFFSRX1": 1,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 25,
+    "time_ns": 1000,
+    "label": "s_held_other_edge",
+    "c": 0,
+    "d": 0,
+    "r": 1,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 1,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 26,
+    "time_ns": 1040,
+    "label": "s_release_at_edge",
+    "c": 1,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 27,
+    "time_ns": 1080,
+    "label": "data_collision_prepare",
+    "c": 0,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 28,
+    "time_ns": 1120,
+    "label": "data_collision_rise",
+    "c": 1,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 29,
+    "time_ns": 1160,
+    "label": "data_collision_fall",
+    "c": 0,
+    "d": 0,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  },
+  {
+    "id": 30,
+    "time_ns": 1200,
+    "label": "both_assert_at_rise",
+    "c": 1,
+    "d": 0,
+    "r": 0,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 31,
+    "time_ns": 1240,
+    "label": "both_held_at_fall",
+    "c": 0,
+    "d": 0,
+    "r": 0,
+    "s": 0,
+    "expected": {
+      "DFFPOSX1": 0,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 0,
+      "LATCHX1": 0
+    }
+  },
+  {
+    "id": 32,
+    "time_ns": 1280,
+    "label": "both_release_at_rise",
+    "c": 1,
+    "d": 1,
+    "r": 1,
+    "s": 1,
+    "expected": {
+      "DFFPOSX1": 1,
+      "DFFNEGX1": 0,
+      "DFFSRX1": 1,
+      "LATCHX1": 1
+    }
+  }
+]

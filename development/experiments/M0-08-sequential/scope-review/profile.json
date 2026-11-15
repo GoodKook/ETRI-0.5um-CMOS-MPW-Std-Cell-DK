@@ -1,0 +1,13 @@
+{
+  "id": "nspl12t-single-posedge-core-v1",
+  "clock_port": "clk",
+  "active_low_reset_port": "rst_n",
+  "allowed_sequential_cells": ["DFFPOSX1", "DFFSRX1"],
+  "DFFSRX1_required_constants": {"S": "1"},
+  "DFFSRX1_allowed_R": ["rst_n", "1"],
+  "constant_driver_cells": {"TIEHIX1": {"Y": "1"}, "TIELOX1": {"Y": "0"}},
+  "timing_scope": {"process": "TT", "voltage_V": 5, "temperature_C": 25},
+  "excluded": ["latch", "negedge_ff", "dynamic_async_set", "dual_async_control", "generated_or_gated_clock"],
+  "later_required_checks": ["design_setup_hold", "recovery_removal_if_async_reset", "clock_reset_electrical_checks", "physical_verification_and_final_RC"],
+  "not_claimed": ["full_library_qualification", "cell_recharacterization", "transistor_model_equivalence", "silicon_signoff"]
+}

@@ -1,0 +1,46 @@
+{
+  "deck_sha256": "ef8d995baaab0313d2c0f86732155f03f41558ee3f1de02b5c5ba042b69b2c1c",
+  "runs": {
+    "default": {
+      "argv": [
+        "ngspice",
+        "-n",
+        "-b",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-08-sequential/materials/work/mos-reader.cir"
+      ],
+      "ignored": [
+        "n",
+        "fc",
+        "n",
+        "fc"
+      ],
+      "effective_nj": [
+        1.0,
+        1.0
+      ],
+      "exit_code": 0
+    },
+    "hsa": {
+      "argv": [
+        "ngspice",
+        "-n",
+        "-D",
+        "ngbehavior=hsa",
+        "-b",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-08-sequential/materials/work/mos-reader.cir"
+      ],
+      "ignored": [
+        "n",
+        "fc",
+        "n",
+        "fc"
+      ],
+      "effective_nj": [
+        1.0,
+        1.0
+      ],
+      "exit_code": 0
+    }
+  },
+  "scope": "Parser and effective-parameter observation only; no N->NJ or FC rewrite is endorsed"
+}

@@ -1,0 +1,404 @@
+#!/usr/bin/env python3
+"""M0-08: source-locked sequential functional experiment, not timing signoff.
+
+Uses the M0-07 scalar Liberty parser, Icarus and ngspice. No source mutations,
+downloads or system configuration. Every subprocess has a timeout and log.
+"""
+import argparse
+import csv
+import hashlib
+import itertools
+import json
+import os
+from pathlib import Path
+import random
+import re
+import shutil
+import subprocess
+import sys
+
+HERE = Path(__file__).resolve().parent
+REPO = HERE.parents[2]
+PARSER = HERE.parent / 'M0-07-pdk-inventory/inventory.py'
+sys.path.insert(0, str(PARSER.parent))
+from inventory import attrs, clean, groups, liberty  # noqa: E402
+
+NAMES = ['DFFPOSX1', 'DFFNEGX1', 'DFFSRX1', 'LATCHX1']
+STEM = 'NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T'
+STEP, SAMPLE = 40, 20  # ns; 1 ns SPICE ramps; settled functional observations
+
+
+def sha(p):
+    return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+
+
+def dump(p, value):
+    p.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+
+
+def command(argv, log, timeout=240):
+    p = subprocess.run(list(map(str, argv)), cwd=REPO, text=True,
+                       stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                       timeout=timeout, env={**os.environ, 'LC_ALL': 'C'})
+    log.write_text(p.stdout)
+    return {'argv': list(map(str, argv)), 'cwd': str(REPO),
+            'exit_code': p.returncode, 'log': log.name}
+
+
+def modules(text):
+    return {m[1]: m[0] for m in re.finditer(
+        r'\bmodule\s+(\w+)\b.*?\bendmodule\b', text, re.S)}
+
+
+def trace():
+    """Independent state-machine oracle for the checked Liberty contract.
+
+    Controls are evaluated as a stable input tuple, then the declared active
+    edge. Undefined startup is skipped until initialized; never forced to 0.
+    """
+    rows, state = [], dict(c=0, d=0, r=1, s=1)
+    q = [None] * 4
+    previous = None
+
+    def put(label, **change):
+        nonlocal previous
+        state.update(change)
+        c, d, r, s = (state[x] for x in 'cdrs')
+        rising, falling = previous == 0 and c == 1, previous == 1 and c == 0
+        if rising:
+            q[0] = d
+        if falling:
+            q[1] = d
+        if r == 0:
+            q[2] = 0
+        elif s == 0:
+            q[2] = 1
+        elif rising:
+            q[2] = d
+        if c == 1:
+            q[3] = d
+        rows.append(dict(id=len(rows), time_ns=len(rows)*STEP, label=label,
+                         **state, expected=dict(zip(NAMES, q))))
+        previous = c
+
+    put('undefined_start')
+    put('initialize_rise', c=1)
+    put('initialize_fall', c=0)
+    put('pos_between_edges_D1', d=1)
+    put('pos_capture_new_D1', c=1)
+    put('neg_between_edges_D0', d=0)
+    put('neg_between_edges_D1', d=1)
+    put('neg_capture_new_D1', c=0)
+    put('pos_between_edges_D0', d=0)
+    put('pos_capture_new_D0', c=1)
+    put('latch_tracks_high_D1', d=1)
+    put('latch_tracks_high_D0', d=0)
+    put('latch_close', c=0)
+    put('latch_holds_low_D1', d=1)
+    put('latch_holds_low_D0', d=0)
+    # Explicit async assertions and releases with D opposite the forced state.
+    put('sr_capture_one_prepare', d=1)
+    put('sr_capture_one', c=1)
+    put('sr_reset_clock_high', r=0)
+    put('sr_reset_high_D0', d=0)
+    put('sr_reset_release_high_hold_zero', r=1, d=1)
+    put('sr_reset_release_fall_hold', c=0)
+    put('sr_reset_release_next_rise', c=1)
+    put('sr_prepare_zero', d=0)
+    put('sr_fall', c=0)
+    put('sr_capture_zero', c=1)
+    put('sr_set_clock_high', s=0)
+    put('sr_set_release_high_hold_one', s=1)
+    put('sr_set_release_fall_hold_one', c=0)
+    put('sr_set_release_next_rise_zero', c=1)
+    # All 16 transitions between R/S tuples at each clock level, from each
+    # initial Q. Includes both assertion orders, simultaneous assertion,
+    # release to the still-active control and simultaneous release.
+    for phase, initial, before, after in itertools.product(
+            [0, 1], [0, 1], itertools.product([0, 1], repeat=2),
+            itertools.product([0, 1], repeat=2)):
+        tag = f'matrix_c{phase}_q{initial}_{before[0]}{before[1]}_to_{after[0]}{after[1]}'
+        put(tag + '_reset', r=0, s=1)
+        put(tag + '_phase', c=phase, d=1-initial)
+        put(tag + '_release_reset', r=1)
+        if initial:
+            put(tag + '_set', s=0)
+            put(tag + '_release_set', s=1)
+        put(tag + '_before', r=before[0], s=before[1])
+        put(tag + '_after', r=after[0], s=after[1])
+        put(tag + '_data_changes', d=initial)
+    # Assertions/releases separated from the edge + controls coincident with
+    # an edge (ideal digital contract only; not an analog timing criterion).
+    for control in ['r', 's']:
+        for phase in [0, 1]:
+            put(f'{control}_edge_prepare', c=1-phase, r=1, s=1, d=phase)
+            put(f'{control}_assert_at_edge', c=phase, **{control: 0})
+            put(f'{control}_held_other_edge', c=1-phase, d=1-phase)
+            put(f'{control}_release_at_edge', c=phase, **{control: 1})
+    put('random_start', r=1, s=1, c=0, d=0)
+    rng = random.Random(8008)
+    for i in range(150):
+        change = {'c': 1-state['c']} if i % 3 == 2 else {'d': rng.randrange(2)}
+        put(f'seed8008_{i}', **change)
+    return rows
+
+
+def bench(rows, latch_pin='CLK'):
+    lines = ['`timescale 1ns/1ps', 'module tb;',
+             'reg c,d,r,s;', 'wire [3:0] q;', 'integer errors=0, checks=0;',
+             'DFFPOSX1 p(.D(d),.CLK(c),.Q(q[0]));',
+             'DFFNEGX1 n(.D(d),.CLK(c),.Q(q[1]));',
+             'DFFSRX1 a(.D(d),.CLK(c),.R(r),.S(s),.Q(q[2]));',
+             f'LATCHX1 l(.D(d),.{latch_pin}(c),.Q(q[3]));',
+             'task ck(input integer id, cell_id, input actual, expected);',
+             'begin checks=checks+1; if(actual !== expected) begin',
+             'errors=errors+1;',
+             '$display("MISMATCH id=%0d cell=%0d expected=%b actual=%b",id,cell_id,expected,actual);',
+             'end end endtask', 'initial begin']
+    for row in rows:
+        lines.append(' '.join(f"{k}=1'b{row[k]};" for k in 'cdrs'))
+        lines.append(f'#{SAMPLE};')
+        for i, cell in enumerate(NAMES):
+            expect = row['expected'][cell]
+            if expect is not None:
+                lines.append(f"ck({row['id']},{i},q[{i}],1'b{expect});")
+        lines.append(f'#{STEP-SAMPLE};')
+    lines += ['$display("RESULT checks=%0d mismatches=%0d",checks,errors);',
+              'if(errors) $fatal(1,"sequential functional mismatch");',
+              '$finish; end',
+              f'initial begin #{len(rows)*STEP+100}; $fatal(1,"watchdog"); end',
+              'endmodule']
+    return '\n'.join(lines) + '\n'
+
+
+def simulate(name, model, tb, out):
+    compile_run = command(['iverilog', '-g2012', '-Wall', '-s', 'tb', '-o',
+                           out/f'{name}.vvp', tb, model], out/f'{name}-compile.log')
+    if compile_run['exit_code']:
+        return {'compile': compile_run, 'status': 'compile_failed'}
+    sim = command(['vvp', out/f'{name}.vvp'], out/f'{name}-simulate.log')
+    text = (out/sim['log']).read_text()
+    match = re.search(r'RESULT checks=(\d+) mismatches=(\d+)', text)
+    if not match:
+        raise RuntimeError(f'{name}: no final checker result')
+    mismatches = [dict(zip(['id', 'cell_index', 'expected', 'actual'], m)) for m in
+                  re.findall(r'MISMATCH id=(\d+) cell=(\d+) expected=(\w) actual=(\w)', text)]
+    count = int(match[2])
+    assert count == len(mismatches)
+    assert sim['exit_code'] == (1 if count else 0)
+    return {'compile': compile_run, 'simulation': sim,
+            'status': 'failed' if count else 'passed', 'checks': int(match[1]),
+            'mismatch_count': count, 'mismatches': mismatches,
+            'by_cell': {n: sum(int(m['cell_index']) == i for m in mismatches)
+                        for i, n in enumerate(NAMES)}}
+
+
+def evidence(libpath, vendor, cdl, pex):
+    lib = liberty(libpath)
+    sequential = {n for n, v in lib['cells'].items() if v['sequential']}
+    assert sequential == set(NAMES), sequential
+    expected = [dict(next_state='D', clocked_on='CLK'),
+                dict(next_state='D', clocked_on='!CLK'),
+                dict(next_state='D', clocked_on='CLK', clear='!R', preset='!S',
+                     clear_preset_var1='L', clear_preset_var2='H'),
+                dict(enable='CLK', data_in='D')]
+    result = {}
+    cells = dict(groups(clean(libpath.read_text()), 'cell'))
+    for n, contract in zip(NAMES, expected):
+        cell = lib['cells'][n]
+        group = next(iter(cell['sequential'].values()))[0]
+        assert {k: v for k, v in group.items() if k != 'state'} == contract
+        assert cell['pins']['Q']['function'] == 'IQ'
+        timing = []
+        for pin, pb in groups(cells[n], 'pin'):
+            for _, tb in groups(pb, 'timing'):
+                a = attrs(tb)
+                numbers = [float(v) for v in re.findall(r'[-+]?\d+(?:\.\d*)?(?:[eE][-+]?\d+)?',
+                           ' '.join(v for _, v in re.findall(r'\b(values)\s*\((.*?)\)\s*;', tb, re.S)))]
+                timing.append(dict(pin=pin, **a,
+                                   table_min=min(numbers) if numbers else None,
+                                   table_max=max(numbers) if numbers else None))
+        views = {}
+        for view, path in [('cdl', cdl), ('pex', pex[n])]:
+            text = path.read_text()
+            m = re.search(r'^\.subckt\s+'+n+r'\s+([^\n]+)', text, re.M | re.I)
+            assert m, (view, n)
+            ports = m[1].split()
+            assert set(ports) == set(cell['pins']) | {'VDD', 'VSS'}
+            views[view] = {'ports_in_order': ports, 'line': text[:m.start()].count('\n')+1}
+        result[n] = {'liberty': cell, 'timing_arcs': timing, 'circuit': views,
+                     'vendor_module_sha256': hashlib.sha256(modules(vendor.read_text())[n].encode()).hexdigest()}
+    return result
+
+
+def spice(view, paths, evidence_rows, rows, model, out):
+    # Use actual .SUBCKT port orders. CDL and PEX are deliberately different.
+    lines = [f'M0-08 {view} settled functional probe, NOT timing characterization',
+             f'.lib "{model}" MOS', '.temp 25', 'VPOWER vdd 0 5']
+    for path in dict.fromkeys(paths.values()):
+        lines.append(f'.include "{path}"')
+    for key in 'cdrs':
+        points, last = [(0, rows[0][key]*5)], rows[0][key]
+        for row in rows[1:]:
+            if row[key] != last:
+                points += [(row['time_ns'], last*5), (row['time_ns']+1, row[key]*5)]
+                last = row[key]
+        lines.append(f'V{key} {key} 0 PWL(')
+        lines += [f'+ {t}n {v}' for t, v in points]
+        lines.append('+)')
+    for i, n in enumerate(NAMES):
+        nets = dict(CLK='c', D='d', R='r', S='s', Q=f'q{i}', VDD='vdd', VSS='0')
+        ports = evidence_rows[n]['circuit'][view]['ports_in_order']
+        lines += [f'X{i} '+ ' '.join(nets[p] for p in ports)+f' {n}', f'CL{i} q{i} 0 0.05p']
+    data = out/f'spice-{view}.dat'
+    lines += ['.control', f'tran 1n {len(rows)*STEP}n',
+              f'wrdata {data} v(q0) v(q1) v(q2) v(q3)', 'quit', '.endc', '.end']
+    deck = out/f'spice-{view}.cir'
+    deck.write_text('\n'.join(lines)+'\n')
+    run = command(['ngspice', '-b', deck], out/f'spice-{view}.log')
+    log = (out/run['log']).read_text()
+    assert run['exit_code'] == 0 and data.exists(), run
+    samples = [list(map(float, l.split())) for l in data.read_text().splitlines()]
+    assert all(len(s) == 8 for s in samples)
+    assert samples[-1][0] >= (len(rows)*STEP-1)*1e-9, 'incomplete transient'
+    observations, j = [], 0
+    for row in rows:
+        t = (row['time_ns']+SAMPLE)*1e-9
+        while j+1 < len(samples) and samples[j+1][0] < t:
+            j += 1
+        a, b = samples[j], samples[j+1]
+        fraction = (t-a[0])/(b[0]-a[0])
+        for i, n in enumerate(NAMES):
+            v = a[2*i+1] + fraction*(b[2*i+1]-a[2*i+1])
+            actual = 0 if v <= 1 else 1 if v >= 4 else 'indeterminate'
+            exp = row['expected'][n]
+            observations.append(dict(id=row['id'], label=row['label'], cell=n,
+                                     expected=exp, volts=v, actual=actual,
+                                     match=None if exp is None else exp == actual))
+    with (out/f'spice-{view}-checks.csv').open('w', newline='') as f:
+        writer = csv.DictWriter(f, observations[0]); writer.writeheader(); writer.writerows(observations)
+    failures = [o for o in observations if o['match'] is False]
+    warnings = re.findall(r'(?:Warning:[\s\S]*?ignored\n(?:unrecognized[^\n]*\n)*)', log)
+    return {'run': run, 'status': 'failed' if failures else 'passed_with_model_warnings',
+            'checks': sum(o['match'] is not None for o in observations),
+            'mismatch_count': len(failures), 'mismatches': failures,
+            'model_warnings': warnings, 'conditions': dict(voltage_V=5, temp_C=25,
+                output_load_pF=0.05, ramp_ns=1, sample_after_action_ns=SAMPLE,
+                classification_V={'zero_at_most': 1, 'one_at_least': 4}),
+            'scope': 'finite settled functional samples only; no silicon/PVT/timing signoff'}
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--pdk-root', type=Path, default=Path(os.getenv(
+        'NSPL_PDK_ROOT', REPO.parent/'NSPL_05CMOS_PDK_260820')))
+    p.add_argument('--out', type=Path, default=HERE/'results')
+    a = p.parse_args()
+    root, out = a.pdk_root.resolve(), a.out.resolve()
+    # Output may contain vendor-derived decks; keep it away from all originals.
+    permitted = (HERE/'results').resolve()
+    if out != permitted and Path('/tmp') not in out.parents:
+        p.error('--out must be this experiment/results or under /tmp')
+    if out == root or root in out.parents:
+        p.error('output overlaps PDK')
+    out.mkdir(parents=True, exist_ok=True)
+    digital = root/(STEM+'_PnR')
+    lib = digital/'LIB'/(STEM+'_std_tt.lib')
+    vendor = digital/'VERILOG'/(STEM+'_std.v')
+    cdl = digital/'CDL'/(STEM+'_std.cdl')
+    pex = {n: digital/'PEX'/f'{n}.pex.netlist' for n in NAMES}
+    model = root/'Model_Parameter/05cmos_model_260210.lib'
+    manual = REPO/'Tutorials/_References_/liberty07_03.pdf'
+    derived = HERE/'derived/nspl12t_seq_functional.v'
+    inputs = [lib, vendor, cdl, *pex.values(), model, manual, derived, PARSER, Path(__file__).resolve()]
+    before = {str(f): sha(f) for f in inputs}
+    # Entire M0-07 inventory is also protected, not just the selected four cells.
+    old_inventory = HERE.parent/'M0-07-pdk-inventory/results/files.csv'
+    originals = {}
+    for r in csv.DictReader(old_inventory.open()):
+        key = r['path']
+        location = root/key[4:] if key.startswith('PDK/') else REPO/key[5:]
+        assert sha(location) == r['sha256'], f'M0-07 source changed: {key}'
+        originals[location] = r['sha256']
+    tool_runs = {}
+    for name, args in [('iverilog', ['-V']), ('vvp', ['-V']), ('ngspice', ['--version']),
+                       ('python3', ['--version'])]:
+        binary = Path(shutil.which(name)).resolve()
+        tool_runs[name] = dict(path=str(binary), sha256=sha(binary),
+                              version=command([name]+args, out/f'version-{name}.log'))
+    ev = evidence(lib, vendor, cdl, pex)
+    dump(out/'evidence.json', ev)
+    rows = trace()
+    dump(out/'stimulus.json', rows)
+    normal_tb, original_tb = out/'tb-canonical.v', out/'tb-vendor-G-adapter.v'
+    normal_tb.write_text(bench(rows))
+    original_tb.write_text(bench(rows, 'G'))
+    # Replace only the four modules in memory. Other vendor bytes are preserved.
+    replacements = modules(derived.read_text())
+    assert set(replacements) == set(NAMES)
+    vendor_text = vendor.read_text()
+    vm = modules(vendor_text)
+    assembled_text = vendor_text
+    for n in NAMES:
+        assembled_text = assembled_text.replace(vm[n], replacements[n])
+    assembled = out/'functional-assembled.v'
+    assembled.write_text(assembled_text)
+    assert {n: m for n, m in modules(assembled_text).items() if n not in NAMES} == {
+        n: m for n, m in vm.items() if n not in NAMES}
+    dump(out/'patch-plan.json', {'source_sha256': sha(vendor), 'replacement_sha256': sha(derived),
+        'output_sha256': sha(assembled), 'recipe': 'replace exactly these four complete module spans',
+        'modules': {n: {'before_sha256': hashlib.sha256(vm[n].encode()).hexdigest(),
+                        'after_sha256': hashlib.sha256(replacements[n].encode()).hexdigest()}
+                    for n in NAMES}, 'other_modules_unchanged': True})
+    runs = {}
+    runs['vendor_canonical'] = simulate('vendor-canonical', vendor, normal_tb, out)
+    assert runs['vendor_canonical']['status'] == 'compile_failed', 'expected CLK/G mismatch missing'
+    assert 'CLK' in (out/'vendor-canonical-compile.log').read_text()
+    runs['vendor_with_G_adapter'] = simulate('vendor-adapted', vendor, original_tb, out)
+    assert all(runs['vendor_with_G_adapter']['by_cell'][n] > 0 for n in NAMES[:3])
+    assert runs['vendor_with_G_adapter']['by_cell']['LATCHX1'] == 0
+    runs['derived'] = simulate('derived', assembled, normal_tb, out)
+    assert runs['derived']['status'] == 'passed'
+    # Meaningful wrong-model controls: edge, transparency, control polarity,
+    # priority and release sensitivity. Every mutant must fail the same TB.
+    text = derived.read_text()
+    mutants = {
+        'pos_early_sample': text.replace('always @(posedge CLK) Q <= D;',
+            'reg early; always @(negedge CLK) early <= D; always @(posedge CLK) Q <= early;'),
+        'neg_wrong_edge': text.replace('always @(negedge CLK) Q <= D;', 'always @(posedge CLK) Q <= D;'),
+        'latch_low_enable': text.replace('if (CLK) Q <= D;', 'if (!CLK) Q <= D;'),
+        'sr_active_high_reset': text.replace("if (R === 1'b0)", "if (R === 1'b1)"),
+        'sr_set_dominates': text.replace("if (R === 1'b0) Q <= 1'b0;",
+            "if (S === 1'b0) Q <= 1'b1; else if (R === 1'b0) Q <= 1'b0;"),
+        'sr_misses_release': text.replace('always @(CLK or R or S)',
+            'always @(posedge CLK or negedge CLK or negedge R or negedge S)'),
+    }
+    for name, contents in mutants.items():
+        assert contents != text, name
+        path = out/f'mutant-{name}.v'; path.write_text(contents)
+        runs['mutant_'+name] = simulate('mutant-'+name, path, normal_tb, out)
+        assert runs['mutant_'+name]['status'] == 'failed', f'escaped mutant: {name}'
+    # Both source circuits are actually simulated with identical action lists.
+    for view, paths in [('cdl', {n: cdl for n in NAMES}), ('pex', pex)]:
+        runs[view] = spice(view, paths, ev, rows, model, out)
+    assert before == {str(f): sha(f) for f in inputs}, 'selected inputs changed during run'
+    assert all(sha(f) == h for f, h in originals.items()), 'original inventory changed during run'
+    dump(out/'results.json', {'stimulus_rows': len(rows), 'runs': runs,
+        'source_preservation': {'selected_inputs_unchanged': True,
+                                'M0_07_original_hashes_unchanged': len(originals)}})
+    # A hash ties each exact input, generated stimulus, TB, patch and log together.
+    dump(out/'run.json', {'date': '2026-11-15', 'timezone': 'Asia/Seoul',
+         'argv': sys.argv, 'cwd': str(Path.cwd()), 'pdk_root': str(root),
+         'tools': tool_runs, 'inputs': before,
+         'artifacts': {f.name: sha(f) for f in sorted(out.iterdir())
+                       if f.is_file() and f.name != 'run.json'},
+         'limitations': ['binary CLK/R/S stable-tuple functional abstraction',
+            'ngspice ignores N/FC device-model parameters; see raw logs',
+            'no characterization, recovery/removal closure, LVS or silicon verification']})
+    print(json.dumps({'stimulus_rows': len(rows), 'runs': {n: {
+        k: v for k, v in r.items() if k in ['status', 'checks', 'mismatch_count', 'by_cell']}
+        for n, r in runs.items()}, 'originals_unchanged': len(originals)}, indent=2))
+
+
+if __name__ == '__main__':
+    main()
