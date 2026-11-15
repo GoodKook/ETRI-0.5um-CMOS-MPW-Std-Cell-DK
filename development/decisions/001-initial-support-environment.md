@@ -36,7 +36,7 @@ Ubuntu 이외 배포판, Ubuntu 다른 주 버전, ARM64, macOS, Windows 직접 
 
 | 도구·역할 | 현재 PATH와 실측 버전 | 향후 고정 대상·채택 조건 |
 | --- | --- | --- |
-| Icarus Verilog / vvp — 필수 기능검증 | `/usr/local/bin/iverilog`, `/usr/local/bin/vvp`: `14.0 (devel)`, `s20260301-986-gaf170a0b5` | 이 revision을 우선 후보로 전체 commit·소스 해시 확보. M0-08의 순차 셀 검사 및 M1-05의 자동 판정 TB로 검증. devel을 이유 없이 stable 버전으로 추정·대체하지 않음. |
+| Icarus Verilog / vvp — 필수 기능검증 | `/usr/local/bin/iverilog`, `/usr/local/bin/vvp`: `14.0 (devel)`, `s20260301-986-gaf170a0b5` | 이 revision을 우선 후보로 전체 commit·소스 해시 확보. M0-08의 순차 셀 검사 및 M1-04의 자동 판정 TB로 검증. devel을 이유 없이 stable 버전으로 추정·대체하지 않음. |
 | Yosys + ABC — 필수 합성 | `/usr/local/bin/yosys`: `0.71+4`, `02365349e`; `/usr/local/bin/yosys-abc`: ABC `1.01`, 빌드일만 출력 | Yosys 전체 commit과 submodule/ABC 전체 revision을 한 세트로 고정. ABC `1.01`만으로 식별 불충분. 새 12T 합성·gate 기능검증으로 후보 채택. |
 | OpenSTA — 필수 PRE/POST 분석 | `/usr/local/bin/sta`: `3.2.0`, 시작 배너 `f2e10f1da1` | 전체 commit·CUDD 등 빌드 의존성·옵션 고정. 정규 SDC, PRE 분석, 최종 RC annotation 검사 필요. 자동 생성되는 QFlow 예시 SDC는 사용 기준으로 삼지 않음. |
 | QFlow — P&R 평가 후보 | `/usr/local/bin/qflow`: `1.4 revision 100` | 동봉 ETRI 아카이브 `1.4.100_etri050`와 SHA-256을 후보 입력으로 사용. 설치본이 그 아카이브와 동일하다는 검증은 미실시. M0-09~12에서 backend 채택 시에만 필수 lock에 포함. |
@@ -73,7 +73,7 @@ PDK_DIGITAL="$PDK_ROOT/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR"
 1. **M0-07/08:** PDK view·셀·핀·전원·층·단위·해시를 대응시키고, 기준 RTL에 필요한 순차 셀과 비동기 리셋을 실제 자동 판정한다. 원본/파생 모델의 식별을 보존한다.
 2. **M0-09~12:** 동일 PDK·작은 코어로 합성→배치→CTS→배선→GDS, 최종 netlist/RC 이름·단위·annotation을 검증하여 backend 하나를 선택한다. 혼합 경로면 왕복 보존도 검사한다. RC/DRC 범위 부족은 명시하고 통과시키지 않는다.
 3. **M0-13, M1-01:** 위 지원 범위를 입력 검사와 필수/선택 프로파일에 반영한다. 깨끗한 Ubuntu 24.04 x86_64 WSL2에서 고정 입력으로 빌드·재실행·실패 전파·doctor·PDK 검사를 수행한다. native Ubuntu는 별도의 같은 검사 후 검증 목록에 추가한다. 네트워크·sudo 필요 단계와 로그를 기록한다.
-4. **M1-04/05/08:** 다른 작업 위치·다른 checkout/PDK 경로에서 실행하고 기존 홈 링크 없이 동작하는지 확인한다. 중복 생성·미지원 설정·빈칸·없는 PDK를 거부하고 RTL 자동 판정 TB가 기능 오류를 검출하는지 확인한다. 경로 이행 후 동일 최소 실험을 다시 수행한다.
+4. **M1-03/04/07:** 다른 작업 위치·다른 checkout/PDK 경로에서 실행하고 기존 홈 링크 없이 동작하는지 확인한다. 중복 생성·미지원 설정·빈칸·없는 PDK를 거부하고 RTL 자동 판정 TB가 기능 오류를 검출하는지 확인한다. 경로 이행 후 동일 최소 실험을 다시 수행한다.
 5. **M2 및 릴리스:** 필수 기능검증·PRE/POST-STA·CTS·GDS·DRC/LVS·배선 RC의 정상/오류 입력을 실행하고 검증 범위를 공개한다. 실제 전체 회귀 작업은 ROADMAP에서 수행하기로 정한 범위에 연결한다. 이 결정만으로 R-01 등 릴리스 체크를 표시하지 않는다.
 
 PDK 해시·필수 도구·OS/아키텍처 변경, 현재 후보의 기능/형식 실패, CTS/RC/DRC 지원 부재, 새 PVT·다중 클록·chip-top 요구가 생기면 관련 근거를 다시 확인하고 결정을 갱신한다. 버전만 올린 뒤 이전 통과 결과를 재사용하지 않는다.

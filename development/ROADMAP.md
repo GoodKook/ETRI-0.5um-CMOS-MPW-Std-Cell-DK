@@ -2,7 +2,7 @@
 
 - 최종 갱신일: 2026-11-15 (Asia/Seoul)
 - 최종 목표: [PLAN.md](PLAN.md) / 상세 요구사항: [REQUIREMENTS.md](REQUIREMENTS.md)
-- 현재 위치: **M0-01~09 완료. 기존 조사·실험을 출발점으로 M0의 시작 자료·작업 규칙과 M1의 담당별 폴더·문서 틀을 준비한다. 다음 목표는 A/B/C가 M2에서 동시에 조사하고 튜토리얼 초안을 작성할 수 있는 상태다.**
+- 현재 위치: **M0-01~09 완료, M0-10~13의 시작 자료·작업 규칙 정리 완료. 실제 배선 RC/POST-STA는 미완료이며 M3-03/04에서 해결한다. 다음은 M0-14의 경로 대응표와 M1의 담당별 작업 폴더·참고 자료 접근 확인이다. M2 착수 준비 전체는 아직 미완료다.**
 - 기준 예제: `shift_reg_8bit` → 확장 예제 FIR.
 - 조사 자료: [전체 PDK/PDF 조사](experiments/pdk-package-review/README.md), [PDK 참고 자료](PDK_REFERENCE.md).
 - 실행 안내: [CODEX_GUIDE.md](CODEX_GUIDE.md) / 담당자 시작 자료: [M2-PREPARATION.md](handoffs/M2-PREPARATION.md).
@@ -31,13 +31,13 @@
 | 순서 | 마일스톤 | 목표 |
 | --- | --- | --- |
 | 1 | [M0. 공통 기반과 초기 기술 선택](#m0-공통-기반과-초기-기술-선택) | 기존 조사·실험의 시작 자료, 담당 범위, 최소 작업 규칙과 사용할 경로를 정한다. |
-| 2 | [M1. 공동 작업 환경과 폴더 준비](#m1-공동-작업-환경과-폴더-준비) | 담당별 폴더·튜토리얼 틀과 참고 자료 접근을 준비하고 인계한다. |
+| 2 | [M1. 공동 작업 환경과 폴더 준비](#m1-공동-작업-환경과-폴더-준비) | 담당별 작업 폴더와 참고 자료 접근을 준비하고 인계한다. |
 | 3 | [M2. 담당별 조사와 튜토리얼 초안](#m2-담당별-조사와-튜토리얼-초안) | A/B/C가 각 단계의 원리·도구·입출력·실행 절차를 독립적으로 조사하고 문서화한다. |
 | 4 | [M3. 담당별 구현과 기준 예제 통합](#m3-담당별-구현과-기준-예제-통합) | 세 사람이 각 단계의 YAML·스키마·실행 코드를 구현하고 실제 산출물로 연결·검증한다. |
 | 후속 후보 | [M4. FIR 확장](#m4-fir-확장) | 수행 여부는 추후 결정한다. 기준 예제와 같은 공통 경로로 확장한다. |
 | 릴리스 시 | [최초 릴리스 점검](#3-최초-릴리스-체크리스트) | 실제 CTS·배선 RC·POST-STA·물리 검증을 포함한 최종 기준을 점검한다. |
 
-**실행 경로:** 기존 조사·실험 → M0의 시작 자료·경로 정리 → M1의 폴더·문서 틀·접근 확인 → M2의 A/B/C 병렬 조사·집필 → M3의 담당별 구현·통합.
+**실행 경로:** 기존 조사·실험 → M0의 시작 자료·경로 정리 → M1의 작업 폴더·자료 접근 확인 → M2의 A/B/C 병렬 조사·집필 → M3의 담당별 구현·통합.
 
 M0·M1은 [M2-PREPARATION.md](handoffs/M2-PREPARATION.md)에 자료 색인·규칙·경로·담당을 함께 정리하면 된다. 전체 YAML, 실행 가능한 스키마·CLI, 프로젝트 생성기, 설치 자동화, 신규 인계 fixture는 M3에서 개발한다. M2에서는 상대 담당자의 구현이나 실제 배선 산출물을 기다리지 않고 문서 초안을 작성한다.
 
@@ -56,10 +56,10 @@ M0·M1은 [M2-PREPARATION.md](handoffs/M2-PREPARATION.md)에 자료 색인·규�
 | M0-07 | PDK view inventory와 셀/핀/기능/물리/전원 대응표 작성 | 완료 | [조사·재실행·한계](experiments/M0-07-pdk-inventory/README.md), [셀/핀 표](experiments/M0-07-pdk-inventory/results/12t-cells.md), [해시·view](experiments/M0-07-pdk-inventory/results/views.csv). 322개 원본 해시 보존, GDS 7파일 판독, 조합 검사 292건·1438입력 및 360개 검증 확인. 신 LEF S 방향 2건·Verilog 제어 핀 3건 불일치; DB/NDM/TLU+·전체 회로/연결/순차 의미는 미확인. 다음: M0-08/09/10에서 분리된 파생 모델·LEF/기술 adapter와 RC 검증. | [P-07](#p-07-pdk-inventory와-view-대응표) / 6.1 Sol · high |
 | M0-08 | 순차 셀 모델 처리·검증 기준 확정, 원본 보존·파생 패치 방식 결정 | 완료 | [기존 4셀 실험·실패 보존](experiments/M0-08-sequential/README.md), [결정 002·자료 필요성 재분류](decisions/002-sequential-functional-models.md), [현재 동기식 프로파일의 합성·검증과 native 재조사](experiments/M0-08-sequential/scope-review/README.md), [프로파일/검사기](experiments/M0-08-sequential/scope-review/profile.json), [실제 결과·해시](experiments/M0-08-sequential/scope-review/results/run.json). 비동기 reset 기준 RTL은 DFFSRX1 8개·모든 S=1, 동기 reset 별도 fixture는 DFFPOSX1 8개+AND2X1 8개. RTL/파생 기능 모델 650/649비교 통과·금지 연결 7종 거부, native 385파일 보존. 원본 모델 실패·동시 해제의 기존 4개/뷰 차이는 유지. 완료는 현재 범위의 모델 처리·검증 기준 확정이며 전체 셀 qualification·STA/물리 통과는 아님. M08-D1~D5는 조건부 추가 조사. | [P-08](#p-08-순차-셀-기능-모델-검증) / 6.1 Sol · extra high |
 | M0-09 | 기존 QFlow 경로의 새 12T 셀 호환성 최소 실험 | 완료 | [실험·실패·재실행·재사용 한계](experiments/M0-09-qflow/README.md), [실제 단계별 결과](experiments/M0-09-qflow/results/result.json), [최종 GDS 검사](experiments/M0-09-qflow/results/gds-check.json), [독립 재현·결함 검출](experiments/M0-09-qflow/validation/checks.json). **조사 완료 및 보완 경로의 최소 실험 passed**: QFlow→GrayWolf→QRouter→별도 DEF/전원 adapter→KLayout GDS. 각 netlist의 DFFSRX1 8+TIEHIX1 8·S=1·동일 clock/reset, 파생 모델 각 650비교 통과·원본 각 602불일치 보존. GDS 16 instance·21 net·93 endpoint·층/단위/제조격자·핀/전원 연결 확인, 셀 누락/open/short 0; inventory 322개와 공유 링크 보존. nofanout·LEF parser·DEF 중복/count·ANSI 재선언·PG 재인계 실패와 수정 기록. **무수정 QFlow/Magic·층별 track offset/ROW 완전 인계·전체 디지털 흐름 통과는 아님**. 다음: M0-10의 CTS/검증된 RC/STA, M0-11/12에서 backend 선택·유지보수 범위 결정. | [P-09](#p-09-qflow-새-pdk-호환성-실험) / 6.1 Sol · high |
-| M0-10 | CTS·배선 RC 초기 실험의 확인 범위와 미해결 사항 정리 | 진행 중 | [기존 실험·실패·도구/자료 근거](experiments/M0-10-cts-rc/README.md)를 보존. CTS 3 buffer/8 sinks·기능 650비교 및 fixture annotation 검출은 확인했으나 실제 배선·RC·POST-STA는 미완료다. TritonRoute pin access, QRouter 미배선 2개, 검증된 NSPL RC 변환 부재를 시작 자료에 연결한다. 추가 실험은 M3-03/04에서 수행한다. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
-| M0-11 | P&R 후보별 기존 근거와 B/C의 조사 출발점 정리 | 미착수 | M0-09/10의 성공·실패 링크와 QFlow/OpenROAD/혼합 후보의 확인 범위만 색인한다. B의 M2-02에서 후보를 조사하고 M3-03에서 실제 경로를 선택·검증한다. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
-| M0-12 | 지원 범위·미해결 항목·담당자 색인 작성 | 미착수 | 기존 결정 001/002와 조사 자료를 연결하고 A/B/C가 확인할 질문을 적는다. M0-10~14는 한 시작 문서에 정리하며 별도 보고서나 새 기술 결정을 요구하지 않는다. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
-| M0-13 | 담당 분담과 최소 문서·입출력 규칙 정리 | 미착수 | A=01/02, B=03/04, C=05의 stage ID·담당 경로·주요 입출력 종류·단위를 짧은 표로 정한다. 실제 결과와 예시, 확인된 사실과 미확인을 구별하고 공통 파일 변경 절차를 적는다. YAML 키·스키마·manifest·fixture의 구현은 M3에서 담당자들이 구체화한다. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
+| M0-10 | CTS·배선 RC 초기 실험의 확인 범위와 미해결 사항 정리 | 완료 | [기존 근거·미해결 질문](handoffs/M2-PREPARATION.md#확인-범위와-미해결-질문), [CTS/RC 경계·F1~F6 담당](handoffs/M2-PREPARATION.md#m0-10에서-확인한-사실). CTS 3 buffer/8 sinks·기능 650비교와 fixture 검출을 실제 배선/RC/POST-STA 미완료와 구분해 연결했다. **준비 정리 완료**이며 기존 blocked 판정은 유지. 다음: M2-02/03 조사, M3-03/04 추가 실험·검증. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
+| M0-11 | P&R 후보별 기존 근거와 B/C의 조사 출발점 정리 | 완료 | [QFlow 보완/OpenROAD/혼합 후보 근거표](handoffs/M2-PREPARATION.md#pr-후보의-조사-출발점)에 M0-09/10의 성공 범위·실패·미확인을 연결했다. 최종 backend는 미선정. 다음: B의 M2-02 및 B/C의 M2-05 조사·경계 검토 후 M3-03에서 선택·검증. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
+| M0-12 | 지원 범위·미해결 항목·담당자 색인 작성 | 완료 | [확인 범위·미해결 질문](handoffs/M2-PREPARATION.md#확인-범위와-미해결-질문), [담당별 시작 자료](handoffs/M2-PREPARATION.md#담당별-첫-자료와-작업)에 결정 001/002·제한 프로파일·PDK 조사·조건부 추가 자료를 연결했다. 다음: 각 담당이 M2에서 자기 질문을 조사하고 M3 구현으로 연결. 별도 기술 결정·보고서는 만들지 않음. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
+| M0-13 | 담당 분담과 최소 문서·입출력 규칙 정리 | 완료 | [stage ID·담당 파일](handoffs/M2-PREPARATION.md#stage-id와-담당-파일), [입출력·단위](handoffs/M2-PREPARATION.md#주요-입출력-종류와-단위), [공통 변경 절차](handoffs/M2-PREPARATION.md#공통-파일-변경-절차), [사실·결과 표시 규칙](handoffs/M2-PREPARATION.md#사실제안미확인과-결과의-표시)을 정했다. 문서·근거 링크 확인. 다음: M0-14/M1에서 예정 경로 생성·접근 인계, 상세 형식·YAML·스키마·manifest·fixture 구현은 M3. | [P-13](CODEX_GUIDE.md#p-13-공통-개발-계약-v1) / 6.1 Sol · medium |
 | M0-14 | 팀이 바로 사용할 폴더와 참고 경로 대응표 작성 | 미착수 | 기존 inventory를 재사용해 튜토리얼·단계별 구현 위치와 RTL/TB/SDC·PDK·실험의 원래 경로를 연결한다. 새 폴더 생성과 필요한 참조만 계획한다. 원본 PDK·수동 설계물·과거 실험·미사용 legacy는 보존한다. | [P-14](CODEX_GUIDE.md#p-14-폴더-의존성-조사와-정리-계획) / 6.1 Sol · medium |
 
 #### 초기에 함께 결정할 기술 선택의 실행 방법
@@ -72,28 +72,29 @@ M0·M1은 [M2-PREPARATION.md](handoffs/M2-PREPARATION.md)에 자료 색인·규�
 
 ### M1. 공동 작업 환경과 폴더 준비
 
-**완료 기준:** 세 사람이 자기 파일을 찾아 편집하고 기존 조사·예제·PDK 자료를 참조할 수 있다. 폴더·문서 틀·담당별 시작 순서와 접근 확인 결과를 제공한다. 도구 전체 설치, 프로젝트 생성기, YAML·스키마와 실제 EDA 흐름 검증은 M3의 구현 업무다.
+담당 경계는 [기준 PDF](<../docs/ETRI_0p5um_NSPL_260820/05_NSPL 0.5um Digital CMOS 2P3M 5V Design Tutorial(PnR)_V1.0.pdf>)의 다섯 단계와 A=01/02, B=03/04, C=05를 따른다. 목차·제목·설명 순서와 세부 구성은 각 담당자가 M2에서 자율적으로 정하며, 공통 목차 작성은 준비 작업이나 착수 조건에 포함하지 않는다.
+
+**완료 기준:** 세 사람이 자기 작업 위치에서 문서를 작성하고 기존 조사·예제·PDK 자료를 참조할 수 있다. 담당별 작업 폴더·시작 순서와 접근 확인 결과를 제공한다. 도구 전체 설치, 프로젝트 생성기, YAML·스키마와 실제 EDA 흐름 검증은 M3의 구현 업무다.
 
 | ID | 작업·완료 조건 | 상태 | 근거·다음 행동 | Codex 프롬프트 / 추천 설정 |
 | --- | --- | --- | --- | --- |
 | M1-01 | 현재 개발 환경·PDK 경로와 접근 방법 안내 | 미착수 | M0-06의 환경 기록을 재사용하고 Git·편집 도구·Python 및 기존 EDA 실행 파일의 위치를 안내한다. 공유/외부 PDK와 필수 참고 파일의 접근 여부를 확인하고 미설치 도구는 담당별 필요 목록으로 남긴다. 새 setup/doctor·도구 빌드를 요구하지 않는다. | [P-101](CODEX_GUIDE.md#p-101-설치빌드doctor-구현) / 6.1 Sol · medium |
 | M1-02 | 담당별 문서·구현 폴더 생성 | 미착수 | `docs/tutorials/`, `docs/lessons/`, `docs/prompts/`, stage ID별 `flow/stages/`와 `templates/digital/`, `platforms/`, `examples/`의 최소 진입점을 준비한다. 빈 폴더는 짧은 역할 안내로 추적하고 프로젝트 생성기는 M3-01에서 구현한다. | [P-102](CODEX_GUIDE.md#p-102-프로젝트-생성기와-빈칸-yaml) / 6.1 Sol · medium |
-| M1-03 | 다섯 튜토리얼의 공통 목차와 담당 표시 | 미착수 | 단계별 Markdown 파일에 목적·준비 자료·입력·절차·결과 확인·문제 해결·다음 단계의 제목과 담당만 둔다. 본문은 M2, YAML의 칸별 설명·완성 예는 M3에서 작성한다. | [P-102](CODEX_GUIDE.md#p-102-프로젝트-생성기와-빈칸-yaml) / 6.1 Sol · medium |
-| M1-04 | 담당 파일 경계와 공통 파일 변경 절차 안내 | 미착수 | A/B/C의 문서·단계별 코드·템플릿 경로를 구분한다. README·공통 스키마·플랫폼 설정은 변경 주도자와 영향받는 담당자가 함께 확인하도록 정하고 작업 충돌을 피할 방법을 적는다. | [P-104](CODEX_GUIDE.md#p-104-생성입력-오류-처리-검증) / 6.1 Sol · medium |
-| M1-05 | 기준 예제 RTL/TB/SDC와 기존 실행 근거 연결 | 미착수 | 제공 `shift_reg_8bit`와 M0-08/09의 파일·명령·검증 결과를 시작 자료에서 바로 찾을 수 있게 한다. 필요한 최소 복사·참조만 준비하고 새 TB·예제 YAML·기능검증 체계는 M3-02에서 작성한다. | [P-105](CODEX_GUIDE.md#p-105-기준-예제와-자동-판정-tb) / 6.1 Sol · medium |
-| M1-06 | README에 담당별 작업 시작점 안내 | 미착수 | 현재 지원 범위·폴더 역할·M2 작성 파일·참고 자료와 첫 작업을 연결한다. 실제 구현한 명령만 사용 가능한 기능으로 안내한다. 최종 사용자용 설치·프로젝트 생성 안내는 M3 구현에 맞춰 완성한다. | [P-106](CODEX_GUIDE.md#p-106-readme와-초보자-안내) / 6.1 Terra · medium |
-| M1-07 | 새 작업 경로와 필요한 참조 연결 | 미착수 | M0-14의 최소 대응표대로 새 폴더와 실제 사용하는 참고 링크를 연결한다. 필요한 파일을 옮기면 해당 참조만 수정한다. 기존 실험·외부 PDK와 미사용 legacy의 일괄 이동·삭제는 수행하지 않는다. | [P-107](CODEX_GUIDE.md#p-107-폴더-이행정리와-경로-검증) / 6.1 Sol · medium |
-| M1-08 | 담당별 파일·자료 접근 확인과 착수 인계 | 미착수 | 아래 M2 착수 기준의 실제 파일·링크·접근 여부를 확인하고 시작 문서에 기록한다. 생성기·EDA 실행·계약 fixture 검증을 추가하지 않는다. | [P-107](CODEX_GUIDE.md#p-107-폴더-이행정리와-경로-검증) / 6.1 Sol · medium |
+| M1-03 | 담당 파일 경계와 공통 파일 변경 절차 안내 | 미착수 | A/B/C의 문서·단계별 코드·템플릿 경로를 구분한다. README·공통 스키마·플랫폼 설정은 변경 주도자와 영향받는 담당자가 함께 확인하도록 정하고 작업 충돌을 피할 방법을 적는다. | [P-103](CODEX_GUIDE.md#p-103-생성입력-오류-처리-검증) / 6.1 Sol · medium |
+| M1-04 | 기준 예제 RTL/TB/SDC와 기존 실행 근거 연결 | 미착수 | 제공 `shift_reg_8bit`와 M0-08/09의 파일·명령·검증 결과를 시작 자료에서 바로 찾을 수 있게 한다. 필요한 최소 복사·참조만 준비하고 새 TB·예제 YAML·기능검증 체계는 M3-02에서 작성한다. | [P-104](CODEX_GUIDE.md#p-104-기준-예제와-자동-판정-tb) / 6.1 Sol · medium |
+| M1-05 | README에 담당별 작업 시작점 안내 | 미착수 | 현재 지원 범위·폴더 역할·M2 작성 파일·참고 자료와 첫 작업을 연결한다. 실제 구현한 명령만 사용 가능한 기능으로 안내한다. 최종 사용자용 설치·프로젝트 생성 안내는 M3 구현에 맞춰 완성한다. | [P-105](CODEX_GUIDE.md#p-105-readme와-초보자-안내) / 6.1 Terra · medium |
+| M1-06 | 새 작업 경로와 필요한 참조 연결 | 미착수 | M0-14의 최소 대응표대로 새 폴더와 실제 사용하는 참고 링크를 연결한다. 필요한 파일을 옮기면 해당 참조만 수정한다. 기존 실험·외부 PDK와 미사용 legacy의 일괄 이동·삭제는 수행하지 않는다. | [P-106](CODEX_GUIDE.md#p-106-폴더-이행정리와-경로-검증) / 6.1 Sol · medium |
+| M1-07 | 담당별 파일·자료 접근 확인과 착수 인계 | 미착수 | 아래 M2 착수 기준의 실제 파일·링크·접근 여부를 확인하고 시작 문서에 기록한다. 생성기·EDA 실행·계약 fixture 검증을 추가하지 않는다. | [P-106](CODEX_GUIDE.md#p-106-폴더-이행정리와-경로-검증) / 6.1 Sol · medium |
 
-M1-02~07은 같은 폴더·문서 정리에서 함께 처리할 수 있다. 별도 자동화나 중복 보고서를 만들기보다 담당자가 바로 작업을 시작할 경로를 제공한다.
+M1-02~06은 같은 폴더·참조 정리에서 함께 처리할 수 있다. 별도 자동화나 중복 보고서를 만들기보다 담당자가 바로 작업을 시작할 경로를 제공한다.
 
 #### M2 착수 기준
 
-- [ ] A/B/C의 담당 단계·편집 파일·공통 파일 변경 절차가 정해졌다.
-- [ ] 다섯 튜토리얼의 Markdown 틀과 담당별 구현 폴더가 존재한다.
+- [x] A/B/C의 담당 단계·편집 파일·공통 파일 변경 절차가 정해졌다. [경로 합의](handoffs/M2-PREPARATION.md#stage-id와-담당-파일)·[변경 절차](handoffs/M2-PREPARATION.md#공통-파일-변경-절차); 실제 폴더·브랜치 확인은 M1에서 수행.
+- [ ] 담당별 문서 작성 폴더와 구현 폴더가 존재한다. 튜토리얼 파일·목차의 사전 생성은 요구하지 않는다.
 - [ ] 기준 RTL/TB/SDC, PDK와 기존 조사·실패 기록을 실제 경로에서 확인할 수 있다. 사람별 PDK 위치가 다르면 경로 지정 방법이 있다.
-- [ ] stage ID·주요 입출력 종류·단위와 실제 결과/예시 구분 규칙이 짧게 정리되어 있다.
-- [ ] 담당별 첫 조사 항목·참고 자료·작성 위치가 시작 문서에 연결되어 있다.
+- [x] stage ID·주요 입출력 종류·단위와 실제 결과/예시 구분 규칙이 짧게 정리되어 있다. [입출력·단위](handoffs/M2-PREPARATION.md#주요-입출력-종류와-단위)·[표시 규칙](handoffs/M2-PREPARATION.md#사실제안미확인과-결과의-표시).
+- [x] 담당별 첫 조사 항목·참고 자료·작성 위치가 시작 문서에 연결되어 있다. [첫 자료·작업](handoffs/M2-PREPARATION.md#담당별-첫-자료와-작업)·[예정 편집 경로](handoffs/M2-PREPARATION.md#stage-id와-담당-파일); 실제 파일 생성·접근 확인은 M1에서 수행.
 
 이 기준을 충족하면 세 사람이 M2를 동시에 시작한다. 각 담당자는 기존 자료와 명시한 예시를 사용해 조사·문서 초안을 작성하며, 필요한 추가 실험을 자기 범위에서 선택한다.
 
@@ -182,6 +183,8 @@ M3-01은 공통 기반의 최소 합의·구현을 A가 주도하고 B/C가 검�
 | 2026-11-15 | M0-10 실제 CTS·RC 후보 실험과 코드/로컬 설치 추가. 새 NSPL TT로 TritonCTS 3 buffer·8 sinks·기능 650비교, DEF 선언 19 instance/22 net/65 endpoint와 synthetic SPEF/OpenSTA 누락·partial 검출 확인. OpenROAD 26Q2-1164-g08f67ee5ec의 빈 /tmp 설치·다른 cwd 재현, 13개 산출물 byte 일치와 PDK 전체 14,050개/M0-07 원본 322개·공유 링크 보존 확인. 제공 RC/Assura calibration 수치와 오픈소스 변환의 부재를 구별하고 5,829-net 보정 패턴 생성. 최초 실패·후속 시도·출처/단위/코너·SPEF 범위를 기록. | **M0-10 대기**: TritonRoute pin access 및 QRouter 미배선 2개, RCX rule/검증된 변환·reference 비교 부재. 최종 배선 SPEF/물리 CTS 조건/실제 최종 annotation·POST-STA는 blocked. [F1~F6](experiments/M0-10-cts-rc/FOLLOW_UP.md)에서 해소하며 fixture·추정 RC·ideal clock을 POST-STA 통과로 합산하지 않음. M0-01~09 행과 기존 기록은 보존. |
 | 2026-11-15 | M0-10 FOLLOW_UP의 F1~F6를 용어·의존 관계·실제 실패 핀/미배선 net·원자료 경로·단위 계산 예·예상 산출물·완료 기준으로 구체화. 조건부 자료 요청 문안과 현 진단용 실행기/fixture의 한계를 명시. | 문서 설명 보완. M0-10 대기와 기존 실험·검증 결과 유지. 추가 EDA 실행은 하지 않음. |
 | 2026-11-15 | 사용자 우선 목표를 빠른 A/B/C 독립 개발 인계로 재정렬. M0-10~12를 미완료 이관으로 명시하고 상세 CTS/RC·최종 backend 선택을 M2-02/03/05에 연결. M0-13/14 → 공통 필수 M1 → M2 착수 기준으로 선행관계를 단축. 관련 요구사항·실행 안내와 담당자 인계 문서를 정리. | 기존 실험·실패·원본과 M0-01~09 완료 행은 보존. 실제 RC/POST-STA는 여전히 blocked. 다음은 M0-13/14와 M1의 최소 구현·검증이며 이번 정리만으로 공통 준비/M2를 완료로 표시하지 않음. |
+| 2026-11-15 | M0-10~13 준비 정리 완료: [시작 문서](handoffs/M2-PREPARATION.md)에 결정 001/002·M0-09/10·PDK 조사의 확인 범위/미해결 질문, 후보별 출발점, 5개 stage ID·담당 파일·입출력 단위·공통 변경/근거 표시 규칙을 연결. 로컬 링크·앵커 113개, 표 열·코드 블록과 `git diff --check` 확인. 기존 실험·결정은 수정하지 않음. | M0-14/M1의 경로 생성·자료 접근 확인과 착수 인계는 미완료. 과거 기록의 M0/M1 실험·선정 일정은 당시 이력이며 현재 ROADMAP이 작업 시점을 정함. 실제 RC/POST-STA blocked·최종 backend 미선정 유지, 해결은 M3-03/04/05. YAML·스키마·CLI·manifest·fixture와 별도 기술 보고서는 생성하지 않음. |
+| 2026-11-15 | [미해결 질문 설명](handoffs/M2-PREPARATION.md#미해결-질문의-뜻과-확인-방법)을 환경 재현·셀/리셋·view 대응·backend 보정·배선 실패·RC 의미/정확도·annotation/타이밍·최종 물리 검증의 9개 질문으로 구체화. 각 질문의 현재 한계·확인 방법·담당·수행 시점을 풀어 씀. | 설명 보완이며 M0-10~13의 준비 완료 상태 유지. 새 실험·구현·backend 선정은 수행하지 않음. 기존 실제 RC/POST-STA blocked 및 M0-14/M1 미완료 유지. |
 
 ## 5. 실행 안내
 
