@@ -1,0 +1,39 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0388] unsupported LEF58_SPACING property for layer NWELL :"SPACING 1.25 ;"
+[INFO ODB-0388] unsupported LEF58_WIDTH property for layer NWELL :"WIDTH 2.5 ;"
+[INFO ODB-0388] unsupported LEF58_SPACING property for layer ACT :"SPACING 1 ;"
+[INFO ODB-0388] unsupported LEF58_WIDTH property for layer ACT :"WIDTH 0.7 ;"
+[INFO ODB-0227] LEF file: technology.lef, created 13 layers
+[INFO ODB-0227] LEF file: cells.lef, created 38 library cells
+[INFO ODB-0127] Reading DEF file: routed.def
+[INFO ODB-0128] Design: shift_reg_8bit
+[INFO ODB-0130]     Created 13 pins.
+[INFO ODB-0131]     Created 19 components and 92 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 38 connections.
+[INFO ODB-0133]     Created 22 nets and 54 connections.
+[INFO ODB-0134] Finished DEF file: routed.def
+[INFO RCX-0375] Using LEF RC values to extract!
+[INFO RCX-0435] Reading extraction model file  ...
+[ERROR RCX-0468] Can't open extraction model file 
+Error: extract.tcl, 22 RCX-0468
+Signal 11 received
+Stack trace:
+ 0# 0x0000000000DD092A in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 1# 0x0000000000045330 in /lib/x86_64-linux-gnu/libc.so.6
+ 2# rcx::extRCModel::~extRCModel() in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 3# rcx::extMain::~extMain() in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 4# rcx::Ext::~Ext() in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 5# ord::OpenRoad::~OpenRoad() in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 6# 0x0000000000E1E3E9 in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 7# 0x0000000000047A76 in /lib/x86_64-linux-gnu/libc.so.6
+ 8# 0x0000000000047BBE in /lib/x86_64-linux-gnu/libc.so.6
+ 9# 0x000000000343A28F in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+10# ord::tclAppInit(Tcl_Interp*) in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+11# Tcl_MainEx in /lib/x86_64-linux-gnu/libtcl8.6.so
+12# main in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+13# 0x000000000002A1CA in /lib/x86_64-linux-gnu/libc.so.6
+14# __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6
+15# _start in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad

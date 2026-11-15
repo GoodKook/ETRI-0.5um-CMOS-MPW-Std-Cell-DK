@@ -1,0 +1,128 @@
+{
+  "independent_replay": {
+    "cts.v": {
+      "sha256": "47c430d5e4e07453c8b74c8ebe3ee98950331ae5ff2d92c6bc29d090fc1ff1b7",
+      "byte_equal": true
+    },
+    "cts.def": {
+      "sha256": "30ffc14f273025feda5df13b61d9b1970a10cf16b349465628c707f74acee7dd",
+      "byte_equal": true
+    },
+    "preroute.def": {
+      "sha256": "fb2aeafa8b574976d9d218e93ddd7696bcb30d966df15f02dbfd60aff7be2e30",
+      "byte_equal": true
+    },
+    "qrouter-input.def": {
+      "sha256": "62bbb64a6f5ac80c87cef71738546e66ea2eeadd4042af156b1b7b484f00b96c",
+      "byte_equal": true
+    },
+    "partial-routed.def": {
+      "sha256": "00e71a6bca878f196c4d837a221d9234b770083bff43efb33b0f6380119306ae",
+      "byte_equal": true
+    },
+    "boundary.json": {
+      "sha256": "31be1a292862325cdb0aea755b3c85702236a17356e802a9646bf878ff5cc338",
+      "byte_equal": true
+    },
+    "annotation-probe/canonical.v": {
+      "sha256": "aab98703f00293fa270450fe43011158460ac454ca08e1c984fa83611ddff188",
+      "byte_equal": true
+    },
+    "annotation-probe/fixture-complete.spef": {
+      "sha256": "d684b873b4a48dfde1ad00553046bba89edbc5b940a89a0de44d500b02437f00",
+      "byte_equal": true
+    },
+    "annotation-probe/clock-profile.json": {
+      "sha256": "c5c4af0fb98488b51423fa0885cf83ef41ae8da1d26368a6e527cdfa6a4b78f9",
+      "byte_equal": true
+    },
+    "annotation-probe/validation.json": {
+      "sha256": "74e48c914c6ac1af317fc84fb9d19674ba00f99a0e4983e9baa6df6c3134d516",
+      "byte_equal": true
+    },
+    "patterns/patterns.def": {
+      "sha256": "f6ce678b219de86801b55dafe48fa4ed058fbe5be321a139157788be242bf16e",
+      "byte_equal": true
+    },
+    "patterns/patterns.v": {
+      "sha256": "f9d9c4559d468cec587a0dae102f11d382f858a96ef1650b114af4eb17daf5eb",
+      "byte_equal": true
+    },
+    "patterns/patterns.odb": {
+      "sha256": "3005fe06e1e5a4b9fd271f1f476ea911ec05806486c5ba908c24c169a3f79e68",
+      "byte_equal": true
+    }
+  },
+  "replay_cwd": "/tmp",
+  "independent_install_binary_equal": true,
+  "snapshot_matches_current": {
+    "run.py": true,
+    "flow.tcl": true,
+    "extract.tcl": true,
+    "verify.py": true,
+    "sta.tcl": true,
+    "annotation.py": true,
+    "def_adapter.py": true,
+    "boundary.py": true
+  },
+  "boundary_negative_cases": {
+    "DEF-unit-mismatch": "DEF unit changed",
+    "clock-endpoint-rename": "DEF/CTS netlist names or endpoints differ",
+    "PG-path-change": "PG geometry changed unexpectedly"
+  },
+  "annotation_CLI": {
+    "complete": {
+      "argv": [
+        "/usr/bin/python3",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/annotation.py",
+        "--mapped-json",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/results/annotation-probe/mapped.json",
+        "--spef",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/results/annotation-probe/fixture-complete.spef"
+      ],
+      "exit_code": 0
+    },
+    "missing-clock-net": {
+      "argv": [
+        "/usr/bin/python3",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/annotation.py",
+        "--mapped-json",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/results/annotation-probe/mapped.json",
+        "--spef",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/results/annotation-probe/fixture-missing-clock-net.spef"
+      ],
+      "exit_code": 1
+    },
+    "renamed-clock-pin": {
+      "argv": [
+        "/usr/bin/python3",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/annotation.py",
+        "--mapped-json",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/results/annotation-probe/mapped.json",
+        "--spef",
+        "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/results/annotation-probe/fixture-renamed-clock-pin.spef"
+      ],
+      "exit_code": 1
+    }
+  },
+  "PDK_package_unchanged": {
+    "file_count": 14050,
+    "tree_sha256": "6ce964c01fe1ef24f2d52081ed58864e5afb233c37df4b28514e66307ab1d278",
+    "matches_previous_review": true
+  },
+  "M0_07_original_files_unchanged": 322,
+  "completed_roadmap_rows_preserved": [
+    "M0-01",
+    "M0-02",
+    "M0-03",
+    "M0-04",
+    "M0-05",
+    "M0-06",
+    "M0-07",
+    "M0-08",
+    "M0-09"
+  ],
+  "M0_10_roadmap_status": "대기",
+  "blocked_outputs_not_published_as_final": true,
+  "scope": "development audit passed; design route/RC/POST-STA remain blocked"
+}

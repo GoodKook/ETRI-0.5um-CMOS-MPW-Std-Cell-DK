@@ -1,0 +1,504 @@
+{
+  "date": "2026-11-15 Asia/Seoul",
+  "cts_cells": {
+    "CLKBUFX2": {
+      "liberty": {
+        "attributes": {
+          "cell_footprint": "clkbuf",
+          "area": "921.6",
+          "cell_leakage_power": "0.3002"
+        },
+        "pins": {
+          "A": {
+            "direction": "input",
+            "related_power_pin": "VDD",
+            "rise_capacitance": "0.02461",
+            "driver_waveform_rise": "driver_waveform_default_rise",
+            "driver_waveform_fall": "driver_waveform_default_fall",
+            "fall_capacitance": "0.02461",
+            "related_ground_pin": "VSS",
+            "capacitance": "0.02461"
+          },
+          "Y": {
+            "direction": "output",
+            "related_power_pin": "VDD",
+            "related_ground_pin": "VSS",
+            "capacitance": "0",
+            "rise_capacitance": "0",
+            "fall_capacitance": "0",
+            "max_capacitance": "1.2",
+            "function": "(A)"
+          }
+        },
+        "power": {
+          "VDD": {
+            "voltage_name": "VDD",
+            "pg_type": "primary_power"
+          },
+          "VSS": {
+            "voltage_name": "VSS",
+            "pg_type": "primary_ground"
+          }
+        },
+        "sequential": {}
+      },
+      "LEF_present": true
+    },
+    "CLKBUFX4": {
+      "liberty": {
+        "attributes": {
+          "cell_footprint": "clkbuf",
+          "area": "1152",
+          "cell_leakage_power": "0.4002"
+        },
+        "pins": {
+          "A": {
+            "direction": "input",
+            "related_power_pin": "VDD",
+            "rise_capacitance": "0.02464",
+            "driver_waveform_rise": "driver_waveform_default_rise",
+            "driver_waveform_fall": "driver_waveform_default_fall",
+            "fall_capacitance": "0.02463",
+            "related_ground_pin": "VSS",
+            "capacitance": "0.02464"
+          },
+          "Y": {
+            "direction": "output",
+            "related_power_pin": "VDD",
+            "related_ground_pin": "VSS",
+            "capacitance": "0",
+            "rise_capacitance": "0",
+            "fall_capacitance": "0",
+            "max_capacitance": "1.2",
+            "function": "(A)"
+          }
+        },
+        "power": {
+          "VDD": {
+            "voltage_name": "VDD",
+            "pg_type": "primary_power"
+          },
+          "VSS": {
+            "voltage_name": "VSS",
+            "pg_type": "primary_ground"
+          }
+        },
+        "sequential": {}
+      },
+      "LEF_present": true
+    },
+    "INVX8": {
+      "liberty": {
+        "attributes": {
+          "cell_footprint": "inv",
+          "area": "921.6",
+          "cell_leakage_power": "0.4005"
+        },
+        "pins": {
+          "A": {
+            "direction": "input",
+            "related_power_pin": "VDD",
+            "rise_capacitance": "0.1898",
+            "driver_waveform_rise": "driver_waveform_default_rise",
+            "driver_waveform_fall": "driver_waveform_default_fall",
+            "fall_capacitance": "0.1895",
+            "related_ground_pin": "VSS",
+            "capacitance": "0.1898"
+          },
+          "Y": {
+            "direction": "output",
+            "related_power_pin": "VDD",
+            "related_ground_pin": "VSS",
+            "capacitance": "0",
+            "rise_capacitance": "0",
+            "fall_capacitance": "0",
+            "max_capacitance": "1.2",
+            "function": "(!A)"
+          }
+        },
+        "power": {
+          "VDD": {
+            "voltage_name": "VDD",
+            "pg_type": "primary_power"
+          },
+          "VSS": {
+            "voltage_name": "VSS",
+            "pg_type": "primary_ground"
+          }
+        },
+        "sequential": {}
+      },
+      "LEF_present": true
+    }
+  },
+  "sources": {
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.itf": {
+      "bytes": 1315,
+      "sha256": "a17827fffea019a5766394cdc9637c9d67071312061ac15f1280a395e16851e0",
+      "available": true,
+      "metal_fields": {
+        "MET3": "THICKNESS= 0.88 WMIN= 1.2 SMIN= 1.0 RPSQ=0.05 CAPACITIVE_ONLY_ETCH=-0",
+        "MET2": "THICKNESS= 0.68 WMIN= 1.0 SMIN= 1.0 RPSQ=0.08 CAPACITIVE_ONLY_ETCH=-0",
+        "MET1": "THICKNESS= 0.6 WMIN= 1.0 SMIN= 1.0 RPSQ=0.08 CAPACITIVE_ONLY_ETCH=-0"
+      },
+      "via_fields": {
+        "VIA2": "FROM=MET2    TO=MET3 AREA=0.064 RPV=1.5",
+        "VIA1": "FROM=MET1    TO=MET2 AREA=0.064 RPV=1.5"
+      },
+      "unit_status": "no explicit unit declaration; um/ohm interpretation corroborated by LEF, MIPT/LPE and sheet_res; no validated conversion"
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TLU/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.tluplus": {
+      "bytes": 56904,
+      "sha256": "126cb8d9ec8810b50df3ab4dcc40b8aae1a3a9aad30e9e9907a1d24e47c2d6c6",
+      "available": true,
+      "reader_status": "opaque compiled tool input; not converted/executed"
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/dc_cmd.tcl": {
+      "bytes": 1111,
+      "sha256": "a93290491d367ff00bbe9580f3d4dddb78f94b67e2f06fbff08e87e8f3c6cf59",
+      "available": true
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/icc2_cmd.tcl": {
+      "bytes": 4692,
+      "sha256": "caa6bb9624cb8be614b2a3c145eb7e7135573abc8a66828ecf2d9309ff158cdd",
+      "available": true
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/icc2_cts_cmd.tcl": {
+      "bytes": 535,
+      "sha256": "54803c6c165e1d6139437ee6e796d8294fdc0f9039d41441f395e30243265a57",
+      "available": true
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/icc2_fin_cmd.tcl": {
+      "bytes": 943,
+      "sha256": "62624402f993c87469442ea6b71dd267990ba27645d09702c7cc3fe04ea56f59",
+      "available": true
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/icc2_pin_cmd.tcl": {
+      "bytes": 303,
+      "sha256": "550e3697217da5e1da5d949b824403a007aaba34748d2a22880500e2e996143f",
+      "available": true
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/icc2_route_cmd.tcl": {
+      "bytes": 378,
+      "sha256": "12ab0ab5c2dbb695af25eade4bb105508f4a2a3fafd3fb6a088cc54e03748b5d",
+      "available": true
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/icc2_start_cmd.tcl": {
+      "bytes": 2528,
+      "sha256": "f726af9e91700ca516fcb55833a32df3f6a9d95e707d213c3cb055ee2ed49d88",
+      "available": true
+    },
+    "NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/pt_cmd.tcl": {
+      "bytes": 518,
+      "sha256": "a281dda9adf10f0b2a3d35db1831fb3d57922beba086eeb2124bfb53cd70e2cd",
+      "available": true
+    },
+    "Assura/QRC/typical/ETRI_0p5UM_CMOS_typical.ict": {
+      "bytes": 3605,
+      "sha256": "bc101bcf737a62c09897f4b058dfe8160bd3ffbcb4a8fc892eb35a2730bbbf70",
+      "available": true,
+      "metal_fields": {
+        "MET1": "gate_forming_layer  \t false\n   min_width    \t 0.6 \n   min_spacing  \t 0.6 \n   height       \t 0.9\n   thickness    \t 0.6\n   resistivity  \t 0.08\n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0",
+        "MET2": "gate_forming_layer  \t false \n   min_width    \t 0.7 \n   min_spacing  \t 0.7 \n   height       \t 2.0 \n   thickness    \t 0.68 \n   resistivity  \t 0.08\n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0",
+        "MET3": "gate_forming_layer  \t false \n   min_width    \t 0.8 \n   min_spacing  \t 0.7 \n   height       \t 3.1\n   thickness    \t 0.88\n   resistivity  \t 0.05 \n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0"
+      },
+      "process": "ETRI_0.5UM_CMOS_Typical",
+      "temp_reference": "25.0",
+      "unit_status": "field resistivity is NOT assumed to mean bulk ohm*um; reconcile with p2lvs sheet_res"
+    },
+    "Assura/QRC/typical/p2lvsfile": {
+      "bytes": 426,
+      "sha256": "839b05e951aab481de0103a4653b6ca50072c5d9c0ca012276e13399082603e0",
+      "available": true,
+      "sheet_res": {
+        "MET1": 0.08,
+        "MET2": 0.08,
+        "MET3": 0.05
+      },
+      "via_fields": [
+        [
+          "VIA1",
+          "2",
+          "0.36"
+        ],
+        [
+          "VIA2",
+          "1.5",
+          "0.36"
+        ]
+      ]
+    },
+    "Assura/QRC/typical/qrcTechFile": {
+      "bytes": 4702081,
+      "sha256": "70f51f910d7ae1799a6c374e531ba7b6e376b7cdf570a22647bbf798efa388b1",
+      "available": true,
+      "reader_status": "opaque compiled tool input; not converted/executed"
+    },
+    "Assura/QRC/best/ETRI_0p5UM_CMOS_best.ict": {
+      "bytes": 3630,
+      "sha256": "44d07040ef20957ab1ff3b1a38fe462b7a66c3c4c3c1bb0a48fcb637c3f248dc",
+      "available": true,
+      "metal_fields": {
+        "MET1": "gate_forming_layer  \t false\n   min_width    \t 0.6 \n   min_spacing  \t 0.6 \n   height       \t 0.99\n   thickness    \t 0.66\n   resistivity  \t 0.06\n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0",
+        "MET2": "gate_forming_layer  \t false \n   min_width    \t 0.7 \n   min_spacing  \t 0.7 \n   height       \t 2.2 \n   thickness    \t 0.748 \n   resistivity  \t 0.06\n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0",
+        "MET3": "gate_forming_layer  \t false \n   min_width    \t 0.8 \n   min_spacing  \t 0.7 \n   height       \t 3.41\n   thickness    \t 0.968\n   resistivity  \t 0.03\n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0"
+      },
+      "process": "ETRI_0.5UM_CMOS_Best",
+      "temp_reference": "25.0",
+      "unit_status": "field resistivity is NOT assumed to mean bulk ohm*um; reconcile with p2lvs sheet_res"
+    },
+    "Assura/QRC/best/p2lvsfile": {
+      "bytes": 426,
+      "sha256": "4ef482b79470453699ffbb30aac1ddd6e7136a911079bdf581360dcb9d217c78",
+      "available": true,
+      "sheet_res": {
+        "MET1": 0.06,
+        "MET2": 0.06,
+        "MET3": 0.03
+      },
+      "via_fields": [
+        [
+          "VIA1",
+          "1",
+          "0.36"
+        ],
+        [
+          "VIA2",
+          "0.5",
+          "0.36"
+        ]
+      ]
+    },
+    "Assura/QRC/best/qrcTechFile": {
+      "bytes": 5019663,
+      "sha256": "a46ea47972e632107a3ecf0d4d02506c4c627cb088858de9f0704af7af4dfd3f",
+      "available": true,
+      "reader_status": "opaque compiled tool input; not converted/executed"
+    },
+    "Assura/QRC/worst/ETRI_0p5UM_CMOS_worst.ict": {
+      "bytes": 3635,
+      "sha256": "5d02a72b87dc21a8a07672668fca3920128d73fde8bed584c80e2e80246f22ec",
+      "available": true,
+      "metal_fields": {
+        "MET1": "gate_forming_layer  \t false\n   min_width    \t 0.6 \n   min_spacing  \t 0.6 \n   height       \t 0.81\n   thickness    \t 0.54\n   resistivity  \t 0.1\n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0",
+        "MET2": "gate_forming_layer  \t false \n   min_width    \t 0.7 \n   min_spacing  \t 0.7 \n   height       \t 1.8 \n   thickness    \t 0.612 \n   resistivity  \t 0.1\n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0",
+        "MET3": "gate_forming_layer  \t false \n   min_width    \t 0.8 \n   min_spacing  \t 0.7 \n   height       \t 2.79\n   thickness    \t 0.792\n   resistivity  \t 0.06 \n   wire_top_enlargement     \t 0\n   wire_bottom_enlargement  \t 0"
+      },
+      "process": "ETRI_0.5UM_CMOS_Worst",
+      "temp_reference": "25.0",
+      "unit_status": "field resistivity is NOT assumed to mean bulk ohm*um; reconcile with p2lvs sheet_res"
+    },
+    "Assura/QRC/worst/p2lvsfile": {
+      "bytes": 424,
+      "sha256": "325ac037f55ec92768a2466bfa96639e0523eae738e5802cfcf631ee9143825d",
+      "available": true,
+      "sheet_res": {
+        "MET1": 0.1,
+        "MET2": 0.1,
+        "MET3": 0.06
+      },
+      "via_fields": [
+        [
+          "VIA1",
+          "3",
+          "0.36"
+        ],
+        [
+          "VIA2",
+          "2.5",
+          "0.36"
+        ]
+      ]
+    },
+    "Assura/QRC/worst/qrcTechFile": {
+      "bytes": 4637947,
+      "sha256": "94eaa0dca788708326166f94fde338b0ab384a3905dbe483f973fe7b0fb81224",
+      "available": true,
+      "reader_status": "opaque compiled tool input; not converted/executed"
+    },
+    "Calibre/PEX/MIPT/bestRC.mipt": {
+      "bytes": 3438,
+      "sha256": "fbd2fab60fe61350607f3431313a910db146150543502317d51f2453933973ba",
+      "available": true,
+      "cap_unit": "ff",
+      "process": "ETRI_0.5UM_CMOS_BestRC",
+      "date": "Fri Sep 13 2024",
+      "metal_fields": {
+        "MET1": "thickness = 0.66\nmin_width = 0.6\nmin_spacing = 0.6\nr_sheet = 0.06",
+        "MET2": "thickness = 0.748\nmin_width = 0.7\nmin_spacing = 0.7\nr_sheet = 0.06",
+        "MET3": "thickness = 0.968\nmin_width = 0.8\nmin_spacing = 0.7\nr_sheet = 0.03"
+      }
+    },
+    "Calibre/PEX/MIPT/typical.mipt": {
+      "bytes": 3375,
+      "sha256": "19aaf1d6909956f11762196d904d04317c88fb2317b6673bb915c219e3196207",
+      "available": true,
+      "cap_unit": "ff",
+      "process": "ETRI_0.5UM_CMOS_Typical",
+      "date": "Fri Sep 13 2024",
+      "metal_fields": {
+        "MET1": "thickness = 0.6\nmin_width = 0.6\nmin_spacing = 0.6\nr_sheet = 0.08",
+        "MET2": "thickness = 0.68\nmin_width = 0.7\nmin_spacing = 0.7\nr_sheet = 0.08",
+        "MET3": "thickness = 0.88\nmin_width = 0.8\nmin_spacing = 0.7\nr_sheet = 0.05"
+      }
+    },
+    "Calibre/PEX/MIPT/worstRC.mipt": {
+      "bytes": 3438,
+      "sha256": "2ae0987ff887e5f6ab745b5ab398ee970a60d82aa2127a5684a98313935bc669",
+      "available": true,
+      "cap_unit": "ff",
+      "process": "ETRI_0.5UM_CMOS_WorstRC",
+      "date": "Fri Sep 13 2024",
+      "metal_fields": {
+        "MET1": "thickness = 0.54\nmin_width = 0.6\nmin_spacing = 0.6\nr_sheet = 0.1",
+        "MET2": "thickness = 0.612\nmin_width = 0.7\nmin_spacing = 0.7\nr_sheet = 0.1",
+        "MET3": "thickness = 0.792\nmin_width = 0.8\nmin_spacing = 0.7\nr_sheet = 0.06"
+      }
+    },
+    "Calibre/PEX/LPE_LIB/bestRC_rules.C": {
+      "bytes": 5701398,
+      "sha256": "e99f9b21205d18349326c0990ed35fb6d9d71cff99bbd21c90c68ef874f5db38",
+      "available": true,
+      "protected": false,
+      "reader_status": "text headers/tables exist; not translated or executed"
+    },
+    "Calibre/PEX/LPE_LIB/bestRC_rules.R": {
+      "bytes": 152850,
+      "sha256": "6a3f8b1a660f9cca5a1e6e491268562e27a466b5a725af41c9afb74cc4f2650a",
+      "available": true,
+      "protected": true,
+      "reader_status": "hash only"
+    },
+    "Calibre/PEX/LPE_LIB/typical_rules.C": {
+      "bytes": 5693764,
+      "sha256": "7dc9d887971d631d0d87ea2cdc0d122d28837d9da17bdf90bb6aa151737c235c",
+      "available": true,
+      "protected": false,
+      "reader_status": "text headers/tables exist; not translated or executed"
+    },
+    "Calibre/PEX/LPE_LIB/typical_rules.R": {
+      "bytes": 152850,
+      "sha256": "20f251e99cf69453ef27f60894db3d3421720254ad372ab9a84ed5f085c7fa2c",
+      "available": true,
+      "protected": true,
+      "reader_status": "hash only"
+    },
+    "Calibre/PEX/LPE_LIB/worstRC_rules.C": {
+      "bytes": 5691100,
+      "sha256": "8dd1e81e4184b4ed53bbfe341ed76e9ea21680aeaa77e135359162c0806e1863",
+      "available": true,
+      "protected": false,
+      "reader_status": "text headers/tables exist; not translated or executed"
+    },
+    "Calibre/PEX/LPE_LIB/worstRC_rules.R": {
+      "bytes": 152850,
+      "sha256": "395fde2eb35ea78849897828faaa8dbf3af0bb7a42ffadb833be2d43d70cdb8b",
+      "available": true,
+      "protected": true,
+      "reader_status": "hash only"
+    },
+    "Calibre/PEX/NSPL_0p5um_Analog_CMOS_2P3M_5V_V1.1_PEX.cal": {
+      "bytes": 12773,
+      "sha256": "bd605b58e450ad173a32afebbde067a37a85562501b4b0e26680f7a87bbf57cc",
+      "available": true
+    },
+    "Calibre/PEX/pex_header.cal": {
+      "bytes": 442,
+      "sha256": "459d78dd9a8fd08ae66c3fd3b9b3ee755a3ab684df657580e17bc970f5254278",
+      "available": true
+    }
+  },
+  "qflow_evidence": [
+    {
+      "path": "/usr/local/share/qflow/scripts/opensta.sh",
+      "sha256": "06ef9f3139ac22a0671cd361f03450f78ba516e16ecb449c102d5ed3cc8820b0"
+    },
+    {
+      "path": "/usr/local/share/qflow/scripts/qrouter.sh",
+      "sha256": "64e84d55aacc0570b7a67e22012379ce001f3fe10687bd83169f1adf91994223"
+    },
+    {
+      "path": "/usr/local/share/qflow/scripts/yosys.sh",
+      "sha256": "042332bd5496bac700b6aa45a8c8cb6cdaeccf8479e48de481df01197f9f22be"
+    },
+    {
+      "path": "/usr/local/share/qflow/scripts/graywolf.sh",
+      "sha256": "7d02c06f47358501fda805643849127fdf5e78e7a197ff0a0613601629333612"
+    },
+    {
+      "path": "/usr/local/share/qflow/bin/vlogFanout",
+      "sha256": "868de2cd74fab4d567d29801a667aa95f3aed7601bb24feae7c6e8fd305f391d"
+    },
+    {
+      "path": "/usr/local/share/qflow/bin/rc2dly",
+      "sha256": "111ad92aa54af6373caa1fea71ff0f9e6e34342c1d610308ef29958a5851a67f"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/Tools/qflow-1.4.100_etri050/src/vlogFanout.c",
+      "sha256": "2e5d7a6e9ce757412ccb7bce0c308a175ab48cb65509f200fbd7a8b41a22ab38"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/Tools/qrouter/lef.c",
+      "sha256": "fe45f781501d5c6c9ebd2431f928c0b4a3199de5ff709f2dbe6f43109289d12d"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/Tools/qrouter/delays.c",
+      "sha256": "88b2872bd26982422ead3e261a97186250142b5693326db112acd363a43ee42b"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/Tools/qrouter/def.c",
+      "sha256": "4dbee7b0a3e7f89e0a05137d3e37809e8e0225e1323164e5f33a84a188484324"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/Tools/qrouter/output.c",
+      "sha256": "a3a9fdbba83b972edf495fe58e8aa500ba1d3f39da116fac4530de64cd26cca3"
+    }
+  ],
+  "reference_artifact_scan": {
+    "files": 14050,
+    "named_spef_or_sdf": [],
+    "gzip_headers_checked": 240,
+    "gzip_spef_headers": [],
+    "assura_calibration_raw_present": {
+      "typical": {
+        ".dat.gz": 80,
+        ".dat2d": 3,
+        ".dat3d": 8,
+        ".mdl": 10,
+        ".net_ascii": 80
+      },
+      "best": {
+        ".dat.gz": 80,
+        ".dat2d": 3,
+        ".dat3d": 8,
+        ".mdl": 10,
+        ".net_ascii": 80
+      },
+      "worst": {
+        ".dat.gz": 80,
+        ".dat2d": 3,
+        ".dat3d": 8,
+        ".mdl": 10,
+        ".net_ascii": 80
+      }
+    },
+    "limitation": "filename and gzip header scan, not a proof that arbitrary compiled artifacts cannot contain RC data; calibration tables/models are present but their column semantics/conversion are unvalidated"
+  },
+  "commercial_reference_tools": {
+    "calibre": null,
+    "qrc": null,
+    "quantus": null,
+    "FasterCap": null,
+    "fastcap": null
+  },
+  "rc_material_status": "present",
+  "open_source_conversion": "not_validated",
+  "cell_PEX_used_for_interconnect": false,
+  "selected_handoff": "SPEF; no parallel SDF requirement",
+  "missing_evidence": [
+    "qualified NSPL OpenRCX rules or reproducible stack->solver->rules conversion",
+    "reference/calibration SPEF for same process revision and named RC corner",
+    "held-out geometry comparisons including ground/coupling C, wire/via R and actual routed design",
+    "numerical acceptance tolerances justified by reference accuracy; not a fitted-to-pass STA target"
+  ]
+}

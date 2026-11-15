@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/annotation.py", line 130, in <module>
+    print(json.dumps(audit(json.loads(a.mapped_json.read_text()),a.spef.read_text()),indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/development/experiments/M0-10-cts-rc/annotation.py", line 118, in audit
+    assert expected==observed,dict(missing_nets=sorted(set(expected)-set(observed)),extra_nets=sorted(set(observed)-set(expected)),
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: {'missing_nets': ['clknet_1_0__leaf_clk'], 'extra_nets': [], 'endpoint_mismatches': []}

@@ -1,0 +1,106 @@
+VERSION 5.8 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN shift_reg_8bit ;
+UNITS DISTANCE MICRONS 1000 ;
+DIEAREA ( 0 0 ) ( 320000 288000 ) ;
+ROW ROW_0 core 16000 36000 N DO 90 BY 1 STEP 3200 0 ;
+ROW ROW_1 core 16000 72000 FS DO 90 BY 1 STEP 3200 0 ;
+ROW ROW_2 core 16000 108000 N DO 90 BY 1 STEP 3200 0 ;
+ROW ROW_3 core 16000 144000 FS DO 90 BY 1 STEP 3200 0 ;
+ROW ROW_4 core 16000 180000 N DO 90 BY 1 STEP 3200 0 ;
+ROW ROW_5 core 16000 216000 FS DO 90 BY 1 STEP 3200 0 ;
+TRACKS X 1500 DO 107 STEP 3000 LAYER MET1 ;
+TRACKS Y 1500 DO 96 STEP 3000 LAYER MET1 ;
+TRACKS X 1600 DO 100 STEP 3200 LAYER MET2 ;
+TRACKS Y 1600 DO 90 STEP 3200 LAYER MET2 ;
+TRACKS X 3000 DO 106 STEP 3000 LAYER MET3 ;
+TRACKS Y 3000 DO 95 STEP 3000 LAYER MET3 ;
+COMPONENTS 16 ;
+    - _10_ TIEHIX1 + PLACED ( 156800 108000 ) N ;
+    - _11_ TIEHIX1 + PLACED ( 188800 108000 ) N ;
+    - _12_ TIEHIX1 + PLACED ( 262400 144000 ) FS ;
+    - _13_ TIEHIX1 + PLACED ( 233600 216000 ) FS ;
+    - _14_ TIEHIX1 + PLACED ( 262400 180000 ) N ;
+    - _15_ TIEHIX1 + PLACED ( 51200 180000 ) N ;
+    - _16_ DFFSRX1 + PLACED ( 60800 144000 ) FS ;
+    - _17_ DFFSRX1 + PLACED ( 195200 180000 ) N ;
+    - _18_ DFFSRX1 + PLACED ( 195200 144000 ) FS ;
+    - _19_ DFFSRX1 + PLACED ( 201600 108000 ) N ;
+    - _20_ DFFSRX1 + PLACED ( 128000 144000 ) FS ;
+    - _21_ DFFSRX1 + PLACED ( 89600 108000 ) N ;
+    - _22_ DFFSRX1 + PLACED ( 60800 72000 ) FS ;
+    - _23_ DFFSRX1 + PLACED ( 64000 180000 ) N ;
+    - _8_ TIEHIX1 + PLACED ( 92800 216000 ) FS ;
+    - _9_ TIEHIX1 + PLACED ( 48000 144000 ) FS ;
+END COMPONENTS
+PINS 11 ;
+    - clk + NET clk + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 193600 285000 ) N ;
+    - din + NET din + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 142400 285000 ) N ;
+    - dout[0] + NET dout[0] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 129600 285000 ) N ;
+    - dout[1] + NET dout[1] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 155200 285000 ) N ;
+    - dout[2] + NET dout[2] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 168000 285000 ) N ;
+    - dout[3] + NET dout[3] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 148800 285000 ) N ;
+    - dout[4] + NET dout[4] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 180800 285000 ) N ;
+    - dout[5] + NET dout[5] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 136000 285000 ) N ;
+    - dout[6] + NET dout[6] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 161600 285000 ) N ;
+    - dout[7] + NET dout[7] + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 187200 285000 ) N ;
+    - rst_n + NET rst_n + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER MET2 ( -500 -3000 ) ( 500 3000 )
+        + PLACED ( 174400 285000 ) N ;
+END PINS
+NETS 19 ;
+    - _0_ ( _8_ Y ) ( _23_ S ) + USE SIGNAL ;
+    - _1_ ( _9_ Y ) ( _22_ S ) + USE SIGNAL ;
+    - _2_ ( _21_ S ) ( _10_ Y ) + USE SIGNAL ;
+    - _3_ ( _20_ S ) ( _11_ Y ) + USE SIGNAL ;
+    - _4_ ( _19_ S ) ( _12_ Y ) + USE SIGNAL ;
+    - _5_ ( _18_ S ) ( _13_ Y ) + USE SIGNAL ;
+    - _6_ ( _17_ S ) ( _14_ Y ) + USE SIGNAL ;
+    - _7_ ( _16_ S ) ( _15_ Y ) + USE SIGNAL ;
+    - clk ( PIN clk ) ( _23_ CLK ) ( _22_ CLK ) ( _21_ CLK ) ( _20_ CLK ) ( _19_ CLK ) ( _18_ CLK )
+      ( _17_ CLK ) ( _16_ CLK ) + USE SIGNAL ;
+    - din ( PIN din ) ( _16_ D ) + USE SIGNAL ;
+    - dout[0] ( PIN dout[0] ) ( _23_ D ) ( _16_ Q ) + USE SIGNAL ;
+    - dout[1] ( PIN dout[1] ) ( _23_ Q ) ( _22_ D ) + USE SIGNAL ;
+    - dout[2] ( PIN dout[2] ) ( _22_ Q ) ( _21_ D ) + USE SIGNAL ;
+    - dout[3] ( PIN dout[3] ) ( _21_ Q ) ( _20_ D ) + USE SIGNAL ;
+    - dout[4] ( PIN dout[4] ) ( _20_ Q ) ( _19_ D ) + USE SIGNAL ;
+    - dout[5] ( PIN dout[5] ) ( _19_ Q ) ( _18_ D ) + USE SIGNAL ;
+    - dout[6] ( PIN dout[6] ) ( _18_ Q ) ( _17_ D ) + USE SIGNAL ;
+    - dout[7] ( PIN dout[7] ) ( _17_ Q ) + USE SIGNAL ;
+    - rst_n ( PIN rst_n ) ( _23_ R ) ( _22_ R ) ( _21_ R ) ( _20_ R ) ( _19_ R ) ( _18_ R )
+      ( _17_ R ) ( _16_ R ) + USE SIGNAL ;
+END NETS
+END DESIGN

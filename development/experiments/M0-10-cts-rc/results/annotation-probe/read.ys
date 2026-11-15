@@ -1,0 +1,7 @@
+read_liberty -lib cells.lib
+read_verilog candidate.v
+hierarchy -check -top shift_reg_8bit
+check -assert
+select shift_reg_8bit
+write_json -selected mapped.json
+write_verilog -selected -noattr canonical.v

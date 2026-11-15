@@ -2,7 +2,7 @@
 
 ## 1. M0·M1을 Codex로 진행하는 방법
 
-이 절은 **이 리포지토리를 개발하는 M0·M1 작업용**이다. 향후 칩 설계 튜토리얼에 넣을 사용자 시나리오별 프롬프트는 [상세 요구사항 7절](REQUIREMENTS.md#7-튜토리얼-시나리오별-ai-사용-안내-요구사항)에 따라 별도로 작성한다.
+이 절의 우선 실행 범위는 **A/B/C의 빠른 독립 개발 착수를 위한 M0·M1 공통 준비**다. M0-10~12의 미완료 상세 구현은 M2 담당자에게 이관했으며 P-10/P-11은 그 담당자의 후속 실행용이다. 향후 최종 사용자용 튜토리얼 프롬프트는 [상세 요구사항 7절](REQUIREMENTS.md#7-튜토리얼-시나리오별-ai-사용-안내-요구사항)에 따라 별도로 작성한다.
 
 한 번에 진행하려면 P-ALL, 작업과 모델을 바꾸며 진행하려면 작업표에 연결한 개별 프롬프트를 사용한다. 각 코드 블록은 그대로 복사할 수 있고, 저장소를 연 Codex가 실제 경로와 현재 상태를 읽도록 작성했다. 이미 완료된 작업은 표의 최신 상태·필요 근거만 확인하고, 입력 변경이나 새 실패 근거가 없으면 반복하지 않는다.
 
@@ -56,10 +56,11 @@ codex -m gpt-6.1-terra -c 'model_reasoning_effort="medium"'
 5. 기술 선택은 실행 근거를 보고 Codex가 제안·채택·기록할 수 있다. 기능·타이밍 의도나 지원 정책을 자료에서 결정할 수 없을 때만 필요한 질문을 하고, 그 답을 기다리지 않아도 되는 작업은 계속한다.
 6. 권한·네트워크·자료 때문에 실행할 수 없는 작업은 필요한 항목과 다음 명령을 기록하고 해당 행을 `대기`로 둔다. 실행하지 않은 빌드·시뮬레이션·물리 검증은 완료로 쓰지 않는다. 시스템 설치가 필요하면 환경의 권한 절차를 따르며 무조건적인 upgrade/autoremove나 전역 설정 덮어쓰기를 피한다.
 7. RC 미확보·ideal clock·TT 한정·미이식 DRC 항목 등을 명시한다. 목표를 낮추거나 타이밍 예외·검증 생략으로 통과시키지 않는다. 모델 간 기능 불일치는 테스트벤치의 입력 시점만 조정하여 숨기지 않는다.
-8. M0에서는 폴더 용도·의존성과 정리 계획을 조사하고, M1에서는 목표 구조로의 이행·정리·참조 수정과 설치·프로젝트 생성·설정 검사·기준 예제의 최소 동작 검증을 마친다. M2의 단계 실행이 아직 없으면 인터페이스와 미구현 상태를 명확히 표시하고, 성공을 반환하는 더미 실행기로 대체하지 않는다. 전체 흐름 통과는 별도 검증 대상이다.
-9. 작업 종료·실제 장애 발생 시 ROADMAP의 해당 작업 행에 상태·근거·다음 행동을 갱신하고 현재 위치·변경 기록도 맞춘다. 최종 응답에는 완료 작업 ID, 변경 파일, 실제 검증, 미해결 항목, 다음 작업을 적는다.
+8. M0에서는 최소 계약과 팀 사용 필수 경로 대응을 준비하고, M1에서는 해당 경로 이행·참조 수정·공통 도구 점검·프로젝트 생성·RTL/TB·인계 fixture의 최소 동작을 확인한다. 미사용 legacy 전체 정리·최종 backend·CTS/RC 검증을 공통 준비의 필수 선행조건으로 붙이지 않는다. 미구현 M2 단계는 blocked와 이유를 반환하며 성공을 반환하는 더미로 대체하지 않는다.
+9. 작업 종료·실제 장애 발생 시 ROADMAP의 상태·근거·다음 행동과 변경 기록을 맞춘다. 이관 항목은 소유자·후속 작업을 연결하고 원래 검증을 완료로 표시하지 않는다. 최종 응답에는 완료한 준비 작업, 변경 파일, 실제 검증, 미해결/이관과 다음 작업을 적는다.
 10. 완료된 단계의 작업·상태·근거를 소급 수정하지 않는다. 새 자료·요구사항·재검증은 미완료 후속 단계나 새 작업으로 연결한다. 완료된 단계용 프롬프트는 당시 작업의 참고용으로 보존한다.
 11. 기본은 한 agent로 수행한다. P-ULTRA를 명시적으로 선택한 경우에는 그 프롬프트의 분담 범위와 파일 충돌 방지 규칙을 따른다.
+12. 현재 공통 준비는 M0-13/14 → M1-01~08 → [M2 착수 기준](ROADMAP.md#m2-착수-기준)에 집중한다. M0-10~12의 상세 CTS/RC·최종 backend 선택은 M2-02/03/05의 B/C 업무다. 기존 실험을 보존·인계하고 공통 준비에서 자동 재개하지 않는다. 실제/fixture·근사/검증된 결과의 구분과 최종 검증 기준은 유지한다.
 
 PDK 조사·변환·정리에는 [PDK 참고 1.5](PDK_REFERENCE.md#15-12t_std-원-설계의-활용과-검증-범위)를 함께 적용한다. `12T_PnR`은 실행용 export, `12T_std`는 원 OpenAccess 설계로 추적하고, 파일 존재·이름 일치와 실제 판독·기능·물리 연결 검증을 구별한다. 기존 CDL/GDS 등으로 수행할 수 있는 작업을 먼저 진행하며, OA reader가 없다는 이유만으로 현재 디지털 프로파일의 개발을 대기로 돌리지 않는다. 특정 연결·revision 불일치가 확인되면 원본/ASCII export를 대조하고 부족한 부분만 요청한다.
 
@@ -67,30 +68,33 @@ PDK 조사·변환·정리에는 [PDK 참고 1.5](PDK_REFERENCE.md#15-12t_std-�
 
 ### P-ALL. M0·M1 일괄 진행
 
-**추천: 6.1 Sol / high.** 조사·구현·실험·기록을 계속 이어 가는 용도다. 특정 난제는 P-08/P-10 또는 P-DIAG로 분리할 수 있다. 사람의 입력·환경 권한·공정 자료가 필요한 항목은 해소 조건을 기록하고 독립 작업을 이어 간다.
+**추천: 6.1 Sol / high.** 현재는 세 담당자가 독립 개발을 시작할 공통 준비를 마치는 프롬프트다. 상세 P&R·RC 구현을 먼저 끝내도록 범위를 넓히지 않는다.
 
 ```text
-이 저장소의 development/PLAN.md, development/REQUIREMENTS.md,
-development/ROADMAP.md와 development/CODEX_GUIDE.md를 읽고,
-CODEX_GUIDE 1.2의 공통 실행 규칙에 따라 M0와 M1을 실제로 진행해줘.
+development/PLAN.md, development/REQUIREMENTS.md, development/ROADMAP.md와
+development/CODEX_GUIDE.md를 읽고,
+CODEX_GUIDE 1.2에 따라 A/B/C가 빠르게 독립 개발을 시작할 M0·M1 준비를 진행해줘.
+development/handoffs/M2-PREPARATION.md의 범위와 현재 Git 변경에서 이어 가줘.
 
-이미 완료된 작업은 최신 작업표의 필요한 근거만 확인하고, 남은 작업을 선행 관계에
-따라 수행해줘. M0에서는 지원 환경, PDK inventory, 순차 셀 모델,
-새 PDK의 QFlow 호환성, CTS·배선 RC를 검증한 뒤 기본 P&R 경로와 공통
-개발 계약을 정해줘. 폴더별 용도·의존성을 조사하여 보존·이관·삭제 대상과
-기존/목표 경로 대응도 확정해줘. 근거가 충분하면 기술 선택을 채택하여 기록해줘.
+완료된 M0-01~09는 필요한 근거만 재사용하고, M0-10~12는 미완료 이관으로
+보존해줘. 상세 CTS·pin access·RC 변환·최종 backend 선택 실험을 여기서 재개하지 마.
+그 작업은 M2-02의 B와 M2-03의 C가 이어서 맡아.
 
-M0의 필요한 선행 조건이 갖춰지면 M1의 설치/build/doctor, 프로젝트 생성기,
-빈칸 YAML·스키마·칸별 안내, 오류 처리, shift_reg_8bit RTL/TB/설정,
-README까지 구현해줘. M1 안에서 목표 폴더 구조로 이행하고 불필요한 자료를
-정리하며 코드·설정·문서·필수 외부 참조를 맞춰줘. M1-08의 최소 동작과
-경로 검증을 마쳐 M2가 확정된 구조에서 시작할 수 있게 해줘. M2의 미구현
-단계와 전체 흐름 검증을 M1 완료로 혼동하지 마. M3·M4의 수행은 포함하지 마.
+먼저 M0-13의 최소 YAML/schema/CLI·입출력·결과·fixture 계약과
+M0-14의 팀 사용 필수 경로 대응을 준비해줘. 최종 backend 선택을 기다리지 말고
+공통 필드·단위·파일명과 backend 옵션의 확장 지점을 정해줘.
+기존 inventory를 재사용하고 미사용 legacy 전체 조사·이동·삭제로 범위를 넓히지 마.
 
-계획만 쓰고 끝내지 말고 필요한 코드·문서·검증·기록을 완성해줘.
-필수 정보가 모호할 때만 질문하고 독립 작업은 계속해줘. 실행할 수 없는
-항목은 정확한 장애·필요 자료·다음 행동을 남겨줘. 작업별로 ROADMAP을
-갱신하고, 마지막에 완료 ID와 근거, 남은 ID와 다음 행동을 보고해줘.
+이어 M1의 공통 setup/doctor, 프로젝트 생성·빈칸 YAML·입력 오류 처리,
+자체 완결 shift_reg_8bit RTL/TB, 필수 경로 이행과 README를 구현해줘.
+담당별 선택 도구 프로파일은 공통 필수 환경과 구분해줘.
+프로젝트 생성·입력 검사·RTL simulation·계약 fixture·필수 참조를 실제 확인하고
+M1-08의 M2 착수 기준과 담당자별 시작 자료를 채워줘.
+
+미구현 단계는 blocked와 이유를 반환하게 하고 fixture를 실제 설계 통과로
+사용하지 마. 물리 단계 최종 검증 기준은 유지하지만 이를 M1 완료 조건으로
+추가하지 마. 실제로 완료한 작업만 ROADMAP에 반영하고 다음 행동을 기록해줘.
+M2 본구현이나 M3·M4 수행은 이번 공통 준비 범위에 포함하지 마.
 ```
 
 ### P-06. 지원 환경 정리
@@ -164,112 +168,118 @@ QFlow 재사용의 가능 범위·남은 장애를 정리하여 ROADMAP을 갱�
 
 ### P-10. CTS·배선 RC 경로 검증
 
-**대상: M0-10 / 추천: 6.1 Sol / extra high.** 클록·추출·STA 간 보존과 자료의 적합성을 함께 판단한다.
+**대상: M2-02(B)·M2-03(C)의 M0-10 이관 후속 / 추천: 6.1 Sol / extra high.** 공통 준비 P-ALL에서는 실행하지 않는다. 아래는 B/C가 담당 구현을 시작할 때 사용한다.
 
 ```text
-development/PLAN.md, development/REQUIREMENTS.md와
-development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
-따라 M0-10을 수행해줘. 실제로 사용할 수 있는 CTS와 최종 배선 기생성분
-생성·OpenSTA annotation 검증 경로를 작은 설계에서 확인해줘.
+development/PLAN.md, development/REQUIREMENTS.md, development/ROADMAP.md와
+development/CODEX_GUIDE.md 1.2절,
+development/handoffs/M2-PREPARATION.md,
+development/experiments/M0-10-cts-rc/README.md와 같은 폴더의 FOLLOW_UP.md를 읽고,
+M2-02/03의 범위에서 M0-10의 미완료 CTS·RC·annotation 작업을 이어서 수행해줘.
+기존 성공/실패를 재사용하고 공통 환경 준비의 선행 작업으로 되돌리지 마.
 
-전체 묶음/PDF 조사에 있는 Util의 CLKBUFX2/4·INVX8, track/PG와
-ITF/TLU+·Assura QRC의 ICT/p2lvsfile·Calibre MIPT/LPE_LIB부터 확인해줘.
-원 데이터의 부재와 오픈소스 입력으로의 검증된 변환 부재를 구분해줘.
-SPEF 경로를 채택하면 SDF 병행 생성까지 필수로 구현하지 마.
+B의 CTS·PG·pin access·route·배선 RC 생산과 C의 추출 정확도·annotation·POST-STA
+검증 경계를 확인해줘. 기준을 충족하는 한 경로를 작은 설계에서 완성하고,
+최종 netlist/DEF/GDS/RC의 이름·연결·단위·코너·해시를 대조해줘.
 
-기존 QFlow 경로의 지원 범위를 조사하고 필요하면 OpenROAD/TritonCTS·
-OpenRCX 등의 공식 문서를 확인하여 후보를 실험해줘. 도구 설치가 필요하면
-권한 범위에서 재현 가능한 방법을 쓰고, 실행하지 못하면 이유를 기록해줘.
-버퍼·클록 배선·skew/slew 조건과 RC 자료의 출처·단위·코너·변환 근거,
-SPEF/SDF 포함 범위, 최종 netlist와 이름 일치·annotation 누락을 확인해줘.
-셀별 PEX를 배선 RC로 쓰거나 근사 RC/ideal clock을 POST-STA 통과로
-취급하지 마. 코드·실험·필요 자료·후속 과제를 기록하고 ROADMAP을 갱신해줘.
+제공 Util의 CLKBUFX2/4·INVX8, track/PG와 ITF/TLU+, ICT/p2lvsfile,
+MIPT/실제 LPE_LIB에서 시작해 원자료 부재와 검증된 변환 부재를 구별해줘.
+SPEF를 택하면 SDF 병행을 필수로 추가하지 마. 셀별 PEX·근사 RC·ideal clock이나
+fixture를 실제 배선 RC/POST-STA 통과로 취급하지 마.
+
+기존 실험 코드는 진단용이며 특정 fixture·추정 RC·종료 2가 포함돼 있어.
+이를 공통 기준 구현으로 그대로 승격하거나 종료 코드만 바꾸지 말고 실제 판정을 연결해줘.
+최소 실패 입력과 수정 후 실행, skew/slew·부하·fanout, RC 변환·정확도와
+annotation 누락을 확인하고 M2 작업·실제 인계 근거로 기록해줘.
 ```
 
 ### P-11. 기본 PnR 경로 선택과 결정 기록
 
-**대상: M0-11·12 / 추천: 6.1 Sol / high.** 실험 결과와 후속 구현 영향을 비교하는 기술 결정이다.
+**대상: M2-02(B)·M2-05(B/C)의 M0-11/12 이관 후속 / 추천: 6.1 Sol / high.** 최종 backend 선택은 공통 계약·프로젝트 생성기의 선행조건이 아니다.
 
 ```text
-development/PLAN.md, development/REQUIREMENTS.md와
-development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
-따라 M0-11과 M0-12를 수행해줘. M0-09/10의 실제 실험과 로그를 읽고
-QFlow 보완, OpenROAD 전환, 필요한 경우 혼합 경로를 비교해줘.
+development/PLAN.md, development/REQUIREMENTS.md, development/ROADMAP.md와
+development/CODEX_GUIDE.md 1.2절,
+development/handoffs/M2-PREPARATION.md와 M0-09/10의 기존 근거를 읽고,
+M2-02의 B 주도로 M0-11/12의 최종 backend 선택·결정 기록을 이어서 수행해줘.
+C와 RC·STA·최종 물리 인계 조건을 함께 확인해줘.
 
-새 PDK view, CTS, RC·STA 인계, GDS·DRC/LVS, 재현성과 유지보수 부담을
-근거로 기본 경로 한 가지를 선택해줘. 혼합이라면 DEF/netlist의 이름·연결,
-클록·전원·층·단위의 왕복 보존을 실제 최소 사례로 검증해줘.
-근거가 충분하면 결정을 채택하고 선택/제외 이유·지원 한계·추가 과제·
-재검토 조건을 decisions/에 기록해줘. 실험이 부족하면 필요한 실험을 먼저
-수행하거나 정확한 장애를 적어줘. 결정 링크와 작업 상태를 ROADMAP에 반영해줘.
+QFlow 보완/OpenROAD/필요한 혼합 후보 중 실제 요구를 충족하는 한 경로를 선택해줘.
+기존 실험의 확정 사실과 미검증을 구별하고 판정에 필요한 최소 실험만 추가해줘.
+모든 후보를 전부 완성할 필요는 없어. 혼합을 채택하면 그 실제 경계의
+DEF/netlist 이름·연결·clock/PG·층·단위 보존을 확인해줘.
+
+선택/제외 이유, 도구·PDK 식별, 지원 한계·미해결·재검토 조건을 development/decisions/에 기록하고
+M2-02/05에 연결해줘. 공통 계약 변경이 필요하면 A/C와 영향받는 입력·인계 예를
+함께 갱신하고 M0-10~12를 근거 없이 완료 처리하지 마.
 ```
 
 ### P-13. 공통 개발 계약 v1
 
-**대상: M0-13 / 추천: 6.1 Sol / high.** 다섯 단계의 입력·출력·실패 처리가 맞물리는 계약 설계다.
+**대상: M0-13 / 추천: 6.1 Sol / high.** 세 담당자가 독립 개발을 시작하는 데 필요한 최소 계약을 먼저 만든다.
 
 ```text
-development/PLAN.md, development/REQUIREMENTS.md와
-development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
-따라 M0-13을 수행해줘. 선행 기술 결정을 확인하고 각 단계를 따로 구현해도
-연결되는 공통 schema/CLI/인계 manifest v1을 구체적인 파일로 작성해줘.
+development/PLAN.md, development/REQUIREMENTS.md, development/ROADMAP.md와
+development/CODEX_GUIDE.md 1.2절,
+development/handoffs/M2-PREPARATION.md를 읽고 M0-13을 수행해줘.
+M0-10~12의 최종 backend·CTS/RC 완료를 기다리지 마.
 
-빈칸 YAML의 키·자료형·필수값·단위·자동/선택 항목, 정규 SDC 생성 원칙,
-stage ID, 입력/출력·해시·도구/PDK 식별, 오류/대기/근사/통과 판정,
-입력 변경에 따른 무효화 규칙을 정의해줘. PnR export와 12T_std 원 설계의
-경로·식별·해시·파생 관계, 실제 사용 view와 확인 수준도 명세해줘.
-전체 배포 식별과 실제 단계 입력 해시를 구분하고, 사용하지 않은
-calibration 로그나 참고 OA의 변경만으로 전체 단계를 무효화하지 마.
-02→03, 04→05의 작은 유효/오류 fixture를 만들고 계약의 모순·누락을
-검증해줘. 미결정은 확정처럼 쓰지 말고
-필요한 질문·선행 작업을 남겨줘. 계약·검증 근거를 연결하고 ROADMAP을 갱신해줘.
+stage ID, 팀 사용 경로, 공통 YAML 키·자료형·단위·단계별 필수값,
+정규 SDC 원칙, CLI 입출력·파일명, 결과/오류·해시·도구/PDK 식별,
+실제/fixture 구분과 입력 변경의 무효화를 최소 v1로 구체적인 파일에 정의해줘.
+backend 고유 키·구현은 B/C의 확장 지점으로 남기고 미확정을 확정처럼 쓰지 마.
+
+기존 inventory와 검증된 제한 셀 프로파일을 재사용해 PDK 실행 export와
+원 설계 참조를 구별해줘. 사용하지 않은 OA·calibration 로그를 매 단계
+입력 해시에 넣거나 전체 PDK 재조사를 반복하지 마.
+
+A→B와 B→C의 작은 유효/오류 fixture와 확인 명령을 제공해줘.
+fixture의 계약 검사 통과와 실제 설계 통과를 구별하고 미구현 단계는
+blocked와 이유를 반환하도록 계약해줘. 범용 framework나 전체 backend 구현으로
+넓히지 말고 코드·계약 검증·인계 근거와 ROADMAP을 갱신해줘.
 ```
 
 ### P-14. 폴더 의존성 조사와 정리 계획
 
-**대상: M0-14 / 추천: 6.1 Sol / high.** 실행 코드·데이터·설치 링크의 참조를 조사하고 최종 구조를 정하는 작업이다.
+**대상: M0-14 / 추천: 6.1 Sol / high.** 팀 사용 필수 경로를 우선 조사한다.
 
 ```text
-development/PLAN.md, development/REQUIREMENTS.md와
-development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
-따라 M0-14를 수행해줘. 현재 폴더별 용도, 디지털 흐름에서 사용하는 파일,
-스크립트·Makefile·설정·문서의 경로 참조, 외부 설치 링크를 조사해줘.
+development/PLAN.md, development/REQUIREMENTS.md, development/ROADMAP.md와
+development/CODEX_GUIDE.md 1.2절에 따라
+M0-14의 팀 사용 필수 경로 대응을 준비해줘. M0-13과 병행하고
+최종 backend·CTS/RC 검증이나 미사용 legacy 전체 조사를 기다리지 마.
 
-원래 경로·참조자·재생성 방법·보존 근거·목표 경로·처리 방침을 담은
-inventory와 경로 대응표를 작성해줘. 필요한 표준셀·기술 파일·소자 모델·
-수동 설계물·최소 재현 입력은 보존하고, 외부 12T_std의 OA·tech.db·관리 정보도
-보존 대상으로 색인해줘. 전체 제공 묶음 inventory를 재사용해 Calibre/Assura,
-RC·MOS·GPIO/pad·기술 파일도 연결하고 외부 원본 전체는 유지해줘.
-불필요한 교육 자료와 재생성 가능한 생성물은
-구분해줘. M0의 backend·공통 계약을 반영해 목표 구조를 확정해줘.
+scripts/flow/platforms/templates/examples/docs에서 세 담당자가 실제 사용할
+코드·예제·모델·PDK 참조의 기존 경로, 참조자, 목표 경로, 이행 방침과
+최소 확인 명령을 적어줘. 필요한 설치 링크와 Projects/projects 충돌도 확인해줘.
+기존 inventory를 재사용하고 제공 PDK 전체·12T_std 원 설계·수동 설계물·
+실험 근거는 보존해줘. 외부 PDK를 복사·이동·삭제하지 마.
 
-이 작업에서는 실제 이동·삭제를 수행하지 말고 M1-07의 구체적인 이행 순서,
-참조 수정 목록, 이행 전후 비교할 최소 명령·기대 결과를 정리해줘.
-계획·inventory·확인 근거를 기록하고 ROADMAP을 갱신해줘.
+미사용 legacy·재생성 생성물은 분류만 남기고 전체 정리를 착수 조건으로 추가하지 마.
+M1-07의 필수 이행·참조 수정 순서와 M1-08의 최소 검증을 정해줘.
+이 조사에서는 실제 이행을 시작하지 말고 대응표·근거와 ROADMAP을 갱신해줘.
 ```
 
 ### P-101. 설치·빌드·doctor 구현
 
-**대상: M1-01 / 추천: 6.1 Sol / high.** 환경 차이와 설치 실패·재실행을 다루는 코드 작업이다.
+**대상: M1-01 / 추천: 6.1 Sol / high.** 공통 필수 환경과 담당별 선택 도구를 구별한다.
 
 ```text
-development/PLAN.md, development/REQUIREMENTS.md와
-development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
-따라 M1-01을 구현해줘. M0에서 선택한 도구·지원 OS·PDK 경로를 반영하여
-디지털 필수 setup/build 프로파일, 버전/commit·다운로드 해시 고정 목록,
-doctor와 환경 설정을 작성해줘. M0-14의 목표 경로와 M1-07의 이행을
-반영하고, 기존 설치 스크립트에서 필요한 부분을 검토하여 재사용해줘.
-현재 작업 디렉터리와 고정 홈 경로 의존성을 없애줘.
+development/PLAN.md, development/REQUIREMENTS.md, development/ROADMAP.md와
+development/CODEX_GUIDE.md 1.2절에 따라
+M1-01을 구현해줘. M0-06의 환경 근거와 M0-13/14의 최소 계약·경로를 사용하고
+M0-11/12의 최종 backend 완료를 선행조건으로 두지 마.
 
-doctor는 PnR 실행 필수 export와 12T_std 원 설계 참조를 구분해 보고하고,
-OA reader 부재를 기본 디지털 실행의 필수 도구 누락으로 처리하지 마.
-선택한 오픈소스 도구가 읽는 제공 view를 직접 사용하고 DB/NDM 재제작이나
-상용 EDA 설치를 필수 준비로 추가하지 마.
+Python·RTL simulation·Yosys/OpenSTA·PDK view 점검 등 공통 개발에 필요한
+setup/doctor·관측 버전/소스·해시 기록과 기본 프로파일을 먼저 구현·검증해줘.
+후보 P&R/추출 도구는 B용 확장 프로파일로 분리하고 그 미설치가 A/C의 공통 준비를
+막지 않게 해줘. 기존 버전이 맞으면 재사용하고 불필요한 재설치/빌드는 하지 마.
 
-필수/선택 도구, 이미 맞게 설치된 도구의 재사용, 실패 전파, 재실행,
-로그 위치를 다뤄줘. 권한 범위에서 실제 설치·빌드·버전·라이브러리 점검을
-수행하고, 깨끗한 환경에서 확인하지 못한 부분은 별도로 남겨줘.
-실행하지 않은 설치를 성공으로 쓰지 말고 결과와 장애를 ROADMAP에 기록해줘.
+실행 export와 원 OA 참조를 구분하고 OA reader·DB/NDM 재제작·상용 EDA를
+기본 필수로 넣지 마. 고정 홈 경로 의존성을 없애고 실패 전파·재실행·로그 위치를
+다뤄줘. 실제 설치·점검한 범위와 깨끗한 환경에서 미확인한 부분을 구별해줘.
+최종 backend 도구의 lock·설치 확장은 B/C 선택 뒤 이어가며, 실행 근거와
+남은 작업을 ROADMAP에 기록해줘.
 ```
 
 ### P-102. 프로젝트 생성기와 빈칸 YAML
@@ -347,30 +357,28 @@ YAML의 칸별 안내·완성 예가 빠진 곳을 지적하고 문서와 ROADMA
 
 ### P-107. 폴더 이행·정리와 경로 검증
 
-**대상: M1-07·08 / 추천: 6.1 Sol / high.** 파일 이행과 실행 경로 수정, 이전 결과와의 비교 검증을 함께 수행한다.
+**대상: M1-07·08 / 추천: 6.1 Sol / high.** 팀 사용 필수 경로 이행과 독립 개발 착수 확인이다.
 
 ```text
-development/PLAN.md, development/REQUIREMENTS.md와
-development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
-따라 M1-07과 M1-08을 수행해줘. M0-14의 inventory·경로 대응·검증 기준과
-현재 Git 변경을 확인한 뒤, M2에서 사용할 목표 구조로 실제 이행해줘.
-M1의 설치·프로젝트 생성 구현도 같은 최종 경로를 쓰도록 맞춰줘.
+development/PLAN.md, development/REQUIREMENTS.md, development/ROADMAP.md와
+development/CODEX_GUIDE.md 1.2절에 따라
+M1-07/08을 수행해줘. M0-14의 팀 사용 경로 대응과 현재 Git 변경을 확인하고,
+코드·예제·필수 모델/PDK 참조를 목표 구조로 실제 이행해줘.
+공통 설치·프로젝트 생성·템플릿·문서도 같은 경로를 쓰게 맞춰줘.
 
-필요한 라이브러리·기술 파일·모델·수동 설계물·실험 근거는 보존해줘.
-외부 12T_std 원본은 위치·내용을 유지하며 플랫폼의 참조·해시 색인을 연결해줘.
-대체·이관을 마쳐 의존성이 해소된 불필요한 자료를 정리해줘. scripts,
-Makefile, 환경·도구 설정, README·문서 링크를 함께 수정해줘.
-Projects/projects의 대소문자 충돌과 홈 링크·시스템 QFlow 기술 링크 등
-외부 참조도 확인하고, 권한 때문에 해결하지 못한 참조는 명시해줘.
+제공 PDK 전체와 12T_std·수동 설계물·과거 실험은 보존해줘.
+실제 사용하는 scripts/Makefile/설정·필수 외부 링크를 함께 확인하고,
+미사용 legacy 전체 이동·삭제나 모든 설치 링크 수정을 선행조건으로 넣지 마.
+M0-10의 이관 실험을 공통 실행기·필수 설치에 편입하거나 재개하지 마.
 
-끊어진 링크·현재 실행 코드의 옛 경로 참조를 검사하고, inventory나 원본
-기록에 남기는 과거 경로와 구분해줘. doctor, 정상/중복 프로젝트 생성,
-빈칸·오류 입력 검사, 기준 RTL/TB, 이행에 영향받는 공통 기능과 사용 가능한
-M0 최소 실험을 실제 실행해줘. 기존 실패와 이행으로 생긴 실패를 구분해줘.
-아직 없는 M2의 전체 물리 흐름을 실행한 것처럼 처리하지 마.
+doctor, 정상/중복 프로젝트 생성, 빈칸·오류 입력, 자체 완결 RTL/TB,
+작은 유효/오류 계약 fixture, 이행에 영향받는 공통 기능을 실제 확인해줘.
+기존 기록의 과거 경로와 현재 실행의 잘못된 참조를 구별해줘.
+미구현 M2 단계는 blocked와 이유를 반환하게 하고 물리 흐름 통과를 주장하지 마.
 
-검증을 마친 구조·경로와 남은 문제를 기록하고, 두 작업의 실제 완료 여부를
-각각 ROADMAP에 반영해줘. M2가 이 구조에서 바로 개발할 수 있게 해줘.
+담당별 시작 파일·명령·입출력·미해결 소유자·공통 변경 절차를
+development/handoffs/M2-PREPARATION.md에 연결하고 ROADMAP의 M2 착수 기준을 확인해줘.
+증거가 있는 작업만 완료로 바꾸고 아직 없는 M1 기능을 준비됐다고 쓰지 마.
 ```
 
 ### P-DIAG. 막힌 작업 하나 재진단
@@ -381,8 +389,9 @@ M0 최소 실험을 실제 실행해줘. 기존 실패와 이행으로 생긴 �
 development/PLAN.md, development/REQUIREMENTS.md와
 development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
 따라 직전 시도에서 막힌 M0/M1 작업 하나를 재진단해줘. 이 대화에 대상이
-명시되지 않았다면 ROADMAP의 대기 작업과 근거를 읽어 우선할 한 건을
-정하고 이유를 알려줘. 과거 시도·로그·입력·도구 버전을 먼저 확인해줘.
+명시되지 않았다면 ROADMAP의 공통 준비 범위 내 대기 작업과 근거에서 한 건을
+정하고 이유를 알려줘. M2로 이관한 M0-10~12를 자동 재개하지 마.
+과거 시도·로그·입력·도구 버전을 먼저 확인해줘.
 
 확인된 사실과 가설, 부족한 자료를 구분하고 원인을 가를 최소 실험을
 실제로 수행해줘. 근거가 확보되면 최소 수정 후 재검증하고, 해결되지
@@ -398,9 +407,9 @@ development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
 development/PLAN.md, development/REQUIREMENTS.md와
 development/ROADMAP.md를 읽고 CODEX_GUIDE 1.2의 공통 규칙에
 따라 M0의 독립 조사·검증을 하위 agent에게 분담하여 진행해줘.
-지원되는 하위 agent 수에 맞춰 PDK view inventory, 순차 셀 모델 검증,
-QFlow·CTS·RC 도구/자료 적합성 조사를 나누고, 선행 자료가 필요한 실제
-통합 실험은 그 자료가 준비된 다음 수행해줘.
+지원되는 하위 agent 수에 맞춰 최소 공통 계약, 팀 사용 경로·참조,
+프로젝트 템플릿·doctor 준비를 나눠줘. 완료된 조사는 재사용하고
+M2로 이관한 CTS/RC·최종 backend 구현을 공통 준비에 다시 넣지 마.
 
 각 하위 agent는 자기 실험 디렉터리와 개별 기록만 작성하게 하고,
 ROADMAP·PLAN·공통 schema·공유 라이브러리는 동시에 수정하지 않게 해줘.

@@ -1,0 +1,28 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0388] unsupported LEF58_SPACING property for layer NWELL :"SPACING 1.25 ;"
+[INFO ODB-0388] unsupported LEF58_WIDTH property for layer NWELL :"WIDTH 2.5 ;"
+[INFO ODB-0388] unsupported LEF58_SPACING property for layer ACT :"SPACING 1 ;"
+[INFO ODB-0388] unsupported LEF58_WIDTH property for layer ACT :"WIDTH 0.7 ;"
+[INFO ODB-0227] LEF file: technology.lef, created 13 layers
+Signal 11 received
+Stack trace:
+ 0# 0x0000000000DD092A in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 1# 0x0000000000045330 in /lib/x86_64-linux-gnu/libc.so.6
+ 2# rcx::extMain::benchWires(rcx::extMainOptions*) in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 3# rcx::Ext::bench_wires(BenchWiresOptions const&) in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 4# 0x00000000013EE7E7 in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+ 5# TclNRRunCallbacks in /lib/x86_64-linux-gnu/libtcl8.6.so
+ 6# 0x000000000003F6BC in /lib/x86_64-linux-gnu/libtcl8.6.so
+ 7# Tcl_EvalEx in /lib/x86_64-linux-gnu/libtcl8.6.so
+ 8# Tcl_Eval in /lib/x86_64-linux-gnu/libtcl8.6.so
+ 9# sta::sourceTclFile(char const*, bool, bool, Tcl_Interp*) in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+10# 0x000000000343A275 in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+11# ord::tclAppInit(Tcl_Interp*) in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+12# Tcl_MainEx in /lib/x86_64-linux-gnu/libtcl8.6.so
+13# main in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad
+14# 0x000000000002A1CA in /lib/x86_64-linux-gnu/libc.so.6
+15# __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6
+16# _start in /home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/.cache/M0-10/openroad/usr/bin/openroad

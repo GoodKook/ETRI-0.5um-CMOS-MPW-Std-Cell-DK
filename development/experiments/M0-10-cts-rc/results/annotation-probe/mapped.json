@@ -1,0 +1,512 @@
+{
+  "creator": "Yosys 0.71+4 (git sha1 02365349e, Release, GNU /usr/bin/c++ 13.3.0)",
+  "modules": {
+    "shift_reg_8bit": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "candidate.v:1.1-76.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "din": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "rst_n": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "dout": {
+          "direction": "output",
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ]
+        }
+      },
+      "cells": {
+        "_10_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:22.10-22.24"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 13 ]
+          }
+        },
+        "_11_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:23.10-23.24"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 14 ]
+          }
+        },
+        "_12_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:24.10-24.24"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 15 ]
+          }
+        },
+        "_13_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:25.10-25.24"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 16 ]
+          }
+        },
+        "_14_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:26.10-26.24"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 17 ]
+          }
+        },
+        "_15_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:27.10-27.24"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 18 ]
+          }
+        },
+        "_16_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:28.10-32.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 19 ],
+            "D": [ 3 ],
+            "Q": [ 5 ],
+            "R": [ 4 ],
+            "S": [ 18 ]
+          }
+        },
+        "_17_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:33.10-37.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 20 ],
+            "D": [ 11 ],
+            "Q": [ 12 ],
+            "R": [ 4 ],
+            "S": [ 17 ]
+          }
+        },
+        "_18_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:38.10-42.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 20 ],
+            "D": [ 10 ],
+            "Q": [ 11 ],
+            "R": [ 4 ],
+            "S": [ 16 ]
+          }
+        },
+        "_19_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:43.10-47.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 20 ],
+            "D": [ 9 ],
+            "Q": [ 10 ],
+            "R": [ 4 ],
+            "S": [ 15 ]
+          }
+        },
+        "_20_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:48.10-52.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 20 ],
+            "D": [ 8 ],
+            "Q": [ 9 ],
+            "R": [ 4 ],
+            "S": [ 14 ]
+          }
+        },
+        "_21_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:53.10-57.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 19 ],
+            "D": [ 7 ],
+            "Q": [ 8 ],
+            "R": [ 4 ],
+            "S": [ 13 ]
+          }
+        },
+        "_22_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:58.10-62.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 19 ],
+            "D": [ 6 ],
+            "Q": [ 7 ],
+            "R": [ 4 ],
+            "S": [ 21 ]
+          }
+        },
+        "_23_": {
+          "hide_name": 0,
+          "type": "DFFSRX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:63.10-67.13"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 19 ],
+            "D": [ 5 ],
+            "Q": [ 6 ],
+            "R": [ 4 ],
+            "S": [ 22 ]
+          }
+        },
+        "_8_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:68.10-68.23"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 22 ]
+          }
+        },
+        "_9_": {
+          "hide_name": 0,
+          "type": "TIEHIX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:69.10-69.23"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 21 ]
+          }
+        },
+        "clkbuf_0_clk": {
+          "hide_name": 0,
+          "type": "CLKBUFX4",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:70.11-71.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "Y": [ 23 ]
+          }
+        },
+        "clkbuf_1_0__f_clk": {
+          "hide_name": 0,
+          "type": "CLKBUFX4",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:72.11-73.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23 ],
+            "Y": [ 19 ]
+          }
+        },
+        "clkbuf_1_1__f_clk": {
+          "hide_name": 0,
+          "type": "CLKBUFX4",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "candidate.v:74.11-75.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23 ],
+            "Y": [ 20 ]
+          }
+        }
+      },
+      "netnames": {
+        "_0_": {
+          "hide_name": 0,
+          "bits": [ 22 ],
+          "attributes": {
+            "src": "candidate.v:10.7-10.10"
+          }
+        },
+        "_1_": {
+          "hide_name": 0,
+          "bits": [ 21 ],
+          "attributes": {
+            "src": "candidate.v:11.7-11.10"
+          }
+        },
+        "_2_": {
+          "hide_name": 0,
+          "bits": [ 13 ],
+          "attributes": {
+            "src": "candidate.v:12.7-12.10"
+          }
+        },
+        "_3_": {
+          "hide_name": 0,
+          "bits": [ 14 ],
+          "attributes": {
+            "src": "candidate.v:13.7-13.10"
+          }
+        },
+        "_4_": {
+          "hide_name": 0,
+          "bits": [ 15 ],
+          "attributes": {
+            "src": "candidate.v:14.7-14.10"
+          }
+        },
+        "_5_": {
+          "hide_name": 0,
+          "bits": [ 16 ],
+          "attributes": {
+            "src": "candidate.v:15.7-15.10"
+          }
+        },
+        "_6_": {
+          "hide_name": 0,
+          "bits": [ 17 ],
+          "attributes": {
+            "src": "candidate.v:16.7-16.10"
+          }
+        },
+        "_7_": {
+          "hide_name": 0,
+          "bits": [ 18 ],
+          "attributes": {
+            "src": "candidate.v:17.7-17.10"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "candidate.v:5.8-5.11"
+          }
+        },
+        "clknet_0_clk": {
+          "hide_name": 0,
+          "bits": [ 23 ],
+          "attributes": {
+            "src": "candidate.v:18.7-18.19"
+          }
+        },
+        "clknet_1_0__leaf_clk": {
+          "hide_name": 0,
+          "bits": [ 19 ],
+          "attributes": {
+            "src": "candidate.v:19.7-19.27"
+          }
+        },
+        "clknet_1_1__leaf_clk": {
+          "hide_name": 0,
+          "bits": [ 20 ],
+          "attributes": {
+            "src": "candidate.v:20.7-20.27"
+          }
+        },
+        "din": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "candidate.v:6.8-6.11"
+          }
+        },
+        "dout": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "candidate.v:8.15-8.19"
+          }
+        },
+        "rst_n": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "candidate.v:7.8-7.13"
+          }
+        }
+      }
+    }
+  }
+}

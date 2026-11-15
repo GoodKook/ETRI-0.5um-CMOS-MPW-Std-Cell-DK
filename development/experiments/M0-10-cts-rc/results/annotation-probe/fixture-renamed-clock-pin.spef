@@ -1,0 +1,309 @@
+*SPEF "IEEE 1481-1998"
+*DESIGN "shift_reg_8bit"
+*DATE "annotation-fixture"
+*VENDOR "M0-10 synthetic fixture"
+*PROGRAM "annotation.py"
+*VERSION "1"
+*DESIGN_FLOW "PIN_CAP NONE"
+*DIVIDER /
+*DELIMITER :
+*BUS_DELIMITER [ ]
+*T_UNIT 1 NS
+*C_UNIT 1 FF
+*R_UNIT 1 OHM
+*L_UNIT 1 HENRY
+*PORTS
+clk I
+din I
+rst_n I
+dout[0] O
+dout[1] O
+dout[2] O
+dout[3] O
+dout[4] O
+dout[5] O
+dout[6] O
+dout[7] O
+*D_NET _0_ 2
+*CONN
+*I _23_:S I
+*I _8_:Y O
+*CAP
+1 _23_:S 1
+2 _8_:Y 1
+*RES
+1 _23_:S _8_:Y 1
+*END
+*D_NET _1_ 2
+*CONN
+*I _22_:S I
+*I _9_:Y O
+*CAP
+1 _22_:S 1
+2 _9_:Y 1
+*RES
+1 _22_:S _9_:Y 1
+*END
+*D_NET _2_ 2
+*CONN
+*I _10_:Y O
+*I _21_:S I
+*CAP
+1 _10_:Y 1
+2 _21_:S 1
+*RES
+1 _10_:Y _21_:S 1
+*END
+*D_NET _3_ 2
+*CONN
+*I _11_:Y O
+*I _20_:S I
+*CAP
+1 _11_:Y 1
+2 _20_:S 1
+*RES
+1 _11_:Y _20_:S 1
+*END
+*D_NET _4_ 2
+*CONN
+*I _12_:Y O
+*I _19_:S I
+*CAP
+1 _12_:Y 1
+2 _19_:S 1
+*RES
+1 _12_:Y _19_:S 1
+*END
+*D_NET _5_ 2
+*CONN
+*I _13_:Y O
+*I _18_:S I
+*CAP
+1 _13_:Y 1
+2 _18_:S 1
+*RES
+1 _13_:Y _18_:S 1
+*END
+*D_NET _6_ 2
+*CONN
+*I _14_:Y O
+*I _17_:S I
+*CAP
+1 _14_:Y 1
+2 _17_:S 1
+*RES
+1 _14_:Y _17_:S 1
+*END
+*D_NET _7_ 2
+*CONN
+*I _15_:Y O
+*I _16_:S I
+*CAP
+1 _15_:Y 1
+2 _16_:S 1
+*RES
+1 _15_:Y _16_:S 1
+*END
+*D_NET clk 2
+*CONN
+*I missing_clkbuf:A I
+*P clk I
+*CAP
+1 missing_clkbuf:A 1
+2 clk 1
+*RES
+1 missing_clkbuf:A clk 1
+*END
+*D_NET clknet_0_clk 3
+*CONN
+*I clkbuf_0_clk:Y O
+*I clkbuf_1_0__f_clk:A I
+*I clkbuf_1_1__f_clk:A I
+*CAP
+1 clkbuf_0_clk:Y 1
+2 clkbuf_1_0__f_clk:A 1
+3 clkbuf_1_1__f_clk:A 1
+*RES
+1 clkbuf_0_clk:Y clkbuf_1_0__f_clk:A 1
+2 clkbuf_0_clk:Y clkbuf_1_1__f_clk:A 1
+*END
+*D_NET clknet_1_0__leaf_clk 5
+*CONN
+*I _16_:CLK I
+*I _21_:CLK I
+*I _22_:CLK I
+*I _23_:CLK I
+*I clkbuf_1_0__f_clk:Y O
+*CAP
+1 _16_:CLK 1
+2 _21_:CLK 1
+3 _22_:CLK 1
+4 _23_:CLK 1
+5 clkbuf_1_0__f_clk:Y 1
+*RES
+1 _16_:CLK _21_:CLK 1
+2 _16_:CLK _22_:CLK 1
+3 _16_:CLK _23_:CLK 1
+4 _16_:CLK clkbuf_1_0__f_clk:Y 1
+*END
+*D_NET clknet_1_1__leaf_clk 5
+*CONN
+*I _17_:CLK I
+*I _18_:CLK I
+*I _19_:CLK I
+*I _20_:CLK I
+*I clkbuf_1_1__f_clk:Y O
+*CAP
+1 _17_:CLK 1
+2 _18_:CLK 1
+3 _19_:CLK 1
+4 _20_:CLK 1
+5 clkbuf_1_1__f_clk:Y 1
+*RES
+1 _17_:CLK _18_:CLK 1
+2 _17_:CLK _19_:CLK 1
+3 _17_:CLK _20_:CLK 1
+4 _17_:CLK clkbuf_1_1__f_clk:Y 1
+*END
+*D_NET din 2
+*CONN
+*I _16_:D I
+*P din I
+*CAP
+1 _16_:D 1
+2 din 1
+*RES
+1 _16_:D din 1
+*END
+*D_NET dout[0] 3
+*CONN
+*I _16_:Q O
+*I _23_:D I
+*P dout[0] O
+*CAP
+1 _16_:Q 1
+2 _23_:D 1
+3 dout[0] 1
+*RES
+1 _16_:Q _23_:D 1
+2 _16_:Q dout[0] 1
+*END
+*D_NET dout[1] 3
+*CONN
+*I _22_:D I
+*I _23_:Q O
+*P dout[1] O
+*CAP
+1 _22_:D 1
+2 _23_:Q 1
+3 dout[1] 1
+*RES
+1 _22_:D _23_:Q 1
+2 _22_:D dout[1] 1
+*END
+*D_NET dout[2] 3
+*CONN
+*I _21_:D I
+*I _22_:Q O
+*P dout[2] O
+*CAP
+1 _21_:D 1
+2 _22_:Q 1
+3 dout[2] 1
+*RES
+1 _21_:D _22_:Q 1
+2 _21_:D dout[2] 1
+*END
+*D_NET dout[3] 3
+*CONN
+*I _20_:D I
+*I _21_:Q O
+*P dout[3] O
+*CAP
+1 _20_:D 1
+2 _21_:Q 1
+3 dout[3] 1
+*RES
+1 _20_:D _21_:Q 1
+2 _20_:D dout[3] 1
+*END
+*D_NET dout[4] 3
+*CONN
+*I _19_:D I
+*I _20_:Q O
+*P dout[4] O
+*CAP
+1 _19_:D 1
+2 _20_:Q 1
+3 dout[4] 1
+*RES
+1 _19_:D _20_:Q 1
+2 _19_:D dout[4] 1
+*END
+*D_NET dout[5] 3
+*CONN
+*I _18_:D I
+*I _19_:Q O
+*P dout[5] O
+*CAP
+1 _18_:D 1
+2 _19_:Q 1
+3 dout[5] 1
+*RES
+1 _18_:D _19_:Q 1
+2 _18_:D dout[5] 1
+*END
+*D_NET dout[6] 3
+*CONN
+*I _17_:D I
+*I _18_:Q O
+*P dout[6] O
+*CAP
+1 _17_:D 1
+2 _18_:Q 1
+3 dout[6] 1
+*RES
+1 _17_:D _18_:Q 1
+2 _17_:D dout[6] 1
+*END
+*D_NET dout[7] 2
+*CONN
+*I _17_:Q O
+*P dout[7] O
+*CAP
+1 _17_:Q 1
+2 dout[7] 1
+*RES
+1 _17_:Q dout[7] 1
+*END
+*D_NET rst_n 9
+*CONN
+*I _16_:R I
+*I _17_:R I
+*I _18_:R I
+*I _19_:R I
+*I _20_:R I
+*I _21_:R I
+*I _22_:R I
+*I _23_:R I
+*P rst_n I
+*CAP
+1 _16_:R 1
+2 _17_:R 1
+3 _18_:R 1
+4 _19_:R 1
+5 _20_:R 1
+6 _21_:R 1
+7 _22_:R 1
+8 _23_:R 1
+9 rst_n 1
+*RES
+1 _16_:R _17_:R 1
+2 _16_:R _18_:R 1
+3 _16_:R _19_:R 1
+4 _16_:R _20_:R 1
+5 _16_:R _21_:R 1
+6 _16_:R _22_:R 1
+7 _16_:R _23_:R 1
+8 _16_:R rst_n 1
+*END

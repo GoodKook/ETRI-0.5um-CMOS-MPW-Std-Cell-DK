@@ -1,0 +1,203 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 1 thread(s).
+[INFO ODB-0388] unsupported LEF58_SPACING property for layer NWELL :"SPACING 1.25 ;"
+[INFO ODB-0388] unsupported LEF58_WIDTH property for layer NWELL :"WIDTH 2.5 ;"
+[INFO ODB-0388] unsupported LEF58_SPACING property for layer ACT :"SPACING 1 ;"
+[INFO ODB-0388] unsupported LEF58_WIDTH property for layer ACT :"WIDTH 0.7 ;"
+[INFO ODB-0227] LEF file: technology.lef, created 13 layers, 2 vias
+[INFO ODB-0227] LEF file: cells.lef, created 38 library cells
+[INFO IFP-0001] Added 6 rows of 90 site core.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 320.000 288.000 ) um
+[INFO IFP-0101] Core BBox: ( 16.000 36.000 ) ( 304.000 252.000 ) um
+[INFO IFP-0102] Core area:                        62208.000 um^2
+[INFO IFP-0103] Total instances area:             19353.600 um^2
+[INFO IFP-0104] Effective utilization:                0.311
+[INFO IFP-0105] Number of instances:                     16
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0001] Number of available slots 188
+[INFO PPL-0002] Number of I/O             11
+[INFO PPL-0003] Number of I/O w/sink      11
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 1777.60 um.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  3.200 36.000 ) um
+[INFO GPL-0004] CoreBBox: ( 16.000 36.000 ) ( 304.000 252.000 ) um
+[INFO GPL-0036] Movable instances area:      19353.600 um^2
+[INFO GPL-0037] Total instances area:        19353.600 um^2
+[INFO GPL-0035] Pin density area adjust:     -1383.394 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:                16
+[INFO GPL-0007] Movable instances:                  16
+[INFO GPL-0008] Fixed instances:                     0
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                     19
+[INFO GPL-0011] Number of pins:                     59
+[INFO GPL-0012] Die BBox:  (  0.000  0.000 ) ( 320.000 288.000 ) um
+[INFO GPL-0013] Core BBox: ( 16.000 36.000 ) ( 304.000 252.000 ) um
+[INFO GPL-0016] Core area:                   62208.000 um^2
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                 62208.000 um^2
+[INFO GPL-0017] Fixed instances area:            0.000 um^2
+[INFO GPL-0018] Movable instances area:      17970.206 um^2
+[INFO GPL-0019] Utilization:                    28.887 %
+[INFO GPL-0020] Standard cells area:         17970.206 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0051] Source of initial instance position counters:
+	Odb location = 0	Core center = 16	Region center = 0
+[InitialPlace]  Iter: 1 conjugate gradient residual: 0.00000011 HPWL: 5725500
+[InitialPlace]  Iter: 2 conjugate gradient residual: 0.00000011 HPWL: 2052556
+[InitialPlace]  Iter: 3 conjugate gradient residual: 0.00000012 HPWL: 2063761
+[InitialPlace]  Iter: 4 conjugate gradient residual: 0.00000009 HPWL: 2067856
+[InitialPlace]  Iter: 5 conjugate gradient residual: 0.00000009 HPWL: 2076503
+[INFO GPL-0033] ---- Initialize Nesterov Region: Top-level
+[INFO GPL-0023] Placement target density:       0.4500
+[INFO GPL-0024] Movable insts average area:   1123.138 um^2
+[INFO GPL-0025] Ideal bin area:               2495.862 um^2
+[INFO GPL-0026] Ideal bin count:                    24
+[INFO GPL-0027] Total bin area:              62208.000 um^2
+[INFO GPL-0028] Bin count (X, Y):           4 ,      4
+[INFO GPL-0029] Bin size (W * H):      72.000 * 54.000 um
+[INFO GPL-0030] Number of bins:                     16
+[INFO GPL-0084] ---- Execute Nesterov Global Placement.
+[INFO GPL-0031] HPWL: Half-Perimeter Wirelength
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+        0 |   0.6105 |  1.284444e+03 |   +0.00% |  5.93e-15 |      
+       10 |   0.6105 |  1.279846e+03 |   -0.36% |  9.66e-15 |      
+       20 |   0.6105 |  1.280013e+03 |   +0.01% |  1.57e-14 |      
+       30 |   0.6105 |  1.280064e+03 |   +0.00% |  2.56e-14 |      
+       40 |   0.6105 |  1.280312e+03 |   +0.02% |  4.18e-14 |      
+       50 |   0.6105 |  1.280736e+03 |   +0.03% |  6.80e-14 |      
+       60 |   0.6105 |  1.281488e+03 |   +0.06% |  1.11e-13 |      
+       70 |   0.6105 |  1.282824e+03 |   +0.10% |  1.80e-13 |      
+       80 |   0.6105 |  1.284864e+03 |   +0.16% |  2.94e-13 |      
+       90 |   0.6105 |  1.287825e+03 |   +0.23% |  4.79e-13 |      
+      100 |   0.6105 |  1.291152e+03 |   +0.26% |  7.80e-13 |      
+      110 |   0.6105 |  1.291035e+03 |   -0.01% |  1.27e-12 |      
+      120 |   0.6105 |  1.282741e+03 |   -0.64% |  2.07e-12 |      
+      130 |   0.6105 |  1.283933e+03 |   +0.09% |  3.37e-12 |      
+      140 |   0.6105 |  1.285482e+03 |   +0.12% |  5.49e-12 |      
+      150 |   0.6105 |  1.288667e+03 |   +0.25% |  8.94e-12 |      
+      160 |   0.6105 |  1.293947e+03 |   +0.41% |  1.46e-11 |      
+      170 |   0.6105 |  1.303321e+03 |   +0.72% |  2.37e-11 |      
+      180 |   0.6102 |  1.319335e+03 |   +1.23% |  3.87e-11 |      
+      190 |   0.6065 |  1.347456e+03 |   +2.13% |  6.30e-11 |      
+      200 |   0.5949 |  1.402241e+03 |   +4.07% |  1.03e-10 |      
+      210 |   0.5626 |  1.516786e+03 |   +8.17% |  1.67e-10 |      
+      220 |   0.5173 |  1.655172e+03 |   +9.12% |  2.72e-10 |      
+      230 |   0.4638 |  1.762178e+03 |   +6.46% |  4.43e-10 |      
+      240 |   0.4109 |  1.865410e+03 |   +5.86% |  7.22e-10 |      
+      250 |   0.3503 |  1.933430e+03 |   +3.65% |  1.18e-09 |      
+      260 |   0.2469 |  2.083477e+03 |   +7.76% |  1.77e-09 |      
+      270 |   0.1274 |  2.279001e+03 |   +9.38% |  2.60e-09 |      
+      280 |   0.1714 |  2.153882e+03 |   -5.49% |  3.84e-09 |      
+      290 |   0.1337 |  2.180242e+03 |   +1.22% |  5.65e-09 |      
+      299 |   0.0974 |  2.227822e+03 |          |  8.32e-09 |      
+---------------------------------------------------------------
+[INFO GPL-1001] Global placement finished at iteration 299
+[INFO GPL-1002] Placed Cell Area            17970.2064
+[INFO GPL-1003] Available Free Area         62208.0000
+[INFO GPL-1004] Minimum Feasible Density        0.2900 (cell_area / free_area)
+[INFO GPL-1006]   Suggested Target Densities:
+[INFO GPL-1007]     - For 90% usage of free space: 0.3210
+[INFO GPL-1008]     - For 80% usage of free space: 0.3611
+[INFO GPL-1009]     - For 50% usage of free space: 0.5777
+[INFO GPL-1014] Final placement area: 17970.21 (+0.00%)
+[INFO DPL-0006] Core area: 62208.00 um^2, Instances area: 19353.60 um^2, Utilization: 31.1%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                      16
+Diamond Move Success:             16 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement        621.4 u
+average displacement       38.8 u
+max displacement           74.1 u
+original HPWL            2225.3 u
+legalized HPWL           3076.6 u
+delta HPWL                   38 %
+
+[INFO CTS-0050] Root buffer is CLKBUFX4.
+[INFO CTS-0051] Sink buffer is CLKBUFX2.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUFX2
+                    CLKBUFX4
+[INFO CTS-0049] Characterization buffer is CLKBUFX4.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 8 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 2 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 8.
+[INFO CTS-0029]  Register sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 100.0 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 180000  dbu (180 um).
+[INFO CTS-0023]  Original sink region: [(64925, 88500), (205725, 199500)].
+[INFO CTS-0024]  Normalized sink region: [(0.360694, 0.491667), (1.14292, 1.10833)].
+[INFO CTS-0025]     Width:  0.7822.
+[INFO CTS-0026]     Height: 0.6167.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 4
+    Sub-region size: 0.3911 X 0.6167
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 10.
+[INFO CTS-0035]  Number of sinks covered: 8.
+[INFO CTS-0018]     Created 3 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 3 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 4:2..
+[INFO CTS-0017]     Max level of the clock tree: 1.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 8
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 497.00 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 0
+[INFO DPL-0006] Core area: 62208.00 um^2, Instances area: 22809.60 um^2, Utilization: 36.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                      19
+Diamond Move Success:             19 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement        196.1 u
+average displacement       10.3 u
+max displacement           60.7 u
+original HPWL            3743.8 u
+legalized HPWL           3587.6 u
+delta HPWL                   -4 %
+
+Total number of Clock Roots: 1.
+Total number of Buffers Inserted: 3.
+Total number of Clock Subnets: 3.
+Total number of Sinks: 8.
+Cells used:
+  CLKBUFX4: 3
+[INFO PDN-0001] Inserting grid: core
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0040] All shapes on net VSS are connected.

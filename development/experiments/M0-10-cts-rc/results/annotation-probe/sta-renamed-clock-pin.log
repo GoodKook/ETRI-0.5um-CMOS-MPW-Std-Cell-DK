@@ -1,0 +1,2396 @@
+OpenSTA 3.2.0 f2e10f1da1 Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Warning 1648: fixture-renamed-clock-pin.spef line 109, instance missing_clkbuf:A not found.
+Warning 1650: fixture-renamed-clock-pin.spef line 113, net missing_clkbuf not found.
+Warning 1650: fixture-renamed-clock-pin.spef line 116, net missing_clkbuf not found.
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1uA
+ power 1nW
+ distance 1um
+Found 0 unannotated drivers.
+Found 1 partially unannotated drivers.
+ clk
+  clkbuf_0_clk/A
+Clock clk
+rise -> rise
+    min     max
+0.000000 0.000000 source latency
+4.363213         network latency _16_/CLK
+        4.405316 network latency _18_/CLK
+---------------
+4.363213 4.405316 latency
+        0.042103 skew
+
+fall -> fall
+    min     max
+0.000000 0.000000 source latency
+4.368684         network latency _16_/CLK
+        4.427249 network latency _18_/CLK
+---------------
+4.368684 4.427249 latency
+        0.058565 skew
+
+
+Clock clk
+4.405316 source latency _21_/CLK ^
+-4.363235 target latency _20_/CLK ^
+0.500000 clock uncertainty
+-0.012195 CRPR
+--------------
+0.529886 setup skew
+
+Clock clk
+4.363213 source latency _16_/CLK ^
+-4.405316 target latency _23_/CLK ^
+-0.100000 clock uncertainty
+-0.042061 CRPR
+--------------
+-0.184165 hold skew
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _16_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100553    0.000277    0.100277 ^ _16_/R (DFFSRX1)
+                                              0.100277   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000103    4.405290 ^ _16_/CLK (DFFSRX1)
+                                  0.100000    4.505290   clock uncertainty
+                                  0.000000    4.505290   clock reconvergence pessimism
+                                  1.650708    6.155998   library removal time
+                                              6.155998   data required time
+---------------------------------------------------------------------------------------------
+                                              6.155998   data required time
+                                             -0.100277   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055721   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _18_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100622    0.000311    0.100311 ^ _18_/R (DFFSRX1)
+                                              0.100311   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _18_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                  0.000000    4.505316   clock reconvergence pessimism
+                                  1.650701    6.156017   library removal time
+                                              6.156017   data required time
+---------------------------------------------------------------------------------------------
+                                              6.156017   data required time
+                                             -0.100311   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _19_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100622    0.000311    0.100311 ^ _19_/R (DFFSRX1)
+                                              0.100311   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _19_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                  0.000000    4.505316   clock reconvergence pessimism
+                                  1.650701    6.156017   library removal time
+                                              6.156017   data required time
+---------------------------------------------------------------------------------------------
+                                              6.156017   data required time
+                                             -0.100311   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _20_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100622    0.000311    0.100311 ^ _20_/R (DFFSRX1)
+                                              0.100311   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _20_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                  0.000000    4.505316   clock reconvergence pessimism
+                                  1.650701    6.156017   library removal time
+                                              6.156017   data required time
+---------------------------------------------------------------------------------------------
+                                              6.156017   data required time
+                                             -0.100311   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _21_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100622    0.000311    0.100311 ^ _21_/R (DFFSRX1)
+                                              0.100311   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _21_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                  0.000000    4.505316   clock reconvergence pessimism
+                                  1.650701    6.156017   library removal time
+                                              6.156017   data required time
+---------------------------------------------------------------------------------------------
+                                              6.156017   data required time
+                                             -0.100311   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _22_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100622    0.000311    0.100311 ^ _22_/R (DFFSRX1)
+                                              0.100311   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _22_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                  0.000000    4.505316   clock reconvergence pessimism
+                                  1.650701    6.156017   library removal time
+                                              6.156017   data required time
+---------------------------------------------------------------------------------------------
+                                              6.156017   data required time
+                                             -0.100311   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _23_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100622    0.000311    0.100311 ^ _23_/R (DFFSRX1)
+                                              0.100311   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _23_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                  0.000000    4.505316   clock reconvergence pessimism
+                                  1.650701    6.156017   library removal time
+                                              6.156017   data required time
+---------------------------------------------------------------------------------------------
+                                              6.156017   data required time
+                                             -0.100311   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _17_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 ^ input external delay
+     8    0.400120    0.100000    0.000000    0.100000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100622    0.000311    0.100311 ^ _17_/R (DFFSRX1)
+                                              0.100311   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000103    4.405290 ^ _17_/CLK (DFFSRX1)
+                                  0.100000    4.505290   clock uncertainty
+                                  0.000000    4.505290   clock reconvergence pessimism
+                                  1.650701    6.155992   library removal time
+                                              6.155992   data required time
+---------------------------------------------------------------------------------------------
+                                              6.155992   data required time
+                                             -0.100311   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -6.055680   slack (VIOLATED)
+
+
+Startpoint: din (input port clocked by clk)
+Endpoint: _16_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000 v input external delay
+     1    0.034930    0.116912    0.012253    0.112253 v din (in)
+                                                         din (net)
+                      0.116912    0.000000    0.112253 v _16_/D (DFFSRX1)
+                                              0.112253   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000103    4.405290 ^ _16_/CLK (DFFSRX1)
+                                  0.100000    4.505290   clock uncertainty
+                                  0.000000    4.505290   clock reconvergence pessimism
+                                  0.136476    4.641766   library hold time
+                                              4.641766   data required time
+---------------------------------------------------------------------------------------------
+                                              4.641766   data required time
+                                             -0.112253   data arrival time
+---------------------------------------------------------------------------------------------
+                                             -4.529513   slack (VIOLATED)
+
+
+Startpoint: _21_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _20_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _21_/CLK (DFFSRX1)
+     2    0.335930    0.959593    2.518323    6.881558 v _21_/Q (DFFSRX1)
+                                                         dout[3] (net)
+                      0.959593    0.000335    6.881893 v _20_/D (DFFSRX1)
+                                              6.881893   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _20_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                 -0.012195    4.493121   clock reconvergence pessimism
+                                  0.017870    4.510991   library hold time
+                                              4.510991   data required time
+---------------------------------------------------------------------------------------------
+                                              4.510991   data required time
+                                             -6.881893   data arrival time
+---------------------------------------------------------------------------------------------
+                                              2.370901   slack (MET)
+
+
+Startpoint: _19_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _18_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _19_/CLK (DFFSRX1)
+     2    0.335930    0.959593    2.518323    6.881558 v _19_/Q (DFFSRX1)
+                                                         dout[5] (net)
+                      0.959593    0.000335    6.881893 v _18_/D (DFFSRX1)
+                                              6.881893   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _18_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                 -0.042061    4.463254   clock reconvergence pessimism
+                                  0.017870    4.481125   library hold time
+                                              4.481125   data required time
+---------------------------------------------------------------------------------------------
+                                              4.481125   data required time
+                                             -6.881893   data arrival time
+---------------------------------------------------------------------------------------------
+                                              2.400768   slack (MET)
+
+
+Startpoint: _20_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _19_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _20_/CLK (DFFSRX1)
+     2    0.335930    0.959593    2.518323    6.881558 v _20_/Q (DFFSRX1)
+                                                         dout[4] (net)
+                      0.959593    0.000335    6.881893 v _19_/D (DFFSRX1)
+                                              6.881893   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _19_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                 -0.042061    4.463254   clock reconvergence pessimism
+                                  0.017870    4.481125   library hold time
+                                              4.481125   data required time
+---------------------------------------------------------------------------------------------
+                                              4.481125   data required time
+                                             -6.881893   data arrival time
+---------------------------------------------------------------------------------------------
+                                              2.400768   slack (MET)
+
+
+Startpoint: _22_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _21_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _22_/CLK (DFFSRX1)
+     2    0.335930    0.959593    2.518323    6.881558 v _22_/Q (DFFSRX1)
+                                                         dout[2] (net)
+                      0.959593    0.000335    6.881893 v _21_/D (DFFSRX1)
+                                              6.881893   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _21_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                 -0.042061    4.463254   clock reconvergence pessimism
+                                  0.017870    4.481125   library hold time
+                                              4.481125   data required time
+---------------------------------------------------------------------------------------------
+                                              4.481125   data required time
+                                             -6.881893   data arrival time
+---------------------------------------------------------------------------------------------
+                                              2.400768   slack (MET)
+
+
+Startpoint: _23_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _22_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _23_/CLK (DFFSRX1)
+     2    0.335930    0.959593    2.518323    6.881558 v _23_/Q (DFFSRX1)
+                                                         dout[1] (net)
+                      0.959593    0.000335    6.881893 v _22_/D (DFFSRX1)
+                                              6.881893   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _22_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                 -0.042061    4.463254   clock reconvergence pessimism
+                                  0.017870    4.481125   library hold time
+                                              4.481125   data required time
+---------------------------------------------------------------------------------------------
+                                              4.481125   data required time
+                                             -6.881893   data arrival time
+---------------------------------------------------------------------------------------------
+                                              2.400768   slack (MET)
+
+
+Startpoint: _18_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _17_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _18_/CLK (DFFSRX1)
+     2    0.335930    0.959593    2.518323    6.881558 v _18_/Q (DFFSRX1)
+                                                         dout[6] (net)
+                      0.959593    0.000335    6.881893 v _17_/D (DFFSRX1)
+                                              6.881893   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000103    4.405290 ^ _17_/CLK (DFFSRX1)
+                                  0.100000    4.505290   clock uncertainty
+                                 -0.042061    4.463229   clock reconvergence pessimism
+                                  0.017870    4.481099   library hold time
+                                              4.481099   data required time
+---------------------------------------------------------------------------------------------
+                                              4.481099   data required time
+                                             -6.881893   data arrival time
+---------------------------------------------------------------------------------------------
+                                              2.400793   slack (MET)
+
+
+Startpoint: _16_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _23_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000087    4.363213 ^ _16_/CLK (DFFSRX1)
+     2    0.335930    0.992151    2.518662    6.881875 v _16_/Q (DFFSRX1)
+                                                         dout[0] (net)
+                      0.992151    0.000034    6.881908 v _23_/D (DFFSRX1)
+                                              6.881908   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _23_/CLK (DFFSRX1)
+                                  0.100000    4.505316   clock uncertainty
+                                 -0.042061    4.463254   clock reconvergence pessimism
+                                  0.013696    4.476951   library hold time
+                                              4.476951   data required time
+---------------------------------------------------------------------------------------------
+                                              4.476951   data required time
+                                             -6.881908   data arrival time
+---------------------------------------------------------------------------------------------
+                                              2.404958   slack (MET)
+
+
+Startpoint: _17_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[7] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000087    4.363213 ^ _17_/CLK (DFFSRX1)
+     1    0.302000    1.044028    2.041432    6.404644 ^ _17_/Q (DFFSRX1)
+                                                         dout[7] (net)
+                      1.044028    0.000301    6.404946 ^ dout[7] (out)
+                                              6.404946   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.404946   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.504946   slack (MET)
+
+
+Startpoint: _16_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[0] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000087    4.363213 ^ _16_/CLK (DFFSRX1)
+     2    0.337960    1.137026    2.102694    6.465906 ^ _16_/Q (DFFSRX1)
+                                                         dout[0] (net)
+                      1.137026    0.000301    6.466208 ^ dout[0] (out)
+                                              6.466208   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.466208   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.566207   slack (MET)
+
+
+Startpoint: _23_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[1] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _23_/CLK (DFFSRX1)
+     2    0.337960    1.096610    2.102398    6.465632 ^ _23_/Q (DFFSRX1)
+                                                         dout[1] (net)
+                      1.096610    0.000638    6.466271 ^ dout[1] (out)
+                                              6.466271   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.466271   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.566271   slack (MET)
+
+
+Startpoint: _22_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[2] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _22_/CLK (DFFSRX1)
+     2    0.337960    1.096610    2.102398    6.465632 ^ _22_/Q (DFFSRX1)
+                                                         dout[2] (net)
+                      1.096610    0.000638    6.466271 ^ dout[2] (out)
+                                              6.466271   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.466271   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.566271   slack (MET)
+
+
+Startpoint: _21_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[3] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _21_/CLK (DFFSRX1)
+     2    0.337960    1.096610    2.102398    6.465632 ^ _21_/Q (DFFSRX1)
+                                                         dout[3] (net)
+                      1.096610    0.000638    6.466271 ^ dout[3] (out)
+                                              6.466271   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.466271   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.566271   slack (MET)
+
+
+Startpoint: _20_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[4] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _20_/CLK (DFFSRX1)
+     2    0.337960    1.096610    2.102398    6.465632 ^ _20_/Q (DFFSRX1)
+                                                         dout[4] (net)
+                      1.096610    0.000638    6.466271 ^ dout[4] (out)
+                                              6.466271   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.466271   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.566271   slack (MET)
+
+
+Startpoint: _19_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[5] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _19_/CLK (DFFSRX1)
+     2    0.337960    1.096610    2.102398    6.465632 ^ _19_/Q (DFFSRX1)
+                                                         dout[5] (net)
+                      1.096610    0.000638    6.466271 ^ dout[5] (out)
+                                              6.466271   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.466271   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.566271   slack (MET)
+
+
+Startpoint: _18_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[6] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.021200    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111439    2.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000022    2.111461 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251665    4.363126 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000108    4.363235 ^ _18_/CLK (DFFSRX1)
+     2    0.337960    1.096610    2.102398    6.465632 ^ _18_/Q (DFFSRX1)
+                                                         dout[6] (net)
+                      1.096610    0.000638    6.466271 ^ dout[6] (out)
+                                              6.466271   data arrival time
+
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.100000    0.100000   clock uncertainty
+                                  0.000000    0.100000   clock reconvergence pessimism
+                                 -0.200000   -0.100000   output external delay
+                                             -0.100000   data required time
+---------------------------------------------------------------------------------------------
+                                             -0.100000   data required time
+                                             -6.466271   data arrival time
+---------------------------------------------------------------------------------------------
+                                              6.566271   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _17_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100773    0.000386    1.000386 ^ _17_/R (DFFSRX1)
+                                              1.000386   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000087   24.363213 ^ _17_/CLK (DFFSRX1)
+                                 -0.500000   23.863213   clock uncertainty
+                                  0.000000   23.863213   clock reconvergence pessimism
+                                  1.078033   24.941246   library recovery time
+                                             24.941246   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941246   data required time
+                                             -1.000386   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940861   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _18_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100773    0.000386    1.000386 ^ _18_/R (DFFSRX1)
+                                              1.000386   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _18_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.000000   23.863235   clock reconvergence pessimism
+                                  1.078033   24.941269   library recovery time
+                                             24.941269   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941269   data required time
+                                             -1.000386   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _19_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100773    0.000386    1.000386 ^ _19_/R (DFFSRX1)
+                                              1.000386   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _19_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.000000   23.863235   clock reconvergence pessimism
+                                  1.078033   24.941269   library recovery time
+                                             24.941269   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941269   data required time
+                                             -1.000386   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _20_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100773    0.000386    1.000386 ^ _20_/R (DFFSRX1)
+                                              1.000386   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _20_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.000000   23.863235   clock reconvergence pessimism
+                                  1.078033   24.941269   library recovery time
+                                             24.941269   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941269   data required time
+                                             -1.000386   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _21_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100773    0.000386    1.000386 ^ _21_/R (DFFSRX1)
+                                              1.000386   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _21_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.000000   23.863235   clock reconvergence pessimism
+                                  1.078033   24.941269   library recovery time
+                                             24.941269   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941269   data required time
+                                             -1.000386   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _22_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100773    0.000386    1.000386 ^ _22_/R (DFFSRX1)
+                                              1.000386   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _22_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.000000   23.863235   clock reconvergence pessimism
+                                  1.078033   24.941269   library recovery time
+                                             24.941269   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941269   data required time
+                                             -1.000386   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _23_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100773    0.000386    1.000386 ^ _23_/R (DFFSRX1)
+                                              1.000386   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _23_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.000000   23.863235   clock reconvergence pessimism
+                                  1.078033   24.941269   library recovery time
+                                             24.941269   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941269   data required time
+                                             -1.000386   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _16_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     8    0.496440    0.100000    0.000000    1.000000 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.100687    0.000343    1.000343 ^ _16_/R (DFFSRX1)
+                                              1.000343   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000087   24.363213 ^ _16_/CLK (DFFSRX1)
+                                 -0.500000   23.863213   clock uncertainty
+                                  0.000000   23.863213   clock reconvergence pessimism
+                                  1.078054   24.941265   library recovery time
+                                             24.941265   data required time
+---------------------------------------------------------------------------------------------
+                                             24.941265   data required time
+                                             -1.000343   data arrival time
+---------------------------------------------------------------------------------------------
+                                             23.940924   slack (MET)
+
+
+Startpoint: _23_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[1] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _23_/CLK (DFFSRX1)
+     2    0.340940    0.970249    2.535232    6.940548 v _23_/Q (DFFSRX1)
+                                                         dout[1] (net)
+                      0.970249    0.000641    6.941189 v dout[1] (out)
+                                              6.941189   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.941189   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.458811   slack (MET)
+
+
+Startpoint: _22_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[2] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _22_/CLK (DFFSRX1)
+     2    0.340940    0.970249    2.535232    6.940548 v _22_/Q (DFFSRX1)
+                                                         dout[2] (net)
+                      0.970249    0.000641    6.941189 v dout[2] (out)
+                                              6.941189   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.941189   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.458811   slack (MET)
+
+
+Startpoint: _21_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[3] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _21_/CLK (DFFSRX1)
+     2    0.340940    0.970249    2.535232    6.940548 v _21_/Q (DFFSRX1)
+                                                         dout[3] (net)
+                      0.970249    0.000641    6.941189 v dout[3] (out)
+                                              6.941189   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.941189   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.458811   slack (MET)
+
+
+Startpoint: _20_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[4] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _20_/CLK (DFFSRX1)
+     2    0.340940    0.970249    2.535232    6.940548 v _20_/Q (DFFSRX1)
+                                                         dout[4] (net)
+                      0.970249    0.000641    6.941189 v dout[4] (out)
+                                              6.941189   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.941189   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.458811   slack (MET)
+
+
+Startpoint: _19_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[5] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _19_/CLK (DFFSRX1)
+     2    0.340940    0.970249    2.535232    6.940548 v _19_/Q (DFFSRX1)
+                                                         dout[5] (net)
+                      0.970249    0.000641    6.941189 v dout[5] (out)
+                                              6.941189   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.941189   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.458811   slack (MET)
+
+
+Startpoint: _18_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[6] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _18_/CLK (DFFSRX1)
+     2    0.340940    0.970249    2.535232    6.940548 v _18_/Q (DFFSRX1)
+                                                         dout[6] (net)
+                      0.970249    0.000641    6.941189 v dout[6] (out)
+                                              6.941189   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.941189   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.458811   slack (MET)
+
+
+Startpoint: _16_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000103    4.405290 ^ _16_/CLK (DFFSRX1)
+     2    0.340940    1.002938    2.535573    6.940863 v _16_/Q (DFFSRX1)
+                                                         dout[0] (net)
+                      1.002938    0.000301    6.941164 v dout[0] (out)
+                                              6.941164   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.941164   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.458836   slack (MET)
+
+
+Startpoint: _17_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dout[7] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000103    4.405290 ^ _17_/CLK (DFFSRX1)
+     1    0.302000    0.919022    2.471475    6.876765 v _17_/Q (DFFSRX1)
+                                                         dout[7] (net)
+                      0.919022    0.000301    6.877066 v dout[7] (out)
+                                              6.877066   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.500000   19.500000   clock uncertainty
+                                  0.000000   19.500000   clock reconvergence pessimism
+                                 -1.100000   18.400000   output external delay
+                                             18.400000   data required time
+---------------------------------------------------------------------------------------------
+                                             18.400000   data required time
+                                             -6.877066   data arrival time
+---------------------------------------------------------------------------------------------
+                                             11.522934   slack (MET)
+
+
+Startpoint: _21_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _20_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _21_/CLK (DFFSRX1)
+     2    0.341880    1.106351    2.117754    6.523069 ^ _21_/Q (DFFSRX1)
+                                                         dout[3] (net)
+                      1.106351    0.000341    6.523410 ^ _20_/D (DFFSRX1)
+                                              6.523410   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _20_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.012195   23.875431   clock reconvergence pessimism
+                                 -1.423028   22.452404   library setup time
+                                             22.452404   data required time
+---------------------------------------------------------------------------------------------
+                                             22.452404   data required time
+                                             -6.523410   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.928993   slack (MET)
+
+
+Startpoint: _16_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _23_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000103    4.405290 ^ _16_/CLK (DFFSRX1)
+     2    0.341880    1.147115    2.118051    6.523341 ^ _16_/Q (DFFSRX1)
+                                                         dout[0] (net)
+                      1.147115    0.000040    6.523381 ^ _23_/D (DFFSRX1)
+                                              6.523381   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _23_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.042061   23.905298   clock reconvergence pessimism
+                                 -1.425611   22.479687   library setup time
+                                             22.479687   data required time
+---------------------------------------------------------------------------------------------
+                                             22.479687   data required time
+                                             -6.523381   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.956306   slack (MET)
+
+
+Startpoint: _18_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _17_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _18_/CLK (DFFSRX1)
+     2    0.341880    1.106351    2.117754    6.523069 ^ _18_/Q (DFFSRX1)
+                                                         dout[6] (net)
+                      1.106351    0.000341    6.523410 ^ _17_/D (DFFSRX1)
+                                              6.523410   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000087   24.363213 ^ _17_/CLK (DFFSRX1)
+                                 -0.500000   23.863213   clock uncertainty
+                                  0.042061   23.905273   clock reconvergence pessimism
+                                 -1.423028   22.482248   library setup time
+                                             22.482248   data required time
+---------------------------------------------------------------------------------------------
+                                             22.482248   data required time
+                                             -6.523410   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.958837   slack (MET)
+
+
+Startpoint: _19_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _18_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _19_/CLK (DFFSRX1)
+     2    0.341880    1.106351    2.117754    6.523069 ^ _19_/Q (DFFSRX1)
+                                                         dout[5] (net)
+                      1.106351    0.000341    6.523410 ^ _18_/D (DFFSRX1)
+                                              6.523410   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _18_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.042061   23.905298   clock reconvergence pessimism
+                                 -1.423028   22.482269   library setup time
+                                             22.482269   data required time
+---------------------------------------------------------------------------------------------
+                                             22.482269   data required time
+                                             -6.523410   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.958858   slack (MET)
+
+
+Startpoint: _20_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _19_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _20_/CLK (DFFSRX1)
+     2    0.341880    1.106351    2.117754    6.523069 ^ _20_/Q (DFFSRX1)
+                                                         dout[4] (net)
+                      1.106351    0.000341    6.523410 ^ _19_/D (DFFSRX1)
+                                              6.523410   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_1__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_1__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _19_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.042061   23.905298   clock reconvergence pessimism
+                                 -1.423028   22.482269   library setup time
+                                             22.482269   data required time
+---------------------------------------------------------------------------------------------
+                                             22.482269   data required time
+                                             -6.523410   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.958858   slack (MET)
+
+
+Startpoint: _22_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _21_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _22_/CLK (DFFSRX1)
+     2    0.341880    1.106351    2.117754    6.523069 ^ _22_/Q (DFFSRX1)
+                                                         dout[2] (net)
+                      1.106351    0.000341    6.523410 ^ _21_/D (DFFSRX1)
+                                              6.523410   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _21_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.042061   23.905298   clock reconvergence pessimism
+                                 -1.423028   22.482269   library setup time
+                                             22.482269   data required time
+---------------------------------------------------------------------------------------------
+                                             22.482269   data required time
+                                             -6.523410   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.958858   slack (MET)
+
+
+Startpoint: _23_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _22_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.024640    0.100000    0.000000    0.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000    0.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.052280    0.372345    2.123634    2.123634 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.372345    0.000026    2.123659 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.103680    0.487693    2.281528    4.405188 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.487693    0.000128    4.405316 ^ _23_/CLK (DFFSRX1)
+     2    0.341880    1.106351    2.117754    6.523069 ^ _23_/Q (DFFSRX1)
+                                                         dout[1] (net)
+                      1.106351    0.000341    6.523410 ^ _22_/D (DFFSRX1)
+                                              6.523410   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000110   24.363235 ^ _22_/CLK (DFFSRX1)
+                                 -0.500000   23.863235   clock uncertainty
+                                  0.042061   23.905298   clock reconvergence pessimism
+                                 -1.423028   22.482269   library setup time
+                                             22.482269   data required time
+---------------------------------------------------------------------------------------------
+                                             22.482269   data required time
+                                             -6.523410   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.958858   slack (MET)
+
+
+Startpoint: din (input port clocked by clk)
+Endpoint: _16_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 ^ input external delay
+     1    0.040880    0.145755    0.014588    1.014588 ^ din (in)
+                                                         din (net)
+                      0.145755    0.000000    1.014588 ^ _16_/D (DFFSRX1)
+                                              1.014588   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.021200    0.100000    0.000000   20.000000 ^ clk (in)
+                                                         clk (net)
+                      0.100000    0.000000   20.000000 ^ clkbuf_0_clk/A (CLKBUFX4)
+     2    0.045400    0.355985    2.111438   22.111439 ^ clkbuf_0_clk/Y (CLKBUFX4)
+                                                         clknet_0_clk (net)
+                      0.355985    0.000023   22.111462 ^ clkbuf_1_0__f_clk/A (CLKBUFX4)
+     4    0.087720    0.451158    2.251664   24.363125 ^ clkbuf_1_0__f_clk/Y (CLKBUFX4)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.451158    0.000087   24.363213 ^ _16_/CLK (DFFSRX1)
+                                 -0.500000   23.863213   clock uncertainty
+                                  0.000000   23.863213   clock reconvergence pessimism
+                                 -1.365008   22.498205   library setup time
+                                             22.498205   data required time
+---------------------------------------------------------------------------------------------
+                                             22.498205   data required time
+                                             -1.014588   data arrival time
+---------------------------------------------------------------------------------------------
+                                             21.483618   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _16_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000277    0.100277 ^ _16_/R (DFFSRX1)
+               0.100277   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405290    4.405290   clock network delay (propagated)
+   0.100000    4.505290   clock uncertainty
+   0.000000    4.505290   clock reconvergence pessimism
+               4.505290 ^ _16_/CLK (DFFSRX1)
+   1.650708    6.155998   library removal time
+               6.155998   data required time
+-----------------------------------------------------------------
+               6.155998   data required time
+              -0.100277   data arrival time
+-----------------------------------------------------------------
+              -6.055721   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _18_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000311    0.100311 ^ _18_/R (DFFSRX1)
+               0.100311   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405316    4.405316   clock network delay (propagated)
+   0.100000    4.505316   clock uncertainty
+   0.000000    4.505316   clock reconvergence pessimism
+               4.505316 ^ _18_/CLK (DFFSRX1)
+   1.650701    6.156017   library removal time
+               6.156017   data required time
+-----------------------------------------------------------------
+               6.156017   data required time
+              -0.100311   data arrival time
+-----------------------------------------------------------------
+              -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _19_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000311    0.100311 ^ _19_/R (DFFSRX1)
+               0.100311   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405316    4.405316   clock network delay (propagated)
+   0.100000    4.505316   clock uncertainty
+   0.000000    4.505316   clock reconvergence pessimism
+               4.505316 ^ _19_/CLK (DFFSRX1)
+   1.650701    6.156017   library removal time
+               6.156017   data required time
+-----------------------------------------------------------------
+               6.156017   data required time
+              -0.100311   data arrival time
+-----------------------------------------------------------------
+              -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _20_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000311    0.100311 ^ _20_/R (DFFSRX1)
+               0.100311   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405316    4.405316   clock network delay (propagated)
+   0.100000    4.505316   clock uncertainty
+   0.000000    4.505316   clock reconvergence pessimism
+               4.505316 ^ _20_/CLK (DFFSRX1)
+   1.650701    6.156017   library removal time
+               6.156017   data required time
+-----------------------------------------------------------------
+               6.156017   data required time
+              -0.100311   data arrival time
+-----------------------------------------------------------------
+              -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _21_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000311    0.100311 ^ _21_/R (DFFSRX1)
+               0.100311   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405316    4.405316   clock network delay (propagated)
+   0.100000    4.505316   clock uncertainty
+   0.000000    4.505316   clock reconvergence pessimism
+               4.505316 ^ _21_/CLK (DFFSRX1)
+   1.650701    6.156017   library removal time
+               6.156017   data required time
+-----------------------------------------------------------------
+               6.156017   data required time
+              -0.100311   data arrival time
+-----------------------------------------------------------------
+              -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _22_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000311    0.100311 ^ _22_/R (DFFSRX1)
+               0.100311   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405316    4.405316   clock network delay (propagated)
+   0.100000    4.505316   clock uncertainty
+   0.000000    4.505316   clock reconvergence pessimism
+               4.505316 ^ _22_/CLK (DFFSRX1)
+   1.650701    6.156017   library removal time
+               6.156017   data required time
+-----------------------------------------------------------------
+               6.156017   data required time
+              -0.100311   data arrival time
+-----------------------------------------------------------------
+              -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _23_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000311    0.100311 ^ _23_/R (DFFSRX1)
+               0.100311   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405316    4.405316   clock network delay (propagated)
+   0.100000    4.505316   clock uncertainty
+   0.000000    4.505316   clock reconvergence pessimism
+               4.505316 ^ _23_/CLK (DFFSRX1)
+   1.650701    6.156017   library removal time
+               6.156017   data required time
+-----------------------------------------------------------------
+               6.156017   data required time
+              -0.100311   data arrival time
+-----------------------------------------------------------------
+              -6.055706   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _17_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   0.100000    0.100000 ^ input external delay
+   0.000000    0.100000 ^ rst_n (in)
+   0.000311    0.100311 ^ _17_/R (DFFSRX1)
+               0.100311   data arrival time
+
+   0.000000    0.000000   clock clk (rise edge)
+   4.405290    4.405290   clock network delay (propagated)
+   0.100000    4.505290   clock uncertainty
+   0.000000    4.505290   clock reconvergence pessimism
+               4.505290 ^ _17_/CLK (DFFSRX1)
+   1.650701    6.155992   library removal time
+               6.155992   data required time
+-----------------------------------------------------------------
+               6.155992   data required time
+              -0.100311   data arrival time
+-----------------------------------------------------------------
+              -6.055680   slack (VIOLATED)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _17_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000386    1.000386 ^ _17_/R (DFFSRX1)
+               1.000386   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363213   24.363213   clock network delay (propagated)
+  -0.500000   23.863213   clock uncertainty
+   0.000000   23.863213   clock reconvergence pessimism
+              23.863213 ^ _17_/CLK (DFFSRX1)
+   1.078033   24.941246   library recovery time
+              24.941246   data required time
+-----------------------------------------------------------------
+              24.941246   data required time
+              -1.000386   data arrival time
+-----------------------------------------------------------------
+              23.940861   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _18_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000386    1.000386 ^ _18_/R (DFFSRX1)
+               1.000386   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363235   24.363235   clock network delay (propagated)
+  -0.500000   23.863235   clock uncertainty
+   0.000000   23.863235   clock reconvergence pessimism
+              23.863235 ^ _18_/CLK (DFFSRX1)
+   1.078033   24.941269   library recovery time
+              24.941269   data required time
+-----------------------------------------------------------------
+              24.941269   data required time
+              -1.000386   data arrival time
+-----------------------------------------------------------------
+              23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _19_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000386    1.000386 ^ _19_/R (DFFSRX1)
+               1.000386   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363235   24.363235   clock network delay (propagated)
+  -0.500000   23.863235   clock uncertainty
+   0.000000   23.863235   clock reconvergence pessimism
+              23.863235 ^ _19_/CLK (DFFSRX1)
+   1.078033   24.941269   library recovery time
+              24.941269   data required time
+-----------------------------------------------------------------
+              24.941269   data required time
+              -1.000386   data arrival time
+-----------------------------------------------------------------
+              23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _20_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000386    1.000386 ^ _20_/R (DFFSRX1)
+               1.000386   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363235   24.363235   clock network delay (propagated)
+  -0.500000   23.863235   clock uncertainty
+   0.000000   23.863235   clock reconvergence pessimism
+              23.863235 ^ _20_/CLK (DFFSRX1)
+   1.078033   24.941269   library recovery time
+              24.941269   data required time
+-----------------------------------------------------------------
+              24.941269   data required time
+              -1.000386   data arrival time
+-----------------------------------------------------------------
+              23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _21_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000386    1.000386 ^ _21_/R (DFFSRX1)
+               1.000386   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363235   24.363235   clock network delay (propagated)
+  -0.500000   23.863235   clock uncertainty
+   0.000000   23.863235   clock reconvergence pessimism
+              23.863235 ^ _21_/CLK (DFFSRX1)
+   1.078033   24.941269   library recovery time
+              24.941269   data required time
+-----------------------------------------------------------------
+              24.941269   data required time
+              -1.000386   data arrival time
+-----------------------------------------------------------------
+              23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _22_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000386    1.000386 ^ _22_/R (DFFSRX1)
+               1.000386   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363235   24.363235   clock network delay (propagated)
+  -0.500000   23.863235   clock uncertainty
+   0.000000   23.863235   clock reconvergence pessimism
+              23.863235 ^ _22_/CLK (DFFSRX1)
+   1.078033   24.941269   library recovery time
+              24.941269   data required time
+-----------------------------------------------------------------
+              24.941269   data required time
+              -1.000386   data arrival time
+-----------------------------------------------------------------
+              23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _23_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000386    1.000386 ^ _23_/R (DFFSRX1)
+               1.000386   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363235   24.363235   clock network delay (propagated)
+  -0.500000   23.863235   clock uncertainty
+   0.000000   23.863235   clock reconvergence pessimism
+              23.863235 ^ _23_/CLK (DFFSRX1)
+   1.078033   24.941269   library recovery time
+              24.941269   data required time
+-----------------------------------------------------------------
+              24.941269   data required time
+              -1.000386   data arrival time
+-----------------------------------------------------------------
+              23.940884   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _16_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (propagated)
+   1.000000    1.000000 ^ input external delay
+   0.000000    1.000000 ^ rst_n (in)
+   0.000343    1.000343 ^ _16_/R (DFFSRX1)
+               1.000343   data arrival time
+
+  20.000000   20.000000   clock clk (rise edge)
+   4.363213   24.363213   clock network delay (propagated)
+  -0.500000   23.863213   clock uncertainty
+   0.000000   23.863213   clock reconvergence pessimism
+              23.863213 ^ _16_/CLK (DFFSRX1)
+   1.078054   24.941265   library recovery time
+              24.941265   data required time
+-----------------------------------------------------------------
+              24.941265   data required time
+              -1.000343   data arrival time
+-----------------------------------------------------------------
+              23.940924   slack (MET)
+
+
+Group                                      Slack
+------------------------------------------------
+asynchronous                           -6.055721
+asynchronous                           -6.055706
+asynchronous                           -6.055706
+asynchronous                           -6.055706
+asynchronous                           -6.055706
+asynchronous                           -6.055706
+asynchronous                           -6.055706
+asynchronous                           -6.055680
+
+CLOCK_PIN _16_/CLK RISE_ARRIVAL 4.405290 FALL_ARRIVAL 14.427223 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+CLOCK_PIN _17_/CLK RISE_ARRIVAL 4.405290 FALL_ARRIVAL 14.427223 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+CLOCK_PIN _18_/CLK RISE_ARRIVAL 4.405316 FALL_ARRIVAL 14.427249 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+CLOCK_PIN _19_/CLK RISE_ARRIVAL 4.405316 FALL_ARRIVAL 14.427249 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+CLOCK_PIN _20_/CLK RISE_ARRIVAL 4.405316 FALL_ARRIVAL 14.427249 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+CLOCK_PIN _21_/CLK RISE_ARRIVAL 4.405316 FALL_ARRIVAL 14.427249 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+CLOCK_PIN _22_/CLK RISE_ARRIVAL 4.405316 FALL_ARRIVAL 14.427249 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+CLOCK_PIN _23_/CLK RISE_ARRIVAL 4.405316 FALL_ARRIVAL 14.427249 RISE_SLEW 0.487693 FALL_SLEW 0.432310
+M10_STA_SCRIPT_COMPLETED

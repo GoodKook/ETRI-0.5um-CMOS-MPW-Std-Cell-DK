@@ -1,0 +1,104 @@
+{
+  "M0-10-direct-no-ndr": {
+    "original_cwd": "/tmp/M0-10-direct-no-ndr",
+    "artifacts": {
+      "input.v": {
+        "bytes": 1305,
+        "sha256": "62bf6d10befe4bd9be4690f02b691c628ced7cdc9e471be96a927182bc1d45f4"
+      },
+      "cts.v": {
+        "bytes": 1547,
+        "sha256": "47c430d5e4e07453c8b74c8ebe3ee98950331ae5ff2d92c6bc29d090fc1ff1b7"
+      },
+      "cells.lef": {
+        "bytes": 103724,
+        "sha256": "282a1f2474507eeb7f52e50e2ceb6c88191855dbbf1df30cba5a42b9b88c6786"
+      },
+      "preroute.odb": {
+        "bytes": 269645,
+        "sha256": "ed5b032b907bc3192602d0e7e6b72a9d7565b5b411e86cf7868ac5bd314b1273"
+      },
+      "cells.lib": {
+        "bytes": 305144,
+        "sha256": "0c84f0d970d374ba5c9c4cf7aec22fec96e306f8be373bda9ef20ce2bb48de51"
+      },
+      "constraints.sdc": {
+        "bytes": 946,
+        "sha256": "3dbda7534fe1d4afa4abaec035cad2f4249025b69a7661e825b4bd2d81823670"
+      },
+      "technology.lef": {
+        "bytes": 2392,
+        "sha256": "64126bdf1518da490c3649a0634f9e6925099751bf2261fa076d50296e936c36"
+      },
+      "preroute.def": {
+        "bytes": 9366,
+        "sha256": "38f82329c37f9b35a60f1169d8d44bf7e10c73051c69087c0ffc03a5953c6243"
+      },
+      "placed.def": {
+        "bytes": 4588,
+        "sha256": "2148e152555f8d63f1d5b54170315ed9d50580ea61776dd1af28259c2165f50b"
+      },
+      "flow.tcl": {
+        "bytes": 1788,
+        "sha256": "7beceff94740821c94b63e38609ed79bfdc7b641de01f7d9dc5716fe21dba2c8"
+      },
+      "openroad.log": {
+        "bytes": 10929,
+        "sha256": "f5a7d80fd90ab552ddceae47ce86cf216463f577847732d89e5fcd393a037ca5"
+      },
+      "cts.def": {
+        "bytes": 5066,
+        "sha256": "a0c15084e92122a3d0c09467b7e44d56a98aee5fa562fb972e9e0d19957c9ddf"
+      }
+    },
+    "result": "exit 1, before explicit default VIA2, DRT-0233; superseded by results/direct-route.log pin-access failure"
+  },
+  "M0-10-lef-rules": {
+    "original_cwd": "/tmp/M0-10-lef-rules",
+    "artifacts": {
+      "generate.log": {
+        "bytes": 2273,
+        "sha256": "2a20630b2e26108df3d04dff46e5c188b9358c1c743f36f0201830c13d53f9d8"
+      },
+      "technology.lef": {
+        "bytes": 2392,
+        "sha256": "64126bdf1518da490c3649a0634f9e6925099751bf2261fa076d50296e936c36"
+      },
+      "generate.tcl": {
+        "bytes": 126,
+        "sha256": "eec9a7a06c71cbb9728d53a0b43c79e48baa030415a0a24d7f5314c038b4890c"
+      }
+    },
+    "result": "exit -11 in benchWires before write_rules; no rules produced; invocation without -v1"
+  },
+  "M0-10-pattern-v1": {
+    "original_cwd": "/tmp/M0-10-pattern-v1",
+    "artifacts": {
+      "patterns.def": {
+        "bytes": 4064202,
+        "sha256": "f6ce678b219de86801b55dafe48fa4ed058fbe5be321a139157788be242bf16e"
+      },
+      "generate.log": {
+        "bytes": 1145,
+        "sha256": "15ab89f875b6a28047630bdf421eae69dbf39e81965eee2d187d906f3117a765"
+      },
+      "patterns.odb": {
+        "bytes": 3547962,
+        "sha256": "3005fe06e1e5a4b9fd271f1f476ea911ec05806486c5ba908c24c169a3f79e68"
+      },
+      "patterns.v": {
+        "bytes": 2515136,
+        "sha256": "f9d9c4559d468cec587a0dae102f11d382f858a96ef1650b114af4eb17daf5eb"
+      },
+      "technology.lef": {
+        "bytes": 2692,
+        "sha256": "6b5cd17492e1b500b1aecd2faa1f8d5f6352acf9ab60efc4da41f5e23d202574"
+      },
+      "generate.tcl": {
+        "bytes": 167,
+        "sha256": "873d204566f08be7f2d2132227009dd96a5374972aae3b80b25bd7c5bff68441"
+      }
+    },
+    "result": "exit 0; explicit -v1 successfully generated geometries; reference extraction/rule fitting not attempted"
+  }
+}

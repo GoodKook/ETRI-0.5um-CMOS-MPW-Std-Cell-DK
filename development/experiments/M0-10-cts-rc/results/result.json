@@ -1,0 +1,38 @@
+{
+  "cts": "topology_generated",
+  "route": "failed_or_incomplete",
+  "RC": "blocked",
+  "POST_STA": "blocked",
+  "SDF": "not_selected",
+  "SPEF": "selected; physical extraction not validated",
+  "tools": {
+    "sta": {
+      "path": "/usr/local/bin/sta",
+      "sha256": "edb7ab6757666fb33bf10577f32b834483a63753820acd908335ccec6410d312"
+    },
+    "yosys": {
+      "path": "/usr/local/bin/yosys",
+      "sha256": "cdea6e9b1cec7eaee0c0d1c01d5db50c44bd617fc4bd186737df8af3f29076d1"
+    },
+    "qrouter": {
+      "path": "/usr/local/bin/qrouter",
+      "sha256": "94291acf8bc981104f8e038b2dbe7e78bf0dd7e8fb041253d59d4a57a662ffc1"
+    },
+    "iverilog": {
+      "path": "/usr/local/bin/iverilog",
+      "sha256": "099fc2a9119be33235ec058fa1e4c477fdb92a957f71f04ce61bfd699e449fc8"
+    },
+    "vvp": {
+      "path": "/usr/local/bin/vvp",
+      "sha256": "9cd39a1aa2515a3d523e6cf4a08818eff7781f7c8a1b5cd659682a7532e8f73e"
+    },
+    "klayout": {
+      "path": "/usr/bin/klayout",
+      "sha256": "6797c9fb3134d6a22e486dcf647b645dfbaed75db4e65fd067f346c0503c789f"
+    }
+  },
+  "CTS_function_and_clock_trace": "passed; 8 sinks / positive polarity / inactive S",
+  "annotation_harness": "passed on synthetic fixtures only",
+  "RCX_probe": "executed; inspect rcx-probe.log; no qualified model",
+  "failure": "QRouter did not report all routes complete (exit 0 is insufficient)"
+}
