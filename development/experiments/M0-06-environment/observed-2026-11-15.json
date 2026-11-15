@@ -1,0 +1,630 @@
+{
+  "collected_at": "2026-11-15T10:00:49.526239+09:00",
+  "timezone": "Asia/Seoul",
+  "repository": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "pdk_root": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820",
+  "pdk_digital": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR",
+  "host": [
+    {
+      "argv": [
+        "uname",
+        "-srm"
+      ],
+      "cwd": "/tmp/etri-m0-06-np17lwkx",
+      "exit_code": 0,
+      "output": "Linux 6.18.33.1-microsoft-standard-WSL2 x86_64\n"
+    },
+    {
+      "argv": [
+        "getconf",
+        "GNU_LIBC_VERSION"
+      ],
+      "cwd": "/tmp/etri-m0-06-np17lwkx",
+      "exit_code": 0,
+      "output": "glibc 2.39\n"
+    },
+    {
+      "argv": [
+        "dpkg-query",
+        "-W",
+        "-f=${Package} ${Version}\n",
+        "klayout",
+        "tcl8.6",
+        "tk8.6",
+        "libc6",
+        "gcc",
+        "cmake",
+        "python3",
+        "bash",
+        "tcsh",
+        "git",
+        "make",
+        "clang"
+      ],
+      "cwd": "/tmp/etri-m0-06-np17lwkx",
+      "exit_code": 0,
+      "output": "bash 5.2.21-2ubuntu4\nclang 1:18.0-59~exp2\ncmake 3.28.3-1build7\ngcc 4:13.2.0-7ubuntu1\ngit 1:2.43.0-1ubuntu7.4\nklayout 0.30.7-1\nlibc6 2.39-0ubuntu8.12\nmake 4.3-4.1build2\npython3 3.12.3-0ubuntu2.1\ntcl8.6 8.6.14+dfsg-1build1\ntcsh 6.24.10-4build1\ntk8.6 8.6.14-1build1\n"
+    }
+  ],
+  "tools": {
+    "yosys": {
+      "path": "/usr/local/bin/yosys",
+      "resolved": "/usr/local/bin/yosys",
+      "exists": true,
+      "sha256": "cdea6e9b1cec7eaee0c0d1c01d5db50c44bd617fc4bd186737df8af3f29076d1",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/yosys",
+          "-V"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Yosys 0.71+4 (git sha1 02365349e, Release, GNU /usr/bin/c++ 13.3.0)\n"
+      }
+    },
+    "yosys-abc": {
+      "path": "/usr/local/bin/yosys-abc",
+      "resolved": "/usr/local/bin/yosys-abc",
+      "exists": true,
+      "sha256": "46b1c4ee67c984990d6ece381ce37f4cd182409dad20e53e399d1483e361dfa1",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/yosys-abc",
+          "-c",
+          "version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "======== ABC command line \"version\"\nUC Berkeley, ABC 1.01 (compiled Nov 12 2026 21:29:51)\n"
+      }
+    },
+    "sta": {
+      "path": "/usr/local/bin/sta",
+      "resolved": "/usr/local/bin/sta",
+      "exists": true,
+      "sha256": "edb7ab6757666fb33bf10577f32b834483a63753820acd908335ccec6410d312",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/sta",
+          "-version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "3.2.0\n"
+      }
+    },
+    "iverilog": {
+      "path": "/usr/local/bin/iverilog",
+      "resolved": "/usr/local/bin/iverilog",
+      "exists": true,
+      "sha256": "099fc2a9119be33235ec058fa1e4c477fdb92a957f71f04ce61bfd699e449fc8",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/iverilog",
+          "-V"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Icarus Verilog version 14.0 (devel) (s20260301-986-gaf170a0b5)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-986-gaf170a0b5)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-986-gaf170a0b5)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-986-gaf170a0b5)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n"
+      }
+    },
+    "vvp": {
+      "path": "/usr/local/bin/vvp",
+      "resolved": "/usr/local/bin/vvp",
+      "exists": true,
+      "sha256": "9cd39a1aa2515a3d523e6cf4a08818eff7781f7c8a1b5cd659682a7532e8f73e",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/vvp",
+          "-V"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Icarus Verilog runtime version 14.0 (devel) (s20260301-986-gaf170a0b5)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n"
+      }
+    },
+    "verilator": {
+      "path": "/usr/local/bin/verilator",
+      "resolved": "/usr/local/bin/verilator",
+      "exists": true,
+      "sha256": "b7c42c2c42c90ac3d9f0a660389cb52b35f3d674268caacf634193a98d190173",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/verilator",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Verilator 5.055 devel rev v5.054-219-g12ce86083\n"
+      }
+    },
+    "qflow": {
+      "path": "/usr/local/bin/qflow",
+      "resolved": "/usr/local/bin/qflow",
+      "exists": true,
+      "sha256": "77b5b9e5df8456ec02df525dcca225dfef3e40ce672fc07f5ce9decf45dd3b7b",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/qflow",
+          "-v"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Qflow version 1.4 revision 100\n\n"
+      }
+    },
+    "graywolf": {
+      "path": "/usr/local/bin/graywolf",
+      "resolved": "/usr/local/bin/graywolf",
+      "exists": true,
+      "sha256": "e785fa0345d5b38cdda6aae9f4df7ed48e9681708b1bf9debe2a8b3da46b47e1",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/graywolf",
+          "-h"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 65,
+        "output": "ERROR[main]:Unknown option:h\n\n \n \nAvailable installed flow directories are:\n\n21:05flow->\n21:05flow.noroute\n \nThe current default flow directory is denoted by the arrow.\n \n \nIncorrect syntax.  Correct syntax:\n\ngraywolf [-gpndw] designName [windowId] [flowdirectory]\n\twhose options are one or more of the following:\n\t\tg - general mode - does not use TimberWolf system\n\t\t    information.  Default is TimberWolf mode\n\t\tp - pick mode - [graphics only] wait for user\n\t\t    upon entering the program\n\t\tn - no graphics - the default is to open the\n\t\t    display and output graphics to an Xwindow\n\t\td - prints debug info and performs extensive\n\t\t    error checking\n\t\tw - parasite mode will inherit a window. Requires\n\t\t    a valid windowId\n\n terminated abnormally with 1 error[s] and 0 warning[s]\n\n"
+      }
+    },
+    "qrouter": {
+      "path": "/usr/local/bin/qrouter",
+      "resolved": "/usr/local/bin/qrouter",
+      "exists": true,
+      "sha256": "94291acf8bc981104f8e038b2dbe7e78bf0dd7e8fb041253d59d4a57a662ffc1",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/qrouter",
+          "-h"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Qrouter detail maze router version 1.4.90.T\nqrouter - maze router by Tim Edwards\n\nusage:  qrouter [-switches] design_name\n\nswitches:\n\t-c <file>\t\t\tConfiguration file name if not route.cfg.\n\t-d <file>\t\t\tGenerate delay information output.\n\t-v <level>\t\t\tVerbose output level.\n\t-i <file>\t\t\tPrint route names and pitches and exit.\n\t-p <name>\t\t\tSpecify global power bus name.\n\t-g <name>\t\t\tSpecify global ground bus name.\n\t-r <value>\t\t\tForce output resolution scale.\n\t-f       \t\t\tForce all pins to be routable.\n\t-e <level>\t\t\tLevel of effort to keep trying.\n\n1.4.90.T\n"
+      }
+    },
+    "magic": {
+      "path": "/usr/local/bin/magic",
+      "resolved": "/usr/local/bin/magic",
+      "exists": true,
+      "sha256": "11745f384484d6827e1b5911603091cc953b64566ea70e971b8abeb27c0c7d43",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/magic",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "8.3.698\n"
+      }
+    },
+    "netgen": {
+      "path": "/usr/local/bin/netgen",
+      "resolved": "/usr/local/bin/netgen",
+      "exists": true,
+      "sha256": "a8e3d885bb8e22ed1fa7f7a013aee170320cfa32d60dcfa2e75ccfacd0008d84",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/netgen",
+          "-batch"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Netgen 1.5.328 compiled on Thu Nov 12 21:07:21 KST 2026\nWarning: netgen command 'format' use fully-qualified name '::netgen::format'\nWarning: netgen command 'global' use fully-qualified name '::netgen::global'\n"
+      }
+    },
+    "klayout": {
+      "path": "/usr/bin/klayout",
+      "resolved": "/usr/bin/klayout",
+      "exists": true,
+      "sha256": "6797c9fb3134d6a22e486dcf647b645dfbaed75db4e65fd067f346c0503c789f",
+      "probe": {
+        "argv": [
+          "/usr/bin/klayout",
+          "-v"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "KLayout 0.30.7\n"
+      }
+    },
+    "openroad": {
+      "found_on_path": false
+    },
+    "ngspice": {
+      "path": "/usr/local/bin/ngspice",
+      "resolved": "/usr/local/bin/ngspice",
+      "exists": true,
+      "sha256": "0b06762ea05a6618475edbcb0b37fd31c73e3c33bb98989b24e2b76923efd26d",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/ngspice",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "******\n** ngspice-47 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2026, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Thu Nov 12 12:08:04 UTC 2026\n******\n"
+      }
+    },
+    "gtkwave": {
+      "path": "/usr/local/bin/gtkwave",
+      "resolved": "/usr/local/bin/gtkwave",
+      "exists": true,
+      "sha256": "bb3de01a3d20c1b771efee210b0c2a34d14d3543a67edcca2f1664666c3911a0",
+      "probe": {
+        "argv": [
+          "/usr/local/bin/gtkwave",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Could not initialize GTK!  Is DISPLAY env var/xhost set?\n\nUsage: /usr/local/bin/gtkwave [OPTION]... [DUMPFILE] [SAVEFILE] [RCFILE]\n\n  -n, --nocli=DIRPATH        use file requester for dumpfile name\n  -f, --dump=FILE            specify dumpfile name\n  -F, --fastload             generate/use VCD recoder fastload files\n  -o, --optimize             optimize VCD to FST\n  -a, --save=FILE            specify savefile name\n  -A, --autosavename         assume savefile is suffix modified dumpfile name\n  -r, --rcfile=FILE          specify override .rcfile name\n  -d, --defaultskip          if missing .rcfile, do not use useful defaults\n  -D, --dualid=WHICH         specify multisession identifier\n  -l, --logfile=FILE         specify simulation logfile name for time values\n  -s, --start=TIME           specify start time for LXT2/VZT block skip\n  -e, --end=TIME             specify end time for LXT2/VZT block skip\n  -t, --stems=FILE           specify stems file for source code annotation\n  -c, --cpu=NUMCPUS          specify number of CPUs for parallelizable ops\n  -N, --nowm                 disable window manager for most windows\n  -M, --nomenus              do not render menubar (for making applets)\n  -S, --script=FILE          specify Tcl command script file for execution\n  -T, --tcl_init=FILE        specify Tcl command script file to be loaded on startup\n  -W, --wish                 enable Tcl command line on stdio\n  -R, --repscript=FILE       specify timer-driven Tcl command script file\n  -P, --repperiod=VALUE      specify repscript period in msec (default: 500)\n  -X, --xid=XID              specify XID of window for GtkPlug to connect to\n  -2, --chdir=DIR            specify new current working directory\n  -4, --rcvar                specify single rc variable values individually\n  -5, --sstexclude           specify sst exclusion filter filename\n  -I, --interactive          interactive VCD mode (filename is shared mem ID)\n  -C, --comphier             use compressed hierarchy names (slower)\n  -g, --giga                 use gigabyte mempacking when recoding (slower)\n  -L, --legacy               use legacy VCD mode rather than the VCD recoder\n  -v, --vcd                  use stdin as a VCD dumpfile\n  -O, --output=FILE          specify filename for stdout/stderr redirect\n  -z, --slider-zoom          enable horizontal slider stretch zoom\n  -V, --version              display version banner then exit\n  -h, --help                 display this help then exit\n  -x, --exit                 exit after loading trace (for loader benchmarks)\n\nVCD files and save files may be compressed with zip or gzip.\nGHW files may be compressed with gzip or bzip2.\nOther formats must remain uncompressed due to their non-linear access.\nNote that DUMPFILE is optional if the --dump or --nocli options are specified.\nSAVEFILE and RCFILE are always optional.\n\nReport bugs to <bybell@rocketmail.com>.\n"
+      }
+    },
+    "python3": {
+      "path": "/usr/bin/python3",
+      "resolved": "/usr/bin/python3.12",
+      "exists": true,
+      "link_target": "python3.12",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f",
+      "probe": {
+        "argv": [
+          "/usr/bin/python3",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Python 3.12.3\n"
+      }
+    },
+    "gcc": {
+      "path": "/usr/bin/gcc",
+      "resolved": "/usr/bin/x86_64-linux-gnu-gcc-13",
+      "exists": true,
+      "link_target": "gcc-13",
+      "sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "probe": {
+        "argv": [
+          "/usr/bin/gcc",
+          "-dumpfullversion"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "13.3.0\n"
+      }
+    },
+    "clang": {
+      "path": "/usr/bin/clang",
+      "resolved": "/usr/lib/llvm-18/bin/clang",
+      "exists": true,
+      "link_target": "../lib/llvm-18/bin/clang",
+      "sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+      "probe": {
+        "argv": [
+          "/usr/bin/clang",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "Ubuntu clang version 18.1.3 (1ubuntu1)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin\n"
+      }
+    },
+    "cmake": {
+      "path": "/usr/bin/cmake",
+      "resolved": "/usr/bin/cmake",
+      "exists": true,
+      "sha256": "1c5227af4edd22d8d689def545e18ee458260c0fd579eba2187967f38817e638",
+      "probe": {
+        "argv": [
+          "/usr/bin/cmake",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "cmake version 3.28.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n"
+      }
+    },
+    "make": {
+      "path": "/usr/bin/make",
+      "resolved": "/usr/bin/make",
+      "exists": true,
+      "sha256": "d78b8f1d099fbcfb6f2f49ab87223b9b68fb3956642f92d6ec6de812e8afa965",
+      "probe": {
+        "argv": [
+          "/usr/bin/make",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "GNU Make 4.3\nBuilt for x86_64-pc-linux-gnu\nCopyright (C) 1988-2020 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n"
+      }
+    },
+    "git": {
+      "path": "/usr/bin/git",
+      "resolved": "/usr/bin/git",
+      "exists": true,
+      "sha256": "eb54b535467e0975c1284d4c4d08eea779aeb248a5d34b02e2ee171382e22201",
+      "probe": {
+        "argv": [
+          "/usr/bin/git",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "git version 2.43.0\n"
+      }
+    },
+    "bash": {
+      "path": "/usr/bin/bash",
+      "resolved": "/usr/bin/bash",
+      "exists": true,
+      "sha256": "bc5945feb8bd26203ebfafea5ce1878bb2e32cb8fb50ab7ae395cfb1e1aaaef1",
+      "probe": {
+        "argv": [
+          "/usr/bin/bash",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "GNU bash, version 5.2.21(1)-release (x86_64-pc-linux-gnu)\nCopyright (C) 2022 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n\nThis is free software; you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n"
+      }
+    },
+    "tcsh": {
+      "path": "/usr/bin/tcsh",
+      "resolved": "/usr/bin/tcsh",
+      "exists": true,
+      "sha256": "13694df7b7bd6dc672e0a3ac7b2da7ddddd5ea9ed3f03c57cd3f0b11f37b1ae9",
+      "probe": {
+        "argv": [
+          "/usr/bin/tcsh",
+          "--version"
+        ],
+        "cwd": "/tmp/etri-m0-06-np17lwkx",
+        "exit_code": 0,
+        "output": "tcsh 6.24.10 (Astron) 2023-04-14 (x86_64-unknown-linux) options wide,nls,dl,al,kan,sm,rh,nd,color,filec\n"
+      }
+    }
+  },
+  "tcl": {
+    "argv": [
+      "tclsh",
+      "/tmp/etri-m0-06-np17lwkx/tcl-version.tcl"
+    ],
+    "cwd": "/tmp/etri-m0-06-np17lwkx",
+    "exit_code": 0,
+    "output": "8.6.14\n"
+  },
+  "liberty_smoke": [
+    {
+      "argv": [
+        "yosys",
+        "-p",
+        "read_liberty -lib \"/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LIB/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std_tt.lib\""
+      ],
+      "cwd": "/tmp/etri-m0-06-np17lwkx",
+      "exit_code": 0,
+      "output": "\n /----------------------------------------------------------------------------\\\n |  yosys -- Yosys Open SYnthesis Suite                                       |\n |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |\n |  Distributed under an ISC-like license, type \"license\" to see terms        |\n \\----------------------------------------------------------------------------/\n Yosys 0.71+4 (git sha1 02365349e, Release, GNU /usr/bin/c++ 13.3.0)\n\n-- Running command `read_liberty -lib \"/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LIB/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std_tt.lib\"' --\n\n1. Executing Liberty frontend: /home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LIB/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std_tt.lib\nImported 38 cell types from liberty file.\n\nEnd of script. Logfile hash: 12eac1b924, time: 0.00s, user: 0.00s, system: 0.00s, MEM: 26.27 MB peak\nYosys 0.71+4 (git sha1 02365349e, Release, GNU /usr/bin/c++ 13.3.0)\nTime spent: 100% 2x read_liberty (0 sec)\n"
+    },
+    {
+      "argv": [
+        "sta",
+        "-no_init",
+        "-exit",
+        "/tmp/etri-m0-06-np17lwkx/read-lib.tcl"
+      ],
+      "cwd": "/tmp/etri-m0-06-np17lwkx",
+      "exit_code": 0,
+      "output": "OpenSTA 3.2.0 f2e10f1da1 Copyright (c) 2026, Parallax Software, Inc.\nLicense GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>\n\nThis is free software, and you are free to change and redistribute it\nunder certain conditions; type `show_copying' for details. \nThis program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.\nLIB_READ_COMPLETED\n"
+    }
+  ],
+  "legacy_links": [
+    {
+      "path": "/home/wbyoon/ETRI050_DesignKit",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK",
+      "exists": true,
+      "link_target": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/SCN3ME_SUBM.30.ETRI.tech",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tech/SCN3ME_SUBM.30.ETRI.tech",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/tech/SCN3ME_SUBM.30.ETRI.tech",
+      "sha256": "9c992baa5014da4b6b5c347598807c7392fa1feb5ac20ab8b35dd5c252e4b80e"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri050.magicrc",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050.magicrc",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/digital_ETRI/khu_etri050.magicrc",
+      "sha256": "5f1815da701bd52db1d195d4031f16656b85e95f5fde63208d73a0c6b4f93c94"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri050.par",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tech/etri050.par",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/tech/etri050.par",
+      "sha256": "4c2fe9622d461d7a8447c81a53c58da204d4173dec78f3c8a145ffd864dfb4c2"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri050.prm",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050.prm",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/digital_ETRI/khu_etri050.prm",
+      "sha256": "4e1fa36ef822bf295fdc208ff179a0f6e7cf79e769ab67692030dfdb83a96d34"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri050.sh",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tech/etri050.sh",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/tech/etri050.sh",
+      "sha256": "27dc222afd9f346370dcba782896ee862454dcd88a6cf1baad4ffe8410f73128"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri050_setup.tcl",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/tech/etri050_setup.tcl",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/tech/etri050_setup.tcl",
+      "sha256": "bea0a7a9a2acc7431a7aca91365b253a4d51ce2c34c97a8dcde2e12e2f0d6434"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri050_stdcells.lef",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/etri050_stdcells.lef",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/digital_ETRI/etri050_stdcells.lef",
+      "sha256": "14d20a3eb54610cf3575a31a5f2b2ed6931fd6b3f5302bbc2d77503fb804f451"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri050_stdcells.sp",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050_stdcells.spice",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/digital_ETRI/khu_etri050_stdcells.spice",
+      "sha256": "ea0e5b8e4ba38ec3c897446d3ac6fae096b997299db7827a73599c4d30738623"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri05_stdcells.gds2",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri050_stdcells.gds2",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/digital_ETRI/khu_etri050_stdcells.gds2",
+      "sha256": "106cd8a82b29c1a71742e33257d9915dfb91a20f810baad83784ff75498171e8"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri05_stdcells.lib",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri05_stdcells.lib",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.lib",
+      "sha256": "8504ec4a186da2eb6fd1949f69e128d556ee40df39064c65ab2ecf9e6e8a44e8"
+    },
+    {
+      "path": "/usr/local/share/qflow/tech/etri050/etri05_stdcells.v",
+      "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/digital_ETRI/khu_etri05_stdcells.v",
+      "exists": true,
+      "link_target": "/home/wbyoon/ETRI050_DesignKit/digital_ETRI/khu_etri05_stdcells.v",
+      "sha256": "d147a48ae4ce0b2e2c7dd5e39f480432b6b05b9efbef2dca8a54c6ac42a49496"
+    }
+  ],
+  "runtime_components": [
+    {
+      "path": "/usr/local/share/qrouter/qrouter.so",
+      "resolved": "/usr/local/share/qrouter/qrouter.so",
+      "exists": true,
+      "sha256": "2e2dee5cc17a254226c827e72491b3fdcec72f0e4135e1563810d6254fb324ca"
+    },
+    {
+      "path": "/usr/local/share/qrouter/qrouternullg",
+      "resolved": "/usr/local/share/qrouter/qrouternullg",
+      "exists": true,
+      "sha256": "958ef258128734c86efe8d27f19b920bcba4c27f6a6a3d215ae8e0c3df4817d5"
+    }
+  ],
+  "pdk_files": [
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LIB/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std_tt.lib",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LIB/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std_tt.lib",
+      "exists": true,
+      "sha256": "0c84f0d970d374ba5c9c4cf7aec22fec96e306f8be373bda9ef20ce2bb48de51"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LEF/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.lef",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LEF/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.lef",
+      "exists": true,
+      "sha256": "62c02ae7a9266091fe283187325a71be359c0e774526f6a440285c36f5af4654"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LEF/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_tech.lef",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LEF/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_tech.lef",
+      "exists": true,
+      "sha256": "5a145336772553d3c5378a9490502796515fd59a2d99165a4b98b0c7c0c63f7a"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/GDS/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.gds",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/GDS/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.gds",
+      "exists": true,
+      "sha256": "e42dc1fb4c9a31aaa669e8e4c3b93a4b0d6eea40a463f5eaef5dbd17b432618e"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.v",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.v",
+      "exists": true,
+      "sha256": "846c7085348384851c9f787caf17635e6e3633ddb8014ce0b71dbf8fbb05f0b5"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/pixel_gen.v",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/pixel_gen.v",
+      "exists": true,
+      "sha256": "f5fe3efacc2c90e4ea21883c4120c436c69f4d8503e5b0585fc4d33c38e595cf"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/pong_pt1.v",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/pong_pt1.v",
+      "exists": true,
+      "sha256": "17bd98465a34d089f45b6af7781d3dca2201df87a1d1de985847691cd91a8d4d"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/pong_pt1_tb.v",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/pong_pt1_tb.v",
+      "exists": true,
+      "sha256": "b3a1af77e6a3e28b5a3d6e6ed7ab9a6af263cf96857ab832faea524977f8f781"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/shift_reg_8bit.v",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/shift_reg_8bit.v",
+      "exists": true,
+      "sha256": "6930ac0ef2d58ab4e89fbecd8a433b0c7c62989f1df85300da15a0c14f5fb1ff"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/shift_reg_8bit_tb.v",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/shift_reg_8bit_tb.v",
+      "exists": true,
+      "sha256": "bd547320908ca243884039b0ac99b953c4b7a4a2bd4b23b9b7d00ce1ac71b012"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/CDL/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.cdl",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/CDL/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.cdl",
+      "exists": true,
+      "sha256": "281efca41e93e7f88cf59e18e64159f9772111cfee1f86647cbd6ac3703e9f11"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_icc2.tf",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_icc2.tf",
+      "exists": true,
+      "sha256": "a10c0158575aee3e8733aabe85552fea3e097e543da8e8ed148f17fe80ca6303"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.itf",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.itf",
+      "exists": true,
+      "sha256": "a17827fffea019a5766394cdc9637c9d67071312061ac15f1280a395e16851e0"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.tf",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.tf",
+      "exists": true,
+      "sha256": "a9bc6009995f3a9524dc936f352bf1a8e3c52ad7625cc16da761527373e603fd"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TLU/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.tluplus",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TLU/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.tluplus",
+      "exists": true,
+      "sha256": "126cb8d9ec8810b50df3ab4dcc40b8aae1a3a9aad30e9e9907a1d24e47c2d6c6"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/SDC/pong_pt1.sdc",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/SDC/pong_pt1.sdc",
+      "exists": true,
+      "sha256": "9a90023c3b8d9393418fcf55120dadd5222b801c0f27cf125ed90bdb656361c1"
+    },
+    {
+      "path": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/SDC/shift_reg_8bit.sdc",
+      "resolved": "/home/wbyoon/snu_ssc/NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/SDC/shift_reg_8bit.sdc",
+      "exists": true,
+      "sha256": "59b28b8772932c95334216ee1bb42f4a754cd497a8580ed5202b12cba5923a95"
+    }
+  ],
+  "qflow_archive": {
+    "path": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/Tools/qflow-1.4.100_etri050.tar.gz",
+    "resolved": "/home/wbyoon/snu_ssc/ETRI-0.5um-CMOS-MPW-Std-Cell-DK/Tools/qflow-1.4.100_etri050.tar.gz",
+    "exists": true,
+    "sha256": "f20a8a1b57a292da456dcd703850dc9b0a9272d3b56d32a170f0eba74b8c6c9a"
+  }
+}
