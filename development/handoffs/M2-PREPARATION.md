@@ -2,12 +2,12 @@
 
 기준일: **2026-11-15**. 작업 순서와 상태는 [ROADMAP](../ROADMAP.md)에서 관리한다. M0·M1의 준비 후 M2에서 세 사람이 동시에 조사·튜토리얼 초안을 작성하고, M3에서 각자 YAML·실행 코드·검증을 구현한다.
 
-이 문서는 M0-10~13의 기존 근거 색인과 최소 작업 규칙을 제공한다. 담당별 작업 폴더와 접근 확인 결과는 M1 작업을 수행하면서 아래에 연결한다. 이 안내가 있다는 사실만으로 [M2 착수 기준](../ROADMAP.md#m2-착수-기준)이 충족된 것은 아니다.
+이 문서는 M0-10~13의 기존 근거 색인·최소 작업 규칙과 M0-14의 [작업 경로·원본 참조 계획](#m0-14-작업-경로와-원본-참조)을 제공한다. 실제 폴더 생성과 담당별 접근 확인 결과는 M1 작업을 수행하면서 아래에 연결한다. 이 안내가 있다는 사실만으로 [M2 착수 기준](../ROADMAP.md#m2-착수-기준)이 충족된 것은 아니다.
 
 ## 공통 준비
 
 1. **M0-10~13:** 아래에 기존 지원 범위·성공/실패·미해결 질문과 담당, stage ID·입출력 종류·단위, 근거 구분·공통 변경 규칙을 정리했다. 완료 범위는 준비 문서이며 실제 CTS/RC·POST-STA의 미완료 판정은 유지한다.
-2. **M0-14:** 새 작업 폴더와 기존 예제·PDK·조사의 경로를 작은 대응표로 연결한다.
+2. **M0-14:** 아래 한 표에 새 작업 폴더·담당 파일과 기존 예제·PDK·조사의 원래 경로, M1에서 연결·확인할 방법을 정리했다. 폴더 생성·담당별 접근 확인은 미실행이다.
 3. **M1-01~06:** 현재 환경·자료 접근 방법, 담당별 작업 폴더·기준 PDF/예제 참조·공통 변경 절차와 README 시작점을 준비한다. 튜토리얼의 목차·본문은 M2에서 각 담당자가 자율적으로 구성한다.
 4. **M1-07:** 실제 작업 폴더·예정 편집 경로·참고 링크·자료 접근으로 M2 착수 기준을 확인하고 근거를 연결한다.
 
@@ -98,7 +98,69 @@ M2에서는 자기 자료로 독립적으로 초안을 작성한다. 필요한 Y
 | `04-auto-pnr` | B | `04-auto-pnr.md` / `04-auto-pnr/` | M0-09/10·F1~F6·PDK CTS/PG/RC 자료, 기준 PDF 30–41쪽 |
 | `05-post-sta` | C | `05-post-sta.md` / `05-post-sta/` | M0-10 annotation 검사기·fixture 한계·PDK 공정 규칙/RC 색인, 기준 PDF 43–54쪽 |
 
-[기준 PDF와 PDK 경로 색인](../PDK_REFERENCE.md#11-확인한-자료와-한계)을 사용한다. 기준 RTL/TB/SDC의 직접 참조와 담당자별 PDK 접근 확인은 M0-14/M1에서 연결한다. M3 입력 템플릿은 `templates/digital/` 아래 A가 `project.yaml`·`constraints/timing.yaml`과 RTL/TB, B가 `constraints/pins.yaml`·`physical.yaml`, C가 `verification.yaml`을 맡는다. 여기서는 소유 경계만 정하며 양식·키는 만들지 않는다.
+[기준 PDF와 PDK 경로 색인](../PDK_REFERENCE.md#11-확인한-자료와-한계)을 사용한다. 기준 RTL/TB/SDC의 직접 참조와 M1 접근 확인 계획은 아래 대응표에 연결한다. M3 입력 템플릿은 `templates/digital/` 아래 A가 `project.yaml`·`constraints/timing.yaml`과 RTL/TB, B가 `constraints/pins.yaml`·`physical.yaml`, C가 `verification.yaml`을 맡는다. 여기서는 소유 경계만 정하며 양식·키는 만들지 않는다.
+
+## M0-14 작업 경로와 원본 참조
+
+**경로·참조 계획 완료, 실제 준비는 M1에서 수행한다.** 아래 새 경로는 저장소 루트 기준이며 아직 생성하지 않았다. [M0-07 파일 inventory](../experiments/M0-07-pdk-inventory/results/files.csv)·[view 대응표](../experiments/M0-07-pdk-inventory/results/views.csv), [전체 묶음의 기존 inventory](../experiments/pdk-package-review/results/inventory.json)의 `components`·`selected_sources`와 기존 실험 기록을 재사용했다. 전체 의존성·inventory·해시 재조사는 하지 않았다.
+
+`PDK_ROOT`는 외부 배포본 루트(현재 저장소 형제 `../NSPL_05CMOS_PDK_260820/`), `PDK_DIGITAL`은 그 아래 `NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/`, `PDK_STD`는 `NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/`를 뜻한다. 기존 환경 변수가 있다는 가정은 하지 않는다. 표의 원본 링크는 현재 배치를 기준으로 하며, 다른 위치를 쓰는 담당자는 아래 방법으로 경로를 지정한다.
+
+| 담당·용도 | M1에서 만들 폴더 / 이후 편집할 파일 | 보존할 원래 위치·기존 근거 | M1에서 연결·접근 확인할 방법 |
+| --- | --- | --- | --- |
+| **A / 01** | `docs/tutorials/`, `flow/stages/01-synthesis-preparation/`, `templates/digital/rtl/`, `templates/digital/tb/`, `templates/digital/constraints/`. M2 문서 `docs/tutorials/01-synthesis-preparation.md`; M3 템플릿 `templates/digital/project.yaml`, `templates/digital/constraints/timing.yaml` 및 RTL/TB | 기준 PDF 7–13쪽; `PDK_DIGITAL/VERILOG/`의 [원본 RTL][m014-rtl]·[제공 TB][m014-tb], `PDK_DIGITAL/SDC/`의 [제공 SDC][m014-sdc]. 자동 판정 TB의 소스는 [M0-08 scope-review/run.py](../experiments/M0-08-sequential/scope-review/run.py)의 `stimulus(True)`·`bench()` | 3개 원본 파일을 읽고 원본 위치를 폴더 역할 안내에 링크한다. 제공 TB는 출력 관찰용, 기존 자동 판정 TB는 별도 출처로 구분한다. SDC는 설계 의도 검토용 원본이며 정규 SDC 확정은 M3-02에서 수행한다 |
+| **A / 02** | `flow/stages/02-synthesis-pre-sta/`. M2 문서 `docs/tutorials/02-synthesis-pre-sta.md`; 템플릿은 위 A 경로 공유 | 기준 PDF 15–24쪽; [TT Liberty][m014-lib], [원본 셀 Verilog][m014-cell-v], [M0-08 파생 기능 참조](../experiments/M0-08-sequential/derived/nspl12t_seq_functional.v)·[제한 프로파일](../experiments/M0-08-sequential/scope-review/profile.json), [M0-08 실제 결과](../experiments/M0-08-sequential/scope-review/results/run.json), [M0-09 입력·실행 명령](../experiments/M0-09-qflow/README.md#선행-근거와-실제-입력)·[결과](../experiments/M0-09-qflow/results/result.json) | Liberty·원본/파생 모델·프로파일·결과를 읽고 M0-08/09 README 참조를 역할 안내에 둔다. 생성 TB의 로컬 출력이 없어도 위 생성 소스와 보존 결과를 참조할 수 있는지 확인한다 |
+| **B / 03** | `flow/stages/03-pnr-preparation/`. M2 문서 `docs/tutorials/03-pnr-preparation.md`; M3 템플릿 `templates/digital/constraints/pins.yaml`, `templates/digital/physical.yaml` | 기준 PDF 26–28쪽; [macro LEF][m014-lef]·[기술 LEF][m014-techlef], `PDK_DIGITAL/Util/`의 [pin/면적 helper][m014-util], [M0-09 adapter와 한계](../experiments/M0-09-qflow/README.md#어댑터와-물리-인계-확인) | LEF 두 파일과 `Util/ICC2_PIN_SETUP`, `pin_place`, `core_size_calculation`을 읽는다. helper의 기존 조사·한계를 링크하며 상용 명령을 실행하지 않는다. A→B의 netlist/SDC/area는 기존 실험의 참고 결과로 구분한다 |
+| **B / 04** | `flow/stages/04-auto-pnr/`. M2 문서 `docs/tutorials/04-auto-pnr.md`; 템플릿은 위 B 경로 공유 | 기준 PDF 30–41쪽; [원본 GDS][m014-gds], `PDK_DIGITAL/`의 [Util][m014-util]·[TECH][m014-tech]·[TLU][m014-tlu], [M0-09 결과·실패](../experiments/M0-09-qflow/README.md), [M0-10 결과·실패](../experiments/M0-10-cts-rc/README.md)·[F1~F6](../experiments/M0-10-cts-rc/FOLLOW_UP.md) | CTS/track/PG·RC 원자료와 기존 로그의 읽기 경로를 역할 안내에 연결한다. M0-09 로컬 GDS가 없으면 기존 `results/gds-check.json`·재실행 안내를 참조하고 이번 준비에서 재생성하지 않는다. M0-10 실제 RC/POST-STA blocked를 유지한다 |
+| **C / 05** | `flow/stages/05-post-sta/`. M2 문서 `docs/tutorials/05-post-sta.md`; M3 템플릿 `templates/digital/verification.yaml` | 기준 PDF 43–54쪽; [CDL][m014-cdl], `PDK_ROOT/`의 [Calibre][m014-calibre]·[Assura][m014-assura]·[Model_Parameter][m014-mos], [M0-10 annotation.py](../experiments/M0-10-cts-rc/annotation.py)·[sta.tcl](../experiments/M0-10-cts-rc/sta.tcl)·[fixture 판정](../experiments/M0-10-cts-rc/results/annotation-probe/validation.json), [공정 규칙·RC 색인](../experiments/pdk-package-review/README.md#바로-사용할-수-있는-기술-근거와-남은-변환) | CDL과 각 디렉터리의 접근·참조 대상 파일 읽기를 확인한다. B와 `Assura/QRC/typical/`, `Calibre/PEX/MIPT/`, `Calibre/PEX/LPE_LIB/`를 함께 참조한다. 기존 annotation fixture와 실제 최종 RC/POST-STA를 구분해 링크한다 |
+| **A 통합, B/C 각 단계** / 문서 시작점 | 위 `docs/tutorials/`와 `docs/lessons/`, `docs/prompts/`, `docs/reference/` | [기준 PDF][m014-pdf], [PDK 참고 자료](../PDK_REFERENCE.md), [담당별 첫 자료](#담당별-첫-자료와-작업), 기존 `docs/ETRI_0p5um_NSPL_260820/` | 각 폴더의 짧은 `README.md`에 담당·이 시작 문서·기존 원문 링크만 둔다. 루트 `README.md`에 이 시작 문서의 진입 링크를 추가한다. PDF 읽기·링크 확인; 튜토리얼 파일·공통 목차는 M2에서 작성한다 |
+| **B 주도, A/C 확인** / 플랫폼 참조 | `platforms/nspl05-260820/` | [실행용 12T_PnR][m014-digital]와 [원 설계 12T_std][m014-std], 위 M0-07·전체 묶음 inventory, [원 설계의 활용·한계](../PDK_REFERENCE.md#15-12t_std-원-설계의-활용과-검증-범위). 기존 `tech/`, `digital_ETRI/` 및 설치 alias는 비교 기준으로 보존 | `README.md`에 외부 경로 지정법·export/원 설계 구분·기존 inventory 링크를 둔다. 두 디렉터리의 읽기/탐색과 `PDK_STD/tech.db` 읽기 가능 여부를 확인한다. OA 의미 판독·기능/물리 동등성 검증은 별개다 |
+| **A 주도, B/C 참조** / 기준 예제 | `examples/shift_reg_8bit/` | 위 원본 RTL/TB/SDC와 M0-08/09의 TB 생성 소스·실행 명령·판정, [M0-10 후속 한계](../experiments/M0-10-cts-rc/FOLLOW_UP.md) | `README.md`에서 원래 파일과 기존 결과로 직접 연결한다. M1은 참조 방식으로 준비하며 복사·symlink는 필요 없다. 새 예제 RTL/TB/YAML·자동 판정 체계는 M3-02에서 구현한다 |
+| **A 통합, 각자 확인** / 환경·실험 | 새 실험 폴더 없음. 기존 `development/decisions/`, `development/experiments/` 유지 | [환경 결정 001](../decisions/001-initial-support-environment.md), [M0-06 환경 기록](../experiments/M0-06-environment/observed-2026-11-15.json), [셀 모델 결정 002](../decisions/002-sequential-functional-models.md), 위 M0-07~10·전체 묶음 조사 | M1-01에서 Git·Python·편집 환경과 필요한 기존 도구의 위치를 확인한다. 각 역할 안내에서 해당 실험 README·보존 결과·실패 기록을 링크한다. 기존 실험의 기본 출력 경로·코드·공유 설정은 수정하지 않는다 |
+
+[m014-pdf]: <../../docs/ETRI_0p5um_NSPL_260820/05_NSPL 0.5um Digital CMOS 2P3M 5V Design Tutorial(PnR)_V1.0.pdf>
+[m014-digital]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/
+[m014-std]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std/
+[m014-rtl]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/shift_reg_8bit.v
+[m014-tb]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/shift_reg_8bit_tb.v
+[m014-sdc]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/SDC/shift_reg_8bit.sdc
+[m014-lib]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LIB/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std_tt.lib
+[m014-cell-v]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/VERILOG/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.v
+[m014-lef]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LEF/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.lef
+[m014-techlef]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/LEF/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_tech.lef
+[m014-gds]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/GDS/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.gds
+[m014-cdl]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/CDL/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std.cdl
+[m014-util]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/Util/
+[m014-tech]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TECH/
+[m014-tlu]: ../../../NSPL_05CMOS_PDK_260820/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR/TLU/
+[m014-calibre]: ../../../NSPL_05CMOS_PDK_260820/Calibre/
+[m014-assura]: ../../../NSPL_05CMOS_PDK_260820/Assura/
+[m014-mos]: ../../../NSPL_05CMOS_PDK_260820/Model_Parameter/
+
+### M1 생성·참조 수정 순서와 접근 확인
+
+1. **M1-01:** 각자 저장소 루트에서 아래 예시처럼 외부 위치를 지정한다. 다른 위치라면 먼저 `export PDK_ROOT=/실제/배포본/경로`로 지정한다. 이는 세션 변수이며 전역 설정·설치 alias를 바꾸지 않는다.
+
+   ```bash
+   REPO_ROOT="$(git rev-parse --show-toplevel)"
+   export PDK_ROOT="${PDK_ROOT:-$REPO_ROOT/../NSPL_05CMOS_PDK_260820}"
+   PDK_DIGITAL="$PDK_ROOT/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_PnR"
+   PDK_STD="$PDK_ROOT/NSPL_0p5um_Digital_CMOS_2P3M_5V_V1p1_12T_std"
+   test -d "$PDK_DIGITAL" && test -r "$PDK_DIGITAL" && test -x "$PDK_DIGITAL"
+   test -d "$PDK_STD" && test -r "$PDK_STD" && test -x "$PDK_STD"
+   test -f "$PDK_DIGITAL/VERILOG/shift_reg_8bit.v" && test -r "$PDK_DIGITAL/VERILOG/shift_reg_8bit.v"
+   test -f "$PDK_DIGITAL/VERILOG/shift_reg_8bit_tb.v" && test -r "$PDK_DIGITAL/VERILOG/shift_reg_8bit_tb.v"
+   test -f "$PDK_DIGITAL/SDC/shift_reg_8bit.sdc" && test -r "$PDK_DIGITAL/SDC/shift_reg_8bit.sdc"
+   ```
+
+   **예시·M1에서 각 담당이 실행 예정.** 각 `test`의 종료 코드를 개별 확인하고, 표의 다른 파일도 `test -f`·`test -r`, 디렉터리는 `test -d`·`test -r`·`test -x`로 확인한다. 실패하면 대상 경로·부족 자료/권한·다음 행동을 남긴다. 파일 읽기 가능 여부와 OA/compiled view의 의미 판독은 구분한다.
+2. **M1-02~04/06:** 표의 폴더만 `mkdir -p`로 생성한다. 상위 `flow/stages/`, `templates/digital/`, `platforms/`, `examples/`도 이때 생긴다. 각 폴더는 담당·예정 파일·원본 링크를 적은 짧은 `README.md`로 추적하고 `test -d`·`test -w`로 작업 가능 여부를 확인한다. 템플릿 부모 `templates/digital/README.md`에는 A/B/C 파일 소유를 함께 적는다. 단계별 템플릿 파일·스키마·실행 더미는 만들지 않는다.
+3. **M1-05/06:** 루트 README → 이 시작 문서 → 새 폴더의 역할 안내 → 기존 원본·실험으로 링크를 연결한다. 새 역할 안내에서 링크할 때는 그 파일 위치 기준으로 상대경로를 계산한다. 현재 문서의 `../../../NSPL_…` 링크를 다른 깊이의 문서에 그대로 복사하지 않는다. 사람별 PDK 배치가 다르면 `PDK_ROOT`와 그 아래 상대경로를 함께 안내한다. 원본 경로는 유지하므로 기존 Makefile·실험 실행기·도구 설치 링크의 참조 수정은 필요 없다.
+4. **M1-07:** A/B/C별로 작업 경로·예정 편집 파일·실제 PDK 루트·확인 명령/결과·확인일·접근 불가 항목과 다음 행동을 이 문서에 기록한다. 새 README의 로컬 링크/앵커를 확인하고 `git diff --check`를 수행한 뒤 [M2 착수 기준](../ROADMAP.md#m2-착수-기준)을 판정한다. 현재 M0-14는 경로 계획의 문서 링크·대상 존재만 확인하며, M1이나 M2 착수 준비 완료를 대신하지 않는다.
+
+이번 계획의 참조 방식은 문서 링크와 외부 경로 지정이다. 새 폴더 생성·역할 안내·루트 README 진입 링크 외의 이행은 계획하지 않는다. `legacy/` 생성·기존 자료 이동/삭제·외부 PDK 복사·공유 라이브러리 변경은 하지 않는다. `examples/fir/`의 본 작업은 M4, 생성기·YAML·스키마·setup/doctor·신규 fixture·EDA 실행은 해당 M3 작업에 남긴다.
+
+**M0-14 문서 확인 기록 — 2026-11-15:** 변경한 두 문서의 로컬 링크 165회(고유 대상 50곳)·Markdown 앵커 75개, 표 열 수·코드 블록과 `git diff --check`를 확인했다. 링크 대상의 존재·현재 계정의 읽기/디렉터리 탐색은 확인됐으며 끊어진 참조는 없었다. 이는 현재 문서의 참조 확인이다. M1의 폴더 생성·A/B/C별 작업 권한/외부 PDK 접근 확인은 아직 수행하지 않았다.
 
 ## 주요 입출력 종류와 단위
 
