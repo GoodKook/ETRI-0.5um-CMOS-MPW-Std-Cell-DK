@@ -1,0 +1,53 @@
+청주대학교 전자공학과 "내칩 학습"팀(권효재,염재민,이현서,외1인)
+-----------------------------------------------------
+
+우선 팀원들이 공통적으로 겪었던 문제와 해결내용 입니다.
+
+1.  [Ubuntu 버전 불일치, 재설치 문제]
+MS Store에서 Ubuntu 24.04 LTS를 검색해서 나오는 Ubuntu를 설치했는데, 24.04버전이 아니라 최신 버전인 26.04버전이 설치되는
+경우가 있었습니다. 처음에는 26.04버전인 것을 모르고 그대로 ETRI DesignKit과 설계 툴 설치까지 진행해서, prerequisites.sh, build_tools.sh 등을
+실행하는 데 시간이 많이 소요되었습니다.
+그래서 실습 버전을 맞추기 위해서 PowerShell 관리자 권한에서 wsl --install -d Ubuntu-24.04로 24.04버전을 따로 설치했습니다.
+일부 인원은 기존에 설치했던 26.04버전이나 WSL 데이터가 남아 있어서 오류가 계속 발생했고, wsl --unregister로 기존 배포판을
+삭제하고 Ubuntu 앱도 삭제한 뒤 24.04버전을 다시 설치해서 해결했습니다.
+이 과정에서 Ubuntu 앱만 삭제해도 WSL 데이터가 남아있는 경우가 있어서 완전히 삭제하고 다시 설치하는 데 시간이 조금 걸렸습니다.
+
+2. [build_tools.sh 내부 상대경로 오류]
+~/ Etri050_DesignKit/Tools 경로에서 ./build_tools.sh 로 일괄적인  툴들을 전부 다운로드 진행했을 때,
+모든 툴들에 대해서 전부 No such file or directory 오류 상황이 발생하였습니다.
+확인 결과 build_tools.sh 내부에서  ../xxx.sh로 상위 디렉터리를 가리키고 있어서 그랬던 것을 확인했습니다. 다만
+실제 스크립트들은 현재  tools 디렉토리에 위치하 있었습니다.
+이것 때문에 ../ -> ./로 경로를 수정한 후(sed -i 's#^\.\./#./#' build_tools.sh), 정상적으로 빌드가 진행되었습니다.
+정상적으로 해결되지 않은 상태에서 검증으로 넘어갔던 경우, 검증에서 많은 오류가 발생되었고, 다시 .build_tools.sh  전으로
+돌아가 위와 같이 정상적으로디렉터리 참조 수정해서 해결했습니다.
+
+3. [일부 설계 툴 설치 누락]
+검증 과정에서 한번에 ./build_tools.sh로 설치했었던 각 툴이 잘 설치 되었는지 yosys --version 과 같이
+개별 명령으로 하나 씩 확인 해 보았습니다. 확인 결과, 팀원 전원이 ngspice, openFPGALoader 2개 툴이
+다운로드 되지 않은 것을 확인했습니다. 또한 인원에 따라서 몇가지 누락된 툴들을 별도로 확인하고,
+설치하는 과정에서 시간이 소요되었습니다. 따라서 2개 툴을  apt 설치 명령어로 개별로
+다시 설치했고 (sudo apt install ngspice openfpgaloader -y), 이외에 추가로 누락된 것들은 개별적으로 추가 다운로드 했습니다..
+
+다음은 각 개별 인원이 겪었던 문제들 입니다.
+
+4. [prerequisites.sh 패키지 설치]
+prerequisites.sh 패키지 실행 중에 진행률이 55퍼센트에서 2시간 정도 멈춰서 오랫동안 정체된 인원이 있었습니다.
+이것을 ctrl+c 로 중단하고 sudo dpkg --configure -a, sudo apt --fix-broken install로 패키지 복구하여 다시 실행하는 방식을 사용했는데,
+2시간 걸렸어도 진행되지 않던 것이 정상적으로 해결되었습니다.
+
+5. [QFlow ETRI050 공정 경로 연결 오류]
+make synthesize 실행 시 Technology directory not validated 오류가 발생했습니다. 심볼릭 링크가 잘못된 경로를 가리키고 있었던 것을
+해결했습니다. 원인은 sudo ./qflow-1.4.100_etri050_build.sh처럼 스크립트 전체를 root 권한으로 실행한 것이었습니다.
+반 사용자 계정에서 ./qflow-1.4.100_etri050_build.sh로 다시 설치하여 /home/유저/ETRI050_DesignKit/... 경로로 수정했습니다.
+
+6. [설계 스크립트 실행 권한 오류]
+make lvs, make mag2gds, make klayout 과정에서 Permission denied Error 126 문제가 발생했습니다. ~/ETRI050_DesignKit/scripts/*.sh에
+실행 권한이 없었던 것이 원인이었고, chmod로 권한 수정을 하여 해결했습니다. (chmod +x ~/ETRI050_DesignKit/scripts/*.sh)
+
+7. [Magic GUI 실행 시 WSLg/X11 오류]
+magic -d XR fir_pe_Stacked 진행 시
+[BadAlloc (insufficient resources for operation)  X_CreatePixmap] 오류가 발생했었습니다.
+WSLg 세션 재시작 및 환경 재확인 후 그래프가 정상 표시되었습니다. WSLg/X11 그래픽 리소스 문제로 판단했고, wsl --shutdown 진행하고
+다시구동하고 GUI 환경 재확인을 진행했떠니 해결 되었습니다.
+
+현재 전 인원 문제 없이 검증까지 완료했습니다. 감사합니다.
